@@ -1,0 +1,106 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 650" width="100%" height="100%" style="background:#121316; font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;">
+  <defs>
+    <linearGradient id="safeGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#1e3a8a"/>
+      <stop offset="100%" stop-color="#3b82f6"/>
+    </linearGradient>
+    <linearGradient id="wildGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#065f46"/>
+      <stop offset="100%" stop-color="#10b981"/>
+    </linearGradient>
+    <linearGradient id="corruptGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#854d0e"/>
+      <stop offset="100%" stop-color="#eab308"/>
+    </linearGradient>
+    <linearGradient id="dungeonGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#581c87"/>
+      <stop offset="100%" stop-color="#a855f7"/>
+    </linearGradient>
+    <linearGradient id="pvpGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#7f1d1d"/>
+      <stop offset="100%" stop-color="#ef4444"/>
+    </linearGradient>
+    <filter id="glow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="4" stdDeviation="6" flood-color="#000" flood-opacity="0.5"/>
+    </filter>
+    <marker id="arrow" viewBox="0 0 10 10" refX="6" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+      <path d="M 0 1 L 10 5 L 0 9 z" fill="#94a3b8" />
+    </marker>
+    <marker id="arrowRed" viewBox="0 0 10 10" refX="6" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+      <path d="M 0 1 L 10 5 L 0 9 z" fill="#ef4444" />
+    </marker>
+  </defs>
+
+  <!-- Title -->
+  <text x="500" y="45" text-anchor="middle" fill="#f8fafc" font-size="22" font-weight="bold">🗺️ World &amp; Progression Map (แผนผังโซนและการเดินทาง)</text>
+  <text x="500" y="70" text-anchor="middle" fill="#94a3b8" font-size="13">โครงสร้างการแบ่งพื้นที่และการเลื่อนระดับความยากในโลก MMORPG x Survival</text>
+
+  <!-- Central Spawn Capital -->
+  <g transform="translate(325, 100)" filter="url(#glow)">
+    <rect width="350" height="90" rx="12" fill="url(#safeGrad)" stroke="#60a5fa" stroke-width="2"/>
+    <text x="175" y="32" text-anchor="middle" fill="#ffffff" font-size="16" font-weight="bold">🏛️ Central Capital (Safe Zone)</text>
+    <text x="175" y="55" text-anchor="middle" fill="#e0f2fe" font-size="12">• ศูนย์กลางเมือง, NPC เควสต์หลัก &amp; ตลาดกลาง</text>
+    <text x="175" y="73" text-anchor="middle" fill="#bfdbfe" font-size="11">PvP: ปิด | Damage: ปิด | จุดเกิดเริ่มต้น</text>
+  </g>
+
+  <!-- Connector Lines from Capital -->
+  <path d="M 500 190 L 500 240" stroke="#94a3b8" stroke-width="2" stroke-dasharray="4 4" marker-end="url(#arrow)"/>
+  <text x="510" y="220" fill="#94a3b8" font-size="11">เดินทางออกสู่โลกกว้าง</text>
+
+  <!-- Level 1-20 Outer Frontier -->
+  <g transform="translate(100, 245)" filter="url(#glow)">
+    <rect width="360" height="110" rx="12" fill="url(#wildGrad)" stroke="#34d399" stroke-width="2"/>
+    <text x="180" y="30" text-anchor="middle" fill="#ffffff" font-size="15" font-weight="bold">🌲 Outer Frontier (Lv. 1 - 20)</text>
+    <text x="180" y="55" text-anchor="middle" fill="#d1fae5" font-size="12">• ทรัพยากรพื้นฐาน: ไม้, หิน, เหล็ก, สัตว์ฟาร์ม</text>
+    <text x="180" y="75" text-anchor="middle" fill="#d1fae5" font-size="12">• พื้นที่สร้างบ้าน / เคลมที่ดิน (Land Claim)</text>
+    <text x="180" y="95" text-anchor="middle" fill="#a7f3d0" font-size="11">มอนสเตอร์เอาชีวิตรอดระดับเริ่มต้น</text>
+  </g>
+
+  <!-- Level 21-50 Dangerous Wilds -->
+  <g transform="translate(540, 245)" filter="url(#glow)">
+    <rect width="360" height="110" rx="12" fill="url(#corruptGrad)" stroke="#facc15" stroke-width="2"/>
+    <text x="180" y="30" text-anchor="middle" fill="#ffffff" font-size="15" font-weight="bold">🌋 Dangerous Wilds (Lv. 21 - 50)</text>
+    <text x="180" y="55" text-anchor="middle" fill="#fef08a" font-size="12">• แร่มนต์ตรา &amp; วัตถุดิบทำยาขั้นสูง</text>
+    <text x="180" y="75" text-anchor="middle" fill="#fef08a" font-size="12">• สภาพอากาศรุนแรง (หนาวจัด/ร้อนจัด/หมอกพิษ)</text>
+    <text x="180" y="95" text-anchor="middle" fill="#fde047" font-size="11">Elite Monsters &amp; มินิบอสโลก</text>
+  </g>
+
+  <!-- Connector Wild 1 to Wild 2 -->
+  <path d="M 460 300 L 535 300" stroke="#94a3b8" stroke-width="2" marker-end="url(#arrow)"/>
+
+  <!-- Connector to Dungeons -->
+  <path d="M 600 355 L 430 435" stroke="#94a3b8" stroke-width="2" marker-end="url(#arrow)"/>
+  <text x="530" y="395" fill="#c084fc" font-size="11">กุญแจดันเจี้ยน</text>
+
+  <!-- Connector to PvP -->
+  <path d="M 800 355 L 800 435" stroke="#ef4444" stroke-width="2" marker-end="url(#arrowRed)"/>
+  <text x="810" y="400" fill="#f87171" font-size="11">ข้ามเขตแดน</text>
+
+  <!-- Dungeon & Raid Section -->
+  <g transform="translate(100, 440)" filter="url(#glow)">
+    <rect width="450" height="150" rx="12" fill="url(#dungeonGrad)" stroke="#c084fc" stroke-width="2"/>
+    <text x="225" y="30" text-anchor="middle" fill="#ffffff" font-size="15" font-weight="bold">🏰 RPG Dungeons &amp; Raids (Instance PvE)</text>
+    
+    <rect x="20" y="45" width="195" height="85" rx="8" fill="#3b0764" stroke="#a855f7" stroke-width="1"/>
+    <text x="117" y="68" text-anchor="middle" fill="#f3e8ff" font-size="13" font-weight="bold">Catacombs (Lv. 25+)</text>
+    <text x="117" y="88" text-anchor="middle" fill="#e9d5ff" font-size="11">ปาร์ตี้ 3-5 คน / แก้ปริศนา</text>
+    <text x="117" y="108" text-anchor="middle" fill="#d8b4fe" font-size="10">ดรอป: Rare Weapons</text>
+
+    <path d="M 215 87 L 235 87" stroke="#e9d5ff" stroke-width="1.5" marker-end="url(#arrow)"/>
+
+    <rect x="240" y="45" width="190" height="85" rx="8" fill="#3b0764" stroke="#ec4899" stroke-width="1"/>
+    <text x="335" y="68" text-anchor="middle" fill="#fdf2f8" font-size="13" font-weight="bold">🐉 Abyss Raid (Lv. 60+)</text>
+    <text x="335" y="88" text-anchor="middle" fill="#fce7f3" font-size="11">เรด 8-10 คน / สเตจบอส</text>
+    <text x="335" y="108" text-anchor="middle" fill="#f472b6" font-size="10">ดรอป: Endgame Set</text>
+  </g>
+
+  <!-- Clan Warzone Section -->
+  <g transform="translate(590, 440)" filter="url(#glow)">
+    <rect width="310" height="150" rx="12" fill="url(#pvpGrad)" stroke="#f87171" stroke-width="2"/>
+    <text x="155" y="30" text-anchor="middle" fill="#ffffff" font-size="15" font-weight="bold">⚔️ Outlaw Warzone (Clan PvP)</text>
+    <text x="155" y="60" text-anchor="middle" fill="#fee2e2" font-size="12">• เปิด PvP ตลอดเวลา / ชิงปราสาท</text>
+    <text x="155" y="85" text-anchor="middle" fill="#fee2e2" font-size="12">• อัตราดรอปทรัพยากร x2</text>
+    <text x="155" y="110" text-anchor="middle" fill="#fca5a5" font-size="12">• ป้อมปราการกิลด์ &amp; ศึกชิงแร่ศักดิ์สิทธิ์</text>
+    <text x="155" y="135" text-anchor="middle" fill="#f87171" font-size="11">ความเสี่ยงสูง / ผลตอบแทนมหาศาล</text>
+  </g>
+</svg>

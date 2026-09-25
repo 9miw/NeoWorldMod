@@ -1,0 +1,16 @@
+{
+  "required": true,
+  "package": "com.ambition.neoworld.mixin",
+  "compatibilityLevel": "JAVA_21",
+  "mixins": [
+    "AvailabilityMixin",
+    "NoppesUtilPlayerMixin",
+    "ContainerNPCTraderMixin"
+  ],
+  "injectors": {
+    "defaultRequire": 1
+  },
+  "overwrites": {
+    "requireAnnotations": true
+  }
+}

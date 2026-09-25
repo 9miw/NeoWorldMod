@@ -1,0 +1,625 @@
+{
+  "providers": [
+    {
+      "type": "bitmap",
+      "file": "neoworld:font/icons/anchor.png",
+      "ascent": 8,
+      "height": 9,
+      "chars": [
+        "\uE001"
+      ]
+    },
+    {
+      "type": "bitmap",
+      "file": "neoworld:font/icons/bomb.png",
+      "ascent": 8,
+      "height": 9,
+      "chars": [
+        "\uE002"
+      ]
+    },
+    {
+      "type": "bitmap",
+      "file": "neoworld:font/icons/candy.png",
+      "ascent": 8,
+      "height": 9,
+      "chars": [
+        "\uE003"
+      ]
+    },
+    {
+      "type": "bitmap",
+      "file": "neoworld:font/icons/chest.png",
+      "ascent": 8,
+      "height": 9,
+      "chars": [
+        "\uE004"
+      ]
+    },
+    {
+      "type": "bitmap",
+      "file": "neoworld:font/icons/clover.png",
+      "ascent": 8,
+      "height": 9,
+      "chars": [
+        "\uE005"
+      ]
+    },
+    {
+      "type": "bitmap",
+      "file": "neoworld:font/icons/cog.png",
+      "ascent": 8,
+      "height": 9,
+      "chars": [
+        "\uE006"
+      ]
+    },
+    {
+      "type": "bitmap",
+      "file": "neoworld:font/icons/compass.png",
+      "ascent": 8,
+      "height": 9,
+      "chars": [
+        "\uE007"
+      ]
+    },
+    {
+      "type": "bitmap",
+      "file": "neoworld:font/icons/crystals.png",
+      "ascent": 8,
+      "height": 9,
+      "chars": [
+        "\uE008"
+      ]
+    },
+    {
+      "type": "bitmap",
+      "file": "neoworld:font/icons/dialogue.png",
+      "ascent": 8,
+      "height": 9,
+      "chars": [
+        "\uE009"
+      ]
+    },
+    {
+      "type": "bitmap",
+      "file": "neoworld:font/icons/earth.png",
+      "ascent": 8,
+      "height": 9,
+      "chars": [
+        "\uE00A"
+      ]
+    },
+    {
+      "type": "bitmap",
+      "file": "neoworld:font/icons/emerald.png",
+      "ascent": 8,
+      "height": 9,
+      "chars": [
+        "\uE00B"
+      ]
+    },
+    {
+      "type": "bitmap",
+      "file": "neoworld:font/icons/exclamation.png",
+      "ascent": 8,
+      "height": 9,
+      "chars": [
+        "\uE00C"
+      ]
+    },
+    {
+      "type": "bitmap",
+      "file": "neoworld:font/icons/fire.png",
+      "ascent": 8,
+      "height": 9,
+      "chars": [
+        "\uE00D"
+      ]
+    },
+    {
+      "type": "bitmap",
+      "file": "neoworld:font/icons/fish.png",
+      "ascent": 8,
+      "height": 9,
+      "chars": [
+        "\uE00E"
+      ]
+    },
+    {
+      "type": "bitmap",
+      "file": "neoworld:font/icons/fish_grey.png",
+      "ascent": 8,
+      "height": 9,
+      "chars": [
+        "\uE00F"
+      ]
+    },
+    {
+      "type": "bitmap",
+      "file": "neoworld:font/icons/flag.png",
+      "ascent": 8,
+      "height": 9,
+      "chars": [
+        "\uE010"
+      ]
+    },
+    {
+      "type": "bitmap",
+      "file": "neoworld:font/icons/flag_white.png",
+      "ascent": 8,
+      "height": 9,
+      "chars": [
+        "\uE011"
+      ]
+    },
+    {
+      "type": "bitmap",
+      "file": "neoworld:font/icons/helmet.png",
+      "ascent": 8,
+      "height": 9,
+      "chars": [
+        "\uE012"
+      ]
+    },
+    {
+      "type": "bitmap",
+      "file": "neoworld:font/icons/leaf.png",
+      "ascent": 8,
+      "height": 9,
+      "chars": [
+        "\uE013"
+      ]
+    },
+    {
+      "type": "bitmap",
+      "file": "neoworld:font/icons/lightbulb.png",
+      "ascent": 8,
+      "height": 9,
+      "chars": [
+        "\uE014"
+      ]
+    },
+    {
+      "type": "bitmap",
+      "file": "neoworld:font/icons/lock.png",
+      "ascent": 8,
+      "height": 9,
+      "chars": [
+        "\uE015"
+      ]
+    },
+    {
+      "type": "bitmap",
+      "file": "neoworld:font/icons/magnet.png",
+      "ascent": 8,
+      "height": 9,
+      "chars": [
+        "\uE016"
+      ]
+    },
+    {
+      "type": "bitmap",
+      "file": "neoworld:font/icons/medal_bronze.png",
+      "ascent": 8,
+      "height": 9,
+      "chars": [
+        "\uE017"
+      ]
+    },
+    {
+      "type": "bitmap",
+      "file": "neoworld:font/icons/medal_gold.png",
+      "ascent": 8,
+      "height": 9,
+      "chars": [
+        "\uE018"
+      ]
+    },
+    {
+      "type": "bitmap",
+      "file": "neoworld:font/icons/medal_silver.png",
+      "ascent": 8,
+      "height": 9,
+      "chars": [
+        "\uE019"
+      ]
+    },
+    {
+      "type": "bitmap",
+      "file": "neoworld:font/icons/money.png",
+      "ascent": 8,
+      "height": 9,
+      "chars": [
+        "\uE01A"
+      ]
+    },
+    {
+      "type": "bitmap",
+      "file": "neoworld:font/icons/no.png",
+      "ascent": 8,
+      "height": 9,
+      "chars": [
+        "\uE01B"
+      ]
+    },
+    {
+      "type": "bitmap",
+      "file": "neoworld:font/icons/palmtree.png",
+      "ascent": 8,
+      "height": 9,
+      "chars": [
+        "\uE01C"
+      ]
+    },
+    {
+      "type": "bitmap",
+      "file": "neoworld:font/icons/seashell.png",
+      "ascent": 8,
+      "height": 9,
+      "chars": [
+        "\uE01D"
+      ]
+    },
+    {
+      "type": "bitmap",
+      "file": "neoworld:font/icons/starfish.png",
+      "ascent": 8,
+      "height": 9,
+      "chars": [
+        "\uE01E"
+      ]
+    },
+    {
+      "type": "bitmap",
+      "file": "neoworld:font/icons/yes.png",
+      "ascent": 8,
+      "height": 9,
+      "chars": [
+        "\uE01F"
+      ]
+    },
+    {
+      "type": "bitmap",
+      "file": "neoworld:font/ranks/admin.png",
+      "ascent": 8,
+      "height": 9,
+      "chars": [
+        "\uE020"
+      ]
+    },
+    {
+      "type": "bitmap",
+      "file": "neoworld:font/ranks/admin_icon.png",
+      "ascent": 8,
+      "height": 9,
+      "chars": [
+        "\uE021"
+      ]
+    },
+    {
+      "type": "bitmap",
+      "file": "neoworld:font/ranks/builder.png",
+      "ascent": 8,
+      "height": 9,
+      "chars": [
+        "\uE022"
+      ]
+    },
+    {
+      "type": "bitmap",
+      "file": "neoworld:font/ranks/builder_icon.png",
+      "ascent": 8,
+      "height": 9,
+      "chars": [
+        "\uE023"
+      ]
+    },
+    {
+      "type": "bitmap",
+      "file": "neoworld:font/ranks/dev.png",
+      "ascent": 8,
+      "height": 9,
+      "chars": [
+        "\uE024"
+      ]
+    },
+    {
+      "type": "bitmap",
+      "file": "neoworld:font/ranks/dev_icon.png",
+      "ascent": 8,
+      "height": 9,
+      "chars": [
+        "\uE025"
+      ]
+    },
+    {
+      "type": "bitmap",
+      "file": "neoworld:font/ranks/exemple.png",
+      "ascent": 8,
+      "height": 9,
+      "chars": [
+        "\uE026"
+      ]
+    },
+    {
+      "type": "bitmap",
+      "file": "neoworld:font/ranks/graphiste.png",
+      "ascent": 8,
+      "height": 9,
+      "chars": [
+        "\uE027"
+      ]
+    },
+    {
+      "type": "bitmap",
+      "file": "neoworld:font/ranks/graphiste_icon.png",
+      "ascent": 8,
+      "height": 9,
+      "chars": [
+        "\uE028"
+      ]
+    },
+    {
+      "type": "bitmap",
+      "file": "neoworld:font/ranks/helper.png",
+      "ascent": 8,
+      "height": 9,
+      "chars": [
+        "\uE029"
+      ]
+    },
+    {
+      "type": "bitmap",
+      "file": "neoworld:font/ranks/helper_icon.png",
+      "ascent": 8,
+      "height": 9,
+      "chars": [
+        "\uE02A"
+      ]
+    },
+    {
+      "type": "bitmap",
+      "file": "neoworld:font/ranks/manager.png",
+      "ascent": 8,
+      "height": 9,
+      "chars": [
+        "\uE02B"
+      ]
+    },
+    {
+      "type": "bitmap",
+      "file": "neoworld:font/ranks/manager_icon.png",
+      "ascent": 8,
+      "height": 9,
+      "chars": [
+        "\uE02C"
+      ]
+    },
+    {
+      "type": "bitmap",
+      "file": "neoworld:font/ranks/mod.png",
+      "ascent": 8,
+      "height": 9,
+      "chars": [
+        "\uE02D"
+      ]
+    },
+    {
+      "type": "bitmap",
+      "file": "neoworld:font/ranks/mod_icon.png",
+      "ascent": 8,
+      "height": 9,
+      "chars": [
+        "\uE02E"
+      ]
+    },
+    {
+      "type": "bitmap",
+      "file": "neoworld:font/ranks/mvp.png",
+      "ascent": 8,
+      "height": 9,
+      "chars": [
+        "\uE02F"
+      ]
+    },
+    {
+      "type": "bitmap",
+      "file": "neoworld:font/ranks/mvp_icon.png",
+      "ascent": 8,
+      "height": 9,
+      "chars": [
+        "\uE030"
+      ]
+    },
+    {
+      "type": "bitmap",
+      "file": "neoworld:font/ranks/mvp_plus.png",
+      "ascent": 8,
+      "height": 9,
+      "chars": [
+        "\uE031"
+      ]
+    },
+    {
+      "type": "bitmap",
+      "file": "neoworld:font/ranks/mvp_plus_icon.png",
+      "ascent": 8,
+      "height": 9,
+      "chars": [
+        "\uE032"
+      ]
+    },
+    {
+      "type": "bitmap",
+      "file": "neoworld:font/ranks/owner.png",
+      "ascent": 8,
+      "height": 9,
+      "chars": [
+        "\uE033"
+      ]
+    },
+    {
+      "type": "bitmap",
+      "file": "neoworld:font/ranks/owner_icon.png",
+      "ascent": 8,
+      "height": 9,
+      "chars": [
+        "\uE034"
+      ]
+    },
+    {
+      "type": "bitmap",
+      "file": "neoworld:font/ranks/player.png",
+      "ascent": 8,
+      "height": 9,
+      "chars": [
+        "\uE035"
+      ]
+    },
+    {
+      "type": "bitmap",
+      "file": "neoworld:font/ranks/player_icon.png",
+      "ascent": 8,
+      "height": 9,
+      "chars": [
+        "\uE036"
+      ]
+    },
+    {
+      "type": "bitmap",
+      "file": "neoworld:font/ranks/staff.png",
+      "ascent": 8,
+      "height": 9,
+      "chars": [
+        "\uE037"
+      ]
+    },
+    {
+      "type": "bitmap",
+      "file": "neoworld:font/ranks/staff_icon.png",
+      "ascent": 8,
+      "height": 9,
+      "chars": [
+        "\uE038"
+      ]
+    },
+    {
+      "type": "bitmap",
+      "file": "neoworld:font/ranks/tiktok.png",
+      "ascent": 8,
+      "height": 9,
+      "chars": [
+        "\uE039"
+      ]
+    },
+    {
+      "type": "bitmap",
+      "file": "neoworld:font/ranks/tiktok_icon.png",
+      "ascent": 8,
+      "height": 9,
+      "chars": [
+        "\uE03A"
+      ]
+    },
+    {
+      "type": "bitmap",
+      "file": "neoworld:font/ranks/tiktok_v2.png",
+      "ascent": 8,
+      "height": 9,
+      "chars": [
+        "\uE03B"
+      ]
+    },
+    {
+      "type": "bitmap",
+      "file": "neoworld:font/ranks/twitch.png",
+      "ascent": 8,
+      "height": 9,
+      "chars": [
+        "\uE03C"
+      ]
+    },
+    {
+      "type": "bitmap",
+      "file": "neoworld:font/ranks/twitch_icon.png",
+      "ascent": 8,
+      "height": 9,
+      "chars": [
+        "\uE03D"
+      ]
+    },
+    {
+      "type": "bitmap",
+      "file": "neoworld:font/ranks/twitch_v2.png",
+      "ascent": 8,
+      "height": 9,
+      "chars": [
+        "\uE03E"
+      ]
+    },
+    {
+      "type": "bitmap",
+      "file": "neoworld:font/ranks/vip.png",
+      "ascent": 8,
+      "height": 9,
+      "chars": [
+        "\uE03F"
+      ]
+    },
+    {
+      "type": "bitmap",
+      "file": "neoworld:font/ranks/vip_icon.png",
+      "ascent": 8,
+      "height": 9,
+      "chars": [
+        "\uE040"
+      ]
+    },
+    {
+      "type": "bitmap",
+      "file": "neoworld:font/ranks/vip_plus.png",
+      "ascent": 8,
+      "height": 9,
+      "chars": [
+        "\uE041"
+      ]
+    },
+    {
+      "type": "bitmap",
+      "file": "neoworld:font/ranks/vip_plus_icon.png",
+      "ascent": 8,
+      "height": 9,
+      "chars": [
+        "\uE042"
+      ]
+    },
+    {
+      "type": "bitmap",
+      "file": "neoworld:font/ranks/ytb.png",
+      "ascent": 8,
+      "height": 9,
+      "chars": [
+        "\uE043"
+      ]
+    },
+    {
+      "type": "bitmap",
+      "file": "neoworld:font/ranks/ytb_icon.png",
+      "ascent": 8,
+      "height": 9,
+      "chars": [
+        "\uE044"
+      ]
+    },
+    {
+      "type": "bitmap",
+      "file": "neoworld:font/ranks/ytb_v2.png",
+      "ascent": 8,
+      "height": 9,
+      "chars": [
+        "\uE045"
+      ]
+    }
+  ]
+}

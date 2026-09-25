@@ -1,0 +1,21 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "building",
+  "key": {
+    "#": {
+      "item": "minecraft:dirt"
+    },
+    "X": {
+      "item": "minecraft:stone"
+    }
+  },
+  "pattern": [
+    "X#X",
+    "#X#",
+    "X#X"
+  ],
+  "result": {
+    "count": 1,
+    "id": "neoworld:example_block"
+  }
+}

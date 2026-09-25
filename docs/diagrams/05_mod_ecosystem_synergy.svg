@@ -1,0 +1,126 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 680" width="100%" height="100%" style="background:#0c1017; font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;">
+  <defs>
+    <linearGradient id="createGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#b45309"/>
+      <stop offset="100%" stop-color="#f59e0b"/>
+    </linearGradient>
+    <linearGradient id="epicGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#991b1b"/>
+      <stop offset="100%" stop-color="#ef4444"/>
+    </linearGradient>
+    <linearGradient id="neoGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#1e3a8a"/>
+      <stop offset="100%" stop-color="#3b82f6"/>
+    </linearGradient>
+    <filter id="boxShadow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="4" stdDeviation="6" flood-color="#000" flood-opacity="0.5"/>
+    </filter>
+    <marker id="arrowAmber" viewBox="0 0 10 10" refX="6" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+      <path d="M 0 1 L 10 5 L 0 9 z" fill="#f59e0b" />
+    </marker>
+    <marker id="arrowRed" viewBox="0 0 10 10" refX="6" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+      <path d="M 0 1 L 10 5 L 0 9 z" fill="#ef4444" />
+    </marker>
+    <marker id="arrowBlue" viewBox="0 0 10 10" refX="6" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+      <path d="M 0 1 L 10 5 L 0 9 z" fill="#3b82f6" />
+    </marker>
+  </defs>
+
+  <!-- Title -->
+  <text x="500" y="45" text-anchor="middle" fill="#f8fafc" font-size="22" font-weight="bold">⚙️⚔️ Mod Ecosystem: Create + Epic Fight + NeoWorld</text>
+  <text x="500" y="70" text-anchor="middle" fill="#94a3b8" font-size="13">ระบบอุตสาหกรรมการผลิต ➔ จัดการเลเวลและเงื่อนไข ➔ การต่อสู้ด้วย Epic Fight ดั้งเดิม 100%</text>
+
+  <!-- Create Mod Card (Left) -->
+  <g transform="translate(50, 110)" filter="url(#boxShadow)">
+    <rect width="280" height="420" rx="12" fill="#1c1917" stroke="#f59e0b" stroke-width="2"/>
+    <rect width="280" height="45" rx="12" fill="url(#createGrad)"/>
+    <text x="140" y="28" text-anchor="middle" fill="#ffffff" font-size="15" font-weight="bold">⚙️ Create Mod (Industry &amp; Survival)</text>
+
+    <rect x="15" y="60" width="250" height="80" rx="8" fill="#292524" stroke="#d97706" stroke-width="1"/>
+    <text x="25" y="82" fill="#fbbf24" font-size="12" font-weight="bold">🚂 Logistics &amp; Transport</text>
+    <text x="25" y="102" fill="#e7e5e4" font-size="11">• รถไฟเชื่อมระหว่าง Capital City</text>
+    <text x="25" y="120" fill="#e7e5e4" font-size="11">• ส่งเสบียงสู่ Dungeon Outposts</text>
+
+    <rect x="15" y="150" width="250" height="85" rx="8" fill="#292524" stroke="#d97706" stroke-width="1"/>
+    <text x="25" y="172" fill="#fbbf24" font-size="12" font-weight="bold">🔨 Forging &amp; Automation</text>
+    <text x="25" y="192" fill="#e7e5e4" font-size="11">• Mechanical Press ปั๊มใบดาบ</text>
+    <text x="25" y="210" fill="#e7e5e4" font-size="11">• เตาหลอมโลหะผสม (Alloy Smelting)</text>
+    <text x="25" y="228" fill="#e7e5e4" font-size="11">• สายพานปรุงยาบัฟเรดระดับโรงงาน</text>
+
+    <rect x="15" y="245" width="250" height="80" rx="8" fill="#292524" stroke="#d97706" stroke-width="1"/>
+    <text x="25" y="267" fill="#fbbf24" font-size="12" font-weight="bold">🧩 Mechanical Puzzles</text>
+    <text x="25" y="287" fill="#e7e5e4" font-size="11">• ประตูเฟือง &amp; ลิฟต์ในดันเจี้ยน</text>
+    <text x="25" y="305" fill="#e7e5e4" font-size="11">• แพลตฟอร์มขยับในห้องบอส</text>
+
+    <text x="140" y="380" text-anchor="middle" fill="#fde68a" font-size="11">สร้างเสบียง ยา และอาวุธโลหะขั้นสูง</text>
+  </g>
+
+  <!-- NeoWorld Core Bridge (Center) -->
+  <g transform="translate(360, 110)" filter="url(#boxShadow)">
+    <rect width="280" height="420" rx="12" fill="#0f172a" stroke="#3b82f6" stroke-width="2"/>
+    <rect width="280" height="45" rx="12" fill="url(#neoGrad)"/>
+    <text x="140" y="28" text-anchor="middle" fill="#ffffff" font-size="15" font-weight="bold">🌐 NeoWorld (Level &amp; Rules)</text>
+
+    <rect x="15" y="60" width="250" height="100" rx="8" fill="#1e293b" stroke="#60a5fa" stroke-width="1"/>
+    <text x="25" y="82" fill="#93c5fd" font-size="12" font-weight="bold">📈 Level &amp; Auto Attribute Scale</text>
+    <text x="25" y="102" fill="#cbd5e1" font-size="11">• +0.5 Max Stamina ทุก 1 เลเวล</text>
+    <text x="25" y="120" fill="#cbd5e1" font-size="11">• +0.2 Stun Armor ทุก 1 เลเวล</text>
+    <text x="25" y="138" fill="#cbd5e1" font-size="11">• +1 Max Health ทุกๆ 2 เลเวล</text>
+
+    <rect x="15" y="170" width="250" height="95" rx="8" fill="#1e293b" stroke="#60a5fa" stroke-width="1"/>
+    <text x="25" y="192" fill="#93c5fd" font-size="12" font-weight="bold">🗡️ Weapon Level Gating</text>
+    <text x="25" y="212" fill="#cbd5e1" font-size="11">• กำหนดเลเวลขั้นต่ำของอาวุธ</text>
+    <text x="25" y="230" fill="#cbd5e1" font-size="11">• Katana (Lv.15), Greatsword (Lv.25)</text>
+    <text x="25" y="248" fill="#cbd5e1" font-size="11">• ปลดล็อก Skill Slots ของ Epic Fight</text>
+
+    <rect x="15" y="275" width="250" height="80" rx="8" fill="#1e293b" stroke="#60a5fa" stroke-width="1"/>
+    <text x="25" y="297" fill="#93c5fd" font-size="12" font-weight="bold">📜 Quests &amp; Exp Rewards</text>
+    <text x="25" y="317" fill="#cbd5e1" font-size="11">• เควสต์ให้ค่าประสบการณ์ EXP</text>
+    <text x="25" y="335" fill="#cbd5e1" font-size="11">• ดรอป Epic Fight Skill Books</text>
+
+    <text x="140" y="380" text-anchor="middle" fill="#bfdbfe" font-size="11">กำหนดกฎ เลเวล และเชื่อมโยงทั้งสอง Mod</text>
+  </g>
+
+  <!-- Epic Fight Card (Right) -->
+  <g transform="translate(670, 110)" filter="url(#boxShadow)">
+    <rect width="280" height="420" rx="12" fill="#1f1315" stroke="#ef4444" stroke-width="2"/>
+    <rect width="280" height="45" rx="12" fill="url(#epicGrad)"/>
+    <text x="140" y="28" text-anchor="middle" fill="#ffffff" font-size="15" font-weight="bold">⚔️ Epic Fight (Native Combat)</text>
+
+    <rect x="15" y="60" width="250" height="90" rx="8" fill="#36171a" stroke="#f87171" stroke-width="1"/>
+    <text x="25" y="82" fill="#fca5a5" font-size="12" font-weight="bold">🥋 Dynamic Movesets &amp; Types</text>
+    <text x="25" y="102" fill="#fecaca" font-size="11">• Greatsword (Heavy, Sweep, Guard)</text>
+    <text x="25" y="120" fill="#fecaca" font-size="11">• Katana / Dagger (Rapid &amp; Slash)</text>
+    <text x="25" y="138" fill="#fecaca" font-size="11">• Spear / Halberd (Pierce &amp; Range)</text>
+
+    <rect x="15" y="160" width="250" height="85" rx="8" fill="#36171a" stroke="#f87171" stroke-width="1"/>
+    <text x="25" y="182" fill="#fca5a5" font-size="12" font-weight="bold">🛡️ Combat Mechanics</text>
+    <text x="25" y="202" fill="#fecaca" font-size="11">• Dodge Roll &amp; I-Frames</text>
+    <text x="25" y="220" fill="#fecaca" font-size="11">• Parry / Block / Counter-attack</text>
+    <text x="25" y="238" fill="#fecaca" font-size="11">• Stagger &amp; Poise Break</text>
+
+    <rect x="15" y="255" width="250" height="75" rx="8" fill="#36171a" stroke="#f87171" stroke-width="1"/>
+    <text x="25" y="277" fill="#fca5a5" font-size="12" font-weight="bold">🐉 Souls-like Boss Battles</text>
+    <text x="25" y="297" fill="#fecaca" font-size="11">• ท่าโจมตีอ่านจังหวะได้ (Telegraph)</text>
+    <text x="25" y="315" fill="#fecaca" font-size="11">• มีระยะพักเหนื่อยเพื่อทำดาเมจ</text>
+
+    <text x="140" y="380" text-anchor="middle" fill="#fecdd3" font-size="11">ใช้ระบบ Action Combat ดั้งเดิม 100%</text>
+  </g>
+
+  <!-- Connectors -->
+  <!-- Create to NeoWorld -->
+  <path d="M 330 200 L 355 200" stroke="#f59e0b" stroke-width="2.5" marker-end="url(#arrowAmber)"/>
+  <path d="M 355 230 L 335 230" stroke="#3b82f6" stroke-width="2.5" marker-end="url(#arrowBlue)"/>
+
+  <!-- NeoWorld to Epic Fight -->
+  <path d="M 640 200 L 665 200" stroke="#3b82f6" stroke-width="2.5" marker-end="url(#arrowBlue)"/>
+  <path d="M 665 230 L 645 230" stroke="#ef4444" stroke-width="2.5" marker-end="url(#arrowRed)"/>
+
+  <!-- Global Loop Summary at Bottom -->
+  <g transform="translate(100, 560)" filter="url(#boxShadow)">
+    <rect width="800" height="85" rx="10" fill="#131b2e" stroke="#334155" stroke-width="1.5"/>
+    <text x="400" y="28" text-anchor="middle" fill="#ffffff" font-size="13" font-weight="bold">🔄 Complete Player Experience Loop</text>
+    <text x="400" y="52" text-anchor="middle" fill="#94a3b8" font-size="12">ผู้เล่นสร้างโรงงานด้วย <tspan fill="#fbbf24" font-weight="bold">Create</tspan> ➔ เลเวลอัปเพิ่ม Stamina &amp; Health ผ่าน <tspan fill="#60a5fa" font-weight="bold">NeoWorld</tspan> ➔ สวมใส่อาวุธขั้นสูงออกไปสู้ด้วย <tspan fill="#f87171" font-weight="bold">Epic Fight</tspan></text>
+    <text x="400" y="72" text-anchor="middle" fill="#38bdf8" font-size="11">ไม่มีระบบสเตตัสซ้ำซ้อน — ใช้ศักยภาพของ Epic Fight ได้อย่างเต็มที่และสมดุล</text>
+  </g>
+</svg>
