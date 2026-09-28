@@ -11,12 +11,10 @@ import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.sounds.SoundSource;
 import net.minecraft.world.entity.item.ItemEntity;
-import net.minecraft.world.entity.monster.Monster;
 import net.minecraft.world.item.ItemStack;
 import net.neoforged.bus.api.SubscribeEvent;
 import net.neoforged.fml.common.EventBusSubscriber;
 import net.neoforged.neoforge.common.util.TriState;
-import net.neoforged.neoforge.event.entity.living.LivingDropsEvent;
 import net.neoforged.neoforge.event.entity.player.ItemEntityPickupEvent;
 import net.neoforged.neoforge.event.tick.PlayerTickEvent;
 
@@ -93,11 +91,4 @@ public class EconomyEventHandler {
         }
     }
 
-    /**
-     * ดักจับการดรอปของเมื่อกำจัดมอนสเตอร์ (Mob Money Drop)
-     */
-    @SubscribeEvent
-    public static void onLivingDrops(LivingDropsEvent event) {
-
-    }
 }

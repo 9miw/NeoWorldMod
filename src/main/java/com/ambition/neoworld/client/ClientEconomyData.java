@@ -104,4 +104,10 @@ public class ClientEconomyData {
         gold = newGold;
         diamond = newDiamond;
     }
+
+    public static void reset() {
+        silver = 0L;
+        gold = 0L;
+        diamond = 0L;
+    }
 }

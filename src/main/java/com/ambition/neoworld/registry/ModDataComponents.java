@@ -22,4 +22,26 @@ public class ModDataComponents {
                             ? DataResult.success(value)
                             : DataResult.error(() -> "Coin value must be positive")))
                             .networkSynchronized(ByteBufCodecs.VAR_LONG));
+
+    public static final DeferredHolder<DataComponentType<?>, DataComponentType<Long>> EXP_VALUE =
+            DATA_COMPONENTS.registerComponentType("exp_value",
+                    builder -> builder.persistent(Codec.LONG.validate(value -> value > 0
+                            ? DataResult.success(value)
+                            : DataResult.error(() -> "EXP value must be positive")))
+                            .networkSynchronized(ByteBufCodecs.VAR_LONG));
+
+    public static final DeferredHolder<DataComponentType<?>, DataComponentType<Long>> EXP_MIN_VALUE =
+            DATA_COMPONENTS.registerComponentType("exp_min_value",
+                    builder -> builder.persistent(Codec.LONG.validate(value -> value > 0
+                            ? DataResult.success(value)
+                            : DataResult.error(() -> "Minimum EXP value must be positive")))
+                            .networkSynchronized(ByteBufCodecs.VAR_LONG));
+
+    // เลเวล NeoWorld ขั้นต่ำสำหรับใช้ ItemStack นี้
+    public static final DeferredHolder<DataComponentType<?>, DataComponentType<Integer>> REQUIRED_LEVEL =
+            DATA_COMPONENTS.registerComponentType("required_level",
+                    builder -> builder.persistent(Codec.INT.validate(value -> value > 0
+                            ? DataResult.success(value)
+                            : DataResult.error(() -> "Required level must be positive")))
+                            .networkSynchronized(ByteBufCodecs.VAR_INT));
 }

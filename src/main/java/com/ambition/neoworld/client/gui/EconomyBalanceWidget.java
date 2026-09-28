@@ -1,7 +1,8 @@
 package com.ambition.neoworld.client.gui;
 
 import com.ambition.neoworld.client.ClientEconomyData;
-import com.ambition.neoworld.registry.ModItems;
+
+import java.util.List;
 
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.Font;
@@ -9,26 +10,12 @@ import net.minecraft.client.gui.GuiGraphics;
 import net.minecraft.client.gui.components.AbstractWidget;
 import net.minecraft.client.gui.narration.NarrationElementOutput;
 import net.minecraft.network.chat.Component;
-import net.minecraft.world.item.ItemStack;
 
 // AbstractWidget สำหรับแสดงยอดเงิน (Silver, Gold, Diamond) ภายใน GUI เช่น CustomNPCs Trader
 public class EconomyBalanceWidget extends AbstractWidget {
 
-    private ItemStack silverStack;
-    private ItemStack goldStack;
-    private ItemStack diamondStack;
-
     public EconomyBalanceWidget(int x, int y, int width, int height) {
         super(x, y, width, height, Component.literal("Economy Balance"));
-        if (ModItems.SILVER_COIN.isBound()) {
-            silverStack = new ItemStack(ModItems.SILVER_COIN.get());
-        }
-        if (ModItems.GOLD_COIN.isBound()) {
-            goldStack = new ItemStack(ModItems.GOLD_COIN.get());
-        }
-        if (ModItems.DIAMOND_COIN.isBound()) {
-            diamondStack = new ItemStack(ModItems.DIAMOND_COIN.get());
-        }
     }
 
     @Override
@@ -41,17 +28,25 @@ public class EconomyBalanceWidget extends AbstractWidget {
         int bgW = this.getWidth();
         int bgH = this.getHeight();
 
-
-        int textY = bgY + (bgH - 8) / 2;
-
-        int curX = guiGraphics.guiWidth()-5;
-        int y = 5; // ตำแหน่งอยู่เหนือ LevelOverlay เล็กน้อย
+        int textY = bgY + (bgH - font.lineHeight) / 2;
 
         String silverStr = "\uE019§f" + ClientEconomyData.getFormattedSilver();
         String goldStr = " \uE018§6" + ClientEconomyData.getFormattedGold();
         String diamondStr = " \uE017§b" + ClientEconomyData.getFormattedDiamond();
-        guiGraphics.drawString(font, silverStr+goldStr+diamondStr, curX - font.width(silverStr+goldStr+diamondStr), y, 0xFFFFFF);
+        String fullText = silverStr + goldStr + diamondStr;
 
+        int textX = bgX + (bgW - font.width(fullText)) / 2;
+        guiGraphics.drawString(font, fullText, textX, textY, 0xFFFFFF);
+
+        if (this.isHovered()) {
+            List<Component> tooltip = List.of(
+                    Component.literal("§7ยอดเงินคงเหลือ:"),
+                    Component.literal("\uE019 §fSilver: " + ClientEconomyData.getFullSilver()),
+                    Component.literal("\uE018 §6Gold: " + ClientEconomyData.getFullGold()),
+                    Component.literal("\uE017 §bDiamond: " + ClientEconomyData.getFullDiamond())
+            );
+            guiGraphics.renderComponentTooltip(font, tooltip, mouseX, mouseY);
+        }
     }
 
     @Override

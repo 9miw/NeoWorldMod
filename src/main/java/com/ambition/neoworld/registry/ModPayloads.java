@@ -10,36 +10,38 @@ import net.neoforged.neoforge.network.event.RegisterPayloadHandlersEvent;
 import net.neoforged.neoforge.network.registration.PayloadRegistrar;
 
 // คลาสลงทะเบียน Network Payloads สำหรับ NeoForge 1.21.1
-public class ModPayloads {
+public final class ModPayloads {
+    public static final String PROTOCOL_VERSION = "1";
+
+    private ModPayloads() {
+    }
 
     public static void register(final RegisterPayloadHandlersEvent event) {
-        final PayloadRegistrar registrar = event.registrar("1");
+        final PayloadRegistrar registrar = event.registrar(PROTOCOL_VERSION);
 
         // ซิงค์เลเวลและ EXP จาก Server ไป Client
         registrar.playToClient(
                 SyncLevelPayload.TYPE,
                 SyncLevelPayload.STREAM_CODEC,
-                (payload, context) -> context.enqueueWork(() -> {
-                    ClientLevelData.update(payload.level(), payload.exp(), payload.maxExp());
-                })
+                (payload, context) -> context.enqueueWork(() ->
+                        ClientLevelData.update(payload.level(), payload.exp(), payload.maxExp()))
         );
 
         // ส่งสัญญาณเฉลิมฉลองการเลเวลอัปจาก Server ไป Client
         registrar.playToClient(
                 LevelUpCelebrationPayload.TYPE,
                 LevelUpCelebrationPayload.STREAM_CODEC,
-                (payload, context) -> context.enqueueWork(() -> {
-                    ClientLevelData.onLevelUpCelebration(payload.newLevel());
-                })
+                (payload, context) -> context.enqueueWork(() ->
+                        ClientLevelData.onLevelUpCelebration(payload.newLevel()))
         );
 
         // ซิงค์ข้อมูลยอดเงินระบบ Economy (Silver, Gold, Diamond) จาก Server ไป Client
         registrar.playToClient(
                 SyncEconomyPayload.TYPE,
                 SyncEconomyPayload.STREAM_CODEC,
-                (payload, context) -> context.enqueueWork(() -> {
-                    ClientEconomyData.update(payload.silver(), payload.gold(), payload.diamond());
-                })
+                (payload, context) -> context.enqueueWork(() ->
+                        ClientEconomyData.update(payload.silver(), payload.gold(), payload.diamond()))
         );
     }
+
 }

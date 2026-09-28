@@ -9,9 +9,13 @@ import net.minecraft.sounds.SoundSource;
 
 // คลาสเก็บข้อมูลเลเวลชั่วคราวฝั่ง Client สำหรับเรนเดอร์ HUD
 public class ClientLevelData {
-    private static int level = 1;
-    private static long exp = 0;
-    private static long maxExp = 100;
+    private static final int DEFAULT_LEVEL = 1;
+    private static final long DEFAULT_EXP = 0L;
+    private static final long DEFAULT_MAX_EXP = 100L;
+
+    private static int level = DEFAULT_LEVEL;
+    private static long exp = DEFAULT_EXP;
+    private static long maxExp = DEFAULT_MAX_EXP;
 
     public static int getLevel() {
         return level;
@@ -37,6 +41,12 @@ public class ClientLevelData {
         level = newLevel;
         exp = newExp;
         maxExp = newMaxExp;
+    }
+
+    public static void reset() {
+        level = DEFAULT_LEVEL;
+        exp = DEFAULT_EXP;
+        maxExp = DEFAULT_MAX_EXP;
     }
 
     public static void onLevelUpCelebration(int newLevel) {

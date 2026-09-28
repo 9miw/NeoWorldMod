@@ -8,7 +8,6 @@ import net.minecraft.network.codec.StreamCodec;
 import net.minecraft.network.protocol.common.custom.CustomPacketPayload;
 import net.minecraft.resources.ResourceLocation;
 
-// Packet แจ้งเตือนฝั่ง Client เมื่อเลเวลอัป (เล่นเสียง/เอฟเฟกต์/Title)
 public record LevelUpCelebrationPayload(int newLevel) implements CustomPacketPayload {
     public static final Type<LevelUpCelebrationPayload> TYPE =
             new Type<>(ResourceLocation.fromNamespaceAndPath(NeoWorld.MODID, "level_up_celebration"));

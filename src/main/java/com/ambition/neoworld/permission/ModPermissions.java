@@ -37,13 +37,6 @@ public class ModPermissions {
             (player, playerUUID, context) -> player != null && player.hasPermissions(2)
     );
 
-    public static final PermissionNode<Boolean> COMMAND_ECO_GIVECOIN = new PermissionNode<>(
-            NeoWorld.MODID,
-            "command.eco.givecoin",
-            PermissionTypes.BOOLEAN,
-            (player, playerUUID, context) -> player != null && player.hasPermissions(2)
-    );
-
     public static final PermissionNode<Boolean> COMMAND_ECO_GIVE = new PermissionNode<>(
             NeoWorld.MODID,
             "command.eco.give",
@@ -87,19 +80,43 @@ public class ModPermissions {
             (player, playerUUID, context) -> player != null && player.hasPermissions(2)
     );
 
+    public static final PermissionNode<Boolean> ITEM_ATTRACTION = new PermissionNode<>(
+            NeoWorld.MODID,
+            "feature.item_attraction",
+            PermissionTypes.BOOLEAN,
+            (player, playerUUID, context) -> false
+    );
+
+    // === Dungeon Permission Nodes ===
+    public static final PermissionNode<Boolean> COMMAND_DUNGEON_USE = new PermissionNode<>(
+            NeoWorld.MODID,
+            "command.dungeon.use",
+            PermissionTypes.BOOLEAN,
+            (player, playerUUID, context) -> true
+    );
+
+    public static final PermissionNode<Boolean> COMMAND_DUNGEON_ADMIN = new PermissionNode<>(
+            NeoWorld.MODID,
+            "command.dungeon.admin",
+            PermissionTypes.BOOLEAN,
+            (player, playerUUID, context) -> player != null && player.hasPermissions(2)
+    );
+
     @SubscribeEvent
     public static void onPermissionGather(PermissionGatherEvent.Nodes event) {
         event.addNodes(
                 COMMAND_ECO_BALANCE,
                 COMMAND_ECO_BALANCE_OTHERS,
                 COMMAND_ECO_SETCOIN,
-                COMMAND_ECO_GIVECOIN,
                 COMMAND_ECO_GIVE,
                 COMMAND_ECO_TAKE,
                 COMMAND_ECO_SET,
                 COMMAND_LEVEL_GET,
                 COMMAND_LEVEL_ADDEXP,
-                COMMAND_LEVEL_SET
+                COMMAND_LEVEL_SET,
+                COMMAND_DUNGEON_USE,
+                COMMAND_DUNGEON_ADMIN,
+                ITEM_ATTRACTION
         );
     }
 
@@ -114,5 +131,9 @@ public class ModPermissions {
 
         // Console และ Command Block ใช้ระดับสิทธิ์ของแหล่งคำสั่ง
         return source.hasPermission(fallbackOpLevel);
+    }
+
+    public static boolean hasItemAttractionPermission(ServerPlayer player) {
+        return player != null && PermissionAPI.getPermission(player, ITEM_ATTRACTION);
     }
 }

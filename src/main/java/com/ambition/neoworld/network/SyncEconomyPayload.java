@@ -8,7 +8,6 @@ import net.minecraft.network.codec.StreamCodec;
 import net.minecraft.network.protocol.common.custom.CustomPacketPayload;
 import net.minecraft.resources.ResourceLocation;
 
-// Packet ซิงค์ข้อมูลยอดเงินระบบ Economy (Silver, Gold, Diamond) จาก Server ไปยัง Client
 public record SyncEconomyPayload(long silver, long gold, long diamond) implements CustomPacketPayload {
     public static final Type<SyncEconomyPayload> TYPE =
             new Type<>(ResourceLocation.fromNamespaceAndPath(NeoWorld.MODID, "sync_economy"));

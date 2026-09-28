@@ -5,7 +5,8 @@
   "mixins": [
     "AvailabilityMixin",
     "NoppesUtilPlayerMixin",
-    "ContainerNPCTraderMixin"
+    "ContainerNPCTraderMixin",
+    "MultiworldPortalWandMixin"
   ],
   "injectors": {
     "defaultRequire": 1

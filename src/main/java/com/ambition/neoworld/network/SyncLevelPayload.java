@@ -8,7 +8,6 @@ import net.minecraft.network.codec.StreamCodec;
 import net.minecraft.network.protocol.common.custom.CustomPacketPayload;
 import net.minecraft.resources.ResourceLocation;
 
-// Packet ซิงค์ข้อมูลเลเวลและ EXP จาก Server ไปยัง Client
 public record SyncLevelPayload(int level, long exp, long maxExp) implements CustomPacketPayload {
     public static final Type<SyncLevelPayload> TYPE =
             new Type<>(ResourceLocation.fromNamespaceAndPath(NeoWorld.MODID, "sync_level"));

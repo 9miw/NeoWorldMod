@@ -5,10 +5,13 @@ import com.ambition.neoworld.NeoWorld;
 import net.minecraft.world.food.FoodProperties;
 import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.item.Item;
+import net.minecraft.world.item.SwordItem;
+import net.minecraft.world.item.Tiers;
 import net.neoforged.neoforge.registries.DeferredItem;
 import net.neoforged.neoforge.registries.DeferredRegister;
 
 import com.ambition.neoworld.item.CoinItem;
+import com.ambition.neoworld.item.ExperienceItem;
 
 // คลาสสำหรับลงทะเบียนไอเทม (Item) ทั้งหมดของมอด
 public class ModItems {
@@ -22,6 +25,12 @@ public class ModItems {
     public static final DeferredItem<Item> EXAMPLE_ITEM = ITEMS.registerSimpleItem("example_item", new Item.Properties().food(new FoodProperties.Builder()
             .alwaysEdible().nutrition(1).saturationModifier(2f).build()));
 
+    // ดาบตัวอย่าง: 1 base damage + 46 item damage + 3 diamond tier bonus = 50 damage
+    public static final DeferredItem<SwordItem> EXAMPLE_ITEMSWORD = ITEMS.register("example_itemsword",
+            () -> new SwordItem(Tiers.DIAMOND, new Item.Properties()
+                    .component(ModDataComponents.REQUIRED_LEVEL.get(), 15)
+                    .attributes(SwordItem.createAttributes(Tiers.DIAMOND, 46, -2.4f))));
+
     // === สกุลเงินในเกม (Currencies) ===
     // เหรียญเงิน (Silver Coin) - สำหรับใช้จ่ายทั่วไปในเซิร์ฟเวอร์
     public static final DeferredItem<CoinItem> SILVER_COIN = ITEMS.register("silver_coin",
@@ -34,4 +43,7 @@ public class ModItems {
     // เหรียญเพชร (Diamond Coin) - สกุลเงินพรีเมียม / เงินเติม
     public static final DeferredItem<CoinItem> DIAMOND_COIN = ITEMS.register("diamond_coin",
             () -> new CoinItem(CoinItem.CoinType.DIAMOND, new Item.Properties().stacksTo(64)));
+
+    public static final DeferredItem<ExperienceItem> EXPERIENCE_ITEM = ITEMS.register("experience_item",
+            () -> new ExperienceItem(new Item.Properties().stacksTo(64)));
 }

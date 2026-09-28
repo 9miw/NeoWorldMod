@@ -1,12 +1,10 @@
 package com.ambition.neoworld.command;
 
-import com.ambition.neoworld.NeoWorld;
 import com.ambition.neoworld.data.PlayerData;
 import com.ambition.neoworld.economy.PlayerEconomyManager;
 import com.ambition.neoworld.item.CoinItem;
 import com.ambition.neoworld.permission.ModPermissions;
 import com.ambition.neoworld.registry.ModAttachments;
-import com.mojang.brigadier.CommandDispatcher;
 import com.mojang.brigadier.arguments.IntegerArgumentType;
 import com.mojang.brigadier.arguments.LongArgumentType;
 import com.mojang.brigadier.arguments.StringArgumentType;
@@ -16,55 +14,51 @@ import net.minecraft.commands.CommandSourceStack;
 import net.minecraft.commands.Commands;
 import net.minecraft.commands.SharedSuggestionProvider;
 import net.minecraft.commands.arguments.EntityArgument;
+import net.minecraft.ChatFormatting;
+import net.minecraft.network.chat.ClickEvent;
 import net.minecraft.network.chat.Component;
+import net.minecraft.network.chat.HoverEvent;
+import net.minecraft.network.chat.MutableComponent;
 import net.minecraft.server.level.ServerPlayer;
-import net.minecraft.world.entity.item.ItemEntity;
 import net.minecraft.world.item.ItemStack;
-import net.neoforged.bus.api.SubscribeEvent;
-import net.neoforged.fml.common.EventBusSubscriber;
-import net.neoforged.neoforge.event.RegisterCommandsEvent;
 
 import java.util.List;
 import java.util.Locale;
 import com.ambition.neoworld.economy.CurrencyMath;
 
-// คลาสลงทะเบียนคำสั่งระบบเศรษฐกิจ /neoworld eco, /neoworld economy, /neoworld money (รองรับ LuckPerms)
-@EventBusSubscriber(modid = NeoWorld.MODID)
-public class EconomyCommand {
+// คำสั่งระบบเศรษฐกิจสำหรับเพิ่มเข้าไปใน command tree หลัก (รองรับ LuckPerms)
+public final class EconomyCommand {
 
     private static final List<String> CURRENCY_TYPES = List.of("silver", "gold", "diamond");
 
-    @SubscribeEvent
-    public static void registerCommands(RegisterCommandsEvent event) {
-        CommandDispatcher<CommandSourceStack> dispatcher = event.getDispatcher();
-
-        // 1. ลงทะเบียนคำสั่งตรง: /eco และ /economy
-        dispatcher.register(buildEconomyTree("eco"));
-        dispatcher.register(buildEconomyTree("economy"));
-
-        // 2. ลงทะเบียนภายใต้คำสั่งหลัก: /neoworld eco และ /neoworld economy
-        dispatcher.register(
-            Commands.literal("neoworld")
-                .then(buildEconomyTree("eco"))
-                .then(buildEconomyTree("economy"))
-        );
+    private EconomyCommand() {
     }
 
-    private static LiteralArgumentBuilder<CommandSourceStack> buildEconomyTree(String rootName) {
+    static LiteralArgumentBuilder<CommandSourceStack> buildCommand(String rootName) {
         return Commands.literal(rootName)
             .requires(source -> ModPermissions.hasPermission(source, ModPermissions.COMMAND_ECO_BALANCE, 0))
-            // พิมพ์ /eco หรือ /economy เปล่าๆ -> แสดงยอดเงินของตนเองทันที
+            // พิมพ์ /neoworld eco หรือ /neoworld economy เปล่าๆ -> แสดงยอดเงินของตนเองทันที
             .executes(context -> {
                 ServerPlayer player = context.getSource().getPlayerOrException();
                 showBalance(context.getSource(), player);
+                showHelp(player);
                 return 1;
             })
+            // /neoworld eco help
+            .then(Commands.literal("help")
+                .executes(context -> {
+                    ServerPlayer player = context.getSource().getPlayerOrException();
+                    showHelp(player);
+                    return 1;
+                })
+            )
             // /eco balance [player]
             .then(Commands.literal("balance")
                 .requires(source -> ModPermissions.hasPermission(source, ModPermissions.COMMAND_ECO_BALANCE, 0))
                 .executes(context -> {
                     ServerPlayer player = context.getSource().getPlayerOrException();
                     showBalance(context.getSource(), player);
+                    showHelp(player);
                     return 1;
                 })
                 .then(Commands.argument("target", EntityArgument.player())
@@ -100,32 +94,6 @@ public class EconomyCommand {
                             return 0;
                         }
                     })
-                )
-            )
-            // /neoworld eco givecoin <target> <type> <value> [count]
-            .then(Commands.literal("givecoin")
-                .requires(source -> ModPermissions.hasPermission(source, ModPermissions.COMMAND_ECO_GIVECOIN, 2))
-                .then(Commands.argument("target", EntityArgument.player())
-                    .then(Commands.argument("type", StringArgumentType.word())
-                        .suggests((c, b) -> SharedSuggestionProvider.suggest(CURRENCY_TYPES, b))
-                        .then(Commands.argument("value", LongArgumentType.longArg(1))
-                            .executes(context -> {
-                                ServerPlayer target = EntityArgument.getPlayer(context, "target");
-                                String typeStr = StringArgumentType.getString(context, "type");
-                                long value = LongArgumentType.getLong(context, "value");
-                                return giveCustomCoin(context.getSource(), target, typeStr, value, 1);
-                            })
-                            .then(Commands.argument("count", IntegerArgumentType.integer(1, 64))
-                                .executes(context -> {
-                                    ServerPlayer target = EntityArgument.getPlayer(context, "target");
-                                    String typeStr = StringArgumentType.getString(context, "type");
-                                    long value = LongArgumentType.getLong(context, "value");
-                                    int count = IntegerArgumentType.getInteger(context, "count");
-                                    return giveCustomCoin(context.getSource(), target, typeStr, value, count);
-                                })
-                            )
-                        )
-                    )
                 )
             )
             // /neoworld eco give <target> <type> <amount>
@@ -189,6 +157,27 @@ public class EconomyCommand {
         source.sendSuccess(() -> Component.literal("  §b- Diamond: §a" + String.format("%,d", data.getDiamond())), false);
     }
 
+    private static void showHelp(ServerPlayer player) {
+        player.sendSystemMessage(Component.literal("§6=== คำสั่ง Economy ที่คลิกได้ ==="));
+        player.sendSystemMessage(commandButton("/neoworld eco balance", "ดูยอดเงินของตัวเอง", true));
+        player.sendSystemMessage(commandButton("/neoworld eco balance " + player.getGameProfile().getName(), "ดูยอดเงินผู้เล่น", false));
+        player.sendSystemMessage(commandButton("/neoworld eco setcoin 100", "ตั้งมูลค่าเหรียญในมือ", false));
+        player.sendSystemMessage(commandButton("/neoworld eco give " + player.getGameProfile().getName() + " silver 100", "เพิ่มเงินให้ผู้เล่น", false));
+        player.sendSystemMessage(commandButton("/neoworld eco take " + player.getGameProfile().getName() + " silver 100", "หักเงินผู้เล่น", false));
+        player.sendSystemMessage(commandButton("/neoworld eco set " + player.getGameProfile().getName() + " silver 0", "ตั้งยอดเงินผู้เล่น", false));
+    }
+
+    private static MutableComponent commandButton(String command, String description, boolean runOnClick) {
+        ClickEvent.Action action = runOnClick ? ClickEvent.Action.RUN_COMMAND : ClickEvent.Action.SUGGEST_COMMAND;
+        String clickHint = runOnClick ? "คลิกเพื่อรันคำสั่ง" : "คลิกเพื่อเติมคำสั่งในช่องแชท";
+        return Component.literal("  " + command)
+            .withStyle(style -> style
+                .withColor(ChatFormatting.YELLOW)
+                .withClickEvent(new ClickEvent(action, command))
+                .withHoverEvent(new HoverEvent(HoverEvent.Action.SHOW_TEXT, Component.literal(clickHint + ": " + command))))
+            .append(Component.literal(" §7- §f" + description));
+    }
+
     private static CoinItem.CoinType parseCoinType(String str) {
         return switch (str.toLowerCase(Locale.ROOT)) {
             case "silver" -> CoinItem.CoinType.SILVER;
@@ -196,23 +185,6 @@ public class EconomyCommand {
             case "diamond" -> CoinItem.CoinType.DIAMOND;
             default -> null;
         };
-    }
-
-    private static int giveCustomCoin(CommandSourceStack source, ServerPlayer target, String typeStr, long value, int count) {
-        CoinItem.CoinType coinType = parseCoinType(typeStr);
-        if (coinType == null || CurrencyMath.total(value, count) < 0) {
-            source.sendFailure(Component.literal("สกุลเงินไม่ถูกต้อง หรือมูลค่ารวมเกินขอบเขตที่รองรับ"));
-            return 0;
-        }
-        ItemStack stack = CoinItem.createStack(coinType, value, count);
-
-        if (!target.getInventory().add(stack)) {
-            target.drop(stack, false);
-        }
-
-        source.sendSuccess(() -> Component.literal("§a[NeoWorld] §fมอบเหรียญ " + coinType.getFormat() + coinType.getDisplayName() +
-                " §f(มูลค่าชิ้นละ " + String.format("%,d", value) + ") จำนวน " + count + " ชิ้น ให้แก่ §b" + target.getName().getString()), true);
-        return 1;
     }
 
     private static int modifyBalance(CommandSourceStack source, ServerPlayer target, String typeStr, long amount, String action) {
