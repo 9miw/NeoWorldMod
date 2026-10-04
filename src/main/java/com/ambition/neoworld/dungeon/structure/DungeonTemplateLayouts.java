@@ -5,20 +5,23 @@ import java.util.Set;
 
 import com.ambition.neoworld.dungeon.definition.DungeonDefinition;
 
-import net.minecraft.core.BlockPos;
-
 public final class DungeonTemplateLayouts {
     private DungeonTemplateLayouts() {
     }
 
     public static DungeonTemplateLayout from(DungeonDefinition definition) {
-        if (definition.structureId() == null) {
+        if (definition.structurePieces().isEmpty()) {
             throw new IllegalArgumentException("Dungeon has no linked structure: " + definition.id());
+        }
+        Set<String> requiredMarkers = new java.util.HashSet<>(
+                Set.of("player_spawn", "boss_spawn", "reward_chest", "exit"));
+        for (int i = 0; i < definition.monsterWaves().size(); i++) {
+            requiredMarkers.add("mob_spawn_" + (i + 1));
         }
         return new DungeonTemplateLayout(
                 definition.id(),
-                List.of(new DungeonTemplatePiece(definition.structureId(), BlockPos.ZERO)),
-                Set.of("player_spawn", "boss_spawn", "reward_chest", "exit")
+                definition.structurePieces(),
+                requiredMarkers
         );
     }
 }

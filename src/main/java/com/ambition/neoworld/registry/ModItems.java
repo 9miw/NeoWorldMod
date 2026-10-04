@@ -1,6 +1,8 @@
 package com.ambition.neoworld.registry;
 
 import com.ambition.neoworld.NeoWorld;
+import com.ambition.neoworld.data.fashion.FashionSlot;
+import com.ambition.neoworld.item.fashion.SimpleFashionItem;
 
 import net.minecraft.world.food.FoodProperties;
 import net.minecraft.world.item.BlockItem;
@@ -46,4 +48,9 @@ public class ModItems {
 
     public static final DeferredItem<ExperienceItem> EXPERIENCE_ITEM = ITEMS.register("experience_item",
             () -> new ExperienceItem(new Item.Properties().stacksTo(64)));
+
+    public static final DeferredItem<SimpleFashionItem> FASHION_EXAMPLE_HAT = ITEMS.register("fashion_example_hat",
+            () -> new SimpleFashionItem(FashionSlot.HEAD, new Item.Properties()
+                    .stacksTo(1)
+                    .component(ModDataComponents.FASHION_SLOT.get(), FashionSlot.HEAD)));
 }

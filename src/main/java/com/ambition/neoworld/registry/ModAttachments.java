@@ -4,6 +4,7 @@ import java.util.function.Supplier;
 
 import com.ambition.neoworld.NeoWorld;
 import com.ambition.neoworld.data.PlayerData;
+import com.ambition.neoworld.data.fashion.FashionData;
 
 import net.neoforged.neoforge.attachment.AttachmentType;
 import net.neoforged.neoforge.registries.DeferredRegister;
@@ -21,6 +22,14 @@ public class ModAttachments {
             () -> AttachmentType.builder(() -> new PlayerData())
                     .serialize(PlayerData.CODEC) // แปลงและบันทึกข้อมูลลงไฟล์เซฟ
                     .copyOnDeath()               // คัดลอกข้อมูลเมื่อผู้เล่นตายแล้วเกิดใหม่
+                    .build()
+    );
+
+    public static final Supplier<AttachmentType<FashionData>> FASHION_DATA = ATTACHMENT_TYPES.register(
+            "fashion_data",
+            () -> AttachmentType.builder(() -> new FashionData())
+                    .serialize(FashionData.CODEC)
+                    .copyOnDeath()
                     .build()
     );
 }

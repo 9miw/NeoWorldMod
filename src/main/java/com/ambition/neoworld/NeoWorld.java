@@ -1,14 +1,18 @@
 package com.ambition.neoworld;
 
+import java.io.IOException;
+import java.nio.file.Files;
+
 import org.slf4j.Logger;
 
 import com.ambition.neoworld.registry.ModAttachments;
 import com.ambition.neoworld.registry.ModBlocks;
 import com.ambition.neoworld.registry.ModCreativeTabs;
 import com.ambition.neoworld.registry.ModDataComponents;
-import com.ambition.neoworld.datagen.ModDungeonDatapackProvider;
+import com.ambition.neoworld.datagen.ModDimensionDatapackProvider;
 import com.ambition.neoworld.registry.ModItems;
 import com.ambition.neoworld.registry.ModPayloads;
+import com.ambition.neoworld.database.NeoWorldDatabase;
 import com.mojang.logging.LogUtils;
 
 import net.minecraft.core.registries.BuiltInRegistries;
@@ -20,10 +24,12 @@ import net.neoforged.fml.ModContainer;
 import net.neoforged.fml.common.Mod;
 import net.neoforged.fml.config.ModConfig;
 import net.neoforged.fml.event.lifecycle.FMLCommonSetupEvent;
+import net.neoforged.fml.loading.FMLPaths;
 import net.neoforged.neoforge.common.NeoForge;
 import net.neoforged.neoforge.data.event.GatherDataEvent;
 import net.neoforged.neoforge.event.BuildCreativeModeTabContentsEvent;
 import net.neoforged.neoforge.event.server.ServerStartingEvent;
+import net.neoforged.neoforge.event.server.ServerStoppingEvent;
 
 // ค่าตรงนี้ต้องตรงกับที่ระบุไว้ในไฟล์ META-INF/neoforge.mods.toml
 @Mod(NeoWorld.MODID)
@@ -49,7 +55,12 @@ public class NeoWorld {
         NeoForge.EVENT_BUS.register(this);
 
         modEventBus.addListener(this::addCreative);
-        modContainer.registerConfig(ModConfig.Type.COMMON, Config.SPEC);
+        try {
+            Files.createDirectories(FMLPaths.CONFIGDIR.get().resolve(MODID));
+        } catch (IOException exception) {
+            throw new IllegalStateException("Could not create the NeoWorld config directory", exception);
+        }
+        modContainer.registerConfig(ModConfig.Type.COMMON, Config.SPEC, MODID + "/neoworld.toml");
     }
 
     private void commonSetup(FMLCommonSetupEvent event) {
@@ -65,7 +76,7 @@ public class NeoWorld {
 
     private void gatherData(GatherDataEvent event) {
         if (event.includeServer()) {
-            event.addProvider(new ModDungeonDatapackProvider(
+            event.addProvider(new ModDimensionDatapackProvider(
                     event.getGenerator().getPackOutput(),
                     event.getLookupProvider()
             ));
@@ -85,6 +96,11 @@ public class NeoWorld {
 
     @SubscribeEvent
     public void onServerStarting(ServerStartingEvent event) {
-        LOGGER.info("HELLO from server starting");
+        NeoWorldDatabase.initialize();
+    }
+
+    @SubscribeEvent
+    public void onServerStopping(ServerStoppingEvent event) {
+        NeoWorldDatabase.shutdown();
     }
 }

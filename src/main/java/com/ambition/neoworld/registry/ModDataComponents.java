@@ -1,6 +1,7 @@
 package com.ambition.neoworld.registry;
 
 import com.ambition.neoworld.NeoWorld;
+import com.ambition.neoworld.data.fashion.FashionSlot;
 import com.mojang.serialization.Codec;
 import com.mojang.serialization.DataResult;
 
@@ -44,4 +45,9 @@ public class ModDataComponents {
                             ? DataResult.success(value)
                             : DataResult.error(() -> "Required level must be positive")))
                             .networkSynchronized(ByteBufCodecs.VAR_INT));
+
+    public static final DeferredHolder<DataComponentType<?>, DataComponentType<FashionSlot>> FASHION_SLOT =
+            DATA_COMPONENTS.registerComponentType("fashion_slot",
+                    builder -> builder.persistent(FashionSlot.CODEC)
+                            .networkSynchronized(FashionSlot.STREAM_CODEC));
 }

@@ -1,9 +1,11 @@
 package com.ambition.neoworld;
 
-import com.ambition.neoworld.client.gui.EconomyOverlay;
-import com.ambition.neoworld.client.gui.LevelOverlay;
+import com.ambition.neoworld.client.render.FashionHeadLayer;
+import com.ambition.neoworld.client.gui.overlay.EconomyOverlay;
+import com.ambition.neoworld.client.gui.overlay.LevelOverlay;
 
 import net.minecraft.client.Minecraft;
+import net.minecraft.client.renderer.entity.player.PlayerRenderer;
 import net.minecraft.resources.ResourceLocation;
 import net.neoforged.api.distmarker.Dist;
 import net.neoforged.bus.api.IEventBus;
@@ -11,6 +13,7 @@ import net.neoforged.fml.ModContainer;
 import net.neoforged.fml.common.Mod;
 import net.neoforged.fml.event.lifecycle.FMLClientSetupEvent;
 import net.neoforged.neoforge.client.event.RegisterGuiLayersEvent;
+import net.neoforged.neoforge.client.event.EntityRenderersEvent;
 import net.neoforged.neoforge.client.gui.ConfigurationScreen;
 import net.neoforged.neoforge.client.gui.IConfigScreenFactory;
 import net.neoforged.neoforge.client.gui.VanillaGuiLayers;
@@ -24,6 +27,7 @@ public class NeoWorldClient {
 
         modEventBus.addListener(this::onClientSetup);
         modEventBus.addListener(this::registerGuiLayers);
+        modEventBus.addListener(this::addEntityLayers);
     }
 
     private void onClientSetup(FMLClientSetupEvent event) {
@@ -43,5 +47,15 @@ public class NeoWorldClient {
                 ResourceLocation.fromNamespaceAndPath(NeoWorld.MODID, "economy_overlay"),
                 new EconomyOverlay()
         );
+
+    }
+
+    private void addEntityLayers(EntityRenderersEvent.AddLayers event) {
+        for (var skin : event.getSkins()) {
+            PlayerRenderer renderer = event.getSkin(skin);
+            if (renderer != null) {
+                renderer.addLayer(new FashionHeadLayer(renderer));
+            }
+        }
     }
 }

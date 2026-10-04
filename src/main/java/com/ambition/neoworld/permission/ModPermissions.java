@@ -87,6 +87,13 @@ public class ModPermissions {
             (player, playerUUID, context) -> false
     );
 
+    public static final PermissionNode<Boolean> COMMAND_MARKET_USE = new PermissionNode<>(
+            NeoWorld.MODID,
+            "command.market.use",
+            PermissionTypes.BOOLEAN,
+            (player, playerUUID, context) -> true
+    );
+
     // === Dungeon Permission Nodes ===
     public static final PermissionNode<Boolean> COMMAND_DUNGEON_USE = new PermissionNode<>(
             NeoWorld.MODID,
@@ -116,6 +123,7 @@ public class ModPermissions {
                 COMMAND_LEVEL_SET,
                 COMMAND_DUNGEON_USE,
                 COMMAND_DUNGEON_ADMIN,
+                COMMAND_MARKET_USE,
                 ITEM_ATTRACTION
         );
     }

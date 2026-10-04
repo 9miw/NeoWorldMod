@@ -1,10 +1,13 @@
 package com.ambition.neoworld.dungeon.definition;
 
 import java.util.EnumSet;
+import java.util.List;
 import java.util.Set;
 
 import com.ambition.neoworld.dungeon.room.DungeonRoomType;
+import com.ambition.neoworld.dungeon.structure.DungeonTemplatePiece;
 
+import net.minecraft.core.BlockPos;
 import net.minecraft.resources.ResourceLocation;
 
 public final class DungeonDefinition {
@@ -14,10 +17,15 @@ public final class DungeonDefinition {
     private int timeLimitSeconds;
     private EnumSet<DungeonRoomType> roomTypes;
     private ResourceLocation structureId;
+    private List<DungeonTemplatePiece> structurePieces;
+    private DungeonBossConfig boss;
+    private List<DungeonMonsterWave> monsterWaves;
+    private DungeonRewardConfig reward;
     private DungeonDefinitionStatus status;
 
     DungeonDefinition(String id) {
         this(id, defaultDisplayName(id), 1, 1_200, EnumSet.allOf(DungeonRoomType.class), null,
+                List.of(), null, List.of(), null,
                 DungeonDefinitionStatus.DRAFT);
     }
 
@@ -28,6 +36,10 @@ public final class DungeonDefinition {
             int timeLimitSeconds,
             Set<DungeonRoomType> roomTypes,
             ResourceLocation structureId,
+            List<DungeonTemplatePiece> structurePieces,
+            DungeonBossConfig boss,
+            List<DungeonMonsterWave> monsterWaves,
+            DungeonRewardConfig reward,
             DungeonDefinitionStatus status
     ) {
         this.id = id;
@@ -38,6 +50,12 @@ public final class DungeonDefinition {
                 ? EnumSet.noneOf(DungeonRoomType.class)
                 : EnumSet.copyOf(roomTypes);
         this.structureId = structureId;
+        this.structurePieces = structurePieces.isEmpty() && structureId != null
+                ? List.of(new DungeonTemplatePiece(structureId, BlockPos.ZERO))
+                : List.copyOf(structurePieces);
+        this.boss = boss;
+        this.monsterWaves = List.copyOf(monsterWaves);
+        this.reward = reward;
         this.status = status;
     }
 
@@ -65,8 +83,24 @@ public final class DungeonDefinition {
         return structureId;
     }
 
+    public List<DungeonTemplatePiece> structurePieces() {
+        return structurePieces;
+    }
+
     public DungeonDefinitionStatus status() {
         return status;
+    }
+
+    public DungeonBossConfig boss() {
+        return boss;
+    }
+
+    public List<DungeonMonsterWave> monsterWaves() {
+        return monsterWaves;
+    }
+
+    public DungeonRewardConfig reward() {
+        return reward;
     }
 
     public boolean supports(DungeonRoomType roomType) {
@@ -95,6 +129,36 @@ public final class DungeonDefinition {
 
     void setStructureId(ResourceLocation structureId) {
         this.structureId = structureId;
+        this.structurePieces = structureId == null
+                ? List.of()
+                : List.of(new DungeonTemplatePiece(structureId, BlockPos.ZERO));
+        this.status = DungeonDefinitionStatus.DRAFT;
+    }
+
+    void setStructurePieces(List<DungeonTemplatePiece> structurePieces) {
+        this.structurePieces = List.copyOf(structurePieces);
+        this.structureId = structurePieces.isEmpty() ? null : structurePieces.getFirst().templateId();
+        this.status = DungeonDefinitionStatus.DRAFT;
+    }
+
+    void setBoss(DungeonBossConfig boss) {
+        this.boss = boss;
+        this.status = DungeonDefinitionStatus.DRAFT;
+    }
+
+    void addMonsterWave(DungeonMonsterWave wave) {
+        this.monsterWaves = new java.util.ArrayList<>(monsterWaves);
+        this.monsterWaves.add(wave);
+        this.status = DungeonDefinitionStatus.DRAFT;
+    }
+
+    void clearMonsterWaves() {
+        this.monsterWaves = List.of();
+        this.status = DungeonDefinitionStatus.DRAFT;
+    }
+
+    void setReward(DungeonRewardConfig reward) {
+        this.reward = reward;
         this.status = DungeonDefinitionStatus.DRAFT;
     }
 

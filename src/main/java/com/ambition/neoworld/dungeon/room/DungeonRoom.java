@@ -3,22 +3,39 @@ package com.ambition.neoworld.dungeon.room;
 import java.util.Collection;
 import java.util.LinkedHashMap;
 import java.util.Map;
+import java.util.Optional;
 import java.util.UUID;
 
 public final class DungeonRoom {
     private final int id;
     private final String dungeonId;
     private final DungeonRoomType type;
+    private final UUID partyId;
     private final Map<UUID, DungeonRoomMember> members = new LinkedHashMap<>();
     private UUID ownerId;
     private DungeonRoomState state = DungeonRoomState.WAITING;
 
     DungeonRoom(int id, String dungeonId, DungeonRoomType type, DungeonRoomMember owner) {
+        this(id, dungeonId, type, null, java.util.List.of(owner), owner.playerId());
+    }
+
+    DungeonRoom(
+            int id,
+            String dungeonId,
+            DungeonRoomType type,
+            UUID partyId,
+            Collection<DungeonRoomMember> members,
+            UUID ownerId
+    ) {
         this.id = id;
         this.dungeonId = dungeonId;
         this.type = type;
-        this.ownerId = owner.playerId();
-        this.members.put(owner.playerId(), owner);
+        this.partyId = partyId;
+        this.ownerId = ownerId;
+        members.forEach(member -> this.members.put(member.playerId(), member));
+        if (!this.members.containsKey(ownerId)) {
+            throw new IllegalArgumentException("Dungeon room owner must be a room member");
+        }
     }
 
     public int id() {
@@ -31,6 +48,10 @@ public final class DungeonRoom {
 
     public DungeonRoomType type() {
         return type;
+    }
+
+    public Optional<UUID> partyId() {
+        return Optional.ofNullable(partyId);
     }
 
     public UUID ownerId() {

@@ -122,8 +122,38 @@ configurations {
 }
 
 dependencies {
+    jarJar(implementation("com.h2database:h2")) {
+        version {
+            strictly '[2.1,3.0)'
+            prefer '2.3.232'
+        }
+    }
+    // NeoForge 1.21.1 needs plain Java libraries explicitly added to development runs.
+    additionalRuntimeClasspath "com.h2database:h2:2.3.232"
+
+    jarJar(implementation("com.zaxxer:HikariCP") {
+        exclude group: "org.slf4j", module: "slf4j-api"
+    }) {
+        version {
+            strictly '[6.0,8.0)'
+            prefer '7.1.0'
+        }
+    }
+    additionalRuntimeClasspath "com.zaxxer:HikariCP:7.1.0"
+
+    jarJar(implementation("org.mariadb.jdbc:mariadb-java-client") {
+        exclude group: "org.slf4j", module: "slf4j-api"
+    }) {
+        version {
+            strictly '[3.5,4.0)'
+            prefer '3.5.10'
+        }
+    }
+    additionalRuntimeClasspath "org.mariadb.jdbc:mariadb-java-client:3.5.10"
+
     implementation "curse.maven:create-328085:7963363"
     implementation "curse.maven:epic-fight-mod-405076:8175609"
+    implementation "curse.maven:weapons-of-miracles-epicfight-918614:8829395"
     implementation "curse.maven:customnpcs-unofficial-1052708:7411561"
     implementation "curse.maven:geckolib-388172:8350073"
 

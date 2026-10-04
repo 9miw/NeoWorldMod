@@ -7,7 +7,9 @@ import java.util.Map;
 import java.util.Optional;
 
 import com.ambition.neoworld.dungeon.room.DungeonRoomType;
+import com.ambition.neoworld.dungeon.structure.DungeonTemplatePiece;
 
+import net.minecraft.core.BlockPos;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.nbt.ListTag;
@@ -73,6 +75,31 @@ public final class DungeonDefinitionData extends SavedData {
         setDirty();
     }
 
+    public void updateStructurePieces(DungeonDefinition definition, java.util.List<DungeonTemplatePiece> pieces) {
+        definition.setStructurePieces(pieces);
+        setDirty();
+    }
+
+    public void updateBoss(DungeonDefinition definition, DungeonBossConfig boss) {
+        definition.setBoss(boss);
+        setDirty();
+    }
+
+    public void addMonsterWave(DungeonDefinition definition, DungeonMonsterWave wave) {
+        definition.addMonsterWave(wave);
+        setDirty();
+    }
+
+    public void clearMonsterWaves(DungeonDefinition definition) {
+        definition.clearMonsterWaves();
+        setDirty();
+    }
+
+    public void updateReward(DungeonDefinition definition, DungeonRewardConfig reward) {
+        definition.setReward(reward);
+        setDirty();
+    }
+
     public void updateStatus(DungeonDefinition definition, DungeonDefinitionStatus status) {
         definition.setStatus(status);
         setDirty();
@@ -94,6 +121,38 @@ public final class DungeonDefinitionData extends SavedData {
             if (definition.structureId() != null) {
                 entry.putString("structureId", definition.structureId().toString());
             }
+            ListTag structurePieces = new ListTag();
+            for (DungeonTemplatePiece piece : definition.structurePieces()) {
+                CompoundTag pieceTag = new CompoundTag();
+                pieceTag.putString("templateId", piece.templateId().toString());
+                pieceTag.putInt("offsetX", piece.offset().getX());
+                pieceTag.putInt("offsetY", piece.offset().getY());
+                pieceTag.putInt("offsetZ", piece.offset().getZ());
+                structurePieces.add(pieceTag);
+            }
+            entry.put("structurePieces", structurePieces);
+            if (definition.boss() != null) {
+                CompoundTag boss = new CompoundTag();
+                boss.putInt("cloneTab", definition.boss().cloneTab());
+                boss.putString("cloneName", definition.boss().cloneName());
+                entry.put("boss", boss);
+            }
+            ListTag waves = new ListTag();
+            for (DungeonMonsterWave wave : definition.monsterWaves()) {
+                CompoundTag waveTag = new CompoundTag();
+                waveTag.putInt("cloneTab", wave.cloneTab());
+                waveTag.putString("cloneName", wave.cloneName());
+                waveTag.putInt("count", wave.count());
+                waves.add(waveTag);
+            }
+            entry.put("monsterWaves", waves);
+            if (definition.reward() != null) {
+                CompoundTag reward = new CompoundTag();
+                reward.putString("lootTableId", definition.reward().lootTableId().toString());
+                reward.putInt("experience", definition.reward().experience());
+                reward.putLong("money", definition.reward().money());
+                entry.put("reward", reward);
+            }
             entry.putString("status", definition.status().name());
             list.add(entry);
         }
@@ -114,6 +173,50 @@ public final class DungeonDefinitionData extends SavedData {
                 DungeonRoomType.parse(value).ifPresent(roomTypes::add);
             }
             ResourceLocation structureId = ResourceLocation.tryParse(entry.getString("structureId"));
+            java.util.List<DungeonTemplatePiece> structurePieces = new java.util.ArrayList<>();
+            ListTag pieceTags = entry.getList("structurePieces", Tag.TAG_COMPOUND);
+            for (int pieceIndex = 0; pieceIndex < pieceTags.size(); pieceIndex++) {
+                CompoundTag pieceTag = pieceTags.getCompound(pieceIndex);
+                ResourceLocation templateId = ResourceLocation.tryParse(pieceTag.getString("templateId"));
+                if (templateId != null) {
+                    structurePieces.add(new DungeonTemplatePiece(templateId, new BlockPos(
+                            pieceTag.getInt("offsetX"),
+                            pieceTag.getInt("offsetY"),
+                            pieceTag.getInt("offsetZ")
+                    )));
+                }
+            }
+            DungeonBossConfig boss = null;
+            if (entry.contains("boss", Tag.TAG_COMPOUND)) {
+                CompoundTag bossTag = entry.getCompound("boss");
+                String cloneName = bossTag.getString("cloneName").trim();
+                int cloneTab = bossTag.getInt("cloneTab");
+                if (!cloneName.isEmpty() && cloneTab > 0) {
+                    boss = new DungeonBossConfig(cloneTab, cloneName);
+                }
+            }
+            java.util.List<DungeonMonsterWave> monsterWaves = new java.util.ArrayList<>();
+            ListTag waves = entry.getList("monsterWaves", Tag.TAG_COMPOUND);
+            for (int waveIndex = 0; waveIndex < waves.size(); waveIndex++) {
+                CompoundTag waveTag = waves.getCompound(waveIndex);
+                String cloneName = waveTag.getString("cloneName").trim();
+                int cloneTab = waveTag.getInt("cloneTab");
+                if (!cloneName.isEmpty() && cloneTab > 0 && waveTag.getInt("count") > 0) {
+                    monsterWaves.add(new DungeonMonsterWave(cloneTab, cloneName, waveTag.getInt("count")));
+                }
+            }
+            DungeonRewardConfig reward = null;
+            if (entry.contains("reward", Tag.TAG_COMPOUND)) {
+                CompoundTag rewardTag = entry.getCompound("reward");
+                ResourceLocation lootTableId = ResourceLocation.tryParse(rewardTag.getString("lootTableId"));
+                if (lootTableId != null) {
+                    reward = new DungeonRewardConfig(
+                            lootTableId,
+                            Math.max(0, rewardTag.getInt("experience")),
+                            Math.max(0L, rewardTag.getLong("money"))
+                    );
+                }
+            }
             DungeonDefinitionStatus status;
             try {
                 status = DungeonDefinitionStatus.valueOf(entry.getString("status"));
@@ -128,6 +231,10 @@ public final class DungeonDefinitionData extends SavedData {
                     Math.max(1, entry.getInt("timeLimitSeconds")),
                     roomTypes,
                     structureId,
+                    structurePieces,
+                    boss,
+                    monsterWaves,
+                    reward,
                     status
             );
             data.definitions.put(id, definition);

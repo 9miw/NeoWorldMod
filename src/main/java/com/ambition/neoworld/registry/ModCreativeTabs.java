@@ -33,5 +33,6 @@ public class ModCreativeTabs {
                 output.accept(ModItems.GOLD_COIN.get());    // เหรียญทอง
                 output.accept(ModItems.DIAMOND_COIN.get()); // เหรียญเพชร
                 output.accept(ModItems.EXPERIENCE_ITEM.get()); // EXP
+                output.accept(ModItems.FASHION_EXAMPLE_HAT.get()); // หมวกแฟชั่นตัวอย่าง
             }).build());
 }

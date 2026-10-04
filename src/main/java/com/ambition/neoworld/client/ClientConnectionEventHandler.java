@@ -16,5 +16,6 @@ public final class ClientConnectionEventHandler {
     public static void onLoggingOut(ClientPlayerNetworkEvent.LoggingOut event) {
         ClientLevelData.reset();
         ClientEconomyData.reset();
+        ClientFashionData.reset();
     }
 }

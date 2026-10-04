@@ -33,6 +33,7 @@ public class ModLanguageProvider extends LanguageProvider {
         addItem(ModItems.GOLD_COIN, "Gold Coin");
         addItem(ModItems.DIAMOND_COIN, "Diamond Coin");
         addItem(ModItems.EXPERIENCE_ITEM, "NeoWorld EXP");
+        addItem(ModItems.FASHION_EXAMPLE_HAT, "Example Fashion Hat");
 
         add("tooltip.neoworld.silver_coin.desc", "Common Currency - Used for general trading & market");
         add("tooltip.neoworld.gold_coin.desc", "High-tier Currency - Used for enhancement & blacksmith upgrades");
@@ -55,6 +56,7 @@ public class ModLanguageProvider extends LanguageProvider {
         addItem(ModItems.GOLD_COIN, "เหรียญทอง (Gold Coin)");
         addItem(ModItems.DIAMOND_COIN, "เหรียญเพชร (Diamond Coin)");
         addItem(ModItems.EXPERIENCE_ITEM, "ไอเทม EXP ของ NeoWorld");
+        addItem(ModItems.FASHION_EXAMPLE_HAT, "หมวกแฟชั่นตัวอย่าง");
 
         add("tooltip.neoworld.silver_coin.desc", "สกุลเงินทั่วไป - ใช้จ่ายและซื้อขายทั่วไปในเซิร์ฟเวอร์");
         add("tooltip.neoworld.gold_coin.desc", "สกุลเงินชั้นสูง - ใช้สำหรับระบบตีบวกและอัปเกรดอุปกรณ์");
