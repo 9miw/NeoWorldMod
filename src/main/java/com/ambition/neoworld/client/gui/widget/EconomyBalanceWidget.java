@@ -1,6 +1,8 @@
 package com.ambition.neoworld.client.gui.widget;
 
-import com.ambition.neoworld.client.ClientEconomyData;
+import com.ambition.neoworld.client.gui.common.NeoBitmapFonts;
+
+import com.ambition.neoworld.client.state.ClientEconomyData;
 
 import java.util.List;
 
@@ -44,7 +46,7 @@ public class EconomyBalanceWidget extends AbstractWidget {
         String silverStr = "§r\uE046§f" + ClientEconomyData.getFormattedSilver();
         String goldStr = " §r\uE047§6" + ClientEconomyData.getFormattedGold();
         String diamondStr = " §r\uE048§b" + ClientEconomyData.getFormattedDiamond();
-        String fullText = diamondStr + goldStr + silverStr;
+        Component fullText = NeoBitmapFonts.text( diamondStr + goldStr + silverStr);
 
         int textWidth = font.width(fullText);
         int textX = switch (alignment) {
@@ -59,9 +61,9 @@ public class EconomyBalanceWidget extends AbstractWidget {
         if (this.isHovered()) {
             List<Component> tooltip = List.of(
                     Component.literal("§7ยอดเงินคงเหลือ:"),
-                    Component.literal("§f\uE046 §fSilver: " + ClientEconomyData.getFullSilver()),
-                    Component.literal("§f\uE047 §6Gold: " + ClientEconomyData.getFullGold()),
-                    Component.literal("§f\uE048 §bDiamond: " + ClientEconomyData.getFullDiamond())
+                    NeoBitmapFonts.text("§f\uE046 §fSilver: " + ClientEconomyData.getFullSilver()),
+                    NeoBitmapFonts.text("§f\uE047 §6Gold: " + ClientEconomyData.getFullGold()),
+                    NeoBitmapFonts.text("§f\uE048 §bDiamond: " + ClientEconomyData.getFullDiamond())
             );
             guiGraphics.renderComponentTooltip(font, tooltip, mouseX, mouseY);
         }

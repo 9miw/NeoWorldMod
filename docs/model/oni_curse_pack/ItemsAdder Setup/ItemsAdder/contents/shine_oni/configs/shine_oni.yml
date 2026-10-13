@@ -1,0 +1,118 @@
+info:
+  namespace: shine_oni
+items:
+  shine_oni_axe:
+    display_name: Shine Oni Axe
+    permission: shine_oni.axe
+    resource:
+      material: IRON_AXE
+      generate: false
+      model_path: axe
+  shine_oni_battle_axe:
+    display_name: Shine Oni Battle Axe
+    permission: shine_oni.battle_axe
+    resource:
+      material: IRON_SWORD
+      generate: false
+      model_path: battle_axe
+  shine_oni_big_sword:
+    display_name: Shine Oni Big Sword
+    permission: shine_oni.big_sword
+    resource:
+      material: IRON_SWORD
+      generate: false
+      model_path: big_sword
+  shine_oni_bow:
+    display_name: Shine Oni Bow
+    permission: shine_oni.bow
+    resource:
+      material: BOW
+      generate: false
+      model_path: bow
+  shine_oni_key:
+    display_name: Shine Oni Key
+    permission: shine_oni.key
+    resource:
+      material: TRIPWIRE_HOOK
+      generate: false
+      model_path: key
+      model_id: 8610000
+  shine_oni_chest:
+    display_name: Shine Oni Chest
+    permission: shine_oni.chest
+    resource:
+      material: SEA_LANTERN
+      generate: false
+      model_path: chest
+    behaviours:
+      furniture:
+        entity: item_frame
+        fixed_rotation: true
+        hitbox:
+          height: 1
+          height_offset: 0
+          length: 1
+          length_offset: 0
+          width: 1
+          width_offset: 0
+        placeable_on:
+          ceiling: false
+          floor: true
+          walls: false
+        solid: true
+  shine_oni_hoe:
+    display_name: Shine Oni Hoe
+    permission: shine_oni.hoe
+    resource:
+      material: IRON_HOE
+      generate: false
+      model_path: hoe
+  shine_oni_pickaxe:
+    display_name: Shine Oni Pickaxe
+    permission: shine_oni.pickaxe
+    resource:
+      material: IRON_PICKAXE
+      generate: false
+      model_path: pickaxe
+  shine_oni_shield:
+    display_name: Shine Oni Shield
+    permission: shine_oni.shield
+    resource:
+      material: SHIELD
+      generate: false
+      model_path: shield
+  shine_oni_shovel:
+    display_name: Shine Oni Shovel
+    permission: shine_oni.shovel
+    resource:
+      material: IRON_SHOVEL
+      generate: false
+      model_path: shovel
+  shine_oni_sickle:
+    display_name: Shine Oni Sickle
+    permission: shine_oni.sickle
+    resource:
+      material: IRON_SWORD
+      generate: false
+      model_path: sickle
+  shine_oni_spear:
+    display_name: Shine Oni Spear
+    permission: shine_oni.spear
+    resource:
+      material: IRON_SWORD
+      generate: false
+      model_path: spear
+  shine_oni_staff:
+    display_name: Shine Oni Staff
+    permission: shine_oni.staff
+    resource:
+      material: IRON_SWORD
+      generate: false
+      model_path: staff
+  shine_oni_wings:
+    display_name: Shine Oni Wings
+    permission: shine_oni.wings
+    resource:
+      material: PAPER
+      generate: false
+      model_path: wings

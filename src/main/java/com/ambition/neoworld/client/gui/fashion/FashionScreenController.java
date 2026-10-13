@@ -1,6 +1,6 @@
 package com.ambition.neoworld.client.gui.fashion;
 
-import com.ambition.neoworld.network.FashionActionResultPayload;
+import com.ambition.neoworld.network.fashion.FashionActionResultPayload;
 
 import net.minecraft.client.Minecraft;
 

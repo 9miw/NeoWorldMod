@@ -1,0 +1,36 @@
+categories:
+  lunarset:
+    enabled: true
+    icon: lunarset:lunar_sword
+    items:
+    - lunarset:lunar_sword
+    - lunarset:lunar_greatsword
+    - lunarset:lunar_spear
+    - lunarset:lunar_trident
+    - lunarset:lunar_hammer
+    - lunarset:lunar_scythe
+    - lunarset:lunar_staff
+    - lunarset:lunar_bow
+    - lunarset:lunar_crossbow
+    - lunarset:lunar_axe
+    - lunarset:lunar_hoe
+    - lunarset:lunar_pickaxe
+    - lunarset:lunar_shovel
+    - lunarset:lunar_fishing_rod
+    - lunarset:lunar_shield
+    - lunarset:lunar_chest
+    - lunarset:lunar_chest_opening
+    - lunarset:lunar_key
+    - lunarset:lunarhelmet
+    - lunarset:lunarchestplate
+    - lunarset:lunarleggings
+    - lunarset:lunarboots
+    - lunarset:lunar_helmet
+    - lunarset:lunar_tail
+    name: Lunar Weapons & Tools Set
+    permission: ia.menu
+    skip_if_already: false
+info:
+  namespace: lunarset
+
+# 38483T12239IU1HBP

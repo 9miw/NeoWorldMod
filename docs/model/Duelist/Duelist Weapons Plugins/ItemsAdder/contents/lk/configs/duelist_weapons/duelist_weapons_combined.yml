@@ -1,0 +1,75 @@
+info:
+  namespace: lk
+items:
+  netherite_short_sword:
+    display_name: "Netherite Short Sword"
+    resource:
+      material: DIAMOND_SWORD
+      generate: false
+      model_path: "lk:item/netherite_short_sword"
+  diamond_rapier:
+    display_name: "Diamond Rapier"
+    resource:
+      material: DIAMOND_SWORD
+      generate: false
+      model_path: "lk:item/diamond_rapier"
+  diamond_short_sword:
+    display_name: "Diamond Short Sword"
+    resource:
+      material: DIAMOND_SWORD
+      generate: false
+      model_path: "lk:item/diamond_short_sword"
+  golden_rapier:
+    display_name: "Golden Rapier"
+    resource:
+      material: DIAMOND_SWORD
+      generate: false
+      model_path: "lk:item/golden_rapier"
+  golden_short_sword:
+    display_name: "Golden Short Sword"
+    resource:
+      material: DIAMOND_SWORD
+      generate: false
+      model_path: "lk:item/golden_short_sword"
+  iron_rapier:
+    display_name: "Iron Rapier"
+    resource:
+      material: DIAMOND_SWORD
+      generate: false
+      model_path: "lk:item/iron_rapier"
+  iron_short_sword:
+    display_name: "Iron Short Sword"
+    resource:
+      material: DIAMOND_SWORD
+      generate: false
+      model_path: "lk:item/iron_short_sword"
+  netherite_rapier:
+    display_name: "Netherite Rapier"
+    resource:
+      material: DIAMOND_SWORD
+      generate: false
+      model_path: "lk:item/netherite_rapier"
+  iron_revolver:
+    display_name: "Iron Revolver"
+    resource:
+      generate: false
+      model_path: "lk:item/iron_revolver"
+      material: CROSSBOW
+  golden_revolver:
+    display_name: "Golden Revolver"
+    resource:
+      generate: false
+      model_path: "lk:item/golden_revolver"
+      material: CROSSBOW
+  diamond_revolver:
+    display_name: "Diamond Revolver"
+    resource:
+      generate: false
+      model_path: "lk:item/diamond_revolver"
+      material: CROSSBOW
+  netherite_revolver:
+    display_name: "Netherite Revolver"
+    resource:
+      generate: false
+      model_path: "lk:item/netherite_revolver"
+      material: CROSSBOW

@@ -1,0 +1,85 @@
+items:
+  lk:netherite_short_sword:
+    material: DIAMOND_SWORD
+    data:
+      item_name: "<!i><white>Netherite Short Sword"
+    model: "lk:item/netherite_short_sword"
+  lk:diamond_rapier:
+    material: DIAMOND_SWORD
+    data:
+      item_name: "<!i><white>Diamond Rapier"
+    model: "lk:item/diamond_rapier"
+  lk:diamond_short_sword:
+    material: DIAMOND_SWORD
+    data:
+      item_name: "<!i><white>Diamond Short Sword"
+    model: "lk:item/diamond_short_sword"
+  lk:golden_rapier:
+    material: DIAMOND_SWORD
+    data:
+      item_name: "<!i><white>Golden Rapier"
+    model: "lk:item/golden_rapier"
+  lk:golden_short_sword:
+    material: DIAMOND_SWORD
+    data:
+      item_name: "<!i><white>Golden Short Sword"
+    model: "lk:item/golden_short_sword"
+  lk:iron_rapier:
+    material: DIAMOND_SWORD
+    data:
+      item_name: "<!i><white>Iron Rapier"
+    model: "lk:item/iron_rapier"
+  lk:iron_short_sword:
+    material: DIAMOND_SWORD
+    data:
+      item_name: "<!i><white>Iron Short Sword"
+    model: "lk:item/iron_short_sword"
+  lk:netherite_rapier:
+    material: DIAMOND_SWORD
+    data:
+      item_name: "<!i><white>Netherite Rapier"
+    model: "lk:item/netherite_rapier"
+  lk:iron_revolver:
+    material: CROSSBOW
+    data:
+      item_name: "<!i><white>Iron Revolver"
+    models:
+      - lk:item/iron_revolver
+      - lk:item/iron_revolver_pulling_0
+      - lk:item/iron_revolver_pulling_1
+      - lk:item/iron_revolver_pulling_2
+      - lk:item/iron_revolver_charged
+      - lk:item/iron_revolver_firework
+  lk:golden_revolver:
+    material: CROSSBOW
+    data:
+      item_name: "<!i><white>Golden Revolver"
+    models:
+      - lk:item/golden_revolver
+      - lk:item/golden_revolver_pulling_0
+      - lk:item/golden_revolver_pulling_1
+      - lk:item/golden_revolver_pulling_2
+      - lk:item/golden_revolver_charged
+      - lk:item/golden_revolver_firework
+  lk:diamond_revolver:
+    material: CROSSBOW
+    data:
+      item_name: "<!i><white>Diamond Revolver"
+    models:
+      - lk:item/diamond_revolver
+      - lk:item/diamond_revolver_pulling_0
+      - lk:item/diamond_revolver_pulling_1
+      - lk:item/diamond_revolver_pulling_2
+      - lk:item/diamond_revolver_charged
+      - lk:item/diamond_revolver_firework
+  lk:netherite_revolver:
+    material: CROSSBOW
+    data:
+      item_name: "<!i><white>Netherite Revolver"
+    models:
+      - lk:item/netherite_revolver
+      - lk:item/netherite_revolver_pulling_0
+      - lk:item/netherite_revolver_pulling_1
+      - lk:item/netherite_revolver_pulling_2
+      - lk:item/netherite_revolver_charged
+      - lk:item/netherite_revolver_firework

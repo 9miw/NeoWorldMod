@@ -1,0 +1,73 @@
+armors_rendering:
+  shine_oniarmor:
+    color: '#7d1b49'
+    layer_1: armor/shine_oni_armor_layer_1
+    layer_2: armor/shine_oni_armor_layer_2
+    use_color: false
+info:
+  namespace: shine_oni
+items:
+  shine_onihelmet:
+    display_name: Shine Oni Helmet
+    permission: shine_oni.helmet
+    resource:
+      generate: true
+      textures:
+      - armor/shine_oni_helmet_icon.png
+    specific_properties:
+      armor:
+        custom_armor: shine_oniarmor
+        slot: head
+    attribute_modifiers:
+      head:
+        armor: 2
+    durability:
+      max_custom_durability: 165
+  shine_onichestplate:
+    display_name: Shine Oni Chestplate
+    permission: shine_oni.chestplate
+    resource:
+      generate: true
+      textures:
+      - armor/shine_oni_chestplate_icon.png
+    specific_properties:
+      armor:
+        custom_armor: shine_oniarmor
+        slot: chest
+    attribute_modifiers:
+      chest:
+        armor: 6
+    durability:
+      max_custom_durability: 240
+  shine_onileggings:
+    display_name: Shine Oni Leggings
+    permission: shine_oni.leggings
+    resource:
+      generate: true
+      textures:
+      - armor/shine_oni_leggings_icon.png
+    specific_properties:
+      armor:
+        custom_armor: shine_oniarmor
+        slot: legs
+    attribute_modifiers:
+      legs:
+        armor: 5
+    durability:
+      max_custom_durability: 225
+  shine_oniboots:
+    display_name: Shine Oni Boots
+    permission: shine_oni.boots
+    resource:
+      generate: true
+      textures:
+      - armor/shine_oni_boots_icon.png
+    specific_properties:
+      armor:
+        custom_armor: shine_oniarmor
+        slot: feet
+    attribute_modifiers:
+      feet:
+        armor: 2
+    durability:
+      max_custom_durability: 195

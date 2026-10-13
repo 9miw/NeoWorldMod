@@ -93,26 +93,14 @@ public class CoinItem extends Item {
 
         long value = getCoinValue(stack);
 
-        // แสดงมูลค่าเหรียญ
-        if (value > 1) {
-            tooltipComponents.add(Component.literal("§eมูลค่า: " + this.coinType.getFormat() + String.format("%,d", value) + " " + this.coinType.getDisplayName())
-                    .withStyle(ChatFormatting.BOLD));
-            if (stack.getCount() > 1) {
-                tooltipComponents.add(Component.literal("§7(รวมทั้งกอง: " + this.coinType.getFormat() + (getTotalValue(stack) < 0 ? "INVALID" : String.format("%,d", getTotalValue(stack))) + " " + this.coinType.getDisplayName() + "§7)"));
-            }
-        }
-
-        switch (this.coinType) {
-            case SILVER -> {
-                tooltipComponents.add(Component.translatable("tooltip.neoworld.silver_coin.desc").withStyle(ChatFormatting.GRAY));
-            }
-            case GOLD -> {
-                tooltipComponents.add(Component.translatable("tooltip.neoworld.gold_coin.desc").withStyle(ChatFormatting.GOLD));
-            }
-            case DIAMOND -> {
-                tooltipComponents.add(Component.translatable("tooltip.neoworld.diamond_coin.desc").withStyle(ChatFormatting.AQUA));
-            }
-        }
+        tooltipComponents.add(Component.translatable("tooltip.neoworld.shared.coin.value",
+                String.format("%,d", value), coinType.getDisplayName()).withStyle(coinType.getFormat()));
+        tooltipComponents.add(Component.translatable("tooltip.neoworld.shared.coin.count", stack.getCount())
+                .withStyle(ChatFormatting.GRAY));
+        long total = getTotalValue(stack);
+        tooltipComponents.add(Component.translatable("tooltip.neoworld.shared.coin.total",
+                total < 0 ? "INVALID" : String.format("%,d", total), coinType.getDisplayName())
+                .withStyle(coinType.getFormat()));
     }
 }
 

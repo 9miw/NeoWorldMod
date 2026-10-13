@@ -1,0 +1,1 @@
+{"parent": "minecraft:item/generated", "textures": {"layer0": "minecraft:item/paper"}, "overrides": [{"predicate": {"custom_model_data": 10326}, "model": "shine_oni:wings"}, {"predicate": {"custom_model_data": 10327}, "model": "item/paper"}]}

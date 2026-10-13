@@ -1,0 +1,10 @@
+cosmetics:
+  lunar_cosmetics_helmet:
+    enabled: true
+    display_name: Lunar Cosmetics Helmet
+    type: HAT
+    model:
+      gui: potion:543000
+      normal: potion:543000
+    dye:
+      enabled: false

@@ -1,0 +1,43 @@
+# shine_oni:axe  |  /minecraft:give @p minecraft:iron_axe[custom_model_data=10155, custom_name='{"text":"Shine Oni Axe", "italic":false}']
+
+shine_oni:battle_axe  |  /minecraft:give @p minecraft:iron_sword[custom_model_data=1499076, custom_name='{"text":"Shine Oni Battle Axe", "italic":false}']
+
+shine_oni:big_sword  |  /minecraft:give @p minecraft:iron_sword[custom_model_data=1499077, custom_name='{"text":"Shine Oni Big Sword", "italic":false}']
+
+shine_oni:bow  |  /minecraft:give @p minecraft:bow[custom_model_data=10160, custom_name='{"text":"Shine Oni Bow", "italic":false}']
+
+shine_oni:key  |  /minecraft:give @p minecraft:tripwire_hook[custom_model_data=8610000,custom_name='{"text":"Shine Oni Key","italic":false}']
+
+shine_oni:chest  |  /minecraft:give @p minecraft:sea_lantern[custom_model_data=10184, custom_name='{"text":"Shine Oni Chest", "italic":false}']
+
+shine_oni:hoe  |  /minecraft:give @p minecraft:iron_hoe[custom_model_data=10155, custom_name='{"text":"Shine Oni Hoe", "italic":false}']
+
+shine_oni:pickaxe  |  /minecraft:give @p minecraft:iron_pickaxe[custom_model_data=10156, custom_name='{"text":"Shine Oni Pickaxe", "italic":false}']
+
+shine_oni:shield  |  /minecraft:give @p minecraft:shield[custom_model_data=10154, custom_name='{"text":"Shine Oni Shield", "italic":false}']
+
+shine_oni:shovel  |  /minecraft:give @p minecraft:iron_shovel[custom_model_data=10156, custom_name='{"text":"Shine Oni Shovel", "italic":false}']
+
+shine_oni:sickle  |  /minecraft:give @p minecraft:iron_sword[custom_model_data=1499078, custom_name='{"text":"Shine Oni Sickle", "italic":false}']
+
+shine_oni:spear  |  /minecraft:give @p minecraft:iron_sword[custom_model_data=1499079, custom_name='{"text":"Shine Oni Spear", "italic":false}']
+
+shine_oni:staff  |  /minecraft:give @p minecraft:iron_sword[custom_model_data=1499080, custom_name='{"text":"Shine Oni Staff", "italic":false}']
+
+shine_oni:wings  |  /minecraft:give @p minecraft:paper[custom_model_data=10326, custom_name='{"text":"Shine Oni Wings", "italic":false}']
+
+shine_oni:shine_onihelmet  |  /minecraft:give @p minecraft:leather_helmet[custom_model_data=10142, custom_name='{"text":"Shine Oni Helmet", "italic":false}',dyed_color={rgb:8198985}]
+
+shine_oni:shine_onichestplate  |  /minecraft:give @p minecraft:leather_chestplate[custom_model_data=10146, custom_name='{"text":"Shine Oni Chestplate", "italic":false}',dyed_color={rgb:8198985}]
+
+shine_oni:shine_onileggings  |  /minecraft:give @p minecraft:leather_leggings[custom_model_data=10146, custom_name='{"text":"Shine Oni Leggings", "italic":false}',dyed_color={rgb:8198985}]
+
+shine_oni:shine_oniboots  |  /minecraft:give @p minecraft:leather_boots[custom_model_data=10146, custom_name='{"text":"Shine Oni Boots", "italic":false}',dyed_color={rgb:8198985}]
+
+shine_oni:wings_cosmetic  |  /minecraft:give @p minecraft:potion[custom_model_data=8610000,custom_name='{"text":"Shine Oni Wings Cosmetics","italic":false}']
+
+shine_oni:wings_cosmetic_self  |  /minecraft:give @p minecraft:potion[custom_model_data=8610001,custom_name='{"text":"Shine Oni Wings Cosmetics Self","italic":false}']
+
+shine_oni:wings_cosmetic_self_2  |  /minecraft:give @p minecraft:potion[custom_model_data=8610002,custom_name='{"text":"Shine Oni Wings Cosmetics Self 2","italic":false}']
+
+shine_oni:wings_cosmetic_normal_2  |  /minecraft:give @p minecraft:potion[custom_model_data=8610003,custom_name='{"text":"Shine Oni Wings Cosmetics Normal 2","italic":false}']

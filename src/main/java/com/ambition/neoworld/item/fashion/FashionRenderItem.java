@@ -1,6 +1,6 @@
 package com.ambition.neoworld.item.fashion;
 
-import com.ambition.neoworld.data.fashion.FashionSlot;
+import com.ambition.neoworld.fashion.data.FashionSlot;
 
 public interface FashionRenderItem {
     FashionSlot fashionSlot();

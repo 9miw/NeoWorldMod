@@ -1,0 +1,13 @@
+cosmetics:
+  lunar_cosmetics_tail:
+    enabled: true
+    display_name: Lunar Cosmetics Tail
+    type: BODY_ITEM
+    model:
+      gui: potion:543001
+      normal: potion:543001
+      normal_2: potion:543004
+      self: potion:543002
+      self_2: potion:543003
+    dye:
+      enabled: false

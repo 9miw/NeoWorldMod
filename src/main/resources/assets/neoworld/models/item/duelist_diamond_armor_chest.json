@@ -1,0 +1,44 @@
+{
+  "loader": "neoforge:obj",
+  "model": "neoworld:models/item/duelist_armor_chest.obj",
+  "automatic_culling": false,
+  "flip_v": true,
+  "emissive_ambient": false,
+  "textures": {
+    "particle": "neoworld:item/duelist/diamond_duelist_armor"
+  },
+  "display": {
+    "thirdperson_righthand": {
+      "translation": [
+        0,
+        -6.5,
+        0
+      ],
+      "scale": [
+        0.5,
+        0.5,
+        0.5
+      ]
+    },
+    "gui": {
+      "translation": [
+        0,
+        -5,
+        0
+      ],
+      "scale": [
+        0.7,
+        0.7,
+        0.7
+      ]
+    },
+    "fixed": {
+      "translation": [
+        0,
+        -7.25,
+        0
+      ]
+    }
+  },
+  "mtl_override": "neoworld:models/item/duelist_diamond_icons.mtl"
+}

@@ -21,7 +21,7 @@ import net.neoforged.fml.loading.FMLPaths;
 
 /** Shared database stored outside individual world saves. */
 public final class NeoWorldDatabase {
-    private static final int LATEST_SCHEMA_VERSION = 3;
+    private static final int LATEST_SCHEMA_VERSION = 7;
 
     private static HikariDataSource dataSource;
     private static Config.DatabaseType databaseType;
@@ -178,6 +178,19 @@ public final class NeoWorldDatabase {
             }
             case 2 -> createMarketSchema(connection, type, tablePrefix);
             case 3 -> addMarketQueryColumns(connection, tablePrefix);
+            case 4 -> createTitleSchema(connection, tablePrefix);
+            case 5 -> addMarketSaleClaimColumns(connection, type, tablePrefix);
+            case 6 -> {
+                try (Statement statement = connection.createStatement()) {
+                    statement.executeUpdate("CREATE TABLE IF NOT EXISTS " + tablePrefix + "pvp_ratings (player_id VARCHAR(36) PRIMARY KEY, player_name VARCHAR(64) NOT NULL, rating INTEGER NOT NULL, wins INTEGER NOT NULL, losses INTEGER NOT NULL)");
+                    statement.executeUpdate("CREATE TABLE IF NOT EXISTS " + tablePrefix + "pvp_results (match_id VARCHAR(36) PRIMARY KEY, player_a VARCHAR(36) NOT NULL, player_b VARCHAR(36) NOT NULL, score_a DOUBLE NOT NULL, reason VARCHAR(128) NOT NULL, created_at TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP)");
+                }
+            }
+            case 7 -> {
+                try(Statement statement=connection.createStatement()) {
+                    statement.executeUpdate("CREATE TABLE IF NOT EXISTS " + tablePrefix + "pvp_results_details (match_id VARCHAR(36) PRIMARY KEY, before_a INTEGER NOT NULL, after_a INTEGER NOT NULL, before_b INTEGER NOT NULL, after_b INTEGER NOT NULL)");
+                }
+            }
             default -> throw new SQLException("Unknown NeoWorld database migration: " + version);
         }
     }
@@ -251,11 +264,73 @@ public final class NeoWorldDatabase {
         }
     }
 
+    private static void addMarketSaleClaimColumns(Connection connection, Config.DatabaseType type, String prefix)
+            throws SQLException {
+        String blob = type == Config.DatabaseType.H2 ? "BINARY LARGE OBJECT" : "LONGBLOB";
+        try (Statement statement = connection.createStatement()) {
+            statement.executeUpdate("ALTER TABLE " + prefix
+                    + "market_transactions ADD COLUMN IF NOT EXISTS item_nbt " + blob);
+            statement.executeUpdate("ALTER TABLE " + prefix
+                    + "market_transactions ADD COLUMN IF NOT EXISTS quantity INTEGER NOT NULL DEFAULT 0");
+            statement.executeUpdate("ALTER TABLE " + prefix
+                    + "market_transactions ADD COLUMN IF NOT EXISTS unit_price_silver BIGINT NOT NULL DEFAULT 0");
+            statement.executeUpdate("ALTER TABLE " + prefix
+                    + "market_transactions ADD COLUMN IF NOT EXISTS proceeds_silver BIGINT NOT NULL DEFAULT 0");
+            statement.executeUpdate("ALTER TABLE " + prefix
+                    + "market_transactions ADD COLUMN IF NOT EXISTS claimed BOOLEAN NOT NULL DEFAULT TRUE");
+            statement.executeUpdate("ALTER TABLE " + prefix
+                    + "market_transactions ADD COLUMN IF NOT EXISTS claimed_game_time BIGINT NOT NULL DEFAULT 0");
+            statement.executeUpdate("CREATE INDEX IF NOT EXISTS " + prefix
+                    + "idx_market_sales_owner ON " + prefix
+                    + "market_transactions (seller_id, transaction_type, claimed, game_time)");
+        }
+    }
+
     public static String tableName(String suffix) {
         if (suffix == null || !suffix.matches("[a-z][a-z0-9_]{0,62}")) {
             throw new IllegalArgumentException("Unsafe NeoWorld table suffix");
         }
         return Config.DATABASE_TABLE_PREFIX.get() + suffix;
+    }
+
+    private static void createTitleSchema(Connection connection, String prefix) throws SQLException {
+        try (Statement statement = connection.createStatement()) {
+            statement.executeUpdate("""
+                    CREATE TABLE IF NOT EXISTS %stitle_players (
+                        player_id VARCHAR(36) PRIMARY KEY,
+                        equipped_title VARCHAR(64) NOT NULL DEFAULT '',
+                        show_title BOOLEAN NOT NULL DEFAULT TRUE,
+                        show_effects BOOLEAN NOT NULL DEFAULT TRUE
+                    )
+                    """.formatted(prefix));
+            statement.executeUpdate("""
+                    CREATE TABLE IF NOT EXISTS %stitle_unlocks (
+                        player_id VARCHAR(36) NOT NULL,
+                        title_id VARCHAR(64) NOT NULL,
+                        acquired_at BIGINT NOT NULL,
+                        PRIMARY KEY (player_id, title_id),
+                        FOREIGN KEY (player_id) REFERENCES %stitle_players(player_id)
+                    )
+                    """.formatted(prefix, prefix));
+            statement.executeUpdate("""
+                    CREATE TABLE IF NOT EXISTS %stitle_progress (
+                        player_id VARCHAR(36) NOT NULL,
+                        metric VARCHAR(64) NOT NULL,
+                        amount BIGINT NOT NULL,
+                        PRIMARY KEY (player_id, metric),
+                        FOREIGN KEY (player_id) REFERENCES %stitle_players(player_id)
+                    )
+                    """.formatted(prefix, prefix));
+            statement.executeUpdate("""
+                    CREATE TABLE IF NOT EXISTS %stitle_discoveries (
+                        player_id VARCHAR(36) NOT NULL,
+                        metric VARCHAR(64) NOT NULL,
+                        discovery_id VARCHAR(128) NOT NULL,
+                        PRIMARY KEY (player_id, metric, discovery_id),
+                        FOREIGN KEY (player_id) REFERENCES %stitle_players(player_id)
+                    )
+                    """.formatted(prefix, prefix));
+        }
     }
 
     private static void recordMigration(Connection connection, String tablePrefix, int version) throws SQLException {

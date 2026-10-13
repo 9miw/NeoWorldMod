@@ -12,6 +12,7 @@ import com.ambition.neoworld.registry.ModDataComponents;
 import com.ambition.neoworld.datagen.ModDimensionDatapackProvider;
 import com.ambition.neoworld.registry.ModItems;
 import com.ambition.neoworld.registry.ModPayloads;
+import com.ambition.neoworld.registry.ModMenus;
 import com.ambition.neoworld.database.NeoWorldDatabase;
 import com.mojang.logging.LogUtils;
 
@@ -47,6 +48,8 @@ public class NeoWorld {
         ModCreativeTabs.CREATIVE_MODE_TABS.register(modEventBus);
         ModAttachments.ATTACHMENT_TYPES.register(modEventBus);
         ModDataComponents.DATA_COMPONENTS.register(modEventBus);
+        com.ambition.neoworld.registry.ModParticles.PARTICLES.register(modEventBus);
+        ModMenus.MENUS.register(modEventBus);
 
         // ลงทะเบียน Network Payloads
         modEventBus.addListener(ModPayloads::register);
@@ -61,6 +64,10 @@ public class NeoWorld {
             throw new IllegalStateException("Could not create the NeoWorld config directory", exception);
         }
         modContainer.registerConfig(ModConfig.Type.COMMON, Config.SPEC, MODID + "/neoworld.toml");
+        modContainer.registerConfig(ModConfig.Type.SERVER,
+                com.ambition.neoworld.world.WorldMessageConfig.SPEC, "neoworld-world-messages.toml");
+        modContainer.registerConfig(ModConfig.Type.SERVER,
+                com.ambition.neoworld.upgrade.UpgradeConfig.SPEC, "neoworld-upgrade.toml");
     }
 
     private void commonSetup(FMLCommonSetupEvent event) {
@@ -97,10 +104,18 @@ public class NeoWorld {
     @SubscribeEvent
     public void onServerStarting(ServerStartingEvent event) {
         NeoWorldDatabase.initialize();
+        try {
+            com.ambition.neoworld.title.service.TitleService.start(event.getServer());
+        } catch (RuntimeException exception) {
+            NeoWorldDatabase.shutdown();
+            throw exception;
+        }
     }
 
     @SubscribeEvent
     public void onServerStopping(ServerStoppingEvent event) {
+        com.ambition.neoworld.title.service.TitleService.stop();
+        com.ambition.neoworld.title.sync.TitleSync.clear();
         NeoWorldDatabase.shutdown();
     }
 }

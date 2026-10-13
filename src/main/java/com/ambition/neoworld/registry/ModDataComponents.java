@@ -1,7 +1,7 @@
 package com.ambition.neoworld.registry;
 
 import com.ambition.neoworld.NeoWorld;
-import com.ambition.neoworld.data.fashion.FashionSlot;
+import com.ambition.neoworld.fashion.data.FashionSlot;
 import com.mojang.serialization.Codec;
 import com.mojang.serialization.DataResult;
 
@@ -15,6 +15,14 @@ import net.neoforged.neoforge.registries.DeferredRegister;
 public class ModDataComponents {
     public static final DeferredRegister.DataComponents DATA_COMPONENTS =
             DeferredRegister.createDataComponents(Registries.DATA_COMPONENT_TYPE, NeoWorld.MODID);
+
+    public static final DeferredHolder<DataComponentType<?>, DataComponentType<Integer>> UPGRADE_LEVEL =
+            DATA_COMPONENTS.registerComponentType("upgrade_level", builder -> builder
+                    .persistent(Codec.intRange(0, 15)).networkSynchronized(ByteBufCodecs.VAR_INT));
+
+    public static final DeferredHolder<DataComponentType<?>, DataComponentType<Integer>> UPGRADE_FAILURES =
+            DATA_COMPONENTS.registerComponentType("upgrade_failures", builder -> builder
+                    .persistent(Codec.intRange(0, Integer.MAX_VALUE)).networkSynchronized(ByteBufCodecs.VAR_INT));
 
     // มูลค่าของเหรียญต่อ 1 ชิ้น (Default ถ้าไม่มีคือ 1)
     public static final DeferredHolder<DataComponentType<?>, DataComponentType<Long>> COIN_VALUE =

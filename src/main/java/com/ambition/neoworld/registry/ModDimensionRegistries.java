@@ -5,6 +5,7 @@ import java.util.Optional;
 import java.util.OptionalLong;
 
 import com.ambition.neoworld.NeoWorld;
+import com.ambition.neoworld.pvp.PvpDimensions;
 
 import net.minecraft.core.RegistrySetBuilder;
 import net.minecraft.core.registries.Registries;
@@ -64,6 +65,7 @@ public final class ModDimensionRegistries {
     }
 
     private static void bootstrapDimensionType(BootstrapContext<DimensionType> context) {
+        PvpDimensions.bootstrapDimensionType(context);
         context.register(DUNGEON_DIMENSION_TYPE, new DimensionType(
                 OptionalLong.of(18_000L),
                 false,
@@ -87,6 +89,7 @@ public final class ModDimensionRegistries {
     }
 
     private static void bootstrapLevelStem(BootstrapContext<LevelStem> context) {
+        PvpDimensions.bootstrapLevelStem(context);
         var dimensionType = context.lookup(Registries.DIMENSION_TYPE)
                 .getOrThrow(DUNGEON_DIMENSION_TYPE);
         var voidBiome = context.lookup(Registries.BIOME)

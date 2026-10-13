@@ -1,0 +1,59 @@
+equipments:
+  lunararmor:
+    layer_1: armor/lunar_armor_layer_1
+    layer_2: armor/lunar_armor_layer_2
+info:
+  namespace: lunarset
+items:
+  lunarboots:
+    display_name: Lunar Boots
+    durability:
+      max_custom_durability: 195
+    equipment:
+      id: lunararmor
+      slot: FEET
+    permission: lunarset.use
+    resource:
+      generate: true
+      material: NETHERITE_BOOTS
+      textures:
+      - armor/lunar_boots_icon.png
+  lunarchestplate:
+    display_name: Lunar Chestplate
+    durability:
+      max_custom_durability: 240
+    equipment:
+      id: lunararmor
+      slot: CHEST
+    permission: lunarset.use
+    resource:
+      generate: true
+      material: NETHERITE_CHESTPLATE
+      textures:
+      - armor/lunar_chestplate_icon.png
+  lunarhelmet:
+    display_name: Lunar Helmet
+    durability:
+      max_custom_durability: 165
+    equipment:
+      id: lunararmor
+      slot: HEAD
+    permission: lunarset.use
+    resource:
+      generate: true
+      material: NETHERITE_HELMET
+      textures:
+      - armor/lunar_helmet_icon.png
+  lunarleggings:
+    display_name: Lunar Leggings
+    durability:
+      max_custom_durability: 225
+    equipment:
+      id: lunararmor
+      slot: LEGS
+    permission: lunarset.use
+    resource:
+      generate: true
+      material: NETHERITE_LEGGINGS
+      textures:
+      - armor/lunar_leggings_icon.png

@@ -1,0 +1,1 @@
+{"parent": "minecraft:block/sea_lantern", "overrides": [{"predicate": {"custom_model_data": 10184}, "model": "shine_oni:chest"}, {"predicate": {"custom_model_data": 10185}, "model": "item/sea_lantern"}]}

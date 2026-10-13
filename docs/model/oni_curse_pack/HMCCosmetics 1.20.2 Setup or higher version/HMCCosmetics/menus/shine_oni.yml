@@ -1,0 +1,32 @@
+title: <white>
+rows: 6
+items:
+  shine_oni_cosmetics_wings:
+    slots:
+    - 0
+    item:
+      name: <white>Shine Oni Wings
+      material: POTION
+      model-data: 8610000
+      color: '#ffffff'
+      item-flags:
+      - HIDE_ATTRIBUTES
+      - HIDE_POTION_EFFECTS
+      amount: 1
+      lore:
+      - ''
+      - '<gray>Enabled: <#6D9DC5>%HMCCosmetics_equipped_shine_oni_cosmetics_wings%'
+      - '<gray>Allowed: <#6D9DC5>%HMCCosmetics_unlocked_shine_oni_cosmetics_wings%'
+    type: cosmetic
+    cosmetic: shine_oni_cosmetics_wings
+    locked-item:
+      name: <white>Shine Oni Wings <red><b>(LOCK)
+      material: POTION
+      model-data: 8610000
+      color: '#ffffff'
+      item-flags:
+      - HIDE_ATTRIBUTES
+      - HIDE_POTION_EFFECTS
+      amount: 1
+      lore:
+      - <RED>You do not have this cosmetic available

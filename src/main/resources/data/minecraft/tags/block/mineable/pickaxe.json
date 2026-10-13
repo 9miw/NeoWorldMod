@@ -1,6 +1,7 @@
 {
   "replace": false,
   "values": [
-    "neoworld:example_block"
+    "neoworld:example_block",
+    "neoworld:upgrade_table"
   ]
 }

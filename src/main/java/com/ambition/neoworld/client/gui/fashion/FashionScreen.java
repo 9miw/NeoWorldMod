@@ -1,434 +1,512 @@
 package com.ambition.neoworld.client.gui.fashion;
 
 import java.util.ArrayList;
+import java.util.Comparator;
+import java.util.EnumMap;
 import java.util.List;
+import java.util.Locale;
+import java.util.Map;
+import org.joml.Quaternionf;
+import org.joml.Vector3f;
 
 import com.ambition.neoworld.NeoWorld;
-import com.ambition.neoworld.client.ClientFashionData;
-import com.ambition.neoworld.data.fashion.FashionSlot;
-import com.ambition.neoworld.network.FashionActionResultPayload;
-import com.ambition.neoworld.network.FashionClearPayload;
-import com.ambition.neoworld.network.FashionEquipPayload;
+import com.ambition.neoworld.client.gui.widget.NeoButton;
+import com.ambition.neoworld.client.gui.common.NeoGuiIcons;
+import com.ambition.neoworld.client.state.ClientFashionData;
+import com.ambition.neoworld.fashion.data.FashionSlot;
+import com.ambition.neoworld.network.fashion.FashionActionResultPayload;
+import com.ambition.neoworld.network.fashion.FashionClearPayload;
+import com.ambition.neoworld.network.fashion.FashionEquipPayload;
 import com.ambition.neoworld.registry.ModDataComponents;
 
 import net.minecraft.ChatFormatting;
-import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.GuiGraphics;
+import net.minecraft.client.gui.components.Button;
 import net.minecraft.client.gui.components.EditBox;
+import net.minecraft.client.gui.components.Tooltip;
 import net.minecraft.client.gui.screens.Screen;
+import net.minecraft.client.gui.screens.inventory.InventoryScreen;
+import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.network.chat.Component;
 import net.minecraft.resources.ResourceLocation;
-import net.minecraft.world.entity.player.Inventory;
+import net.minecraft.util.Mth;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Items;
 import net.neoforged.neoforge.network.PacketDistributor;
 
 public final class FashionScreen extends Screen {
-    private static final ResourceLocation FRAME_TEXTURE = ResourceLocation.fromNamespaceAndPath(
-            NeoWorld.MODID, "textures/gui/fashion/fashion_frame.png");
-    private static final ResourceLocation WIDGET_TEXTURE = ResourceLocation.fromNamespaceAndPath(
-            NeoWorld.MODID, "textures/gui/fashion/fashion_widgets.png");
-    private static final int FRAME_TEXTURE_WIDTH = 430;
-    private static final int FRAME_TEXTURE_HEIGHT = 236;
-    private static final int WIDGET_TEXTURE_WIDTH = 256;
-    private static final int WIDGET_TEXTURE_HEIGHT = 128;
+    private static final ResourceLocation CATEGORY_PANEL = ResourceLocation.fromNamespaceAndPath(
+            NeoWorld.MODID, "textures/gui/fashion/fashion_category_panel.png");
+    private static final ResourceLocation WARDROBE_PANEL = fashionTexture("wardrobe_panel");
+    private static final ResourceLocation SEARCH_NORMAL = fashionTexture("search_normal");
+    private static final ResourceLocation SEARCH_FOCUS = fashionTexture("search_focus");
+    private static final ResourceLocation SEARCH_ICON = fashionTexture("search_icon");
+    private static final ResourceLocation DETAIL = fashionTexture("wardrobe_detail");
+    private static final int SOURCE_WIDTH = 430;
+    private static final int SOURCE_HEIGHT = 236;
+    private static final int TEXT = 0xFFE7ECEF;
+    private static final int MUTED = 0xFFABB4BA;
+    private static final int TEAL = 0xFF2FB5A7;
+    private static final int GOLD = 0xFFF2C14E;
+    private static final int SLOT_GAP = 2;
 
-    private static final int COLOR_PANEL = 0xF51A2024;
-    private static final int COLOR_PANEL_DARK = 0xF00E1215;
-    private static final int COLOR_FRAME = 0xFF4C565E;
-    private static final int COLOR_FRAME_LIGHT = 0xFF87919A;
-    private static final int COLOR_SLOT = 0xFF252B2F;
-    private static final int COLOR_SLOT_HOVER = 0xFF38464D;
-    private static final int COLOR_TEAL = 0xFF2FB5A7;
-    private static final int COLOR_TEAL_DARK = 0xFF176B65;
-    private static final int COLOR_GOLD = 0xFFF2C14E;
-    private static final int COLOR_MUTED = 0xFFABB4BA;
-
-    private static final int GRID_COLUMNS = 6;
-    private static final int GRID_ROWS = 4;
-    private static final int SLOT_SIZE = 22;
-
-    private final List<InventoryEntry> fashionItems = new ArrayList<>();
-    private EditBox searchBox;
-    private int panelX;
-    private int panelY;
+    private final Map<FashionSlot, FashionCategoryButton> categories = new EnumMap<>(FashionSlot.class);
+    private final List<WardrobeEntry> entries = new ArrayList<>();
+    private final List<FashionSlotButton> tiles = new ArrayList<>();
+    private EditBox search;
+    private FashionActionButton equip;
+    private FashionActionButton clear;
+    private FashionActionButton previous;
+    private FashionActionButton next;
+    private FashionSlot category = FashionSlot.HEAD;
+    private ResourceLocation selectedId;
+    private int page;
+    private int x;
+    private int y;
     private int panelWidth;
     private int panelHeight;
     private int leftX;
+    private int leftWidth;
     private int centerX;
+    private int centerWidth;
     private int rightX;
+    private int rightWidth;
     private int contentY;
-    private int selectedInventorySlot = -1;
-    private FashionSlot selectedSlot = FashionSlot.HEAD;
-    private boolean hideArmor;
-    private boolean showFashion = true;
-    private String status = "";
-    private int statusColor = 0xFFE3E7EA;
+    private int rowY;
+    private int rowHeight;
+    private int gridX;
+    private int gridY;
+    private int slotSize;
+    private int searchY;
+    private int detailY;
+    private int columns;
+    private int rows;
+    private int pagerY;
+    private int actionY;
+    private int pendingTicks;
     private int statusTicks;
+    private int ownedCount;
+    private float previewYaw;
+    private boolean rotatingPreview;
+    private String status = "";
+    private int statusColor = TEXT;
 
     public FashionScreen() {
-        super(Component.literal("Fashion Dressing Room"));
+        super(Component.literal("คลังแฟชั่น"));
     }
 
     @Override
     protected void init() {
-        panelWidth = Math.min(430, width - 10);
-        panelHeight = Math.min(236, height - 10);
-        panelX = (width - panelWidth) / 2;
-        panelY = (height - panelHeight) / 2;
-        contentY = panelY + 34;
-        leftX = panelX + 8;
-        centerX = panelX + 130;
-        rightX = panelX + 282;
+        rotatingPreview = false;
+        String query = search == null ? "" : search.getValue();
+        panelWidth = Math.min(SOURCE_WIDTH, width - 8);
+        panelHeight = Math.min(SOURCE_HEIGHT, height - 8);
+        x = (width - panelWidth) / 2;
+        y = (height - panelHeight) / 2;
+        leftX = sx(14);
+        leftWidth = sx(114) - leftX;
+        centerX = sx(136);
+        centerWidth = sx(238) - centerX;
+        rightX = sx(250);
+        rightWidth = sx(416) - rightX;
+        contentY = sy(39);
+        actionY = y + panelHeight - 29;
+        rowY = contentY + 17;
+        rowHeight = Math.min(27, (actionY + 18 - rowY) / FashionSlot.values().length);
+        searchY = contentY + 15;
+        gridY = searchY + 17;
+        detailY = actionY - 26;
+        pagerY = detailY - 19;
+        columns = Math.max(1, Math.min(5, (rightWidth + SLOT_GAP) / (22 + SLOT_GAP)));
+        int availableGridHeight = pagerY - gridY - 3;
+        rows = Math.max(1, Math.min(3, (availableGridHeight + SLOT_GAP) / (22 + SLOT_GAP)));
+        slotSize = Math.min(32, Math.min((rightWidth - (columns - 1) * SLOT_GAP) / columns,
+                (availableGridHeight - (rows - 1) * SLOT_GAP) / rows));
+        gridX = rightX + (rightWidth - gridWidth()) / 2;
 
-        searchBox = new EditBox(font, rightX + 9, contentY + 25, 110, 14, Component.literal("Search"));
-        searchBox.setMaxLength(48);
-        searchBox.setBordered(false);
-        searchBox.setTextColor(0xFFE7ECEF);
-        searchBox.setHint(Component.literal("Search...").withStyle(ChatFormatting.GRAY));
-        searchBox.setResponder(value -> refreshFashionItems());
-        addRenderableWidget(searchBox);
-        refreshFashionItems();
+        categories.clear();
+        tiles.clear();
+        for (FashionSlot slot : FashionSlot.values()) {
+            categories.put(slot, addRenderableWidget(new FashionCategoryButton(
+                    Button.builder(Component.literal(label(slot)), ignored -> selectCategory(slot))
+                            .bounds(leftX, rowY + slot.ordinal() * rowHeight, leftWidth, rowHeight - 2)
+                            .tooltip(Tooltip.create(Component.literal(label(slot)))))));
+        }
+        addRenderableWidget(new FashionWindowFrame.CloseButton(
+                Button.builder(Component.literal("ปิด"), ignored -> onClose())
+                        .bounds(sx(422) - 16, sy(15), 16, 16)
+                        .tooltip(Tooltip.create(Component.literal("ปิด")))));
+        addRenderableWidget(new NeoButton(Button.builder(NeoGuiIcons.icon(NeoGuiIcons.REFRESH), ignored -> {
+                    previewYaw = 0;
+                    rotatingPreview = false;
+                }).bounds(centerX + centerWidth - 18, contentY - 4, 18, 18)
+                .tooltip(Tooltip.create(Component.literal("กลับด้านหน้า")))).textScrolling(false));
+        search = new EditBox(font, rightX + 18, searchY + 3, rightWidth - 23, 10,
+                Component.literal("ค้นหาแฟชั่น"));
+        search.setMaxLength(48);
+        search.setBordered(false);
+        search.setTextColor(TEXT);
+        search.setHint(Component.literal("ค้นหา...").withStyle(ChatFormatting.GRAY));
+        search.setValue(query);
+        search.setResponder(value -> {
+            page = 0;
+            refreshEntries(true);
+        });
+        addRenderableWidget(search);
+        previous = wardrobeButton("<", rightX + rightWidth / 2 - 43, pagerY, 20, 16, false,
+                () -> changePage(-1), "หน้าก่อนหน้า");
+        next = wardrobeButton(">", rightX + rightWidth / 2 + 23, pagerY, 20, 16, false,
+                () -> changePage(1), "หน้าถัดไป");
+        int equipWidth = (rightWidth - 4) * 2 / 3;
+        equip = wardrobeButton("ใส่", rightX, actionY, equipWidth, 16, true,
+                this::equipSelected, "ใส่แฟชั่นที่เลือก");
+        clear = wardrobeButton("ถอด", rightX + equipWidth + 4, actionY, rightWidth - equipWidth - 4, 16,
+                false, this::clearEquipped, "ถอดแฟชั่นหมวดนี้");
+        refreshEntries(true);
+    }
+
+    private FashionActionButton wardrobeButton(String text, int bx, int by, int bw, int bh, boolean primary,
+                                               Runnable action, String tooltip) {
+        return addRenderableWidget(new FashionActionButton(
+                Button.builder(Component.literal(text), ignored -> action.run()).bounds(bx, by, bw, bh)
+                        .tooltip(Tooltip.create(Component.literal(tooltip))), primary));
     }
 
     @Override
     public void tick() {
         super.tick();
         if (statusTicks > 0) statusTicks--;
+        if (pendingTicks > 0 && --pendingTicks == 0) showStatus("ไม่ได้รับการตอบกลับ ลองอีกครั้ง", false);
+        refreshEntries(false);
+    }
+
+    private void refreshEntries(boolean force) {
+        String query = search.getValue().trim().toLowerCase(Locale.ROOT);
+        List<WardrobeEntry> refreshed = new ArrayList<>();
+        ownedCount = 0;
+        ClientFashionData.wardrobe().forEach((id, stack) -> {
+            if (stack.get(ModDataComponents.FASHION_SLOT.get()) == category) {
+                ownedCount++;
+                if (stack.getHoverName().getString().toLowerCase(Locale.ROOT).contains(query)) {
+                    refreshed.add(new WardrobeEntry(id, stack));
+                }
+            }
+        });
+        refreshed.sort(Comparator.comparing(entry -> entry.id.toString()));
+        boolean changed = !entries.stream().map(WardrobeEntry::id).toList()
+                .equals(refreshed.stream().map(WardrobeEntry::id).toList());
+        entries.clear();
+        entries.addAll(refreshed);
+        if (selectedId != null && entries.stream().noneMatch(entry -> entry.id.equals(selectedId))) selectedId = null;
+        if (selectedId == null && query.isEmpty()) {
+            ItemStack wearing = equipped(category);
+            if (!wearing.isEmpty()) {
+                ResourceLocation wearingId = BuiltInRegistries.ITEM.getKey(wearing.getItem());
+                if (entries.stream().anyMatch(entry -> entry.id.equals(wearingId))) selectedId = wearingId;
+            }
+        }
+        page = Math.min(page, pageCount() - 1);
+        if (force || changed) rebuildTiles();
+        updateControls();
+    }
+
+    private void rebuildTiles() {
+        tiles.forEach(this::removeWidget);
+        tiles.clear();
+        int end = Math.min(entries.size(), (page + 1) * pageSize());
+        for (int i = page * pageSize(); i < end; i++) {
+            WardrobeEntry entry = entries.get(i);
+            int index = i - page * pageSize();
+            tiles.add(addRenderableWidget(new FashionSlotButton(
+                    Button.builder(entry.stack.getHoverName(), ignored -> { selectedId = entry.id; updateControls(); })
+                            .bounds(gridX + index % columns * slotPitch(), gridY + index / columns * slotPitch(),
+                                    slotSize, slotSize))));
+        }
+    }
+
+    private void updateControls() {
+        ItemStack equipped = equipped(category);
+        ResourceLocation equippedId = equipped.isEmpty() ? null : BuiltInRegistries.ITEM.getKey(equipped.getItem());
+        boolean same = selectedId != null && selectedId.equals(equippedId);
+        equip.active = pendingTicks == 0 && selectedId != null && !same;
+        equip.setMessage(Component.literal(pendingTicks > 0 ? "รอ..." : same ? "ใส่อยู่" : "ใส่"));
+        clear.active = pendingTicks == 0 && !equipped.isEmpty();
+        previous.active = page > 0;
+        next.active = page + 1 < pageCount();
+        categories.forEach((slot, button) -> {
+            button.selected(slot == category);
+            ItemStack stack = equipped(slot);
+            button.setTooltip(Tooltip.create(Component.literal(label(slot) + ": ")
+                    .append(stack.isEmpty() ? Component.literal("ยังไม่ได้ใส่") : stack.getHoverName())));
+        });
+        for (int i = 0; i < tiles.size(); i++) {
+            WardrobeEntry entry = entries.get(page * pageSize() + i);
+            tiles.get(i).state(entry.id.equals(selectedId), entry.id.equals(equippedId));
+            tiles.get(i).setMessage(entry.stack.getHoverName().copy()
+                    .append(entry.id.equals(equippedId) ? " กำลังใส่" : ""));
+        }
+    }
+
+    private void selectCategory(FashionSlot slot) {
+        category = slot;
+        selectedId = null;
+        page = 0;
+        refreshEntries(true);
+    }
+
+    private void changePage(int delta) {
+        int target = Math.clamp(page + delta, 0, pageCount() - 1);
+        if (target == page) return;
+        page = target;
+        rebuildTiles();
+        updateControls();
+    }
+
+    private void equipSelected() {
+        if (!equip.active) return;
+        pendingTicks = 100;
+        PacketDistributor.sendToServer(new FashionEquipPayload(category, selectedId));
+        updateControls();
+    }
+
+    private void clearEquipped() {
+        if (!clear.active) return;
+        pendingTicks = 100;
+        PacketDistributor.sendToServer(new FashionClearPayload(category));
+        updateControls();
+    }
+
+    public void receiveAction(FashionActionResultPayload payload) {
+        pendingTicks = 0;
+        showStatus(payload.message(), payload.success());
+        refreshEntries(false);
     }
 
     @Override
     public void render(GuiGraphics graphics, int mouseX, int mouseY, float partialTick) {
         renderBackground(graphics, mouseX, mouseY, partialTick);
-        refreshFashionItems();
-        renderFrame(graphics);
-        renderTitle(graphics);
-        renderClose(graphics, mouseX, mouseY);
-        renderEquippedSlots(graphics, mouseX, mouseY);
-        renderPreview(graphics, mouseX, mouseY);
-        renderOwnedFashion(graphics, mouseX, mouseY);
-        renderActions(graphics, mouseX, mouseY);
-        for (var renderable : renderables) {
-            renderable.render(graphics, mouseX, mouseY, partialTick);
+        FashionWindowFrame.render(graphics, x, sy(14), panelWidth, y + panelHeight - sy(14));
+        FashionWindowFrame.title(graphics, sx(154), y, sx(276) - sx(154), sy(28) - y);
+        graphics.fill(sx(8), sy(34), sx(120), sy(224), 0xFF10181B);
+        graphics.blit(CATEGORY_PANEL, sx(8), sy(34), sx(120) - sx(8), sy(224) - sy(34),
+                0, 0, 384, 728, 384, 728);
+        graphics.fill(sx(244), sy(34), sx(422), sy(224), 0xFF10181B);
+        graphics.blit(WARDROBE_PANEL, sx(244), sy(34), sx(422) - sx(244), sy(224) - sy(34),
+                0, 0, 576, 728, 576, 728);
+        centered(graphics, title.getString(), sx(164), sx(266) - sx(164),
+                y + (sy(28) - y - font.lineHeight) / 2, TEXT);
+        clipped(graphics, "หมวดแฟชั่น", leftX, contentY, leftWidth, TEXT);
+        centered(graphics, "ตัวละคร", centerX, centerWidth - 22, contentY, MUTED);
+        clipped(graphics, "คลังแฟชั่น", rightX, contentY, rightWidth, TEXT);
+        boolean searchHovered = mouseX >= rightX && mouseX < rightX + rightWidth
+                && mouseY >= searchY && mouseY < searchY + 14;
+        graphics.blit(search.isFocused() || searchHovered ? SEARCH_FOCUS : SEARCH_NORMAL,
+                rightX, searchY, rightWidth, 14, 0, 0, 512, 48, 512, 48);
+        graphics.blit(SEARCH_ICON, rightX + 4, searchY + 2, 10, 10, 0, 0, 16, 16, 16, 16);
+        for (int index = tiles.size(); index < pageSize(); index++) {
+            FashionSlotButton.renderEmpty(graphics, gridX + index % columns * slotPitch(),
+                    gridY + index / columns * slotPitch(), slotSize);
         }
-        renderTooltip(graphics, mouseX, mouseY);
+        renderPlayer(graphics, mouseX, mouseY);
+        renderDetails(graphics);
+        centered(graphics, (page + 1) + " / " + pageCount(), rightX + rightWidth / 2 - 22, 44, pagerY + 4, MUTED);
+        if (entries.isEmpty()) centered(graphics, ownedCount == 0 ? "คลังว่าง" : "ไม่พบแฟชั่น",
+                rightX, rightWidth, gridY + (rows * slotPitch() - SLOT_GAP - font.lineHeight) / 2, MUTED);
+        if (statusTicks > 0) clipped(graphics, status, x + 10, y + panelHeight - 9, panelWidth - 20, statusColor);
+        for (var renderable : renderables) renderable.render(graphics, mouseX, mouseY, partialTick);
+        renderCategoryContents(graphics);
+        renderTileContents(graphics, mouseX, mouseY);
     }
 
-    private void renderFrame(GuiGraphics graphics) {
-        graphics.blit(FRAME_TEXTURE, panelX, panelY, panelWidth, panelHeight, 0, 0,
-                FRAME_TEXTURE_WIDTH, FRAME_TEXTURE_HEIGHT, FRAME_TEXTURE_WIDTH, FRAME_TEXTURE_HEIGHT);
+    private void renderPlayer(GuiGraphics graphics, int mouseX, int mouseY) {
+        if (minecraft.player == null) return;
+        int top = previewTop();
+        int bottom = previewBottom();
+        int scale = Math.max(12, Math.min(centerWidth / 2, (bottom - top - 8) / 2));
+        var player = minecraft.player;
+        float bodyYaw = player.yBodyRot;
+        float yaw = player.getYRot();
+        float pitch = player.getXRot();
+        float oldHeadYaw = player.yHeadRotO;
+        float headYaw = player.yHeadRot;
+        graphics.enableScissor(centerX, top, centerX + centerWidth, bottom);
+        try {
+            // Keep the head aligned with the body; restore gameplay orientation after drawing.
+            player.yBodyRot = 180F + previewYaw;
+            player.setYRot(player.yBodyRot);
+            player.setXRot(0);
+            player.yHeadRot = player.yBodyRot;
+            player.yHeadRotO = player.yBodyRot;
+            float entityScale = player.getScale();
+            InventoryScreen.renderEntityInInventory(graphics,
+                    centerX + centerWidth / 2F, (top + bottom) / 2F, scale / entityScale,
+                    new Vector3f(0, player.getBbHeight() / 2F + 0.0625F * entityScale, 0),
+                    new Quaternionf().rotateZ((float) Math.PI), new Quaternionf(), player);
+        } finally {
+            player.yBodyRot = bodyYaw;
+            player.setYRot(yaw);
+            player.setXRot(pitch);
+            player.yHeadRotO = oldHeadYaw;
+            player.yHeadRot = headYaw;
+            graphics.disableScissor();
+        }
+        centered(graphics, minecraft.player.getName().getString(), centerX, centerWidth, actionY + 5, MUTED);
     }
 
-    private void renderTitle(GuiGraphics graphics) {
-        int plateWidth = 170;
-        int x = panelX + (panelWidth - plateWidth) / 2;
-        drawCentered(graphics, "Fashion Dressing Room", x, plateWidth, panelY + 12, 0xFFF4F6F7);
-        graphics.drawString(font, "+", x + 7, panelY + 12, COLOR_TEAL, false);
-        graphics.drawString(font, "+", x + plateWidth - 12, panelY + 12, COLOR_TEAL, false);
-    }
-
-    private void renderClose(GuiGraphics graphics, int mouseX, int mouseY) {
-        int x = panelX + panelWidth - 24;
-        int y = panelY + 7;
-        boolean hovered = inside(mouseX, mouseY, x, y, 16, 16);
-        blitWidget(graphics, x, y, 16, 16, hovered ? 134 : 112, 84, 18, 18);
-        drawCentered(graphics, "X", x, 16, y + 5, 0xFFFFFFFF);
-    }
-
-    private void renderEquippedSlots(GuiGraphics graphics, int mouseX, int mouseY) {
-        int width = 112;
-        graphics.drawString(font, "Equipped Slots", leftX + 7, contentY + 8, 0xFFF4F6F7, false);
-        int y = contentY + 24;
-        for (FashionSlot slot : FashionSlot.values()) {
-            boolean selected = slot == selectedSlot;
-            boolean hovered = inside(mouseX, mouseY, leftX + 6, y, width - 12, 25);
-            if (selected) {
-                blitWidget(graphics, leftX + 6, y, width - 12, 25, 0, 28, 96, 24);
-            } else if (hovered) {
-                blitWidget(graphics, leftX + 6, y, width - 12, 25, 100, 0, 96, 24);
-            } else {
-                blitWidget(graphics, leftX + 6, y, width - 12, 25, 0, 0, 96, 24);
+    private void renderCategoryContents(GuiGraphics graphics) {
+        categories.forEach((slot, button) -> {
+            ItemStack stack = equipped(slot);
+            if (button.getHeight() >= 16) graphics.renderItem(stack.isEmpty() ? categoryIcon(slot) : stack,
+                    button.getX() + 3, button.getY() + (button.getHeight() - 16) / 2);
+            int labelX = button.getX() + 23;
+            int labelY = button.getY() + (button.getHeight() >= 24 ? 3 : (button.getHeight() - font.lineHeight) / 2);
+            int textWidth = button.getWidth() - 37;
+            clipped(graphics, label(slot), labelX, labelY, textWidth, TEXT);
+            if (button.getHeight() >= 24) {
+                clipped(graphics, stack.isEmpty() ? "ว่าง" : stack.getHoverName().getString(),
+                        labelX, labelY + 10, textWidth, MUTED);
             }
-            ItemStack equipped = localEquipped(slot);
-            graphics.renderItem(iconFor(slot, equipped), leftX + 10, y + 5);
-            graphics.drawString(font, label(slot), leftX + 30, y + 5, selected ? COLOR_GOLD : 0xFFE6EAED, false);
-            graphics.drawString(font, trim(equipped.isEmpty() ? "Empty" : equipped.getHoverName().getString(), 70),
-                    leftX + 30, y + 15, equipped.isEmpty() ? 0xFF737D84 : COLOR_MUTED, false);
-            y += 28;
-        }
+            graphics.drawString(font, ">", button.getX() + button.getWidth() - 10,
+                    button.getY() + (button.getHeight() - font.lineHeight) / 2,
+                    slot == category ? GOLD : MUTED, false);
+        });
     }
 
-    private void renderPreview(GuiGraphics graphics, int mouseX, int mouseY) {
-        int width = 142;
-        int height = panelHeight - 75;
-        drawCentered(graphics, "PLAYER PREVIEW", centerX, width, contentY + 10, COLOR_MUTED);
-        int bodyX = centerX + width / 2;
-        int bodyY = contentY + 58;
-        graphics.fill(bodyX - 13, bodyY - 18, bodyX + 13, bodyY + 20, 0xFF2D3840);
-        graphics.fill(bodyX - 9, bodyY - 42, bodyX + 9, bodyY - 22, 0xFFCFAE8A);
-        graphics.fill(bodyX - 22, bodyY - 12, bodyX - 14, bodyY + 19, 0xFF27323A);
-        graphics.fill(bodyX + 14, bodyY - 12, bodyX + 22, bodyY + 19, 0xFF27323A);
-        graphics.fill(bodyX - 12, bodyY + 21, bodyX - 3, bodyY + 52, 0xFF26313A);
-        graphics.fill(bodyX + 3, bodyY + 21, bodyX + 12, bodyY + 52, 0xFF26313A);
-        ItemStack head = localEquipped(FashionSlot.HEAD);
-        if (!head.isEmpty()) graphics.renderItem(head, bodyX - 8, bodyY - 56);
-        ItemStack back = localEquipped(FashionSlot.BACK);
-        if (!back.isEmpty()) graphics.renderItem(back, bodyX - 36, bodyY - 14);
-
-        int toggleY = contentY + height + 8;
-        renderToggle(graphics, centerX, toggleY, 66, "Hide Armor", hideArmor, mouseX, mouseY);
-        renderToggle(graphics, centerX + 74, toggleY, 68, "Show Fashion", showFashion, mouseX, mouseY);
+    private void renderTileContents(GuiGraphics graphics, int mouseX, int mouseY) {
+        ItemStack current = equipped(category);
+        ResourceLocation equippedId = current.isEmpty() ? null : BuiltInRegistries.ITEM.getKey(current.getItem());
+        WardrobeEntry hovered = null;
+        for (int i = 0; i < tiles.size(); i++) {
+            FashionSlotButton tile = tiles.get(i);
+            WardrobeEntry entry = entries.get(page * pageSize() + i);
+            int iconX = tile.getX() + (slotSize - 16) / 2;
+            int iconY = tile.getY() + Math.max(2, (slotSize - 16) / 2 - (entry.id.equals(equippedId) ? 2 : 0));
+            graphics.renderItem(entry.stack, iconX, iconY);
+            if (tile.isMouseOver(mouseX, mouseY)) hovered = entry;
+        }
+        if (hovered != null) graphics.renderTooltip(font, List.of(hovered.stack.getHoverName(),
+                Component.literal(hovered.id.equals(equippedId) ? "กำลังใส่" : "ปลดล็อกแล้ว")
+                        .withStyle(hovered.id.equals(equippedId) ? ChatFormatting.AQUA : ChatFormatting.GRAY)),
+                java.util.Optional.empty(), mouseX, mouseY);
     }
 
-    private void renderOwnedFashion(GuiGraphics graphics, int mouseX, int mouseY) {
-        int width = panelX + panelWidth - rightX - 8;
-        graphics.drawString(font, "Owned Fashion", rightX + 7, contentY + 8, 0xFFF4F6F7, false);
-        blitWidget(graphics, rightX + 6, contentY + 22, width - 12, 21, 0, 0, 96, 24);
-        graphics.renderItem(new ItemStack(Items.SPYGLASS), rightX + 7, contentY + 24);
-
-        int tabY = contentY + 48;
-        int tabX = rightX + 7;
-        for (FashionSlot slot : FashionSlot.values()) {
-            int tabWidth = 23;
-            boolean selected = slot == selectedSlot;
-            boolean hovered = inside(mouseX, mouseY, tabX, tabY, tabWidth, 17);
-            if (selected) {
-                blitWidget(graphics, tabX, tabY, tabWidth, 17, 100, 28, 96, 24);
-            } else if (hovered) {
-                blitWidget(graphics, tabX, tabY, tabWidth, 17, 100, 0, 96, 24);
-            } else {
-                blitWidget(graphics, tabX, tabY, tabWidth, 17, 0, 0, 96, 24);
-            }
-            drawCentered(graphics, shortLabel(slot), tabX, tabWidth, tabY + 5, 0xFFE8ECEE);
-            tabX += tabWidth + 3;
-        }
-
-        int gridX = rightX + 8;
-        int gridY = contentY + 72;
-        int visible = Math.min(GRID_COLUMNS * GRID_ROWS, fashionItems.size());
-        for (int index = 0; index < GRID_COLUMNS * GRID_ROWS; index++) {
-            int column = index % GRID_COLUMNS;
-            int row = index / GRID_COLUMNS;
-            int x = gridX + column * SLOT_SIZE;
-            int y = gridY + row * SLOT_SIZE;
-            InventoryEntry entry = index < visible ? fashionItems.get(index) : null;
-            boolean selected = entry != null && entry.inventorySlot == selectedInventorySlot;
-            boolean hovered = inside(mouseX, mouseY, x, y, 20, 20);
-            if (selected) {
-                blitWidget(graphics, x, y, 20, 20, 56, 84, 24, 24);
-            } else if (hovered) {
-                blitWidget(graphics, x, y, 20, 20, 28, 84, 24, 24);
-            } else {
-                blitWidget(graphics, x, y, 20, 20, 0, 84, 24, 24);
-            }
-            if (entry != null) graphics.renderItem(entry.stack, x + 2, y + 2);
-        }
-    }
-
-    private void renderActions(GuiGraphics graphics, int mouseX, int mouseY) {
-        int y = panelY + panelHeight - 30;
-        renderButton(graphics, rightX, y, 82, 20, "Apply", mouseX, mouseY, selectedInventorySlot >= 0, true);
-        renderButton(graphics, rightX + 88, y, 58, 20, "Clear", mouseX, mouseY, true, false);
-        if (statusTicks > 0 && !status.isEmpty()) {
-            graphics.drawString(font, trim(status, 170), leftX, panelY + panelHeight - 9, statusColor, false);
-        }
-    }
-
-    private void renderButton(GuiGraphics graphics, int x, int y, int width, int height, String label,
-                              int mouseX, int mouseY, boolean active, boolean primary) {
-        boolean hovered = active && inside(mouseX, mouseY, x, y, width, height);
-        if (!active) {
-            blitWidget(graphics, x, y, width, height, 0, 56, 96, 24);
-        } else if (primary) {
-            blitWidget(graphics, x, y, width, height, hovered ? 100 : 100, hovered ? 56 : 28, 96, 24);
-        } else {
-            blitWidget(graphics, x, y, width, height, hovered ? 100 : 0, hovered ? 0 : 56, 96, 24);
-        }
-        drawCentered(graphics, label, x, width, y + 6, active ? 0xFFFFFFFF : 0xFF79838A);
-    }
-
-    private void renderToggle(GuiGraphics graphics, int x, int y, int width, String label, boolean on,
-                              int mouseX, int mouseY) {
-        boolean hovered = inside(mouseX, mouseY, x, y, width, 18);
-        if (on) {
-            blitWidget(graphics, x, y, width, 18, 100, 28, 96, 24);
-        } else if (hovered) {
-            blitWidget(graphics, x, y, width, 18, 100, 0, 96, 24);
-        } else {
-            blitWidget(graphics, x, y, width, 18, 0, 0, 96, 24);
-        }
-        graphics.drawString(font, trim(label, width - 21), x + 4, y + 6, 0xFFE4E8EA, false);
-        drawCentered(graphics, on ? "ON" : "OFF", x + width - 18, 15, y + 6, 0xFFFFFFFF);
-    }
-
-    private void renderTooltip(GuiGraphics graphics, int mouseX, int mouseY) {
-        InventoryEntry hovered = inventoryEntryAt(mouseX, mouseY);
-        if (hovered != null) {
-            graphics.renderTooltip(font, hovered.stack, mouseX, mouseY);
-            return;
-        }
-        for (FashionSlot slot : FashionSlot.values()) {
-            if (inside(mouseX, mouseY, leftX + 6, contentY + 24 + slot.ordinal() * 28, 100, 25)) {
-                ItemStack equipped = localEquipped(slot);
-                graphics.renderTooltip(font, equipped.isEmpty() ? Component.literal(label(slot)) : equipped.getHoverName(), mouseX, mouseY);
-                return;
-            }
-        }
+    private void renderDetails(GuiGraphics graphics) {
+        WardrobeEntry selected = entries.stream().filter(entry -> entry.id.equals(selectedId)).findFirst().orElse(null);
+        graphics.blit(DETAIL, rightX, detailY, rightWidth, 24, 0, 0, 512, 100, 512, 100);
+        FashionSlotButton.renderEmpty(graphics, rightX + 3, detailY + 2, 20);
+        if (selected != null) graphics.renderItem(selected.stack, rightX + 5, detailY + 4);
+        int textX = rightX + 27;
+        int textWidth = rightWidth - 31;
+        clipped(graphics, selected == null ? "เลือกแฟชั่น" : selected.stack.getHoverName().getString(),
+                textX, detailY + 3, textWidth, TEXT);
+        boolean wearing = selected != null && !equipped(category).isEmpty()
+                && BuiltInRegistries.ITEM.getKey(equipped(category).getItem()).equals(selected.id);
+        String count = Integer.toString(ownedCount);
+        int countWidth = font.width(count);
+        clipped(graphics, wearing ? "กำลังใส่" : "ปลดล็อกแล้ว", textX, detailY + 14,
+                textWidth - countWidth - 4, wearing ? TEAL : MUTED);
+        graphics.drawString(font, count, rightX + rightWidth - countWidth - 4, detailY + 14, MUTED, false);
     }
 
     @Override
     public boolean mouseClicked(double mouseX, double mouseY, int button) {
-        if (inside(mouseX, mouseY, panelX + panelWidth - 24, panelY + 7, 16, 16)) {
-            onClose();
-            return true;
-        }
-        for (FashionSlot slot : FashionSlot.values()) {
-            if (inside(mouseX, mouseY, leftX + 6, contentY + 24 + slot.ordinal() * 28, 100, 25)) {
-                selectedSlot = slot;
-                selectedInventorySlot = -1;
-                refreshFashionItems();
-                return true;
-            }
-        }
-        int tabX = rightX + 7;
-        int tabY = contentY + 48;
-        for (FashionSlot slot : FashionSlot.values()) {
-            if (inside(mouseX, mouseY, tabX, tabY, 23, 17)) {
-                selectedSlot = slot;
-                selectedInventorySlot = -1;
-                refreshFashionItems();
-                return true;
-            }
-            tabX += 26;
-        }
-        InventoryEntry entry = inventoryEntryAt(mouseX, mouseY);
-        if (entry != null) {
-            selectedInventorySlot = entry.inventorySlot;
-            return true;
-        }
-        int actionY = panelY + panelHeight - 30;
-        if (selectedInventorySlot >= 0 && inside(mouseX, mouseY, rightX, actionY, 82, 20)) {
-            PacketDistributor.sendToServer(new FashionEquipPayload(selectedSlot, selectedInventorySlot));
-            selectedInventorySlot = -1;
-            return true;
-        }
-        if (inside(mouseX, mouseY, rightX + 88, actionY, 58, 20)) {
-            PacketDistributor.sendToServer(new FashionClearPayload(selectedSlot));
-            selectedInventorySlot = -1;
-            return true;
-        }
-        int toggleY = contentY + panelHeight - 75 + 8;
-        if (inside(mouseX, mouseY, centerX, toggleY, 66, 18)) {
-            hideArmor = !hideArmor;
-            return true;
-        }
-        if (inside(mouseX, mouseY, centerX + 74, toggleY, 68, 18)) {
-            showFashion = !showFashion;
+        if (button == 0 && minecraft.player != null && mouseX >= centerX && mouseX < centerX + centerWidth
+                && mouseY >= previewTop() && mouseY < previewBottom()) {
+            setFocused(null);
+            rotatingPreview = true;
             return true;
         }
         return super.mouseClicked(mouseX, mouseY, button);
     }
 
-    public void receiveAction(FashionActionResultPayload payload) {
-        showStatus(payload.message(), payload.success());
-        refreshFashionItems();
-    }
-
-    private void refreshFashionItems() {
-        fashionItems.clear();
-        Minecraft minecraft = Minecraft.getInstance();
-        if (minecraft.player == null) return;
-        Inventory inventory = minecraft.player.getInventory();
-        String search = searchBox == null ? "" : searchBox.getValue().trim().toLowerCase(java.util.Locale.ROOT);
-        for (int slot = 0; slot < inventory.getContainerSize(); slot++) {
-            ItemStack stack = inventory.getItem(slot);
-            if (stack.isEmpty()) continue;
-            FashionSlot allowed = stack.get(ModDataComponents.FASHION_SLOT.get());
-            if (allowed != selectedSlot) continue;
-            if (!search.isEmpty() && !stack.getHoverName().getString().toLowerCase(java.util.Locale.ROOT).contains(search)) continue;
-            fashionItems.add(new InventoryEntry(slot, stack.copy()));
+    @Override
+    public boolean mouseDragged(double mouseX, double mouseY, int button, double deltaX, double deltaY) {
+        if (button == 0 && rotatingPreview) {
+            previewYaw = Mth.wrapDegrees(previewYaw + (float) (deltaX * 360.0 / Math.max(1, centerWidth)));
+            return true;
         }
+        return super.mouseDragged(mouseX, mouseY, button, deltaX, deltaY);
     }
 
-    private InventoryEntry inventoryEntryAt(double mouseX, double mouseY) {
-        int gridX = rightX + 8;
-        int gridY = contentY + 72;
-        if (!inside(mouseX, mouseY, gridX, gridY, GRID_COLUMNS * SLOT_SIZE, GRID_ROWS * SLOT_SIZE)) return null;
-        int column = ((int) mouseX - gridX) / SLOT_SIZE;
-        int row = ((int) mouseY - gridY) / SLOT_SIZE;
-        int index = row * GRID_COLUMNS + column;
-        return index >= 0 && index < fashionItems.size() ? fashionItems.get(index) : null;
+    @Override
+    public boolean mouseReleased(double mouseX, double mouseY, int button) {
+        boolean wasRotating = button == 0 && rotatingPreview;
+        if (button == 0) rotatingPreview = false;
+        return super.mouseReleased(mouseX, mouseY, button) || wasRotating;
     }
 
-    private ItemStack localEquipped(FashionSlot slot) {
-        Minecraft minecraft = Minecraft.getInstance();
-        if (minecraft.player == null) return ItemStack.EMPTY;
-        return ClientFashionData.get(minecraft.player.getId(), slot);
+    @Override
+    public void removed() {
+        rotatingPreview = false;
+        super.removed();
     }
 
-    private ItemStack iconFor(FashionSlot slot, ItemStack equipped) {
-        if (!equipped.isEmpty()) return equipped;
+    private int previewTop() { return contentY + 17; }
+    private int previewBottom() { return actionY - 5; }
+
+    @Override
+    public boolean mouseScrolled(double mouseX, double mouseY, double scrollX, double scrollY) {
+        if (mouseX >= gridX && mouseX < gridX + gridWidth()
+                && mouseY >= gridY && mouseY < gridY + rows * slotPitch() - SLOT_GAP && scrollY != 0) {
+            changePage(scrollY > 0 ? -1 : 1);
+            return true;
+        }
+        return super.mouseScrolled(mouseX, mouseY, scrollX, scrollY);
+    }
+
+    private ItemStack equipped(FashionSlot slot) {
+        return minecraft.player == null ? ItemStack.EMPTY : ClientFashionData.get(minecraft.player.getId(), slot);
+    }
+
+    private ItemStack categoryIcon(FashionSlot slot) {
+        return new ItemStack(switch (slot) {
+            case HEAD -> Items.LEATHER_HELMET;
+            case FACE -> Items.SPYGLASS;
+            case BACK -> Items.ELYTRA;
+            case BODY -> Items.LEATHER_CHESTPLATE;
+            case LEGS -> Items.LEATHER_LEGGINGS;
+            case FEET -> Items.LEATHER_BOOTS;
+        });
+    }
+
+    private String label(FashionSlot slot) {
         return switch (slot) {
-            case HEAD -> new ItemStack(Items.LEATHER_HELMET);
-            case FACE -> new ItemStack(Items.SPYGLASS);
-            case BACK -> new ItemStack(Items.ELYTRA);
-            case BODY -> new ItemStack(Items.LEATHER_CHESTPLATE);
-            case LEGS -> new ItemStack(Items.LEATHER_LEGGINGS);
-            case FEET -> new ItemStack(Items.LEATHER_BOOTS);
+            case HEAD -> "หัว";
+            case FACE -> "ใบหน้า";
+            case BACK -> "หลัง";
+            case BODY -> "ลำตัว";
+            case LEGS -> "ขา";
+            case FEET -> "เท้า";
         };
     }
 
     private void showStatus(String message, boolean success) {
         status = message;
         statusColor = success ? 0xFF68D391 : 0xFFFF7B72;
-        statusTicks = 90;
+        statusTicks = 100;
     }
 
-    private String label(FashionSlot slot) {
-        return switch (slot) {
-            case HEAD -> "Head";
-            case FACE -> "Face";
-            case BACK -> "Back";
-            case BODY -> "Body";
-            case LEGS -> "Legs";
-            case FEET -> "Feet";
-        };
+    private void clipped(GuiGraphics graphics, String text, int tx, int ty, int available, int color) {
+        graphics.drawString(font, font.plainSubstrByWidth(text, Math.max(1, available)), tx, ty, color, false);
     }
 
-    private String shortLabel(FashionSlot slot) {
-        return switch (slot) {
-            case HEAD -> "Hd";
-            case FACE -> "Fc";
-            case BACK -> "Bk";
-            case BODY -> "Bd";
-            case LEGS -> "Lg";
-            case FEET -> "Ft";
-        };
+    private void centered(GuiGraphics graphics, String text, int tx, int available, int ty, int color) {
+        String clipped = font.plainSubstrByWidth(text, Math.max(1, available));
+        graphics.drawString(font, clipped, tx + (available - font.width(clipped)) / 2, ty, color, false);
     }
 
-    private void drawCentered(GuiGraphics graphics, String text, int x, int width, int y, int color) {
-        graphics.drawString(font, text, x + (width - font.width(text)) / 2, y, color, false);
+    private int sx(int value) { return x + Math.round(value * panelWidth / (float) SOURCE_WIDTH); }
+    private int sy(int value) { return y + Math.round(value * panelHeight / (float) SOURCE_HEIGHT); }
+    private int pageSize() { return columns * rows; }
+    private int slotPitch() { return slotSize + SLOT_GAP; }
+    private int gridWidth() { return columns * slotPitch() - SLOT_GAP; }
+    private static ResourceLocation fashionTexture(String name) {
+        return ResourceLocation.fromNamespaceAndPath(NeoWorld.MODID, "textures/gui/fashion/fashion_" + name + ".png");
     }
-
-    private void blitWidget(GuiGraphics graphics, int x, int y, int width, int height,
-                            int u, int v, int sourceWidth, int sourceHeight) {
-        graphics.blit(WIDGET_TEXTURE, x, y, width, height, u, v, sourceWidth, sourceHeight,
-                WIDGET_TEXTURE_WIDTH, WIDGET_TEXTURE_HEIGHT);
-    }
-
-    private String trim(String text, int maxWidth) {
-        return font.plainSubstrByWidth(text, Math.max(1, maxWidth));
-    }
-
-    private static boolean inside(double mouseX, double mouseY, int x, int y, int width, int height) {
-        return mouseX >= x && mouseX < x + width && mouseY >= y && mouseY < y + height;
-    }
+    private int pageCount() { return Math.max(1, (entries.size() + pageSize() - 1) / pageSize()); }
 
     @Override
-    public boolean isPauseScreen() {
-        return false;
-    }
+    public boolean isPauseScreen() { return false; }
 
-    private record InventoryEntry(int inventorySlot, ItemStack stack) {
-    }
+    private record WardrobeEntry(ResourceLocation id, ItemStack stack) {}
 }

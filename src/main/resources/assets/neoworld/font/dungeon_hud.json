@@ -1,0 +1,6 @@
+{
+  "providers": [
+    {"type":"bitmap","file":"neoworld:gui/dungeon/hud/clock.png","ascent":11,"height":12,"chars":["\uE110"]},
+    {"type":"bitmap","file":"neoworld:gui/common/icons/member.png","ascent":11,"height":12,"chars":["\uE101"]}
+  ]
+}

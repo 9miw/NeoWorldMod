@@ -94,6 +94,20 @@ config="${mod_id}.mixins.json"
     ordering="AFTER"
     side="BOTH"
 
+[[dependencies.${mod_id}]]
+    modId="geckolib"
+    type="required"
+    versionRange="[4.9.2,5)"
+    ordering="AFTER"
+    side="CLIENT"
+
+[[dependencies.${mod_id}]]
+    modId="epicfight"
+    type="optional"
+    versionRange="[21.17.3.1]"
+    ordering="AFTER"
+    side="CLIENT"
+
 # Features can declare requirements such as GL version 3.2 or higher. They are side aware so declaring this won't
 # stop your mod loading on the server for example.
 #[features.${mod_id}]

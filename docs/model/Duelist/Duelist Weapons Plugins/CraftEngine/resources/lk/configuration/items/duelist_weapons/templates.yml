@@ -1,0 +1,906 @@
+templates:
+  lk:model/lk_block_model_duelist_weapons:
+    type: minecraft:model
+    path: "${model}"
+    generation:
+      parent: minecraft:block/cube_all
+      textures:
+        all: ${model}
+  lk:model/lk_block_column_duelist_weapons:
+    type: minecraft:model
+    path: "${model}"
+    generation:
+      parent: minecraft:block/cube_column
+      textures:
+        end: ${end}
+        side: ${side}
+        particle: ${end}
+  lk:model/lk_block_full_duelist_weapons:
+    type: minecraft:model
+    path: "${model}"
+    generation:
+      parent: minecraft:block/cube
+      textures:
+        down: ${down}
+        up: ${up}
+        north: ${north}
+        south: ${south}
+        west: ${west}
+        east: ${east}
+        particle: ${up}
+  lk:loot_table/lk_block_duelist_weapons:
+    pools:
+      - rolls: 1
+        conditions:
+          - type: survives_explosion
+        entries:
+          - type: item
+            item: "${item}"
+  lk:block/lk_block_duelist_weapons:
+    loot:
+      template: lk:loot_table/lk_block_duelist_weapons
+      arguments:
+        item: "${item}"
+    settings:
+      map_color: 9
+      hardness: 2.0
+      resistance: 0.5
+      push_reaction: BLOCK
+      tags:
+        - minecraft:mineable/pickaxe
+      can_occlude: true
+      sounds:
+        break: minecraft:block.${sound_type}.break
+        step: minecraft:block.${sound_type}.step
+        place: minecraft:block.${sound_type}.place
+        hit: minecraft:block.${sound_type}.hit
+        fall: minecraft:block.${sound_type}.fall
+        destroy: minecraft:block.anvil.destroy
+    state:
+      auto_state: solid
+      model:
+        path: "${block_model}"
+  lk:block/lk_block_pillar_duelist_weapons:
+    loot:
+      template: lk:loot_table/lk_block_duelist_weapons
+      arguments:
+        item: "${item}"
+    settings:
+      map_color: 9
+      hardness: 2.0
+      resistance: 0.5
+      push_reaction: BLOCK
+      tags:
+        - minecraft:mineable/pickaxe
+      can_occlude: true
+      sounds:
+        break: minecraft:block.${sound_type}.break
+        step: minecraft:block.${sound_type}.step
+        place: minecraft:block.${sound_type}.place
+        hit: minecraft:block.${sound_type}.hit
+        fall: minecraft:block.${sound_type}.fall
+        destroy: minecraft:block.anvil.destroy
+    states:
+      properties:
+        axis:
+          type: axis
+          default: y
+      appearances:
+        axisY:
+          auto_state: solid
+          model:
+            path: "${model_vertical_path}"
+            generation:
+              parent: minecraft:block/cube_column
+              textures:
+                end: ${texture_top_path}
+                side: ${texture_side_path}
+        axisX:
+          auto_state: solid
+          model:
+            x: 90
+            y: 90
+            path: "${model_horizontal_path}"
+            generation:
+              parent: minecraft:block/cube_column_horizontal
+              textures:
+                end: ${texture_top_path}
+                side: ${texture_side_path}
+        axisZ:
+          auto_state: solid
+          model:
+            x: 90
+            path: "${model_horizontal_path}"
+            generation:
+              parent: minecraft:block/cube_column_horizontal
+              textures:
+                end: ${texture_top_path}
+                side: ${texture_side_path}
+      variants:
+        axis=x:
+          appearance: axisX
+        axis=y:
+          appearance: axisY
+        axis=z:
+          appearance: axisZ
+  lk:furniture/furniture_basic_settings_duelist_weapons:
+    settings:
+      item: "${item}"
+      sounds:
+        break: minecraft:block.stone.break
+        place: minecraft:block.stone.place
+    rules:
+      rotation: eight
+      alignment: center
+  lk:furniture/furniture_basic_loot_duelist_weapons:
+    loot:
+      template: lk:loot_table/furniture_basic_duelist_weapons
+      arguments:
+        item: "${item}"
+  lk:loot_table/furniture_basic_duelist_weapons:
+    pools:
+      - rolls: 1
+        conditions:
+          - type: survives_explosion
+        entries:
+          - type: item
+            item: "${item}"
+  lk:furniture/furniture_basic_element_duelist_weapons:
+    variants:
+      ground:
+        elements:
+          - item: "${item}"
+            display_transform: NONE
+            billboard: FIXED
+            position: 0.0,0,0
+            translation: 0,0.5,0
+  lk:furniture/furniture_hitbox_1_duelist_weapons:
+    variants:
+      ground:
+        hitboxes:
+          - type: interaction
+            position: 0,0,0
+            width: 1
+            height: 1
+            interactive: false
+  lk:block_entity_duelist_weapons:
+    auto_state:
+      id: customcrops:transparent
+      type: ${auto_state}
+    transparent: true
+    entity_renderer:
+      - item: "${__NAMESPACE__}:${__ID__}"
+  lk:sound/crop_duelist_weapons:
+    sounds:
+      break: minecraft:block.crop.break
+      step: minecraft:block.grass.step
+      place: minecraft:item.crop.plant
+      hit: minecraft:block.grass.hit
+      fall: minecraft:block.grass.fall
+  lk:hardness/none_duelist_weapons:
+    hardness: 0
+    resistance: 0
+  lk:model/lk_block_model_iron_revolver:
+    type: minecraft:model
+    path: "${model}"
+    generation:
+      parent: minecraft:block/cube_all
+      textures:
+        all: ${model}
+  lk:model/lk_block_column_iron_revolver:
+    type: minecraft:model
+    path: "${model}"
+    generation:
+      parent: minecraft:block/cube_column
+      textures:
+        end: ${end}
+        side: ${side}
+        particle: ${end}
+  lk:model/lk_block_full_iron_revolver:
+    type: minecraft:model
+    path: "${model}"
+    generation:
+      parent: minecraft:block/cube
+      textures:
+        down: ${down}
+        up: ${up}
+        north: ${north}
+        south: ${south}
+        west: ${west}
+        east: ${east}
+        particle: ${up}
+  lk:loot_table/lk_block_iron_revolver:
+    pools:
+      - rolls: 1
+        conditions:
+          - type: survives_explosion
+        entries:
+          - type: item
+            item: "${item}"
+  lk:block/lk_block_iron_revolver:
+    loot:
+      template: lk:loot_table/lk_block_iron_revolver
+      arguments:
+        item: "${item}"
+    settings:
+      map_color: 9
+      hardness: 2.0
+      resistance: 0.5
+      push_reaction: BLOCK
+      tags:
+        - minecraft:mineable/pickaxe
+      can_occlude: true
+      sounds:
+        break: minecraft:block.${sound_type}.break
+        step: minecraft:block.${sound_type}.step
+        place: minecraft:block.${sound_type}.place
+        hit: minecraft:block.${sound_type}.hit
+        fall: minecraft:block.${sound_type}.fall
+        destroy: minecraft:block.anvil.destroy
+    state:
+      auto_state: solid
+      model:
+        path: "${block_model}"
+  lk:block/lk_block_pillar_iron_revolver:
+    loot:
+      template: lk:loot_table/lk_block_iron_revolver
+      arguments:
+        item: "${item}"
+    settings:
+      map_color: 9
+      hardness: 2.0
+      resistance: 0.5
+      push_reaction: BLOCK
+      tags:
+        - minecraft:mineable/pickaxe
+      can_occlude: true
+      sounds:
+        break: minecraft:block.${sound_type}.break
+        step: minecraft:block.${sound_type}.step
+        place: minecraft:block.${sound_type}.place
+        hit: minecraft:block.${sound_type}.hit
+        fall: minecraft:block.${sound_type}.fall
+        destroy: minecraft:block.anvil.destroy
+    states:
+      properties:
+        axis:
+          type: axis
+          default: y
+      appearances:
+        axisY:
+          auto_state: solid
+          model:
+            path: "${model_vertical_path}"
+            generation:
+              parent: minecraft:block/cube_column
+              textures:
+                end: ${texture_top_path}
+                side: ${texture_side_path}
+        axisX:
+          auto_state: solid
+          model:
+            x: 90
+            y: 90
+            path: "${model_horizontal_path}"
+            generation:
+              parent: minecraft:block/cube_column_horizontal
+              textures:
+                end: ${texture_top_path}
+                side: ${texture_side_path}
+        axisZ:
+          auto_state: solid
+          model:
+            x: 90
+            path: "${model_horizontal_path}"
+            generation:
+              parent: minecraft:block/cube_column_horizontal
+              textures:
+                end: ${texture_top_path}
+                side: ${texture_side_path}
+      variants:
+        axis=x:
+          appearance: axisX
+        axis=y:
+          appearance: axisY
+        axis=z:
+          appearance: axisZ
+  lk:furniture/furniture_basic_settings_iron_revolver:
+    settings:
+      item: "${item}"
+      sounds:
+        break: minecraft:block.stone.break
+        place: minecraft:block.stone.place
+    rules:
+      rotation: eight
+      alignment: center
+  lk:furniture/furniture_basic_loot_iron_revolver:
+    loot:
+      template: lk:loot_table/furniture_basic_iron_revolver
+      arguments:
+        item: "${item}"
+  lk:loot_table/furniture_basic_iron_revolver:
+    pools:
+      - rolls: 1
+        conditions:
+          - type: survives_explosion
+        entries:
+          - type: item
+            item: "${item}"
+  lk:furniture/furniture_basic_element_iron_revolver:
+    variants:
+      ground:
+        elements:
+          - item: "${item}"
+            display_transform: NONE
+            billboard: FIXED
+            position: 0.0,0,0
+            translation: 0,0.5,0
+  lk:furniture/furniture_hitbox_1_iron_revolver:
+    variants:
+      ground:
+        hitboxes:
+          - type: interaction
+            position: 0,0,0
+            width: 1
+            height: 1
+            interactive: false
+  lk:block_entity_iron_revolver:
+    auto_state:
+      id: customcrops:transparent
+      type: ${auto_state}
+    transparent: true
+    entity_renderer:
+      - item: "${__NAMESPACE__}:${__ID__}"
+  lk:sound/crop_iron_revolver:
+    sounds:
+      break: minecraft:block.crop.break
+      step: minecraft:block.grass.step
+      place: minecraft:item.crop.plant
+      hit: minecraft:block.grass.hit
+      fall: minecraft:block.grass.fall
+  lk:hardness/none_iron_revolver:
+    hardness: 0
+    resistance: 0
+  lk:model/lk_block_model_golden_revolver:
+    type: minecraft:model
+    path: "${model}"
+    generation:
+      parent: minecraft:block/cube_all
+      textures:
+        all: ${model}
+  lk:model/lk_block_column_golden_revolver:
+    type: minecraft:model
+    path: "${model}"
+    generation:
+      parent: minecraft:block/cube_column
+      textures:
+        end: ${end}
+        side: ${side}
+        particle: ${end}
+  lk:model/lk_block_full_golden_revolver:
+    type: minecraft:model
+    path: "${model}"
+    generation:
+      parent: minecraft:block/cube
+      textures:
+        down: ${down}
+        up: ${up}
+        north: ${north}
+        south: ${south}
+        west: ${west}
+        east: ${east}
+        particle: ${up}
+  lk:loot_table/lk_block_golden_revolver:
+    pools:
+      - rolls: 1
+        conditions:
+          - type: survives_explosion
+        entries:
+          - type: item
+            item: "${item}"
+  lk:block/lk_block_golden_revolver:
+    loot:
+      template: lk:loot_table/lk_block_golden_revolver
+      arguments:
+        item: "${item}"
+    settings:
+      map_color: 9
+      hardness: 2.0
+      resistance: 0.5
+      push_reaction: BLOCK
+      tags:
+        - minecraft:mineable/pickaxe
+      can_occlude: true
+      sounds:
+        break: minecraft:block.${sound_type}.break
+        step: minecraft:block.${sound_type}.step
+        place: minecraft:block.${sound_type}.place
+        hit: minecraft:block.${sound_type}.hit
+        fall: minecraft:block.${sound_type}.fall
+        destroy: minecraft:block.anvil.destroy
+    state:
+      auto_state: solid
+      model:
+        path: "${block_model}"
+  lk:block/lk_block_pillar_golden_revolver:
+    loot:
+      template: lk:loot_table/lk_block_golden_revolver
+      arguments:
+        item: "${item}"
+    settings:
+      map_color: 9
+      hardness: 2.0
+      resistance: 0.5
+      push_reaction: BLOCK
+      tags:
+        - minecraft:mineable/pickaxe
+      can_occlude: true
+      sounds:
+        break: minecraft:block.${sound_type}.break
+        step: minecraft:block.${sound_type}.step
+        place: minecraft:block.${sound_type}.place
+        hit: minecraft:block.${sound_type}.hit
+        fall: minecraft:block.${sound_type}.fall
+        destroy: minecraft:block.anvil.destroy
+    states:
+      properties:
+        axis:
+          type: axis
+          default: y
+      appearances:
+        axisY:
+          auto_state: solid
+          model:
+            path: "${model_vertical_path}"
+            generation:
+              parent: minecraft:block/cube_column
+              textures:
+                end: ${texture_top_path}
+                side: ${texture_side_path}
+        axisX:
+          auto_state: solid
+          model:
+            x: 90
+            y: 90
+            path: "${model_horizontal_path}"
+            generation:
+              parent: minecraft:block/cube_column_horizontal
+              textures:
+                end: ${texture_top_path}
+                side: ${texture_side_path}
+        axisZ:
+          auto_state: solid
+          model:
+            x: 90
+            path: "${model_horizontal_path}"
+            generation:
+              parent: minecraft:block/cube_column_horizontal
+              textures:
+                end: ${texture_top_path}
+                side: ${texture_side_path}
+      variants:
+        axis=x:
+          appearance: axisX
+        axis=y:
+          appearance: axisY
+        axis=z:
+          appearance: axisZ
+  lk:furniture/furniture_basic_settings_golden_revolver:
+    settings:
+      item: "${item}"
+      sounds:
+        break: minecraft:block.stone.break
+        place: minecraft:block.stone.place
+    rules:
+      rotation: eight
+      alignment: center
+  lk:furniture/furniture_basic_loot_golden_revolver:
+    loot:
+      template: lk:loot_table/furniture_basic_golden_revolver
+      arguments:
+        item: "${item}"
+  lk:loot_table/furniture_basic_golden_revolver:
+    pools:
+      - rolls: 1
+        conditions:
+          - type: survives_explosion
+        entries:
+          - type: item
+            item: "${item}"
+  lk:furniture/furniture_basic_element_golden_revolver:
+    variants:
+      ground:
+        elements:
+          - item: "${item}"
+            display_transform: NONE
+            billboard: FIXED
+            position: 0.0,0,0
+            translation: 0,0.5,0
+  lk:furniture/furniture_hitbox_1_golden_revolver:
+    variants:
+      ground:
+        hitboxes:
+          - type: interaction
+            position: 0,0,0
+            width: 1
+            height: 1
+            interactive: false
+  lk:block_entity_golden_revolver:
+    auto_state:
+      id: customcrops:transparent
+      type: ${auto_state}
+    transparent: true
+    entity_renderer:
+      - item: "${__NAMESPACE__}:${__ID__}"
+  lk:sound/crop_golden_revolver:
+    sounds:
+      break: minecraft:block.crop.break
+      step: minecraft:block.grass.step
+      place: minecraft:item.crop.plant
+      hit: minecraft:block.grass.hit
+      fall: minecraft:block.grass.fall
+  lk:hardness/none_golden_revolver:
+    hardness: 0
+    resistance: 0
+  lk:model/lk_block_model_diamond_revolver:
+    type: minecraft:model
+    path: "${model}"
+    generation:
+      parent: minecraft:block/cube_all
+      textures:
+        all: ${model}
+  lk:model/lk_block_column_diamond_revolver:
+    type: minecraft:model
+    path: "${model}"
+    generation:
+      parent: minecraft:block/cube_column
+      textures:
+        end: ${end}
+        side: ${side}
+        particle: ${end}
+  lk:model/lk_block_full_diamond_revolver:
+    type: minecraft:model
+    path: "${model}"
+    generation:
+      parent: minecraft:block/cube
+      textures:
+        down: ${down}
+        up: ${up}
+        north: ${north}
+        south: ${south}
+        west: ${west}
+        east: ${east}
+        particle: ${up}
+  lk:loot_table/lk_block_diamond_revolver:
+    pools:
+      - rolls: 1
+        conditions:
+          - type: survives_explosion
+        entries:
+          - type: item
+            item: "${item}"
+  lk:block/lk_block_diamond_revolver:
+    loot:
+      template: lk:loot_table/lk_block_diamond_revolver
+      arguments:
+        item: "${item}"
+    settings:
+      map_color: 9
+      hardness: 2.0
+      resistance: 0.5
+      push_reaction: BLOCK
+      tags:
+        - minecraft:mineable/pickaxe
+      can_occlude: true
+      sounds:
+        break: minecraft:block.${sound_type}.break
+        step: minecraft:block.${sound_type}.step
+        place: minecraft:block.${sound_type}.place
+        hit: minecraft:block.${sound_type}.hit
+        fall: minecraft:block.${sound_type}.fall
+        destroy: minecraft:block.anvil.destroy
+    state:
+      auto_state: solid
+      model:
+        path: "${block_model}"
+  lk:block/lk_block_pillar_diamond_revolver:
+    loot:
+      template: lk:loot_table/lk_block_diamond_revolver
+      arguments:
+        item: "${item}"
+    settings:
+      map_color: 9
+      hardness: 2.0
+      resistance: 0.5
+      push_reaction: BLOCK
+      tags:
+        - minecraft:mineable/pickaxe
+      can_occlude: true
+      sounds:
+        break: minecraft:block.${sound_type}.break
+        step: minecraft:block.${sound_type}.step
+        place: minecraft:block.${sound_type}.place
+        hit: minecraft:block.${sound_type}.hit
+        fall: minecraft:block.${sound_type}.fall
+        destroy: minecraft:block.anvil.destroy
+    states:
+      properties:
+        axis:
+          type: axis
+          default: y
+      appearances:
+        axisY:
+          auto_state: solid
+          model:
+            path: "${model_vertical_path}"
+            generation:
+              parent: minecraft:block/cube_column
+              textures:
+                end: ${texture_top_path}
+                side: ${texture_side_path}
+        axisX:
+          auto_state: solid
+          model:
+            x: 90
+            y: 90
+            path: "${model_horizontal_path}"
+            generation:
+              parent: minecraft:block/cube_column_horizontal
+              textures:
+                end: ${texture_top_path}
+                side: ${texture_side_path}
+        axisZ:
+          auto_state: solid
+          model:
+            x: 90
+            path: "${model_horizontal_path}"
+            generation:
+              parent: minecraft:block/cube_column_horizontal
+              textures:
+                end: ${texture_top_path}
+                side: ${texture_side_path}
+      variants:
+        axis=x:
+          appearance: axisX
+        axis=y:
+          appearance: axisY
+        axis=z:
+          appearance: axisZ
+  lk:furniture/furniture_basic_settings_diamond_revolver:
+    settings:
+      item: "${item}"
+      sounds:
+        break: minecraft:block.stone.break
+        place: minecraft:block.stone.place
+    rules:
+      rotation: eight
+      alignment: center
+  lk:furniture/furniture_basic_loot_diamond_revolver:
+    loot:
+      template: lk:loot_table/furniture_basic_diamond_revolver
+      arguments:
+        item: "${item}"
+  lk:loot_table/furniture_basic_diamond_revolver:
+    pools:
+      - rolls: 1
+        conditions:
+          - type: survives_explosion
+        entries:
+          - type: item
+            item: "${item}"
+  lk:furniture/furniture_basic_element_diamond_revolver:
+    variants:
+      ground:
+        elements:
+          - item: "${item}"
+            display_transform: NONE
+            billboard: FIXED
+            position: 0.0,0,0
+            translation: 0,0.5,0
+  lk:furniture/furniture_hitbox_1_diamond_revolver:
+    variants:
+      ground:
+        hitboxes:
+          - type: interaction
+            position: 0,0,0
+            width: 1
+            height: 1
+            interactive: false
+  lk:block_entity_diamond_revolver:
+    auto_state:
+      id: customcrops:transparent
+      type: ${auto_state}
+    transparent: true
+    entity_renderer:
+      - item: "${__NAMESPACE__}:${__ID__}"
+  lk:sound/crop_diamond_revolver:
+    sounds:
+      break: minecraft:block.crop.break
+      step: minecraft:block.grass.step
+      place: minecraft:item.crop.plant
+      hit: minecraft:block.grass.hit
+      fall: minecraft:block.grass.fall
+  lk:hardness/none_diamond_revolver:
+    hardness: 0
+    resistance: 0
+  lk:model/lk_block_model_netherite_revolver:
+    type: minecraft:model
+    path: "${model}"
+    generation:
+      parent: minecraft:block/cube_all
+      textures:
+        all: ${model}
+  lk:model/lk_block_column_netherite_revolver:
+    type: minecraft:model
+    path: "${model}"
+    generation:
+      parent: minecraft:block/cube_column
+      textures:
+        end: ${end}
+        side: ${side}
+        particle: ${end}
+  lk:model/lk_block_full_netherite_revolver:
+    type: minecraft:model
+    path: "${model}"
+    generation:
+      parent: minecraft:block/cube
+      textures:
+        down: ${down}
+        up: ${up}
+        north: ${north}
+        south: ${south}
+        west: ${west}
+        east: ${east}
+        particle: ${up}
+  lk:loot_table/lk_block_netherite_revolver:
+    pools:
+      - rolls: 1
+        conditions:
+          - type: survives_explosion
+        entries:
+          - type: item
+            item: "${item}"
+  lk:block/lk_block_netherite_revolver:
+    loot:
+      template: lk:loot_table/lk_block_netherite_revolver
+      arguments:
+        item: "${item}"
+    settings:
+      map_color: 9
+      hardness: 2.0
+      resistance: 0.5
+      push_reaction: BLOCK
+      tags:
+        - minecraft:mineable/pickaxe
+      can_occlude: true
+      sounds:
+        break: minecraft:block.${sound_type}.break
+        step: minecraft:block.${sound_type}.step
+        place: minecraft:block.${sound_type}.place
+        hit: minecraft:block.${sound_type}.hit
+        fall: minecraft:block.${sound_type}.fall
+        destroy: minecraft:block.anvil.destroy
+    state:
+      auto_state: solid
+      model:
+        path: "${block_model}"
+  lk:block/lk_block_pillar_netherite_revolver:
+    loot:
+      template: lk:loot_table/lk_block_netherite_revolver
+      arguments:
+        item: "${item}"
+    settings:
+      map_color: 9
+      hardness: 2.0
+      resistance: 0.5
+      push_reaction: BLOCK
+      tags:
+        - minecraft:mineable/pickaxe
+      can_occlude: true
+      sounds:
+        break: minecraft:block.${sound_type}.break
+        step: minecraft:block.${sound_type}.step
+        place: minecraft:block.${sound_type}.place
+        hit: minecraft:block.${sound_type}.hit
+        fall: minecraft:block.${sound_type}.fall
+        destroy: minecraft:block.anvil.destroy
+    states:
+      properties:
+        axis:
+          type: axis
+          default: y
+      appearances:
+        axisY:
+          auto_state: solid
+          model:
+            path: "${model_vertical_path}"
+            generation:
+              parent: minecraft:block/cube_column
+              textures:
+                end: ${texture_top_path}
+                side: ${texture_side_path}
+        axisX:
+          auto_state: solid
+          model:
+            x: 90
+            y: 90
+            path: "${model_horizontal_path}"
+            generation:
+              parent: minecraft:block/cube_column_horizontal
+              textures:
+                end: ${texture_top_path}
+                side: ${texture_side_path}
+        axisZ:
+          auto_state: solid
+          model:
+            x: 90
+            path: "${model_horizontal_path}"
+            generation:
+              parent: minecraft:block/cube_column_horizontal
+              textures:
+                end: ${texture_top_path}
+                side: ${texture_side_path}
+      variants:
+        axis=x:
+          appearance: axisX
+        axis=y:
+          appearance: axisY
+        axis=z:
+          appearance: axisZ
+  lk:furniture/furniture_basic_settings_netherite_revolver:
+    settings:
+      item: "${item}"
+      sounds:
+        break: minecraft:block.stone.break
+        place: minecraft:block.stone.place
+    rules:
+      rotation: eight
+      alignment: center
+  lk:furniture/furniture_basic_loot_netherite_revolver:
+    loot:
+      template: lk:loot_table/furniture_basic_netherite_revolver
+      arguments:
+        item: "${item}"
+  lk:loot_table/furniture_basic_netherite_revolver:
+    pools:
+      - rolls: 1
+        conditions:
+          - type: survives_explosion
+        entries:
+          - type: item
+            item: "${item}"
+  lk:furniture/furniture_basic_element_netherite_revolver:
+    variants:
+      ground:
+        elements:
+          - item: "${item}"
+            display_transform: NONE
+            billboard: FIXED
+            position: 0.0,0,0
+            translation: 0,0.5,0
+  lk:furniture/furniture_hitbox_1_netherite_revolver:
+    variants:
+      ground:
+        hitboxes:
+          - type: interaction
+            position: 0,0,0
+            width: 1
+            height: 1
+            interactive: false
+  lk:block_entity_netherite_revolver:
+    auto_state:
+      id: customcrops:transparent
+      type: ${auto_state}
+    transparent: true
+    entity_renderer:
+      - item: "${__NAMESPACE__}:${__ID__}"
+  lk:sound/crop_netherite_revolver:
+    sounds:
+      break: minecraft:block.crop.break
+      step: minecraft:block.grass.step
+      place: minecraft:item.crop.plant
+      hit: minecraft:block.grass.hit
+      fall: minecraft:block.grass.fall
+  lk:hardness/none_netherite_revolver:
+    hardness: 0
+    resistance: 0

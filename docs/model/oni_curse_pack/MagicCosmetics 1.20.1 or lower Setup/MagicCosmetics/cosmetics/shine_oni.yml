@@ -1,0 +1,15 @@
+cosmetics:
+  shine_oni_cosmetics_wings:
+    colored: false
+    height: 6
+    item:
+      color: '#ffffff'
+      display: '&fShine Oni Wings'
+      glow: false
+      hide-attributes: true
+      material: POTION
+      modeldata: 8610001
+      unbreakable: true
+    permission: cosmetics.shine_oni_cosmetics_wings
+    space: 0
+    type: BAG

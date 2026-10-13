@@ -1,0 +1,25 @@
+shine_oni_cosmetics_wings:
+  height: 4
+  permission: cosmetics.shine_oni_cosmetics_wings
+  dyeable: false
+  slot: BACKPACK
+  item:
+    material: POTION
+    model-data: 8610003
+    color: '#ffffff'
+    unbreakable: true
+    glow: false
+    amount: 1
+    item-flags:
+    - HIDE_ATTRIBUTES
+  firstperson-item:
+    material: POTION
+    model-data: 8610002
+    color: '#ffffff'
+    unbreakable: true
+    glow: false
+    amount: 1
+    item-flags:
+    - HIDE_ATTRIBUTES
+
+# +f/WHrLZwqViXR9Bz+JRCTcCsTImzDjTsyYazotuzfDPdHK7HinT9V8hsdtafcjgrrpXVSx/JU1nx6EGGPVW6eN+i81LevmuE9uD8kl0LX0=

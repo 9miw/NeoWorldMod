@@ -22,11 +22,16 @@ public final class DatabaseRegressionTest {
         checks++;
         check(tableExists(source, "TEST_MARKET_PENDING_ITEMS"), "pending items table created");
         checks++;
-        check(schemaVersion(source) == 3, "database migrated to schema version 3");
+        check(schemaVersion(source) == 7, "database migrated to schema version 7");
         checks++;
         check(columnExists(source, "TEST_MARKET_LISTINGS", "ITEM_ID")
                 && columnExists(source, "TEST_MARKET_LISTINGS", "CATEGORY"),
                 "market query columns created");
+        checks++;
+        check(columnExists(source, "TEST_MARKET_TRANSACTIONS", "ITEM_NBT")
+                && columnExists(source, "TEST_MARKET_TRANSACTIONS", "PROCEEDS_SILVER")
+                && columnExists(source, "TEST_MARKET_TRANSACTIONS", "CLAIMED"),
+                "market sale claim columns created");
         checks++;
 
         long generatedId;
@@ -87,7 +92,11 @@ public final class DatabaseRegressionTest {
         check(tableExists(mariaCompatibility, "MARIA_MARKET_TRANSACTIONS"),
                 "MariaDB-compatible transaction table created");
         checks++;
-        return checks;
+        check(columnExists(mariaCompatibility, "MARIA_MARKET_TRANSACTIONS", "CLAIMED")
+                && columnExists(mariaCompatibility, "MARIA_MARKET_TRANSACTIONS", "ITEM_NBT"),
+                "MariaDB-compatible sale claim columns created");
+        checks++;
+        return checks + TitleStorageRegressionTest.run() + PvpRatingRegressionTest.run();
     }
 
     private static boolean tableExists(JdbcDataSource source, String tableName) throws SQLException {

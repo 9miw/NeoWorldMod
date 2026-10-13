@@ -1,0 +1,12 @@
+{
+  "providers": [
+    {"type":"bitmap","file":"neoworld:gui/common/icons/leader.png","ascent":9,"height":10,"chars":["\uE100"]},
+    {"type":"bitmap","file":"neoworld:gui/common/icons/member.png","ascent":9,"height":10,"chars":["\uE101"]},
+    {"type":"bitmap","file":"neoworld:gui/common/icons/invite.png","ascent":9,"height":10,"chars":["\uE102"]},
+    {"type":"bitmap","file":"neoworld:gui/common/icons/kick.png","ascent":9,"height":10,"chars":["\uE103"]},
+    {"type":"bitmap","file":"neoworld:gui/common/icons/ready.png","ascent":9,"height":10,"chars":["\uE104"]},
+    {"type":"bitmap","file":"neoworld:gui/common/icons/leave.png","ascent":9,"height":10,"chars":["\uE105"]},
+    {"type":"bitmap","file":"neoworld:gui/common/icons/disband.png","ascent":9,"height":10,"chars":["\uE106"]},
+    {"type":"bitmap","file":"neoworld:gui/common/icons/refresh.png","ascent":9,"height":10,"chars":["\uE107"]}
+  ]
+}

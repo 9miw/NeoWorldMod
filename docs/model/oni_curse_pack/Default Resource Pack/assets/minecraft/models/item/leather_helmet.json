@@ -1,0 +1,1 @@
+{"parent": "item/generated", "textures": {"layer0": "item/leather_helmet", "layer1": "item/leather_helmet_overlay"}, "overrides": [{"predicate": {"custom_model_data": 10142}, "model": "shine_oni:shine_onihelmet"}, {"predicate": {"custom_model_data": 10143}, "model": "item/leather_helmet"}]}

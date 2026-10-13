@@ -60,6 +60,14 @@ The market layout uses six icon categories, a search field, a compact sort contr
 
 ## Implementation Notes
 
+- Reuse existing Minecraft and NeoForge components before building replacements. Inventory interfaces should use `AbstractContainerMenu`, `AbstractContainerScreen`, and `Slot`, keeping vanilla item rendering, tooltips, cursor handling, dragging, splitting, hotkeys, and container synchronization.
+- Apply NeoWorld decoration around those components. Use vanilla slot textures first; a new visual theme does not justify reimplementing slot mechanics.
+- Reference-only item previews must be read-only on the server for pickup, placement, shift-click, swapping, throwing, cloning, drag distribution, and double-click collection. Never refund or drop preview copies. Add custom behavior only when an actual feature requirement needs it.
+
+- Shared icons use `client/gui/common/NeoGuiIcons.java`, with PNGs under `textures/gui/common/icons/`. Reuse this set across systems when the action matches the icon.
+- `NeoGuiIcons.icon(...)` uses `neoworld:gui_icons` (height 16, ascent 13); `NeoGuiIcons.label(..., label)` uses `neoworld:gui_controls` (height 10, ascent 9) for the glyph while keeping label text in the ordinary font. Do not use these glyphs as plain default-font characters.
+- The approved shared icon preview and source are `docs/gui/common/neo-icons-approved-mockup.png` and `docs/gui/common/neo-icons-source.png`. The preview retains its original Party-room demonstration.
+
 - Prefer reusable render helpers and texture regions over duplicating drawing logic.
 - Scale layout coordinates from the source texture dimensions so the texture and hit boxes stay aligned.
 - Keep click regions identical to their rendered bounds.

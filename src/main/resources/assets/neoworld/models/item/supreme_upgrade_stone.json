@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:item/generated",
+  "textures": {
+    "layer0": "neoworld:item/supreme_upgrade_stone"
+  }
+}

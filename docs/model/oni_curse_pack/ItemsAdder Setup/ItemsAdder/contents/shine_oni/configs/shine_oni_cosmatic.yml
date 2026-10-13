@@ -1,0 +1,35 @@
+info:
+  namespace: shine_oni
+items:
+  shine_oni_cosmetics_wings:
+    display_name: Shine Oni Wings Cosmetics
+    permission: shine_oni.shine_oni_cosmetics_wings
+    resource:
+      generate: false
+      model_path: wings_cosmetic
+      material: POTION
+      model_id: 8610000
+  shine_oni_cosmetics_wings_self:
+    display_name: Shine Oni Wings Cosmetics Self
+    permission: shine_oni.shine_oni_cosmetics_wings_self
+    resource:
+      generate: false
+      model_path: wings_cosmetic_self
+      material: POTION
+      model_id: 8610001
+  shine_oni_cosmetics_wings_self_2:
+    display_name: Shine Oni Wings Cosmetics Self 2
+    permission: shine_oni.shine_oni_cosmetics_wings_self_2
+    resource:
+      generate: false
+      model_path: wings_cosmetic_self_2
+      material: POTION
+      model_id: 8610002
+  shine_oni_cosmetics_wings_normal_2:
+    display_name: Shine Oni Wings Cosmetics Normal 2
+    permission: shine_oni.shine_oni_cosmetics_wings_normal_2
+    resource:
+      generate: false
+      model_path: wings_cosmetic_normal_2
+      material: POTION
+      model_id: 8610003

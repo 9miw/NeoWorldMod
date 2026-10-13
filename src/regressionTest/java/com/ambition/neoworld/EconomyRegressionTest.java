@@ -39,16 +39,30 @@ public final class EconomyRegressionTest {
         check(MarketMath.sellerProceeds(10_001, 500) == 9_501, "market proceeds deduct rounded-down tax");
         check(MarketMath.percentage(100, -1) == -1 && MarketMath.percentage(100, 10_001) == -1,
                 "invalid market rates rejected");
-        check(MarketTransactionPolicy.checkPurchase(true, false, false, 99, 0, 100, 0).result()
+        check(MarketTransactionPolicy.checkPurchase(true, false, false, 99, 0, 100, 1, 10, 0).result()
                 == MarketResult.INSUFFICIENT_FUNDS, "market rejects insufficient buyer balance");
-        check(MarketTransactionPolicy.checkPurchase(false, false, false, 100, 0, 100, 0).result()
+        check(MarketTransactionPolicy.checkPurchase(false, false, false, 100, 0, 100, 1, 10, 0).result()
                 == MarketResult.LISTING_NOT_FOUND, "market rejects a second purchase of removed listing");
-        check(MarketTransactionPolicy.checkPurchase(true, false, true, 100, 0, 100, 0).result()
+        check(MarketTransactionPolicy.checkPurchase(true, false, true, 100, 0, 100, 1, 10, 0).result()
                 == MarketResult.CANNOT_BUY_OWN_LISTING, "market rejects buying own listing");
-        check(MarketTransactionPolicy.checkPurchase(true, false, false, 100, Long.MAX_VALUE, 100, 0).result()
+        check(MarketTransactionPolicy.checkPurchase(true, false, false, 100, Long.MAX_VALUE,
+                100, 1, 10, 0).result()
                 == MarketResult.BALANCE_OVERFLOW, "market preserves sale when offline proceeds would overflow");
-        check(MarketTransactionPolicy.checkPurchase(true, false, false, 100, 0, 100, 500).sellerProceeds() == 95,
+        check(MarketTransactionPolicy.checkPurchase(true, false, false, 500, 0,
+                100, 5, 10, 500).sellerProceeds() == 475,
                 "market purchase plans offline seller proceeds");
+        check(MarketTransactionPolicy.checkPurchase(true, false, false, 500, 0,
+                100, 5, 10, 500).totalPriceSilver() == 500,
+                "market multiplies unit price by purchase quantity");
+        check(MarketTransactionPolicy.checkPurchase(true, false, false, 500, 0,
+                100, 0, 10, 0).result() == MarketResult.INVALID_QUANTITY,
+                "market rejects zero purchase quantity");
+        check(MarketTransactionPolicy.checkPurchase(true, false, false, 500, 0,
+                100, 11, 10, 0).result() == MarketResult.INSUFFICIENT_STOCK,
+                "market rejects purchase quantity above available stock");
+        check(MarketTransactionPolicy.checkPurchase(true, false, false, Long.MAX_VALUE, 0,
+                Long.MAX_VALUE, 2, 2, 0).result() == MarketResult.INVALID_PRICE,
+                "market rejects overflowing purchase total");
         check(MarketCommandRules.durationTicks(2_880) == 3_456_000L, "market command converts duration to ticks");
         check(MarketCommandRules.totalPages(21, 10) == 3, "market command calculates pages");
         check(MarketCommandRules.clampPage(99, 3) == 3, "market command clamps page to available results");

@@ -1,6 +1,6 @@
 package com.ambition.neoworld.mixin;
 
-import com.ambition.neoworld.client.ClientEconomyData;
+import com.ambition.neoworld.client.state.ClientEconomyData;
 import com.ambition.neoworld.data.PlayerData;
 import com.ambition.neoworld.economy.CurrencyMath;
 import com.ambition.neoworld.item.CoinItem;

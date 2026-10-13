@@ -1,0 +1,175 @@
+info:
+  namespace: lunarset
+items:
+  lunar_axe:
+    display_name: Lunar Axe
+    permission: lunarset.use
+    resource:
+      generate: false
+      material: NETHERITE_AXE
+      model_path: axe
+  lunar_bow:
+    display_name: Lunar Bow
+    permission: lunarset.use
+    resource:
+      generate: false
+      material: BOW
+      model_path: bow
+  lunar_chest:
+    behaviours:
+      furniture:
+        fixed_rotation: true
+        hitbox:
+          height: 1
+          height_offset: 0
+          length: 1
+          length_offset: 0
+          width: 1
+          width_offset: 0
+        placeable_on:
+          ceiling: false
+          floor: true
+          walls: false
+        solid: true
+    display_name: Lunar Chest
+    permission: lunarset.use
+    resource:
+      generate: false
+      material: PAPER
+      model_path: chest
+  lunar_chest_opening:
+    behaviours:
+      furniture:
+        fixed_rotation: true
+        hitbox:
+          height: 2
+          height_offset: 0
+          length: 1
+          length_offset: 0
+          width: 1
+          width_offset: 0
+        placeable_on:
+          ceiling: false
+          floor: true
+          walls: false
+        solid: true
+    display_name: Lunar Chest Opening
+    permission: lunarset.use
+    resource:
+      generate: false
+      material: PAPER
+      model_path: chest_opening
+  lunar_crossbow:
+    display_name: Lunar Crossbow
+    permission: lunarset.use
+    resource:
+      generate: false
+      material: CROSSBOW
+      model_path: crossbow
+  lunar_fishing_rod:
+    display_name: Lunar Fishing Rod
+    permission: lunarset.use
+    resource:
+      generate: false
+      material: FISHING_ROD
+      model_path: fishing_rod
+  lunar_greatsword:
+    display_name: Lunar Greatsword
+    permission: lunarset.use
+    resource:
+      generate: false
+      material: NETHERITE_SWORD
+      model_path: greatsword
+  lunar_hammer:
+    display_name: Lunar Hammer
+    permission: lunarset.use
+    resource:
+      generate: false
+      material: NETHERITE_SWORD
+      model_path: hammer
+  lunar_helmet:
+    behaviours:
+      hat: true
+    display_name: Lunar Helmet
+    permission: lunarset.use
+    resource:
+      generate: false
+      material: PAPER
+      model_path: helmet
+  lunar_hoe:
+    display_name: Lunar Hoe
+    permission: lunarset.use
+    resource:
+      generate: false
+      material: NETHERITE_HOE
+      model_path: hoe
+  lunar_key:
+    display_name: Lunar Key
+    permission: lunarset.use
+    resource:
+      generate: false
+      material: PAPER
+      model_path: key
+  lunar_pickaxe:
+    display_name: Lunar Pickaxe
+    permission: lunarset.use
+    resource:
+      generate: false
+      material: NETHERITE_PICKAXE
+      model_path: pickaxe
+  lunar_scythe:
+    display_name: Lunar Scythe
+    permission: lunarset.use
+    resource:
+      generate: false
+      material: NETHERITE_SWORD
+      model_path: scythe
+  lunar_shield:
+    display_name: Lunar Shield
+    permission: lunarset.use
+    resource:
+      generate: false
+      material: SHIELD
+      model_path: shield
+  lunar_shovel:
+    display_name: Lunar Shovel
+    permission: lunarset.use
+    resource:
+      generate: false
+      material: NETHERITE_SHOVEL
+      model_path: shovel
+  lunar_spear:
+    display_name: Lunar Spear
+    permission: lunarset.use
+    resource:
+      generate: false
+      material: NETHERITE_SWORD
+      model_path: spear
+  lunar_staff:
+    display_name: Lunar Staff
+    permission: lunarset.use
+    resource:
+      generate: false
+      material: NETHERITE_SWORD
+      model_path: staff
+  lunar_sword:
+    display_name: Lunar Sword
+    permission: lunarset.use
+    resource:
+      generate: false
+      material: NETHERITE_SWORD
+      model_path: sword
+  lunar_tail:
+    display_name: Lunar Tail
+    permission: lunarset.use
+    resource:
+      generate: false
+      material: PAPER
+      model_path: tail
+  lunar_trident:
+    display_name: Lunar Trident
+    permission: lunarset.use
+    resource:
+      generate: false
+      material: NETHERITE_SWORD
+      model_path: trident

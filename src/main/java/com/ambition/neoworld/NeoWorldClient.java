@@ -1,8 +1,9 @@
 package com.ambition.neoworld;
 
-import com.ambition.neoworld.client.render.FashionHeadLayer;
+import com.ambition.neoworld.client.render.FashionLayer;
 import com.ambition.neoworld.client.gui.overlay.EconomyOverlay;
 import com.ambition.neoworld.client.gui.overlay.LevelOverlay;
+import com.ambition.neoworld.client.gui.overlay.PartyOverlay;
 
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.renderer.entity.player.PlayerRenderer;
@@ -23,9 +24,14 @@ import net.neoforged.neoforge.client.gui.VanillaGuiLayers;
 public class NeoWorldClient {
 
     public NeoWorldClient(IEventBus modEventBus, ModContainer container) {
+        if (net.neoforged.fml.ModList.get().isLoaded("epicfight")) {
+            com.ambition.neoworld.client.render.EpicFightFashionLayer.register();
+        }
         container.registerExtensionPoint(IConfigScreenFactory.class, ConfigurationScreen::new);
 
         modEventBus.addListener(this::onClientSetup);
+        modEventBus.addListener(com.ambition.neoworld.client.input.PlayerActionKeyHandler::register);
+        modEventBus.addListener(com.ambition.neoworld.client.input.PvpQueueKeyHandler::register);
         modEventBus.addListener(this::registerGuiLayers);
         modEventBus.addListener(this::addEntityLayers);
     }
@@ -36,6 +42,10 @@ public class NeoWorldClient {
     }
 
     private void registerGuiLayers(RegisterGuiLayersEvent event) {
+        event.registerAbove(VanillaGuiLayers.PLAYER_HEALTH,
+                ResourceLocation.fromNamespaceAndPath(NeoWorld.MODID,"pvp_queue_overlay"),new com.ambition.neoworld.client.gui.overlay.PvpQueueOverlay());
+        event.registerAbove(VanillaGuiLayers.PLAYER_HEALTH,
+                ResourceLocation.fromNamespaceAndPath(NeoWorld.MODID, "party_overlay"), new PartyOverlay());
         event.registerAbove(
                 VanillaGuiLayers.PLAYER_HEALTH,
                 ResourceLocation.fromNamespaceAndPath(NeoWorld.MODID, "level_overlay"),
@@ -54,7 +64,7 @@ public class NeoWorldClient {
         for (var skin : event.getSkins()) {
             PlayerRenderer renderer = event.getSkin(skin);
             if (renderer != null) {
-                renderer.addLayer(new FashionHeadLayer(renderer));
+                renderer.addLayer(new FashionLayer(renderer));
             }
         }
     }

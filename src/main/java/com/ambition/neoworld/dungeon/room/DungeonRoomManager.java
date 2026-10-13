@@ -7,12 +7,12 @@ import java.util.Optional;
 import java.util.UUID;
 import java.util.WeakHashMap;
 
-import com.ambition.neoworld.dungeon.DungeonInstance;
-import com.ambition.neoworld.dungeon.DungeonInstanceState;
-import com.ambition.neoworld.dungeon.DungeonReturnPoint;
-import com.ambition.neoworld.dungeon.DungeonRecoveryData;
-import com.ambition.neoworld.dungeon.DungeonScoreboardManager;
-import com.ambition.neoworld.dungeon.DungeonRuntime;
+import com.ambition.neoworld.dungeon.instance.DungeonInstance;
+import com.ambition.neoworld.dungeon.instance.DungeonInstanceState;
+import com.ambition.neoworld.dungeon.recovery.DungeonReturnPoint;
+import com.ambition.neoworld.dungeon.recovery.DungeonRecoveryData;
+import com.ambition.neoworld.dungeon.instance.DungeonScoreboardManager;
+import com.ambition.neoworld.dungeon.instance.DungeonRuntime;
 import com.ambition.neoworld.dungeon.definition.DungeonDefinition;
 import com.ambition.neoworld.dungeon.definition.DungeonDefinitionData;
 import com.ambition.neoworld.dungeon.definition.DungeonDefinitionStatus;
@@ -39,13 +39,27 @@ import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.entity.ChestBlockEntity;
 import net.minecraft.world.level.storage.loot.LootTable;
+import net.minecraft.world.level.storage.loot.LootParams;
+import net.minecraft.world.level.storage.loot.parameters.LootContextParams;
+import net.minecraft.world.level.storage.loot.parameters.LootContextParamSets;
+import net.minecraft.world.SimpleContainer;
+import net.minecraft.world.SimpleMenuProvider;
+import net.minecraft.world.inventory.ChestMenu;
+import net.minecraft.world.entity.player.Player;
+import net.minecraft.network.chat.Component;
+import net.minecraft.world.phys.Vec3;
 import net.minecraft.world.entity.LivingEntity;
+import net.minecraft.world.level.GameType;
+import net.minecraft.nbt.Tag;
 import noppes.npcs.api.IWorld;
 import noppes.npcs.api.NpcAPI;
 import noppes.npcs.api.entity.IEntity;
 
 /** Owns temporary dungeon lobbies for one running server. */
 public final class DungeonRoomManager {
+    static final String SPECTATOR_RETURN_MODE = "neoworld_dungeon_spectator_return_mode";
+    static final String DUNGEON_DEATH = "neoworld_dungeon_death";
+    static final String DEATH_EXIT = "neoworld_dungeon_death_exit";
     private static final Map<MinecraftServer, DungeonRoomManager> MANAGERS = new WeakHashMap<>();
 
     private final Map<Integer, DungeonRoom> rooms = new LinkedHashMap<>();
@@ -150,6 +164,22 @@ public final class DungeonRoomManager {
         return RoomActionResult.success(room, "ออกจากห้องสำเร็จ");
     }
 
+    public RoomActionResult toggleReady(UUID playerId) {
+        DungeonRoom room = findForPlayer(playerId).orElse(null);
+        if (room == null || room.state() != DungeonRoomState.WAITING) {
+            return RoomActionResult.failure("เปลี่ยนสถานะพร้อมได้ในห้องรอดันเจี้ยนเท่านั้น");
+        }
+        if (room.ownerId().equals(playerId)) {
+            return RoomActionResult.success(room, "เจ้าของห้องพร้อมอยู่เสมอ");
+        }
+        room.setReady(playerId, !room.isReady(playerId));
+        return RoomActionResult.success(room, room.isReady(playerId) ? "พร้อมแล้ว" : "ยกเลิกพร้อมแล้ว");
+    }
+
+    public void clearPlayerReady(UUID playerId) {
+        findForPlayer(playerId).ifPresent(room -> room.setReady(playerId, false));
+    }
+
     public RoomActionResult start(ServerPlayer owner) {
         UUID playerId = owner.getUUID();
         DungeonRoom room = findForPlayer(playerId).orElse(null);
@@ -177,8 +207,8 @@ public final class DungeonRoomManager {
                 room.setState(DungeonRoomState.WAITING);
                 return RoomActionResult.failure("ไม่พบปาร์ตี้ของห้องนี้แล้ว");
             }
-            if (!party.allReady()) {
-                return RoomActionResult.failure("สมาชิกปาร์ตี้ต้องกดพร้อมทุกคนก่อนเริ่ม");
+            if (!room.allReady()) {
+                return RoomActionResult.failure("สมาชิกห้องดันเจี้ยนต้องกดพร้อมทุกคนก่อนเริ่ม");
             }
         }
 
@@ -261,9 +291,7 @@ public final class DungeonRoomManager {
                 ? "§6[Dungeon] Boss จะปรากฏใน 3 วินาที"
                 : "§e[Dungeon] Wave 1 เริ่มแล้ว!");
         room.setState(DungeonRoomState.IN_DUNGEON);
-        if (party != null) {
-            party.clearReady();
-        }
+        room.clearReady();
         return RoomActionResult.success(room,
                 "เริ่มดันเจี้ยนสำเร็จ | slot=" + instance.slotIndex());
     }
@@ -386,8 +414,8 @@ public final class DungeonRoomManager {
                         DungeonRuntime.get(server).transition(
                                 run.instance.id(), DungeonInstanceState.REWARD, gameTick);
                         grantRewards(run);
-                        run.returned.addAll(run.eliminated);
                         run.phase = RunPhase.REWARD;
+                        returnPlayersAtExit(run);
                         notifyPlayers(run.memberIds(), "§a[Dungeon] สำเร็จ! รับรางวัลแล้ว ไปยังจุด exit เพื่อออก");
                     }
                 }
@@ -429,9 +457,9 @@ public final class DungeonRoomManager {
         BlockPos chestPos = run.placement.markers().get("reward_chest").getFirst();
         run.level.setBlockAndUpdate(chestPos, Blocks.CHEST.defaultBlockState());
         if (run.level.getBlockEntity(chestPos) instanceof ChestBlockEntity chest) {
-            ResourceKey<LootTable> lootTable = ResourceKey.create(
-                    Registries.LOOT_TABLE, run.definition.reward().lootTableId());
-            chest.setLootTable(lootTable, run.level.getRandom().nextLong());
+            // The physical block is only an access point; hoppers must never see rewards.
+            chest.setLootTable(null);
+            chest.clearContent();
         }
         for (ServerPlayer player : onlinePlayers(run)) {
             if (run.eliminated.contains(player.getUUID())) continue;
@@ -445,7 +473,71 @@ public final class DungeonRoomManager {
         }
     }
 
+    public boolean isRewardChest(ServerLevel level, BlockPos position) {
+        return rewardRunAt(level, position) != null;
+    }
+
+    private ActiveRun rewardRunAt(ServerLevel level, BlockPos position) {
+        for (ActiveRun run : activeRuns.values()) {
+            if (run.level == level && run.placement.markers()
+                    .getOrDefault("reward_chest", java.util.List.of()).contains(position)) return run;
+        }
+        return null;
+    }
+
+    /** Returns true when this block belongs to a run, including denied access. */
+    public boolean openRewardChest(ServerPlayer player, BlockPos position) {
+        ActiveRun run = rewardRunAt(player.serverLevel(), position);
+        if (run == null) return false;
+        if (!canClaimReward(run, player, position)) {
+            player.sendSystemMessage(Component.literal("§c[Dungeon] คุณยังไม่มีสิทธิ์รับรางวัลจากกล่องนี้"));
+            return true;
+        }
+        SimpleContainer inventory = run.personalRewards.computeIfAbsent(player.getUUID(), ignored -> {
+            UUID ownerId = player.getUUID();
+            SimpleContainer contents = new SimpleContainer(27) {
+                @Override
+                public boolean stillValid(Player viewer) {
+                    return viewer instanceof ServerPlayer current && ownerId.equals(current.getUUID())
+                            && canClaimReward(run, current, position);
+                }
+            };
+            LootTable table = server.reloadableRegistries().getLootTable(ResourceKey.create(
+                    Registries.LOOT_TABLE, run.definition.reward().lootTableId()));
+            LootParams params = new LootParams.Builder(run.level)
+                    .withParameter(LootContextParams.ORIGIN, Vec3.atCenterOf(position))
+                    .withOptionalParameter(LootContextParams.THIS_ENTITY, player)
+                    .withLuck(player.getLuck()).create(LootContextParamSets.CHEST);
+            table.fill(contents, params, run.level.getRandom().nextLong());
+            return contents;
+        });
+        player.openMenu(new SimpleMenuProvider(
+                (id, playerInventory, viewer) -> ChestMenu.threeRows(id, playerInventory, inventory),
+                Component.literal("รางวัลส่วนตัว - " + run.definition.displayName())));
+        return true;
+    }
+
+    private boolean canClaimReward(ActiveRun run, ServerPlayer player, BlockPos position) {
+        return activeRuns.get(run.instance.id()) == run && run.phase == RunPhase.REWARD
+                && run.instance.members().containsKey(player.getUUID())
+                && !run.eliminated.contains(player.getUUID()) && !run.returned.contains(player.getUUID())
+                && player.isAlive() && !player.isSpectator() && player.serverLevel() == run.level
+                && run.level.getBlockEntity(position) instanceof ChestBlockEntity
+                && player.distanceToSqr(Vec3.atCenterOf(position)) <= 64.0D;
+    }
+
     private void returnPlayersAtExit(ActiveRun run) {
+        // Release spectators after victory, including deferred respawn/login recovery.
+        for (UUID memberId : run.memberIds()) {
+            if (!run.eliminated.contains(memberId) || run.returned.contains(memberId)) continue;
+            ServerPlayer player = server.getPlayerList().getPlayer(memberId);
+            if (player != null && player.isAlive()) {
+                returnPlayer(run, player);
+            } else {
+                DungeonRecoveryData.get(server).put(memberId, run.instance.members().get(memberId));
+                run.returned.add(memberId);
+            }
+        }
         java.util.List<BlockPos> exits = run.placement.markers().get("exit");
         for (ServerPlayer player : onlinePlayers(run)) {
             if (run.returned.contains(player.getUUID())) continue;
@@ -466,6 +558,7 @@ public final class DungeonRoomManager {
             if (entity != null && entity.isAlive()) entity.despawn();
         });
         for (UUID memberId : run.memberIds()) {
+            if (run.returned.contains(memberId)) continue;
             ServerPlayer player = server.getPlayerList().getPlayer(memberId);
             if (player != null && player.isAlive()) {
                 returnPlayer(run, player);
@@ -479,6 +572,7 @@ public final class DungeonRoomManager {
     private void returnPlayer(ActiveRun run, ServerPlayer player) {
         DungeonReturnPoint point = run.instance.members().get(player.getUUID());
         if (point == null) return;
+        player.closeContainer();
         teleportToReturnPoint(player, point);
         DungeonRecoveryData.get(server).remove(player.getUUID());
         DungeonScoreboardManager.hide(player);
@@ -491,7 +585,31 @@ public final class DungeonRoomManager {
                 ResourceKey.create(Registries.DIMENSION, dimensionId));
         if (destination == null) destination = server.overworld();
         player.teleportTo(destination, point.x(), point.y(), point.z(), point.yaw(), point.pitch());
+        restoreSpectatorMode(player);
         DungeonScoreboardManager.hide(player);
+    }
+
+    private static void restoreSpectatorMode(ServerPlayer player) {
+        var data = player.getPersistentData();
+        if (!data.contains(SPECTATOR_RETURN_MODE, Tag.TAG_INT)) return;
+        player.setCamera(player);
+        player.setGameMode(GameType.byId(data.getInt(SPECTATOR_RETURN_MODE)));
+        data.remove(SPECTATOR_RETURN_MODE);
+    }
+
+    private void spectateRun(ActiveRun run, ServerPlayer player) {
+        var data = player.getPersistentData();
+        if (!data.contains(SPECTATOR_RETURN_MODE, Tag.TAG_INT)) {
+            data.putInt(SPECTATOR_RETURN_MODE, player.gameMode.getGameModeForPlayer().getId());
+        }
+        BlockPos spawn = run.placement.markers().get("player_spawn").getFirst();
+        player.setGameMode(GameType.SPECTATOR);
+        player.setCamera(player);
+        player.teleportTo(run.level, spawn.getX() + 0.5D, spawn.getY() + 1.0D,
+                spawn.getZ() + 0.5D, player.getYRot(), player.getXRot());
+        player.sendSystemMessage(net.minecraft.network.chat.Component.literal(
+                "§e[Dungeon] คุณตายแล้ว รอชมเพื่อนจนจบรอบ หรือใช้คำสั่งออกจากดันเจี้ยน"));
+        syncRunHud(run);
     }
 
     private void syncRunHud(ActiveRun run) {
@@ -611,24 +729,58 @@ public final class DungeonRoomManager {
     }
 
     public void handleDeath(UUID playerId) {
+        ServerPlayer deadPlayer = server.getPlayerList().getPlayer(playerId);
+        if (deadPlayer != null) {
+            deadPlayer.getPersistentData().remove(DUNGEON_DEATH);
+            deadPlayer.getPersistentData().remove(DEATH_EXIT);
+        }
         DungeonInstance instance = DungeonRuntime.get(server).getForPlayer(playerId).orElse(null);
         if (instance == null) return;
         ActiveRun run = activeRuns.get(instance.id());
-        if (run != null) {
+        if (run != null && !run.returned.contains(playerId)) {
+            if (deadPlayer != null) deadPlayer.getPersistentData().putBoolean(DUNGEON_DEATH, true);
             run.eliminated.add(playerId);
-            run.returned.add(playerId);
             DungeonRecoveryData.get(server).put(playerId, instance.members().get(playerId));
         }
     }
 
     public void handlePlayerReady(ServerPlayer player) {
+        if (!player.isAlive()) return;
+        boolean exitAtSpawn = player.getPersistentData().getBoolean(DUNGEON_DEATH)
+                && player.getPersistentData().getBoolean(DEATH_EXIT);
+        player.getPersistentData().remove(DUNGEON_DEATH);
+        player.getPersistentData().remove(DEATH_EXIT);
+        if (exitAtSpawn) {
+            exitDungeon(player);
+            restoreSpectatorMode(player);
+            ServerLevel overworld = server.overworld();
+            BlockPos spawn = overworld.getSharedSpawnPos();
+            player.teleportTo(overworld, spawn.getX() + 0.5D, spawn.getY(), spawn.getZ() + 0.5D,
+                    overworld.getSharedSpawnAngle(), 0.0F);
+            return;
+        }
         DungeonInstance activeInstance = DungeonRuntime.get(server).getForPlayer(player.getUUID()).orElse(null);
         if (activeInstance != null) {
             ActiveRun activeRun = activeRuns.get(activeInstance.id());
-            if (activeRun != null && !activeRun.eliminated.contains(player.getUUID())) return;
+            if (activeRun != null && !activeRun.returned.contains(player.getUUID())) {
+                if (!activeRun.eliminated.contains(player.getUUID())) return;
+                if (!player.isAlive()) return;
+                if (activeRun.phase != RunPhase.REWARD
+                        && !activeRun.eliminated.containsAll(activeInstance.members().keySet())) {
+                    spectateRun(activeRun, player);
+                    return;
+                }
+                // The team has wiped, or the surviving members finished the dungeon.
+                returnPlayer(activeRun, player);
+                return;
+            }
         }
+        if (!player.isAlive()) return;
         DungeonReturnPoint point = DungeonRecoveryData.get(server).remove(player.getUUID()).orElse(null);
-        if (point == null) return;
+        if (point == null) {
+            restoreSpectatorMode(player);
+            return;
+        }
         teleportToReturnPoint(player, point);
         player.sendSystemMessage(net.minecraft.network.chat.Component.literal(
                 "§e[Dungeon] ส่งกลับจาก Dungeon Instance แล้ว"));
@@ -713,6 +865,7 @@ public final class DungeonRoomManager {
         private final java.util.List<IEntity<?>> enemies = new java.util.ArrayList<>();
         private final java.util.Set<UUID> returned = new java.util.HashSet<>();
         private final java.util.Set<UUID> eliminated = new java.util.HashSet<>();
+        private final Map<UUID, SimpleContainer> personalRewards = new java.util.HashMap<>();
         private int waveIndex;
         private RunPhase phase;
         private long nextActionTick;

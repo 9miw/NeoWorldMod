@@ -1,0 +1,61 @@
+armors_rendering:
+  lunararmor:
+    color: '#a3200b'
+    layer_1: armor/lunar_armor_layer_1
+    layer_2: armor/lunar_armor_layer_2
+    use_color: false
+info:
+  namespace: lunarset
+items:
+  lunarboots:
+    display_name: Lunar Boots
+    durability:
+      max_custom_durability: 195
+    permission: lunarset.use
+    resource:
+      generate: true
+      textures:
+      - armor/lunar_boots_icon.png
+    specific_properties:
+      armor:
+        custom_armor: lunararmor
+        slot: feet
+  lunarchestplate:
+    display_name: Lunar Chestplate
+    durability:
+      max_custom_durability: 240
+    permission: lunarset.use
+    resource:
+      generate: true
+      textures:
+      - armor/lunar_chestplate_icon.png
+    specific_properties:
+      armor:
+        custom_armor: lunararmor
+        slot: chest
+  lunarhelmet:
+    display_name: Lunar Helmet
+    durability:
+      max_custom_durability: 165
+    permission: lunarset.use
+    resource:
+      generate: true
+      textures:
+      - armor/lunar_helmet_icon.png
+    specific_properties:
+      armor:
+        custom_armor: lunararmor
+        slot: head
+  lunarleggings:
+    display_name: Lunar Leggings
+    durability:
+      max_custom_durability: 225
+    permission: lunarset.use
+    resource:
+      generate: true
+      textures:
+      - armor/lunar_leggings_icon.png
+    specific_properties:
+      armor:
+        custom_armor: lunararmor
+        slot: legs

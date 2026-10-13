@@ -1,0 +1,149 @@
+{
+  "replace": false,
+  "values": [
+    {
+      "id": "epicfight:bokken",
+      "required": false
+    },
+    {
+      "id": "epicfight:diamond_dagger",
+      "required": false
+    },
+    {
+      "id": "epicfight:diamond_greatsword",
+      "required": false
+    },
+    {
+      "id": "epicfight:diamond_longsword",
+      "required": false
+    },
+    {
+      "id": "epicfight:diamond_spear",
+      "required": false
+    },
+    {
+      "id": "epicfight:diamond_tachi",
+      "required": false
+    },
+    {
+      "id": "epicfight:glove",
+      "required": false
+    },
+    {
+      "id": "epicfight:golden_dagger",
+      "required": false
+    },
+    {
+      "id": "epicfight:golden_greatsword",
+      "required": false
+    },
+    {
+      "id": "epicfight:golden_longsword",
+      "required": false
+    },
+    {
+      "id": "epicfight:golden_spear",
+      "required": false
+    },
+    {
+      "id": "epicfight:golden_tachi",
+      "required": false
+    },
+    {
+      "id": "epicfight:iron_dagger",
+      "required": false
+    },
+    {
+      "id": "epicfight:iron_greatsword",
+      "required": false
+    },
+    {
+      "id": "epicfight:iron_longsword",
+      "required": false
+    },
+    {
+      "id": "epicfight:iron_spear",
+      "required": false
+    },
+    {
+      "id": "epicfight:iron_tachi",
+      "required": false
+    },
+    {
+      "id": "epicfight:netherite_dagger",
+      "required": false
+    },
+    {
+      "id": "epicfight:netherite_greatsword",
+      "required": false
+    },
+    {
+      "id": "epicfight:netherite_longsword",
+      "required": false
+    },
+    {
+      "id": "epicfight:netherite_spear",
+      "required": false
+    },
+    {
+      "id": "epicfight:netherite_tachi",
+      "required": false
+    },
+    {
+      "id": "epicfight:stone_dagger",
+      "required": false
+    },
+    {
+      "id": "epicfight:stone_greatsword",
+      "required": false
+    },
+    {
+      "id": "epicfight:stone_longsword",
+      "required": false
+    },
+    {
+      "id": "epicfight:stone_spear",
+      "required": false
+    },
+    {
+      "id": "epicfight:stone_tachi",
+      "required": false
+    },
+    {
+      "id": "epicfight:stray_hat",
+      "required": false
+    },
+    {
+      "id": "epicfight:stray_pants",
+      "required": false
+    },
+    {
+      "id": "epicfight:stray_robe",
+      "required": false
+    },
+    {
+      "id": "epicfight:uchigatana",
+      "required": false
+    },
+    {
+      "id": "epicfight:wooden_dagger",
+      "required": false
+    },
+    {
+      "id": "epicfight:wooden_greatsword",
+      "required": false
+    },
+    {
+      "id": "epicfight:wooden_longsword",
+      "required": false
+    },
+    {
+      "id": "epicfight:wooden_spear",
+      "required": false
+    },
+    {
+      "id": "epicfight:wooden_tachi",
+      "required": false
+    }
+  ]
+}

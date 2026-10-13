@@ -1,5 +1,7 @@
 package com.ambition.neoworld.client.gui.market;
 
+import com.ambition.neoworld.client.gui.common.NeoBitmapFonts;
+
 import com.ambition.neoworld.client.gui.widget.EconomyBalanceWidget;
 import com.ambition.neoworld.client.gui.widget.NeoButton;
 
@@ -7,15 +9,15 @@ import java.util.EnumMap;
 import java.util.List;
 import java.util.Map;
 
-import org.lwjgl.glfw.GLFW;
-
 import com.ambition.neoworld.NeoWorld;
-import com.ambition.neoworld.market.MarketCategory;
-import com.ambition.neoworld.market.MarketSort;
-import com.ambition.neoworld.network.MarketActionResultPayload;
-import com.ambition.neoworld.network.MarketBuyPayload;
-import com.ambition.neoworld.network.MarketPagePayload;
-import com.ambition.neoworld.network.MarketQueryPayload;
+import com.ambition.neoworld.client.gui.common.NeoPopupScreen;
+import com.ambition.neoworld.economy.CurrencyMath;
+import com.ambition.neoworld.market.model.MarketCategory;
+import com.ambition.neoworld.market.model.MarketSort;
+import com.ambition.neoworld.network.market.MarketActionResultPayload;
+import com.ambition.neoworld.network.market.MarketBuyPayload;
+import com.ambition.neoworld.network.market.MarketPagePayload;
+import com.ambition.neoworld.network.market.MarketQueryPayload;
 
 import net.minecraft.ChatFormatting;
 import net.minecraft.client.gui.GuiGraphics;
@@ -34,11 +36,10 @@ public final class MarketScreen extends Screen {
     private static final int ROWS = 4;
     private static final int PAGE_SIZE = COLUMNS * ROWS;
     private static final int SEARCH_DELAY_TICKS = 8;
+    private static final String SILVER_ICON = "§f\uE046";
 
     private static final ResourceLocation FRAME_TEXTURE = ResourceLocation.fromNamespaceAndPath(
             NeoWorld.MODID, "textures/gui/market/market_frame.png");
-    private static final ResourceLocation WIDGET_TEXTURE = ResourceLocation.fromNamespaceAndPath(
-            NeoWorld.MODID, "textures/gui/market/market_widgets.png");
     private static final ResourceLocation SLOT_TEXTURE = ResourceLocation.fromNamespaceAndPath(
             NeoWorld.MODID, "textures/gui/market/market_slot_states.png");
     private static final ResourceLocation SEARCH_TEXTURE = ResourceLocation.fromNamespaceAndPath(
@@ -47,8 +48,6 @@ public final class MarketScreen extends Screen {
             NeoWorld.MODID, "textures/gui/market/market_detail_scroll.png");
     private static final int FRAME_TEXTURE_WIDTH = 1556;
     private static final int FRAME_TEXTURE_HEIGHT = 1011;
-    private static final int WIDGET_TEXTURE_WIDTH = 1536;
-    private static final int WIDGET_TEXTURE_HEIGHT = 1024;
     private static final int SLOT_TEXTURE_WIDTH = 1944;
     private static final int SLOT_TEXTURE_HEIGHT = 809;
     private static final int SEARCH_TEXTURE_WIDTH = 1945;
@@ -79,8 +78,8 @@ public final class MarketScreen extends Screen {
     private NeoButton buyButton;
     private NeoButton previousButton;
     private NeoButton nextButton;
-    private NeoButton confirmButton;
-    private NeoButton cancelButton;
+    private NeoButton decreaseQuantityButton;
+    private NeoButton increaseQuantityButton;
     private int panelX;
     private int panelY;
     private int panelWidth;
@@ -103,6 +102,7 @@ public final class MarketScreen extends Screen {
     private int pagerY;
     private int buyY;
     private int selectedIndex = -1;
+    private int purchaseQuantity = 1;
     private int page = 1;
     private int totalPages = 1;
     private long totalListings;
@@ -110,7 +110,6 @@ public final class MarketScreen extends Screen {
     private int requestId;
     private int pendingSearchTicks = -1;
     private boolean loading;
-    private boolean confirming;
     private String status = "";
     private int statusColor = 0xFFE3E7EA;
     private int statusTicks;
@@ -127,6 +126,7 @@ public final class MarketScreen extends Screen {
 
     @Override
     protected void init() {
+        String previousSearch = searchBox == null ? "" : searchBox.getValue();
         panelWidth = Math.min(404, width - 8);
         panelHeight = Math.min(232, height - 8);
         panelX = (width - panelWidth) / 2;
@@ -157,6 +157,7 @@ public final class MarketScreen extends Screen {
         searchBox.setTextColor(0xFFE7ECEF);
         searchBox.setTextColorUneditable(0xFF7F898F);
         searchBox.setHint(Component.literal("ค้นหา").withStyle(ChatFormatting.GRAY));
+        searchBox.setValue(previousSearch);
         searchBox.setResponder(value -> pendingSearchTicks = SEARCH_DELAY_TICKS);
         addRenderableWidget(searchBox);
 
@@ -183,27 +184,25 @@ public final class MarketScreen extends Screen {
                 Button.builder(Component.literal(">"), ignored -> requestPage(page + 1))
                         .bounds(gridX + gridWidth - 22, pagerY, 22, 18)
                         .tooltip(Tooltip.create(Component.literal("หน้าถัดไป")))));
+        int quantityY = detailY + 81;
+        decreaseQuantityButton = addRenderableWidget(new NeoButton(
+                Button.builder(Component.literal("-"), ignored -> changePurchaseQuantity(-1))
+                        .bounds(detailX + detailWidth - 58, quantityY, 16, 16)
+                        .tooltip(Tooltip.create(Component.literal("ลดจำนวนซื้อ")))));
+        increaseQuantityButton = addRenderableWidget(new NeoButton(
+                Button.builder(Component.literal("+"), ignored -> changePurchaseQuantity(1))
+                        .bounds(detailX + detailWidth - 23, quantityY, 16, 16)
+                        .tooltip(Tooltip.create(Component.literal("เพิ่มจำนวนซื้อ")))));
         buyButton = addRenderableWidget(new NeoButton(
                 Button.builder(Component.literal("ซื้อ"), ignored -> beginPurchase())
                         .bounds(detailX + 7, buyY, detailWidth - 14, 22)
                         .tooltip(Tooltip.create(Component.literal("ซื้อสินค้า"))))
                 .style(NeoButton.Style.PRIMARY));
         closeButton = addRenderableWidget(new NeoButton(
-                Button.builder(Component.literal("\uE01B"), ignored -> onClose())
-                        .bounds(closeButtonX(), closeButtonY(), 18, 18)
+                Button.builder(NeoBitmapFonts.text("\uE01B"), ignored -> onClose())
+                        .bounds(closeButtonX(), closeButtonY(), 24, 18)
                         .tooltip(Tooltip.create(Component.literal("ปิด"))))
-                .style(NeoButton.Style.DESTRUCTIVE));
-
-        int confirmationWidth = Math.min(230, width - 24);
-        int confirmationX = (width - confirmationWidth) / 2;
-        int confirmationY = (height - 92) / 2;
-        confirmButton = addRenderableWidget(new NeoButton(
-                Button.builder(Component.literal("ยืนยัน"), ignored -> confirmPurchase())
-                        .bounds(confirmationX + 18, confirmationY + 65, 84, 18))
-                .style(NeoButton.Style.PRIMARY));
-        cancelButton = addRenderableWidget(new NeoButton(
-                Button.builder(Component.literal("ยกเลิก"), ignored -> confirming = false)
-                        .bounds(confirmationX + confirmationWidth - 102, confirmationY + 65, 84, 18)));
+                .style(NeoButton.Style.DESTRUCTIVE).textScrolling(false));
 
         int balanceWidth = 190;
         int balanceHeight = 20;
@@ -211,7 +210,7 @@ public final class MarketScreen extends Screen {
         int balanceY = 0;
         addRenderableWidget(new EconomyBalanceWidget(balanceX, balanceY, balanceWidth, balanceHeight,
                 EconomyBalanceWidget.Alignment.LEFT));
-        requestPage(1);
+        requestPage(page);
     }
 
     @Override
@@ -233,18 +232,13 @@ public final class MarketScreen extends Screen {
         renderFooter(graphics, mouseX, mouseY);
         updateButtonStates();
         for (var renderable : renderables) {
-            if (renderable == confirmButton || renderable == cancelButton) continue;
             renderable.render(graphics, mouseX, mouseY, partialTick);
         }
         renderButtonIcons(graphics);
 
         MarketPagePayload.Entry hovered = entryAt(mouseX, mouseY);
         MarketPagePayload.Entry selected = selectedEntry();
-        if (confirming) {
-            renderConfirmation(graphics);
-            confirmButton.render(graphics, mouseX, mouseY, partialTick);
-            cancelButton.render(graphics, mouseX, mouseY, partialTick);
-        } else if (hovered != null) {
+        if (hovered != null) {
             graphics.renderTooltip(font, hovered.item(), mouseX, mouseY);
         } else if (selected != null
                 && inside(mouseX, mouseY, detailX + 7, detailY + 6, detailWidth - 14, 34)) {
@@ -310,11 +304,7 @@ public final class MarketScreen extends Screen {
                 int itemX = x + Math.max(1, (cardWidth - 16) / 2);
                 int itemY = y + Math.max(1, (cardHeight - 16) / 2);
                 graphics.renderItem(item, itemX, itemY);
-                if (item.getCount() > 1) {
-                    String count = String.valueOf(item.getCount());
-                    graphics.drawString(font, count, x + cardWidth - font.width(count) - 2, y + 2,
-                            0xFFFFFFFF, true);
-                }
+                graphics.renderItemDecorations(font, item, itemX, itemY);
             }
         }
     }
@@ -345,16 +335,23 @@ public final class MarketScreen extends Screen {
         int textX = detailX + 8;
         int statsY = top + 49;
         drawSeparator(graphics, detailX + 7, detailX + detailWidth - 7, top + 43);
-        graphics.drawString(font, "จำนวนขาย", textX, statsY, COLOR_TEXT_MUTED, false);
+        graphics.drawString(font, "คงเหลือ", textX, statsY, COLOR_TEXT_MUTED, false);
         drawRight(graphics, String.valueOf(item.getCount()), detailX + detailWidth - 8, statsY, 0xFFF1F3F4);
-        graphics.drawString(font, "ราคาต่อรายการ", textX, statsY + 11, COLOR_TEXT_MUTED, false);
-        drawRight(graphics, format(selected.priceSilver()), detailX + detailWidth - 8, statsY + 11, COLOR_GOLD);
+        graphics.drawString(font, "ราคาต่อชิ้น", textX, statsY + 11, COLOR_TEXT_MUTED, false);
+        drawRight(graphics, formatSilver(selected.priceSilver()), detailX + detailWidth - 8, statsY + 11,
+                COLOR_GOLD);
         long ticks = Math.max(0L, selected.expiresAtGameTime() - serverGameTime);
         graphics.drawString(font, "เหลือ", textX, statsY + 22, COLOR_TEXT_MUTED, false);
         drawRight(graphics, formatTime(ticks), detailX + detailWidth - 8, statsY + 22, 0xFF68D391);
+        graphics.drawString(font, "จำนวน", textX, statsY + 38, COLOR_TEXT_MUTED, false);
+        int quantityValueX = decreaseQuantityButton.getX() + decreaseQuantityButton.getWidth();
+        int quantityValueWidth = increaseQuantityButton.getX() - quantityValueX;
+        drawCentered(graphics, String.valueOf(purchaseQuantity), quantityValueX, quantityValueWidth,
+                statsY + 38, 0xFFF1F3F4);
         drawSeparator(graphics, detailX + 7, detailX + detailWidth - 7, buyY - 15);
-        graphics.drawString(font, "ราคารวม", textX, buyY - 11, COLOR_TEXT_MUTED, false);
-        drawRight(graphics, format(selected.priceSilver()), detailX + detailWidth - 8, buyY - 11, COLOR_GOLD);
+        graphics.drawString(font, "ราคารวม", textX, buyY - 25, COLOR_TEXT_MUTED, false);
+        drawRight(graphics, formatSilver(purchaseTotal(selected)), detailX + detailWidth - 8, buyY - 25,
+                COLOR_GOLD);
     }
 
     private void renderFooter(GuiGraphics graphics, int mouseX, int mouseY) {
@@ -366,47 +363,19 @@ public final class MarketScreen extends Screen {
         }
     }
 
-    private void renderConfirmation(GuiGraphics graphics) {
-        graphics.fill(0, 0, width, height, 0x99000000);
-        int boxWidth = Math.min(230, width - 24);
-        int boxHeight = 92;
-        int x = (width - boxWidth) / 2;
-        int y = (height - boxHeight) / 2;
-        blitWidget(graphics, x, y, boxWidth, boxHeight, 1144, 678, 363, 276);
-        MarketPagePayload.Entry selected = selectedEntry();
-        drawCentered(graphics, "ยืนยันการซื้อ", x, boxWidth, y + 12, COLOR_GOLD);
-        if (selected != null) {
-            drawCentered(graphics, trim(selected.item().getHoverName().getString(), boxWidth - 20), x, boxWidth,
-                    y + 31, 0xFFFFFFFF);
-            drawCentered(graphics, format(selected.priceSilver()) + " Silver", x, boxWidth, y + 44, 0xFFE3E7EA);
-        }
-    }
-
     @Override
     public boolean mouseClicked(double mouseX, double mouseY, int button) {
-        if (confirming) return super.mouseClicked(mouseX, mouseY, button);
         if (inside(mouseX, mouseY, gridX, gridY, gridWidth, ROWS * slotHeight)) {
             int column = ((int) mouseX - gridX) / slotWidth;
             int row = ((int) mouseY - gridY) / slotHeight;
             int index = row * COLUMNS + column;
             if (index >= 0 && index < entries.size()) {
                 selectedIndex = index;
+                purchaseQuantity = 1;
             }
             return true;
         }
         return super.mouseClicked(mouseX, mouseY, button);
-    }
-
-    @Override
-    public boolean keyPressed(int keyCode, int scanCode, int modifiers) {
-        if (confirming) {
-            if (keyCode == GLFW.GLFW_KEY_ESCAPE) {
-                confirming = false;
-                return true;
-            }
-            return super.keyPressed(keyCode, scanCode, modifiers);
-        }
-        return super.keyPressed(keyCode, scanCode, modifiers);
     }
 
     public void receivePage(MarketPagePayload payload) {
@@ -415,6 +384,7 @@ public final class MarketScreen extends Screen {
         if (!payload.error().isEmpty()) {
             entries = List.of();
             selectedIndex = -1;
+            purchaseQuantity = 1;
             showStatus(payload.error(), false);
         } else {
             entries = payload.entries();
@@ -424,15 +394,18 @@ public final class MarketScreen extends Screen {
             serverGameTime = payload.serverGameTime();
             if (selectedIndex >= entries.size()) {
                 selectedIndex = -1;
+                purchaseQuantity = 1;
             }
         }
     }
 
     public void receiveAction(MarketActionResultPayload payload) {
         loading = false;
-        confirming = false;
-        showStatus(payload.message(), payload.success());
         requestPage(page);
+        NeoPopupScreen.showAlert(
+                Component.literal(payload.success() ? "ทำรายการสำเร็จ" : "ไม่สามารถทำรายการได้"),
+                Component.literal(payload.message()),
+                () -> {});
     }
 
     private void requestPage(int requestedPage) {
@@ -440,6 +413,7 @@ public final class MarketScreen extends Screen {
         page = Math.max(1, requestedPage);
         loading = true;
         selectedIndex = -1;
+        purchaseQuantity = 1;
         requestId++;
         PacketDistributor.sendToServer(new MarketQueryPayload(requestId, page, category, searchBox.getValue(), sort));
     }
@@ -457,7 +431,7 @@ public final class MarketScreen extends Screen {
     }
 
     private void updateButtonStates() {
-        boolean contentEnabled = !confirming;
+        boolean contentEnabled = true;
         categoryButtons.forEach((value, button) -> {
             button.active = contentEnabled;
             button.selected(value == category);
@@ -466,35 +440,54 @@ public final class MarketScreen extends Screen {
         sortButton.setTooltip(Tooltip.create(sortLabel()));
         previousButton.active = contentEnabled && !loading && page > 1;
         nextButton.active = contentEnabled && !loading && page < totalPages;
-        buyButton.active = contentEnabled && !loading && selectedEntry() != null;
+        MarketPagePayload.Entry selected = selectedEntry();
+        boolean validPurchase = selected != null && purchaseTotal(selected) > 0;
+        buyButton.active = contentEnabled && !loading && validPurchase;
         buyButton.setMessage(Component.literal(loading ? "กำลังซื้อ..." : "ซื้อ"));
+        decreaseQuantityButton.visible = selected != null;
+        decreaseQuantityButton.active = contentEnabled && !loading && purchaseQuantity > 1;
+        increaseQuantityButton.visible = selected != null;
+        increaseQuantityButton.active = selected != null && contentEnabled && !loading
+                && purchaseQuantity < selected.item().getCount();
         closeButton.active = contentEnabled;
         searchBox.setEditable(contentEnabled);
 
-        boolean modalActive = confirming && selectedEntry() != null && !loading;
-        confirmButton.visible = confirming;
-        confirmButton.active = modalActive;
-        cancelButton.visible = confirming;
-        cancelButton.active = confirming;
     }
 
     private void beginPurchase() {
-        if (selectedEntry() != null && !loading) confirming = true;
+        MarketPagePayload.Entry selected = selectedEntry();
+        long totalPrice = selected == null ? -1L : purchaseTotal(selected);
+        if (selected == null || totalPrice <= 0 || loading) return;
+        long listingId = selected.listingId();
+        int quantity = purchaseQuantity;
+        Component message = NeoBitmapFonts.text(selected.item().getHoverName().getString()
+                + "\nจำนวน " + quantity + " | " + formatSilver(totalPrice));
+        NeoPopupScreen.showChoice(
+                Component.literal("ยืนยันการซื้อ"),
+                message,
+                Component.literal("ยืนยัน"),
+                () -> confirmPurchase(listingId, quantity),
+                Component.literal("ยกเลิก"),
+                () -> {});
     }
 
-    private void confirmPurchase() {
+    private void changePurchaseQuantity(int delta) {
         MarketPagePayload.Entry selected = selectedEntry();
-        if (selected == null) {
-            confirming = false;
-            return;
-        }
-        confirming = false;
+        if (selected == null || loading) return;
+        purchaseQuantity = Math.max(1, Math.min(selected.item().getCount(), purchaseQuantity + delta));
+    }
+
+    private void confirmPurchase(long listingId, int quantity) {
         loading = true;
-        PacketDistributor.sendToServer(new MarketBuyPayload(selected.listingId()));
+        PacketDistributor.sendToServer(new MarketBuyPayload(listingId, quantity));
     }
 
     private MarketPagePayload.Entry selectedEntry() {
         return selectedIndex >= 0 && selectedIndex < entries.size() ? entries.get(selectedIndex) : null;
+    }
+
+    private long purchaseTotal(MarketPagePayload.Entry entry) {
+        return CurrencyMath.total(entry.priceSilver(), purchaseQuantity);
     }
 
     private MarketPagePayload.Entry entryAt(double mouseX, double mouseY) {
@@ -520,19 +513,13 @@ public final class MarketScreen extends Screen {
 
     private String categoryLabel(MarketCategory value) {
         return switch (value) {
-            case ALL -> "ทั้งหมด";
+            case ALL -> "ALL";
             case BLOCKS -> "บล็อก";
             case COMBAT -> "อาวุธและชุดเกราะ";
             case TOOLS -> "เครื่องมือ";
             case FOOD -> "อาหาร";
             case MATERIALS -> "วัตถุดิบ";
         };
-    }
-
-    private void blitWidget(GuiGraphics graphics, int x, int y, int width, int height,
-                            int u, int v, int sourceWidth, int sourceHeight) {
-        graphics.blit(WIDGET_TEXTURE, x, y, width, height, u, v, sourceWidth, sourceHeight,
-                WIDGET_TEXTURE_WIDTH, WIDGET_TEXTURE_HEIGHT);
     }
 
     private void blitSlot(GuiGraphics graphics, int x, int y, int width, int height,
@@ -566,11 +553,13 @@ public final class MarketScreen extends Screen {
     }
 
     private void drawRight(GuiGraphics graphics, String text, int right, int y, int color) {
-        graphics.drawString(font, text, right - font.width(text), y, color, false);
+        Component label = NeoBitmapFonts.text(text);
+        graphics.drawString(font, label, right - font.width(label), y, color, false);
     }
 
     private void drawCentered(GuiGraphics graphics, String text, int x, int width, int y, int color) {
-        graphics.drawString(font, text, x + (width - font.width(text)) / 2, y, color, false);
+        Component label = NeoBitmapFonts.text(text);
+        graphics.drawString(font, label, x + (width - font.width(label)) / 2, y, color, false);
     }
 
     private String trim(String text, int maxWidth) {
@@ -583,6 +572,10 @@ public final class MarketScreen extends Screen {
 
     private static String format(long value) {
         return String.format("%,d", value);
+    }
+
+    private static String formatSilver(long value) {
+        return format(value) + " " + SILVER_ICON;
     }
 
     private static String formatTime(long ticks) {

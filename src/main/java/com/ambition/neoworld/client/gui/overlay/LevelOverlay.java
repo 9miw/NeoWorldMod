@@ -1,6 +1,6 @@
 package com.ambition.neoworld.client.gui.overlay;
 
-import com.ambition.neoworld.client.ClientLevelData;
+import com.ambition.neoworld.client.state.ClientLevelData;
 import com.ambition.neoworld.level.LevelFormula;
 
 import net.minecraft.client.DeltaTracker;
@@ -27,7 +27,7 @@ public class LevelOverlay implements LayeredDraw.Layer {
         Font font = mc.font;
         int x = 2 ;
         int y = guiGraphics.guiHeight()-18;
-        int barWidth = 100;
+        int barWidth = 80;
         int barHeight = 5;
 
         // พื้นหลังกล่องสีดำโปร่งแสง

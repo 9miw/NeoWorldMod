@@ -1,0 +1,227 @@
+shineoni_helmet:
+  AttributeModifiers:
+    - amount: 2
+      attribute: GENERIC_ARMOR
+      operation: 0
+      slot: HEAD
+  Mechanics:
+    durability:
+      value: 165
+  Pack:
+    generate_model: true
+    parent_model: item/generated
+    textures:
+      - shine_oni/armors/shineoni_helmet.png
+      - shine_oni/armors/shineoni_helmet.png
+  color: 125, 27, 73
+  displayname: <white>Shine Oni Helmet
+  material: LEATHER_HELMET
+  permission: shine_oni.helmet
+shineoni_chestplate:
+  AttributeModifiers:
+    - amount: 6
+      attribute: GENERIC_ARMOR
+      operation: 0
+      slot: CHEST
+  Mechanics:
+    durability:
+      value: 240
+  Pack:
+    generate_model: true
+    parent_model: item/generated
+    textures:
+      - shine_oni/armors/shineoni_chestplate.png
+      - shine_oni/armors/shineoni_chestplate.png
+  color: 125, 27, 73
+  displayname: <white>Shine Oni Chestplate
+  material: LEATHER_CHESTPLATE
+  permission: shine_oni.chestplate
+shineoni_leggings:
+  AttributeModifiers:
+    - amount: 5
+      attribute: GENERIC_ARMOR
+      operation: 0
+      slot: LEGS
+  Mechanics:
+    durability:
+      value: 225
+  Pack:
+    generate_model: true
+    parent_model: item/generated
+    textures:
+      - shine_oni/armors/shineoni_leggings.png
+      - shine_oni/armors/shineoni_leggings.png
+  color: 125, 27, 73
+  displayname: <white>Shine Oni Leggings
+  material: LEATHER_LEGGINGS
+  permission: shine_oni.leggings
+shineoni_boots:
+  AttributeModifiers:
+    - amount: 2
+      attribute: GENERIC_ARMOR
+      operation: 0
+      slot: FEET
+  Mechanics:
+    durability:
+      value: 195
+  Pack:
+    generate_model: true
+    parent_model: item/generated
+    textures:
+      - shine_oni/armors/shineoni_boots.png
+      - shine_oni/armors/shineoni_boots.png
+  color: 125, 27, 73
+  displayname: <white>Shine Oni Boots
+  material: LEATHER_BOOTS
+  permission: shine_oni.boots
+shine_oni_axe:
+  Pack:
+    generate_model: false
+    model: shine_oni/axe
+  displayname: <white>Shine Oni Axe
+  material: IRON_AXE
+  permission: shine_oni.axe
+shine_oni_pickaxe:
+  Pack:
+    generate_model: false
+    model: shine_oni/pickaxe
+  displayname: <white>Shine Oni Pickaxe
+  material: IRON_PICKAXE
+  permission: shine_oni.pickaxe
+shine_oni_shovel:
+  Pack:
+    generate_model: false
+    model: shine_oni/shovel
+  displayname: <white>Shine Oni Shovel
+  material: IRON_SHOVEL
+  permission: shine_oni.shovel
+shine_oni_hoe:
+  Pack:
+    generate_model: false
+    model: shine_oni/hoe
+  displayname: <white>Shine Oni Hoe
+  material: IRON_HOE
+  permission: shine_oni.hoe
+shine_oni_big_sword:
+  Pack:
+    generate_model: false
+    model: shine_oni/big_sword
+  displayname: <white>Shine Oni Big Sword
+  material: IRON_SWORD
+  permission: shine_oni.big_sword
+shine_oni_shield:
+  Pack:
+    blocking_model: shine_oni/shield_blocking
+    generate_model: false
+    model: shine_oni/shield
+  displayname: <white>Shine Oni Shield
+  material: SHIELD
+  permission: shine_oni.shield
+shine_oni_bow:
+  Pack:
+    generate_model: false
+    model: shine_oni/bow
+    pulling_models:
+      - shine_oni/bow_0
+      - shine_oni/bow_1
+      - shine_oni/bow_2
+  displayname: <white>Shine Oni Bow
+  material: BOW
+  permission: shine_oni.bow
+shine_oni_staff:
+  Pack:
+    generate_model: false
+    model: shine_oni/staff
+  displayname: <white>Shine Oni Staff
+  material: IRON_SWORD
+  permission: shine_oni.staff
+shine_oni_spear:
+  Pack:
+    generate_model: false
+    model: shine_oni/spear
+  displayname: <white>Shine Oni Spear
+  material: IRON_SWORD
+  permission: shine_oni.spear
+shine_oni_chest:
+  Mechanics:
+    furniture:
+      barrier: true
+      barriers:
+        - origin
+      drop:
+        loots:
+          - oraxen_item: shine_oni_chest
+        silktouch: false
+      limited_placing:
+        floor: true
+        roof: false
+        type: DENY
+        wall: false
+      type: item_frame
+  Pack:
+    generate_model: false
+    model: shine_oni/chest
+  displayname: <white>Shine Oni Chest
+  material: SEA_LANTERN
+  permission: shine_oni.chest
+shine_oni_key:
+  Pack:
+    custom_model_data: 8610000
+    generate_model: false
+    model: shine_oni/key
+  displayname: <white>Shine Oni Key
+  material: TRIPWIRE_HOOK
+  permission: shine_oni.key
+shine_oni_battle_axe:
+  Pack:
+    generate_model: false
+    model: shine_oni/battle_axe
+  displayname: <white>Shine Oni Battle Axe
+  material: IRON_SWORD
+  permission: shine_oni.battle_axe
+shine_oni_sickle:
+  Pack:
+    generate_model: false
+    model: shine_oni/sickle
+  displayname: <white>Shine Oni Sickle
+  material: IRON_SWORD
+  permission: shine_oni.sickle
+shine_oni_wings:
+  Pack:
+    generate_model: false
+    model: shine_oni/wings
+  displayname: <white>Shine Oni Wings
+  material: PAPER
+  permission: shine_oni.wings
+shine_oni_cosmetics_wings:
+  Pack:
+    custom_model_data: 8610000
+    generate_model: false
+    model: shine_oni/wings_cosmetic
+  displayname: <white>Shine Oni Wings Cosmetics
+  material: POTION
+  permission: shine_oni.shine_oni_cosmetics_wings
+shine_oni_cosmetics_wings_normal_2:
+  Pack:
+    custom_model_data: 8610003
+    generate_model: false
+    model: shine_oni/wings_cosmetic_normal_2
+  displayname: <white>Shine Oni Wings Cosmetics Normal 2
+  material: POTION
+  permission: shine_oni.shine_oni_cosmetics_wings_normal_2
+shine_oni_cosmetics_wings_self:
+  Pack:
+    custom_model_data: 8610001
+    generate_model: false
+    model: shine_oni/wings_cosmetic_self
+  displayname: <white>Shine Oni Wings Cosmetics Self
+  material: POTION
+  permission: shine_oni.shine_oni_cosmetics_wings_self
+shine_oni_cosmetics_wings_self_2:
+  Pack:
+    custom_model_data: 8610002
+    generate_model: false
+    model: shine_oni/wings_cosmetic_self_2
+  displayname: <white>Shine Oni Wings Cosmetics Self 2
+  material: POTION
+  permission: shine_oni.shine_oni_cosmetics_wings_self_2

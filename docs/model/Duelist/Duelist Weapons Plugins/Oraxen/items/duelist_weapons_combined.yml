@@ -1,0 +1,98 @@
+netherite_short_sword:
+  displayname: "<white>Netherite Short Sword"
+  material: DIAMOND_SWORD
+  Pack:
+    generate_model: false
+    model: "lk:item/netherite_short_sword"
+diamond_rapier:
+  displayname: "<white>Diamond Rapier"
+  material: DIAMOND_SWORD
+  Pack:
+    generate_model: false
+    model: "lk:item/diamond_rapier"
+diamond_short_sword:
+  displayname: "<white>Diamond Short Sword"
+  material: DIAMOND_SWORD
+  Pack:
+    generate_model: false
+    model: "lk:item/diamond_short_sword"
+golden_rapier:
+  displayname: "<white>Golden Rapier"
+  material: DIAMOND_SWORD
+  Pack:
+    generate_model: false
+    model: "lk:item/golden_rapier"
+golden_short_sword:
+  displayname: "<white>Golden Short Sword"
+  material: DIAMOND_SWORD
+  Pack:
+    generate_model: false
+    model: "lk:item/golden_short_sword"
+iron_rapier:
+  displayname: "<white>Iron Rapier"
+  material: DIAMOND_SWORD
+  Pack:
+    generate_model: false
+    model: "lk:item/iron_rapier"
+iron_short_sword:
+  displayname: "<white>Iron Short Sword"
+  material: DIAMOND_SWORD
+  Pack:
+    generate_model: false
+    model: "lk:item/iron_short_sword"
+netherite_rapier:
+  displayname: "<white>Netherite Rapier"
+  material: DIAMOND_SWORD
+  Pack:
+    generate_model: false
+    model: "lk:item/netherite_rapier"
+iron_revolver:
+  displayname: "Iron Revolver"
+  material: CROSSBOW
+  Pack:
+    generate_model: false
+    model: "lk:item/iron_revolver"
+    pulling_models:
+      - lk:item/iron_revolver_pulling_0
+      - lk:item/iron_revolver_pulling_1
+      - lk:item/iron_revolver_pulling_2
+    charged_model: lk:item/iron_revolver_charged
+    firework_model: lk:item/iron_revolver_firework
+golden_revolver:
+  displayname: "Golden Revolver"
+  material: CROSSBOW
+  Pack:
+    generate_model: false
+    model: "lk:item/golden_revolver"
+    pulling_models:
+      - lk:item/golden_revolver_pulling_0
+      - lk:item/golden_revolver_pulling_1
+      - lk:item/golden_revolver_pulling_2
+    charged_model: lk:item/golden_revolver_charged
+    firework_model: lk:item/golden_revolver_firework
+diamond_revolver:
+  displayname: "Diamond Revolver"
+  material: CROSSBOW
+  Pack:
+    generate_model: false
+    model: "lk:item/diamond_revolver"
+    pulling_models:
+      - lk:item/diamond_revolver_pulling_0
+      - lk:item/diamond_revolver_pulling_1
+      - lk:item/diamond_revolver_pulling_2
+    charged_model: lk:item/diamond_revolver_charged
+    firework_model: lk:item/diamond_revolver_firework
+netherite_revolver:
+  displayname: "Netherite Revolver"
+  material: CROSSBOW
+  Pack:
+    generate_model: false
+    model: "lk:item/netherite_revolver"
+    pulling_models:
+      - lk:item/netherite_revolver_pulling_0
+      - lk:item/netherite_revolver_pulling_1
+      - lk:item/netherite_revolver_pulling_2
+    charged_model: lk:item/netherite_revolver_charged
+    firework_model: lk:item/netherite_revolver_firework
+
+# 5967VHVXE9N5JDQR4A0RQOSA2I2

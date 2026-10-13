@@ -1,0 +1,18 @@
+categories:
+  duelist_weapons:
+    priority: 1
+    name: "<!i><white>Duelist Weapons</white>"
+    icon: lk:netherite_short_sword
+    list:
+      - lk:netherite_short_sword
+      - lk:diamond_rapier
+      - lk:diamond_short_sword
+      - lk:golden_rapier
+      - lk:golden_short_sword
+      - lk:iron_rapier
+      - lk:iron_short_sword
+      - lk:netherite_rapier
+      - lk:iron_revolver
+      - lk:golden_revolver
+      - lk:diamond_revolver
+      - lk:netherite_revolver

@@ -3,9 +3,9 @@ package com.ambition.neoworld.command;
 import java.util.Comparator;
 import java.util.List;
 
-import com.ambition.neoworld.market.MarketListing;
+import com.ambition.neoworld.market.model.MarketListing;
 import com.ambition.neoworld.market.MarketResult;
-import com.ambition.neoworld.market.MarketService;
+import com.ambition.neoworld.market.service.MarketService;
 import com.ambition.neoworld.permission.ModPermissions;
 import com.mojang.brigadier.arguments.IntegerArgumentType;
 import com.mojang.brigadier.arguments.LongArgumentType;
@@ -14,6 +14,7 @@ import com.mojang.brigadier.builder.LiteralArgumentBuilder;
 import net.minecraft.ChatFormatting;
 import net.minecraft.commands.CommandSourceStack;
 import net.minecraft.commands.Commands;
+import net.minecraft.commands.arguments.EntityArgument;
 import net.minecraft.network.chat.ClickEvent;
 import net.minecraft.network.chat.Component;
 import net.minecraft.network.chat.HoverEvent;
@@ -21,7 +22,7 @@ import net.minecraft.network.chat.MutableComponent;
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.world.item.ItemStack;
 import net.neoforged.neoforge.network.PacketDistributor;
-import com.ambition.neoworld.network.OpenMarketPayload;
+import com.ambition.neoworld.network.market.OpenMarketPayload;
 
 /** Player-facing commands for exercising the market transaction core. */
 public final class MarketCommand {
@@ -36,7 +37,12 @@ public final class MarketCommand {
     static LiteralArgumentBuilder<CommandSourceStack> buildCommand() {
         return Commands.literal("market")
                 .requires(source -> ModPermissions.hasPermission(source, ModPermissions.COMMAND_MARKET_USE, 0))
-                .executes(context -> openMarket(context.getSource().getPlayerOrException()))
+                .then(Commands.literal("open")
+                        .requires(source -> ModPermissions.hasPermission(
+                                source, ModPermissions.COMMAND_MARKET_ADMIN, 2))
+                        .then(Commands.argument("player", EntityArgument.player())
+                                .executes(context -> openMarketFor(
+                                        context.getSource(), EntityArgument.getPlayer(context, "player")))))
                 .then(Commands.literal("help")
                         .executes(context -> showHelp(context.getSource().getPlayerOrException())))
                 .then(Commands.literal("list")
@@ -67,7 +73,11 @@ public final class MarketCommand {
                 .then(Commands.literal("buy")
                         .then(Commands.argument("listingId", LongArgumentType.longArg(1))
                                 .executes(context -> buy(context.getSource(),
-                                        LongArgumentType.getLong(context, "listingId")))))
+                                        LongArgumentType.getLong(context, "listingId")))
+                                .then(Commands.argument("count", IntegerArgumentType.integer(1, 99))
+                                        .executes(context -> buy(context.getSource(),
+                                                LongArgumentType.getLong(context, "listingId"),
+                                                IntegerArgumentType.getInteger(context, "count"))))))
                 .then(Commands.literal("cancel")
                         .then(Commands.argument("listingId", LongArgumentType.longArg(1))
                                 .executes(context -> cancel(context.getSource(),
@@ -76,8 +86,10 @@ public final class MarketCommand {
                         .executes(context -> claim(context.getSource())));
     }
 
-    private static int openMarket(ServerPlayer player) {
+    private static int openMarketFor(CommandSourceStack source, ServerPlayer player) {
         PacketDistributor.sendToPlayer(player, OpenMarketPayload.INSTANCE);
+        source.sendSuccess(() -> Component.literal("[Market] เปิดหน้าตลาดให้ "
+                + player.getGameProfile().getName()).withStyle(ChatFormatting.GREEN), false);
         return 1;
     }
 
@@ -104,7 +116,7 @@ public final class MarketCommand {
         source.sendSuccess(() -> Component.literal("[Market] ลงขาย ")
                 .withStyle(ChatFormatting.GREEN)
                 .append(itemName.copy().withStyle(ChatFormatting.WHITE))
-                .append(Component.literal(" x" + count + " ราคา " + formatSilver(price)
+                .append(Component.literal(" x" + count + " ราคาต่อชิ้น " + formatSilver(price)
                         + " Silver (ID " + id + ")").withStyle(ChatFormatting.GREEN)), false);
         return 1;
     }
@@ -114,6 +126,16 @@ public final class MarketCommand {
         MarketResult result = MarketService.buy(source.getPlayerOrException(), listingId);
         if (result != MarketResult.SUCCESS) return sendFailure(source, result);
         source.sendSuccess(() -> Component.literal("[Market] ซื้อประกาศ ID " + listingId + " สำเร็จ")
+                .withStyle(ChatFormatting.GREEN), false);
+        return 1;
+    }
+
+    private static int buy(CommandSourceStack source, long listingId, int count)
+            throws com.mojang.brigadier.exceptions.CommandSyntaxException {
+        MarketResult result = MarketService.buy(source.getPlayerOrException(), listingId, count);
+        if (result != MarketResult.SUCCESS) return sendFailure(source, result);
+        source.sendSuccess(() -> Component.literal(
+                "[Market] ซื้อประกาศ ID " + listingId + " จำนวน " + count + " สำเร็จ")
                 .withStyle(ChatFormatting.GREEN), false);
         return 1;
     }
@@ -186,11 +208,11 @@ public final class MarketCommand {
         MutableComponent line = Component.literal("#" + listing.id() + " ").withStyle(ChatFormatting.YELLOW)
                 .append(item.getHoverName().copy().withStyle(ChatFormatting.WHITE))
                 .append(Component.literal(" x" + item.getCount() + " | " + formatSilver(listing.priceSilver())
-                        + " Silver | " + listing.sellerName() + " | " + minutes + " นาที")
+                        + " Silver/ชิ้น | " + listing.sellerName() + " | " + minutes + " นาที")
                         .withStyle(ChatFormatting.GRAY));
         String command = listing.sellerId().equals(viewer.getUUID())
-                ? "/market cancel " + listing.id()
-                : "/market buy " + listing.id();
+                ? "/neoworld market cancel " + listing.id()
+                : "/neoworld market buy " + listing.id();
         return line.withStyle(style -> style
                 .withClickEvent(new ClickEvent(ClickEvent.Action.SUGGEST_COMMAND, command))
                 .withHoverEvent(new HoverEvent(HoverEvent.Action.SHOW_TEXT,
@@ -199,7 +221,7 @@ public final class MarketCommand {
 
     private static void showPageControls(ServerPlayer player, int page, int totalPages, boolean ownOnly) {
         if (totalPages <= 1) return;
-        String base = ownOnly ? "/market my " : "/market list ";
+        String base = ownOnly ? "/neoworld market my " : "/neoworld market list ";
         MutableComponent controls = Component.literal("หน้า: ").withStyle(ChatFormatting.GRAY);
         if (page > 1) controls.append(pageButton(base + (page - 1), "[ก่อนหน้า]"));
         if (page > 1 && page < totalPages) controls.append(Component.literal(" "));
@@ -215,10 +237,15 @@ public final class MarketCommand {
 
     private static int showHelp(ServerPlayer player) {
         player.sendSystemMessage(Component.literal("=== Market Commands ===").withStyle(ChatFormatting.GOLD));
-        player.sendSystemMessage(helpButton("/market list", "ดูประกาศทั้งหมด"));
-        player.sendSystemMessage(helpButton("/market sell 100 1 2880", "ขายของในมือ"));
-        player.sendSystemMessage(helpButton("/market my", "ดูประกาศของฉัน"));
-        player.sendSystemMessage(helpButton("/market claim", "รับเงินและสินค้าค้าง"));
+        player.sendSystemMessage(helpButton("/neoworld market list", "ดูประกาศทั้งหมด"));
+        player.sendSystemMessage(helpButton("/neoworld market sell 100 1 2880", "ขายของในมือ ราคาต่อชิ้น"));
+        player.sendSystemMessage(helpButton("/neoworld market buy <id> [count]", "ซื้อทั้งกองหรือระบุจำนวน"));
+        player.sendSystemMessage(helpButton("/neoworld market my", "ดูประกาศของฉัน"));
+        player.sendSystemMessage(helpButton("/neoworld market claim", "รับเงินและสินค้าค้าง"));
+        if (ModPermissions.hasPermission(
+                player.createCommandSourceStack(), ModPermissions.COMMAND_MARKET_ADMIN, 2)) {
+            player.sendSystemMessage(helpButton("/neoworld market open <player>", "เปิดหน้าตลาดให้ผู้เล่น"));
+        }
         return 1;
     }
 
@@ -233,12 +260,14 @@ public final class MarketCommand {
         source.sendFailure(Component.literal("[Market] " + switch (result) {
             case INVALID_ITEM -> "ไอเทมไม่ถูกต้อง";
             case INVALID_PRICE -> "ราคาต้องมากกว่า 0";
+            case INVALID_QUANTITY -> "จำนวนซื้อต้องมากกว่า 0";
             case INVALID_DURATION -> "ระยะเวลาประกาศไม่ถูกต้อง";
             case INVALID_RATE -> "การตั้งค่าภาษีไม่ถูกต้อง";
             case LISTING_NOT_FOUND -> "ไม่พบประกาศ หรือประกาศนี้ไม่ใช่ของคุณ";
             case LISTING_EXPIRED -> "ประกาศหมดอายุแล้ว กรุณารอระบบคืนสินค้า";
             case CANNOT_BUY_OWN_LISTING -> "ไม่สามารถซื้อประกาศของตัวเองได้";
             case INSUFFICIENT_FUNDS -> "ยอด Silver ไม่เพียงพอ";
+            case INSUFFICIENT_STOCK -> "สินค้าเหลือไม่พอตามจำนวนที่ระบุ";
             case INVENTORY_CHANGED -> "ไอเทมในมือไม่ตรงกับจำนวนที่ระบุ";
             case BALANCE_OVERFLOW -> "ยอดเงินปลายทางเต็ม ไม่สามารถทำรายการได้";
             case MARKET_CAPACITY_REACHED -> "ตลาดไม่สามารถสร้างประกาศเพิ่มได้";

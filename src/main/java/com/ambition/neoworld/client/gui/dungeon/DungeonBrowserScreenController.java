@@ -1,6 +1,6 @@
 package com.ambition.neoworld.client.gui.dungeon;
 
-import com.ambition.neoworld.network.DungeonBrowserDataPayload;
+import com.ambition.neoworld.network.dungeon.DungeonBrowserDataPayload;
 
 import net.minecraft.client.Minecraft;
 

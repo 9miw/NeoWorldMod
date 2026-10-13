@@ -1,0 +1,1 @@
+{"parent": "item/generated", "textures": {"layer0": "item/leather_leggings", "layer1": "item/leather_leggings_overlay"}, "overrides": [{"predicate": {"custom_model_data": 10146}, "model": "shine_oni:shine_onileggings"}, {"predicate": {"custom_model_data": 10147}, "model": "item/leather_leggings"}]}

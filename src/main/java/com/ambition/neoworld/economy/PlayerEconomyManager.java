@@ -5,7 +5,7 @@ import java.util.List;
 
 import com.ambition.neoworld.data.PlayerData;
 import com.ambition.neoworld.item.CoinItem;
-import com.ambition.neoworld.network.SyncEconomyPayload;
+import com.ambition.neoworld.network.economy.SyncEconomyPayload;
 import com.ambition.neoworld.registry.ModAttachments;
 
 import net.minecraft.ChatFormatting;

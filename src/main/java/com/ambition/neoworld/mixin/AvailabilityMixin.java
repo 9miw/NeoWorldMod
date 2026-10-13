@@ -1,6 +1,6 @@
 package com.ambition.neoworld.mixin;
 
-import com.ambition.neoworld.client.ClientLevelData;
+import com.ambition.neoworld.client.state.ClientLevelData;
 import com.ambition.neoworld.data.PlayerData;
 import com.ambition.neoworld.registry.ModAttachments;
 import net.minecraft.world.entity.player.Player;

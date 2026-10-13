@@ -12,6 +12,7 @@ public final class DungeonRoom {
     private final DungeonRoomType type;
     private final UUID partyId;
     private final Map<UUID, DungeonRoomMember> members = new LinkedHashMap<>();
+    private final java.util.Set<UUID> readyMembers = new java.util.HashSet<>();
     private UUID ownerId;
     private DungeonRoomState state = DungeonRoomState.WAITING;
 
@@ -74,12 +75,32 @@ public final class DungeonRoom {
         return memberCount() >= type.capacity();
     }
 
+    public boolean isReady(UUID playerId) {
+        return members.containsKey(playerId) && (playerId.equals(ownerId) || readyMembers.contains(playerId));
+    }
+
+    public boolean allReady() {
+        return !members.isEmpty() && members.keySet().stream().allMatch(this::isReady);
+    }
+
+    public void clearReady() {
+        readyMembers.clear();
+    }
+
+    void setReady(UUID playerId, boolean ready) {
+        if (!members.containsKey(playerId) || playerId.equals(ownerId)) return;
+        if (ready) readyMembers.add(playerId);
+        else readyMembers.remove(playerId);
+    }
+
     void addMember(DungeonRoomMember member) {
         members.put(member.playerId(), member);
+        clearReady();
     }
 
     void removeMember(UUID playerId) {
         members.remove(playerId);
+        clearReady();
         if (playerId.equals(ownerId) && !members.isEmpty()) {
             ownerId = members.keySet().iterator().next();
         }

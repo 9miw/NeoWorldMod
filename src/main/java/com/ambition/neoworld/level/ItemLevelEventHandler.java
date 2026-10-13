@@ -111,7 +111,11 @@ public class ItemLevelEventHandler {
 
     @SubscribeEvent
     public static void onTooltip(ItemTooltipEvent event) {
-        int requiredLevel = getRequiredLevel(event.getItemStack());
+        ItemStack stack = event.getItemStack();
+        if (stack.isEmpty()) {
+            return;
+        }
+        int requiredLevel = getRequiredLevel(stack);
         if (requiredLevel > 0) {
             event.getToolTip().add(Component.literal("ต้องการเลเวล " + requiredLevel).withStyle(ChatFormatting.GOLD));
         }

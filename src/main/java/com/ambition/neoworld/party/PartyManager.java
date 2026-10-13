@@ -59,6 +59,7 @@ public final class PartyManager {
         invitesByTarget
                 .computeIfAbsent(target.getUUID(), ignored -> new LinkedHashMap<>())
                 .put(leader.getUUID(), server.getTickCount() + 20L * 60L);
+        com.ambition.neoworld.network.party.PartyNetworkHandler.sendState(target);
         return PartyActionResult.success(party, "ส่งคำเชิญสำเร็จ");
     }
 
@@ -82,7 +83,6 @@ public final class PartyManager {
             return PartyActionResult.failure("ปาร์ตี้เต็มแล้ว");
         }
         party.addMember(memberOf(target));
-        party.clearReady();
         partyByPlayer.put(target.getUUID(), party.id());
         invitesByTarget.remove(target.getUUID());
         return PartyActionResult.success(party, "เข้าร่วมปาร์ตี้สำเร็จ");
@@ -110,7 +110,6 @@ public final class PartyManager {
             parties.remove(party.id());
             return PartyActionResult.success(party, "ออกจากปาร์ตี้แล้ว");
         }
-        party.clearReady();
         return PartyActionResult.success(party, "ออกจากปาร์ตี้แล้ว");
     }
 
@@ -130,7 +129,6 @@ public final class PartyManager {
         }
         party.removeMember(targetId);
         partyByPlayer.remove(targetId);
-        party.clearReady();
         return PartyActionResult.success(party, "เตะสมาชิกออกจากปาร์ตี้แล้ว");
     }
 
@@ -148,16 +146,13 @@ public final class PartyManager {
     }
 
     public PartyActionResult toggleReady(UUID playerId) {
-        Party party = findForPlayer(playerId).orElse(null);
-        if (party == null) {
-            return PartyActionResult.failure("คุณไม่ได้อยู่ในปาร์ตี้");
-        }
-        party.setReady(playerId, !party.isReady(playerId));
-        return PartyActionResult.success(party, party.isReady(playerId) ? "พร้อมแล้ว" : "ยกเลิกพร้อมแล้ว");
+        var result = com.ambition.neoworld.dungeon.room.DungeonRoomManager.get(server).toggleReady(playerId);
+        return result.successful() ? PartyActionResult.success(findForPlayer(playerId).orElse(null), result.message())
+                : PartyActionResult.failure(result.message());
     }
 
     public void handleDisconnect(UUID playerId) {
-        findForPlayer(playerId).ifPresent(party -> party.setReady(playerId, false));
+        com.ambition.neoworld.dungeon.room.DungeonRoomManager.get(server).clearPlayerReady(playerId);
     }
 
     public java.util.List<PendingInvite> invitesFor(UUID targetId) {
@@ -169,8 +164,9 @@ public final class PartyManager {
             invitesByTarget.remove(targetId);
             return java.util.List.of();
         }
-        return invites.keySet().stream()
-                .map(leaderId -> {
+        return invites.entrySet().stream()
+                .map(entry -> {
+                    UUID leaderId = entry.getKey();
                     Party party = findForPlayer(leaderId).orElse(null);
                     PartyMember leader = party == null ? null : party.members().stream()
                             .filter(member -> member.playerId().equals(leaderId))
@@ -178,7 +174,9 @@ public final class PartyManager {
                             .orElse(null);
                     return party == null || leader == null
                             ? null
-                            : new PendingInvite(leaderId, leader.playerName(), party.capacity(), party.memberCount());
+                            : new PendingInvite(leaderId, leader.playerName(), party.capacity(), party.memberCount(),
+                                    (int) Math.min(Integer.MAX_VALUE,
+                                            Math.max(0L, (entry.getValue() - now + 19L) / 20L)));
                 })
                 .filter(java.util.Objects::nonNull)
                 .toList();
@@ -201,6 +199,7 @@ public final class PartyManager {
         return new PartyMember(player.getUUID(), player.getGameProfile().getName());
     }
 
-    public record PendingInvite(UUID leaderId, String leaderName, int capacity, int memberCount) {
+    public record PendingInvite(UUID leaderId, String leaderName, int capacity, int memberCount,
+                                int remainingSeconds) {
     }
 }

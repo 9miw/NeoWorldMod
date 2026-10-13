@@ -1,0 +1,76 @@
+netherite_short_sword:
+  Material: DIAMOND_SWORD
+  Display: "<white>Netherite Short Sword</white>"
+  Generation: item/netherite_short_sword
+diamond_rapier:
+  Material: DIAMOND_SWORD
+  Display: "<white>Diamond Rapier</white>"
+  Generation: item/diamond_rapier
+diamond_short_sword:
+  Material: DIAMOND_SWORD
+  Display: "<white>Diamond Short Sword</white>"
+  Generation: item/diamond_short_sword
+golden_rapier:
+  Material: DIAMOND_SWORD
+  Display: "<white>Golden Rapier</white>"
+  Generation: item/golden_rapier
+golden_short_sword:
+  Material: DIAMOND_SWORD
+  Display: "<white>Golden Short Sword</white>"
+  Generation: item/golden_short_sword
+iron_rapier:
+  Material: DIAMOND_SWORD
+  Display: "<white>Iron Rapier</white>"
+  Generation: item/iron_rapier
+iron_short_sword:
+  Material: DIAMOND_SWORD
+  Display: "<white>Iron Short Sword</white>"
+  Generation: item/iron_short_sword
+netherite_rapier:
+  Material: DIAMOND_SWORD
+  Display: "<white>Netherite Rapier</white>"
+  Generation: item/netherite_rapier
+iron_revolver:
+  Material: CROSSBOW
+  Display: "<white>Iron Revolver</white>"
+  Generation:
+    Model: item/iron_revolver
+    Pulling:
+      - item/iron_revolver_pulling_0
+      - item/iron_revolver_pulling_1
+      - item/iron_revolver_pulling_2
+    Charged: item/iron_revolver_charged
+    Firework: item/iron_revolver_firework
+golden_revolver:
+  Material: CROSSBOW
+  Display: "<white>Golden Revolver</white>"
+  Generation:
+    Model: item/golden_revolver
+    Pulling:
+      - item/golden_revolver_pulling_0
+      - item/golden_revolver_pulling_1
+      - item/golden_revolver_pulling_2
+    Charged: item/golden_revolver_charged
+    Firework: item/golden_revolver_firework
+diamond_revolver:
+  Material: CROSSBOW
+  Display: "<white>Diamond Revolver</white>"
+  Generation:
+    Model: item/diamond_revolver
+    Pulling:
+      - item/diamond_revolver_pulling_0
+      - item/diamond_revolver_pulling_1
+      - item/diamond_revolver_pulling_2
+    Charged: item/diamond_revolver_charged
+    Firework: item/diamond_revolver_firework
+netherite_revolver:
+  Material: CROSSBOW
+  Display: "<white>Netherite Revolver</white>"
+  Generation:
+    Model: item/netherite_revolver
+    Pulling:
+      - item/netherite_revolver_pulling_0
+      - item/netherite_revolver_pulling_1
+      - item/netherite_revolver_pulling_2
+    Charged: item/netherite_revolver_charged
+    Firework: item/netherite_revolver_firework

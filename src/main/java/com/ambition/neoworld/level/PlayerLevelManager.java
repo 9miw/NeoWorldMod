@@ -1,8 +1,8 @@
 package com.ambition.neoworld.level;
 
 import com.ambition.neoworld.data.PlayerData;
-import com.ambition.neoworld.network.LevelUpCelebrationPayload;
-import com.ambition.neoworld.network.SyncLevelPayload;
+import com.ambition.neoworld.network.level.LevelUpCelebrationPayload;
+import com.ambition.neoworld.network.level.SyncLevelPayload;
 import com.ambition.neoworld.registry.ModAttachments;
 
 import net.minecraft.core.particles.ParticleTypes;

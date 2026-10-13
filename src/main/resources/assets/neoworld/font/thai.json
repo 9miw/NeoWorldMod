@@ -1,0 +1,868 @@
+{
+  "providers": [
+    {
+      "type": "bitmap",
+      "file": "neoworld:font/thai/0e01.png",
+      "ascent": 9,
+      "height": 12,
+      "chars": [
+        "\u0e01"
+      ]
+    },
+    {
+      "type": "bitmap",
+      "file": "neoworld:font/thai/0e02.png",
+      "ascent": 9,
+      "height": 12,
+      "chars": [
+        "\u0e02"
+      ]
+    },
+    {
+      "type": "bitmap",
+      "file": "neoworld:font/thai/0e03.png",
+      "ascent": 9,
+      "height": 12,
+      "chars": [
+        "\u0e03"
+      ]
+    },
+    {
+      "type": "bitmap",
+      "file": "neoworld:font/thai/0e04.png",
+      "ascent": 9,
+      "height": 12,
+      "chars": [
+        "\u0e04"
+      ]
+    },
+    {
+      "type": "bitmap",
+      "file": "neoworld:font/thai/0e05.png",
+      "ascent": 9,
+      "height": 12,
+      "chars": [
+        "\u0e05"
+      ]
+    },
+    {
+      "type": "bitmap",
+      "file": "neoworld:font/thai/0e06.png",
+      "ascent": 9,
+      "height": 12,
+      "chars": [
+        "\u0e06"
+      ]
+    },
+    {
+      "type": "bitmap",
+      "file": "neoworld:font/thai/0e07.png",
+      "ascent": 9,
+      "height": 12,
+      "chars": [
+        "\u0e07"
+      ]
+    },
+    {
+      "type": "bitmap",
+      "file": "neoworld:font/thai/0e08.png",
+      "ascent": 9,
+      "height": 12,
+      "chars": [
+        "\u0e08"
+      ]
+    },
+    {
+      "type": "bitmap",
+      "file": "neoworld:font/thai/0e09.png",
+      "ascent": 9,
+      "height": 12,
+      "chars": [
+        "\u0e09"
+      ]
+    },
+    {
+      "type": "bitmap",
+      "file": "neoworld:font/thai/0e0a.png",
+      "ascent": 9,
+      "height": 12,
+      "chars": [
+        "\u0e0a"
+      ]
+    },
+    {
+      "type": "bitmap",
+      "file": "neoworld:font/thai/0e0b.png",
+      "ascent": 9,
+      "height": 12,
+      "chars": [
+        "\u0e0b"
+      ]
+    },
+    {
+      "type": "bitmap",
+      "file": "neoworld:font/thai/0e0c.png",
+      "ascent": 9,
+      "height": 12,
+      "chars": [
+        "\u0e0c"
+      ]
+    },
+    {
+      "type": "bitmap",
+      "file": "neoworld:font/thai/0e0d.png",
+      "ascent": 9,
+      "height": 12,
+      "chars": [
+        "\u0e0d"
+      ]
+    },
+    {
+      "type": "bitmap",
+      "file": "neoworld:font/thai/0e0e.png",
+      "ascent": 9,
+      "height": 12,
+      "chars": [
+        "\u0e0e"
+      ]
+    },
+    {
+      "type": "bitmap",
+      "file": "neoworld:font/thai/0e0f.png",
+      "ascent": 9,
+      "height": 12,
+      "chars": [
+        "\u0e0f"
+      ]
+    },
+    {
+      "type": "bitmap",
+      "file": "neoworld:font/thai/0e10.png",
+      "ascent": 9,
+      "height": 12,
+      "chars": [
+        "\u0e10"
+      ]
+    },
+    {
+      "type": "bitmap",
+      "file": "neoworld:font/thai/0e11.png",
+      "ascent": 9,
+      "height": 12,
+      "chars": [
+        "\u0e11"
+      ]
+    },
+    {
+      "type": "bitmap",
+      "file": "neoworld:font/thai/0e12.png",
+      "ascent": 9,
+      "height": 12,
+      "chars": [
+        "\u0e12"
+      ]
+    },
+    {
+      "type": "bitmap",
+      "file": "neoworld:font/thai/0e13.png",
+      "ascent": 9,
+      "height": 12,
+      "chars": [
+        "\u0e13"
+      ]
+    },
+    {
+      "type": "bitmap",
+      "file": "neoworld:font/thai/0e14.png",
+      "ascent": 9,
+      "height": 12,
+      "chars": [
+        "\u0e14"
+      ]
+    },
+    {
+      "type": "bitmap",
+      "file": "neoworld:font/thai/0e15.png",
+      "ascent": 9,
+      "height": 12,
+      "chars": [
+        "\u0e15"
+      ]
+    },
+    {
+      "type": "bitmap",
+      "file": "neoworld:font/thai/0e16.png",
+      "ascent": 9,
+      "height": 12,
+      "chars": [
+        "\u0e16"
+      ]
+    },
+    {
+      "type": "bitmap",
+      "file": "neoworld:font/thai/0e17.png",
+      "ascent": 9,
+      "height": 12,
+      "chars": [
+        "\u0e17"
+      ]
+    },
+    {
+      "type": "bitmap",
+      "file": "neoworld:font/thai/0e18.png",
+      "ascent": 9,
+      "height": 12,
+      "chars": [
+        "\u0e18"
+      ]
+    },
+    {
+      "type": "bitmap",
+      "file": "neoworld:font/thai/0e19.png",
+      "ascent": 9,
+      "height": 12,
+      "chars": [
+        "\u0e19"
+      ]
+    },
+    {
+      "type": "bitmap",
+      "file": "neoworld:font/thai/0e1a.png",
+      "ascent": 9,
+      "height": 12,
+      "chars": [
+        "\u0e1a"
+      ]
+    },
+    {
+      "type": "bitmap",
+      "file": "neoworld:font/thai/0e1b.png",
+      "ascent": 9,
+      "height": 12,
+      "chars": [
+        "\u0e1b"
+      ]
+    },
+    {
+      "type": "bitmap",
+      "file": "neoworld:font/thai/0e1c.png",
+      "ascent": 9,
+      "height": 12,
+      "chars": [
+        "\u0e1c"
+      ]
+    },
+    {
+      "type": "bitmap",
+      "file": "neoworld:font/thai/0e1d.png",
+      "ascent": 9,
+      "height": 12,
+      "chars": [
+        "\u0e1d"
+      ]
+    },
+    {
+      "type": "bitmap",
+      "file": "neoworld:font/thai/0e1e.png",
+      "ascent": 9,
+      "height": 12,
+      "chars": [
+        "\u0e1e"
+      ]
+    },
+    {
+      "type": "bitmap",
+      "file": "neoworld:font/thai/0e1f.png",
+      "ascent": 9,
+      "height": 12,
+      "chars": [
+        "\u0e1f"
+      ]
+    },
+    {
+      "type": "bitmap",
+      "file": "neoworld:font/thai/0e20.png",
+      "ascent": 9,
+      "height": 12,
+      "chars": [
+        "\u0e20"
+      ]
+    },
+    {
+      "type": "bitmap",
+      "file": "neoworld:font/thai/0e21.png",
+      "ascent": 9,
+      "height": 12,
+      "chars": [
+        "\u0e21"
+      ]
+    },
+    {
+      "type": "bitmap",
+      "file": "neoworld:font/thai/0e22.png",
+      "ascent": 9,
+      "height": 12,
+      "chars": [
+        "\u0e22"
+      ]
+    },
+    {
+      "type": "bitmap",
+      "file": "neoworld:font/thai/0e23.png",
+      "ascent": 9,
+      "height": 12,
+      "chars": [
+        "\u0e23"
+      ]
+    },
+    {
+      "type": "bitmap",
+      "file": "neoworld:font/thai/0e24.png",
+      "ascent": 9,
+      "height": 12,
+      "chars": [
+        "\u0e24"
+      ]
+    },
+    {
+      "type": "bitmap",
+      "file": "neoworld:font/thai/0e25.png",
+      "ascent": 9,
+      "height": 12,
+      "chars": [
+        "\u0e25"
+      ]
+    },
+    {
+      "type": "bitmap",
+      "file": "neoworld:font/thai/0e26.png",
+      "ascent": 9,
+      "height": 12,
+      "chars": [
+        "\u0e26"
+      ]
+    },
+    {
+      "type": "bitmap",
+      "file": "neoworld:font/thai/0e27.png",
+      "ascent": 9,
+      "height": 12,
+      "chars": [
+        "\u0e27"
+      ]
+    },
+    {
+      "type": "bitmap",
+      "file": "neoworld:font/thai/0e28.png",
+      "ascent": 9,
+      "height": 12,
+      "chars": [
+        "\u0e28"
+      ]
+    },
+    {
+      "type": "bitmap",
+      "file": "neoworld:font/thai/0e29.png",
+      "ascent": 9,
+      "height": 12,
+      "chars": [
+        "\u0e29"
+      ]
+    },
+    {
+      "type": "bitmap",
+      "file": "neoworld:font/thai/0e2a.png",
+      "ascent": 9,
+      "height": 12,
+      "chars": [
+        "\u0e2a"
+      ]
+    },
+    {
+      "type": "bitmap",
+      "file": "neoworld:font/thai/0e2b.png",
+      "ascent": 9,
+      "height": 12,
+      "chars": [
+        "\u0e2b"
+      ]
+    },
+    {
+      "type": "bitmap",
+      "file": "neoworld:font/thai/0e2c.png",
+      "ascent": 9,
+      "height": 12,
+      "chars": [
+        "\u0e2c"
+      ]
+    },
+    {
+      "type": "bitmap",
+      "file": "neoworld:font/thai/0e2d.png",
+      "ascent": 9,
+      "height": 12,
+      "chars": [
+        "\u0e2d"
+      ]
+    },
+    {
+      "type": "bitmap",
+      "file": "neoworld:font/thai/0e2e.png",
+      "ascent": 9,
+      "height": 12,
+      "chars": [
+        "\u0e2e"
+      ]
+    },
+    {
+      "type": "bitmap",
+      "file": "neoworld:font/thai/0e2f.png",
+      "ascent": 9,
+      "height": 12,
+      "chars": [
+        "\u0e2f"
+      ]
+    },
+    {
+      "type": "bitmap",
+      "file": "neoworld:font/thai/0e30.png",
+      "ascent": 9,
+      "height": 12,
+      "chars": [
+        "\u0e30"
+      ]
+    },
+    {
+      "type": "bitmap",
+      "file": "neoworld:font/thai/0e31.png",
+      "ascent": 9,
+      "height": 12,
+      "chars": [
+        "\u0e31"
+      ]
+    },
+    {
+      "type": "bitmap",
+      "file": "neoworld:font/thai/0e32.png",
+      "ascent": 9,
+      "height": 12,
+      "chars": [
+        "\u0e32"
+      ]
+    },
+    {
+      "type": "bitmap",
+      "file": "neoworld:font/thai/0e33.png",
+      "ascent": 9,
+      "height": 12,
+      "chars": [
+        "\u0e33"
+      ]
+    },
+    {
+      "type": "bitmap",
+      "file": "neoworld:font/thai/0e34.png",
+      "ascent": 9,
+      "height": 12,
+      "chars": [
+        "\u0e34"
+      ]
+    },
+    {
+      "type": "bitmap",
+      "file": "neoworld:font/thai/0e35.png",
+      "ascent": 9,
+      "height": 12,
+      "chars": [
+        "\u0e35"
+      ]
+    },
+    {
+      "type": "bitmap",
+      "file": "neoworld:font/thai/0e36.png",
+      "ascent": 9,
+      "height": 12,
+      "chars": [
+        "\u0e36"
+      ]
+    },
+    {
+      "type": "bitmap",
+      "file": "neoworld:font/thai/0e37.png",
+      "ascent": 9,
+      "height": 12,
+      "chars": [
+        "\u0e37"
+      ]
+    },
+    {
+      "type": "bitmap",
+      "file": "neoworld:font/thai/0e38.png",
+      "ascent": 9,
+      "height": 12,
+      "chars": [
+        "\u0e38"
+      ]
+    },
+    {
+      "type": "bitmap",
+      "file": "neoworld:font/thai/0e39.png",
+      "ascent": 9,
+      "height": 12,
+      "chars": [
+        "\u0e39"
+      ]
+    },
+    {
+      "type": "bitmap",
+      "file": "neoworld:font/thai/0e3a.png",
+      "ascent": 9,
+      "height": 12,
+      "chars": [
+        "\u0e3a"
+      ]
+    },
+    {
+      "type": "bitmap",
+      "file": "neoworld:font/thai/0e3f.png",
+      "ascent": 9,
+      "height": 12,
+      "chars": [
+        "\u0e3f"
+      ]
+    },
+    {
+      "type": "bitmap",
+      "file": "neoworld:font/thai/0e40.png",
+      "ascent": 9,
+      "height": 12,
+      "chars": [
+        "\u0e40"
+      ]
+    },
+    {
+      "type": "bitmap",
+      "file": "neoworld:font/thai/0e41.png",
+      "ascent": 9,
+      "height": 12,
+      "chars": [
+        "\u0e41"
+      ]
+    },
+    {
+      "type": "bitmap",
+      "file": "neoworld:font/thai/0e42.png",
+      "ascent": 9,
+      "height": 12,
+      "chars": [
+        "\u0e42"
+      ]
+    },
+    {
+      "type": "bitmap",
+      "file": "neoworld:font/thai/0e43.png",
+      "ascent": 9,
+      "height": 12,
+      "chars": [
+        "\u0e43"
+      ]
+    },
+    {
+      "type": "bitmap",
+      "file": "neoworld:font/thai/0e44.png",
+      "ascent": 9,
+      "height": 12,
+      "chars": [
+        "\u0e44"
+      ]
+    },
+    {
+      "type": "bitmap",
+      "file": "neoworld:font/thai/0e45.png",
+      "ascent": 9,
+      "height": 12,
+      "chars": [
+        "\u0e45"
+      ]
+    },
+    {
+      "type": "bitmap",
+      "file": "neoworld:font/thai/0e46.png",
+      "ascent": 9,
+      "height": 12,
+      "chars": [
+        "\u0e46"
+      ]
+    },
+    {
+      "type": "bitmap",
+      "file": "neoworld:font/thai/0e47.png",
+      "ascent": 9,
+      "height": 12,
+      "chars": [
+        "\u0e47"
+      ]
+    },
+    {
+      "type": "bitmap",
+      "file": "neoworld:font/thai/0e48.png",
+      "ascent": 9,
+      "height": 12,
+      "chars": [
+        "\u0e48"
+      ]
+    },
+    {
+      "type": "bitmap",
+      "file": "neoworld:font/thai/0e49.png",
+      "ascent": 9,
+      "height": 12,
+      "chars": [
+        "\u0e49"
+      ]
+    },
+    {
+      "type": "bitmap",
+      "file": "neoworld:font/thai/0e4a.png",
+      "ascent": 9,
+      "height": 12,
+      "chars": [
+        "\u0e4a"
+      ]
+    },
+    {
+      "type": "bitmap",
+      "file": "neoworld:font/thai/0e4b.png",
+      "ascent": 9,
+      "height": 12,
+      "chars": [
+        "\u0e4b"
+      ]
+    },
+    {
+      "type": "bitmap",
+      "file": "neoworld:font/thai/0e4c.png",
+      "ascent": 9,
+      "height": 12,
+      "chars": [
+        "\u0e4c"
+      ]
+    },
+    {
+      "type": "bitmap",
+      "file": "neoworld:font/thai/0e4d.png",
+      "ascent": 9,
+      "height": 12,
+      "chars": [
+        "\u0e4d"
+      ]
+    },
+    {
+      "type": "bitmap",
+      "file": "neoworld:font/thai/0e4e.png",
+      "ascent": 9,
+      "height": 12,
+      "chars": [
+        "\u0e4e"
+      ]
+    },
+    {
+      "type": "bitmap",
+      "file": "neoworld:font/thai/0e4f.png",
+      "ascent": 9,
+      "height": 12,
+      "chars": [
+        "\u0e4f"
+      ]
+    },
+    {
+      "type": "bitmap",
+      "file": "neoworld:font/thai/0e50.png",
+      "ascent": 9,
+      "height": 12,
+      "chars": [
+        "\u0e50"
+      ]
+    },
+    {
+      "type": "bitmap",
+      "file": "neoworld:font/thai/0e51.png",
+      "ascent": 9,
+      "height": 12,
+      "chars": [
+        "\u0e51"
+      ]
+    },
+    {
+      "type": "bitmap",
+      "file": "neoworld:font/thai/0e52.png",
+      "ascent": 9,
+      "height": 12,
+      "chars": [
+        "\u0e52"
+      ]
+    },
+    {
+      "type": "bitmap",
+      "file": "neoworld:font/thai/0e53.png",
+      "ascent": 9,
+      "height": 12,
+      "chars": [
+        "\u0e53"
+      ]
+    },
+    {
+      "type": "bitmap",
+      "file": "neoworld:font/thai/0e54.png",
+      "ascent": 9,
+      "height": 12,
+      "chars": [
+        "\u0e54"
+      ]
+    },
+    {
+      "type": "bitmap",
+      "file": "neoworld:font/thai/0e55.png",
+      "ascent": 9,
+      "height": 12,
+      "chars": [
+        "\u0e55"
+      ]
+    },
+    {
+      "type": "bitmap",
+      "file": "neoworld:font/thai/0e56.png",
+      "ascent": 9,
+      "height": 12,
+      "chars": [
+        "\u0e56"
+      ]
+    },
+    {
+      "type": "bitmap",
+      "file": "neoworld:font/thai/0e57.png",
+      "ascent": 9,
+      "height": 12,
+      "chars": [
+        "\u0e57"
+      ]
+    },
+    {
+      "type": "bitmap",
+      "file": "neoworld:font/thai/0e58.png",
+      "ascent": 9,
+      "height": 12,
+      "chars": [
+        "\u0e58"
+      ]
+    },
+    {
+      "type": "bitmap",
+      "file": "neoworld:font/thai/0e59.png",
+      "ascent": 9,
+      "height": 12,
+      "chars": [
+        "\u0e59"
+      ]
+    },
+    {
+      "type": "bitmap",
+      "file": "neoworld:font/thai/0e5a.png",
+      "ascent": 9,
+      "height": 12,
+      "chars": [
+        "\u0e5a"
+      ]
+    },
+    {
+      "type": "bitmap",
+      "file": "neoworld:font/thai/0e5b.png",
+      "ascent": 9,
+      "height": 12,
+      "chars": [
+        "\u0e5b"
+      ]
+    },
+    {
+      "type": "bitmap",
+      "file": "neoworld:font/thai/25b2.png",
+      "ascent": 9,
+      "height": 12,
+      "chars": [
+        "\u25b2"
+      ]
+    },
+    {
+      "type": "bitmap",
+      "file": "neoworld:font/thai/25b3.png",
+      "ascent": 9,
+      "height": 12,
+      "chars": [
+        "\u25b3"
+      ]
+    },
+    {
+      "type": "bitmap",
+      "file": "neoworld:font/thai/25b6.png",
+      "ascent": 9,
+      "height": 12,
+      "chars": [
+        "\u25b6"
+      ]
+    },
+    {
+      "type": "bitmap",
+      "file": "neoworld:font/thai/25b7.png",
+      "ascent": 9,
+      "height": 12,
+      "chars": [
+        "\u25b7"
+      ]
+    },
+    {
+      "type": "bitmap",
+      "file": "neoworld:font/thai/25bc.png",
+      "ascent": 9,
+      "height": 12,
+      "chars": [
+        "\u25bc"
+      ]
+    },
+    {
+      "type": "bitmap",
+      "file": "neoworld:font/thai/25bd.png",
+      "ascent": 9,
+      "height": 12,
+      "chars": [
+        "\u25bd"
+      ]
+    },
+    {
+      "type": "bitmap",
+      "file": "neoworld:font/thai/25c0.png",
+      "ascent": 9,
+      "height": 12,
+      "chars": [
+        "\u25c0"
+      ]
+    },
+    {
+      "type": "bitmap",
+      "file": "neoworld:font/thai/25c1.png",
+      "ascent": 9,
+      "height": 12,
+      "chars": [
+        "\u25c1"
+      ]
+    },
+    {
+      "type": "bitmap",
+      "file": "neoworld:font/thai/f8ff.png",
+      "ascent": 9,
+      "height": 12,
+      "chars": [
+        "\uf8ff"
+      ]
+    }
+  ]
+}

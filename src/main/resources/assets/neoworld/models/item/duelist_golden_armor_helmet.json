@@ -1,0 +1,87 @@
+{
+  "loader": "neoforge:obj",
+  "model": "neoworld:models/item/duelist_armor_helmet.obj",
+  "automatic_culling": false,
+  "flip_v": true,
+  "emissive_ambient": false,
+  "textures": {
+    "particle": "neoworld:item/duelist/golden_duelist_armor"
+  },
+  "display": {
+    "thirdperson_righthand": {
+      "translation": [
+        0,
+        -9.75,
+        0
+      ],
+      "scale": [
+        0.49,
+        0.49,
+        0.49
+      ]
+    },
+    "thirdperson_lefthand": {
+      "translation": [
+        0,
+        -9.5,
+        0
+      ],
+      "scale": [
+        0.5,
+        0.5,
+        0.5
+      ]
+    },
+    "firstperson_righthand": {
+      "translation": [
+        0,
+        -19,
+        0
+      ]
+    },
+    "firstperson_lefthand": {
+      "translation": [
+        0,
+        -18,
+        0
+      ]
+    },
+    "ground": {
+      "translation": [
+        0,
+        -15,
+        0
+      ],
+      "scale": [
+        0.78,
+        0.78,
+        0.78
+      ]
+    },
+    "gui": {
+      "rotation": [
+        0,
+        -180,
+        0
+      ],
+      "translation": [
+        0,
+        -17,
+        0
+      ],
+      "scale": [
+        0.75,
+        0.75,
+        0.75
+      ]
+    },
+    "fixed": {
+      "translation": [
+        0,
+        -20,
+        0
+      ]
+    }
+  },
+  "mtl_override": "neoworld:models/item/duelist_golden_icons.mtl"
+}

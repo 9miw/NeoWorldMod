@@ -1,0 +1,276 @@
+lunar_sword:
+  Pack:
+    generate_model: false
+    model: lunarset/sword
+  displayname: <white>Lunar Sword
+  material: NETHERITE_SWORD
+  permission: lunarset.use
+lunar_greatsword:
+  Pack:
+    generate_model: false
+    model: lunarset/greatsword
+  displayname: <white>Lunar Greatsword
+  material: NETHERITE_SWORD
+  permission: lunarset.use
+lunar_spear:
+  Pack:
+    generate_model: false
+    model: lunarset/spear
+  displayname: <white>Lunar Spear
+  material: NETHERITE_SWORD
+  permission: lunarset.use
+lunar_trident:
+  Pack:
+    generate_model: false
+    model: lunarset/trident
+  displayname: <white>Lunar Trident
+  material: NETHERITE_SWORD
+  permission: lunarset.use
+lunar_hammer:
+  Pack:
+    generate_model: false
+    model: lunarset/hammer
+  displayname: <white>Lunar Hammer
+  material: NETHERITE_SWORD
+  permission: lunarset.use
+lunar_scythe:
+  Pack:
+    generate_model: false
+    model: lunarset/scythe
+  displayname: <white>Lunar Scythe
+  material: NETHERITE_SWORD
+  permission: lunarset.use
+lunar_staff:
+  Pack:
+    generate_model: false
+    model: lunarset/staff
+  displayname: <white>Lunar Staff
+  material: NETHERITE_SWORD
+  permission: lunarset.use
+lunar_bow:
+  Pack:
+    generate_model: false
+    model: lunarset/bow
+    pulling_models:
+      - lunarset/bow_0
+      - lunarset/bow_1
+      - lunarset/bow_2
+  displayname: <white>Lunar Bow
+  material: BOW
+  permission: lunarset.use
+lunar_crossbow:
+  Pack:
+    charged_model: lunarset/crossbow_charged
+    firework_model: lunarset/crossbow_firework
+    generate_model: false
+    model: lunarset/crossbow
+    pulling_models:
+      - lunarset/crossbow_0
+      - lunarset/crossbow_1
+      - lunarset/crossbow_2
+  displayname: <white>Lunar Crossbow
+  material: CROSSBOW
+  permission: lunarset.use
+lunar_axe:
+  Pack:
+    generate_model: false
+    model: lunarset/axe
+  displayname: <white>Lunar Axe
+  material: NETHERITE_AXE
+  permission: lunarset.use
+lunar_hoe:
+  Pack:
+    generate_model: false
+    model: lunarset/hoe
+  displayname: <white>Lunar Hoe
+  material: NETHERITE_HOE
+  permission: lunarset.use
+lunar_pickaxe:
+  Pack:
+    generate_model: false
+    model: lunarset/pickaxe
+  displayname: <white>Lunar Pickaxe
+  material: NETHERITE_PICKAXE
+  permission: lunarset.use
+lunar_shovel:
+  Pack:
+    generate_model: false
+    model: lunarset/shovel
+  displayname: <white>Lunar Shovel
+  material: NETHERITE_SHOVEL
+  permission: lunarset.use
+lunar_fishing_rod:
+  Pack:
+    cast_model: lunarset/fishing_rod_cast
+    generate_model: false
+    model: lunarset/fishing_rod
+  displayname: <white>Lunar Fishing Rod
+  material: FISHING_ROD
+  permission: lunarset.use
+lunar_shield:
+  Pack:
+    blocking_model: lunarset/shield_blocking
+    generate_model: false
+    model: lunarset/shield
+  displayname: <white>Lunar Shield
+  material: SHIELD
+  permission: lunarset.use
+lunar_chest:
+  Mechanics:
+    furniture:
+      barrier: true
+      barriers:
+        - origin
+      drop:
+        loots:
+          - oraxen_item: lunar_chest
+        silktouch: false
+      limited_placing:
+        floor: true
+        roof: false
+        type: DENY
+        wall: false
+      restricted_rotation: VERY_STRICT
+      type: ITEM_FRAME
+  Pack:
+    generate_model: false
+    model: lunarset/chest
+  displayname: <white>Lunar Chest
+  material: PAPER
+  permission: lunarset.use
+lunar_chest_opening:
+  Mechanics:
+    furniture:
+      barrier: true
+      barriers:
+        - origin
+        - x: 0
+          y: 1
+          z: 0
+      drop:
+        loots:
+          - oraxen_item: lunar_chest_opening
+        silktouch: false
+      limited_placing:
+        floor: true
+        roof: false
+        type: DENY
+        wall: false
+      restricted_rotation: VERY_STRICT
+      type: ITEM_FRAME
+  Pack:
+    generate_model: false
+    model: lunarset/chest_opening
+  displayname: <white>Lunar Chest Opening
+  material: PAPER
+  permission: lunarset.use
+lunar_key:
+  Pack:
+    generate_model: false
+    model: lunarset/key
+  displayname: <white>Lunar Key
+  material: PAPER
+  permission: lunarset.use
+lunar_helmet:
+  Mechanics:
+    durability:
+      value: 165
+  Pack:
+    generate_model: true
+    parent_model: item/generated
+    textures:
+      - lunarset/armors/lunar_helmet.png
+      - lunarset/armors/lunar_helmet.png
+  color: 163, 32, 11
+  displayname: <white>Lunar Helmet
+  material: LEATHER_HELMET
+  permission: lunarset.use
+lunar_cosmetics_helmet:
+  Pack:
+    custom_model_data: 543000
+    generate_model: false
+    model: lunarset/helmet
+  displayname: <white>Lunar Cosmetics Helmet
+  material: POTION
+  permission: lunarset.use
+lunar_chestplate:
+  Mechanics:
+    durability:
+      value: 240
+  Pack:
+    generate_model: true
+    parent_model: item/generated
+    textures:
+      - lunarset/armors/lunar_chestplate.png
+      - lunarset/armors/lunar_chestplate.png
+  color: 163, 32, 11
+  displayname: <white>Lunar Chestplate
+  material: LEATHER_CHESTPLATE
+  permission: lunarset.use
+lunar_leggings:
+  Mechanics:
+    durability:
+      value: 225
+  Pack:
+    generate_model: true
+    parent_model: item/generated
+    textures:
+      - lunarset/armors/lunar_leggings.png
+      - lunarset/armors/lunar_leggings.png
+  color: 163, 32, 11
+  displayname: <white>Lunar Leggings
+  material: LEATHER_LEGGINGS
+  permission: lunarset.use
+lunar_boots:
+  Mechanics:
+    durability:
+      value: 195
+  Pack:
+    generate_model: true
+    parent_model: item/generated
+    textures:
+      - lunarset/armors/lunar_boots.png
+      - lunarset/armors/lunar_boots.png
+  color: 163, 32, 11
+  displayname: <white>Lunar Boots
+  material: LEATHER_BOOTS
+  permission: lunarset.use
+lunar_tail:
+  Pack:
+    generate_model: false
+    model: lunarset/tail
+  displayname: <white>Lunar Tail
+  material: PAPER
+  permission: lunarset.use
+lunar_cosmetics_tail:
+  Pack:
+    custom_model_data: 543001
+    generate_model: false
+    model: lunarset/tail_cosmetics
+  displayname: <white>Lunar Cosmetics Tail
+  material: POTION
+  permission: lunarset.use
+lunar_cosmetics_tail_normal_2:
+  Pack:
+    custom_model_data: 543004
+    generate_model: false
+    model: lunarset/tail_cosmetics_normal_2
+  displayname: <white>Lunar Cosmetics Tail Normal 2
+  material: POTION
+  permission: lunarset.use
+lunar_cosmetics_tail_self:
+  Pack:
+    custom_model_data: 543002
+    generate_model: false
+    model: lunarset/tail_cosmetics_self
+  displayname: <white>Lunar Cosmetics Tail Self
+  material: POTION
+  permission: lunarset.use
+lunar_cosmetics_tail_self_2:
+  Pack:
+    custom_model_data: 543003
+    generate_model: false
+    model: lunarset/tail_cosmetics_self_2
+  displayname: <white>Lunar Cosmetics Tail Self 2
+  material: POTION
+  permission: lunarset.use

@@ -6,9 +6,11 @@ import com.ambition.neoworld.NeoWorld;
 import com.mojang.blaze3d.systems.RenderSystem;
 
 import net.minecraft.client.Minecraft;
+import net.minecraft.client.gui.Font;
 import net.minecraft.client.gui.GuiGraphics;
 import net.minecraft.client.gui.components.Button;
 import net.minecraft.resources.ResourceLocation;
+import net.minecraft.util.FormattedCharSequence;
 
 /**
  * Shared NeoWorld button. Vanilla handles input, focus, sound, tooltips and narration.
@@ -30,6 +32,7 @@ public final class NeoButton extends Button {
     private static final int SOURCE_EDGE = 44;
     private Style style = Style.STANDARD;
     private boolean selected;
+    private boolean textScrolling = true;
 
     public NeoButton(Button.Builder builder) {
         super(builder);
@@ -53,6 +56,16 @@ public final class NeoButton extends Button {
         return selected;
     }
 
+    /** Disabling scrolling centers the full label without trimming, allowing overflow. */
+    public NeoButton textScrolling(boolean enabled) {
+        textScrolling = enabled;
+        return this;
+    }
+
+    public boolean isTextScrolling() {
+        return textScrolling;
+    }
+
     @Override
     protected void renderWidget(GuiGraphics graphics, int mouseX, int mouseY, float partialTick) {
         if (getWidth() <= 0 || getHeight() <= 0) return;
@@ -63,12 +76,16 @@ public final class NeoButton extends Button {
         } finally {
             graphics.setColor(1F, 1F, 1F, 1F);
         }
-        // Selected keeps its persistent accent; focus still has a visible indicator.
-        if (active && selected && isFocused()) {
-            graphics.renderOutline(getX(), getY(), getWidth(), getHeight(), color(0xE7ECEF));
+        Font font = Minecraft.getInstance().font;
+        int padding = cornerSize() + 2;
+        int textColor = color(active ? 0xE7ECEF : 0x646D72);
+        if (textScrolling) {
+            renderScrollingString(graphics, font, padding, textColor);
+        } else {
+            FormattedCharSequence label = getMessage().getVisualOrderText();
+            graphics.drawString(font, label, getX() + (getWidth() - font.width(label)) / 2,
+                    getY() + (getHeight() - font.lineHeight) / 2, textColor, false);
         }
-        renderScrollingString(graphics, Minecraft.getInstance().font, cornerSize() + 2,
-                color(active ? 0xE7ECEF : 0x646D72));
     }
 
     private int color(int rgb) {

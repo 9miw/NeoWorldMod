@@ -1,0 +1,65 @@
+items:
+  lunar_cosmetics_helmet:
+    cosmetic: lunar_cosmetics_helmet
+    item:
+      amount: 1
+      color: '#ffffff'
+      item-flags:
+      - HIDE_ATTRIBUTES
+      - HIDE_POTION_EFFECTS
+      - HIDE_ADDITIONAL_TOOLTIP
+      lore:
+      - ''
+      - '<gray>Enabled: <#6D9DC5>%HMCCosmetics_equipped_lunar_cosmetics_helmet%'
+      - '<gray>Allowed: <#6D9DC5>%HMCCosmetics_unlocked_lunar_cosmetics_helmet%'
+      material: POTION
+      model-data: 543000
+      name: <white>Lunar Cosmetics Helmet
+    locked-item:
+      amount: 1
+      color: '#ffffff'
+      item-flags:
+      - HIDE_ATTRIBUTES
+      - HIDE_POTION_EFFECTS
+      - HIDE_ADDITIONAL_TOOLTIP
+      lore:
+      - <RED>You do not have this cosmetic available
+      material: POTION
+      model-data: 543000
+      name: <white>Lunar Cosmetics Helmet <red><b>(LOCK)
+    slots:
+    - 1
+    type: cosmetic
+  lunar_cosmetics_tail:
+    cosmetic: lunar_cosmetics_tail
+    item:
+      amount: 1
+      color: '#ffffff'
+      item-flags:
+      - HIDE_ATTRIBUTES
+      - HIDE_POTION_EFFECTS
+      - HIDE_ADDITIONAL_TOOLTIP
+      lore:
+      - ''
+      - '<gray>Enabled: <#6D9DC5>%HMCCosmetics_equipped_lunar_cosmetics_tail%'
+      - '<gray>Allowed: <#6D9DC5>%HMCCosmetics_unlocked_lunar_cosmetics_tail%'
+      material: POTION
+      model-data: 543001
+      name: <white>Lunar Cosmetics Tail
+    locked-item:
+      amount: 1
+      color: '#ffffff'
+      item-flags:
+      - HIDE_ATTRIBUTES
+      - HIDE_POTION_EFFECTS
+      - HIDE_ADDITIONAL_TOOLTIP
+      lore:
+      - <RED>You do not have this cosmetic available
+      material: POTION
+      model-data: 543001
+      name: <white>Lunar Cosmetics Tail <red><b>(LOCK)
+    slots:
+    - 0
+    type: cosmetic
+rows: 6
+title: <white>

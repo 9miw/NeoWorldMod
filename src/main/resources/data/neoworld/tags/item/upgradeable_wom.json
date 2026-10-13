@@ -1,0 +1,185 @@
+{
+  "replace": false,
+  "values": [
+    {
+      "id": "wom:agony",
+      "required": false
+    },
+    {
+      "id": "wom:antitheus",
+      "required": false
+    },
+    {
+      "id": "wom:blackstar",
+      "required": false
+    },
+    {
+      "id": "wom:cursed_mask",
+      "required": false
+    },
+    {
+      "id": "wom:diamond_armbracelet",
+      "required": false
+    },
+    {
+      "id": "wom:diamond_crown",
+      "required": false
+    },
+    {
+      "id": "wom:diamond_greataxe",
+      "required": false
+    },
+    {
+      "id": "wom:diamond_legbottomseal",
+      "required": false
+    },
+    {
+      "id": "wom:diamond_legtopseal",
+      "required": false
+    },
+    {
+      "id": "wom:diamond_staff",
+      "required": false
+    },
+    {
+      "id": "wom:emerald_anklebracelet",
+      "required": false
+    },
+    {
+      "id": "wom:emerald_chakra",
+      "required": false
+    },
+    {
+      "id": "wom:emerald_earrings",
+      "required": false
+    },
+    {
+      "id": "wom:emerald_tasset",
+      "required": false
+    },
+    {
+      "id": "wom:ender_blaster",
+      "required": false
+    },
+    {
+      "id": "wom:evil_tachi",
+      "required": false
+    },
+    {
+      "id": "wom:gesetz",
+      "required": false
+    },
+    {
+      "id": "wom:golden_chrono",
+      "required": false
+    },
+    {
+      "id": "wom:golden_greataxe",
+      "required": false
+    },
+    {
+      "id": "wom:golden_kit",
+      "required": false
+    },
+    {
+      "id": "wom:golden_mokassin",
+      "required": false
+    },
+    {
+      "id": "wom:golden_monocle",
+      "required": false
+    },
+    {
+      "id": "wom:golden_staff",
+      "required": false
+    },
+    {
+      "id": "wom:herrscher",
+      "required": false
+    },
+    {
+      "id": "wom:hollow_longsword",
+      "required": false
+    },
+    {
+      "id": "wom:iron_greataxe",
+      "required": false
+    },
+    {
+      "id": "wom:iron_staff",
+      "required": false
+    },
+    {
+      "id": "wom:jabberwocky",
+      "required": false
+    },
+    {
+      "id": "wom:moonless",
+      "required": false
+    },
+    {
+      "id": "wom:napoleon",
+      "required": false
+    },
+    {
+      "id": "wom:netherite_belt",
+      "required": false
+    },
+    {
+      "id": "wom:netherite_chains",
+      "required": false
+    },
+    {
+      "id": "wom:netherite_greataxe",
+      "required": false
+    },
+    {
+      "id": "wom:netherite_manicle",
+      "required": false
+    },
+    {
+      "id": "wom:netherite_mask",
+      "required": false
+    },
+    {
+      "id": "wom:netherite_staff",
+      "required": false
+    },
+    {
+      "id": "wom:nova",
+      "required": false
+    },
+    {
+      "id": "wom:orbit",
+      "required": false
+    },
+    {
+      "id": "wom:ruine",
+      "required": false
+    },
+    {
+      "id": "wom:satsujin",
+      "required": false
+    },
+    {
+      "id": "wom:solar",
+      "required": false
+    },
+    {
+      "id": "wom:stone_staff",
+      "required": false
+    },
+    {
+      "id": "wom:tormented_mind",
+      "required": false
+    },
+    {
+      "id": "wom:unholy_cursed_mask",
+      "required": false
+    },
+    {
+      "id": "wom:wooden_staff",
+      "required": false
+    }
+  ]
+}

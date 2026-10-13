@@ -1,0 +1,1 @@
+{"parent": "minecraft:item/generated", "textures": {"layer0": "minecraft:block/tripwire_hook"}, "overrides": [{"predicate": {"custom_model_data": 8610000}, "model": "shine_oni:key"}, {"predicate": {"custom_model_data": 8610001}, "model": "item/tripwire_hook"}]}

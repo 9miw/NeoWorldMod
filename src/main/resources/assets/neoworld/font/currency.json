@@ -1,0 +1,35 @@
+{
+  "providers": [
+    {
+      "type": "bitmap",
+      "file": "neoworld:font/icons/silver_coin.png",
+      "ascent": 8,
+      "height": 9,
+      "chars": [
+        ""
+      ]
+    },
+    {
+      "type": "bitmap",
+      "file": "neoworld:font/icons/gold_coin.png",
+      "ascent": 8,
+      "height": 9,
+      "chars": [
+        ""
+      ]
+    },
+    {
+      "type": "bitmap",
+      "file": "neoworld:font/icons/diamond_coin.png",
+      "ascent": 8,
+      "height": 9,
+      "chars": [
+        ""
+      ]
+    },
+    {
+      "type": "reference",
+      "id": "minecraft:default"
+    }
+  ]
+}

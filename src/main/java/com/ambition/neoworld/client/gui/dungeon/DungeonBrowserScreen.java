@@ -2,15 +2,19 @@ package com.ambition.neoworld.client.gui.dungeon;
 
 import com.ambition.neoworld.client.gui.style.NeoGuiRender;
 import com.ambition.neoworld.client.gui.style.NeoGuiStyle;
+import com.ambition.neoworld.client.gui.widget.NeoButton;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import org.lwjgl.glfw.GLFW;
 
 import com.ambition.neoworld.NeoWorld;
-import com.ambition.neoworld.network.DungeonBrowserDataPayload;
+import com.ambition.neoworld.network.dungeon.DungeonBrowserDataPayload;
 
 import net.minecraft.client.gui.GuiGraphics;
+import net.minecraft.client.gui.components.Button;
+import net.minecraft.client.gui.components.Tooltip;
 import net.minecraft.client.gui.screens.Screen;
 import net.minecraft.network.chat.Component;
 import net.minecraft.resources.ResourceLocation;
@@ -20,28 +24,36 @@ import net.minecraft.world.item.Items;
 public final class DungeonBrowserScreen extends Screen {
     private static final int SOURCE_WIDTH = 1672;
     private static final int SOURCE_HEIGHT = 940;
-    private static final int VISIBLE_ROWS = 6;
+    private static final int VISIBLE_ROWS = 3;
     private static final ResourceLocation FRAME = texture("textures/gui/dungeon/dungeon_browser_frame.png");
     private static final ResourceLocation WIDGETS = texture("textures/gui/dungeon/dungeon_browser_widgets.png");
     private static final int WIDGET_TEXTURE_SIZE = 1254;
-    private static final int WIDGET_CELL = 313;
+    // Tight alpha bounds for each generated atlas sprite: [row][state][x,y,width,height].
+    private static final int[][][] WIDGET_BOUNDS = {
+            {{89, 23, 186, 268}, {345, 55, 237, 238}, {668, 47, 259, 257}, {972, 20, 200, 293}},
+            {{92, 326, 183, 300}, {335, 343, 286, 283}, {636, 326, 264, 300}, {976, 313, 248, 313}},
+            {{0, 626, 293, 313}, {328, 626, 297, 313}, {627, 626, 300, 313}, {1002, 626, 174, 313}},
+            {{0, 939, 313, 301}, {313, 939, 313, 307}, {626, 939, 309, 307}, {994, 939, 250, 296}}
+    };
     private static final ResourceLocation FORGOTTEN_MINE = texture(
             "textures/gui/dungeon/previews/forgotten_mine.png");
     private static final ResourceLocation DEFAULT_PREVIEW = texture(
             "textures/gui/dungeon/previews/default_dungeon.png");
 
     private List<DungeonBrowserDataPayload.Entry> entries = List.of();
-    private int selectedIndex = -1;
+    private String selectedDungeonId = "";
     private int scrollOffset;
     private int panelX;
     private int panelY;
     private int panelWidth;
     private int panelHeight;
     private int levelFilter;
-    private int difficultyFilter = -1;
+    private int modeFilter;
     private boolean draggingScrollbar;
     private int scrollbarDragOffset;
-    private String status = "";
+    private boolean dataReceived;
+    private String status = "กำลังโหลดข้อมูล...";
+    private final List<NeoButton> buttons = new ArrayList<>();
 
     public DungeonBrowserScreen() {
         super(Component.literal("เลือกดันเจี้ยน"));
@@ -61,11 +73,70 @@ public final class DungeonBrowserScreen extends Screen {
         }
         panelX = (width - panelWidth) / 2;
         panelY = (height - panelHeight) / 2;
+        createButtons();
+    }
+
+    private void createButtons() {
+        buttons.clear();
+        int[] levels = {0, 10, 20, 30, 50, 70};
+        String[] levelLabels = {"ALL", "10+", "20+", "30+", "50+", "70+"};
+        int chipX = sx(91);
+        int chipY = sy(210);
+        int chipWidth = sxSize(85);
+        int chipHeight = sySize(60);
+        int chipGap = sxSize(6);
+        for (int i = 0; i < levels.length; i++) {
+            int level = levels[i];
+            NeoButton button = addNeoButton(Button.builder(Component.literal(levelLabels[i])
+                    .withStyle(style -> style.withColor(0xF2C14E)), ignored -> {
+                        levelFilter = level;
+                        refreshFilterSelection();
+                    }).bounds(chipX + i * (chipWidth + chipGap), chipY, chipWidth, chipHeight),
+                    NeoButton.Style.STANDARD);
+            button.selected(levelFilter == level);
+        }
+
+        int[] modes = {0, 1, 2, 4};
+        String[] modeLabels = {"ALL", "1 คน", "3 คน", "6 คน"};
+        int modeX = sx(91);
+        int modeWidth = sxSize(130);
+        for (int i = 0; i < modes.length; i++) {
+            int mode = modes[i];
+            NeoButton button = addNeoButton(Button.builder(Component.literal(modeLabels[i])
+                    .withStyle(style -> style.withColor(0x8FE5DE)), ignored -> {
+                        modeFilter = mode;
+                        refreshFilterSelection();
+                    }).bounds(modeX + i * (modeWidth + chipGap), sy(335), modeWidth, chipHeight),
+                    NeoButton.Style.PRIMARY);
+            button.selected(modeFilter == mode);
+        }
+
+        addNeoButton(Button.builder(Component.literal("X"), ignored -> onClose())
+                        .bounds(sx(1560), sy(90), sxSize(60), sySize(55))
+                        .tooltip(Tooltip.create(Component.literal("ปิดหน้าต่าง"))),
+                NeoButton.Style.DESTRUCTIVE).textScrolling(false);
+        NeoButton select = addNeoButton(Button.builder(Component.literal("เลือกดันเจี้ยน"), ignored -> {
+                            var entry = selected();
+                            if (entry != null) minecraft.setScreen(new DungeonCreateRoomScreen(this, entry));
+                        })
+                        .bounds(sx(1180), sy(780), sxSize(417), sySize(90))
+                        .tooltip(Tooltip.create(Component.literal("เลือกโหมดและสร้างห้องดันเจี้ยน"))),
+                NeoButton.Style.PRIMARY);
+        select.active = selected() != null;
+    }
+
+    private NeoButton addNeoButton(Button.Builder builder, NeoButton.Style style) {
+        NeoButton button = addRenderableWidget(new NeoButton(builder).style(style));
+        buttons.add(button);
+        return button;
     }
 
     void receiveData(DungeonBrowserDataPayload payload) {
         entries = payload.entries();
-        selectedIndex = entries.isEmpty() ? -1 : 0;
+        dataReceived = true;
+        if (entries.stream().noneMatch(entry -> entry.id().equals(selectedDungeonId))) {
+            selectedDungeonId = entries.isEmpty() ? "" : entries.getFirst().id();
+        }
         scrollOffset = 0;
         status = entries.isEmpty() ? "ยังไม่มีดันเจี้ยนที่เปิดใช้งาน" : "";
     }
@@ -81,50 +152,22 @@ public final class DungeonBrowserScreen extends Screen {
         renderList(graphics, mouseX, mouseY);
         renderPreview(graphics);
         renderDetails(graphics);
-        drawCentered(graphics, "X", 1560, 1620, 108, NeoGuiStyle.COLOR_TEXT);
         if (!status.isEmpty()) drawCentered(graphics, status, 1180, 1597, 746, NeoGuiStyle.COLOR_TEXT_MUTED);
+        if (!buttons.isEmpty()) buttons.getLast().active = selected() != null;
+        for (NeoButton button : buttons) button.render(graphics, mouseX, mouseY, partialTick);
     }
 
     private void renderFilters(GuiGraphics graphics, int mouseX, int mouseY) {
-        graphics.drawString(font, "เลเวลที่แนะนำ", sx(92), sy(168), NeoGuiStyle.COLOR_TEXT, false);
-        int[] levels = {0, 10, 20, 30, 50, 70};
-        String[] labels = {"ทั้งหมด", "10+", "20+", "30+", "50+", "70+"};
-        int chipX = sx(91);
-        int chipY = sy(197);
-        int chipWidth = sxSize(49);
-        int chipGap = sxSize(6);
-        for (int i = 0; i < levels.length; i++) {
-            drawChip(graphics, mouseX, mouseY, chipX + i * (chipWidth + chipGap), chipY,
-                    chipWidth, sySize(38), labels[i], levelFilter == levels[i]);
-        }
-
-        graphics.drawString(font, "ระดับความยาก", sx(446), sy(168), NeoGuiStyle.COLOR_TEXT, false);
-        String[] difficulties = {"ทั้งหมด", "ง่าย", "ปกติ", "ยาก"};
-        int difficultyX = sx(445);
-        int difficultyWidth = sxSize(48);
-        for (int i = 0; i < difficulties.length; i++) {
-            drawChip(graphics, mouseX, mouseY, difficultyX + i * (difficultyWidth + chipGap), chipY,
-                    difficultyWidth, sySize(38), difficulties[i], difficultyFilter == i - 1);
-        }
-    }
-
-    private void drawChip(GuiGraphics graphics, int mouseX, int mouseY, int x, int y, int width, int height,
-                          String label, boolean selected) {
-        boolean hover = NeoGuiRender.inside(mouseX, mouseY, x, y, width, height);
-        graphics.fill(x, y, x + width, y + height, selected ? NeoGuiStyle.COLOR_ACCENT_DARK
-                : hover ? NeoGuiStyle.COLOR_SLOT_HOVER : NeoGuiStyle.COLOR_SLOT);
-        graphics.renderOutline(x, y, width, height,
-                selected ? NeoGuiStyle.COLOR_ACCENT : NeoGuiStyle.COLOR_FRAME);
-        NeoGuiRender.centered(graphics, font, NeoGuiRender.trim(font, label, width - 4), x, width,
-                y + (height - 8) / 2, selected ? NeoGuiStyle.COLOR_GOLD : NeoGuiStyle.COLOR_TEXT);
+        graphics.drawString(font, "เลเวลที่แนะนำ", sx(92), sy(168), NeoGuiStyle.COLOR_GOLD, false);
+        graphics.drawString(font, "โหมดผู้เล่น", sx(92), sy(290), 0xFF8FE5DE, false);
     }
 
     private void renderList(GuiGraphics graphics, int mouseX, int mouseY) {
         List<DungeonBrowserDataPayload.Entry> visibleEntries = visibleEntries();
         int listX = sx(80);
-        int listY = sy(250);
+        int listY = sy(420);
         int listWidth = sxSize(535);
-        int listHeight = sySize(620);
+        int listHeight = sySize(440);
         int gap = Math.max(2, sySize(8));
         int rowHeight = (listHeight - gap * (VISIBLE_ROWS - 1)) / VISIBLE_ROWS;
 
@@ -132,11 +175,13 @@ public final class DungeonBrowserScreen extends Screen {
             int index = scrollOffset + row;
             int y = listY + row * (rowHeight + gap);
             boolean hover = NeoGuiRender.inside(mouseX, mouseY, listX, y, listWidth, rowHeight);
-            int color = index == selectedIndex ? 0xE0184B48
+            boolean selected = index < visibleEntries.size()
+                    && visibleEntries.get(index).id().equals(selectedDungeonId);
+            int color = selected ? 0xE0184B48
                     : hover ? NeoGuiStyle.COLOR_SLOT_HOVER : NeoGuiStyle.COLOR_SLOT;
             graphics.fill(listX, y, listX + listWidth, y + rowHeight, color);
             graphics.renderOutline(listX, y, listWidth, rowHeight,
-                    index == selectedIndex ? NeoGuiStyle.COLOR_ACCENT : NeoGuiStyle.COLOR_FRAME);
+                    selected ? NeoGuiStyle.COLOR_ACCENT : NeoGuiStyle.COLOR_FRAME);
             if (index >= visibleEntries.size()) continue;
             DungeonBrowserDataPayload.Entry entry = visibleEntries.get(index);
             int thumbX = listX + 4;
@@ -148,16 +193,17 @@ public final class DungeonBrowserScreen extends Screen {
             graphics.blit(thumbnail, thumbX, thumbY, thumbWidth, thumbHeight, 0, 120,
                     SOURCE_WIDTH, 620, SOURCE_WIDTH, SOURCE_HEIGHT);
             graphics.renderOutline(thumbX, thumbY, thumbWidth, thumbHeight, NeoGuiStyle.COLOR_FRAME_LIGHT);
-            int textY = y + Math.max(3, (rowHeight - 20) / 2);
+            int textY = y + Math.max(3, (rowHeight - 24) / 2);
             int textX = thumbX + thumbWidth + 9;
-            graphics.drawString(font, NeoGuiRender.trim(font, entry.displayName(), listWidth - thumbWidth - 88),
+            graphics.drawString(font, NeoGuiRender.trim(font, entry.displayName(), listX + listWidth - textX - 5),
                     textX, textY - 3, NeoGuiStyle.COLOR_TEXT, false);
-            graphics.drawString(font, "Lv. " + entry.minimumLevel() + "+", textX, textY + 10,
+            graphics.drawString(font, NeoGuiRender.trim(font, "Lv. " + entry.minimumLevel() + "+ | " + modeText(entry.modeMask()), listX + listWidth - textX - 5), textX, textY + 12,
                     NeoGuiStyle.COLOR_TEXT_MUTED, false);
-            NeoGuiRender.right(graphics, font, difficultyText(entry.minimumLevel()),
-                    listX + listWidth - 9, textY - 3, difficultyColor(entry.minimumLevel()));
-            NeoGuiRender.right(graphics, font, "พร้อมเล่น", listX + listWidth - 9, textY + 10,
-                    0xFF42E889);
+        }
+        if (visibleEntries.isEmpty()) {
+            String empty = dataReceived ? "ไม่พบดันเจี้ยนตามตัวกรอง" : "กำลังโหลดข้อมูล...";
+            NeoGuiRender.centered(graphics, font, empty, listX, listWidth,
+                    listY + listHeight / 2 - 4, NeoGuiStyle.COLOR_TEXT_MUTED);
         }
         renderScrollbar(graphics, mouseX, mouseY, listY, listHeight);
     }
@@ -185,8 +231,12 @@ public final class DungeonBrowserScreen extends Screen {
     }
 
     private void blitWidget(GuiGraphics graphics, int x, int y, int width, int height, int state, int row) {
-        graphics.blit(WIDGETS, x, y, width, height, state * WIDGET_CELL, row * WIDGET_CELL,
-                WIDGET_CELL, WIDGET_CELL, WIDGET_TEXTURE_SIZE, WIDGET_TEXTURE_SIZE);
+        // Source sprites are not on an equal grid. Use measured visible regions.
+        int[] columns = {98, 393, 690, 987};
+        int[] bounds = row < 2 ? new int[] {columns[state], row == 0 ? 110 : 376, 165, 164}
+                : new int[] {columns[state] + 49, row == 2 ? 615 : 892, 64, row == 2 ? 216 : 258};
+        graphics.blit(WIDGETS, x, y, width, height, bounds[0], bounds[1],
+                bounds[2], bounds[3], WIDGET_TEXTURE_SIZE, WIDGET_TEXTURE_SIZE);
     }
 
     private void renderPreview(GuiGraphics graphics) {
@@ -215,14 +265,15 @@ public final class DungeonBrowserScreen extends Screen {
         int y = sy(660);
         for (int i = 0; i < nodes; i++) {
             int x = areaX + i * (nodeWidth + gap);
-            graphics.fill(x, y, x + nodeWidth, y + sySize(82), NeoGuiStyle.COLOR_SLOT);
-            graphics.renderOutline(x, y, nodeWidth, sySize(82), NeoGuiStyle.COLOR_FRAME_LIGHT);
+            int iconHeight = Math.max(24, sySize(82));
+            graphics.fill(x, y, x + nodeWidth, y + iconHeight, NeoGuiStyle.COLOR_SLOT);
+            graphics.renderOutline(x, y, nodeWidth, iconHeight, NeoGuiStyle.COLOR_FRAME_LIGHT);
             boolean boss = i == nodes - 1;
             ItemStack icon = new ItemStack(boss ? Items.SKELETON_SKULL
                     : i == 0 ? Items.CHEST_MINECART : Items.RAW_GOLD);
             graphics.renderItem(icon, x + (nodeWidth - 16) / 2, y + 7);
-            String label = boss ? "บอส" : i == 0 ? "เริ่มต้น" : "Wave " + i;
-            NeoGuiRender.centered(graphics, font, label, x, nodeWidth, y + sySize(54), NeoGuiStyle.COLOR_TEXT);
+            String label = boss ? "บอส" : i == 0 ? "เริ่มต้น" : entry.waveCount() > 2 && i == nodes - 2 ? "Wave 2-" + entry.waveCount() : "Wave " + i;
+            NeoGuiRender.centered(graphics, font, NeoGuiRender.trim(font, label, nodeWidth + gap / 2), x, nodeWidth, y + iconHeight + 5, NeoGuiStyle.COLOR_TEXT);
             if (i < nodes - 1) {
                 graphics.drawString(font, ">", x + nodeWidth + Math.max(1, (gap - font.width(">")) / 2),
                         y + sySize(35), NeoGuiStyle.COLOR_TEXT, false);
@@ -234,7 +285,7 @@ public final class DungeonBrowserScreen extends Screen {
         DungeonBrowserDataPayload.Entry entry = selected();
         int x = sx(1210);
         int y = sy(178);
-        int line = Math.max(11, sySize(39));
+        int line = Math.max(font.lineHeight + 5, sySize(39));
         if (entry == null) {
             graphics.drawString(font, "ไม่พบดันเจี้ยน", x, y, NeoGuiStyle.COLOR_TEXT_MUTED, false);
             return;
@@ -242,72 +293,63 @@ public final class DungeonBrowserScreen extends Screen {
         graphics.renderItem(new ItemStack(Items.CHEST_MINECART), x, y - 3);
         graphics.drawString(font, NeoGuiRender.trim(font, entry.displayName(), sxSize(320)), x + 22, y,
                 NeoGuiStyle.COLOR_GOLD, false);
-        y += line;
-        graphics.drawString(font, difficultyText(entry.minimumLevel()), x + 22, y,
-                difficultyColor(entry.minimumLevel()), false);
-        y += line;
-        NeoGuiRender.separator(graphics, x, sx(1568), y - 7);
+        y += Math.max(22, line);
+        NeoGuiRender.separator(graphics, x, sx(1568), y);
+        y += 7;
         drawDetail(graphics, "เลเวลที่แนะนำ", "Lv. " + entry.minimumLevel() + "+", x, y); y += line;
         String time = entry.timeLimitSeconds() <= 0 ? "ไม่จำกัดเวลา" : formatTime(entry.timeLimitSeconds());
         drawDetail(graphics, "เวลาประมาณ", time, x, y); y += line;
         drawDetail(graphics, "โหมดที่รองรับ", modeText(entry.modeMask()), x, y); y += line;
         drawDetail(graphics, "จำนวนเวฟ", entry.waveCount() + " เวฟ", x, y); y += line;
         drawDetail(graphics, "บอสสุดท้าย", entry.bossName().isBlank() ? "ไม่มี" : entry.bossName(), x, y); y += line;
-        NeoGuiRender.separator(graphics, x, sx(1568), y - 7);
+        NeoGuiRender.separator(graphics, x, sx(1568), y);
+        y += 7;
         graphics.drawString(font, "รางวัลที่อาจได้รับ", x, y, NeoGuiStyle.COLOR_GOLD, false); y += line;
         drawDetail(graphics, "EXP", Integer.toString(entry.experience()), x, y); y += line;
         drawDetail(graphics, "Silver", Long.toString(entry.money()), x, y); y += line;
         renderRewardIcons(graphics, x, y, entry);
-        drawCentered(graphics, "เลือกดันเจี้ยน", 1180, 1597, 818, NeoGuiStyle.COLOR_TEXT);
     }
 
     private void renderRewardIcons(GuiGraphics graphics, int x, int y, DungeonBrowserDataPayload.Entry entry) {
-        ItemStack[] rewards = entry.lootTableId().isBlank()
-                ? new ItemStack[] {new ItemStack(Items.EXPERIENCE_BOTTLE), new ItemStack(Items.GOLD_NUGGET)}
-                : new ItemStack[] {new ItemStack(Items.DIAMOND), new ItemStack(Items.GOLD_INGOT),
-                        new ItemStack(Items.REDSTONE), new ItemStack(Items.LAPIS_LAZULI)};
+        List<ItemStack> rewards = new ArrayList<>();
+        if (entry.experience() > 0) rewards.add(new ItemStack(Items.EXPERIENCE_BOTTLE));
+        if (entry.money() > 0) rewards.add(new ItemStack(Items.GOLD_NUGGET));
+        if (!entry.lootTableId().isBlank()) rewards.add(new ItemStack(Items.CHEST));
         int slot = Math.max(20, sxSize(48));
-        for (int i = 0; i < rewards.length; i++) {
+        for (int i = 0; i < rewards.size(); i++) {
             int slotX = x + i * (slot + 3);
             graphics.fill(slotX, y, slotX + slot, y + slot, NeoGuiStyle.COLOR_SLOT);
             graphics.renderOutline(slotX, y, slot, slot, NeoGuiStyle.COLOR_FRAME_LIGHT);
-            graphics.renderItem(rewards[i], slotX + (slot - 16) / 2, y + (slot - 16) / 2);
+            graphics.renderItem(rewards.get(i), slotX + (slot - 16) / 2, y + (slot - 16) / 2);
         }
     }
 
     private void drawDetail(GuiGraphics graphics, String label, String value, int x, int y) {
-        graphics.drawString(font, label, x, y, NeoGuiStyle.COLOR_TEXT_MUTED, false);
+        int available = sx(1568) - x;
+        graphics.drawString(font, NeoGuiRender.trim(font, label, available / 2 - 3), x, y, NeoGuiStyle.COLOR_TEXT_MUTED, false);
         int right = sx(1568);
-        NeoGuiRender.right(graphics, font, NeoGuiRender.trim(font, value, sxSize(190)), right, y,
+        NeoGuiRender.right(graphics, font, NeoGuiRender.trim(font, value, available / 2 - 3), right, y,
                 NeoGuiStyle.COLOR_TEXT);
     }
 
     @Override
     public boolean mouseClicked(double mouseX, double mouseY, int button) {
         if (button != GLFW.GLFW_MOUSE_BUTTON_LEFT) return super.mouseClicked(mouseX, mouseY, button);
-        if (NeoGuiRender.inside(mouseX, mouseY, sx(1560), sy(90), sxSize(60), sySize(55))) {
-            onClose();
-            return true;
-        }
-        if (handleFilterClick(mouseX, mouseY)) return true;
         int listX = sx(80);
-        int listY = sy(250);
+        int listY = sy(420);
         int listWidth = sxSize(535);
-        int listHeight = sySize(620);
+        int listHeight = sySize(440);
         int gap = Math.max(2, sySize(8));
         int rowHeight = (listHeight - gap * (VISIBLE_ROWS - 1)) / VISIBLE_ROWS;
         if (NeoGuiRender.inside(mouseX, mouseY, listX, listY, listWidth, listHeight)) {
             int row = (int) (mouseY - listY) / (rowHeight + gap);
             int index = scrollOffset + row;
-            if (row < VISIBLE_ROWS && index < visibleEntries().size()) selectedIndex = index;
+            if (row < VISIBLE_ROWS && index < visibleEntries().size()) {
+                selectedDungeonId = visibleEntries().get(index).id();
+            }
             return true;
         }
         if (handleScrollbarClick(mouseX, mouseY, listY, listHeight)) return true;
-        if (selected() != null && NeoGuiRender.inside(mouseX, mouseY, sx(1180), sy(780),
-                sxSize(417), sySize(90))) {
-            status = "หน้าสร้างห้องจะเพิ่มในขั้นถัดไป";
-            return true;
-        }
         return super.mouseClicked(mouseX, mouseY, button);
     }
 
@@ -342,10 +384,10 @@ public final class DungeonBrowserScreen extends Screen {
     @Override
     public boolean mouseDragged(double mouseX, double mouseY, int button, double dragX, double dragY) {
         if (draggingScrollbar && button == GLFW.GLFW_MOUSE_BUTTON_LEFT) {
-            int listY = sy(250);
+            int listY = sy(420);
             int buttonHeight = Math.max(12, sySize(52));
             int trackY = listY + buttonHeight;
-            int trackHeight = sySize(620) - buttonHeight * 2;
+            int trackHeight = sySize(440) - buttonHeight * 2;
             int thumbHeight = scrollbarThumbHeight(trackHeight);
             setScrollFromThumb((int) mouseY - scrollbarDragOffset, trackY, trackHeight, thumbHeight);
             return true;
@@ -379,41 +421,22 @@ public final class DungeonBrowserScreen extends Screen {
         scrollOffset = Math.round((clamped - trackY) * maxScrollOffset() / (float) travel);
     }
 
-    private boolean handleFilterClick(double mouseX, double mouseY) {
-        int chipY = sy(197);
-        int chipHeight = sySize(38);
-        int chipGap = sxSize(6);
+    private void refreshFilterSelection() {
+        List<DungeonBrowserDataPayload.Entry> visibleEntries = visibleEntries();
+        if (visibleEntries.stream().noneMatch(entry -> entry.id().equals(selectedDungeonId))) {
+            selectedDungeonId = visibleEntries.isEmpty() ? "" : visibleEntries.getFirst().id();
+        }
+        scrollOffset = 0;
+        status = visibleEntries.isEmpty() ? "ไม่พบดันเจี้ยนตามตัวกรอง" : "";
         int[] levels = {0, 10, 20, 30, 50, 70};
-        int chipWidth = sxSize(49);
-        int startX = sx(91);
-        for (int i = 0; i < levels.length; i++) {
-            if (NeoGuiRender.inside(mouseX, mouseY, startX + i * (chipWidth + chipGap), chipY,
-                    chipWidth, chipHeight)) {
-                levelFilter = levels[i];
-                selectedIndex = visibleEntries().isEmpty() ? -1 : 0;
-                scrollOffset = 0;
-                status = levelFilter == 0 ? "แสดงทุกเลเวล" : "กรองเลเวล " + levelFilter + "+";
-                return true;
-            }
-        }
-        int difficultyWidth = sxSize(48);
-        startX = sx(445);
-        for (int i = 0; i < 4; i++) {
-            if (NeoGuiRender.inside(mouseX, mouseY, startX + i * (difficultyWidth + chipGap), chipY,
-                    difficultyWidth, chipHeight)) {
-                difficultyFilter = i - 1;
-                selectedIndex = visibleEntries().isEmpty() ? -1 : 0;
-                scrollOffset = 0;
-                status = difficultyFilter < 0 ? "แสดงทุกระดับความยาก" : "เลือกระดับ " + (i);
-                return true;
-            }
-        }
-        return false;
+        int[] modes = {0, 1, 2, 4};
+        for (int i = 0; i < levels.length; i++) buttons.get(i).selected(levelFilter == levels[i]);
+        for (int i = 0; i < modes.length; i++) buttons.get(levels.length + i).selected(modeFilter == modes[i]);
     }
 
     @Override
     public boolean mouseScrolled(double mouseX, double mouseY, double scrollX, double scrollY) {
-        if (NeoGuiRender.inside(mouseX, mouseY, sx(80), sy(250), sxSize(580), sySize(620))) {
+        if (NeoGuiRender.inside(mouseX, mouseY, sx(80), sy(420), sxSize(580), sySize(440))) {
             scrollOffset = Math.max(0, Math.min(maxScrollOffset(), scrollOffset - (int) Math.signum(scrollY)));
             return true;
         }
@@ -426,8 +449,10 @@ public final class DungeonBrowserScreen extends Screen {
     }
 
     private DungeonBrowserDataPayload.Entry selected() {
-        List<DungeonBrowserDataPayload.Entry> visibleEntries = visibleEntries();
-        return selectedIndex >= 0 && selectedIndex < visibleEntries.size() ? visibleEntries.get(selectedIndex) : null;
+        return visibleEntries().stream()
+                .filter(entry -> entry.id().equals(selectedDungeonId))
+                .findFirst()
+                .orElse(null);
     }
 
     private int maxScrollOffset() {
@@ -437,7 +462,7 @@ public final class DungeonBrowserScreen extends Screen {
     private List<DungeonBrowserDataPayload.Entry> visibleEntries() {
         return entries.stream()
                 .filter(entry -> levelFilter == 0 || entry.minimumLevel() >= levelFilter)
-                .filter(entry -> difficultyFilter < 0 || difficultyIndex(entry.minimumLevel()) == difficultyFilter)
+                .filter(entry -> modeFilter == 0 || (entry.modeMask() & modeFilter) != 0)
                 .toList();
     }
 
@@ -466,26 +491,6 @@ public final class DungeonBrowserScreen extends Screen {
 
     private static String formatTime(int seconds) {
         return "%d:%02d".formatted(seconds / 60, seconds % 60);
-    }
-
-    private static String difficultyText(int level) {
-        if (level >= 50) return "โหดมาก";
-        if (level >= 30) return "ยาก";
-        if (level >= 20) return "ปกติ";
-        return "ง่าย";
-    }
-
-    private static int difficultyColor(int level) {
-        if (level >= 50) return 0xFFFF5268;
-        if (level >= 30) return 0xFFFF7A32;
-        if (level >= 20) return NeoGuiStyle.COLOR_GOLD;
-        return 0xFF42E889;
-    }
-
-    private static int difficultyIndex(int level) {
-        if (level >= 30) return 2;
-        if (level >= 20) return 1;
-        return 0;
     }
 
     private static ResourceLocation texture(String path) {

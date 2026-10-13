@@ -1,0 +1,6 @@
+interface:
+  display_name: "NeoWorld GUI"
+  short_description: "สร้างและปรับ GUI ของ NeoWorld ให้ตรงดีไซน์"
+  default_prompt: "Use $neoworld-gui to create or refine a NeoWorld GUI screen."
+policy:
+  allow_implicit_invocation: true

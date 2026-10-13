@@ -24,6 +24,52 @@ sourceSets.main.resources {
     // Exclude common development only resources from finalized outputs
     exclude("**/*.bbmodel") // BlockBench project files
     exclude("src/generated/**/.cache") // datagen cache files
+    // Language files are merged below so neither source loses translations.
+    exclude("assets/neoworld/lang/*.json")
+}
+
+def mergedLanguageDir = layout.buildDirectory.dir('generated/mergedLanguages')
+def mergeLanguages = tasks.register('mergeLanguages') {
+    def languageSources = [file('src/generated/resources/assets/neoworld/lang'),
+                           file('src/main/resources/assets/neoworld/lang')]
+    def languageTrees = languageSources.collect { fileTree(it) { include '*.json' } }
+    def languageOutput = mergedLanguageDir.get().asFile
+    inputs.files(languageTrees)
+    outputs.dir(languageOutput)
+    doLast {
+        def destination = new File(languageOutput, 'assets/neoworld/lang')
+        destination.mkdirs()
+        def languageFiles = languageTrees.collectMany { it.files.toList() }
+        languageFiles.collect { it.name }.unique().each { languageName ->
+            def translations = new TreeMap()
+            languageSources.each { directory ->
+                def source = new File(directory, languageName)
+                if (source.exists()) {
+                    // Hand-authored translations take precedence over generated values.
+                    translations.putAll(new groovy.json.JsonSlurper().parse(source, 'UTF-8'))
+                }
+            }
+            new File(destination, languageName).setText(
+                    groovy.json.JsonOutput.prettyPrint(groovy.json.JsonOutput.toJson(translations)) + '\n', 'UTF-8')
+        }
+    }
+}
+
+// IDEA's native compiler does not execute processResources or its merged language input.
+def syncIdeaLanguages = tasks.register('syncIdeaLanguages', Copy) {
+    from(mergeLanguages)
+    include('assets/neoworld/lang/*.json')
+    into(layout.projectDirectory.dir('out/production/resources'))
+}
+
+neoForge.ideSyncTask syncIdeaLanguages
+neoForge.runs.configureEach {
+    taskBefore(syncIdeaLanguages)
+}
+
+tasks.named('processResources') {
+    dependsOn(syncIdeaLanguages)
+    from(mergeLanguages)
 }
 
 repositories {
@@ -61,6 +107,14 @@ neoForge {
         client {
             client()
             // Comma-separated list of namespaces to load gametests from. Empty = all namespaces.
+            systemProperty 'neoforge.enabledGameTestNamespaces', project.mod_id
+        }
+
+        miw {
+            client()
+            ideName = 'Miw'
+            gameDirectory = project.file('run-miw')
+            programArguments.addAll '--username', 'Miw'
             systemProperty 'neoforge.enabledGameTestNamespaces', project.mod_id
         }
 
@@ -239,6 +293,71 @@ tasks.register('regressionTest', JavaExec) {
     }
 }
 tasks.named('check') { dependsOn tasks.named('regressionTest') }
+
+tasks.register('activityRegressionTest', JavaExec) {
+    dependsOn tasks.named('regressionTestClasses')
+    classpath = sourceSets.regressionTest.runtimeClasspath
+    mainClass = 'com.ambition.neoworld.activity.ActivityRegressionTest'
+    javaLauncher = javaToolchains.launcherFor {
+        languageVersion = JavaLanguageVersion.of(21)
+    }
+}
+
+tasks.register('partyHudRegressionTest', JavaExec) {
+    dependsOn tasks.named('regressionTestClasses')
+    classpath = sourceSets.regressionTest.runtimeClasspath
+    mainClass = 'com.ambition.neoworld.party.PartyHudRegressionTest'
+    javaLauncher = javaToolchains.launcherFor {
+        languageVersion = JavaLanguageVersion.of(21)
+    }
+}
+
+tasks.named('check') { dependsOn tasks.named('partyHudRegressionTest') }
+
+tasks.register('playerProfileRegressionTest', JavaExec) {
+    dependsOn tasks.named('regressionTestClasses')
+    classpath = sourceSets.regressionTest.runtimeClasspath
+    mainClass = 'com.ambition.neoworld.network.PlayerProfileRegressionTest'
+    javaLauncher = javaToolchains.launcherFor {
+        languageVersion = JavaLanguageVersion.of(21)
+    }
+}
+tasks.named('check') { dependsOn tasks.named('playerProfileRegressionTest') }
+
+tasks.register('fashionRegressionTest', JavaExec) {
+    dependsOn tasks.named('regressionTestClasses')
+    classpath = sourceSets.regressionTest.runtimeClasspath
+    mainClass = 'com.ambition.neoworld.network.FashionRegressionTest'
+    javaLauncher = javaToolchains.launcherFor {
+        languageVersion = JavaLanguageVersion.of(21)
+    }
+}
+
+tasks.named('check') { dependsOn tasks.named('fashionRegressionTest') }
+
+tasks.register('tradeRegressionTest', JavaExec) {
+    dependsOn tasks.named('regressionTestClasses')
+    classpath = sourceSets.regressionTest.runtimeClasspath
+    mainClass = 'com.ambition.neoworld.trade.TradeRegressionTest'
+    workingDir = layout.buildDirectory.dir('trade-regression').get().asFile
+    doFirst { task -> task.workingDir.mkdirs() }
+    javaLauncher = javaToolchains.launcherFor {
+        languageVersion = JavaLanguageVersion.of(21)
+    }
+}
+
+tasks.named('check') { dependsOn tasks.named('tradeRegressionTest') }
+
+tasks.register('pvpRegressionTest', JavaExec) {
+    dependsOn tasks.named('regressionTestClasses')
+    classpath = sourceSets.regressionTest.runtimeClasspath
+    mainClass = 'com.ambition.neoworld.pvp.PvpRoomRegressionTest'
+    javaLauncher = javaToolchains.launcherFor {
+        languageVersion = JavaLanguageVersion.of(21)
+    }
+}
+
+tasks.named('check') { dependsOn tasks.named('pvpRegressionTest') }
 
 // IDEA no longer automatically downloads sources/javadoc jars for dependencies, so we need to explicitly enable the behavior.
 idea {

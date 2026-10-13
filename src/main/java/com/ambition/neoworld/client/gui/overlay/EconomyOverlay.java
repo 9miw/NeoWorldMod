@@ -1,7 +1,10 @@
 package com.ambition.neoworld.client.gui.overlay;
 
-import com.ambition.neoworld.client.ClientEconomyData;
+import com.ambition.neoworld.client.gui.common.NeoBitmapFonts;
 
+import com.ambition.neoworld.client.state.ClientEconomyData;
+
+import net.minecraft.network.chat.Component;
 import net.minecraft.client.DeltaTracker;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.Font;
@@ -27,7 +30,7 @@ public class EconomyOverlay implements LayeredDraw.Layer {
         String silverStr = "§r\uE046§f" + ClientEconomyData.getFormattedSilver();
         String goldStr = " §r\uE047§6" + ClientEconomyData.getFormattedGold();
         String diamondStr = " §r\uE048§b" + ClientEconomyData.getFormattedDiamond();
-        String fullText = silverStr + goldStr + diamondStr;
+        Component fullText = NeoBitmapFonts.text( silverStr + goldStr + diamondStr);
 
         guiGraphics.pose().pushPose();
         guiGraphics.pose().scale(scale, scale, 1.0f);

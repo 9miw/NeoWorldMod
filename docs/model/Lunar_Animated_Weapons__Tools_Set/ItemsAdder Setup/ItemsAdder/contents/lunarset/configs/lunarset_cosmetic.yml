@@ -1,0 +1,43 @@
+info:
+  namespace: lunarset
+items:
+  lunar_cosmetics_helmet:
+    display_name: Lunar Cosmetics Helmet
+    permission: lunarset.use
+    resource:
+      generate: false
+      material: POTION
+      model_id: 543000
+      model_path: helmet
+  lunar_cosmetics_tail:
+    display_name: Lunar Cosmetics Tail
+    permission: lunarset.use
+    resource:
+      generate: false
+      material: POTION
+      model_id: 543001
+      model_path: tail_cosmetics
+  lunar_cosmetics_tail_normal_2:
+    display_name: Lunar Cosmetics Tail Normal 2
+    permission: lunarset.use
+    resource:
+      generate: false
+      material: POTION
+      model_id: 543004
+      model_path: tail_cosmetics_normal_2
+  lunar_cosmetics_tail_self:
+    display_name: Lunar Cosmetics Tail Self
+    permission: lunarset.use
+    resource:
+      generate: false
+      material: POTION
+      model_id: 543002
+      model_path: tail_cosmetics_self
+  lunar_cosmetics_tail_self_2:
+    display_name: Lunar Cosmetics Tail Self 2
+    permission: lunarset.use
+    resource:
+      generate: false
+      material: POTION
+      model_id: 543003
+      model_path: tail_cosmetics_self_2

@@ -1,0 +1,27 @@
+info:
+    namespace: shine_oni
+categories:
+    shine_oni:
+        name: Shine Oni Animated Weapons & Tools Set
+        enabled: true
+        icon: shine_oni:shine_oni_wings
+        permission: ia.menu.shine_oni
+        items:
+        - shine_oni:shine_onihelmet
+        - shine_oni:shine_onichestplate
+        - shine_oni:shine_onileggings
+        - shine_oni:shine_oniboots
+        - shine_oni:shine_oni_axe
+        - shine_oni:shine_oni_pickaxe
+        - shine_oni:shine_oni_shovel
+        - shine_oni:shine_oni_hoe
+        - shine_oni:shine_oni_big_sword
+        - shine_oni:shine_oni_shield
+        - shine_oni:shine_oni_bow
+        - shine_oni:shine_oni_staff
+        - shine_oni:shine_oni_spear
+        - shine_oni:shine_oni_chest
+        - shine_oni:shine_oni_key
+        - shine_oni:shine_oni_battle_axe
+        - shine_oni:shine_oni_sickle
+        - shine_oni:shine_oni_wings

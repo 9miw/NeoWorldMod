@@ -3,14 +3,12 @@ package com.ambition.neoworld.party;
 import java.util.Collection;
 import java.util.LinkedHashMap;
 import java.util.Map;
-import java.util.Set;
 import java.util.UUID;
 
 public final class Party {
     private final UUID id;
     private final int capacity;
     private final Map<UUID, PartyMember> members = new LinkedHashMap<>();
-    private final Set<UUID> readyMembers = new java.util.HashSet<>();
     private UUID leaderId;
 
     Party(UUID id, int capacity, PartyMember leader) {
@@ -51,37 +49,15 @@ public final class Party {
         return members.containsKey(playerId);
     }
 
-    public boolean isReady(UUID playerId) {
-        return readyMembers.contains(playerId);
-    }
-
-    public boolean allReady() {
-        return !members.isEmpty() && readyMembers.containsAll(members.keySet());
-    }
-
     void addMember(PartyMember member) {
         members.put(member.playerId(), member);
-        readyMembers.remove(member.playerId());
     }
 
     void removeMember(UUID playerId) {
         members.remove(playerId);
-        readyMembers.remove(playerId);
         if (playerId.equals(leaderId) && !members.isEmpty()) {
             leaderId = members.keySet().iterator().next();
         }
-    }
-
-    void setReady(UUID playerId, boolean ready) {
-        if (ready) {
-            readyMembers.add(playerId);
-        } else {
-            readyMembers.remove(playerId);
-        }
-    }
-
-    public void clearReady() {
-        readyMembers.clear();
     }
 
     boolean isEmpty() {

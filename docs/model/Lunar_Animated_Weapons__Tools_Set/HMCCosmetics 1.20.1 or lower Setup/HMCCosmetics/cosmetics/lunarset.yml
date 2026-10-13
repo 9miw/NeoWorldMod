@@ -1,0 +1,37 @@
+lunar_cosmetics_helmet:
+  dyeable: false
+  height: 0
+  item:
+    amount: 1
+    color: '#ffffff'
+    glow: false
+    item-flags:
+    - HIDE_ATTRIBUTES
+    material: POTION
+    model-data: 543000
+    unbreakable: true
+  permission: cosmetics.lunar_cosmetics_helmet
+  slot: HELMET
+lunar_cosmetics_tail:
+  dyeable: false
+  firstperson-item:
+    amount: 1
+    color: '#ffffff'
+    glow: false
+    item-flags:
+    - HIDE_ATTRIBUTES
+    material: POTION
+    model-data: 543002
+    unbreakable: true
+  height: 6
+  item:
+    amount: 1
+    color: '#ffffff'
+    glow: false
+    item-flags:
+    - HIDE_ATTRIBUTES
+    material: POTION
+    model-data: 543001
+    unbreakable: true
+  permission: cosmetics.lunar_cosmetics_tail
+  slot: BACKPACK
