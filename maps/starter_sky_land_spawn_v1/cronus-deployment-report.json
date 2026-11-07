@@ -1,0 +1,36 @@
+{
+  "target": "minecraft:overworld",
+  "spawn": [
+    160,
+    98,
+    310
+  ],
+  "bounds": [
+    0,
+    0,
+    383,
+    383
+  ],
+  "chunksReplaced": 576,
+  "chunksOutsidePreserved": 448,
+  "poiUnchangedEmpty": true,
+  "entityFilesUntouched": true,
+  "playerDataUntouched": true,
+  "otherLevelTagsPreserved": true,
+  "regionHash": "f80de5da004f9119431e488ee0d58c0b1b445eccf41ea4faa20729427c720003",
+  "levelHash": "5544a0eeff7954565f5f96f74a915d19ff4f6c07d8fe145e644de5d5e779793e",
+  "backup": "/home/miw/backups/neoworld-spawn-20261025-0216",
+  "npcCount": 26,
+  "npcsInsideReplacedChunks": 0,
+  "entityAndCustomNpcAndPlayerFilesComparedBeforeStart": true,
+  "serverReady": true,
+  "serverDoneLog": "25Oct2026 02:21:48.619 Done (23.738s)",
+  "statusQuery": {
+    "reachable": true,
+    "protocol": 767,
+    "online": 0,
+    "max": 20
+  },
+  "inGameClientVerified": false,
+  "note": "NPCs remain at their original positions outside the imported island; region and level hashes describe pre-start files, normal saving can change them."
+}

@@ -32,10 +32,14 @@ public final class ActivityEvents {
     }
     @SubscribeEvent public static void stopped(ServerStoppedEvent event) { SERVERS.remove(event.getServer()); }
     @SubscribeEvent public static void login(PlayerEvent.PlayerLoggedInEvent event) {
+        if (event.getEntity() instanceof ServerPlayer player)
+            com.ambition.neoworld.economy.analytics.EconomyAnalytics.login(player);
         if (event.getEntity() instanceof ServerPlayer player && runtime(player.getServer()) != null)
             runtime(player.getServer()).sessions.put(player.getUUID(), new Session(player));
     }
     @SubscribeEvent public static void logout(PlayerEvent.PlayerLoggedOutEvent event) {
+        if (event.getEntity() instanceof ServerPlayer player)
+            com.ambition.neoworld.economy.analytics.EconomyAnalytics.logout(player);
         if (event.getEntity() instanceof ServerPlayer player && runtime(player.getServer()) != null)
             runtime(player.getServer()).sessions.remove(player.getUUID());
     }
@@ -66,6 +70,7 @@ public final class ActivityEvents {
             long elapsed = Math.max(0, Math.min(5_000_000_000L, now - s.lastSample));
             boolean activeBefore = now - s.lastActive < rewards.afkSeconds() * 1_000_000_000L;
             if (moved) s.lastActive = now;
+            com.ambition.neoworld.economy.analytics.EconomyAnalytics.sample(player, elapsed, !(moved || activeBefore));
             var data = player.getData(ModAttachments.ACTIVITY_DATA);
             long oldDay = data.day;
             if (data.roll(Instant.now()) && !player.isSpectator() && player.isAlive() && (moved || activeBefore)) {

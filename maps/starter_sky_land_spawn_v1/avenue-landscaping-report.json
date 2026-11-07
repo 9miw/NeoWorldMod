@@ -1,0 +1,142 @@
+{
+  "trees": [
+    {
+      "asset": "t199",
+      "center": [
+        146,
+        104,
+        174
+      ],
+      "rotation": 0,
+      "blocks": 161
+    },
+    {
+      "asset": "t199",
+      "center": [
+        174,
+        104,
+        174
+      ],
+      "rotation": 90,
+      "blocks": 161
+    },
+    {
+      "asset": "t199",
+      "center": [
+        146,
+        104,
+        246
+      ],
+      "rotation": 180,
+      "blocks": 161
+    },
+    {
+      "asset": "t199",
+      "center": [
+        174,
+        104,
+        246
+      ],
+      "rotation": 270,
+      "blocks": 161
+    },
+    {
+      "asset": "t199",
+      "center": [
+        146,
+        104,
+        264
+      ],
+      "rotation": 0,
+      "blocks": 161
+    },
+    {
+      "asset": "t199",
+      "center": [
+        174,
+        104,
+        264
+      ],
+      "rotation": 90,
+      "blocks": 161
+    }
+  ],
+  "flags": [
+    {
+      "base": [
+        150,
+        104,
+        200
+      ],
+      "topY": 114,
+      "colors": [
+        "white",
+        "blue"
+      ]
+    },
+    {
+      "base": [
+        170,
+        104,
+        200
+      ],
+      "topY": 114,
+      "colors": [
+        "white",
+        "blue"
+      ]
+    },
+    {
+      "base": [
+        150,
+        104,
+        256
+      ],
+      "topY": 114,
+      "colors": [
+        "white",
+        "blue"
+      ]
+    },
+    {
+      "base": [
+        170,
+        104,
+        256
+      ],
+      "topY": 114,
+      "colors": [
+        "white",
+        "blue"
+      ]
+    },
+    {
+      "base": [
+        150,
+        104,
+        274
+      ],
+      "topY": 114,
+      "colors": [
+        "white",
+        "blue"
+      ]
+    },
+    {
+      "base": [
+        170,
+        104,
+        274
+      ],
+      "topY": 114,
+      "colors": [
+        "white",
+        "blue"
+      ]
+    }
+  ],
+  "shoulderColumns": 0,
+  "changedBlocks": 1086,
+  "changedChunks": 20,
+  "backup": "archive\\map-edit-backups\\before-avenue-landscaping\\starter_sky_land_spawn_v1"
+}

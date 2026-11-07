@@ -1,0 +1,84 @@
+{
+  "smith": {
+    "id": "05-blacksmith",
+    "name": "Blacksmith",
+    "bounds": [
+      62,
+      133,
+      115,
+      178
+    ],
+    "buildingBounds": [
+      66,
+      137,
+      96,
+      161
+    ],
+    "buildingSize": [
+      31,
+      25
+    ],
+    "shape": "L",
+    "floorY": 107,
+    "entrance": [
+      87,
+      108,
+      149
+    ],
+    "workBay": [
+      79,
+      150,
+      95,
+      161
+    ],
+    "chimneyBounds": [
+      67,
+      108,
+      138,
+      73,
+      129,
+      144
+    ],
+    "marketApproach": [
+      112,
+      104,
+      178
+    ],
+    "mainStreetConnection": [
+      153,
+      108,
+      160
+    ],
+    "stations": [
+      {
+        "type": "anvil",
+        "at": [
+          84,
+          108,
+          154
+        ]
+      },
+      {
+        "type": "smithing_table",
+        "at": [
+          92,
+          108,
+          145
+        ]
+      },
+      {
+        "type": "crafting_table",
+        "at": [
+          80,
+          108,
+          140
+        ]
+      }
+    ],
+    "stage": "built; vanilla workstations; no NPC or mod service integration"
+  },
+  "changedBlocks": 27376,
+  "changedChunks": 30,
+  "reachableHalfCells": 22188,
+  "backup": "archive\\map-edit-backups\\before-blacksmith\\starter_sky_land_spawn_v1"
+}

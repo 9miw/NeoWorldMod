@@ -1,0 +1,4646 @@
+{
+  "center": [
+    160,
+    104,
+    215
+  ],
+  "bounds": [
+    151,
+    103,
+    206,
+    169,
+    114,
+    224
+  ],
+  "totalVoxels": 575,
+  "counts": {
+    "minecraft:polished_andesite": 20,
+    "minecraft:stone_bricks": 194,
+    "minecraft:smooth_stone": 18,
+    "minecraft:deepslate_tiles": 80,
+    "minecraft:crying_obsidian": 13,
+    "minecraft:sea_lantern": 12,
+    "minecraft:chiseled_deepslate": 54,
+    "minecraft:stone_brick_slab": 4,
+    "minecraft:deepslate_tile_stairs": 56,
+    "minecraft:water": 78,
+    "minecraft:blue_orchid": 2,
+    "minecraft:lily_of_the_valley": 2,
+    "minecraft:deepslate_tile_wall": 4,
+    "minecraft:smooth_quartz": 12,
+    "minecraft:smooth_quartz_stairs": 17,
+    "minecraft:polished_diorite": 1,
+    "minecraft:chiseled_quartz_block": 1,
+    "minecraft:quartz_stairs": 1,
+    "minecraft:end_rod": 3,
+    "minecraft:smooth_quartz_slab": 3
+  },
+  "voxels": [
+    {
+      "x": 151,
+      "y": 103,
+      "z": 206,
+      "name": "minecraft:polished_andesite",
+      "props": {}
+    },
+    {
+      "x": 152,
+      "y": 103,
+      "z": 206,
+      "name": "minecraft:stone_bricks",
+      "props": {}
+    },
+    {
+      "x": 153,
+      "y": 103,
+      "z": 206,
+      "name": "minecraft:stone_bricks",
+      "props": {}
+    },
+    {
+      "x": 154,
+      "y": 103,
+      "z": 206,
+      "name": "minecraft:stone_bricks",
+      "props": {}
+    },
+    {
+      "x": 155,
+      "y": 103,
+      "z": 206,
+      "name": "minecraft:stone_bricks",
+      "props": {}
+    },
+    {
+      "x": 156,
+      "y": 103,
+      "z": 206,
+      "name": "minecraft:stone_bricks",
+      "props": {}
+    },
+    {
+      "x": 157,
+      "y": 103,
+      "z": 206,
+      "name": "minecraft:stone_bricks",
+      "props": {}
+    },
+    {
+      "x": 158,
+      "y": 103,
+      "z": 206,
+      "name": "minecraft:stone_bricks",
+      "props": {}
+    },
+    {
+      "x": 159,
+      "y": 103,
+      "z": 206,
+      "name": "minecraft:smooth_stone",
+      "props": {}
+    },
+    {
+      "x": 160,
+      "y": 103,
+      "z": 206,
+      "name": "minecraft:smooth_stone",
+      "props": {}
+    },
+    {
+      "x": 161,
+      "y": 103,
+      "z": 206,
+      "name": "minecraft:smooth_stone",
+      "props": {}
+    },
+    {
+      "x": 162,
+      "y": 103,
+      "z": 206,
+      "name": "minecraft:stone_bricks",
+      "props": {}
+    },
+    {
+      "x": 163,
+      "y": 103,
+      "z": 206,
+      "name": "minecraft:stone_bricks",
+      "props": {}
+    },
+    {
+      "x": 164,
+      "y": 103,
+      "z": 206,
+      "name": "minecraft:stone_bricks",
+      "props": {}
+    },
+    {
+      "x": 165,
+      "y": 103,
+      "z": 206,
+      "name": "minecraft:stone_bricks",
+      "props": {}
+    },
+    {
+      "x": 166,
+      "y": 103,
+      "z": 206,
+      "name": "minecraft:stone_bricks",
+      "props": {}
+    },
+    {
+      "x": 167,
+      "y": 103,
+      "z": 206,
+      "name": "minecraft:stone_bricks",
+      "props": {}
+    },
+    {
+      "x": 168,
+      "y": 103,
+      "z": 206,
+      "name": "minecraft:stone_bricks",
+      "props": {}
+    },
+    {
+      "x": 169,
+      "y": 103,
+      "z": 206,
+      "name": "minecraft:polished_andesite",
+      "props": {}
+    },
+    {
+      "x": 151,
+      "y": 103,
+      "z": 207,
+      "name": "minecraft:polished_andesite",
+      "props": {}
+    },
+    {
+      "x": 152,
+      "y": 103,
+      "z": 207,
+      "name": "minecraft:stone_bricks",
+      "props": {}
+    },
+    {
+      "x": 153,
+      "y": 103,
+      "z": 207,
+      "name": "minecraft:stone_bricks",
+      "props": {}
+    },
+    {
+      "x": 154,
+      "y": 103,
+      "z": 207,
+      "name": "minecraft:stone_bricks",
+      "props": {}
+    },
+    {
+      "x": 155,
+      "y": 103,
+      "z": 207,
+      "name": "minecraft:stone_bricks",
+      "props": {}
+    },
+    {
+      "x": 156,
+      "y": 103,
+      "z": 207,
+      "name": "minecraft:stone_bricks",
+      "props": {}
+    },
+    {
+      "x": 157,
+      "y": 103,
+      "z": 207,
+      "name": "minecraft:stone_bricks",
+      "props": {}
+    },
+    {
+      "x": 158,
+      "y": 103,
+      "z": 207,
+      "name": "minecraft:stone_bricks",
+      "props": {}
+    },
+    {
+      "x": 159,
+      "y": 103,
+      "z": 207,
+      "name": "minecraft:smooth_stone",
+      "props": {}
+    },
+    {
+      "x": 160,
+      "y": 103,
+      "z": 207,
+      "name": "minecraft:smooth_stone",
+      "props": {}
+    },
+    {
+      "x": 161,
+      "y": 103,
+      "z": 207,
+      "name": "minecraft:smooth_stone",
+      "props": {}
+    },
+    {
+      "x": 162,
+      "y": 103,
+      "z": 207,
+      "name": "minecraft:stone_bricks",
+      "props": {}
+    },
+    {
+      "x": 163,
+      "y": 103,
+      "z": 207,
+      "name": "minecraft:stone_bricks",
+      "props": {}
+    },
+    {
+      "x": 164,
+      "y": 103,
+      "z": 207,
+      "name": "minecraft:stone_bricks",
+      "props": {}
+    },
+    {
+      "x": 165,
+      "y": 103,
+      "z": 207,
+      "name": "minecraft:stone_bricks",
+      "props": {}
+    },
+    {
+      "x": 166,
+      "y": 103,
+      "z": 207,
+      "name": "minecraft:stone_bricks",
+      "props": {}
+    },
+    {
+      "x": 167,
+      "y": 103,
+      "z": 207,
+      "name": "minecraft:stone_bricks",
+      "props": {}
+    },
+    {
+      "x": 168,
+      "y": 103,
+      "z": 207,
+      "name": "minecraft:stone_bricks",
+      "props": {}
+    },
+    {
+      "x": 169,
+      "y": 103,
+      "z": 207,
+      "name": "minecraft:polished_andesite",
+      "props": {}
+    },
+    {
+      "x": 151,
+      "y": 103,
+      "z": 208,
+      "name": "minecraft:polished_andesite",
+      "props": {}
+    },
+    {
+      "x": 152,
+      "y": 103,
+      "z": 208,
+      "name": "minecraft:stone_bricks",
+      "props": {}
+    },
+    {
+      "x": 153,
+      "y": 103,
+      "z": 208,
+      "name": "minecraft:stone_bricks",
+      "props": {}
+    },
+    {
+      "x": 154,
+      "y": 103,
+      "z": 208,
+      "name": "minecraft:stone_bricks",
+      "props": {}
+    },
+    {
+      "x": 155,
+      "y": 103,
+      "z": 208,
+      "name": "minecraft:stone_bricks",
+      "props": {}
+    },
+    {
+      "x": 156,
+      "y": 103,
+      "z": 208,
+      "name": "minecraft:stone_bricks",
+      "props": {}
+    },
+    {
+      "x": 157,
+      "y": 103,
+      "z": 208,
+      "name": "minecraft:stone_bricks",
+      "props": {}
+    },
+    {
+      "x": 158,
+      "y": 103,
+      "z": 208,
+      "name": "minecraft:polished_andesite",
+      "props": {}
+    },
+    {
+      "x": 159,
+      "y": 103,
+      "z": 208,
+      "name": "minecraft:smooth_stone",
+      "props": {}
+    },
+    {
+      "x": 160,
+      "y": 103,
+      "z": 208,
+      "name": "minecraft:smooth_stone",
+      "props": {}
+    },
+    {
+      "x": 161,
+      "y": 103,
+      "z": 208,
+      "name": "minecraft:smooth_stone",
+      "props": {}
+    },
+    {
+      "x": 162,
+      "y": 103,
+      "z": 208,
+      "name": "minecraft:polished_andesite",
+      "props": {}
+    },
+    {
+      "x": 163,
+      "y": 103,
+      "z": 208,
+      "name": "minecraft:stone_bricks",
+      "props": {}
+    },
+    {
+      "x": 164,
+      "y": 103,
+      "z": 208,
+      "name": "minecraft:stone_bricks",
+      "props": {}
+    },
+    {
+      "x": 165,
+      "y": 103,
+      "z": 208,
+      "name": "minecraft:stone_bricks",
+      "props": {}
+    },
+    {
+      "x": 166,
+      "y": 103,
+      "z": 208,
+      "name": "minecraft:stone_bricks",
+      "props": {}
+    },
+    {
+      "x": 167,
+      "y": 103,
+      "z": 208,
+      "name": "minecraft:stone_bricks",
+      "props": {}
+    },
+    {
+      "x": 168,
+      "y": 103,
+      "z": 208,
+      "name": "minecraft:stone_bricks",
+      "props": {}
+    },
+    {
+      "x": 169,
+      "y": 103,
+      "z": 208,
+      "name": "minecraft:polished_andesite",
+      "props": {}
+    },
+    {
+      "x": 151,
+      "y": 103,
+      "z": 209,
+      "name": "minecraft:stone_bricks",
+      "props": {}
+    },
+    {
+      "x": 152,
+      "y": 103,
+      "z": 209,
+      "name": "minecraft:stone_bricks",
+      "props": {}
+    },
+    {
+      "x": 153,
+      "y": 103,
+      "z": 209,
+      "name": "minecraft:stone_bricks",
+      "props": {}
+    },
+    {
+      "x": 154,
+      "y": 103,
+      "z": 209,
+      "name": "minecraft:stone_bricks",
+      "props": {}
+    },
+    {
+      "x": 155,
+      "y": 103,
+      "z": 209,
+      "name": "minecraft:stone_bricks",
+      "props": {}
+    },
+    {
+      "x": 156,
+      "y": 103,
+      "z": 209,
+      "name": "minecraft:stone_bricks",
+      "props": {}
+    },
+    {
+      "x": 157,
+      "y": 103,
+      "z": 209,
+      "name": "minecraft:stone_bricks",
+      "props": {}
+    },
+    {
+      "x": 158,
+      "y": 103,
+      "z": 209,
+      "name": "minecraft:deepslate_tiles",
+      "props": {}
+    },
+    {
+      "x": 159,
+      "y": 103,
+      "z": 209,
+      "name": "minecraft:deepslate_tiles",
+      "props": {}
+    },
+    {
+      "x": 160,
+      "y": 103,
+      "z": 209,
+      "name": "minecraft:deepslate_tiles",
+      "props": {}
+    },
+    {
+      "x": 161,
+      "y": 103,
+      "z": 209,
+      "name": "minecraft:deepslate_tiles",
+      "props": {}
+    },
+    {
+      "x": 162,
+      "y": 103,
+      "z": 209,
+      "name": "minecraft:deepslate_tiles",
+      "props": {}
+    },
+    {
+      "x": 163,
+      "y": 103,
+      "z": 209,
+      "name": "minecraft:stone_bricks",
+      "props": {}
+    },
+    {
+      "x": 164,
+      "y": 103,
+      "z": 209,
+      "name": "minecraft:stone_bricks",
+      "props": {}
+    },
+    {
+      "x": 165,
+      "y": 103,
+      "z": 209,
+      "name": "minecraft:stone_bricks",
+      "props": {}
+    },
+    {
+      "x": 166,
+      "y": 103,
+      "z": 209,
+      "name": "minecraft:stone_bricks",
+      "props": {}
+    },
+    {
+      "x": 167,
+      "y": 103,
+      "z": 209,
+      "name": "minecraft:stone_bricks",
+      "props": {}
+    },
+    {
+      "x": 168,
+      "y": 103,
+      "z": 209,
+      "name": "minecraft:stone_bricks",
+      "props": {}
+    },
+    {
+      "x": 169,
+      "y": 103,
+      "z": 209,
+      "name": "minecraft:stone_bricks",
+      "props": {}
+    },
+    {
+      "x": 151,
+      "y": 103,
+      "z": 210,
+      "name": "minecraft:stone_bricks",
+      "props": {}
+    },
+    {
+      "x": 152,
+      "y": 103,
+      "z": 210,
+      "name": "minecraft:stone_bricks",
+      "props": {}
+    },
+    {
+      "x": 153,
+      "y": 103,
+      "z": 210,
+      "name": "minecraft:stone_bricks",
+      "props": {}
+    },
+    {
+      "x": 154,
+      "y": 103,
+      "z": 210,
+      "name": "minecraft:stone_bricks",
+      "props": {}
+    },
+    {
+      "x": 155,
+      "y": 103,
+      "z": 210,
+      "name": "minecraft:stone_bricks",
+      "props": {}
+    },
+    {
+      "x": 156,
+      "y": 103,
+      "z": 210,
+      "name": "minecraft:stone_bricks",
+      "props": {}
+    },
+    {
+      "x": 157,
+      "y": 103,
+      "z": 210,
+      "name": "minecraft:deepslate_tiles",
+      "props": {}
+    },
+    {
+      "x": 158,
+      "y": 103,
+      "z": 210,
+      "name": "minecraft:deepslate_tiles",
+      "props": {}
+    },
+    {
+      "x": 159,
+      "y": 103,
+      "z": 210,
+      "name": "minecraft:deepslate_tiles",
+      "props": {}
+    },
+    {
+      "x": 160,
+      "y": 103,
+      "z": 210,
+      "name": "minecraft:crying_obsidian",
+      "props": {}
+    },
+    {
+      "x": 161,
+      "y": 103,
+      "z": 210,
+      "name": "minecraft:deepslate_tiles",
+      "props": {}
+    },
+    {
+      "x": 162,
+      "y": 103,
+      "z": 210,
+      "name": "minecraft:deepslate_tiles",
+      "props": {}
+    },
+    {
+      "x": 163,
+      "y": 103,
+      "z": 210,
+      "name": "minecraft:deepslate_tiles",
+      "props": {}
+    },
+    {
+      "x": 164,
+      "y": 103,
+      "z": 210,
+      "name": "minecraft:stone_bricks",
+      "props": {}
+    },
+    {
+      "x": 165,
+      "y": 103,
+      "z": 210,
+      "name": "minecraft:stone_bricks",
+      "props": {}
+    },
+    {
+      "x": 166,
+      "y": 103,
+      "z": 210,
+      "name": "minecraft:stone_bricks",
+      "props": {}
+    },
+    {
+      "x": 167,
+      "y": 103,
+      "z": 210,
+      "name": "minecraft:stone_bricks",
+      "props": {}
+    },
+    {
+      "x": 168,
+      "y": 103,
+      "z": 210,
+      "name": "minecraft:stone_bricks",
+      "props": {}
+    },
+    {
+      "x": 169,
+      "y": 103,
+      "z": 210,
+      "name": "minecraft:stone_bricks",
+      "props": {}
+    },
+    {
+      "x": 151,
+      "y": 103,
+      "z": 211,
+      "name": "minecraft:stone_bricks",
+      "props": {}
+    },
+    {
+      "x": 152,
+      "y": 103,
+      "z": 211,
+      "name": "minecraft:stone_bricks",
+      "props": {}
+    },
+    {
+      "x": 153,
+      "y": 103,
+      "z": 211,
+      "name": "minecraft:stone_bricks",
+      "props": {}
+    },
+    {
+      "x": 154,
+      "y": 103,
+      "z": 211,
+      "name": "minecraft:stone_bricks",
+      "props": {}
+    },
+    {
+      "x": 155,
+      "y": 103,
+      "z": 211,
+      "name": "minecraft:stone_bricks",
+      "props": {}
+    },
+    {
+      "x": 156,
+      "y": 103,
+      "z": 211,
+      "name": "minecraft:deepslate_tiles",
+      "props": {}
+    },
+    {
+      "x": 157,
+      "y": 103,
+      "z": 211,
+      "name": "minecraft:deepslate_tiles",
+      "props": {}
+    },
+    {
+      "x": 158,
+      "y": 103,
+      "z": 211,
+      "name": "minecraft:sea_lantern",
+      "props": {}
+    },
+    {
+      "x": 159,
+      "y": 103,
+      "z": 211,
+      "name": "minecraft:deepslate_tiles",
+      "props": {}
+    },
+    {
+      "x": 160,
+      "y": 103,
+      "z": 211,
+      "name": "minecraft:crying_obsidian",
+      "props": {}
+    },
+    {
+      "x": 161,
+      "y": 103,
+      "z": 211,
+      "name": "minecraft:deepslate_tiles",
+      "props": {}
+    },
+    {
+      "x": 162,
+      "y": 103,
+      "z": 211,
+      "name": "minecraft:sea_lantern",
+      "props": {}
+    },
+    {
+      "x": 163,
+      "y": 103,
+      "z": 211,
+      "name": "minecraft:deepslate_tiles",
+      "props": {}
+    },
+    {
+      "x": 164,
+      "y": 103,
+      "z": 211,
+      "name": "minecraft:deepslate_tiles",
+      "props": {}
+    },
+    {
+      "x": 165,
+      "y": 103,
+      "z": 211,
+      "name": "minecraft:stone_bricks",
+      "props": {}
+    },
+    {
+      "x": 166,
+      "y": 103,
+      "z": 211,
+      "name": "minecraft:stone_bricks",
+      "props": {}
+    },
+    {
+      "x": 167,
+      "y": 103,
+      "z": 211,
+      "name": "minecraft:stone_bricks",
+      "props": {}
+    },
+    {
+      "x": 168,
+      "y": 103,
+      "z": 211,
+      "name": "minecraft:stone_bricks",
+      "props": {}
+    },
+    {
+      "x": 169,
+      "y": 103,
+      "z": 211,
+      "name": "minecraft:stone_bricks",
+      "props": {}
+    },
+    {
+      "x": 151,
+      "y": 103,
+      "z": 212,
+      "name": "minecraft:stone_bricks",
+      "props": {}
+    },
+    {
+      "x": 152,
+      "y": 103,
+      "z": 212,
+      "name": "minecraft:stone_bricks",
+      "props": {}
+    },
+    {
+      "x": 153,
+      "y": 103,
+      "z": 212,
+      "name": "minecraft:stone_bricks",
+      "props": {}
+    },
+    {
+      "x": 154,
+      "y": 103,
+      "z": 212,
+      "name": "minecraft:stone_bricks",
+      "props": {}
+    },
+    {
+      "x": 155,
+      "y": 103,
+      "z": 212,
+      "name": "minecraft:deepslate_tiles",
+      "props": {}
+    },
+    {
+      "x": 156,
+      "y": 103,
+      "z": 212,
+      "name": "minecraft:deepslate_tiles",
+      "props": {}
+    },
+    {
+      "x": 157,
+      "y": 103,
+      "z": 212,
+      "name": "minecraft:sea_lantern",
+      "props": {}
+    },
+    {
+      "x": 158,
+      "y": 103,
+      "z": 212,
+      "name": "minecraft:deepslate_tiles",
+      "props": {}
+    },
+    {
+      "x": 159,
+      "y": 103,
+      "z": 212,
+      "name": "minecraft:deepslate_tiles",
+      "props": {}
+    },
+    {
+      "x": 160,
+      "y": 103,
+      "z": 212,
+      "name": "minecraft:crying_obsidian",
+      "props": {}
+    },
+    {
+      "x": 161,
+      "y": 103,
+      "z": 212,
+      "name": "minecraft:deepslate_tiles",
+      "props": {}
+    },
+    {
+      "x": 162,
+      "y": 103,
+      "z": 212,
+      "name": "minecraft:deepslate_tiles",
+      "props": {}
+    },
+    {
+      "x": 163,
+      "y": 103,
+      "z": 212,
+      "name": "minecraft:sea_lantern",
+      "props": {}
+    },
+    {
+      "x": 164,
+      "y": 103,
+      "z": 212,
+      "name": "minecraft:deepslate_tiles",
+      "props": {}
+    },
+    {
+      "x": 165,
+      "y": 103,
+      "z": 212,
+      "name": "minecraft:deepslate_tiles",
+      "props": {}
+    },
+    {
+      "x": 166,
+      "y": 103,
+      "z": 212,
+      "name": "minecraft:stone_bricks",
+      "props": {}
+    },
+    {
+      "x": 167,
+      "y": 103,
+      "z": 212,
+      "name": "minecraft:stone_bricks",
+      "props": {}
+    },
+    {
+      "x": 168,
+      "y": 103,
+      "z": 212,
+      "name": "minecraft:stone_bricks",
+      "props": {}
+    },
+    {
+      "x": 169,
+      "y": 103,
+      "z": 212,
+      "name": "minecraft:stone_bricks",
+      "props": {}
+    },
+    {
+      "x": 151,
+      "y": 103,
+      "z": 213,
+      "name": "minecraft:stone_bricks",
+      "props": {}
+    },
+    {
+      "x": 152,
+      "y": 103,
+      "z": 213,
+      "name": "minecraft:stone_bricks",
+      "props": {}
+    },
+    {
+      "x": 153,
+      "y": 103,
+      "z": 213,
+      "name": "minecraft:polished_andesite",
+      "props": {}
+    },
+    {
+      "x": 154,
+      "y": 103,
+      "z": 213,
+      "name": "minecraft:deepslate_tiles",
+      "props": {}
+    },
+    {
+      "x": 155,
+      "y": 103,
+      "z": 213,
+      "name": "minecraft:deepslate_tiles",
+      "props": {}
+    },
+    {
+      "x": 156,
+      "y": 103,
+      "z": 213,
+      "name": "minecraft:sea_lantern",
+      "props": {}
+    },
+    {
+      "x": 157,
+      "y": 103,
+      "z": 213,
+      "name": "minecraft:deepslate_tiles",
+      "props": {}
+    },
+    {
+      "x": 158,
+      "y": 103,
+      "z": 213,
+      "name": "minecraft:chiseled_deepslate",
+      "props": {}
+    },
+    {
+      "x": 159,
+      "y": 103,
+      "z": 213,
+      "name": "minecraft:chiseled_deepslate",
+      "props": {}
+    },
+    {
+      "x": 160,
+      "y": 103,
+      "z": 213,
+      "name": "minecraft:chiseled_deepslate",
+      "props": {}
+    },
+    {
+      "x": 161,
+      "y": 103,
+      "z": 213,
+      "name": "minecraft:chiseled_deepslate",
+      "props": {}
+    },
+    {
+      "x": 162,
+      "y": 103,
+      "z": 213,
+      "name": "minecraft:chiseled_deepslate",
+      "props": {}
+    },
+    {
+      "x": 163,
+      "y": 103,
+      "z": 213,
+      "name": "minecraft:deepslate_tiles",
+      "props": {}
+    },
+    {
+      "x": 164,
+      "y": 103,
+      "z": 213,
+      "name": "minecraft:sea_lantern",
+      "props": {}
+    },
+    {
+      "x": 165,
+      "y": 103,
+      "z": 213,
+      "name": "minecraft:deepslate_tiles",
+      "props": {}
+    },
+    {
+      "x": 166,
+      "y": 103,
+      "z": 213,
+      "name": "minecraft:deepslate_tiles",
+      "props": {}
+    },
+    {
+      "x": 167,
+      "y": 103,
+      "z": 213,
+      "name": "minecraft:polished_andesite",
+      "props": {}
+    },
+    {
+      "x": 168,
+      "y": 103,
+      "z": 213,
+      "name": "minecraft:stone_bricks",
+      "props": {}
+    },
+    {
+      "x": 169,
+      "y": 103,
+      "z": 213,
+      "name": "minecraft:stone_bricks",
+      "props": {}
+    },
+    {
+      "x": 151,
+      "y": 103,
+      "z": 214,
+      "name": "minecraft:stone_bricks",
+      "props": {}
+    },
+    {
+      "x": 152,
+      "y": 103,
+      "z": 214,
+      "name": "minecraft:stone_bricks",
+      "props": {}
+    },
+    {
+      "x": 153,
+      "y": 103,
+      "z": 214,
+      "name": "minecraft:stone_bricks",
+      "props": {}
+    },
+    {
+      "x": 154,
+      "y": 103,
+      "z": 214,
+      "name": "minecraft:deepslate_tiles",
+      "props": {}
+    },
+    {
+      "x": 155,
+      "y": 103,
+      "z": 214,
+      "name": "minecraft:deepslate_tiles",
+      "props": {}
+    },
+    {
+      "x": 156,
+      "y": 103,
+      "z": 214,
+      "name": "minecraft:deepslate_tiles",
+      "props": {}
+    },
+    {
+      "x": 157,
+      "y": 103,
+      "z": 214,
+      "name": "minecraft:deepslate_tiles",
+      "props": {}
+    },
+    {
+      "x": 158,
+      "y": 103,
+      "z": 214,
+      "name": "minecraft:chiseled_deepslate",
+      "props": {}
+    },
+    {
+      "x": 159,
+      "y": 103,
+      "z": 214,
+      "name": "minecraft:chiseled_deepslate",
+      "props": {}
+    },
+    {
+      "x": 160,
+      "y": 103,
+      "z": 214,
+      "name": "minecraft:chiseled_deepslate",
+      "props": {}
+    },
+    {
+      "x": 161,
+      "y": 103,
+      "z": 214,
+      "name": "minecraft:chiseled_deepslate",
+      "props": {}
+    },
+    {
+      "x": 162,
+      "y": 103,
+      "z": 214,
+      "name": "minecraft:chiseled_deepslate",
+      "props": {}
+    },
+    {
+      "x": 163,
+      "y": 103,
+      "z": 214,
+      "name": "minecraft:deepslate_tiles",
+      "props": {}
+    },
+    {
+      "x": 164,
+      "y": 103,
+      "z": 214,
+      "name": "minecraft:deepslate_tiles",
+      "props": {}
+    },
+    {
+      "x": 165,
+      "y": 103,
+      "z": 214,
+      "name": "minecraft:deepslate_tiles",
+      "props": {}
+    },
+    {
+      "x": 166,
+      "y": 103,
+      "z": 214,
+      "name": "minecraft:deepslate_tiles",
+      "props": {}
+    },
+    {
+      "x": 167,
+      "y": 103,
+      "z": 214,
+      "name": "minecraft:stone_bricks",
+      "props": {}
+    },
+    {
+      "x": 168,
+      "y": 103,
+      "z": 214,
+      "name": "minecraft:stone_bricks",
+      "props": {}
+    },
+    {
+      "x": 169,
+      "y": 103,
+      "z": 214,
+      "name": "minecraft:stone_bricks",
+      "props": {}
+    },
+    {
+      "x": 151,
+      "y": 103,
+      "z": 215,
+      "name": "minecraft:stone_bricks",
+      "props": {}
+    },
+    {
+      "x": 152,
+      "y": 103,
+      "z": 215,
+      "name": "minecraft:stone_bricks",
+      "props": {}
+    },
+    {
+      "x": 153,
+      "y": 103,
+      "z": 215,
+      "name": "minecraft:stone_bricks",
+      "props": {}
+    },
+    {
+      "x": 154,
+      "y": 103,
+      "z": 215,
+      "name": "minecraft:deepslate_tiles",
+      "props": {}
+    },
+    {
+      "x": 155,
+      "y": 103,
+      "z": 215,
+      "name": "minecraft:crying_obsidian",
+      "props": {}
+    },
+    {
+      "x": 156,
+      "y": 103,
+      "z": 215,
+      "name": "minecraft:crying_obsidian",
+      "props": {}
+    },
+    {
+      "x": 157,
+      "y": 103,
+      "z": 215,
+      "name": "minecraft:crying_obsidian",
+      "props": {}
+    },
+    {
+      "x": 158,
+      "y": 103,
+      "z": 215,
+      "name": "minecraft:chiseled_deepslate",
+      "props": {}
+    },
+    {
+      "x": 159,
+      "y": 103,
+      "z": 215,
+      "name": "minecraft:chiseled_deepslate",
+      "props": {}
+    },
+    {
+      "x": 160,
+      "y": 103,
+      "z": 215,
+      "name": "minecraft:chiseled_deepslate",
+      "props": {}
+    },
+    {
+      "x": 161,
+      "y": 103,
+      "z": 215,
+      "name": "minecraft:chiseled_deepslate",
+      "props": {}
+    },
+    {
+      "x": 162,
+      "y": 103,
+      "z": 215,
+      "name": "minecraft:chiseled_deepslate",
+      "props": {}
+    },
+    {
+      "x": 163,
+      "y": 103,
+      "z": 215,
+      "name": "minecraft:crying_obsidian",
+      "props": {}
+    },
+    {
+      "x": 164,
+      "y": 103,
+      "z": 215,
+      "name": "minecraft:crying_obsidian",
+      "props": {}
+    },
+    {
+      "x": 165,
+      "y": 103,
+      "z": 215,
+      "name": "minecraft:crying_obsidian",
+      "props": {}
+    },
+    {
+      "x": 166,
+      "y": 103,
+      "z": 215,
+      "name": "minecraft:deepslate_tiles",
+      "props": {}
+    },
+    {
+      "x": 167,
+      "y": 103,
+      "z": 215,
+      "name": "minecraft:stone_bricks",
+      "props": {}
+    },
+    {
+      "x": 168,
+      "y": 103,
+      "z": 215,
+      "name": "minecraft:stone_bricks",
+      "props": {}
+    },
+    {
+      "x": 169,
+      "y": 103,
+      "z": 215,
+      "name": "minecraft:stone_bricks",
+      "props": {}
+    },
+    {
+      "x": 151,
+      "y": 103,
+      "z": 216,
+      "name": "minecraft:stone_bricks",
+      "props": {}
+    },
+    {
+      "x": 152,
+      "y": 103,
+      "z": 216,
+      "name": "minecraft:stone_bricks",
+      "props": {}
+    },
+    {
+      "x": 153,
+      "y": 103,
+      "z": 216,
+      "name": "minecraft:stone_bricks",
+      "props": {}
+    },
+    {
+      "x": 154,
+      "y": 103,
+      "z": 216,
+      "name": "minecraft:deepslate_tiles",
+      "props": {}
+    },
+    {
+      "x": 155,
+      "y": 103,
+      "z": 216,
+      "name": "minecraft:deepslate_tiles",
+      "props": {}
+    },
+    {
+      "x": 156,
+      "y": 103,
+      "z": 216,
+      "name": "minecraft:deepslate_tiles",
+      "props": {}
+    },
+    {
+      "x": 157,
+      "y": 103,
+      "z": 216,
+      "name": "minecraft:deepslate_tiles",
+      "props": {}
+    },
+    {
+      "x": 158,
+      "y": 103,
+      "z": 216,
+      "name": "minecraft:chiseled_deepslate",
+      "props": {}
+    },
+    {
+      "x": 159,
+      "y": 103,
+      "z": 216,
+      "name": "minecraft:chiseled_deepslate",
+      "props": {}
+    },
+    {
+      "x": 160,
+      "y": 103,
+      "z": 216,
+      "name": "minecraft:chiseled_deepslate",
+      "props": {}
+    },
+    {
+      "x": 161,
+      "y": 103,
+      "z": 216,
+      "name": "minecraft:chiseled_deepslate",
+      "props": {}
+    },
+    {
+      "x": 162,
+      "y": 103,
+      "z": 216,
+      "name": "minecraft:chiseled_deepslate",
+      "props": {}
+    },
+    {
+      "x": 163,
+      "y": 103,
+      "z": 216,
+      "name": "minecraft:deepslate_tiles",
+      "props": {}
+    },
+    {
+      "x": 164,
+      "y": 103,
+      "z": 216,
+      "name": "minecraft:deepslate_tiles",
+      "props": {}
+    },
+    {
+      "x": 165,
+      "y": 103,
+      "z": 216,
+      "name": "minecraft:deepslate_tiles",
+      "props": {}
+    },
+    {
+      "x": 166,
+      "y": 103,
+      "z": 216,
+      "name": "minecraft:deepslate_tiles",
+      "props": {}
+    },
+    {
+      "x": 167,
+      "y": 103,
+      "z": 216,
+      "name": "minecraft:stone_bricks",
+      "props": {}
+    },
+    {
+      "x": 168,
+      "y": 103,
+      "z": 216,
+      "name": "minecraft:stone_bricks",
+      "props": {}
+    },
+    {
+      "x": 169,
+      "y": 103,
+      "z": 216,
+      "name": "minecraft:stone_bricks",
+      "props": {}
+    },
+    {
+      "x": 151,
+      "y": 103,
+      "z": 217,
+      "name": "minecraft:stone_bricks",
+      "props": {}
+    },
+    {
+      "x": 152,
+      "y": 103,
+      "z": 217,
+      "name": "minecraft:stone_bricks",
+      "props": {}
+    },
+    {
+      "x": 153,
+      "y": 103,
+      "z": 217,
+      "name": "minecraft:polished_andesite",
+      "props": {}
+    },
+    {
+      "x": 154,
+      "y": 103,
+      "z": 217,
+      "name": "minecraft:deepslate_tiles",
+      "props": {}
+    },
+    {
+      "x": 155,
+      "y": 103,
+      "z": 217,
+      "name": "minecraft:deepslate_tiles",
+      "props": {}
+    },
+    {
+      "x": 156,
+      "y": 103,
+      "z": 217,
+      "name": "minecraft:sea_lantern",
+      "props": {}
+    },
+    {
+      "x": 157,
+      "y": 103,
+      "z": 217,
+      "name": "minecraft:deepslate_tiles",
+      "props": {}
+    },
+    {
+      "x": 158,
+      "y": 103,
+      "z": 217,
+      "name": "minecraft:chiseled_deepslate",
+      "props": {}
+    },
+    {
+      "x": 159,
+      "y": 103,
+      "z": 217,
+      "name": "minecraft:chiseled_deepslate",
+      "props": {}
+    },
+    {
+      "x": 160,
+      "y": 103,
+      "z": 217,
+      "name": "minecraft:chiseled_deepslate",
+      "props": {}
+    },
+    {
+      "x": 161,
+      "y": 103,
+      "z": 217,
+      "name": "minecraft:chiseled_deepslate",
+      "props": {}
+    },
+    {
+      "x": 162,
+      "y": 103,
+      "z": 217,
+      "name": "minecraft:chiseled_deepslate",
+      "props": {}
+    },
+    {
+      "x": 163,
+      "y": 103,
+      "z": 217,
+      "name": "minecraft:deepslate_tiles",
+      "props": {}
+    },
+    {
+      "x": 164,
+      "y": 103,
+      "z": 217,
+      "name": "minecraft:sea_lantern",
+      "props": {}
+    },
+    {
+      "x": 165,
+      "y": 103,
+      "z": 217,
+      "name": "minecraft:deepslate_tiles",
+      "props": {}
+    },
+    {
+      "x": 166,
+      "y": 103,
+      "z": 217,
+      "name": "minecraft:deepslate_tiles",
+      "props": {}
+    },
+    {
+      "x": 167,
+      "y": 103,
+      "z": 217,
+      "name": "minecraft:polished_andesite",
+      "props": {}
+    },
+    {
+      "x": 168,
+      "y": 103,
+      "z": 217,
+      "name": "minecraft:stone_bricks",
+      "props": {}
+    },
+    {
+      "x": 169,
+      "y": 103,
+      "z": 217,
+      "name": "minecraft:stone_bricks",
+      "props": {}
+    },
+    {
+      "x": 151,
+      "y": 103,
+      "z": 218,
+      "name": "minecraft:stone_bricks",
+      "props": {}
+    },
+    {
+      "x": 152,
+      "y": 103,
+      "z": 218,
+      "name": "minecraft:stone_bricks",
+      "props": {}
+    },
+    {
+      "x": 153,
+      "y": 103,
+      "z": 218,
+      "name": "minecraft:stone_bricks",
+      "props": {}
+    },
+    {
+      "x": 154,
+      "y": 103,
+      "z": 218,
+      "name": "minecraft:stone_bricks",
+      "props": {}
+    },
+    {
+      "x": 155,
+      "y": 103,
+      "z": 218,
+      "name": "minecraft:deepslate_tiles",
+      "props": {}
+    },
+    {
+      "x": 156,
+      "y": 103,
+      "z": 218,
+      "name": "minecraft:deepslate_tiles",
+      "props": {}
+    },
+    {
+      "x": 157,
+      "y": 103,
+      "z": 218,
+      "name": "minecraft:sea_lantern",
+      "props": {}
+    },
+    {
+      "x": 158,
+      "y": 103,
+      "z": 218,
+      "name": "minecraft:deepslate_tiles",
+      "props": {}
+    },
+    {
+      "x": 159,
+      "y": 103,
+      "z": 218,
+      "name": "minecraft:deepslate_tiles",
+      "props": {}
+    },
+    {
+      "x": 160,
+      "y": 103,
+      "z": 218,
+      "name": "minecraft:crying_obsidian",
+      "props": {}
+    },
+    {
+      "x": 161,
+      "y": 103,
+      "z": 218,
+      "name": "minecraft:deepslate_tiles",
+      "props": {}
+    },
+    {
+      "x": 162,
+      "y": 103,
+      "z": 218,
+      "name": "minecraft:deepslate_tiles",
+      "props": {}
+    },
+    {
+      "x": 163,
+      "y": 103,
+      "z": 218,
+      "name": "minecraft:sea_lantern",
+      "props": {}
+    },
+    {
+      "x": 164,
+      "y": 103,
+      "z": 218,
+      "name": "minecraft:deepslate_tiles",
+      "props": {}
+    },
+    {
+      "x": 165,
+      "y": 103,
+      "z": 218,
+      "name": "minecraft:deepslate_tiles",
+      "props": {}
+    },
+    {
+      "x": 166,
+      "y": 103,
+      "z": 218,
+      "name": "minecraft:stone_bricks",
+      "props": {}
+    },
+    {
+      "x": 167,
+      "y": 103,
+      "z": 218,
+      "name": "minecraft:stone_bricks",
+      "props": {}
+    },
+    {
+      "x": 168,
+      "y": 103,
+      "z": 218,
+      "name": "minecraft:stone_bricks",
+      "props": {}
+    },
+    {
+      "x": 169,
+      "y": 103,
+      "z": 218,
+      "name": "minecraft:stone_bricks",
+      "props": {}
+    },
+    {
+      "x": 151,
+      "y": 103,
+      "z": 219,
+      "name": "minecraft:stone_bricks",
+      "props": {}
+    },
+    {
+      "x": 152,
+      "y": 103,
+      "z": 219,
+      "name": "minecraft:stone_bricks",
+      "props": {}
+    },
+    {
+      "x": 153,
+      "y": 103,
+      "z": 219,
+      "name": "minecraft:stone_bricks",
+      "props": {}
+    },
+    {
+      "x": 154,
+      "y": 103,
+      "z": 219,
+      "name": "minecraft:stone_bricks",
+      "props": {}
+    },
+    {
+      "x": 155,
+      "y": 103,
+      "z": 219,
+      "name": "minecraft:stone_bricks",
+      "props": {}
+    },
+    {
+      "x": 156,
+      "y": 103,
+      "z": 219,
+      "name": "minecraft:deepslate_tiles",
+      "props": {}
+    },
+    {
+      "x": 157,
+      "y": 103,
+      "z": 219,
+      "name": "minecraft:deepslate_tiles",
+      "props": {}
+    },
+    {
+      "x": 158,
+      "y": 103,
+      "z": 219,
+      "name": "minecraft:sea_lantern",
+      "props": {}
+    },
+    {
+      "x": 159,
+      "y": 103,
+      "z": 219,
+      "name": "minecraft:deepslate_tiles",
+      "props": {}
+    },
+    {
+      "x": 160,
+      "y": 103,
+      "z": 219,
+      "name": "minecraft:crying_obsidian",
+      "props": {}
+    },
+    {
+      "x": 161,
+      "y": 103,
+      "z": 219,
+      "name": "minecraft:deepslate_tiles",
+      "props": {}
+    },
+    {
+      "x": 162,
+      "y": 103,
+      "z": 219,
+      "name": "minecraft:sea_lantern",
+      "props": {}
+    },
+    {
+      "x": 163,
+      "y": 103,
+      "z": 219,
+      "name": "minecraft:deepslate_tiles",
+      "props": {}
+    },
+    {
+      "x": 164,
+      "y": 103,
+      "z": 219,
+      "name": "minecraft:deepslate_tiles",
+      "props": {}
+    },
+    {
+      "x": 165,
+      "y": 103,
+      "z": 219,
+      "name": "minecraft:stone_bricks",
+      "props": {}
+    },
+    {
+      "x": 166,
+      "y": 103,
+      "z": 219,
+      "name": "minecraft:stone_bricks",
+      "props": {}
+    },
+    {
+      "x": 167,
+      "y": 103,
+      "z": 219,
+      "name": "minecraft:stone_bricks",
+      "props": {}
+    },
+    {
+      "x": 168,
+      "y": 103,
+      "z": 219,
+      "name": "minecraft:stone_bricks",
+      "props": {}
+    },
+    {
+      "x": 169,
+      "y": 103,
+      "z": 219,
+      "name": "minecraft:stone_bricks",
+      "props": {}
+    },
+    {
+      "x": 151,
+      "y": 103,
+      "z": 220,
+      "name": "minecraft:stone_bricks",
+      "props": {}
+    },
+    {
+      "x": 152,
+      "y": 103,
+      "z": 220,
+      "name": "minecraft:stone_bricks",
+      "props": {}
+    },
+    {
+      "x": 153,
+      "y": 103,
+      "z": 220,
+      "name": "minecraft:stone_bricks",
+      "props": {}
+    },
+    {
+      "x": 154,
+      "y": 103,
+      "z": 220,
+      "name": "minecraft:stone_bricks",
+      "props": {}
+    },
+    {
+      "x": 155,
+      "y": 103,
+      "z": 220,
+      "name": "minecraft:stone_bricks",
+      "props": {}
+    },
+    {
+      "x": 156,
+      "y": 103,
+      "z": 220,
+      "name": "minecraft:stone_bricks",
+      "props": {}
+    },
+    {
+      "x": 157,
+      "y": 103,
+      "z": 220,
+      "name": "minecraft:deepslate_tiles",
+      "props": {}
+    },
+    {
+      "x": 158,
+      "y": 103,
+      "z": 220,
+      "name": "minecraft:deepslate_tiles",
+      "props": {}
+    },
+    {
+      "x": 159,
+      "y": 103,
+      "z": 220,
+      "name": "minecraft:deepslate_tiles",
+      "props": {}
+    },
+    {
+      "x": 160,
+      "y": 103,
+      "z": 220,
+      "name": "minecraft:crying_obsidian",
+      "props": {}
+    },
+    {
+      "x": 161,
+      "y": 103,
+      "z": 220,
+      "name": "minecraft:deepslate_tiles",
+      "props": {}
+    },
+    {
+      "x": 162,
+      "y": 103,
+      "z": 220,
+      "name": "minecraft:deepslate_tiles",
+      "props": {}
+    },
+    {
+      "x": 163,
+      "y": 103,
+      "z": 220,
+      "name": "minecraft:deepslate_tiles",
+      "props": {}
+    },
+    {
+      "x": 164,
+      "y": 103,
+      "z": 220,
+      "name": "minecraft:stone_bricks",
+      "props": {}
+    },
+    {
+      "x": 165,
+      "y": 103,
+      "z": 220,
+      "name": "minecraft:stone_bricks",
+      "props": {}
+    },
+    {
+      "x": 166,
+      "y": 103,
+      "z": 220,
+      "name": "minecraft:stone_bricks",
+      "props": {}
+    },
+    {
+      "x": 167,
+      "y": 103,
+      "z": 220,
+      "name": "minecraft:stone_bricks",
+      "props": {}
+    },
+    {
+      "x": 168,
+      "y": 103,
+      "z": 220,
+      "name": "minecraft:stone_bricks",
+      "props": {}
+    },
+    {
+      "x": 169,
+      "y": 103,
+      "z": 220,
+      "name": "minecraft:stone_bricks",
+      "props": {}
+    },
+    {
+      "x": 151,
+      "y": 103,
+      "z": 221,
+      "name": "minecraft:stone_bricks",
+      "props": {}
+    },
+    {
+      "x": 152,
+      "y": 103,
+      "z": 221,
+      "name": "minecraft:stone_bricks",
+      "props": {}
+    },
+    {
+      "x": 153,
+      "y": 103,
+      "z": 221,
+      "name": "minecraft:stone_bricks",
+      "props": {}
+    },
+    {
+      "x": 154,
+      "y": 103,
+      "z": 221,
+      "name": "minecraft:stone_bricks",
+      "props": {}
+    },
+    {
+      "x": 155,
+      "y": 103,
+      "z": 221,
+      "name": "minecraft:stone_bricks",
+      "props": {}
+    },
+    {
+      "x": 156,
+      "y": 103,
+      "z": 221,
+      "name": "minecraft:stone_bricks",
+      "props": {}
+    },
+    {
+      "x": 157,
+      "y": 103,
+      "z": 221,
+      "name": "minecraft:stone_bricks",
+      "props": {}
+    },
+    {
+      "x": 158,
+      "y": 103,
+      "z": 221,
+      "name": "minecraft:deepslate_tiles",
+      "props": {}
+    },
+    {
+      "x": 159,
+      "y": 103,
+      "z": 221,
+      "name": "minecraft:deepslate_tiles",
+      "props": {}
+    },
+    {
+      "x": 160,
+      "y": 103,
+      "z": 221,
+      "name": "minecraft:deepslate_tiles",
+      "props": {}
+    },
+    {
+      "x": 161,
+      "y": 103,
+      "z": 221,
+      "name": "minecraft:deepslate_tiles",
+      "props": {}
+    },
+    {
+      "x": 162,
+      "y": 103,
+      "z": 221,
+      "name": "minecraft:deepslate_tiles",
+      "props": {}
+    },
+    {
+      "x": 163,
+      "y": 103,
+      "z": 221,
+      "name": "minecraft:stone_bricks",
+      "props": {}
+    },
+    {
+      "x": 164,
+      "y": 103,
+      "z": 221,
+      "name": "minecraft:stone_bricks",
+      "props": {}
+    },
+    {
+      "x": 165,
+      "y": 103,
+      "z": 221,
+      "name": "minecraft:stone_bricks",
+      "props": {}
+    },
+    {
+      "x": 166,
+      "y": 103,
+      "z": 221,
+      "name": "minecraft:stone_bricks",
+      "props": {}
+    },
+    {
+      "x": 167,
+      "y": 103,
+      "z": 221,
+      "name": "minecraft:stone_bricks",
+      "props": {}
+    },
+    {
+      "x": 168,
+      "y": 103,
+      "z": 221,
+      "name": "minecraft:stone_bricks",
+      "props": {}
+    },
+    {
+      "x": 169,
+      "y": 103,
+      "z": 221,
+      "name": "minecraft:stone_bricks",
+      "props": {}
+    },
+    {
+      "x": 151,
+      "y": 103,
+      "z": 222,
+      "name": "minecraft:polished_andesite",
+      "props": {}
+    },
+    {
+      "x": 152,
+      "y": 103,
+      "z": 222,
+      "name": "minecraft:stone_bricks",
+      "props": {}
+    },
+    {
+      "x": 153,
+      "y": 103,
+      "z": 222,
+      "name": "minecraft:stone_bricks",
+      "props": {}
+    },
+    {
+      "x": 154,
+      "y": 103,
+      "z": 222,
+      "name": "minecraft:stone_bricks",
+      "props": {}
+    },
+    {
+      "x": 155,
+      "y": 103,
+      "z": 222,
+      "name": "minecraft:stone_bricks",
+      "props": {}
+    },
+    {
+      "x": 156,
+      "y": 103,
+      "z": 222,
+      "name": "minecraft:stone_bricks",
+      "props": {}
+    },
+    {
+      "x": 157,
+      "y": 103,
+      "z": 222,
+      "name": "minecraft:stone_bricks",
+      "props": {}
+    },
+    {
+      "x": 158,
+      "y": 103,
+      "z": 222,
+      "name": "minecraft:polished_andesite",
+      "props": {}
+    },
+    {
+      "x": 159,
+      "y": 103,
+      "z": 222,
+      "name": "minecraft:smooth_stone",
+      "props": {}
+    },
+    {
+      "x": 160,
+      "y": 103,
+      "z": 222,
+      "name": "minecraft:smooth_stone",
+      "props": {}
+    },
+    {
+      "x": 161,
+      "y": 103,
+      "z": 222,
+      "name": "minecraft:smooth_stone",
+      "props": {}
+    },
+    {
+      "x": 162,
+      "y": 103,
+      "z": 222,
+      "name": "minecraft:polished_andesite",
+      "props": {}
+    },
+    {
+      "x": 163,
+      "y": 103,
+      "z": 222,
+      "name": "minecraft:stone_bricks",
+      "props": {}
+    },
+    {
+      "x": 164,
+      "y": 103,
+      "z": 222,
+      "name": "minecraft:stone_bricks",
+      "props": {}
+    },
+    {
+      "x": 165,
+      "y": 103,
+      "z": 222,
+      "name": "minecraft:stone_bricks",
+      "props": {}
+    },
+    {
+      "x": 166,
+      "y": 103,
+      "z": 222,
+      "name": "minecraft:stone_bricks",
+      "props": {}
+    },
+    {
+      "x": 167,
+      "y": 103,
+      "z": 222,
+      "name": "minecraft:stone_bricks",
+      "props": {}
+    },
+    {
+      "x": 168,
+      "y": 103,
+      "z": 222,
+      "name": "minecraft:stone_bricks",
+      "props": {}
+    },
+    {
+      "x": 169,
+      "y": 103,
+      "z": 222,
+      "name": "minecraft:polished_andesite",
+      "props": {}
+    },
+    {
+      "x": 151,
+      "y": 103,
+      "z": 223,
+      "name": "minecraft:polished_andesite",
+      "props": {}
+    },
+    {
+      "x": 152,
+      "y": 103,
+      "z": 223,
+      "name": "minecraft:stone_bricks",
+      "props": {}
+    },
+    {
+      "x": 153,
+      "y": 103,
+      "z": 223,
+      "name": "minecraft:stone_bricks",
+      "props": {}
+    },
+    {
+      "x": 154,
+      "y": 103,
+      "z": 223,
+      "name": "minecraft:stone_bricks",
+      "props": {}
+    },
+    {
+      "x": 155,
+      "y": 103,
+      "z": 223,
+      "name": "minecraft:stone_bricks",
+      "props": {}
+    },
+    {
+      "x": 156,
+      "y": 103,
+      "z": 223,
+      "name": "minecraft:stone_bricks",
+      "props": {}
+    },
+    {
+      "x": 157,
+      "y": 103,
+      "z": 223,
+      "name": "minecraft:stone_bricks",
+      "props": {}
+    },
+    {
+      "x": 158,
+      "y": 103,
+      "z": 223,
+      "name": "minecraft:stone_bricks",
+      "props": {}
+    },
+    {
+      "x": 159,
+      "y": 103,
+      "z": 223,
+      "name": "minecraft:smooth_stone",
+      "props": {}
+    },
+    {
+      "x": 160,
+      "y": 103,
+      "z": 223,
+      "name": "minecraft:smooth_stone",
+      "props": {}
+    },
+    {
+      "x": 161,
+      "y": 103,
+      "z": 223,
+      "name": "minecraft:smooth_stone",
+      "props": {}
+    },
+    {
+      "x": 162,
+      "y": 103,
+      "z": 223,
+      "name": "minecraft:stone_bricks",
+      "props": {}
+    },
+    {
+      "x": 163,
+      "y": 103,
+      "z": 223,
+      "name": "minecraft:stone_bricks",
+      "props": {}
+    },
+    {
+      "x": 164,
+      "y": 103,
+      "z": 223,
+      "name": "minecraft:stone_bricks",
+      "props": {}
+    },
+    {
+      "x": 165,
+      "y": 103,
+      "z": 223,
+      "name": "minecraft:stone_bricks",
+      "props": {}
+    },
+    {
+      "x": 166,
+      "y": 103,
+      "z": 223,
+      "name": "minecraft:stone_bricks",
+      "props": {}
+    },
+    {
+      "x": 167,
+      "y": 103,
+      "z": 223,
+      "name": "minecraft:stone_bricks",
+      "props": {}
+    },
+    {
+      "x": 168,
+      "y": 103,
+      "z": 223,
+      "name": "minecraft:stone_bricks",
+      "props": {}
+    },
+    {
+      "x": 169,
+      "y": 103,
+      "z": 223,
+      "name": "minecraft:polished_andesite",
+      "props": {}
+    },
+    {
+      "x": 151,
+      "y": 103,
+      "z": 224,
+      "name": "minecraft:polished_andesite",
+      "props": {}
+    },
+    {
+      "x": 152,
+      "y": 103,
+      "z": 224,
+      "name": "minecraft:stone_bricks",
+      "props": {}
+    },
+    {
+      "x": 153,
+      "y": 103,
+      "z": 224,
+      "name": "minecraft:stone_bricks",
+      "props": {}
+    },
+    {
+      "x": 154,
+      "y": 103,
+      "z": 224,
+      "name": "minecraft:stone_bricks",
+      "props": {}
+    },
+    {
+      "x": 155,
+      "y": 103,
+      "z": 224,
+      "name": "minecraft:stone_bricks",
+      "props": {}
+    },
+    {
+      "x": 156,
+      "y": 103,
+      "z": 224,
+      "name": "minecraft:stone_bricks",
+      "props": {}
+    },
+    {
+      "x": 157,
+      "y": 103,
+      "z": 224,
+      "name": "minecraft:stone_bricks",
+      "props": {}
+    },
+    {
+      "x": 158,
+      "y": 103,
+      "z": 224,
+      "name": "minecraft:stone_bricks",
+      "props": {}
+    },
+    {
+      "x": 159,
+      "y": 103,
+      "z": 224,
+      "name": "minecraft:smooth_stone",
+      "props": {}
+    },
+    {
+      "x": 160,
+      "y": 103,
+      "z": 224,
+      "name": "minecraft:smooth_stone",
+      "props": {}
+    },
+    {
+      "x": 161,
+      "y": 103,
+      "z": 224,
+      "name": "minecraft:smooth_stone",
+      "props": {}
+    },
+    {
+      "x": 162,
+      "y": 103,
+      "z": 224,
+      "name": "minecraft:stone_bricks",
+      "props": {}
+    },
+    {
+      "x": 163,
+      "y": 103,
+      "z": 224,
+      "name": "minecraft:stone_bricks",
+      "props": {}
+    },
+    {
+      "x": 164,
+      "y": 103,
+      "z": 224,
+      "name": "minecraft:stone_bricks",
+      "props": {}
+    },
+    {
+      "x": 165,
+      "y": 103,
+      "z": 224,
+      "name": "minecraft:stone_bricks",
+      "props": {}
+    },
+    {
+      "x": 166,
+      "y": 103,
+      "z": 224,
+      "name": "minecraft:stone_bricks",
+      "props": {}
+    },
+    {
+      "x": 167,
+      "y": 103,
+      "z": 224,
+      "name": "minecraft:stone_bricks",
+      "props": {}
+    },
+    {
+      "x": 168,
+      "y": 103,
+      "z": 224,
+      "name": "minecraft:stone_bricks",
+      "props": {}
+    },
+    {
+      "x": 169,
+      "y": 103,
+      "z": 224,
+      "name": "minecraft:polished_andesite",
+      "props": {}
+    },
+    {
+      "x": 151,
+      "y": 104,
+      "z": 206,
+      "name": "minecraft:stone_brick_slab",
+      "props": {
+        "type": "bottom",
+        "waterlogged": "false"
+      }
+    },
+    {
+      "x": 169,
+      "y": 104,
+      "z": 206,
+      "name": "minecraft:stone_brick_slab",
+      "props": {
+        "type": "bottom",
+        "waterlogged": "false"
+      }
+    },
+    {
+      "x": 151,
+      "y": 104,
+      "z": 207,
+      "name": "minecraft:stone_brick_slab",
+      "props": {
+        "type": "bottom",
+        "waterlogged": "false"
+      }
+    },
+    {
+      "x": 159,
+      "y": 104,
+      "z": 207,
+      "name": "minecraft:deepslate_tile_stairs",
+      "props": {
+        "facing": "south",
+        "half": "bottom",
+        "shape": "straight",
+        "waterlogged": "false"
+      }
+    },
+    {
+      "x": 160,
+      "y": 104,
+      "z": 207,
+      "name": "minecraft:deepslate_tile_stairs",
+      "props": {
+        "facing": "south",
+        "half": "bottom",
+        "shape": "straight",
+        "waterlogged": "false"
+      }
+    },
+    {
+      "x": 161,
+      "y": 104,
+      "z": 207,
+      "name": "minecraft:deepslate_tile_stairs",
+      "props": {
+        "facing": "south",
+        "half": "bottom",
+        "shape": "straight",
+        "waterlogged": "false"
+      }
+    },
+    {
+      "x": 169,
+      "y": 104,
+      "z": 207,
+      "name": "minecraft:stone_brick_slab",
+      "props": {
+        "type": "bottom",
+        "waterlogged": "false"
+      }
+    },
+    {
+      "x": 153,
+      "y": 104,
+      "z": 208,
+      "name": "minecraft:chiseled_deepslate",
+      "props": {}
+    },
+    {
+      "x": 167,
+      "y": 104,
+      "z": 208,
+      "name": "minecraft:chiseled_deepslate",
+      "props": {}
+    },
+    {
+      "x": 158,
+      "y": 104,
+      "z": 209,
+      "name": "minecraft:chiseled_deepslate",
+      "props": {}
+    },
+    {
+      "x": 159,
+      "y": 104,
+      "z": 209,
+      "name": "minecraft:deepslate_tile_stairs",
+      "props": {
+        "facing": "north",
+        "half": "bottom",
+        "shape": "straight",
+        "waterlogged": "false"
+      }
+    },
+    {
+      "x": 160,
+      "y": 104,
+      "z": 209,
+      "name": "minecraft:deepslate_tile_stairs",
+      "props": {
+        "facing": "north",
+        "half": "bottom",
+        "shape": "straight",
+        "waterlogged": "false"
+      }
+    },
+    {
+      "x": 161,
+      "y": 104,
+      "z": 209,
+      "name": "minecraft:deepslate_tile_stairs",
+      "props": {
+        "facing": "north",
+        "half": "bottom",
+        "shape": "straight",
+        "waterlogged": "false"
+      }
+    },
+    {
+      "x": 162,
+      "y": 104,
+      "z": 209,
+      "name": "minecraft:chiseled_deepslate",
+      "props": {}
+    },
+    {
+      "x": 157,
+      "y": 104,
+      "z": 210,
+      "name": "minecraft:deepslate_tile_stairs",
+      "props": {
+        "facing": "north",
+        "half": "bottom",
+        "shape": "straight",
+        "waterlogged": "false"
+      }
+    },
+    {
+      "x": 158,
+      "y": 104,
+      "z": 210,
+      "name": "minecraft:water",
+      "props": {
+        "level": "0"
+      }
+    },
+    {
+      "x": 159,
+      "y": 104,
+      "z": 210,
+      "name": "minecraft:water",
+      "props": {
+        "level": "0"
+      }
+    },
+    {
+      "x": 160,
+      "y": 104,
+      "z": 210,
+      "name": "minecraft:water",
+      "props": {
+        "level": "0"
+      }
+    },
+    {
+      "x": 161,
+      "y": 104,
+      "z": 210,
+      "name": "minecraft:water",
+      "props": {
+        "level": "0"
+      }
+    },
+    {
+      "x": 162,
+      "y": 104,
+      "z": 210,
+      "name": "minecraft:water",
+      "props": {
+        "level": "0"
+      }
+    },
+    {
+      "x": 163,
+      "y": 104,
+      "z": 210,
+      "name": "minecraft:deepslate_tile_stairs",
+      "props": {
+        "facing": "east",
+        "half": "bottom",
+        "shape": "straight",
+        "waterlogged": "false"
+      }
+    },
+    {
+      "x": 156,
+      "y": 104,
+      "z": 211,
+      "name": "minecraft:chiseled_deepslate",
+      "props": {}
+    },
+    {
+      "x": 157,
+      "y": 104,
+      "z": 211,
+      "name": "minecraft:water",
+      "props": {
+        "level": "0"
+      }
+    },
+    {
+      "x": 158,
+      "y": 104,
+      "z": 211,
+      "name": "minecraft:water",
+      "props": {
+        "level": "0"
+      }
+    },
+    {
+      "x": 159,
+      "y": 104,
+      "z": 211,
+      "name": "minecraft:water",
+      "props": {
+        "level": "0"
+      }
+    },
+    {
+      "x": 160,
+      "y": 104,
+      "z": 211,
+      "name": "minecraft:water",
+      "props": {
+        "level": "0"
+      }
+    },
+    {
+      "x": 161,
+      "y": 104,
+      "z": 211,
+      "name": "minecraft:water",
+      "props": {
+        "level": "0"
+      }
+    },
+    {
+      "x": 162,
+      "y": 104,
+      "z": 211,
+      "name": "minecraft:water",
+      "props": {
+        "level": "0"
+      }
+    },
+    {
+      "x": 163,
+      "y": 104,
+      "z": 211,
+      "name": "minecraft:water",
+      "props": {
+        "level": "0"
+      }
+    },
+    {
+      "x": 164,
+      "y": 104,
+      "z": 211,
+      "name": "minecraft:chiseled_deepslate",
+      "props": {}
+    },
+    {
+      "x": 155,
+      "y": 104,
+      "z": 212,
+      "name": "minecraft:deepslate_tile_stairs",
+      "props": {
+        "facing": "north",
+        "half": "bottom",
+        "shape": "straight",
+        "waterlogged": "false"
+      }
+    },
+    {
+      "x": 156,
+      "y": 104,
+      "z": 212,
+      "name": "minecraft:water",
+      "props": {
+        "level": "0"
+      }
+    },
+    {
+      "x": 157,
+      "y": 104,
+      "z": 212,
+      "name": "minecraft:water",
+      "props": {
+        "level": "0"
+      }
+    },
+    {
+      "x": 158,
+      "y": 104,
+      "z": 212,
+      "name": "minecraft:water",
+      "props": {
+        "level": "0"
+      }
+    },
+    {
+      "x": 159,
+      "y": 104,
+      "z": 212,
+      "name": "minecraft:water",
+      "props": {
+        "level": "0"
+      }
+    },
+    {
+      "x": 160,
+      "y": 104,
+      "z": 212,
+      "name": "minecraft:water",
+      "props": {
+        "level": "0"
+      }
+    },
+    {
+      "x": 161,
+      "y": 104,
+      "z": 212,
+      "name": "minecraft:water",
+      "props": {
+        "level": "0"
+      }
+    },
+    {
+      "x": 162,
+      "y": 104,
+      "z": 212,
+      "name": "minecraft:water",
+      "props": {
+        "level": "0"
+      }
+    },
+    {
+      "x": 163,
+      "y": 104,
+      "z": 212,
+      "name": "minecraft:water",
+      "props": {
+        "level": "0"
+      }
+    },
+    {
+      "x": 164,
+      "y": 104,
+      "z": 212,
+      "name": "minecraft:water",
+      "props": {
+        "level": "0"
+      }
+    },
+    {
+      "x": 165,
+      "y": 104,
+      "z": 212,
+      "name": "minecraft:deepslate_tile_stairs",
+      "props": {
+        "facing": "east",
+        "half": "bottom",
+        "shape": "straight",
+        "waterlogged": "false"
+      }
+    },
+    {
+      "x": 154,
+      "y": 104,
+      "z": 213,
+      "name": "minecraft:chiseled_deepslate",
+      "props": {}
+    },
+    {
+      "x": 155,
+      "y": 104,
+      "z": 213,
+      "name": "minecraft:water",
+      "props": {
+        "level": "0"
+      }
+    },
+    {
+      "x": 156,
+      "y": 104,
+      "z": 213,
+      "name": "minecraft:water",
+      "props": {
+        "level": "0"
+      }
+    },
+    {
+      "x": 157,
+      "y": 104,
+      "z": 213,
+      "name": "minecraft:water",
+      "props": {
+        "level": "0"
+      }
+    },
+    {
+      "x": 158,
+      "y": 104,
+      "z": 213,
+      "name": "minecraft:deepslate_tile_stairs",
+      "props": {
+        "facing": "north",
+        "half": "bottom",
+        "shape": "straight",
+        "waterlogged": "false"
+      }
+    },
+    {
+      "x": 159,
+      "y": 104,
+      "z": 213,
+      "name": "minecraft:deepslate_tile_stairs",
+      "props": {
+        "facing": "north",
+        "half": "bottom",
+        "shape": "straight",
+        "waterlogged": "false"
+      }
+    },
+    {
+      "x": 160,
+      "y": 104,
+      "z": 213,
+      "name": "minecraft:deepslate_tile_stairs",
+      "props": {
+        "facing": "north",
+        "half": "bottom",
+        "shape": "straight",
+        "waterlogged": "false"
+      }
+    },
+    {
+      "x": 161,
+      "y": 104,
+      "z": 213,
+      "name": "minecraft:deepslate_tile_stairs",
+      "props": {
+        "facing": "north",
+        "half": "bottom",
+        "shape": "straight",
+        "waterlogged": "false"
+      }
+    },
+    {
+      "x": 162,
+      "y": 104,
+      "z": 213,
+      "name": "minecraft:deepslate_tile_stairs",
+      "props": {
+        "facing": "north",
+        "half": "bottom",
+        "shape": "straight",
+        "waterlogged": "false"
+      }
+    },
+    {
+      "x": 163,
+      "y": 104,
+      "z": 213,
+      "name": "minecraft:water",
+      "props": {
+        "level": "0"
+      }
+    },
+    {
+      "x": 164,
+      "y": 104,
+      "z": 213,
+      "name": "minecraft:water",
+      "props": {
+        "level": "0"
+      }
+    },
+    {
+      "x": 165,
+      "y": 104,
+      "z": 213,
+      "name": "minecraft:water",
+      "props": {
+        "level": "0"
+      }
+    },
+    {
+      "x": 166,
+      "y": 104,
+      "z": 213,
+      "name": "minecraft:chiseled_deepslate",
+      "props": {}
+    },
+    {
+      "x": 152,
+      "y": 104,
+      "z": 214,
+      "name": "minecraft:deepslate_tile_stairs",
+      "props": {
+        "facing": "east",
+        "half": "bottom",
+        "shape": "straight",
+        "waterlogged": "false"
+      }
+    },
+    {
+      "x": 154,
+      "y": 104,
+      "z": 214,
+      "name": "minecraft:deepslate_tile_stairs",
+      "props": {
+        "facing": "west",
+        "half": "bottom",
+        "shape": "straight",
+        "waterlogged": "false"
+      }
+    },
+    {
+      "x": 155,
+      "y": 104,
+      "z": 214,
+      "name": "minecraft:water",
+      "props": {
+        "level": "0"
+      }
+    },
+    {
+      "x": 156,
+      "y": 104,
+      "z": 214,
+      "name": "minecraft:water",
+      "props": {
+        "level": "0"
+      }
+    },
+    {
+      "x": 157,
+      "y": 104,
+      "z": 214,
+      "name": "minecraft:water",
+      "props": {
+        "level": "0"
+      }
+    },
+    {
+      "x": 158,
+      "y": 104,
+      "z": 214,
+      "name": "minecraft:deepslate_tile_stairs",
+      "props": {
+        "facing": "west",
+        "half": "bottom",
+        "shape": "straight",
+        "waterlogged": "false"
+      }
+    },
+    {
+      "x": 159,
+      "y": 104,
+      "z": 214,
+      "name": "minecraft:chiseled_deepslate",
+      "props": {}
+    },
+    {
+      "x": 160,
+      "y": 104,
+      "z": 214,
+      "name": "minecraft:chiseled_deepslate",
+      "props": {}
+    },
+    {
+      "x": 161,
+      "y": 104,
+      "z": 214,
+      "name": "minecraft:chiseled_deepslate",
+      "props": {}
+    },
+    {
+      "x": 162,
+      "y": 104,
+      "z": 214,
+      "name": "minecraft:deepslate_tile_stairs",
+      "props": {
+        "facing": "east",
+        "half": "bottom",
+        "shape": "straight",
+        "waterlogged": "false"
+      }
+    },
+    {
+      "x": 163,
+      "y": 104,
+      "z": 214,
+      "name": "minecraft:water",
+      "props": {
+        "level": "0"
+      }
+    },
+    {
+      "x": 164,
+      "y": 104,
+      "z": 214,
+      "name": "minecraft:water",
+      "props": {
+        "level": "0"
+      }
+    },
+    {
+      "x": 165,
+      "y": 104,
+      "z": 214,
+      "name": "minecraft:water",
+      "props": {
+        "level": "0"
+      }
+    },
+    {
+      "x": 166,
+      "y": 104,
+      "z": 214,
+      "name": "minecraft:deepslate_tile_stairs",
+      "props": {
+        "facing": "east",
+        "half": "bottom",
+        "shape": "straight",
+        "waterlogged": "false"
+      }
+    },
+    {
+      "x": 168,
+      "y": 104,
+      "z": 214,
+      "name": "minecraft:deepslate_tile_stairs",
+      "props": {
+        "facing": "west",
+        "half": "bottom",
+        "shape": "straight",
+        "waterlogged": "false"
+      }
+    },
+    {
+      "x": 152,
+      "y": 104,
+      "z": 215,
+      "name": "minecraft:deepslate_tile_stairs",
+      "props": {
+        "facing": "east",
+        "half": "bottom",
+        "shape": "straight",
+        "waterlogged": "false"
+      }
+    },
+    {
+      "x": 154,
+      "y": 104,
+      "z": 215,
+      "name": "minecraft:deepslate_tile_stairs",
+      "props": {
+        "facing": "west",
+        "half": "bottom",
+        "shape": "straight",
+        "waterlogged": "false"
+      }
+    },
+    {
+      "x": 155,
+      "y": 104,
+      "z": 215,
+      "name": "minecraft:water",
+      "props": {
+        "level": "0"
+      }
+    },
+    {
+      "x": 156,
+      "y": 104,
+      "z": 215,
+      "name": "minecraft:water",
+      "props": {
+        "level": "0"
+      }
+    },
+    {
+      "x": 157,
+      "y": 104,
+      "z": 215,
+      "name": "minecraft:water",
+      "props": {
+        "level": "0"
+      }
+    },
+    {
+      "x": 158,
+      "y": 104,
+      "z": 215,
+      "name": "minecraft:deepslate_tile_stairs",
+      "props": {
+        "facing": "west",
+        "half": "bottom",
+        "shape": "straight",
+        "waterlogged": "false"
+      }
+    },
+    {
+      "x": 159,
+      "y": 104,
+      "z": 215,
+      "name": "minecraft:chiseled_deepslate",
+      "props": {}
+    },
+    {
+      "x": 160,
+      "y": 104,
+      "z": 215,
+      "name": "minecraft:chiseled_deepslate",
+      "props": {}
+    },
+    {
+      "x": 161,
+      "y": 104,
+      "z": 215,
+      "name": "minecraft:chiseled_deepslate",
+      "props": {}
+    },
+    {
+      "x": 162,
+      "y": 104,
+      "z": 215,
+      "name": "minecraft:deepslate_tile_stairs",
+      "props": {
+        "facing": "east",
+        "half": "bottom",
+        "shape": "straight",
+        "waterlogged": "false"
+      }
+    },
+    {
+      "x": 163,
+      "y": 104,
+      "z": 215,
+      "name": "minecraft:water",
+      "props": {
+        "level": "0"
+      }
+    },
+    {
+      "x": 164,
+      "y": 104,
+      "z": 215,
+      "name": "minecraft:water",
+      "props": {
+        "level": "0"
+      }
+    },
+    {
+      "x": 165,
+      "y": 104,
+      "z": 215,
+      "name": "minecraft:water",
+      "props": {
+        "level": "0"
+      }
+    },
+    {
+      "x": 166,
+      "y": 104,
+      "z": 215,
+      "name": "minecraft:deepslate_tile_stairs",
+      "props": {
+        "facing": "east",
+        "half": "bottom",
+        "shape": "straight",
+        "waterlogged": "false"
+      }
+    },
+    {
+      "x": 168,
+      "y": 104,
+      "z": 215,
+      "name": "minecraft:deepslate_tile_stairs",
+      "props": {
+        "facing": "west",
+        "half": "bottom",
+        "shape": "straight",
+        "waterlogged": "false"
+      }
+    },
+    {
+      "x": 152,
+      "y": 104,
+      "z": 216,
+      "name": "minecraft:deepslate_tile_stairs",
+      "props": {
+        "facing": "east",
+        "half": "bottom",
+        "shape": "straight",
+        "waterlogged": "false"
+      }
+    },
+    {
+      "x": 154,
+      "y": 104,
+      "z": 216,
+      "name": "minecraft:deepslate_tile_stairs",
+      "props": {
+        "facing": "west",
+        "half": "bottom",
+        "shape": "straight",
+        "waterlogged": "false"
+      }
+    },
+    {
+      "x": 155,
+      "y": 104,
+      "z": 216,
+      "name": "minecraft:water",
+      "props": {
+        "level": "0"
+      }
+    },
+    {
+      "x": 156,
+      "y": 104,
+      "z": 216,
+      "name": "minecraft:water",
+      "props": {
+        "level": "0"
+      }
+    },
+    {
+      "x": 157,
+      "y": 104,
+      "z": 216,
+      "name": "minecraft:water",
+      "props": {
+        "level": "0"
+      }
+    },
+    {
+      "x": 158,
+      "y": 104,
+      "z": 216,
+      "name": "minecraft:deepslate_tile_stairs",
+      "props": {
+        "facing": "west",
+        "half": "bottom",
+        "shape": "straight",
+        "waterlogged": "false"
+      }
+    },
+    {
+      "x": 159,
+      "y": 104,
+      "z": 216,
+      "name": "minecraft:chiseled_deepslate",
+      "props": {}
+    },
+    {
+      "x": 160,
+      "y": 104,
+      "z": 216,
+      "name": "minecraft:chiseled_deepslate",
+      "props": {}
+    },
+    {
+      "x": 161,
+      "y": 104,
+      "z": 216,
+      "name": "minecraft:chiseled_deepslate",
+      "props": {}
+    },
+    {
+      "x": 162,
+      "y": 104,
+      "z": 216,
+      "name": "minecraft:deepslate_tile_stairs",
+      "props": {
+        "facing": "east",
+        "half": "bottom",
+        "shape": "straight",
+        "waterlogged": "false"
+      }
+    },
+    {
+      "x": 163,
+      "y": 104,
+      "z": 216,
+      "name": "minecraft:water",
+      "props": {
+        "level": "0"
+      }
+    },
+    {
+      "x": 164,
+      "y": 104,
+      "z": 216,
+      "name": "minecraft:water",
+      "props": {
+        "level": "0"
+      }
+    },
+    {
+      "x": 165,
+      "y": 104,
+      "z": 216,
+      "name": "minecraft:water",
+      "props": {
+        "level": "0"
+      }
+    },
+    {
+      "x": 166,
+      "y": 104,
+      "z": 216,
+      "name": "minecraft:deepslate_tile_stairs",
+      "props": {
+        "facing": "east",
+        "half": "bottom",
+        "shape": "straight",
+        "waterlogged": "false"
+      }
+    },
+    {
+      "x": 168,
+      "y": 104,
+      "z": 216,
+      "name": "minecraft:deepslate_tile_stairs",
+      "props": {
+        "facing": "west",
+        "half": "bottom",
+        "shape": "straight",
+        "waterlogged": "false"
+      }
+    },
+    {
+      "x": 154,
+      "y": 104,
+      "z": 217,
+      "name": "minecraft:chiseled_deepslate",
+      "props": {}
+    },
+    {
+      "x": 155,
+      "y": 104,
+      "z": 217,
+      "name": "minecraft:water",
+      "props": {
+        "level": "0"
+      }
+    },
+    {
+      "x": 156,
+      "y": 104,
+      "z": 217,
+      "name": "minecraft:water",
+      "props": {
+        "level": "0"
+      }
+    },
+    {
+      "x": 157,
+      "y": 104,
+      "z": 217,
+      "name": "minecraft:water",
+      "props": {
+        "level": "0"
+      }
+    },
+    {
+      "x": 158,
+      "y": 104,
+      "z": 217,
+      "name": "minecraft:deepslate_tile_stairs",
+      "props": {
+        "facing": "south",
+        "half": "bottom",
+        "shape": "straight",
+        "waterlogged": "false"
+      }
+    },
+    {
+      "x": 159,
+      "y": 104,
+      "z": 217,
+      "name": "minecraft:deepslate_tile_stairs",
+      "props": {
+        "facing": "south",
+        "half": "bottom",
+        "shape": "straight",
+        "waterlogged": "false"
+      }
+    },
+    {
+      "x": 160,
+      "y": 104,
+      "z": 217,
+      "name": "minecraft:deepslate_tile_stairs",
+      "props": {
+        "facing": "south",
+        "half": "bottom",
+        "shape": "straight",
+        "waterlogged": "false"
+      }
+    },
+    {
+      "x": 161,
+      "y": 104,
+      "z": 217,
+      "name": "minecraft:deepslate_tile_stairs",
+      "props": {
+        "facing": "south",
+        "half": "bottom",
+        "shape": "straight",
+        "waterlogged": "false"
+      }
+    },
+    {
+      "x": 162,
+      "y": 104,
+      "z": 217,
+      "name": "minecraft:deepslate_tile_stairs",
+      "props": {
+        "facing": "south",
+        "half": "bottom",
+        "shape": "straight",
+        "waterlogged": "false"
+      }
+    },
+    {
+      "x": 163,
+      "y": 104,
+      "z": 217,
+      "name": "minecraft:water",
+      "props": {
+        "level": "0"
+      }
+    },
+    {
+      "x": 164,
+      "y": 104,
+      "z": 217,
+      "name": "minecraft:water",
+      "props": {
+        "level": "0"
+      }
+    },
+    {
+      "x": 165,
+      "y": 104,
+      "z": 217,
+      "name": "minecraft:water",
+      "props": {
+        "level": "0"
+      }
+    },
+    {
+      "x": 166,
+      "y": 104,
+      "z": 217,
+      "name": "minecraft:chiseled_deepslate",
+      "props": {}
+    },
+    {
+      "x": 155,
+      "y": 104,
+      "z": 218,
+      "name": "minecraft:deepslate_tile_stairs",
+      "props": {
+        "facing": "west",
+        "half": "bottom",
+        "shape": "straight",
+        "waterlogged": "false"
+      }
+    },
+    {
+      "x": 156,
+      "y": 104,
+      "z": 218,
+      "name": "minecraft:water",
+      "props": {
+        "level": "0"
+      }
+    },
+    {
+      "x": 157,
+      "y": 104,
+      "z": 218,
+      "name": "minecraft:water",
+      "props": {
+        "level": "0"
+      }
+    },
+    {
+      "x": 158,
+      "y": 104,
+      "z": 218,
+      "name": "minecraft:water",
+      "props": {
+        "level": "0"
+      }
+    },
+    {
+      "x": 159,
+      "y": 104,
+      "z": 218,
+      "name": "minecraft:water",
+      "props": {
+        "level": "0"
+      }
+    },
+    {
+      "x": 160,
+      "y": 104,
+      "z": 218,
+      "name": "minecraft:water",
+      "props": {
+        "level": "0"
+      }
+    },
+    {
+      "x": 161,
+      "y": 104,
+      "z": 218,
+      "name": "minecraft:water",
+      "props": {
+        "level": "0"
+      }
+    },
+    {
+      "x": 162,
+      "y": 104,
+      "z": 218,
+      "name": "minecraft:water",
+      "props": {
+        "level": "0"
+      }
+    },
+    {
+      "x": 163,
+      "y": 104,
+      "z": 218,
+      "name": "minecraft:water",
+      "props": {
+        "level": "0"
+      }
+    },
+    {
+      "x": 164,
+      "y": 104,
+      "z": 218,
+      "name": "minecraft:water",
+      "props": {
+        "level": "0"
+      }
+    },
+    {
+      "x": 165,
+      "y": 104,
+      "z": 218,
+      "name": "minecraft:deepslate_tile_stairs",
+      "props": {
+        "facing": "south",
+        "half": "bottom",
+        "shape": "straight",
+        "waterlogged": "false"
+      }
+    },
+    {
+      "x": 156,
+      "y": 104,
+      "z": 219,
+      "name": "minecraft:chiseled_deepslate",
+      "props": {}
+    },
+    {
+      "x": 157,
+      "y": 104,
+      "z": 219,
+      "name": "minecraft:water",
+      "props": {
+        "level": "0"
+      }
+    },
+    {
+      "x": 158,
+      "y": 104,
+      "z": 219,
+      "name": "minecraft:water",
+      "props": {
+        "level": "0"
+      }
+    },
+    {
+      "x": 159,
+      "y": 104,
+      "z": 219,
+      "name": "minecraft:water",
+      "props": {
+        "level": "0"
+      }
+    },
+    {
+      "x": 160,
+      "y": 104,
+      "z": 219,
+      "name": "minecraft:water",
+      "props": {
+        "level": "0"
+      }
+    },
+    {
+      "x": 161,
+      "y": 104,
+      "z": 219,
+      "name": "minecraft:water",
+      "props": {
+        "level": "0"
+      }
+    },
+    {
+      "x": 162,
+      "y": 104,
+      "z": 219,
+      "name": "minecraft:water",
+      "props": {
+        "level": "0"
+      }
+    },
+    {
+      "x": 163,
+      "y": 104,
+      "z": 219,
+      "name": "minecraft:water",
+      "props": {
+        "level": "0"
+      }
+    },
+    {
+      "x": 164,
+      "y": 104,
+      "z": 219,
+      "name": "minecraft:chiseled_deepslate",
+      "props": {}
+    },
+    {
+      "x": 157,
+      "y": 104,
+      "z": 220,
+      "name": "minecraft:deepslate_tile_stairs",
+      "props": {
+        "facing": "west",
+        "half": "bottom",
+        "shape": "straight",
+        "waterlogged": "false"
+      }
+    },
+    {
+      "x": 158,
+      "y": 104,
+      "z": 220,
+      "name": "minecraft:water",
+      "props": {
+        "level": "0"
+      }
+    },
+    {
+      "x": 159,
+      "y": 104,
+      "z": 220,
+      "name": "minecraft:water",
+      "props": {
+        "level": "0"
+      }
+    },
+    {
+      "x": 160,
+      "y": 104,
+      "z": 220,
+      "name": "minecraft:water",
+      "props": {
+        "level": "0"
+      }
+    },
+    {
+      "x": 161,
+      "y": 104,
+      "z": 220,
+      "name": "minecraft:water",
+      "props": {
+        "level": "0"
+      }
+    },
+    {
+      "x": 162,
+      "y": 104,
+      "z": 220,
+      "name": "minecraft:water",
+      "props": {
+        "level": "0"
+      }
+    },
+    {
+      "x": 163,
+      "y": 104,
+      "z": 220,
+      "name": "minecraft:deepslate_tile_stairs",
+      "props": {
+        "facing": "south",
+        "half": "bottom",
+        "shape": "straight",
+        "waterlogged": "false"
+      }
+    },
+    {
+      "x": 158,
+      "y": 104,
+      "z": 221,
+      "name": "minecraft:chiseled_deepslate",
+      "props": {}
+    },
+    {
+      "x": 159,
+      "y": 104,
+      "z": 221,
+      "name": "minecraft:deepslate_tile_stairs",
+      "props": {
+        "facing": "south",
+        "half": "bottom",
+        "shape": "straight",
+        "waterlogged": "false"
+      }
+    },
+    {
+      "x": 160,
+      "y": 104,
+      "z": 221,
+      "name": "minecraft:deepslate_tile_stairs",
+      "props": {
+        "facing": "south",
+        "half": "bottom",
+        "shape": "straight",
+        "waterlogged": "false"
+      }
+    },
+    {
+      "x": 161,
+      "y": 104,
+      "z": 221,
+      "name": "minecraft:deepslate_tile_stairs",
+      "props": {
+        "facing": "south",
+        "half": "bottom",
+        "shape": "straight",
+        "waterlogged": "false"
+      }
+    },
+    {
+      "x": 162,
+      "y": 104,
+      "z": 221,
+      "name": "minecraft:chiseled_deepslate",
+      "props": {}
+    },
+    {
+      "x": 153,
+      "y": 104,
+      "z": 222,
+      "name": "minecraft:chiseled_deepslate",
+      "props": {}
+    },
+    {
+      "x": 167,
+      "y": 104,
+      "z": 222,
+      "name": "minecraft:chiseled_deepslate",
+      "props": {}
+    },
+    {
+      "x": 159,
+      "y": 104,
+      "z": 223,
+      "name": "minecraft:deepslate_tile_stairs",
+      "props": {
+        "facing": "north",
+        "half": "bottom",
+        "shape": "straight",
+        "waterlogged": "false"
+      }
+    },
+    {
+      "x": 160,
+      "y": 104,
+      "z": 223,
+      "name": "minecraft:deepslate_tile_stairs",
+      "props": {
+        "facing": "north",
+        "half": "bottom",
+        "shape": "straight",
+        "waterlogged": "false"
+      }
+    },
+    {
+      "x": 161,
+      "y": 104,
+      "z": 223,
+      "name": "minecraft:deepslate_tile_stairs",
+      "props": {
+        "facing": "north",
+        "half": "bottom",
+        "shape": "straight",
+        "waterlogged": "false"
+      }
+    },
+    {
+      "x": 153,
+      "y": 105,
+      "z": 208,
+      "name": "minecraft:blue_orchid",
+      "props": {}
+    },
+    {
+      "x": 167,
+      "y": 105,
+      "z": 208,
+      "name": "minecraft:lily_of_the_valley",
+      "props": {}
+    },
+    {
+      "x": 159,
+      "y": 105,
+      "z": 214,
+      "name": "minecraft:deepslate_tile_wall",
+      "props": {
+        "up": "true",
+        "waterlogged": "false",
+        "east": "none",
+        "north": "none",
+        "south": "none",
+        "west": "none"
+      }
+    },
+    {
+      "x": 160,
+      "y": 105,
+      "z": 214,
+      "name": "minecraft:chiseled_deepslate",
+      "props": {}
+    },
+    {
+      "x": 161,
+      "y": 105,
+      "z": 214,
+      "name": "minecraft:deepslate_tile_wall",
+      "props": {
+        "up": "true",
+        "waterlogged": "false",
+        "east": "none",
+        "north": "none",
+        "south": "none",
+        "west": "none"
+      }
+    },
+    {
+      "x": 159,
+      "y": 105,
+      "z": 215,
+      "name": "minecraft:chiseled_deepslate",
+      "props": {}
+    },
+    {
+      "x": 160,
+      "y": 105,
+      "z": 215,
+      "name": "minecraft:crying_obsidian",
+      "props": {}
+    },
+    {
+      "x": 161,
+      "y": 105,
+      "z": 215,
+      "name": "minecraft:chiseled_deepslate",
+      "props": {}
+    },
+    {
+      "x": 159,
+      "y": 105,
+      "z": 216,
+      "name": "minecraft:deepslate_tile_wall",
+      "props": {
+        "up": "true",
+        "waterlogged": "false",
+        "east": "none",
+        "north": "none",
+        "south": "none",
+        "west": "none"
+      }
+    },
+    {
+      "x": 160,
+      "y": 105,
+      "z": 216,
+      "name": "minecraft:chiseled_deepslate",
+      "props": {}
+    },
+    {
+      "x": 161,
+      "y": 105,
+      "z": 216,
+      "name": "minecraft:deepslate_tile_wall",
+      "props": {
+        "up": "true",
+        "waterlogged": "false",
+        "east": "none",
+        "north": "none",
+        "south": "none",
+        "west": "none"
+      }
+    },
+    {
+      "x": 160,
+      "y": 105,
+      "z": 217,
+      "name": "minecraft:water",
+      "props": {
+        "level": "0"
+      }
+    },
+    {
+      "x": 153,
+      "y": 105,
+      "z": 222,
+      "name": "minecraft:lily_of_the_valley",
+      "props": {}
+    },
+    {
+      "x": 167,
+      "y": 105,
+      "z": 222,
+      "name": "minecraft:blue_orchid",
+      "props": {}
+    },
+    {
+      "x": 159,
+      "y": 106,
+      "z": 214,
+      "name": "minecraft:deepslate_tile_stairs",
+      "props": {
+        "facing": "north",
+        "half": "top",
+        "shape": "straight",
+        "waterlogged": "false"
+      }
+    },
+    {
+      "x": 160,
+      "y": 106,
+      "z": 214,
+      "name": "minecraft:deepslate_tile_stairs",
+      "props": {
+        "facing": "north",
+        "half": "top",
+        "shape": "straight",
+        "waterlogged": "false"
+      }
+    },
+    {
+      "x": 161,
+      "y": 106,
+      "z": 214,
+      "name": "minecraft:deepslate_tile_stairs",
+      "props": {
+        "facing": "north",
+        "half": "top",
+        "shape": "straight",
+        "waterlogged": "false"
+      }
+    },
+    {
+      "x": 159,
+      "y": 106,
+      "z": 215,
+      "name": "minecraft:deepslate_tile_stairs",
+      "props": {
+        "facing": "west",
+        "half": "top",
+        "shape": "straight",
+        "waterlogged": "false"
+      }
+    },
+    {
+      "x": 160,
+      "y": 106,
+      "z": 215,
+      "name": "minecraft:smooth_quartz",
+      "props": {}
+    },
+    {
+      "x": 161,
+      "y": 106,
+      "z": 215,
+      "name": "minecraft:deepslate_tile_stairs",
+      "props": {
+        "facing": "east",
+        "half": "top",
+        "shape": "straight",
+        "waterlogged": "false"
+      }
+    },
+    {
+      "x": 159,
+      "y": 106,
+      "z": 216,
+      "name": "minecraft:deepslate_tile_stairs",
+      "props": {
+        "facing": "south",
+        "half": "top",
+        "shape": "straight",
+        "waterlogged": "false"
+      }
+    },
+    {
+      "x": 160,
+      "y": 106,
+      "z": 216,
+      "name": "minecraft:deepslate_tile_stairs",
+      "props": {
+        "facing": "south",
+        "half": "top",
+        "shape": "straight",
+        "waterlogged": "false"
+      }
+    },
+    {
+      "x": 161,
+      "y": 106,
+      "z": 216,
+      "name": "minecraft:deepslate_tile_stairs",
+      "props": {
+        "facing": "south",
+        "half": "top",
+        "shape": "straight",
+        "waterlogged": "false"
+      }
+    },
+    {
+      "x": 160,
+      "y": 106,
+      "z": 217,
+      "name": "minecraft:water",
+      "props": {
+        "level": "0"
+      }
+    },
+    {
+      "x": 160,
+      "y": 107,
+      "z": 214,
+      "name": "minecraft:smooth_quartz_stairs",
+      "props": {
+        "facing": "north",
+        "half": "bottom",
+        "shape": "straight",
+        "waterlogged": "false"
+      }
+    },
+    {
+      "x": 159,
+      "y": 107,
+      "z": 215,
+      "name": "minecraft:smooth_quartz_stairs",
+      "props": {
+        "facing": "west",
+        "half": "bottom",
+        "shape": "straight",
+        "waterlogged": "false"
+      }
+    },
+    {
+      "x": 160,
+      "y": 107,
+      "z": 215,
+      "name": "minecraft:smooth_quartz",
+      "props": {}
+    },
+    {
+      "x": 161,
+      "y": 107,
+      "z": 215,
+      "name": "minecraft:smooth_quartz_stairs",
+      "props": {
+        "facing": "east",
+        "half": "bottom",
+        "shape": "straight",
+        "waterlogged": "false"
+      }
+    },
+    {
+      "x": 160,
+      "y": 107,
+      "z": 216,
+      "name": "minecraft:smooth_quartz_stairs",
+      "props": {
+        "facing": "south",
+        "half": "bottom",
+        "shape": "straight",
+        "waterlogged": "false"
+      }
+    },
+    {
+      "x": 160,
+      "y": 107,
+      "z": 217,
+      "name": "minecraft:water",
+      "props": {
+        "level": "0"
+      }
+    },
+    {
+      "x": 160,
+      "y": 108,
+      "z": 214,
+      "name": "minecraft:smooth_quartz",
+      "props": {}
+    },
+    {
+      "x": 159,
+      "y": 108,
+      "z": 215,
+      "name": "minecraft:smooth_quartz_stairs",
+      "props": {
+        "facing": "west",
+        "half": "bottom",
+        "shape": "straight",
+        "waterlogged": "false"
+      }
+    },
+    {
+      "x": 160,
+      "y": 108,
+      "z": 215,
+      "name": "minecraft:smooth_quartz",
+      "props": {}
+    },
+    {
+      "x": 161,
+      "y": 108,
+      "z": 215,
+      "name": "minecraft:smooth_quartz_stairs",
+      "props": {
+        "facing": "east",
+        "half": "bottom",
+        "shape": "straight",
+        "waterlogged": "false"
+      }
+    },
+    {
+      "x": 160,
+      "y": 108,
+      "z": 216,
+      "name": "minecraft:smooth_quartz_stairs",
+      "props": {
+        "facing": "south",
+        "half": "bottom",
+        "shape": "straight",
+        "waterlogged": "false"
+      }
+    },
+    {
+      "x": 160,
+      "y": 108,
+      "z": 217,
+      "name": "minecraft:water",
+      "props": {
+        "level": "0"
+      }
+    },
+    {
+      "x": 160,
+      "y": 109,
+      "z": 214,
+      "name": "minecraft:smooth_quartz",
+      "props": {}
+    },
+    {
+      "x": 159,
+      "y": 109,
+      "z": 215,
+      "name": "minecraft:smooth_quartz_stairs",
+      "props": {
+        "facing": "west",
+        "half": "bottom",
+        "shape": "straight",
+        "waterlogged": "false"
+      }
+    },
+    {
+      "x": 160,
+      "y": 109,
+      "z": 215,
+      "name": "minecraft:polished_diorite",
+      "props": {}
+    },
+    {
+      "x": 161,
+      "y": 109,
+      "z": 215,
+      "name": "minecraft:smooth_quartz_stairs",
+      "props": {
+        "facing": "east",
+        "half": "bottom",
+        "shape": "straight",
+        "waterlogged": "false"
+      }
+    },
+    {
+      "x": 159,
+      "y": 109,
+      "z": 216,
+      "name": "minecraft:smooth_quartz_stairs",
+      "props": {
+        "facing": "east",
+        "half": "bottom",
+        "shape": "straight",
+        "waterlogged": "false"
+      }
+    },
+    {
+      "x": 160,
+      "y": 109,
+      "z": 216,
+      "name": "minecraft:chiseled_quartz_block",
+      "props": {}
+    },
+    {
+      "x": 161,
+      "y": 109,
+      "z": 216,
+      "name": "minecraft:smooth_quartz_stairs",
+      "props": {
+        "facing": "west",
+        "half": "bottom",
+        "shape": "straight",
+        "waterlogged": "false"
+      }
+    },
+    {
+      "x": 160,
+      "y": 109,
+      "z": 217,
+      "name": "minecraft:water",
+      "props": {
+        "level": "0"
+      }
+    },
+    {
+      "x": 158,
+      "y": 110,
+      "z": 214,
+      "name": "minecraft:smooth_quartz_stairs",
+      "props": {
+        "facing": "west",
+        "half": "bottom",
+        "shape": "straight",
+        "waterlogged": "false"
+      }
+    },
+    {
+      "x": 159,
+      "y": 110,
+      "z": 214,
+      "name": "minecraft:smooth_quartz",
+      "props": {}
+    },
+    {
+      "x": 161,
+      "y": 110,
+      "z": 214,
+      "name": "minecraft:smooth_quartz",
+      "props": {}
+    },
+    {
+      "x": 162,
+      "y": 110,
+      "z": 214,
+      "name": "minecraft:smooth_quartz_stairs",
+      "props": {
+        "facing": "east",
+        "half": "bottom",
+        "shape": "straight",
+        "waterlogged": "false"
+      }
+    },
+    {
+      "x": 160,
+      "y": 110,
+      "z": 215,
+      "name": "minecraft:smooth_quartz",
+      "props": {}
+    },
+    {
+      "x": 160,
+      "y": 110,
+      "z": 216,
+      "name": "minecraft:quartz_stairs",
+      "props": {
+        "facing": "south",
+        "half": "top",
+        "shape": "straight",
+        "waterlogged": "false"
+      }
+    },
+    {
+      "x": 160,
+      "y": 110,
+      "z": 217,
+      "name": "minecraft:water",
+      "props": {
+        "level": "0"
+      }
+    },
+    {
+      "x": 157,
+      "y": 111,
+      "z": 214,
+      "name": "minecraft:smooth_quartz_stairs",
+      "props": {
+        "facing": "west",
+        "half": "bottom",
+        "shape": "straight",
+        "waterlogged": "false"
+      }
+    },
+    {
+      "x": 158,
+      "y": 111,
+      "z": 214,
+      "name": "minecraft:smooth_quartz",
+      "props": {}
+    },
+    {
+      "x": 160,
+      "y": 111,
+      "z": 214,
+      "name": "minecraft:end_rod",
+      "props": {
+        "facing": "up"
+      }
+    },
+    {
+      "x": 162,
+      "y": 111,
+      "z": 214,
+      "name": "minecraft:smooth_quartz",
+      "props": {}
+    },
+    {
+      "x": 163,
+      "y": 111,
+      "z": 214,
+      "name": "minecraft:smooth_quartz_stairs",
+      "props": {
+        "facing": "east",
+        "half": "bottom",
+        "shape": "straight",
+        "waterlogged": "false"
+      }
+    },
+    {
+      "x": 160,
+      "y": 111,
+      "z": 215,
+      "name": "minecraft:smooth_quartz_slab",
+      "props": {
+        "type": "bottom",
+        "waterlogged": "false"
+      }
+    },
+    {
+      "x": 156,
+      "y": 112,
+      "z": 214,
+      "name": "minecraft:smooth_quartz_stairs",
+      "props": {
+        "facing": "west",
+        "half": "bottom",
+        "shape": "straight",
+        "waterlogged": "false"
+      }
+    },
+    {
+      "x": 157,
+      "y": 112,
+      "z": 214,
+      "name": "minecraft:smooth_quartz",
+      "props": {}
+    },
+    {
+      "x": 163,
+      "y": 112,
+      "z": 214,
+      "name": "minecraft:smooth_quartz",
+      "props": {}
+    },
+    {
+      "x": 164,
+      "y": 112,
+      "z": 214,
+      "name": "minecraft:smooth_quartz_stairs",
+      "props": {
+        "facing": "east",
+        "half": "bottom",
+        "shape": "straight",
+        "waterlogged": "false"
+      }
+    },
+    {
+      "x": 156,
+      "y": 113,
+      "z": 214,
+      "name": "minecraft:smooth_quartz_slab",
+      "props": {
+        "type": "bottom",
+        "waterlogged": "false"
+      }
+    },
+    {
+      "x": 164,
+      "y": 113,
+      "z": 214,
+      "name": "minecraft:smooth_quartz_slab",
+      "props": {
+        "type": "bottom",
+        "waterlogged": "false"
+      }
+    },
+    {
+      "x": 156,
+      "y": 114,
+      "z": 214,
+      "name": "minecraft:end_rod",
+      "props": {
+        "facing": "up"
+      }
+    },
+    {
+      "x": 164,
+      "y": 114,
+      "z": 214,
+      "name": "minecraft:end_rod",
+      "props": {
+        "facing": "up"
+      }
+    }
+  ]
+}

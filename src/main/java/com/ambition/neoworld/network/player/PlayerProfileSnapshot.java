@@ -34,10 +34,12 @@ public final class PlayerProfileSnapshot {
         var effects = player.getActiveEffects().stream().limit(64)
                 .map(e -> new PlayerProfilePayload.Effect(e.getDescriptionId(), e.getAmplifier(), e.getDuration())).toList();
         var data = player.getData(ModAttachments.PLAYER_DATA);
+        int killerSin = player.getData(ModAttachments.KILLER_DATA).getSin();
         return new PlayerProfilePayload(request.requestId(), player.getUUID(), player.getGameProfile().getName(),
                 data.getLevel(), data.getExp(), LevelFormula.getRequiredExpForNextLevel(data.getLevel()),
                 player.getHealth(), player.getMaxHealth(), patch == null ? -1 : patch.getStamina(),
                 patch == null ? -1 : patch.getMaxStamina(), stats, effects,
-                player.getMainHandItem().isEmpty() ? "" : player.getMainHandItem().getItem().getDescriptionId());
+                player.getMainHandItem().isEmpty() ? "" : player.getMainHandItem().getItem().getDescriptionId(),
+                killerSin).withDetails(ProfileSnapshotDetails.capture(player));
     }
 }

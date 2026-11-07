@@ -42,16 +42,18 @@ public final class TitleCommand {
                 .executes(context -> equip(context.getSource(), context.getSource().getPlayerOrException(), "")))
             .then(Commands.literal("admin").requires(source -> source.hasPermission(2))
                 .then(Commands.literal("reload").executes(context -> {
-                    try {
-                        TitleRegistry.load(TitleService.cataloguePath());
-                        context.getSource().sendSuccess(() -> Component.literal("โหลดรายการฉายาแล้ว: "
-                                + TitleRegistry.all().size() + " ฉายา"), true);
-                        return 1;
-                    } catch (java.io.IOException exception) {
-                        context.getSource().sendFailure(Component.literal("โหลดฉายาไม่สำเร็จ ยังคงใช้รายการเดิม"));
-                        NeoWorld.LOGGER.error("Could not reload title catalogue", exception);
+                    var source = context.getSource();
+                    if (!TitleService.isRunning()) {
+                        source.sendFailure(Component.literal("ระบบฉายายังไม่พร้อม"));
                         return 0;
                     }
+                    TitleService.get().reloadCatalogue().whenComplete((count, error) -> source.getServer().execute(() -> {
+                        if (error != null) {
+                            source.sendFailure(Component.literal("โหลดฉายาจากฐานข้อมูลไม่สำเร็จ ยังคงใช้รายการเดิม"));
+                            NeoWorld.LOGGER.error("Could not reload database title catalogue", error);
+                        } else source.sendSuccess(() -> Component.literal("โหลดรายการฉายาจากฐานข้อมูลแล้ว: " + count + " ฉายา"), true);
+                    }));
+                    return 1;
                 }))
                 .then(Commands.literal("unlockall")
                     .then(Commands.argument("player", EntityArgument.player())

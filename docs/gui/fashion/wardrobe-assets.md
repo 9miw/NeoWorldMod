@@ -1,26 +1,16 @@
-# Wardrobe Panel Assets
+# แอสเซ็ตแผงตู้เสื้อผ้า
 
-The right-hand wardrobe follows `fashion-wardrobe-approved-mockup.png`.
-`export-wardrobe-assets.ps1` exports individually bounded PNG textures from the source sheets.
-All text, item icons, ownership, pagination and equipped status remain dynamic.
+ตู้ด้านขวาตาม `fashion-wardrobe-approved-mockup.png` ตัว `export-wardrobe-assets.ps1` ส่งออก PNG แยกตามขอบที่วัดจากชีตต้นทาง ข้อความ ไอคอนไอเทม ความเป็นเจ้าของ แบ่งหน้า และสถานะสวมเป็นไดนามิกทั้งหมด
 
-| Runtime PNG | Dimensions | Purpose |
+| PNG รันไทม์ | ขนาด | หน้าที่ |
 | --- | --- | --- |
-| fashion_wardrobe_panel | 576 x 728 | Empty right panel with header separator |
-| fashion_search_normal / fashion_search_focus | 512 x 48 | Search field states |
-| fashion_search_icon | 16 x 16 | Separate magnifier glyph |
-| fashion_wardrobe_detail | 512 x 100 | Selected item detail background |
-| fashion_slot_normal / hover / selected / equipped | 128 x 128 | Square wardrobe tile states |
+| fashion_wardrobe_panel | 576 x 728 | แผงขวาว่างพร้อมเส้นแบ่งหัว |
+| fashion_search_normal / fashion_search_focus | 512 x 48 | สถานะช่องค้นหา |
+| fashion_search_icon | 16 x 16 | glyph แว่นขยายแยก |
+| fashion_wardrobe_detail | 512 x 100 | พื้นรายละเอียดไอเทมเลือก |
+| fashion_slot_normal / hover / selected / equipped | 128 x 128 | สถานะช่องตู้จัตุรัส |
 
-`FashionSlotButton` retains Minecraft button input, focus, sound and narration.
-`FashionActionButton` reuses the thin search bevel with nine-slice rendering and
-teal primary tint, matching the mockup's restrained action buttons.
-Gold selection and the teal equipped strip can appear simultaneously. Tiles represent
-unlocked entries, not transferable inventory stacks. Empty slots have no input widget.
-The ordinary layout uses five columns and three rows. Smaller GUI viewports reduce
-the row count and keep square tiles at least 22 pixels at supported Minecraft GUI sizes.
-Page controls, item details, search and action buttons have distinct bounds.
+`FashionSlotButton` คงอินพุต โฟกัส เสียง และการบรรยายของปุ่ม Minecraft `FashionActionButton` ใช้ขอบบากบางช่องค้นหาแบบ nine-slice และทีลหลัก ตรงปุ่มเรียบในม็อกอัป
+ขอบเลือกทองกับแถบสวมทีลแสดงพร้อมกันได้ ช่องแทนรายการปลดล็อก ไม่ใช่สแต็กคลังโอนได้ ช่องว่างไม่มีวิดเจ็ตรับอินพุต เลย์เอาต์ปกติห้าคอลัมน์สามแถว วิวพอร์ต GUI เล็กลดแถวและคงช่องจัตุรัสอย่างน้อย 22 พิกเซลที่ขนาด GUI Minecraft รองรับ ปุ่มหน้า รายละเอียด ค้นหา และการกระทำมีขอบแยกกัน
 
-`preview-wardrobe-assets.ps1` assembles the runtime PNGs at four times the default
-logical size with illustrative labels and reference icons. Its output is an asset
-review image, not an in-game screenshot. Existing 360-degree player rotation is retained.
+`preview-wardrobe-assets.ps1` ประกอบ PNG จริงที่สี่เท่าขนาดเชิงตรรกะเริ่มต้น พร้อมป้ายและไอคอนอ้างอิงประกอบ เป็นภาพรีวิวแอสเซ็ต ไม่ใช่สกรีนช็อตในเกม คงการหมุนผู้เล่น 360 องศาเดิม

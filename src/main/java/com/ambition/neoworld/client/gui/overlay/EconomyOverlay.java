@@ -1,6 +1,6 @@
 package com.ambition.neoworld.client.gui.overlay;
 
-import com.ambition.neoworld.client.gui.common.NeoBitmapFonts;
+import com.ambition.neoworld.client.gui.common.NeoEconomyText;
 
 import com.ambition.neoworld.client.state.ClientEconomyData;
 
@@ -11,7 +11,7 @@ import net.minecraft.client.gui.Font;
 import net.minecraft.client.gui.GuiGraphics;
 import net.minecraft.client.gui.LayeredDraw;
 
-// คลาสเรนเดอร์ยอดเงินระบบ Economy (Silver, Gold, Diamond) บน HUD บริเวณกึ่งกลางด้านบนหน้าจอ
+// คลาสเรนเดอร์ยอดเงินระบบ Economy (Silver, Diamond) บน HUD บริเวณกึ่งกลางด้านบนหน้าจอ
 public class EconomyOverlay implements LayeredDraw.Layer {
 
     @Override
@@ -27,10 +27,8 @@ public class EconomyOverlay implements LayeredDraw.Layer {
         float curX = (guiGraphics.guiWidth() / 2.0f) / scale;
         float y = 5.0f / scale;
 
-        String silverStr = "§r\uE046§f" + ClientEconomyData.getFormattedSilver();
-        String goldStr = " §r\uE047§6" + ClientEconomyData.getFormattedGold();
-        String diamondStr = " §r\uE048§b" + ClientEconomyData.getFormattedDiamond();
-        Component fullText = NeoBitmapFonts.text( silverStr + goldStr + diamondStr);
+        Component fullText = NeoEconomyText.balances(ClientEconomyData.getFormattedSilver(),
+                ClientEconomyData.getFormattedDiamond(), NeoEconomyText.Order.SILVER_FIRST);
 
         guiGraphics.pose().pushPose();
         guiGraphics.pose().scale(scale, scale, 1.0f);

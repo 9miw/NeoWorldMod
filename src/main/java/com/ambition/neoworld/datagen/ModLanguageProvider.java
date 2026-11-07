@@ -17,6 +17,39 @@ public class ModLanguageProvider extends LanguageProvider {
 
     @Override
     protected void addTranslations() {
+        boolean thai = "th_th".equals(locale);
+        add("gui.neoworld.loot_box.effects_on", thai ? "เอฟเฟกต์: เปิด" : "Effects: On");
+        add("gui.neoworld.loot_box.effects_off", thai ? "เอฟเฟกต์: ปิด" : "Effects: Off");
+        add("gui.neoworld.loot_box.additional", thai ? "จำนวนกล่องที่จะเปิดเพิ่ม (1–64)" : "Additional boxes to open (1–64)");
+        add("gui.neoworld.loot_box.auto", thai ? "เปิดเพิ่มอัตโนมัติ" : "Auto-open more");
+        add("gui.neoworld.loot_box.stop", thai ? "หยุด" : "Stop");
+        add("gui.neoworld.loot_box.remaining", thai ? "เหลือ %s กล่อง" : "%s boxes left");
+        add("gui.neoworld.loot_box.save_failed", thai ? "เปลี่ยนเอฟเฟกต์แล้ว แต่บันทึกค่าลงไฟล์ไม่สำเร็จ" : "Effects changed, but the preference could not be saved");
+        addItem(ModItems.LOOT_BOX, thai ? "กล่องสุ่ม (ทดสอบ)" : "Loot Box (Test)");
+        add("item.neoworld.loot_box.configured", thai ? "กล่องสุ่ม: %s" : "Loot Box: %s");
+        add("tooltip.neoworld.loot_box.use", thai ? "คลิกขวาเพื่อเปิดกล่องและรับรางวัลสุ่ม" : "Right-click to open and receive random rewards");
+        add("message.neoworld.loot_box.unconfigured", thai ? "รางวัลหรือจำนวนที่สุ่มไม่ถูกต้อง ยังไม่หักกล่อง" : "Invalid rewards or draw count. No box was consumed.");
+        add("gui.neoworld.loot_box.rewards", thai ? "ได้รับรางวัล %s รายการ" : "Received %s reward entries");
+        add("gui.neoworld.loot_box.empty", thai ? "ไม่ได้รับรางวัล" : "No rewards");
+        add("message.neoworld.loot_box.full", thai ? "พื้นที่กระเป๋าไม่เพียงพอ ยังไม่หักกล่อง" : "Not enough inventory space. No box was consumed.");
+        add("gui.neoworld.loot_box.title", thai ? "เปิดกล่องสุ่ม" : "Opening Loot Box");
+        add("gui.neoworld.loot_box.shaking", thai ? "มีอะไรขยับอยู่ข้างใน…" : "Something is moving inside…");
+        add("gui.neoworld.loot_box.opening", thai ? "กำลังเปิดกล่อง…" : "Opening…");
+        add("gui.neoworld.loot_box.reward", thai ? "ได้รับ: %s × %s" : "Received: %s × %s");
+        add("message.neoworld.combat_logout.warning", thai
+                ? "กำลังต่อสู้: %s วินาที · ออกเกมแล้วตัวละครจะอยู่ต่อ 60 วินาที"
+                : "In combat: %s seconds · Logging out leaves your character for 60 seconds");
+        add("message.neoworld.combat_logout.safe", thai
+                ? "พ้นสถานะต่อสู้แล้ว สามารถออกเกมได้ตามปกติ"
+                : "Combat ended. You can log out normally.");
+        addItem(ModItems.DRAGON_HELMET, thai ? "หมวกเกราะมังกร" : "Dragon Helmet");
+        addItem(ModItems.DRAGON_CHESTPLATE, thai ? "เสื้อเกราะมังกร" : "Dragon Chestplate");
+        addItem(ModItems.DRAGON_LEGGINGS, thai ? "กางเกงเกราะมังกร" : "Dragon Leggings");
+        addItem(ModItems.DRAGON_BOOTS, thai ? "รองเท้าเกราะมังกร" : "Dragon Boots");
+        add("gui.neoworld.quest_navigation.track", "th_th".equals(locale) ? "ติดตาม" : "Track");
+        add("gui.neoworld.quest_navigation.track_hint", "th_th".equals(locale) ? "ติดตามเควสต์ที่เลือกและกลับเข้าเกม" : "Track the selected quest and return to the world");
+        add("gui.neoworld.quest_navigation.select_hint", "th_th".equals(locale) ? "เลือกเควสต์ก่อนเพื่อติดตาม" : "Select a quest first");
+        add("block.neoworld.navigation_marker", "th_th".equals(locale) ? "จุดนำทางเควสต์ (Creative)" : "Quest Navigation Marker (Creative)");
         if ("th_th".equals(locale)) {
             addThaiTranslations();
         } else {
@@ -25,6 +58,8 @@ public class ModLanguageProvider extends LanguageProvider {
     }
 
     private void addEnglishTranslations() {
+        add("tooltip.neoworld.shared.scroll.protection", "Prevents downgrade and reset; consumed on every attempt.");
+        add("tooltip.neoworld.shared.scroll.booster", "Adds 10 percentage points to success, capped at 100; consumed every attempt.");
         add("tooltip.neoworld.fashion.type", "Fashion unlock item");
         add("tooltip.neoworld.fashion.slot", "Slot: %s");
         add("tooltip.neoworld.fashion.slot.head", "Head");
@@ -43,9 +78,8 @@ public class ModLanguageProvider extends LanguageProvider {
 
         add("item.neoworld.upgrade_stone", "Upgrade Stone");
         add("item.neoworld.advanced_upgrade_stone", "Advanced Upgrade Stone");
-        add("item.neoworld.supreme_upgrade_stone", "Supreme Upgrade Stone");
-        add("item.neoworld.downgrade_protection_scroll", "Downgrade Protection Scroll");
-        add("item.neoworld.break_protection_scroll", "Break Protection Scroll");
+        add("item.neoworld.protection_scroll", "Upgrade Protection Scroll");
+        add("item.neoworld.success_booster", "Success Booster Stone");
         add("block.neoworld.upgrade_table", "Upgrade Table");
         add("key.neoworld.player_actions", "Player actions");
         add("key.categories.neoworld", "NeoWorld");
@@ -70,7 +104,6 @@ public class ModLanguageProvider extends LanguageProvider {
         addItem(ModItems.DUELIST_NETHERITE_ARMOR_BOOTS, "รองเท้าเกราะดูเอลลิสต์เนเธอไรต์");
         addItem(ModItems.DUELIST_NETHERITE_ARMOR_HELMET, "หมวกเกราะดูเอลลิสต์เนเธอไรต์");
         addItem(ModItems.SILVER_COIN, "Silver Coin");
-        addItem(ModItems.GOLD_COIN, "Gold Coin");
         addItem(ModItems.DIAMOND_COIN, "Diamond Coin");
         addItem(ModItems.EXPERIENCE_ITEM, "NeoWorld EXP");
         addItem(ModItems.FASHION_EXAMPLE_HAT, "Example Fashion Hat");
@@ -80,18 +113,18 @@ public class ModLanguageProvider extends LanguageProvider {
         addItem(ModItems.DUELIST_IRON_FEET, "Iron Duelist Boots");
 
         add("tooltip.neoworld.silver_coin.desc", "Common Currency - Used for general trading & market");
-        add("tooltip.neoworld.gold_coin.desc", "High-tier Currency - Used for enhancement & blacksmith upgrades");
         add("tooltip.neoworld.diamond_coin.desc", "Premium Currency - Used for cash shop, cosmetics & ranks");
         add("tooltip.neoworld.coin.action", "Right-Click to deposit 1 | Shift + Right-Click to deposit all");
 
         add("message.neoworld.deposit_silver", "Deposited %s Silver Coin(s). Current Balance: %s Silver");
-        add("message.neoworld.deposit_gold", "Deposited %s Gold Coin(s). Current Balance: %s Gold");
         add("message.neoworld.deposit_diamond", "Deposited %s Diamond Coin(s). Current Balance: %s Diamond");
 
         addEnglishConfigTranslations();
     }
 
     private void addThaiTranslations() {
+        add("tooltip.neoworld.shared.scroll.protection", "ป้องกันลดระดับและแตกกลับ +0 ใช้หมดทุกครั้งที่ตีบวก");
+        add("tooltip.neoworld.shared.scroll.booster", "เพิ่มโอกาสสำเร็จ 10 จุดเปอร์เซ็นต์ สูงสุด 100 ใช้หมดทุกครั้งที่ตีบวก");
         add("tooltip.neoworld.fashion.type", "ไอเทมปลดล็อกแฟชั่น");
         add("tooltip.neoworld.fashion.slot", "ตำแหน่ง: %s");
         add("tooltip.neoworld.fashion.slot.head", "ศีรษะ");
@@ -110,9 +143,8 @@ public class ModLanguageProvider extends LanguageProvider {
 
         add("item.neoworld.upgrade_stone", "หินตีบวกพื้นฐาน");
         add("item.neoworld.advanced_upgrade_stone", "หินตีบวกขั้นสูง");
-        add("item.neoworld.supreme_upgrade_stone", "หินตีบวกขั้นสูงสุด");
-        add("item.neoworld.downgrade_protection_scroll", "ใบป้องกันระดับลด");
-        add("item.neoworld.break_protection_scroll", "ใบป้องกันแตก");
+        add("item.neoworld.protection_scroll", "ใบป้องกันตีบวก");
+        add("item.neoworld.success_booster", "หินเพิ่มโอกาสสำเร็จ");
         add("block.neoworld.upgrade_table", "โต๊ะตีบวก");
         add("key.neoworld.player_actions", "เมนูแอคชั่นผู้เล่น");
         add("key.categories.neoworld", "NeoWorld");
@@ -137,7 +169,6 @@ public class ModLanguageProvider extends LanguageProvider {
         addItem(ModItems.DUELIST_NETHERITE_ARMOR_BOOTS, "รองเท้าเกราะดูเอลลิสต์เนเธอไรต์");
         addItem(ModItems.DUELIST_NETHERITE_ARMOR_HELMET, "หมวกเกราะดูเอลลิสต์เนเธอไรต์");
         addItem(ModItems.SILVER_COIN, "เหรียญเงิน (Silver Coin)");
-        addItem(ModItems.GOLD_COIN, "เหรียญทอง (Gold Coin)");
         addItem(ModItems.DIAMOND_COIN, "เหรียญเพชร (Diamond Coin)");
         addItem(ModItems.EXPERIENCE_ITEM, "ไอเทม EXP ของ NeoWorld");
         addItem(ModItems.FASHION_EXAMPLE_HAT, "หมวกแฟชั่นตัวอย่าง");
@@ -147,12 +178,10 @@ public class ModLanguageProvider extends LanguageProvider {
         addItem(ModItems.DUELIST_IRON_FEET, "รองเท้าดูเอลลิสต์เหล็ก");
 
         add("tooltip.neoworld.silver_coin.desc", "สกุลเงินทั่วไป - ใช้จ่ายและซื้อขายทั่วไปในเซิร์ฟเวอร์");
-        add("tooltip.neoworld.gold_coin.desc", "สกุลเงินชั้นสูง - ใช้สำหรับระบบตีบวกและอัปเกรดอุปกรณ์");
         add("tooltip.neoworld.diamond_coin.desc", "สกุลเงินพรีเมียม - เงินเติมสำหรับแคชช็อป, ยศ, และแฟชั่น");
         add("tooltip.neoworld.coin.action", "คลิกขวาเพื่อฝาก 1 เหรียญ | Shift + คลิกขวาเพื่อฝากทั้งหมด");
 
         add("message.neoworld.deposit_silver", "ฝากเหรียญเงินสำเร็จ +%s เหรียญ (ยอดปัจจุบัน: %s Silver)");
-        add("message.neoworld.deposit_gold", "ฝากเหรียญทองสำเร็จ +%s เหรียญ (ยอดปัจจุบัน: %s Gold)");
         add("message.neoworld.deposit_diamond", "ฝากเหรียญเพชรสำเร็จ +%s เหรียญ (ยอดปัจจุบัน: %s Diamond)");
 
         addThaiConfigTranslations();

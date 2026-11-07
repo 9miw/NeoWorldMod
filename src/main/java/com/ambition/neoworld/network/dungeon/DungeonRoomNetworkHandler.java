@@ -30,6 +30,6 @@ public final class DungeonRoomNetworkHandler {
         PacketDistributor.sendToPlayer(player, new DungeonRoomViewPayload(open, room.id(), definition.displayName(),
                 definition.structureId() == null ? "" : definition.structureId().toString(), room.type().capacity(),
                 definition.minimumLevel(), definition.timeLimitSeconds(), definition.monsterWaves().size(),
-                room.state() == DungeonRoomState.WAITING, members));
+                room.state() == DungeonRoomState.WAITING, members, DungeonBrowserDataPayload.fromDefinitions(server, List.of(definition))));
     }
 }

@@ -1,0 +1,308 @@
+
+######## Current pack     : Cyberpunk / cyberpunk_animated 
+######## Current cosmetic : back / Core
+
+ECCosmetics_Prime-Cyberpunk-CosmeticsBind-Material:
+  Cooldown: 1
+  Conditions:
+  ########### MUST BE ARMOR ONLY !!
+  - wearing{slot=OFFHAND;m=LEATHER_HELMET} castinstead ECCosmetics_Prime-Cyberpunk-CosmeticsBind
+  - wearing{slot=OFFHAND;m=LEATHER_CHESTPLATE} castinstead ECCosmetics_Prime-Cyberpunk-CosmeticsBind
+  - wearing{slot=OFFHAND;m=LEATHER_LEGGINGS} castinstead ECCosmetics_Prime-Cyberpunk-CosmeticsBind
+  - wearing{slot=OFFHAND;m=LEATHER_BOOTS} castinstead ECCosmetics_Prime-Cyberpunk-CosmeticsBind
+
+  - wearing{slot=OFFHAND;m=CHAINMAIL_HELMET} castinstead ECCosmetics_Prime-Cyberpunk-CosmeticsBind
+  - wearing{slot=OFFHAND;m=CHAINMAIL_CHESTPLATE} castinstead ECCosmetics_Prime-Cyberpunk-CosmeticsBind
+  - wearing{slot=OFFHAND;m=CHAINMAIL_LEGGINGS} castinstead ECCosmetics_Prime-Cyberpunk-CosmeticsBind
+  - wearing{slot=OFFHAND;m=CHAINMAIL_BOOTS} castinstead ECCosmetics_Prime-Cyberpunk-CosmeticsBind
+
+  - wearing{slot=OFFHAND;m=IRON_HELMET} castinstead ECCosmetics_Prime-Cyberpunk-CosmeticsBind
+  - wearing{slot=OFFHAND;m=IRON_CHESTPLATE} castinstead ECCosmetics_Prime-Cyberpunk-CosmeticsBind
+  - wearing{slot=OFFHAND;m=IRON_LEGGINGS} castinstead ECCosmetics_Prime-Cyberpunk-CosmeticsBind
+  - wearing{slot=OFFHAND;m=IRON_BOOTS} castinstead ECCosmetics_Prime-Cyberpunk-CosmeticsBind
+
+  - wearing{slot=OFFHAND;m=GOLDEN_HELMET} castinstead ECCosmetics_Prime-Cyberpunk-CosmeticsBind
+  - wearing{slot=OFFHAND;m=GOLDEN_CHESTPLATE} castinstead ECCosmetics_Prime-Cyberpunk-CosmeticsBind
+  - wearing{slot=OFFHAND;m=GOLDEN_LEGGINGS} castinstead ECCosmetics_Prime-Cyberpunk-CosmeticsBind
+  - wearing{slot=OFFHAND;m=GOLDEN_BOOTS} castinstead ECCosmetics_Prime-Cyberpunk-CosmeticsBind
+
+  - wearing{slot=OFFHAND;m=DIAMOND_HELMET} castinstead ECCosmetics_Prime-Cyberpunk-CosmeticsBind
+  - wearing{slot=OFFHAND;m=DIAMOND_CHESTPLATE} castinstead ECCosmetics_Prime-Cyberpunk-CosmeticsBind
+  - wearing{slot=OFFHAND;m=DIAMOND_LEGGINGS} castinstead ECCosmetics_Prime-Cyberpunk-CosmeticsBind
+  - wearing{slot=OFFHAND;m=DIAMOND_BOOTS} castinstead ECCosmetics_Prime-Cyberpunk-CosmeticsBind
+
+  - wearing{slot=OFFHAND;m=NETHERITE_HELMET} castinstead ECCosmetics_Prime-Cyberpunk-CosmeticsBind
+  - wearing{slot=OFFHAND;m=NETHERITE_CHESTPLATE} castinstead ECCosmetics_Prime-Cyberpunk-CosmeticsBind
+  - wearing{slot=OFFHAND;m=NETHERITE_LEGGINGS} castinstead ECCosmetics_Prime-Cyberpunk-CosmeticsBind
+  - wearing{slot=OFFHAND;m=NETHERITE_BOOTS} castinstead ECCosmetics_Prime-Cyberpunk-CosmeticsBind
+
+  - wearing{slot=OFFHAND;m=TURTLE_HELMET} castinstead ECCosmetics_Prime-Cyberpunk-CosmeticsBind
+  Skills:
+  - skill{s=ECCosmetics_Prime-Cyberpunk-CosmeticsBind-OtherItem} @self
+
+ECCosmetics_Prime-Cyberpunk-CosmeticsBind: #Only for Armors
+  Cooldown: 2
+  Conditions:
+  #- hasaura CosmeticsBind_WarnStacking orElsecast ECCosmetics_Prime-Cyberpunk-CosmeticsBind-WarnStacking
+  - stringequals{val1="<caster.item.offhand.nbt.MYTHIC_TYPE>";val2="UNDEFINED"} orElsecast ECCosmetics_Prime-Cyberpunk-CosmeticsBind-AlreadyMythicItem
+  Skills:
+  - setItemNBT{slot=OFFHAND;key=MYTHIC_TYPE;value=ECCosmetics_Prime-Cyberpunk-Main} @self
+  
+  - message{m="&8&n_________________________________________"}
+  - message{m="&3"}
+  - message{m="&dElite-Cosmetics Legacy &eBound to the offhand-item"} @self
+  - setNoDamageTicks{ticks=2} @self
+  - sound{s=minecraft:ui.toast.challenge_complete;p=2;v=1;audience=CASTER} @self
+  - effect:firework{t=BALL_LARGE;d=0;f=true;tr=true} @selflocation{y=1}
+  ### ECCosmetics LIST
+  - setItemNBT{slot=OFFHAND;key=ECCosmetics;value=Enable} @self
+
+  #- command{c="item modify entity <caster.name> weapon.offhand minecraft<&co>setcount_a1"} @self
+
+  - setItemNBT{slot=OFFHAND;key=ECCosmetics-Type;value=Core-Cosmetics} @self ?holding{m=ECCosmetics_Prime-Cyberpunk-Cosmetics-Core}
+
+  - message{m="&ewith &bCore-Cosmetics"} ?stringequals{val1="<caster.item.offhand.nbt.ECCosmetics-Type>";val2="Core-Cosmetics"}
+  - message{m="&8&n_________________________________________"}
+  - consumehelditem
+
+ECCosmetics_Prime-Cyberpunk-CosmeticsBind-OtherItem:
+  Cooldown: 2
+  Conditions:
+  - hasaura CosmeticsBind_WarnStacking orElsecast ECCosmetics_Prime-Cyberpunk-CosmeticsBind-WarnStacking
+  - stringequals{val1="<caster.item.offhand.nbt.MYTHIC_TYPE>";val2="UNDEFINED"} orElsecast ECCosmetics_Prime-Cyberpunk-CosmeticsBind-AlreadyMythicItem
+  Skills:
+  - setItemNBT{slot=OFFHAND;key=MYTHIC_TYPE;value=ECCosmetics_Prime-Cyberpunk-Main-OtherItem} @self
+  
+  - message{m="&8&n_________________________________________"}
+  - message{m="&3"}
+  - message{m="&dElite-Cosmetics Legacy &eBound to the offhand-item"} @self
+  - setNoDamageTicks{ticks=2} @self
+  - sound{s=minecraft:ui.toast.challenge_complete;p=2;v=1;audience=CASTER} @self
+  - effect:firework{t=BALL_LARGE;d=0;f=true;tr=true} @selflocation{y=1}
+  ### ECCosmetics LIST
+  - setItemNBT{slot=OFFHAND;key=ECCosmetics;value=Enable} @self
+  - setItemNBT{slot=OFFHAND;key=ECCosmetics-OtherItem;value=Enable} @self
+
+  - setItemNBT{slot=OFFHAND;key=ECCosmetics-Type;value=Core-Cosmetics} @self ?holding{m=ECCosmetics_Prime-Cyberpunk-Cosmetics-Core}
+
+  - message{m="&ewith &bCore-Cosmetics"} ?stringequals{val1="<caster.item.offhand.nbt.ECCosmetics-Type>";val2="Core-Cosmetics"}
+  - message{m="&8&n_________________________________________"}
+  
+  - command{c="item modify entity <caster.name> weapon.offhand minecraft<&co>setcount_a1"} @self
+  - consumehelditem
+
+
+ECCosmetics_Prime-Cyberpunk-CosmeticsBind-WarnStacking:
+  Skills:
+  - sendtitle{title="&c&lWARNING";subtitle="&eOff-hands &CMUST NOT&e be stacking";d=50} @self
+  - sound{s=minecraft:entity.villager.no;p=1;v=1;audience=CASTER} @self
+  - message{m="&8&n_________________________________________"}
+  - message{m="&8"}
+  - message{m="&4» &4&l&nWARNING"} @self
+  - message{m="&4» &eOff-hand item &c&lMUST NOT&r&e be stacking"} @self
+  - message{m="&4» &eor else, &c&lWILL LOSS ALL."} @self
+  - message{m="&e» &bShift+Left &7to confirm ."} @self
+  - message{m="&8&n_________________________________________"} @self
+  - Aura{auraname=CosmeticsBind_WarnStacking;d=50} @self
+
+ECCosmetics_Prime-Cyberpunk-CosmeticsBind-AlreadyMythicItem:
+  Cooldown: 2
+  Conditions:
+  - stringequals{val1="<caster.item.offhand.nbt.ECCosmetics>";val2="Enable"} castinstead ECCosmetics_Prime-Cyberpunk-CosmeticsBind-AlreadyBoundItem
+  - stringequals{val1="<caster.item.offhand.nbt.ECCosmetics-Mergeable>";val2="True"} castinstead ECCosmetics_Prime-Cyberpunk-CosmeticsBind-MythicMerge
+  Skills:
+  - sound{s=minecraft:entity.villager.no;p=1;v=1;audience=CASTER} @self
+  - message{m="&c❎ This item was already an Mythic Item!"}
+  - message{m="&c» Call staffs for help"}
+
+ECCosmetics_Prime-Cyberpunk-CosmeticsBind-AlreadyBoundItem:
+  Cooldown: 2
+  Skills:
+  - sound{s=minecraft:entity.villager.no;p=1;v=1;audience=CASTER} @self
+  - message{m="&c❎ This item was already bound"}
+  - message{m="&c» use &eUnbinding Shears&c to unbind the effect"}
+
+ECCosmetics_Prime-Cyberpunk-CosmeticsBind-MythicMerge:
+  Skills:
+  - message{m="&8&n_________________________________________"}
+  - message{m="&3"}
+  - message{m="&Elite-Cosmetics Legacy &eBound to the offhand-armor"} @self
+  - setItemNBT{slot=OFFHAND;key=ECCosmetics;value=Enable} @self
+  - setNoDamageTicks{ticks=2} @self
+  - sound{s=minecraft:ui.toast.challenge_complete;p=2;v=1;audience=CASTER} @self
+  - effect:firework{t=BALL_LARGE;d=0;f=true;tr=true} @selflocation{y=1}
+  ### ECCosmetics LIST
+  - setItemNBT{slot=OFFHAND;key=ECCosmetics-Type;value=Core-Cosmetics} @self ?holding{m=ECCosmetics_Prime-Cyberpunk-Cosmetics-Core}
+
+  - message{m="&ewith &bCore-Cosmetics"} ?stringequals{val1="<caster.item.offhand.nbt.ECCosmetics-Type>";val2="Core-Cosmetics"}
+  - message{m="&8&n_________________________________________"}
+  - consumehelditem
+
+
+#############################################################################
+
+ECCosmetics_Prime-Cyberpunk-Equip:
+  Cooldown: 1
+  Conditions:
+  - hasaura ECCosmetics-Equipping false
+  Skills:
+  #- message{m="Equip"} @self #M
+  - setvar{var=skill.ECCosmetics-Type;value=<caster.item.nbt.ECCosmetics-Type>;type=STRING} @self
+  - delay 1
+  - skill{s=ECCosmetics_Prime-Cyberpunk-Equip-Head} @self
+  - delay 1
+  - skill{s=ECCosmetics_Prime-Cyberpunk-Equip-Chest} @self
+  - delay 1
+  - skill{s=ECCosmetics_Prime-Cyberpunk-Equip-Legs} @self
+  - delay 1
+  - skill{s=ECCosmetics_Prime-Cyberpunk-Equip-Feet} @self
+
+ECCosmetics_Prime-Cyberpunk-Equip-OtherItem:
+  #Cooldown: 1
+  Skills:
+  #- message{m="Equip OtherItem"} @self #M
+  - setvar{var=skill.ECCosmetics-Type;value=<caster.item.head.nbt.ECCosmetics-Type>;type=STRING} @self
+  - Aura{auraname=ECCosmetics-OtherItem;i=5;d=10;ms=1;ma=true;rd=true;oT=ECCosmetics_Prime-Cyberpunk-Equip-AuraLoop;oS=ECCosmetics_Prime-Cyberpunk-Equip_Apply;oE=ECCosmetics_Prime-Cyberpunk-Unequip} @self 
+  - Aura{auraName=ECCosmetics-Equipping;i=1;d=10;ma=true;rd=true;ms=1;cod=true} @self
+
+ECCosmetics_Prime-Cyberpunk-Equip-AuraLoop:
+  Conditions:
+  - stringequals{val1="<caster.item.head.nbt.ECCosmetics-OtherItem>";val2="Enable"}
+  Skills:
+  - Aura{auraname=ECCosmetics-OtherItem;i=5;d=11;ms=1;ma=true;rd=true} @self
+
+ECCosmetics_Prime-Cyberpunk-Equip-ForceSpawn:
+  #Cooldown: 1
+  Skills:
+  #- message{m="Equip"} @self #M
+  - setvar{var=skill.ECCosmetics-Type;value=<caster.item.nbt.ECCosmetics-Type>;type=STRING} @self
+  - delay 1
+  - skill{s=ECCosmetics_Prime-Cyberpunk-Equip-Head} @self
+  - skill{s=ECCosmetics_Prime-Cyberpunk-Equip-Chest} @self
+  - skill{s=ECCosmetics_Prime-Cyberpunk-Equip-Legs} @self
+  - skill{s=ECCosmetics_Prime-Cyberpunk-Equip-Feet} @self
+
+ECCosmetics_Prime-Cyberpunk-Equip-Head:
+  Conditions:
+  - wearing{slot=HEAD;m=ECCosmetics_Prime-Cyberpunk-Main} #orElsecast ECCosmetics_Prime-Cyberpunk-Equip-Chest
+  - stringequals{val1="<caster.item.head.nbt.ECCosmetics-OtherItem>";val2="Enable"} false
+  Skills:
+  - skill{s=ECCosmetics_Prime-Cyberpunk-Equip-Aura} @self
+
+ECCosmetics_Prime-Cyberpunk-Equip-Chest:
+  Conditions:
+  - wearing{slot=CHEST;m=ECCosmetics_Prime-Cyberpunk-Main} #orElsecast ECCosmetics_Prime-Cyberpunk-Equip-Legs
+  Skills:
+  #- message{m="Chest"} @self #M
+  - skill{s=ECCosmetics_Prime-Cyberpunk-Equip-Aura} @self
+
+ECCosmetics_Prime-Cyberpunk-Equip-Legs:
+  Conditions:
+  - wearing{slot=LEGS;m=ECCosmetics_Prime-Cyberpunk-Main} #orElsecast ECCosmetics_Prime-Cyberpunk-Equip-Feet
+  Skills:
+  - skill{s=ECCosmetics_Prime-Cyberpunk-Equip-Aura} @self
+
+ECCosmetics_Prime-Cyberpunk-Equip-Feet:
+  Conditions:
+  - wearing{slot=FEET;m=ECCosmetics_Prime-Cyberpunk-Main} #orElsecast ECCosmetics_Prime-Cyberpunk-Unequip
+  Skills:
+  - skill{s=ECCosmetics_Prime-Cyberpunk-Equip-Aura} @self
+
+ECCosmetics_Prime-Cyberpunk-Unequip:
+  Skills:
+  - removetag{t=ECCosmetics-EquippingTag} @self
+  - command{c="cosmeticscore<&co>cosmetics <caster.name> remove cyberpunk_animated-back";asOp=true;asTarget=self} @self 
+  - delay 1
+  #- message{m="Unequip"} @self #M
+  - auraremove{aura=ECCosmetics-Equipping} @self
+  - auraremove{aura=ECCosmetics-OtherItem} @self
+
+##################
+
+
+ECCosmetics_Prime-Cyberpunk-Equip-Aura:
+  Skills:
+  - Aura{auraName=ECCosmetics-Equipping;oS=ECCosmetics_Prime-Cyberpunk-Equip_Apply;oT=ECCosmetics_Prime-Cyberpunk-Equipping;oE=ECCosmetics_Prime-Cyberpunk-Unequip;i=5;d=10;ma=true;rd=true;ms=1;cod=true} @self
+
+ECCosmetics_Prime-Cyberpunk-Equip_Apply:
+  Conditions:
+  - hastag{t=ECCosmetics-EquippingTag} false
+  Skills:
+  #- message{m="Cosmetic"} @self #M
+  #- message{m="<skill.var.ECCosmetics-Type>"} @self #M
+  - addtag{t=ECCosmetics-EquippingTag} @self
+  - effect:particlesphere{r=0.5;particle=end_rod;speed=0.125;amount=20;hS=0.025;vS=1.25;cooldown=1} @self 
+  - effect:particlesphere{r=0.5;particle=cloud;speed=0.125;amount=20;hS=0.025;vS=1.25;cooldown=1} @selflocation{y=1.5}
+  - command{c="cosmeticscore<&co>cosmetics <caster.name> add cyberpunk_animated-back";asOp=true;asTarget=self} @self ?stringequals{val1="<skill.var.ECCosmetics-Type>";val2="Core-Cosmetics"}
+  - sound{s=minecraft:item.armor.equip_netherite;v=1} @self 
+
+ECCosmetics_Prime-Cyberpunk-Equipping:
+  Skills:
+  - Aura{auraName=ECCosmetics-Equipping;i=5;d=10} @self
+
+#########################
+
+ECCosmetics_Prime-Cyberpunk-UnbindingShears:
+  Cooldown: 1
+  Conditions:
+  - stringequals{val1="<caster.item.offhand.nbt.ECCosmetics-Mergeable>";val2="True"} castinstead ECCosmetics_Prime-Cyberpunk-UnbindingShears-MythicItems
+  - stringequals{val1="<caster.item.offhand.nbt.ECCosmetics>";val2="Enable"} orElsecast ECCosmetics_Prime-Cyberpunk-UnbindingShears-NotBoundItem
+  - hasaura{auraname=UnbindingShearsConfirm} castinstead ECCosmetics_Prime-Cyberpunk-UnbindingShears-Confirmed
+  Skills:
+  - Aura{auraName=UnbindingShearsConfirm;d=60} @self ?!hasaura{auraname=UnbindingShearsConfirm}
+  - sound{s=minecraft:entity.experience_orb.pickup;audience=Caster} @self
+  - message{m="&8&n_________________________________________"}
+  - message{m="&3"}
+  - message{m="&7Are you sure you want to &cunbind&7 the &dkill-effect&7?"} 
+ 
+  - message{m="&ethe item bound with &b<caster.item.offhand.nbt.ECCosmetics-Type>"}
+
+  - message{m="&bRIGHT-CLICK &7to confirm the &d&nunbinding process"}
+  - message{m="&8&n_________________________________________"}
+
+ECCosmetics_Prime-Cyberpunk-UnbindingShears-Confirmed:
+  Skills:
+  - dropitem{i=ECCosmetics_Prime-Cyberpunk-Cosmetics-Core} @self ?stringequals{val1="<caster.item.offhand.nbt.ECCosmetics-Type>";val2="Core-Cosmetics"}
+  - setItemNBT{slot=OFFHAND;key=MYTHIC_TYPE;value=UNDEFINED} @self
+  - setItemNBT{slot=OFFHAND;key=ECCosmetics-Type;value=UNDEFINED} @self
+  - setItemNBT{slot=OFFHAND;key=ECCosmetics;value=UNDEFINED} @self
+  - sound{s=minecraft:block.glass.break;p=0.5;audience=Caster} @self
+
+  - consumehelditem 
+
+ECCosmetics_Prime-Cyberpunk-UnbindingShears-NotBoundItem:
+  Skills:
+  - message{m="&cThis item wasn't bound with any effects ❎"}
+
+ECCosmetics_Prime-Cyberpunk-UnbindingShears-MythicItems:
+  Cooldown: 1
+  Conditions:
+  - hasaura{auraname=UnbindingShearsConfirm} castinstead ECCosmetics_Prime-Cyberpunk-UnbindingShears-Confirmed-MythicItems
+  Skills:
+  - Aura{auraName=UnbindingShearsConfirm;d=60} @self ?!hasaura{auraname=UnbindingShearsConfirm}
+  - sound{s=minecraft:entity.experience_orb.pickup;audience=Caster} @self
+  - message{m="&8&n_________________________________________"}
+  - message{m="&3"}
+  - message{m="&7Are you sure you want to &cunbind&7 the &dkill-effect&7?"} 
+
+  - message{m="&ethe item bound with &b<caster.item.offhand.nbt.ECCosmetics-Type>"}
+  
+  - message{m="&bRIGHT-CLICK &7to confirm the &d&nunbinding process"}
+  - message{m="&8&n_________________________________________"}
+
+ECCosmetics_Prime-Cyberpunk-UnbindingShears-Confirmed-MythicItems:
+  Skills:
+  - dropitem{i=ECCosmetics_Prime-Cyberpunk-Cosmetics-Core} @self ?stringequals{val1="<caster.item.offhand.nbt.ECCosmetics-Type>";val2="Core-Cosmetics"}
+
+  - setItemNBT{slot=OFFHAND;key=ECCosmetics-Type;value=UNDEFINED} @self
+  - setItemNBT{slot=OFFHAND;key=ECCosmetics;value=UNDEFINED} @self
+  - sound{s=minecraft:block.glass.break;p=0.5;audience=Caster} @self
+  
+  - consumehelditem 
+
+ECCosmetics_Prime-Cyberpunk-Debug:
+  Conditions:
+  - hasaura ECCosmetics-Equipping false
+  - hasaura ECCosmetics-OtherItem false
+  Skills:
+  - removetag{t=ECCosmetics-EquippingTag} @self

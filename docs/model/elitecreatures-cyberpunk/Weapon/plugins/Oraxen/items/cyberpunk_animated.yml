@@ -1,0 +1,242 @@
+############# Fundamental Items 
+
+cyberpunk_animated-axe:
+  displayname: Display
+  material: DIAMOND_AXE
+  Pack:
+    generate_model: false
+    #custom_model_data: Define your custom Model Data 
+    model: elitecreatures:cyberpunk_animated/axe
+cyberpunk_animated-hoe:
+  displayname: Display
+  material: DIAMOND_HOE
+  Pack:
+    generate_model: false
+    #custom_model_data: Define your custom Model Data 
+    model: elitecreatures:cyberpunk_animated/hoe
+cyberpunk_animated-pickaxe:
+  displayname: Display
+  material: DIAMOND_PICKAXE
+  Pack:
+    generate_model: false
+    #custom_model_data: Define your custom Model Data 
+    model: elitecreatures:cyberpunk_animated/pickaxe
+cyberpunk_animated-shovel:
+  displayname: Display
+  material: DIAMOND_SHOVEL
+  Pack:
+    generate_model: false
+    #custom_model_data: Define your custom Model Data 
+    model: elitecreatures:cyberpunk_animated/shovel
+cyberpunk_animated-sword:
+  displayname: Display
+  material: DIAMOND_SWORD
+  Pack:
+    generate_model: false
+    #custom_model_data: Define your custom Model Data 
+    model: elitecreatures:cyberpunk_animated/sword
+
+############# Fantasy Weapons 
+
+cyberpunk_animated-assault_rifle:
+  displayname: Display
+  material: DIAMOND_SWORD
+  Pack:
+    generate_model: false
+    #custom_model_data: Define your custom Model Data 
+    model: elitecreatures:cyberpunk_animated/assault_rifle
+cyberpunk_animated-baton:
+  displayname: Display
+  material: DIAMOND_SWORD
+  Pack:
+    generate_model: false
+    #custom_model_data: Define your custom Model Data 
+    model: elitecreatures:cyberpunk_animated/baton
+cyberpunk_animated-dagger:
+  displayname: Display
+  material: DIAMOND_SWORD
+  Pack:
+    generate_model: false
+    #custom_model_data: Define your custom Model Data 
+    model: elitecreatures:cyberpunk_animated/dagger
+cyberpunk_animated-gauntlet:
+  displayname: Display
+  material: DIAMOND_SWORD
+  Pack:
+    generate_model: false
+    #custom_model_data: Define your custom Model Data 
+    model: elitecreatures:cyberpunk_animated/gauntlet
+cyberpunk_animated-greatsword:
+  displayname: Display
+  material: DIAMOND_SWORD
+  Pack:
+    generate_model: false
+    #custom_model_data: Define your custom Model Data 
+    model: elitecreatures:cyberpunk_animated/greatsword
+cyberpunk_animated-hammer:
+  displayname: Display
+  material: DIAMOND_SWORD
+  Pack:
+    generate_model: false
+    #custom_model_data: Define your custom Model Data 
+    model: elitecreatures:cyberpunk_animated/hammer
+cyberpunk_animated-shotgun:
+  displayname: Display
+  material: DIAMOND_SWORD
+  Pack:
+    generate_model: false
+    #custom_model_data: Define your custom Model Data 
+    model: elitecreatures:cyberpunk_animated/shotgun
+cyberpunk_animated-spear:
+  displayname: Display
+  material: DIAMOND_SWORD
+  Pack:
+    generate_model: false
+    #custom_model_data: Define your custom Model Data 
+    model: elitecreatures:cyberpunk_animated/spear
+
+
+
+############# Special Event Items 
+
+cyberpunk_animated-bow:
+  displayname: "<white>DISPLAY"
+  material: BOW
+  Pack:
+    generate_model: false
+    #custom_model_data: Define you ModelData
+    model: elitecreatures:cyberpunk_animated/bow #<- Make sure
+    pulling_models:
+    - elitecreatures:cyberpunk_animated/bow_0
+    - elitecreatures:cyberpunk_animated/bow_1
+    - elitecreatures:cyberpunk_animated/bow_2
+
+cyberpunk_animated-shield:
+  displayname: "<white>Shield"
+  material: SHIELD
+  Pack:
+    generate_model: false
+    #custom_model_data: Define you ModelData
+    model: elitecreatures:cyberpunk_animated/shield
+    blocking_model: elitecreatures:cyberpunk_animated/shield_blocking #<- Make sure
+
+cyberpunk_animated-fishing_rod:
+  displayname: "<white>Shield"
+  material: FISHING_ROD
+  Pack:
+    generate_model: false
+    #custom_model_data: Define you ModelData
+    model: elitecreatures:cyberpunk_animated/fishing_rod
+    cast_model: elitecreatures:cyberpunk_animated/fishing_rod_cast #<- Make sure
+
+cyberpunk_animated-crossbow:
+  displayname: <white>DISPLAY
+  material: CROSSBOW
+  Pack:
+    generate_model: false
+    model: elitecreatures:cyberpunk_animated/crossbow
+    pulling_models:
+    - elitecreatures:cyberpunk_animated/crossbow_0
+    - elitecreatures:cyberpunk_animated/crossbow_1
+    - elitecreatures:cyberpunk_animated/crossbow_2
+    charged_model: elitecreatures:cyberpunk_animated/crossbow_charged
+    firework_model: elitecreatures:cyberpunk_animated/crossbow_charged
+    custom_model_data: 1000
+
+############# Cosmetics
+
+cyberpunk_animated-back:
+  displayname: Display
+  material: PAPER
+  Pack:
+    generate_model: false
+    #custom_model_data: Define your custom Model Data 
+    model: elitecreatures:cyberpunk_animated/back
+
+### Uses cyberpunk_armor_layer_1 and cyberpunk_armor_layer_2 
+### color can't be 0, 0, 0
+
+cyberpunk_hat:
+  displayname: <white>DISPLAY
+  material: PAPER
+  Pack:
+    generate_model: false
+    # custom_model_data: Define you ModelData
+    model: elitecreatures:cyberpunk_animated/armor/hat
+    custom_model_data: 1001
+  Mechanics:
+    hat:
+      enabled: true
+  color: 198,187,200
+
+cyberpunk_chestplate:
+  displayname: <white>Chestplate
+  material: LEATHER_CHESTPLATE
+  color: 198,187,200
+  Pack:
+    generate_model: true
+    # custom_model_data: Define you ModelData
+    #model: elitecreatures:cyberpunk_animated/armor/chestplate
+    custom_model_data: 1000
+    textures:
+    - elitecreatures/cyberpunk/armor/cyberpunk_chestplate
+    - elitecreatures/cyberpunk/armor/cyberpunk_chestplate
+
+cyberpunk_leggings:
+  displayname: <white>Leggings
+  material: LEATHER_LEGGINGS
+  color: 198,187,200
+  Pack:
+    generate_model: true
+    # custom_model_data: Define you ModelData
+    #model: elitecreatures:cyberpunk_animated/armor/leggings
+    custom_model_data: 1000
+    textures:
+    - elitecreatures/cyberpunk/armor/cyberpunk_leggings
+    - elitecreatures/cyberpunk/armor/cyberpunk_leggings
+
+cyberpunk_boots:
+  displayname: <white>Boots
+  material: LEATHER_BOOTS
+  color: 198,187,200
+  Pack:
+    generate_model: true
+    # custom_model_data: Define you ModelData
+    #model: elitecreatures:cyberpunk_animated/armor/boots
+    custom_model_data: 1000
+    textures:
+    - elitecreatures/cyberpunk/armor/cyberpunk_boots
+    - elitecreatures/cyberpunk/armor/cyberpunk_boots
+
+############### Chest and Key
+
+cyberpunk_animated-key:
+  displayname: Display
+  material: DIAMOND_SWORD
+  Pack:
+    generate_model: false
+    #custom_model_data: Define your custom Model Data 
+    model: elitecreatures:cyberpunk_animated/key
+
+cyberpunk_chest:
+  displayname: <white>Chest
+  material: PAPER
+  Pack:
+    generate_model: false
+    model: elitecreatures:cyberpunk_animated/chest
+    #custom_model_data: Define
+  Mechanics:
+    furniture:
+      type: ITEM_FRAME # Valid types are ITEM_FRAME, DISPLAY_ENTITY & GLOWING_ITEM_FRAME
+      block_sounds:
+        place_sound: block.stone.place
+        break_sound: block.stone.break
+        hit_sound: block.stone.place # Custom sound as defined in Oraxen/sound.yml
+        step_sound: block.stone.place # Requires a sound-file in the Oraxen/pack-folder aswell
+        fall_sound: block.stone.place
+      barrier: true
+      drop:
+        silktouch: false
+        loots:
+        - oraxen_item: cyberpunk_chest
+          probability: 1.0

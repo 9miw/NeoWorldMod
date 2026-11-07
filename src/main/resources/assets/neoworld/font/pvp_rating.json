@@ -1,0 +1,22 @@
+{
+  "providers": [
+    {
+      "type": "bitmap",
+      "file": "neoworld:font/pvp_titles/rating_up.png",
+      "ascent": 8,
+      "height": 9,
+      "chars": [
+        "\ue408"
+      ]
+    },
+    {
+      "type": "bitmap",
+      "file": "neoworld:font/pvp_titles/rating_down.png",
+      "ascent": 8,
+      "height": 9,
+      "chars": [
+        "\ue409"
+      ]
+    }
+  ]
+}

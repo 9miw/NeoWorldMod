@@ -1,0 +1,29 @@
+{
+  "ModRev": 18,
+  "Id": 6,
+  "CompleterNpc": "Kocimira",
+  "QuestCommand": "",
+  "RandomReward": 0,
+  "RewardExp": 0,
+  "Rewards": {
+    "NpcMiscInv": []
+  },
+  "QuestCompletion": 0,
+  "QuestRepeat": 0,
+  "QuestFactionPoints": {},
+  "QuestMail": {},
+  "LeaveItems": 0,
+  "IgnoreDamage": 1,
+  "IgnoreNBT": 1,
+  "Type": 1,
+  "Title": "1/7 ฝากตัวกับกิลด์",
+  "Text": "ไปพบ§6§lโคซิไมรา§r เลือกแนะนำตัวกับกิลด์ แล้วปิดหน้าต่างและคุยอีกครั้งเพื่อส่งงาน",
+  "CompleteText": "เริ่มงานของกิลด์ได้แล้ว! ต่อไปรวบรวมเสบียงสำหรับการเดินทาง",
+  "NextQuestId": 7,
+  "QuestDialogs": [
+    {
+      "Slot": 0,
+      "Integer": 128
+    }
+  ]
+}

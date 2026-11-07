@@ -17,6 +17,7 @@ public final class DungeonDefinition {
     private int timeLimitSeconds;
     private EnumSet<DungeonRoomType> roomTypes;
     private ResourceLocation structureId;
+    private ResourceLocation imageId;
     private List<DungeonTemplatePiece> structurePieces;
     private DungeonBossConfig boss;
     private List<DungeonMonsterWave> monsterWaves;
@@ -81,6 +82,18 @@ public final class DungeonDefinition {
 
     public ResourceLocation structureId() {
         return structureId;
+    }
+
+    public ResourceLocation imageId() { return imageId; }
+
+    public static boolean isImageResource(ResourceLocation id) {
+        return id != null && id.toString().length() <= 256 && id.getPath().startsWith("textures/")
+                && id.getPath().endsWith(".png") && !id.getPath().contains("..");
+    }
+
+    void setImageId(ResourceLocation id) {
+        if (id != null && !isImageResource(id)) throw new IllegalArgumentException("Image must be a textures/*.png resource");
+        imageId = id;
     }
 
     public List<DungeonTemplatePiece> structurePieces() {
@@ -155,6 +168,13 @@ public final class DungeonDefinition {
     void clearMonsterWaves() {
         this.monsterWaves = List.of();
         this.status = DungeonDefinitionStatus.DRAFT;
+    }
+
+    void replaceMonsterWave(int index, DungeonMonsterWave wave) {
+        var waves = new java.util.ArrayList<>(monsterWaves);
+        waves.set(index, wave);
+        monsterWaves = List.copyOf(waves);
+        status = DungeonDefinitionStatus.DRAFT;
     }
 
     void setReward(DungeonRewardConfig reward) {

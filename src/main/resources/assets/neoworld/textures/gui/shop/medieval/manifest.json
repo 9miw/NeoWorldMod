@@ -1,0 +1,1146 @@
+{
+  "stage": "exported assets; not integrated",
+  "reference": "docs/gui/shop/medieval/approved-mockup.png",
+  "alpha_threshold": 224,
+  "assets": {
+    "frame": {
+      "source": "panels",
+      "roi_xyxy": [
+        75,
+        35,
+        840,
+        335
+      ],
+      "source_bounds_xyxy": [
+        10,
+        14,
+        754,
+        291
+      ],
+      "file": "src/main/resources/assets/neoworld/textures/gui/shop/medieval/frame.png",
+      "size": [
+        748,
+        281
+      ],
+      "opaque_bounds_xyxy": [
+        2,
+        2,
+        746,
+        279
+      ],
+      "sha256": "58145b6e28c7296437a8f61411017822469989c100f79f82494b8f8f978a161b"
+    },
+    "panels/title": {
+      "source": "panels",
+      "roi_xyxy": [
+        880,
+        20,
+        1490,
+        305
+      ],
+      "source_bounds_xyxy": [
+        10,
+        12,
+        598,
+        270
+      ],
+      "file": "src/main/resources/assets/neoworld/textures/gui/shop/medieval/panels/title.png",
+      "size": [
+        592,
+        262
+      ],
+      "opaque_bounds_xyxy": [
+        2,
+        2,
+        590,
+        260
+      ],
+      "sha256": "809ba3c4a85aa52898ebe14cccc563578a43d813b17a7bd37f9f915a0673f23a"
+    },
+    "panels/products": {
+      "source": "panels",
+      "roi_xyxy": [
+        75,
+        345,
+        995,
+        690
+      ],
+      "source_bounds_xyxy": [
+        11,
+        12,
+        909,
+        333
+      ],
+      "file": "src/main/resources/assets/neoworld/textures/gui/shop/medieval/panels/products.png",
+      "size": [
+        902,
+        325
+      ],
+      "opaque_bounds_xyxy": [
+        2,
+        2,
+        900,
+        323
+      ],
+      "sha256": "2adcb078506527498b3780dc6bc08d01a1944d7a10ad45c095984927c6c7af67"
+    },
+    "panels/details": {
+      "source": "panels",
+      "roi_xyxy": [
+        1035,
+        345,
+        1465,
+        825
+      ],
+      "source_bounds_xyxy": [
+        13,
+        12,
+        414,
+        469
+      ],
+      "file": "src/main/resources/assets/neoworld/textures/gui/shop/medieval/panels/details.png",
+      "size": [
+        405,
+        461
+      ],
+      "opaque_bounds_xyxy": [
+        2,
+        2,
+        403,
+        459
+      ],
+      "sha256": "723c792251cdb5898bb371f841851e41d9107514fb3dc23080208d08ed4490f1"
+    },
+    "panels/inventory": {
+      "source": "panels",
+      "roi_xyxy": [
+        75,
+        700,
+        995,
+        985
+      ],
+      "source_bounds_xyxy": [
+        11,
+        12,
+        910,
+        269
+      ],
+      "file": "src/main/resources/assets/neoworld/textures/gui/shop/medieval/panels/inventory.png",
+      "size": [
+        903,
+        261
+      ],
+      "opaque_bounds_xyxy": [
+        2,
+        2,
+        901,
+        259
+      ],
+      "sha256": "f7fc3d4b21bd8af6793012eddee3baffbc684548abc6f63976dee5bdb0d71675"
+    },
+    "panels/section": {
+      "source": "panels",
+      "roi_xyxy": [
+        1040,
+        840,
+        1465,
+        980
+      ],
+      "source_bounds_xyxy": [
+        14,
+        10,
+        403,
+        113
+      ],
+      "file": "src/main/resources/assets/neoworld/textures/gui/shop/medieval/panels/section.png",
+      "size": [
+        393,
+        107
+      ],
+      "opaque_bounds_xyxy": [
+        2,
+        2,
+        391,
+        105
+      ],
+      "sha256": "1e1b11dc23d8ff84e917c9bf26146a6340e40c1cd8d14c0ac01a3518e081bcbd"
+    },
+    "tabs/normal": {
+      "source": "widgets",
+      "roi_xyxy": [
+        25,
+        45,
+        345,
+        175
+      ],
+      "source_bounds_xyxy": [
+        26,
+        30,
+        303,
+        110
+      ],
+      "native_size": [
+        277,
+        80
+      ],
+      "file": "src/main/resources/assets/neoworld/textures/gui/shop/medieval/tabs/normal.png",
+      "size": [
+        281,
+        84
+      ],
+      "opaque_bounds_xyxy": [
+        2,
+        2,
+        279,
+        82
+      ],
+      "sha256": "ff005ca30294845a39fbc9fb76f09050d3dcfa8f865d5e74addfbf5986ac086b"
+    },
+    "tabs/hover": {
+      "source": "widgets",
+      "roi_xyxy": [
+        345,
+        45,
+        660,
+        175
+      ],
+      "source_bounds_xyxy": [
+        22,
+        30,
+        294,
+        110
+      ],
+      "native_size": [
+        272,
+        80
+      ],
+      "file": "src/main/resources/assets/neoworld/textures/gui/shop/medieval/tabs/hover.png",
+      "size": [
+        281,
+        84
+      ],
+      "opaque_bounds_xyxy": [
+        2,
+        2,
+        279,
+        82
+      ],
+      "sha256": "ee541001b0021d98d0824380716c12c0d3855a06fcbd56e866e6a955309e4a86"
+    },
+    "tabs/pressed": {
+      "source": "widgets",
+      "roi_xyxy": [
+        660,
+        45,
+        970,
+        175
+      ],
+      "source_bounds_xyxy": [
+        19,
+        30,
+        285,
+        110
+      ],
+      "native_size": [
+        266,
+        80
+      ],
+      "file": "src/main/resources/assets/neoworld/textures/gui/shop/medieval/tabs/pressed.png",
+      "size": [
+        281,
+        84
+      ],
+      "opaque_bounds_xyxy": [
+        2,
+        2,
+        279,
+        82
+      ],
+      "sha256": "fc5f155137327f1296c8cab046dab1c35e330187fb11ad8c40194e3a10829c6b"
+    },
+    "tabs/selected": {
+      "source": "widgets",
+      "roi_xyxy": [
+        970,
+        45,
+        1280,
+        175
+      ],
+      "source_bounds_xyxy": [
+        13,
+        30,
+        282,
+        110
+      ],
+      "native_size": [
+        269,
+        80
+      ],
+      "file": "src/main/resources/assets/neoworld/textures/gui/shop/medieval/tabs/selected.png",
+      "size": [
+        281,
+        84
+      ],
+      "opaque_bounds_xyxy": [
+        2,
+        2,
+        279,
+        82
+      ],
+      "sha256": "f4c38be3f21130e1e7a6f61c9b15fdedf753fee1909cc207e5fbf487cb3992b9"
+    },
+    "tabs/disabled": {
+      "source": "widgets",
+      "roi_xyxy": [
+        1280,
+        45,
+        1600,
+        175
+      ],
+      "source_bounds_xyxy": [
+        10,
+        30,
+        288,
+        110
+      ],
+      "native_size": [
+        278,
+        80
+      ],
+      "file": "src/main/resources/assets/neoworld/textures/gui/shop/medieval/tabs/disabled.png",
+      "size": [
+        281,
+        84
+      ],
+      "opaque_bounds_xyxy": [
+        2,
+        2,
+        279,
+        82
+      ],
+      "sha256": "7c6c0a2ab38883f9db14a4fee78d4505ab8117f21745acd89fc5a9eebe78e2f7"
+    },
+    "buttons/buy/normal": {
+      "source": "widgets",
+      "roi_xyxy": [
+        25,
+        180,
+        345,
+        285
+      ],
+      "source_bounds_xyxy": [
+        26,
+        14,
+        302,
+        88
+      ],
+      "native_size": [
+        276,
+        74
+      ],
+      "file": "src/main/resources/assets/neoworld/textures/gui/shop/medieval/buttons/buy/normal.png",
+      "size": [
+        280,
+        78
+      ],
+      "opaque_bounds_xyxy": [
+        2,
+        2,
+        278,
+        76
+      ],
+      "sha256": "95e7534006af4bd310b480fc3030116a482d4f80e8aa3591372ab5422e3b0d7c"
+    },
+    "buttons/buy/hover": {
+      "source": "widgets",
+      "roi_xyxy": [
+        345,
+        180,
+        660,
+        285
+      ],
+      "source_bounds_xyxy": [
+        22,
+        13,
+        296,
+        88
+      ],
+      "native_size": [
+        274,
+        75
+      ],
+      "file": "src/main/resources/assets/neoworld/textures/gui/shop/medieval/buttons/buy/hover.png",
+      "size": [
+        280,
+        78
+      ],
+      "opaque_bounds_xyxy": [
+        2,
+        2,
+        278,
+        76
+      ],
+      "sha256": "5016166f04c7e145422e883173cc981d85e477e62a88a11a28c0c47ecb48540c"
+    },
+    "buttons/buy/pressed": {
+      "source": "widgets",
+      "roi_xyxy": [
+        660,
+        180,
+        970,
+        285
+      ],
+      "source_bounds_xyxy": [
+        19,
+        13,
+        285,
+        88
+      ],
+      "native_size": [
+        266,
+        75
+      ],
+      "file": "src/main/resources/assets/neoworld/textures/gui/shop/medieval/buttons/buy/pressed.png",
+      "size": [
+        280,
+        78
+      ],
+      "opaque_bounds_xyxy": [
+        2,
+        2,
+        278,
+        76
+      ],
+      "sha256": "e4c3e732bd3d4149e8850c15f2cc3902c85fc8d76d4178a87d1acc01c48068ad"
+    },
+    "buttons/buy/selected": {
+      "source": "widgets",
+      "roi_xyxy": [
+        970,
+        180,
+        1280,
+        285
+      ],
+      "source_bounds_xyxy": [
+        13,
+        13,
+        282,
+        88
+      ],
+      "native_size": [
+        269,
+        75
+      ],
+      "file": "src/main/resources/assets/neoworld/textures/gui/shop/medieval/buttons/buy/selected.png",
+      "size": [
+        280,
+        78
+      ],
+      "opaque_bounds_xyxy": [
+        2,
+        2,
+        278,
+        76
+      ],
+      "sha256": "b3c97bf93af305a720f0a9b63b3763fd29353e2e072dbc5255770f4b975ec5c1"
+    },
+    "buttons/buy/disabled": {
+      "source": "widgets",
+      "roi_xyxy": [
+        1280,
+        180,
+        1600,
+        285
+      ],
+      "source_bounds_xyxy": [
+        11,
+        14,
+        290,
+        88
+      ],
+      "native_size": [
+        279,
+        74
+      ],
+      "file": "src/main/resources/assets/neoworld/textures/gui/shop/medieval/buttons/buy/disabled.png",
+      "size": [
+        280,
+        78
+      ],
+      "opaque_bounds_xyxy": [
+        2,
+        2,
+        278,
+        76
+      ],
+      "sha256": "17919acfc94774c0d207ba85d207f9f9361fe6407a70a572f8e8b9230c9b3518"
+    },
+    "buttons/sell/normal": {
+      "source": "widgets",
+      "roi_xyxy": [
+        25,
+        290,
+        345,
+        400
+      ],
+      "source_bounds_xyxy": [
+        26,
+        16,
+        303,
+        92
+      ],
+      "native_size": [
+        277,
+        76
+      ],
+      "file": "src/main/resources/assets/neoworld/textures/gui/shop/medieval/buttons/sell/normal.png",
+      "size": [
+        281,
+        80
+      ],
+      "opaque_bounds_xyxy": [
+        2,
+        2,
+        279,
+        78
+      ],
+      "sha256": "ea85ac7fb44cfd9a0de7bb66ad92e02e429bd85e4b6cd53cacbc4fb164624e16"
+    },
+    "buttons/sell/hover": {
+      "source": "widgets",
+      "roi_xyxy": [
+        345,
+        290,
+        660,
+        400
+      ],
+      "source_bounds_xyxy": [
+        22,
+        16,
+        296,
+        93
+      ],
+      "native_size": [
+        274,
+        77
+      ],
+      "file": "src/main/resources/assets/neoworld/textures/gui/shop/medieval/buttons/sell/hover.png",
+      "size": [
+        281,
+        80
+      ],
+      "opaque_bounds_xyxy": [
+        2,
+        2,
+        279,
+        78
+      ],
+      "sha256": "6af1c13153233d00527f490ad6b51b050a9999e0b30982bb88280f454c67a24c"
+    },
+    "buttons/sell/pressed": {
+      "source": "widgets",
+      "roi_xyxy": [
+        660,
+        290,
+        970,
+        400
+      ],
+      "source_bounds_xyxy": [
+        19,
+        17,
+        285,
+        93
+      ],
+      "native_size": [
+        266,
+        76
+      ],
+      "file": "src/main/resources/assets/neoworld/textures/gui/shop/medieval/buttons/sell/pressed.png",
+      "size": [
+        281,
+        80
+      ],
+      "opaque_bounds_xyxy": [
+        2,
+        2,
+        279,
+        78
+      ],
+      "sha256": "a735aa54fc1130c9c706ab51638fee5a1ceeaa25e77e89a7c063a7c6758d3931"
+    },
+    "buttons/sell/selected": {
+      "source": "widgets",
+      "roi_xyxy": [
+        970,
+        290,
+        1280,
+        400
+      ],
+      "source_bounds_xyxy": [
+        13,
+        17,
+        283,
+        93
+      ],
+      "native_size": [
+        270,
+        76
+      ],
+      "file": "src/main/resources/assets/neoworld/textures/gui/shop/medieval/buttons/sell/selected.png",
+      "size": [
+        281,
+        80
+      ],
+      "opaque_bounds_xyxy": [
+        2,
+        2,
+        279,
+        78
+      ],
+      "sha256": "6f65287e91bba13c4c6b855fdd728282d07f5c5ed155e34d52e39c30d9b9988e"
+    },
+    "buttons/sell/disabled": {
+      "source": "widgets",
+      "roi_xyxy": [
+        1280,
+        290,
+        1600,
+        400
+      ],
+      "source_bounds_xyxy": [
+        10,
+        17,
+        290,
+        92
+      ],
+      "native_size": [
+        280,
+        75
+      ],
+      "file": "src/main/resources/assets/neoworld/textures/gui/shop/medieval/buttons/sell/disabled.png",
+      "size": [
+        281,
+        80
+      ],
+      "opaque_bounds_xyxy": [
+        2,
+        2,
+        279,
+        78
+      ],
+      "sha256": "bb8a1d0f8c0721e47eb6fa4607a716e535165829b040294a5cedac67aee3d115"
+    },
+    "buttons/utility/normal": {
+      "source": "widgets",
+      "roi_xyxy": [
+        25,
+        405,
+        345,
+        565
+      ],
+      "source_bounds_xyxy": [
+        90,
+        12,
+        238,
+        146
+      ],
+      "native_size": [
+        148,
+        134
+      ],
+      "file": "src/main/resources/assets/neoworld/textures/gui/shop/medieval/buttons/utility/normal.png",
+      "size": [
+        152,
+        152
+      ],
+      "opaque_bounds_xyxy": [
+        2,
+        2,
+        150,
+        150
+      ],
+      "sha256": "955304b2e454b487b5e6f64091469d4ed4c768261e9cc4aaad9d79e8cddbbaef"
+    },
+    "buttons/utility/hover": {
+      "source": "widgets",
+      "roi_xyxy": [
+        345,
+        405,
+        660,
+        565
+      ],
+      "source_bounds_xyxy": [
+        87,
+        12,
+        234,
+        146
+      ],
+      "native_size": [
+        147,
+        134
+      ],
+      "file": "src/main/resources/assets/neoworld/textures/gui/shop/medieval/buttons/utility/hover.png",
+      "size": [
+        152,
+        152
+      ],
+      "opaque_bounds_xyxy": [
+        2,
+        2,
+        150,
+        150
+      ],
+      "sha256": "e3392689af5e73676b2528de47d40f6991e8c0a4b219e3e1a1dc2f393b856ec5"
+    },
+    "buttons/utility/pressed": {
+      "source": "widgets",
+      "roi_xyxy": [
+        660,
+        405,
+        970,
+        565
+      ],
+      "source_bounds_xyxy": [
+        79,
+        13,
+        227,
+        146
+      ],
+      "native_size": [
+        148,
+        133
+      ],
+      "file": "src/main/resources/assets/neoworld/textures/gui/shop/medieval/buttons/utility/pressed.png",
+      "size": [
+        152,
+        152
+      ],
+      "opaque_bounds_xyxy": [
+        2,
+        2,
+        150,
+        150
+      ],
+      "sha256": "1acd6efa9acfb8bb5cdd27464ff9a311521f3312a6ab26767a14b06cd3633071"
+    },
+    "buttons/utility/selected": {
+      "source": "widgets",
+      "roi_xyxy": [
+        970,
+        405,
+        1280,
+        565
+      ],
+      "source_bounds_xyxy": [
+        72,
+        12,
+        221,
+        146
+      ],
+      "native_size": [
+        149,
+        134
+      ],
+      "file": "src/main/resources/assets/neoworld/textures/gui/shop/medieval/buttons/utility/selected.png",
+      "size": [
+        152,
+        152
+      ],
+      "opaque_bounds_xyxy": [
+        2,
+        2,
+        150,
+        150
+      ],
+      "sha256": "47d7fd55dd9d2b1db8eb122ac87d65ffc71e97e0bb021a7dab91f13076a38a0e"
+    },
+    "buttons/utility/disabled": {
+      "source": "widgets",
+      "roi_xyxy": [
+        1280,
+        405,
+        1600,
+        565
+      ],
+      "source_bounds_xyxy": [
+        74,
+        12,
+        222,
+        146
+      ],
+      "native_size": [
+        148,
+        134
+      ],
+      "file": "src/main/resources/assets/neoworld/textures/gui/shop/medieval/buttons/utility/disabled.png",
+      "size": [
+        152,
+        152
+      ],
+      "opaque_bounds_xyxy": [
+        2,
+        2,
+        150,
+        150
+      ],
+      "sha256": "874e0cea5c9520fa527da9d2f2ca0d1a152fdcb1e764a9bd130414d6edd80693"
+    },
+    "buttons/close/normal": {
+      "source": "widgets",
+      "roi_xyxy": [
+        25,
+        405,
+        345,
+        565
+      ],
+      "source_bounds_xyxy": [
+        90,
+        12,
+        238,
+        146
+      ],
+      "reused_from": "buttons/utility/normal",
+      "native_size": [
+        148,
+        134
+      ],
+      "file": "src/main/resources/assets/neoworld/textures/gui/shop/medieval/buttons/close/normal.png",
+      "size": [
+        152,
+        152
+      ],
+      "opaque_bounds_xyxy": [
+        2,
+        2,
+        150,
+        150
+      ],
+      "sha256": "955304b2e454b487b5e6f64091469d4ed4c768261e9cc4aaad9d79e8cddbbaef"
+    },
+    "buttons/close/hover": {
+      "source": "widgets",
+      "roi_xyxy": [
+        345,
+        570,
+        660,
+        730
+      ],
+      "source_bounds_xyxy": [
+        87,
+        11,
+        234,
+        146
+      ],
+      "native_size": [
+        147,
+        135
+      ],
+      "file": "src/main/resources/assets/neoworld/textures/gui/shop/medieval/buttons/close/hover.png",
+      "size": [
+        152,
+        152
+      ],
+      "opaque_bounds_xyxy": [
+        2,
+        2,
+        150,
+        150
+      ],
+      "sha256": "61ffbfcacbe33896e8a139d8398ae9df7975960d103f8d3209b55161fc2f9bc6"
+    },
+    "buttons/close/pressed": {
+      "source": "widgets",
+      "roi_xyxy": [
+        660,
+        570,
+        970,
+        730
+      ],
+      "source_bounds_xyxy": [
+        80,
+        11,
+        227,
+        146
+      ],
+      "native_size": [
+        147,
+        135
+      ],
+      "file": "src/main/resources/assets/neoworld/textures/gui/shop/medieval/buttons/close/pressed.png",
+      "size": [
+        152,
+        152
+      ],
+      "opaque_bounds_xyxy": [
+        2,
+        2,
+        150,
+        150
+      ],
+      "sha256": "f63d8d5708315fd54702958298cdecaf3ffe9752bf9de87d2d55e614948a8229"
+    },
+    "buttons/close/selected": {
+      "source": "widgets",
+      "roi_xyxy": [
+        970,
+        570,
+        1280,
+        730
+      ],
+      "source_bounds_xyxy": [
+        72,
+        11,
+        219,
+        146
+      ],
+      "native_size": [
+        147,
+        135
+      ],
+      "file": "src/main/resources/assets/neoworld/textures/gui/shop/medieval/buttons/close/selected.png",
+      "size": [
+        152,
+        152
+      ],
+      "opaque_bounds_xyxy": [
+        2,
+        2,
+        150,
+        150
+      ],
+      "sha256": "fb8abb4ab28633fa14eac9642b3085c7e75a9cfddb50fdd6e705465e89121333"
+    },
+    "buttons/close/disabled": {
+      "source": "widgets",
+      "roi_xyxy": [
+        1280,
+        405,
+        1600,
+        565
+      ],
+      "source_bounds_xyxy": [
+        74,
+        12,
+        222,
+        146
+      ],
+      "reused_from": "buttons/utility/disabled",
+      "native_size": [
+        148,
+        134
+      ],
+      "file": "src/main/resources/assets/neoworld/textures/gui/shop/medieval/buttons/close/disabled.png",
+      "size": [
+        152,
+        152
+      ],
+      "opaque_bounds_xyxy": [
+        2,
+        2,
+        150,
+        150
+      ],
+      "sha256": "874e0cea5c9520fa527da9d2f2ca0d1a152fdcb1e764a9bd130414d6edd80693"
+    },
+    "slots/normal": {
+      "source": "widgets",
+      "roi_xyxy": [
+        25,
+        735,
+        345,
+        930
+      ],
+      "source_bounds_xyxy": [
+        87,
+        8,
+        248,
+        164
+      ],
+      "native_size": [
+        161,
+        156
+      ],
+      "file": "src/main/resources/assets/neoworld/textures/gui/shop/medieval/slots/normal.png",
+      "size": [
+        165,
+        165
+      ],
+      "opaque_bounds_xyxy": [
+        2,
+        2,
+        163,
+        163
+      ],
+      "sha256": "47959732cb2888ebcefa428d1cdd8dd430648b88a054d1fa075ba01b20628fc2"
+    },
+    "slots/hover": {
+      "source": "widgets",
+      "roi_xyxy": [
+        345,
+        735,
+        660,
+        930
+      ],
+      "source_bounds_xyxy": [
+        82,
+        8,
+        242,
+        164
+      ],
+      "native_size": [
+        160,
+        156
+      ],
+      "file": "src/main/resources/assets/neoworld/textures/gui/shop/medieval/slots/hover.png",
+      "size": [
+        165,
+        165
+      ],
+      "opaque_bounds_xyxy": [
+        2,
+        2,
+        163,
+        163
+      ],
+      "sha256": "b5aeb2b21c7a76f51e70a340b52ce21ff5aad804eb8af0602a0701ea030d14d6"
+    },
+    "slots/pressed": {
+      "source": "widgets",
+      "roi_xyxy": [
+        660,
+        735,
+        970,
+        930
+      ],
+      "source_bounds_xyxy": [
+        71,
+        8,
+        234,
+        164
+      ],
+      "native_size": [
+        163,
+        156
+      ],
+      "file": "src/main/resources/assets/neoworld/textures/gui/shop/medieval/slots/pressed.png",
+      "size": [
+        165,
+        165
+      ],
+      "opaque_bounds_xyxy": [
+        2,
+        2,
+        163,
+        163
+      ],
+      "sha256": "7d511fd9d9b285280019cb23199d47c799550f0f03de0fe30b3eb196e8abdf22"
+    },
+    "slots/selected": {
+      "source": "widgets",
+      "roi_xyxy": [
+        970,
+        735,
+        1280,
+        930
+      ],
+      "source_bounds_xyxy": [
+        66,
+        8,
+        225,
+        164
+      ],
+      "native_size": [
+        159,
+        156
+      ],
+      "file": "src/main/resources/assets/neoworld/textures/gui/shop/medieval/slots/selected.png",
+      "size": [
+        165,
+        165
+      ],
+      "opaque_bounds_xyxy": [
+        2,
+        2,
+        163,
+        163
+      ],
+      "sha256": "3fddf08ebc3bfd9ec25cd6232ab19338600b4e07a9af8b90099ffaaa14e54fb0"
+    },
+    "slots/disabled": {
+      "source": "widgets",
+      "roi_xyxy": [
+        1280,
+        735,
+        1600,
+        930
+      ],
+      "source_bounds_xyxy": [
+        68,
+        8,
+        228,
+        163
+      ],
+      "native_size": [
+        160,
+        155
+      ],
+      "file": "src/main/resources/assets/neoworld/textures/gui/shop/medieval/slots/disabled.png",
+      "size": [
+        165,
+        165
+      ],
+      "opaque_bounds_xyxy": [
+        2,
+        2,
+        163,
+        163
+      ],
+      "sha256": "5db1f637d1b130523ab18f5562cae4fb976f4dc226e9c9edbc4bacfb1aed6840"
+    },
+    "icons/left": {
+      "reused_from": "src/main/resources/assets/neoworld/textures/gui/shop/obsidian/icons/left.png",
+      "file": "src/main/resources/assets/neoworld/textures/gui/shop/medieval/icons/left.png",
+      "size": [
+        33,
+        33
+      ],
+      "opaque_bounds_xyxy": [
+        9,
+        4,
+        24,
+        29
+      ],
+      "sha256": "40f4eeba807c6b6a550fd6aee6bf688eb57868dc069a8f91c1daafb8f4d1663a"
+    },
+    "icons/right": {
+      "reused_from": "src/main/resources/assets/neoworld/textures/gui/shop/obsidian/icons/right.png",
+      "file": "src/main/resources/assets/neoworld/textures/gui/shop/medieval/icons/right.png",
+      "size": [
+        33,
+        33
+      ],
+      "opaque_bounds_xyxy": [
+        9,
+        4,
+        23,
+        29
+      ],
+      "sha256": "3885b2ec084117c967ffc2c2d58db6f149bf490022e0e029ce9af04b76bb9cc0"
+    },
+    "icons/close": {
+      "reused_from": "src/main/resources/assets/neoworld/textures/gui/shop/obsidian/icons/close.png",
+      "file": "src/main/resources/assets/neoworld/textures/gui/shop/medieval/icons/close.png",
+      "size": [
+        33,
+        33
+      ],
+      "opaque_bounds_xyxy": [
+        4,
+        4,
+        29,
+        29
+      ],
+      "sha256": "f97f33f7fb247b9fa912de08b5edd0ed55708ec3a96b0ceb53d8f25acfd2d207"
+    }
+  }
+}

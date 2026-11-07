@@ -1,0 +1,33 @@
+{
+  "ModRev": 18,
+  "Id": 8,
+  "CompleterNpc": "Kocimira",
+  "QuestCommand": "",
+  "RandomReward": 0,
+  "RewardExp": 0,
+  "Rewards": {
+    "NpcMiscInv": []
+  },
+  "QuestCompletion": 0,
+  "QuestRepeat": 0,
+  "QuestFactionPoints": {},
+  "QuestMail": {},
+  "LeaveItems": 0,
+  "IgnoreDamage": 1,
+  "IgnoreNBT": 1,
+  "Type": 1,
+  "Title": "3/7 รู้จักการค้าและงานช่าง",
+  "Text": "คุยกับ§6§lออสการ์§r เลือกเรียนรู้การค้า และคุยกับ§6§lอีเทอร์§r เลือกเตรียมอุปกรณ์สำหรับงานสนาม แล้วกลับส่ง§6§lโคซิไมรา§r ไม่บังคับซื้อขายหรือใช้เงิน",
+  "CompleteText": "รู้จักร้านค้าแล้ว ต่อไปเตรียมดาบหิน พลั่วหิน และโล่ให้ครบ",
+  "NextQuestId": 9,
+  "QuestDialogs": [
+    {
+      "Slot": 0,
+      "Integer": 130
+    },
+    {
+      "Slot": 1,
+      "Integer": 131
+    }
+  ]
+}

@@ -1,0 +1,28 @@
+const fs=require('node:fs'),path=require('node:path'),assert=require('node:assert/strict');
+const {createLibrary}=require('./viewer/map-library.cjs');
+const ROOT=path.resolve(__dirname,'../..'),DIR=path.join(ROOT,'maps/starter_sky_land_spawn_v1'),key=d=>d.Name+JSON.stringify(Object.entries(d.Properties||{}).sort());
+function verifyExpansion(m,baseline,report){
+ const b=Buffer.from(m.blocks,'base64'),S=m.size,at=(x,y,z)=>m.definitions[b.readUInt16LE(((y-m.low)*S*S+z*S+x)*2)],n=(x,y,z)=>at(x,y,z).Name.slice(10),C=Math.cos(Math.PI/6),SN=.5;
+ let big=0,food=0,herbs=0;for(let z=175;z<=220;z++)for(let x=46;x<=141;x++){const u=C*(x-70)-SN*(z-197),v=SN*(x-70)+C*(z-197);if(Math.abs(u)<=15.5&&Math.abs(v)<=14.5){assert.equal(n(x,103,z),'spruce_planks','Missing enlarged merchant floor '+[x,z]);big++;}if(x>=94&&x<=110&&z>=177&&z<=197){assert.equal(n(x,103,z),'spruce_planks','Missing food floor');food++;}if(x>=115&&x<=131&&z>=179&&z<=197||x>=132&&x<=138&&z>=182&&z<=196){assert.equal(n(x,103,z),'spruce_planks','Missing herb/bay floor');herbs++;}}
+ assert.equal(big,901);assert.equal(food,357);assert.equal(herbs,428);
+ for(const [x,y,z,block]of [[70,126,197,'red_sandstone_slab'],[56,116,205,'red_sandstone_stairs'],[102,118,187,'red_sandstone_slab'],[111,111,187,'red_sandstone_stairs'],[123,121,188,'red_sandstone_slab'],[139,110,190,'glass']])assert.equal(n(x,y,z),block,'Roof/ridge/eave missing '+[x,y,z]);
+ for(let z=175;z<=215;z++)for(let x=111;x<=113;x++)for(let y=104;y<=106;y++)assert.equal(n(x,y,z),'air','Smith route obstruction');
+ function flood(start,y,box){const pass=(x,z)=>x>=box[0]&&x<=box[2]&&z>=box[1]&&z<=box[3]&&n(x,y,z)==='air'&&n(x,y+1,z)==='air'&&n(x,y-1,z)!=='air',q=[start],seen=new Set();for(let i=0;i<q.length;i++){const [x,z]=q[i],k=x+','+z;if(seen.has(k)||!pass(x,z))continue;seen.add(k);q.push([x+1,z],[x-1,z],[x,z+1],[x,z-1]);}return seen;}
+ const ground=flood([112,215],104,[45,175,144,253]);for(const [x,z]of [[76,194],[102,187],[123,187],[136,189],[102,180],[67,201]])assert(ground.has(x+','+z),'Service/room disconnected '+[x,z]);
+ const upper=flood([71,200],111,[46,175,94,220]);for(const [x,z]of [[76,197],[78,205],[65,193]])assert(upper.has(x+','+z),'Upper room/balcony disconnected '+[x,z]);
+ if(!report)return {floors:{merchant:big,food,herbs},groundReachable:ground.size};
+ const roofOwners=new Map();for(const [part,cols]of Object.entries(report.roofColumns))for(const [x,y,z]of cols){const k=[x,y,z].join(',');assert(!roofOwners.has(k),'Incompatible roof footprints '+k);roofOwners.set(k,part);if(part==='glass')assert.equal(n(x,y,z),'glass','Glass roof overwritten');else if(part==='food'&&x===106&&z===181)assert.equal(n(x,y,z),'bricks','Chimney junction');else assert.equal(n(x,y,z),'orange_terracotta','Roof base overwritten '+part+' '+k);}
+ for(const p of report.protectedPoints){const [x,,z]=p.cell;assert.notEqual(n(x,103,z),'air');for(let y=104;y<=106;y++)assert.equal(n(x,y,z),'air','NPC clearance '+p.name);assert(ground.has(x+','+z),'NPC disconnected '+p.name);}
+ for(const p of report.markerPoints)if(p.y===104){assert.equal(n(p.x,p.y,p.z),'air','Marker occupied');assert(ground.has(p.x+','+p.z),'Marker disconnected');}
+ for(const e of report.signMoves){const [x,y,z]=e.to;assert.equal(n(x,y,z),'oak_wall_sign');assert.notEqual(n(x,y,z-1),'air','Unsupported sign');}
+ for(const p of report.barrels)assert.equal(n(...p.position),'barrel','Existing barrel lost');
+ for(const p of report.stairTreads){assert.equal(n(...p.cell),'spruce_stairs');assert.equal(at(...p.cell).Properties.facing,p.facing);for(let y=p.cell[1]+1;y<=p.cell[1]+3;y++)assert.equal(n(p.cell[0],y,p.cell[2]),'air','Stair headroom');}
+ for(let z=175;z<=220;z++)for(let x=46;x<=141;x++)for(let y=104;y<=128;y++)if(n(x,y,z)==='lantern'){const hanging=at(x,y,z).Properties.hanging==='true';assert.notEqual(n(x,y+(hanging?1:-1),z),'air','Unsupported market lantern '+[x,y,z]);}
+ const shrubFrom=new Set(report.shrubRelocation.blocks.map(p=>p.position.join(','))),shrubTo=new Set();for(const p of report.shrubRelocation.blocks){const to=p.position.map((v,i)=>v+report.shrubRelocation.offset[i]);shrubTo.add(to.join(','));assert.equal(key(at(...to)),key(p.state),'Shrub voxel lost');}
+ const bb=Buffer.from(baseline.blocks,'base64'),ak=m.definitions.map(key),bk=baseline.definitions.map(key);let net=0;for(let i=0;i<b.length/2;i++){if(ak[b.readUInt16LE(i*2)]===bk[bb.readUInt16LE(i*2)])continue;net++;const x=i%S,z=Math.floor(i/S)%S,y=Math.floor(i/(S*S))+m.low;assert(shrubTo.has([x,y,z].join(','))||x>=46&&x<=141&&z>=175&&z<=220&&y>=99&&y<=128,'Outside expansion scope');assert(!(x>=90&&x<=100&&z>=219),'Fountain edited');const old=baseline.definitions[bb.readUInt16LE(i*2)];assert(!old.Name.endsWith('_leaves')||shrubFrom.has([x,y,z].join(',')),'Tree canopy changed '+[x,y,z]);if(x>=111&&x<=113&&y<=106)assert.fail('Smith floor/headroom changed');}
+ assert.equal(net,report.netChangedBlocks);return {floorCells:{merchant:big,food,herbs},groundReachable:ground.size,upperReachable:upper.size,protectedPoints:report.protectedPoints.length,preservedBarrels:report.barrels.length,netChangedBlocks:net,outsideScopeChanges:0};
+}
+function run(){const m=createLibrary(path.join(ROOT,'maps')).load('starter_sky_land_spawn_v1'),p=path.join(DIR,'market-expansion-v2-report.json');if(!fs.existsSync(p))return verifyExpansion(m);const r=JSON.parse(fs.readFileSync(p)),base=createLibrary(path.dirname(path.join(ROOT,r.backup))).load('starter_sky_land_spawn_v1');return verifyExpansion(m,base,r);}
+module.exports={verifyExpansion,run};if(require.main===module)console.log(JSON.stringify(run(),null,2));
+
+

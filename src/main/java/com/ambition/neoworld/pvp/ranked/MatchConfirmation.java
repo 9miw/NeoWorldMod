@@ -2,7 +2,7 @@ package com.ambition.neoworld.pvp.ranked;
 
 import java.util.UUID;
 
-/** A timed offer has no room or arena allocation until both players accept. */
+/** Timed confirmation shared by ranked matchmaking and existing private lobbies. No arena is placed until both accept. */
 public final class MatchConfirmation {
     public enum Status { WAITING, ACCEPTED, EXPIRED }
     public final UUID id=UUID.randomUUID(),a,b;

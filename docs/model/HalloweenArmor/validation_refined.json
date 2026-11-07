@@ -1,0 +1,63 @@
+{
+  "source_rig_file": "C:\\Users\\miw\\Documents\\NeoWorldMod\\docs\\model\\HalloweenArmor\\halloween_armor.blend",
+  "rig_matrix_error": 0.0,
+  "parts": {
+    "halloween_refined_helmet": {
+      "vertices": 2712,
+      "faces": 2121,
+      "unweighted": 0,
+      "bones": [
+        "Head"
+      ],
+      "triangles": 4154
+    },
+    "halloween_refined_chestplate": {
+      "vertices": 5714,
+      "faces": 4431,
+      "unweighted": 0,
+      "bones": [
+        "Chest",
+        "Torso",
+        "Arm_L",
+        "Hand_L",
+        "Arm_R",
+        "Hand_R"
+      ],
+      "triangles": 8752
+    },
+    "halloween_refined_leggings": {
+      "vertices": 3116,
+      "faces": 2357,
+      "unweighted": 0,
+      "bones": [
+        "Torso",
+        "Thigh_L",
+        "Leg_L",
+        "Thigh_R",
+        "Leg_R"
+      ],
+      "triangles": 4774
+    },
+    "halloween_refined_boots": {
+      "vertices": 224,
+      "faces": 200,
+      "unweighted": 0,
+      "bones": [
+        "Leg_L",
+        "Leg_R"
+      ],
+      "triangles": 368
+    }
+  },
+  "runtime_tested": false,
+  "reference": "reference_mockup.png",
+  "source_faces": "-Y",
+  "epic_export": "Y reflected, triangle winding reversed",
+  "pose_max_displacement": {
+    "halloween_refined_helmet": 0.14983910987941826,
+    "halloween_refined_chestplate": 0.4896544402096575,
+    "halloween_refined_leggings": 0.2057967899743186,
+    "halloween_refined_boots": 0.2024695982673145
+  },
+  "restored_rest_pose": true
+}

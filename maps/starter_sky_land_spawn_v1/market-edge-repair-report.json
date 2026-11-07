@@ -1,0 +1,27 @@
+{
+  "stall": {
+    "bounds": [
+      81,
+      237,
+      89,
+      243
+    ],
+    "color": "red"
+  },
+  "changedBlocks": 4841,
+  "changedChunks": 28,
+  "smoothing": {
+    "bounds": [
+      43,
+      162,
+      147,
+      267
+    ],
+    "columns": 1332,
+    "beforeJumps": 178,
+    "afterJumps": 4,
+    "maxBefore": 7,
+    "maxAfter": 5
+  },
+  "backup": "archive\\map-edit-backups\\before-market-edge-repair\\starter_sky_land_spawn_v1"
+}

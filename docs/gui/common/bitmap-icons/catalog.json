@@ -1,0 +1,5058 @@
+{
+  "schema_version": 1,
+  "scope": "Existing icon fonts only; excludes thai and roboto",
+  "fonts": [
+    "neoworld:icons",
+    "neoworld:currency",
+    "neoworld:ranks",
+    "neoworld:gui_icons",
+    "neoworld:gui_controls",
+    "neoworld:dungeon_hud",
+    "neoworld:fashion_tooltip",
+    "neoworld:activity_icons",
+    "neoworld:pvp_titles",
+    "neoworld:pvp_rating"
+  ],
+  "entry_count": 127,
+  "unique_codepoints": 118,
+  "sources": {
+    "src/main/java/com/ambition/neoworld/client/gui/common/NeoBitmapFonts.java": "f4b98d9a5532cc2dae5d6f29f8468fdaecc048db0b45f1d04cada82ba64cb8b4",
+    "src/main/java/com/ambition/neoworld/client/gui/common/NeoGuiIcons.java": "7ebd06439705dfaf5e47801e7eb3b83fec6739cbea8f4f0fe1cf30ccc54fcbe8",
+    "src/main/java/com/ambition/neoworld/client/gui/common/NeoSystemIcons.java": "3b9745e40435a69a4901f5e57e320d42025ec0ee5d209a595d5f0e3578110cab",
+    "src/main/java/com/ambition/neoworld/pvp/room/PvpTitles.java": "a734f41b19bb9dcc7c07a8c77d9680676c51cbcad70e0adddae832980f2f5948",
+    "src/main/resources/assets/minecraft/font/default.json": "d156288dd6cb4f1126af5fedc8ff0da7f970c027040c3a1fa2ec0c1875b67a23",
+    "src/main/resources/assets/neoworld/font/activity_icons.json": "2d3b17a95f33c881f35fced593375632173e02d1f84bdbe279324e6520ef16a1",
+    "src/main/resources/assets/neoworld/font/currency.json": "919e155b22ad91d2af311fb8894483f051e85b703406b471509b0a2804c374ad",
+    "src/main/resources/assets/neoworld/font/dungeon_hud.json": "c5eb8cd09f95ab932c9069e13d16a961c6616ff33d59d4beccba9faeeff2f3cc",
+    "src/main/resources/assets/neoworld/font/fashion_tooltip.json": "22559fce9068ea7ff5f9385ca4a4b033ddaece89b09c21d6f5db787a34b11663",
+    "src/main/resources/assets/neoworld/font/gui_controls.json": "c5aff14dd1536196a173c0e383fee3621ff4e23afd245bccc8bfff1a706e9edb",
+    "src/main/resources/assets/neoworld/font/gui_icons.json": "5276189a55773002a79164ba5fbbdb4daebc26d0638213811aed33816520c54b",
+    "src/main/resources/assets/neoworld/font/icons.json": "94552178dbd3f8b9eb01496bec7a5997f86db8cb91ba9190cd8eba170b9d5c1c",
+    "src/main/resources/assets/neoworld/font/pvp_rating.json": "04f458d74ff4ff2e66b600420ef03005cb54862a4c6c8ce10c59cb0ceed4bd71",
+    "src/main/resources/assets/neoworld/font/pvp_titles.json": "fce86bf84909a40b6f02bb88531d76199a47b57b1c2812d45a5b9fc789d2e6c9",
+    "src/main/resources/assets/neoworld/font/ranks.json": "d98f5ee86243426f7b70b04fe13829b02887c734102366b33faa313cf039521c",
+    "src/main/resources/assets/neoworld/textures/font/icons/anchor.png": "08c255fa890861d26fc2d4ebae1d5c1c3d2aef39749855ccfa29bdadd77220ab",
+    "src/main/resources/assets/neoworld/textures/font/icons/bomb.png": "3e768ed1b96cdb7e0862077372af104a11446e5d0633af03072e91e7a461ca1c",
+    "src/main/resources/assets/neoworld/textures/font/icons/candy.png": "8084f5411cb94ed22760b8dbc0fffbee754295aa03902b117b6125907f8bf029",
+    "src/main/resources/assets/neoworld/textures/font/icons/chest.png": "ad5241cf8340f53d7d783aa82a9c92c9e05fe3a860d1a7f882605db6b0770a30",
+    "src/main/resources/assets/neoworld/textures/font/icons/clover.png": "1cd760c9c1b282afef2d58ff2fb8d307a3a19badbdddcd6c20ef59124c99e9d1",
+    "src/main/resources/assets/neoworld/textures/font/icons/cog.png": "e04c3995f6e2f5f80f570cfed9d6a3618b37f05f833270d12e4f4772a6b9a63d",
+    "src/main/resources/assets/neoworld/textures/font/icons/compass.png": "be2a3f135188c1a7b74c0fb3149c828ab938cb41c6b73e112abfa9c8e5baed46",
+    "src/main/resources/assets/neoworld/textures/font/icons/crystals.png": "5902309fb9b04b1b5cf623686bfc12129b01262c36a68b5082317ec5ee1b5487",
+    "src/main/resources/assets/neoworld/textures/font/icons/dialogue.png": "52248ec2916eee8a24dff094b9c6cb82b75bfb5cd6f76cbc9278694b1992876f",
+    "src/main/resources/assets/neoworld/textures/font/icons/diamond_coin.png": "7d1368e7618ba0dabf01dd34a8cc2c0d3ff3f3c6b9b0d9a39b5ef0a543480528",
+    "src/main/resources/assets/neoworld/textures/font/icons/earth.png": "9cefe46e69b048aeeb24b96029afd981e45c2ca036c182188fc4a98761f2d109",
+    "src/main/resources/assets/neoworld/textures/font/icons/emerald.png": "265b640fa4962aa027e68f5305ae522ad57424b64b4440229c2db20f0ac95296",
+    "src/main/resources/assets/neoworld/textures/font/icons/exclamation.png": "d74829f88423d0ee1845f789dc01c932f907aad2085b961144a09cf23148b073",
+    "src/main/resources/assets/neoworld/textures/font/icons/fire.png": "1767c0f451e9c69a4e1701791192d80ab9947266f1347a7207b88062f5104dad",
+    "src/main/resources/assets/neoworld/textures/font/icons/fish.png": "56a8ff7e529dc89e8787e416aec16aa853088b7be313642674dc3366489576b8",
+    "src/main/resources/assets/neoworld/textures/font/icons/fish_grey.png": "b1137341771dfd558e45ce23ace60127a59132a7a1d5db596e49169c0ebd7789",
+    "src/main/resources/assets/neoworld/textures/font/icons/flag.png": "6befef4f52335d79c75016b69d504fa6a72c794e5513999b42bd08015387c29b",
+    "src/main/resources/assets/neoworld/textures/font/icons/flag_white.png": "3376da4dcbb23958c281469e9533a04f0733a3e35ae2a71367ecf9b9bfb394aa",
+    "src/main/resources/assets/neoworld/textures/font/icons/helmet.png": "9545714613f7183609acd65aee5ffaa708de8785c52eb063a3f41cb15f9f3bc9",
+    "src/main/resources/assets/neoworld/textures/font/icons/leaf.png": "a8386e32b3609a3bede4db19a09820e31599a929b6b81ea25fdd441841bfe693",
+    "src/main/resources/assets/neoworld/textures/font/icons/lightbulb.png": "a01fc1cd1b7cbf0656a3d3cc86d0c8d34baae81e46cb18ada1766cc96c0c23ee",
+    "src/main/resources/assets/neoworld/textures/font/icons/lock.png": "7041e1b0139480edbb9d9d1cf38660812a1944e97c13d261cffc68b795fb63ca",
+    "src/main/resources/assets/neoworld/textures/font/icons/magnet.png": "f37cee9305e713ce387e074e11758d1b2ab93367d52e4032ef74d24be757238f",
+    "src/main/resources/assets/neoworld/textures/font/icons/medal_bronze.png": "ce65363aab5ec4fc830b490a2bd26d8007a56ac7eb9e5ad0303144a905c5d06b",
+    "src/main/resources/assets/neoworld/textures/font/icons/medal_gold.png": "8fde5be26db79ed283c9beb4c656f52163951bc050d57af2c94c3749ee98b429",
+    "src/main/resources/assets/neoworld/textures/font/icons/medal_silver.png": "b419a879486ecd0c08e373a5b9045d06a8300a757245bb2fdd85b422bbbfffc9",
+    "src/main/resources/assets/neoworld/textures/font/icons/menu_advancements.png": "5a836d124ee0ebd38333b77538f75d860453adb213578c15aeff5af465b9c611",
+    "src/main/resources/assets/neoworld/textures/font/icons/menu_dungeon.png": "b32ee8dbd59d076bb7a861c8eece38d0fa40351b5c93eeb90ba64d781673f5fe",
+    "src/main/resources/assets/neoworld/textures/font/icons/menu_exit.png": "5a0a07967337cdba6206a6223adf83125447db9e168bba0a1787e6b98112bf83",
+    "src/main/resources/assets/neoworld/textures/font/icons/menu_lan.png": "452e7296aa3b79a51fc01d563ad8389748808bce236dde9d81e3a153997ddbf4",
+    "src/main/resources/assets/neoworld/textures/font/icons/menu_mods.png": "180d07abe701ae81e9ae4cdefe20b99421367e21019ccdcb41cffc70b0d06e02",
+    "src/main/resources/assets/neoworld/textures/font/icons/menu_party.png": "fad1aebb0f53fb7b325fa50b6c77444e1e515ff34539551cbeee7686b442a649",
+    "src/main/resources/assets/neoworld/textures/font/icons/menu_profile.png": "0ff533257ab7ab065e52d13a66eaf5e563cac6fe4628022cac5e7a9a5cd45138",
+    "src/main/resources/assets/neoworld/textures/font/icons/menu_resume.png": "ef2546ebc5a9940bed415dfb7c2c609b03f16b39034dc42745d4c67ca7a256ff",
+    "src/main/resources/assets/neoworld/textures/font/icons/menu_statistics.png": "26dfef0bae02519434cbe69c525ad366481d7d6df70b92118b28cf06404293d4",
+    "src/main/resources/assets/neoworld/textures/font/icons/menu_title.png": "08b2e331473bf09ca156209e805b9beea19b6e6e5293a68c5cd587f2ccdde4bb",
+    "src/main/resources/assets/neoworld/textures/font/icons/money.png": "2b0357125e3b3929ede1a9c88fde99e49af6dd9cf9bbbe5a13f9dd1038b5c6ae",
+    "src/main/resources/assets/neoworld/textures/font/icons/no.png": "c3e751327f723a9495f87e6964983c6adab231835eb5ddd7094a0ea632f3bc2a",
+    "src/main/resources/assets/neoworld/textures/font/icons/palmtree.png": "7a1ac9751c4611026a9a26a33b40a38e577cd78082f596726c6b1cf02353cef2",
+    "src/main/resources/assets/neoworld/textures/font/icons/seashell.png": "2da3b89b758cd48933ea79748b1627b16156e8f642e4237810698b32df60e765",
+    "src/main/resources/assets/neoworld/textures/font/icons/silver_coin.png": "05559b73fc98ad654353e7e0b13efaaf1f13ea8207e193482259d82f86cda8ad",
+    "src/main/resources/assets/neoworld/textures/font/icons/starfish.png": "0800e9ebdd8783450762f270a0aa3bf81879d6f7d283fdcf6b8412080f37dc32",
+    "src/main/resources/assets/neoworld/textures/font/icons/yes.png": "acbe5ce46883cb623dada15649431c75f6975883bccd245f889acb7a587b17ae",
+    "src/main/resources/assets/neoworld/textures/font/pvp_titles/1.png": "b93c2a0305f7c9fe54a7696227f20ce26b1d04fff9d9a0ac5173163fc9486069",
+    "src/main/resources/assets/neoworld/textures/font/pvp_titles/2.png": "15b50a3dd6bd1571d1ce844e281f73ec9477b8abb07fd7555709cc024be250d2",
+    "src/main/resources/assets/neoworld/textures/font/pvp_titles/3.png": "bdb030df894aba1554b97d42c43a67348e0f6b86f057bca5b1b9bd56cb5b5a42",
+    "src/main/resources/assets/neoworld/textures/font/pvp_titles/4.png": "43cd412daf5b1b6e182f714d0eaf592a3ac815e8d28e227935dacaa34d2bab75",
+    "src/main/resources/assets/neoworld/textures/font/pvp_titles/5.png": "1b84c8d78c7d6558accfc0293e44e6de68cc864093e2e4376c23522148f5c5d7",
+    "src/main/resources/assets/neoworld/textures/font/pvp_titles/defeat.png": "a03d59ff7da43059c8992102c0d2173770284c6fcb75a2dd4b8490e0d62c3ea4",
+    "src/main/resources/assets/neoworld/textures/font/pvp_titles/fight.png": "198673a5c1b3e6d9f9507eae8895c38e475caf9680f23c4ae2c0845bfda856d0",
+    "src/main/resources/assets/neoworld/textures/font/pvp_titles/rating_down.png": "5f2be75d82dd795184dd1c923467713c96878d0fb1a4a313c33194adbfd20b02",
+    "src/main/resources/assets/neoworld/textures/font/pvp_titles/rating_up.png": "7d91bb359843c0dbf32138cd92746cdf2cb571a3c8d1afcc24272cc1bc7a1f23",
+    "src/main/resources/assets/neoworld/textures/font/pvp_titles/victory.png": "6c6dd5c47941e63092999f2153d6822ab6f5c7846fa08bc7bd8a9a27e68a4212",
+    "src/main/resources/assets/neoworld/textures/font/ranks/admin.png": "b7581ff5cacac35cb343dfa0c5c2626977d82da7fbd262fb6ac28790722591cb",
+    "src/main/resources/assets/neoworld/textures/font/ranks/admin_icon.png": "6b746ea97afb9d267575b905e6326bb1ee1d92edfa0cc2d201b82e28d93b344a",
+    "src/main/resources/assets/neoworld/textures/font/ranks/builder.png": "81d342c31f8ceb845b771b9f8c5731c4aa4a39a943bf87a23bd8b43ffff95829",
+    "src/main/resources/assets/neoworld/textures/font/ranks/builder_icon.png": "6d9f04efe1b0128c96378bb8fb1ab46c8ff81ce2a712ef00d137486c4f2b01b1",
+    "src/main/resources/assets/neoworld/textures/font/ranks/dev.png": "1aefe226646a543a09418ce36d9114251870f20a800f3a3f6227eaee04278acb",
+    "src/main/resources/assets/neoworld/textures/font/ranks/dev_icon.png": "ada681ff8055d4103ddcf5d51521b2f48f8e30c484b1603005aa35a4d5391739",
+    "src/main/resources/assets/neoworld/textures/font/ranks/exemple.png": "8d53858ff6e90e5fda04f5f3759ee7270a4e31bf6da586211ecff3f0102b603b",
+    "src/main/resources/assets/neoworld/textures/font/ranks/graphiste.png": "a6a98e3a45db846482b30d167e45963abd6688cc760a08777859f305012a8d49",
+    "src/main/resources/assets/neoworld/textures/font/ranks/graphiste_icon.png": "d6abe46b3ea6ca559a38abe3d9317f6b0c53b6204e3691dcb2eee278895ec18b",
+    "src/main/resources/assets/neoworld/textures/font/ranks/helper.png": "40b3a51460a76dcb5987c4a81dc589e8ae5eab3ef909776bcb13ab2a1d9acc45",
+    "src/main/resources/assets/neoworld/textures/font/ranks/helper_icon.png": "a93fb791766f666e08a84831097187b825f668181339dbf89ff34fc99d070087",
+    "src/main/resources/assets/neoworld/textures/font/ranks/manager.png": "9f4835ec0c0ef322d6fa65f746fa270553077c1e4d58bd52f2e4679d34fb9085",
+    "src/main/resources/assets/neoworld/textures/font/ranks/manager_icon.png": "6bf92ab19985a98db15b56d4a0c9733594c8cf2ecd7a9b2cd7892d0cc7a7f696",
+    "src/main/resources/assets/neoworld/textures/font/ranks/mod.png": "78efa1df65b25bd84d41935c301ad5c96029e526a77c24aacbea2ab797ed4ec2",
+    "src/main/resources/assets/neoworld/textures/font/ranks/mod_icon.png": "64838ba11fc81e605dc3347748e2a1334f7056cc84dd3c165522d00f1fdf3967",
+    "src/main/resources/assets/neoworld/textures/font/ranks/mvp.png": "25382b3dea1262338d0afde5bcddb10fa4c57c98ac9cf52c6b539837a85bb331",
+    "src/main/resources/assets/neoworld/textures/font/ranks/mvp_icon.png": "01fdde72fc26df3a4c4e7e6720c923bb94eb49c8396c4c2fa254a2bd043f9615",
+    "src/main/resources/assets/neoworld/textures/font/ranks/mvp_plus.png": "462c2dd6a1ae5a505c2bc1b1c9c13983df6e335dce5121c32ed108355a7e8ee7",
+    "src/main/resources/assets/neoworld/textures/font/ranks/mvp_plus_icon.png": "7a8bb4216ca23e1ac083938881193c9e394fe67f4798d5df13b0160523d87fe7",
+    "src/main/resources/assets/neoworld/textures/font/ranks/owner.png": "3ad5f17fba7cbc5ecffb7ebd730aa5d35b4dc992a36f4c8d5066c9acadbeca8c",
+    "src/main/resources/assets/neoworld/textures/font/ranks/owner_icon.png": "750c0048674e9b8c34d5154bd8dbd5d1588a35f749b03bbfbb7455e249a04a7c",
+    "src/main/resources/assets/neoworld/textures/font/ranks/player.png": "ebe4f062b8a580ad9659e2ea3cba4bbd24978e34f10c74e02884bf8b58c9a873",
+    "src/main/resources/assets/neoworld/textures/font/ranks/player_icon.png": "a9f8651bff10c4074ac7f3dfa8ea53aca2954b1511f8d12af27a7aee04c44e0b",
+    "src/main/resources/assets/neoworld/textures/font/ranks/staff.png": "d09076c8de3bc2f07c40a308d4a602316ca437597ad336f816fce7002a91b7d9",
+    "src/main/resources/assets/neoworld/textures/font/ranks/staff_icon.png": "d27928839ed896b56907f24cba839d655e02c14a76ef1cc107157e86454c175f",
+    "src/main/resources/assets/neoworld/textures/font/ranks/tiktok.png": "1b3c57cbfecd5e1923608b6484dc263d619fd3246136c065697467ecfb81cc14",
+    "src/main/resources/assets/neoworld/textures/font/ranks/tiktok_icon.png": "5167d383406031f0b97d588a0005b515a37cadedef7bab5508ae2ef77642c6c3",
+    "src/main/resources/assets/neoworld/textures/font/ranks/tiktok_v2.png": "08a6dc6595e4013bb944645f90dfac30ae9f80565603ff68b3f48b75d090f2a1",
+    "src/main/resources/assets/neoworld/textures/font/ranks/twitch.png": "f747446635f0514a1a712953c82b0c6fb8a2e270b2d471f14a71ff894d3bdce8",
+    "src/main/resources/assets/neoworld/textures/font/ranks/twitch_icon.png": "2593100c2de10d2b025d1e845d3722a9cb3672efeaffdc67b9e6911aca4879b8",
+    "src/main/resources/assets/neoworld/textures/font/ranks/twitch_v2.png": "094dcabb98b7f106629b6e914d3ebc1069d7ce449992916c36aa2e124b200fc9",
+    "src/main/resources/assets/neoworld/textures/font/ranks/vip.png": "f6efc4d3a4fde8388560bc65d61f60382bc94a2a798c5f779498d2abe3bcc13c",
+    "src/main/resources/assets/neoworld/textures/font/ranks/vip_icon.png": "1d49a045993aa56c8ae190032c9a0599456bfa6ded3496c1318f49aadd7e314d",
+    "src/main/resources/assets/neoworld/textures/font/ranks/vip_plus.png": "3173863358cf43be4efe48ebc12790a7584a150a15bc76f09a116ddce71c2d22",
+    "src/main/resources/assets/neoworld/textures/font/ranks/vip_plus_icon.png": "d39e1551f9a92ab8e6f86f8c15e2033f25c9ab92f0a65aec007813034b6ad2d6",
+    "src/main/resources/assets/neoworld/textures/font/ranks/ytb.png": "6cd4cd8e4ca4f328057e3555d40612c2afc4ba3d44bbd4d37ddbf8e05b3a5a8a",
+    "src/main/resources/assets/neoworld/textures/font/ranks/ytb_icon.png": "9c1e9f83dd8188688f51bd5981cee39cdb5c7f579b23fec4dceb82d680e21472",
+    "src/main/resources/assets/neoworld/textures/font/ranks/ytb_v2.png": "8d34c107bd0dc2d8f1c3ecec7e65f7dc2ed2b6e6c709e9b4bebb2e51dee91482",
+    "src/main/resources/assets/neoworld/textures/gui/activity/icon_daily.png": "7ce192853f1fd73e88391c4c638cd1126e44e3e594d98987ec12c7716284666e",
+    "src/main/resources/assets/neoworld/textures/gui/activity/icon_monthly.png": "367db165dd8749a4ec500a3a75d8d421574b515b21e3a389940c8b0793aa492a",
+    "src/main/resources/assets/neoworld/textures/gui/activity/icon_online.png": "40d5e129e6d868b9f625893f9227632127fb42876921f9ae3819f20e3fd96714",
+    "src/main/resources/assets/neoworld/textures/gui/activity/icon_pending.png": "cae989f0b5e56bec547579d08eef9ac5b76870e2ce06057b94c8e2cb90c439c7",
+    "src/main/resources/assets/neoworld/textures/gui/common/icons/disband.png": "a9caa1ae8b0867f17cd88b29aa0b40de06290d0899a999057aa039b7dfd419b1",
+    "src/main/resources/assets/neoworld/textures/gui/common/icons/invite.png": "e7206ff6771d0479ac32d5ea7ad088f9dbf141df0e7fc7b04c5131d45ffaade8",
+    "src/main/resources/assets/neoworld/textures/gui/common/icons/kick.png": "0752fafaa9117e9e80a3e73158a2565f7b1f7615b08d65efd976a581b4c61a2b",
+    "src/main/resources/assets/neoworld/textures/gui/common/icons/leader.png": "e45a8163ebf3bcb18ae5c860376f61c57a5741c564dd857f9bfe1e4f7f416156",
+    "src/main/resources/assets/neoworld/textures/gui/common/icons/leave.png": "10c253165904f727953471abe9202e070845cd513391621113a87f770c0717e4",
+    "src/main/resources/assets/neoworld/textures/gui/common/icons/member.png": "9a9f7aab41a33b275a2fb38bde097e33b5c638332ba36e67d8635ed25d70d5dd",
+    "src/main/resources/assets/neoworld/textures/gui/common/icons/ready.png": "e6c0c4d42e5d297f837686ba1b2ec39d26e06073f515801c563c044717e6bdb2",
+    "src/main/resources/assets/neoworld/textures/gui/common/icons/refresh.png": "1df2fc7f2f3bdd380728acfb0354d64661d0a017fd48a35d86fbad5068d75568",
+    "src/main/resources/assets/neoworld/textures/gui/dungeon/hud/clock.png": "dd7986e47092624e946d7525b2b3efae2648e69a454793f6859c076c7ce3f305",
+    "src/main/resources/assets/neoworld/textures/gui/fashion/tooltip/back.png": "530d9b639dceb0061ddd7b5324f5d31eb3a42ca5a0fedcd94ad1e8eb106b2338",
+    "src/main/resources/assets/neoworld/textures/gui/fashion/tooltip/consume.png": "98c935d8061c0aca3d07666d8094fafebbd4a546454019cde307232b4c84cda6",
+    "src/main/resources/assets/neoworld/textures/gui/fashion/tooltip/fashion.png": "fcc67ab8818820d6ae2fba5375d4475fc5856c3915998c2bad0f8c52686d30cd",
+    "src/main/resources/assets/neoworld/textures/gui/fashion/tooltip/info.png": "96a7a0606578ad600a1668a89658234869723b7ff28d654b4e1822b51cebef63",
+    "src/main/resources/assets/neoworld/textures/gui/fashion/tooltip/owned.png": "2dd05d3a979399d5084959f887b1ece627e437a2b1ef90837cd389dfa1a3399e",
+    "src/main/resources/assets/neoworld/textures/gui/fashion/tooltip/right_click.png": "8761372a1d9d9c2fe98ce3141bd2a303eebe11737fd32d79e13412dc533d9f8a",
+    "src/main/resources/assets/neoworld/textures/gui/fashion/tooltip/slot_back.png": "85abf34ebd9bd2b04b5439d2c4e5305e150eb26bbb116ffd32d3a12c212b092f",
+    "src/main/resources/assets/neoworld/textures/gui/fashion/tooltip/slot_body.png": "8c6983c80eea1ffb1bb3042427953529e8fb5891819b5804d14657546d054c88",
+    "src/main/resources/assets/neoworld/textures/gui/fashion/tooltip/slot_face.png": "a1442fd202761ffa648c25bb951b55f10dfc5dc94803a6d790388b26bf853cfd",
+    "src/main/resources/assets/neoworld/textures/gui/fashion/tooltip/slot_feet.png": "5403627b951c779573806277a730a175382767d8b143c8a7f86345321d779a0a",
+    "src/main/resources/assets/neoworld/textures/gui/fashion/tooltip/slot_head.png": "ab38a80f0049377e22903c811f9d84fc42d6f7308baac4a6931a1c5c6a94a13b",
+    "src/main/resources/assets/neoworld/textures/gui/fashion/tooltip/slot_legs.png": "c0f62d310f2de93d903468ef82f30b02663d2170082cfcb2bcbedb60c16d761c",
+    "src/main/resources/assets/neoworld/textures/gui/fashion/tooltip/unlock.png": "57c3881fe19d38897d54979b96054eeba49f53939df9b7cea1235dab03bc7c49",
+    "src/main/resources/assets/neoworld/textures/gui/fashion/tooltip/wardrobe.png": "10268bbc735f85ee45a08e2e1e02febcdc6fe738214cc94fb0f9a25f6f39eb0c"
+  },
+  "entries": [
+    {
+      "id": "neoworld:icons/ue001",
+      "name": "anchor",
+      "category": "icons",
+      "font_id": "neoworld:icons",
+      "codepoint": "U+E001",
+      "glyph": "",
+      "java_escape": "\\uE001",
+      "image_resource": "neoworld:font/icons/anchor.png",
+      "image_path": "src/main/resources/assets/neoworld/textures/font/icons/anchor.png",
+      "image_size": [
+        12,
+        12
+      ],
+      "source_rect": [
+        0,
+        0,
+        12,
+        12
+      ],
+      "alpha_bounds": [
+        0,
+        0,
+        12,
+        12
+      ],
+      "height": 9,
+      "ascent": 8,
+      "provider_index": 0,
+      "source_font": "src/main/resources/assets/neoworld/font/icons.json",
+      "default_font": {
+        "font_id": "neoworld:icons",
+        "height": 9,
+        "ascent": 8,
+        "same_metrics": true
+      },
+      "usage_java": "NeoBitmapFonts.text(\"\\uE001\")",
+      "java_constant": "NeoBitmapIcon.ICONS_ANCHOR"
+    },
+    {
+      "id": "neoworld:icons/ue002",
+      "name": "bomb",
+      "category": "icons",
+      "font_id": "neoworld:icons",
+      "codepoint": "U+E002",
+      "glyph": "",
+      "java_escape": "\\uE002",
+      "image_resource": "neoworld:font/icons/bomb.png",
+      "image_path": "src/main/resources/assets/neoworld/textures/font/icons/bomb.png",
+      "image_size": [
+        12,
+        12
+      ],
+      "source_rect": [
+        0,
+        0,
+        12,
+        12
+      ],
+      "alpha_bounds": [
+        0,
+        0,
+        12,
+        12
+      ],
+      "height": 9,
+      "ascent": 8,
+      "provider_index": 1,
+      "source_font": "src/main/resources/assets/neoworld/font/icons.json",
+      "default_font": {
+        "font_id": "neoworld:icons",
+        "height": 9,
+        "ascent": 8,
+        "same_metrics": true
+      },
+      "usage_java": "NeoBitmapFonts.text(\"\\uE002\")",
+      "java_constant": "NeoBitmapIcon.ICONS_BOMB"
+    },
+    {
+      "id": "neoworld:icons/ue003",
+      "name": "candy",
+      "category": "icons",
+      "font_id": "neoworld:icons",
+      "codepoint": "U+E003",
+      "glyph": "",
+      "java_escape": "\\uE003",
+      "image_resource": "neoworld:font/icons/candy.png",
+      "image_path": "src/main/resources/assets/neoworld/textures/font/icons/candy.png",
+      "image_size": [
+        12,
+        12
+      ],
+      "source_rect": [
+        0,
+        0,
+        12,
+        12
+      ],
+      "alpha_bounds": [
+        0,
+        0,
+        12,
+        12
+      ],
+      "height": 9,
+      "ascent": 8,
+      "provider_index": 2,
+      "source_font": "src/main/resources/assets/neoworld/font/icons.json",
+      "default_font": {
+        "font_id": "neoworld:icons",
+        "height": 9,
+        "ascent": 8,
+        "same_metrics": true
+      },
+      "usage_java": "NeoBitmapFonts.text(\"\\uE003\")",
+      "java_constant": "NeoBitmapIcon.ICONS_CANDY"
+    },
+    {
+      "id": "neoworld:icons/ue004",
+      "name": "chest",
+      "category": "icons",
+      "font_id": "neoworld:icons",
+      "codepoint": "U+E004",
+      "glyph": "",
+      "java_escape": "\\uE004",
+      "image_resource": "neoworld:font/icons/chest.png",
+      "image_path": "src/main/resources/assets/neoworld/textures/font/icons/chest.png",
+      "image_size": [
+        64,
+        64
+      ],
+      "source_rect": [
+        0,
+        0,
+        64,
+        64
+      ],
+      "alpha_bounds": [
+        2,
+        2,
+        61,
+        62
+      ],
+      "height": 9,
+      "ascent": 8,
+      "provider_index": 3,
+      "source_font": "src/main/resources/assets/neoworld/font/icons.json",
+      "default_font": {
+        "font_id": "neoworld:icons",
+        "height": 9,
+        "ascent": 8,
+        "same_metrics": true
+      },
+      "usage_java": "NeoSystemIcons.icon(NeoSystemIcons.Icon.MARKET)",
+      "java_constant": "NeoBitmapIcon.ICONS_CHEST"
+    },
+    {
+      "id": "neoworld:icons/ue005",
+      "name": "clover",
+      "category": "icons",
+      "font_id": "neoworld:icons",
+      "codepoint": "U+E005",
+      "glyph": "",
+      "java_escape": "\\uE005",
+      "image_resource": "neoworld:font/icons/clover.png",
+      "image_path": "src/main/resources/assets/neoworld/textures/font/icons/clover.png",
+      "image_size": [
+        12,
+        12
+      ],
+      "source_rect": [
+        0,
+        0,
+        12,
+        12
+      ],
+      "alpha_bounds": [
+        0,
+        0,
+        12,
+        12
+      ],
+      "height": 9,
+      "ascent": 8,
+      "provider_index": 4,
+      "source_font": "src/main/resources/assets/neoworld/font/icons.json",
+      "default_font": {
+        "font_id": "neoworld:icons",
+        "height": 9,
+        "ascent": 8,
+        "same_metrics": true
+      },
+      "usage_java": "NeoBitmapFonts.text(\"\\uE005\")",
+      "java_constant": "NeoBitmapIcon.ICONS_CLOVER"
+    },
+    {
+      "id": "neoworld:icons/ue006",
+      "name": "cog",
+      "category": "icons",
+      "font_id": "neoworld:icons",
+      "codepoint": "U+E006",
+      "glyph": "",
+      "java_escape": "\\uE006",
+      "image_resource": "neoworld:font/icons/cog.png",
+      "image_path": "src/main/resources/assets/neoworld/textures/font/icons/cog.png",
+      "image_size": [
+        64,
+        64
+      ],
+      "source_rect": [
+        0,
+        0,
+        64,
+        64
+      ],
+      "alpha_bounds": [
+        2,
+        3,
+        61,
+        62
+      ],
+      "height": 9,
+      "ascent": 8,
+      "provider_index": 5,
+      "source_font": "src/main/resources/assets/neoworld/font/icons.json",
+      "default_font": {
+        "font_id": "neoworld:icons",
+        "height": 9,
+        "ascent": 8,
+        "same_metrics": true
+      },
+      "usage_java": "NeoSystemIcons.icon(NeoSystemIcons.Icon.SETTINGS)",
+      "java_constant": "NeoBitmapIcon.ICONS_COG"
+    },
+    {
+      "id": "neoworld:icons/ue007",
+      "name": "compass",
+      "category": "icons",
+      "font_id": "neoworld:icons",
+      "codepoint": "U+E007",
+      "glyph": "",
+      "java_escape": "\\uE007",
+      "image_resource": "neoworld:font/icons/compass.png",
+      "image_path": "src/main/resources/assets/neoworld/textures/font/icons/compass.png",
+      "image_size": [
+        12,
+        12
+      ],
+      "source_rect": [
+        0,
+        0,
+        12,
+        12
+      ],
+      "alpha_bounds": [
+        0,
+        0,
+        12,
+        12
+      ],
+      "height": 9,
+      "ascent": 8,
+      "provider_index": 6,
+      "source_font": "src/main/resources/assets/neoworld/font/icons.json",
+      "default_font": {
+        "font_id": "neoworld:icons",
+        "height": 9,
+        "ascent": 8,
+        "same_metrics": true
+      },
+      "usage_java": "NeoBitmapFonts.text(\"\\uE007\")",
+      "java_constant": "NeoBitmapIcon.ICONS_COMPASS"
+    },
+    {
+      "id": "neoworld:icons/ue008",
+      "name": "crystals",
+      "category": "icons",
+      "font_id": "neoworld:icons",
+      "codepoint": "U+E008",
+      "glyph": "",
+      "java_escape": "\\uE008",
+      "image_resource": "neoworld:font/icons/crystals.png",
+      "image_path": "src/main/resources/assets/neoworld/textures/font/icons/crystals.png",
+      "image_size": [
+        12,
+        12
+      ],
+      "source_rect": [
+        0,
+        0,
+        12,
+        12
+      ],
+      "alpha_bounds": [
+        0,
+        0,
+        12,
+        12
+      ],
+      "height": 9,
+      "ascent": 8,
+      "provider_index": 7,
+      "source_font": "src/main/resources/assets/neoworld/font/icons.json",
+      "default_font": {
+        "font_id": "neoworld:icons",
+        "height": 9,
+        "ascent": 8,
+        "same_metrics": true
+      },
+      "usage_java": "NeoBitmapFonts.text(\"\\uE008\")",
+      "java_constant": "NeoBitmapIcon.ICONS_CRYSTALS"
+    },
+    {
+      "id": "neoworld:icons/ue009",
+      "name": "dialogue",
+      "category": "icons",
+      "font_id": "neoworld:icons",
+      "codepoint": "U+E009",
+      "glyph": "",
+      "java_escape": "\\uE009",
+      "image_resource": "neoworld:font/icons/dialogue.png",
+      "image_path": "src/main/resources/assets/neoworld/textures/font/icons/dialogue.png",
+      "image_size": [
+        12,
+        12
+      ],
+      "source_rect": [
+        0,
+        0,
+        12,
+        12
+      ],
+      "alpha_bounds": [
+        0,
+        0,
+        12,
+        12
+      ],
+      "height": 9,
+      "ascent": 8,
+      "provider_index": 8,
+      "source_font": "src/main/resources/assets/neoworld/font/icons.json",
+      "default_font": {
+        "font_id": "neoworld:icons",
+        "height": 9,
+        "ascent": 8,
+        "same_metrics": true
+      },
+      "usage_java": "NeoBitmapFonts.text(\"\\uE009\")",
+      "java_constant": "NeoBitmapIcon.ICONS_DIALOGUE"
+    },
+    {
+      "id": "neoworld:icons/ue00a",
+      "name": "earth",
+      "category": "icons",
+      "font_id": "neoworld:icons",
+      "codepoint": "U+E00A",
+      "glyph": "",
+      "java_escape": "\\uE00A",
+      "image_resource": "neoworld:font/icons/earth.png",
+      "image_path": "src/main/resources/assets/neoworld/textures/font/icons/earth.png",
+      "image_size": [
+        12,
+        12
+      ],
+      "source_rect": [
+        0,
+        0,
+        12,
+        12
+      ],
+      "alpha_bounds": [
+        0,
+        0,
+        12,
+        12
+      ],
+      "height": 9,
+      "ascent": 8,
+      "provider_index": 9,
+      "source_font": "src/main/resources/assets/neoworld/font/icons.json",
+      "default_font": {
+        "font_id": "neoworld:icons",
+        "height": 9,
+        "ascent": 8,
+        "same_metrics": true
+      },
+      "usage_java": "NeoBitmapFonts.text(\"\\uE00A\")",
+      "java_constant": "NeoBitmapIcon.ICONS_EARTH"
+    },
+    {
+      "id": "neoworld:icons/ue00b",
+      "name": "emerald",
+      "category": "icons",
+      "font_id": "neoworld:icons",
+      "codepoint": "U+E00B",
+      "glyph": "",
+      "java_escape": "\\uE00B",
+      "image_resource": "neoworld:font/icons/emerald.png",
+      "image_path": "src/main/resources/assets/neoworld/textures/font/icons/emerald.png",
+      "image_size": [
+        12,
+        12
+      ],
+      "source_rect": [
+        0,
+        0,
+        12,
+        12
+      ],
+      "alpha_bounds": [
+        2,
+        1,
+        10,
+        12
+      ],
+      "height": 9,
+      "ascent": 8,
+      "provider_index": 10,
+      "source_font": "src/main/resources/assets/neoworld/font/icons.json",
+      "default_font": {
+        "font_id": "neoworld:icons",
+        "height": 9,
+        "ascent": 8,
+        "same_metrics": true
+      },
+      "usage_java": "NeoBitmapFonts.text(\"\\uE00B\")",
+      "java_constant": "NeoBitmapIcon.ICONS_EMERALD"
+    },
+    {
+      "id": "neoworld:icons/ue00c",
+      "name": "exclamation",
+      "category": "icons",
+      "font_id": "neoworld:icons",
+      "codepoint": "U+E00C",
+      "glyph": "",
+      "java_escape": "\\uE00C",
+      "image_resource": "neoworld:font/icons/exclamation.png",
+      "image_path": "src/main/resources/assets/neoworld/textures/font/icons/exclamation.png",
+      "image_size": [
+        12,
+        12
+      ],
+      "source_rect": [
+        0,
+        0,
+        12,
+        12
+      ],
+      "alpha_bounds": [
+        3,
+        0,
+        9,
+        12
+      ],
+      "height": 9,
+      "ascent": 8,
+      "provider_index": 11,
+      "source_font": "src/main/resources/assets/neoworld/font/icons.json",
+      "default_font": {
+        "font_id": "neoworld:icons",
+        "height": 9,
+        "ascent": 8,
+        "same_metrics": true
+      },
+      "usage_java": "NeoBitmapFonts.text(\"\\uE00C\")",
+      "java_constant": "NeoBitmapIcon.ICONS_EXCLAMATION"
+    },
+    {
+      "id": "neoworld:icons/ue00d",
+      "name": "fire",
+      "category": "icons",
+      "font_id": "neoworld:icons",
+      "codepoint": "U+E00D",
+      "glyph": "",
+      "java_escape": "\\uE00D",
+      "image_resource": "neoworld:font/icons/fire.png",
+      "image_path": "src/main/resources/assets/neoworld/textures/font/icons/fire.png",
+      "image_size": [
+        12,
+        12
+      ],
+      "source_rect": [
+        0,
+        0,
+        12,
+        12
+      ],
+      "alpha_bounds": [
+        0,
+        0,
+        12,
+        12
+      ],
+      "height": 9,
+      "ascent": 8,
+      "provider_index": 12,
+      "source_font": "src/main/resources/assets/neoworld/font/icons.json",
+      "default_font": {
+        "font_id": "neoworld:icons",
+        "height": 9,
+        "ascent": 8,
+        "same_metrics": true
+      },
+      "usage_java": "NeoBitmapFonts.text(\"\\uE00D\")",
+      "java_constant": "NeoBitmapIcon.ICONS_FIRE"
+    },
+    {
+      "id": "neoworld:icons/ue00e",
+      "name": "fish",
+      "category": "icons",
+      "font_id": "neoworld:icons",
+      "codepoint": "U+E00E",
+      "glyph": "",
+      "java_escape": "\\uE00E",
+      "image_resource": "neoworld:font/icons/fish.png",
+      "image_path": "src/main/resources/assets/neoworld/textures/font/icons/fish.png",
+      "image_size": [
+        12,
+        12
+      ],
+      "source_rect": [
+        0,
+        0,
+        12,
+        12
+      ],
+      "alpha_bounds": [
+        0,
+        0,
+        12,
+        12
+      ],
+      "height": 9,
+      "ascent": 8,
+      "provider_index": 13,
+      "source_font": "src/main/resources/assets/neoworld/font/icons.json",
+      "default_font": {
+        "font_id": "neoworld:icons",
+        "height": 9,
+        "ascent": 8,
+        "same_metrics": true
+      },
+      "usage_java": "NeoBitmapFonts.text(\"\\uE00E\")",
+      "java_constant": "NeoBitmapIcon.ICONS_FISH"
+    },
+    {
+      "id": "neoworld:icons/ue00f",
+      "name": "fish_grey",
+      "category": "icons",
+      "font_id": "neoworld:icons",
+      "codepoint": "U+E00F",
+      "glyph": "",
+      "java_escape": "\\uE00F",
+      "image_resource": "neoworld:font/icons/fish_grey.png",
+      "image_path": "src/main/resources/assets/neoworld/textures/font/icons/fish_grey.png",
+      "image_size": [
+        12,
+        12
+      ],
+      "source_rect": [
+        0,
+        0,
+        12,
+        12
+      ],
+      "alpha_bounds": [
+        0,
+        0,
+        12,
+        12
+      ],
+      "height": 9,
+      "ascent": 8,
+      "provider_index": 14,
+      "source_font": "src/main/resources/assets/neoworld/font/icons.json",
+      "default_font": {
+        "font_id": "neoworld:icons",
+        "height": 9,
+        "ascent": 8,
+        "same_metrics": true
+      },
+      "usage_java": "NeoBitmapFonts.text(\"\\uE00F\")",
+      "java_constant": "NeoBitmapIcon.ICONS_FISH_GREY"
+    },
+    {
+      "id": "neoworld:icons/ue010",
+      "name": "flag",
+      "category": "icons",
+      "font_id": "neoworld:icons",
+      "codepoint": "U+E010",
+      "glyph": "",
+      "java_escape": "\\uE010",
+      "image_resource": "neoworld:font/icons/flag.png",
+      "image_path": "src/main/resources/assets/neoworld/textures/font/icons/flag.png",
+      "image_size": [
+        12,
+        12
+      ],
+      "source_rect": [
+        0,
+        0,
+        12,
+        12
+      ],
+      "alpha_bounds": [
+        0,
+        0,
+        12,
+        12
+      ],
+      "height": 9,
+      "ascent": 8,
+      "provider_index": 15,
+      "source_font": "src/main/resources/assets/neoworld/font/icons.json",
+      "default_font": {
+        "font_id": "neoworld:icons",
+        "height": 9,
+        "ascent": 8,
+        "same_metrics": true
+      },
+      "usage_java": "NeoBitmapFonts.text(\"\\uE010\")",
+      "java_constant": "NeoBitmapIcon.ICONS_FLAG"
+    },
+    {
+      "id": "neoworld:icons/ue011",
+      "name": "flag_white",
+      "category": "icons",
+      "font_id": "neoworld:icons",
+      "codepoint": "U+E011",
+      "glyph": "",
+      "java_escape": "\\uE011",
+      "image_resource": "neoworld:font/icons/flag_white.png",
+      "image_path": "src/main/resources/assets/neoworld/textures/font/icons/flag_white.png",
+      "image_size": [
+        12,
+        12
+      ],
+      "source_rect": [
+        0,
+        0,
+        12,
+        12
+      ],
+      "alpha_bounds": [
+        0,
+        0,
+        12,
+        12
+      ],
+      "height": 9,
+      "ascent": 8,
+      "provider_index": 16,
+      "source_font": "src/main/resources/assets/neoworld/font/icons.json",
+      "default_font": {
+        "font_id": "neoworld:icons",
+        "height": 9,
+        "ascent": 8,
+        "same_metrics": true
+      },
+      "usage_java": "NeoBitmapFonts.text(\"\\uE011\")",
+      "java_constant": "NeoBitmapIcon.ICONS_FLAG_WHITE"
+    },
+    {
+      "id": "neoworld:icons/ue012",
+      "name": "helmet",
+      "category": "icons",
+      "font_id": "neoworld:icons",
+      "codepoint": "U+E012",
+      "glyph": "",
+      "java_escape": "\\uE012",
+      "image_resource": "neoworld:font/icons/helmet.png",
+      "image_path": "src/main/resources/assets/neoworld/textures/font/icons/helmet.png",
+      "image_size": [
+        12,
+        12
+      ],
+      "source_rect": [
+        0,
+        0,
+        12,
+        12
+      ],
+      "alpha_bounds": [
+        1,
+        0,
+        11,
+        12
+      ],
+      "height": 9,
+      "ascent": 8,
+      "provider_index": 17,
+      "source_font": "src/main/resources/assets/neoworld/font/icons.json",
+      "default_font": {
+        "font_id": "neoworld:icons",
+        "height": 9,
+        "ascent": 8,
+        "same_metrics": true
+      },
+      "usage_java": "NeoBitmapFonts.text(\"\\uE012\")",
+      "java_constant": "NeoBitmapIcon.ICONS_HELMET"
+    },
+    {
+      "id": "neoworld:icons/ue013",
+      "name": "leaf",
+      "category": "icons",
+      "font_id": "neoworld:icons",
+      "codepoint": "U+E013",
+      "glyph": "",
+      "java_escape": "\\uE013",
+      "image_resource": "neoworld:font/icons/leaf.png",
+      "image_path": "src/main/resources/assets/neoworld/textures/font/icons/leaf.png",
+      "image_size": [
+        12,
+        12
+      ],
+      "source_rect": [
+        0,
+        0,
+        12,
+        12
+      ],
+      "alpha_bounds": [
+        0,
+        0,
+        12,
+        11
+      ],
+      "height": 9,
+      "ascent": 8,
+      "provider_index": 18,
+      "source_font": "src/main/resources/assets/neoworld/font/icons.json",
+      "default_font": {
+        "font_id": "neoworld:icons",
+        "height": 9,
+        "ascent": 8,
+        "same_metrics": true
+      },
+      "usage_java": "NeoBitmapFonts.text(\"\\uE013\")",
+      "java_constant": "NeoBitmapIcon.ICONS_LEAF"
+    },
+    {
+      "id": "neoworld:icons/ue014",
+      "name": "lightbulb",
+      "category": "icons",
+      "font_id": "neoworld:icons",
+      "codepoint": "U+E014",
+      "glyph": "",
+      "java_escape": "\\uE014",
+      "image_resource": "neoworld:font/icons/lightbulb.png",
+      "image_path": "src/main/resources/assets/neoworld/textures/font/icons/lightbulb.png",
+      "image_size": [
+        12,
+        12
+      ],
+      "source_rect": [
+        0,
+        0,
+        12,
+        12
+      ],
+      "alpha_bounds": [
+        1,
+        0,
+        11,
+        12
+      ],
+      "height": 9,
+      "ascent": 8,
+      "provider_index": 19,
+      "source_font": "src/main/resources/assets/neoworld/font/icons.json",
+      "default_font": {
+        "font_id": "neoworld:icons",
+        "height": 9,
+        "ascent": 8,
+        "same_metrics": true
+      },
+      "usage_java": "NeoBitmapFonts.text(\"\\uE014\")",
+      "java_constant": "NeoBitmapIcon.ICONS_LIGHTBULB"
+    },
+    {
+      "id": "neoworld:icons/ue015",
+      "name": "lock",
+      "category": "icons",
+      "font_id": "neoworld:icons",
+      "codepoint": "U+E015",
+      "glyph": "",
+      "java_escape": "\\uE015",
+      "image_resource": "neoworld:font/icons/lock.png",
+      "image_path": "src/main/resources/assets/neoworld/textures/font/icons/lock.png",
+      "image_size": [
+        12,
+        12
+      ],
+      "source_rect": [
+        0,
+        0,
+        12,
+        12
+      ],
+      "alpha_bounds": [
+        1,
+        0,
+        11,
+        12
+      ],
+      "height": 9,
+      "ascent": 8,
+      "provider_index": 20,
+      "source_font": "src/main/resources/assets/neoworld/font/icons.json",
+      "default_font": {
+        "font_id": "neoworld:icons",
+        "height": 9,
+        "ascent": 8,
+        "same_metrics": true
+      },
+      "usage_java": "NeoBitmapFonts.text(\"\\uE015\")",
+      "java_constant": "NeoBitmapIcon.ICONS_LOCK"
+    },
+    {
+      "id": "neoworld:icons/ue016",
+      "name": "magnet",
+      "category": "icons",
+      "font_id": "neoworld:icons",
+      "codepoint": "U+E016",
+      "glyph": "",
+      "java_escape": "\\uE016",
+      "image_resource": "neoworld:font/icons/magnet.png",
+      "image_path": "src/main/resources/assets/neoworld/textures/font/icons/magnet.png",
+      "image_size": [
+        12,
+        12
+      ],
+      "source_rect": [
+        0,
+        0,
+        12,
+        12
+      ],
+      "alpha_bounds": [
+        0,
+        0,
+        12,
+        12
+      ],
+      "height": 9,
+      "ascent": 8,
+      "provider_index": 21,
+      "source_font": "src/main/resources/assets/neoworld/font/icons.json",
+      "default_font": {
+        "font_id": "neoworld:icons",
+        "height": 9,
+        "ascent": 8,
+        "same_metrics": true
+      },
+      "usage_java": "NeoBitmapFonts.text(\"\\uE016\")",
+      "java_constant": "NeoBitmapIcon.ICONS_MAGNET"
+    },
+    {
+      "id": "neoworld:icons/ue017",
+      "name": "medal_bronze",
+      "category": "icons",
+      "font_id": "neoworld:icons",
+      "codepoint": "U+E017",
+      "glyph": "",
+      "java_escape": "\\uE017",
+      "image_resource": "neoworld:font/icons/medal_bronze.png",
+      "image_path": "src/main/resources/assets/neoworld/textures/font/icons/medal_bronze.png",
+      "image_size": [
+        12,
+        12
+      ],
+      "source_rect": [
+        0,
+        0,
+        12,
+        12
+      ],
+      "alpha_bounds": [
+        0,
+        0,
+        12,
+        12
+      ],
+      "height": 9,
+      "ascent": 8,
+      "provider_index": 22,
+      "source_font": "src/main/resources/assets/neoworld/font/icons.json",
+      "default_font": {
+        "font_id": "neoworld:icons",
+        "height": 9,
+        "ascent": 8,
+        "same_metrics": true
+      },
+      "usage_java": "NeoBitmapFonts.text(\"\\uE017\")",
+      "java_constant": "NeoBitmapIcon.ICONS_MEDAL_BRONZE"
+    },
+    {
+      "id": "neoworld:icons/ue018",
+      "name": "medal_gold",
+      "category": "icons",
+      "font_id": "neoworld:icons",
+      "codepoint": "U+E018",
+      "glyph": "",
+      "java_escape": "\\uE018",
+      "image_resource": "neoworld:font/icons/medal_gold.png",
+      "image_path": "src/main/resources/assets/neoworld/textures/font/icons/medal_gold.png",
+      "image_size": [
+        12,
+        12
+      ],
+      "source_rect": [
+        0,
+        0,
+        12,
+        12
+      ],
+      "alpha_bounds": [
+        0,
+        0,
+        12,
+        12
+      ],
+      "height": 9,
+      "ascent": 8,
+      "provider_index": 23,
+      "source_font": "src/main/resources/assets/neoworld/font/icons.json",
+      "default_font": {
+        "font_id": "neoworld:icons",
+        "height": 9,
+        "ascent": 8,
+        "same_metrics": true
+      },
+      "usage_java": "NeoBitmapFonts.text(\"\\uE018\")",
+      "java_constant": "NeoBitmapIcon.ICONS_MEDAL_GOLD"
+    },
+    {
+      "id": "neoworld:icons/ue019",
+      "name": "medal_silver",
+      "category": "icons",
+      "font_id": "neoworld:icons",
+      "codepoint": "U+E019",
+      "glyph": "",
+      "java_escape": "\\uE019",
+      "image_resource": "neoworld:font/icons/medal_silver.png",
+      "image_path": "src/main/resources/assets/neoworld/textures/font/icons/medal_silver.png",
+      "image_size": [
+        12,
+        12
+      ],
+      "source_rect": [
+        0,
+        0,
+        12,
+        12
+      ],
+      "alpha_bounds": [
+        0,
+        0,
+        12,
+        12
+      ],
+      "height": 9,
+      "ascent": 8,
+      "provider_index": 24,
+      "source_font": "src/main/resources/assets/neoworld/font/icons.json",
+      "default_font": {
+        "font_id": "neoworld:icons",
+        "height": 9,
+        "ascent": 8,
+        "same_metrics": true
+      },
+      "usage_java": "NeoBitmapFonts.text(\"\\uE019\")",
+      "java_constant": "NeoBitmapIcon.ICONS_MEDAL_SILVER"
+    },
+    {
+      "id": "neoworld:icons/ue306",
+      "name": "menu_advancements",
+      "category": "icons",
+      "font_id": "neoworld:icons",
+      "codepoint": "U+E306",
+      "glyph": "",
+      "java_escape": "\\uE306",
+      "image_resource": "neoworld:font/icons/menu_advancements.png",
+      "image_path": "src/main/resources/assets/neoworld/textures/font/icons/menu_advancements.png",
+      "image_size": [
+        64,
+        64
+      ],
+      "source_rect": [
+        0,
+        0,
+        64,
+        64
+      ],
+      "alpha_bounds": [
+        2,
+        10,
+        61,
+        54
+      ],
+      "height": 16,
+      "ascent": 13,
+      "provider_index": 25,
+      "source_font": "src/main/resources/assets/neoworld/font/icons.json",
+      "default_font": {
+        "font_id": "neoworld:icons",
+        "height": 16,
+        "ascent": 13,
+        "same_metrics": true
+      },
+      "usage_java": "NeoSystemIcons.icon(NeoSystemIcons.Icon.ADVANCEMENTS)",
+      "java_constant": "NeoBitmapIcon.ICONS_MENU_ADVANCEMENTS"
+    },
+    {
+      "id": "neoworld:icons/ue303",
+      "name": "menu_dungeon",
+      "category": "icons",
+      "font_id": "neoworld:icons",
+      "codepoint": "U+E303",
+      "glyph": "",
+      "java_escape": "\\uE303",
+      "image_resource": "neoworld:font/icons/menu_dungeon.png",
+      "image_path": "src/main/resources/assets/neoworld/textures/font/icons/menu_dungeon.png",
+      "image_size": [
+        64,
+        64
+      ],
+      "source_rect": [
+        0,
+        0,
+        64,
+        64
+      ],
+      "alpha_bounds": [
+        5,
+        2,
+        59,
+        62
+      ],
+      "height": 16,
+      "ascent": 13,
+      "provider_index": 26,
+      "source_font": "src/main/resources/assets/neoworld/font/icons.json",
+      "default_font": {
+        "font_id": "neoworld:icons",
+        "height": 16,
+        "ascent": 13,
+        "same_metrics": true
+      },
+      "usage_java": "NeoSystemIcons.icon(NeoSystemIcons.Icon.DUNGEON)",
+      "java_constant": "NeoBitmapIcon.ICONS_MENU_DUNGEON"
+    },
+    {
+      "id": "neoworld:icons/ue309",
+      "name": "menu_exit",
+      "category": "icons",
+      "font_id": "neoworld:icons",
+      "codepoint": "U+E309",
+      "glyph": "",
+      "java_escape": "\\uE309",
+      "image_resource": "neoworld:font/icons/menu_exit.png",
+      "image_path": "src/main/resources/assets/neoworld/textures/font/icons/menu_exit.png",
+      "image_size": [
+        64,
+        64
+      ],
+      "source_rect": [
+        0,
+        0,
+        64,
+        64
+      ],
+      "alpha_bounds": [
+        3,
+        4,
+        62,
+        59
+      ],
+      "height": 16,
+      "ascent": 13,
+      "provider_index": 27,
+      "source_font": "src/main/resources/assets/neoworld/font/icons.json",
+      "default_font": {
+        "font_id": "neoworld:icons",
+        "height": 16,
+        "ascent": 13,
+        "same_metrics": true
+      },
+      "usage_java": "NeoSystemIcons.icon(NeoSystemIcons.Icon.EXIT)",
+      "java_constant": "NeoBitmapIcon.ICONS_MENU_EXIT"
+    },
+    {
+      "id": "neoworld:icons/ue308",
+      "name": "menu_lan",
+      "category": "icons",
+      "font_id": "neoworld:icons",
+      "codepoint": "U+E308",
+      "glyph": "",
+      "java_escape": "\\uE308",
+      "image_resource": "neoworld:font/icons/menu_lan.png",
+      "image_path": "src/main/resources/assets/neoworld/textures/font/icons/menu_lan.png",
+      "image_size": [
+        64,
+        64
+      ],
+      "source_rect": [
+        0,
+        0,
+        64,
+        64
+      ],
+      "alpha_bounds": [
+        2,
+        4,
+        62,
+        59
+      ],
+      "height": 16,
+      "ascent": 13,
+      "provider_index": 28,
+      "source_font": "src/main/resources/assets/neoworld/font/icons.json",
+      "default_font": {
+        "font_id": "neoworld:icons",
+        "height": 16,
+        "ascent": 13,
+        "same_metrics": true
+      },
+      "usage_java": "NeoSystemIcons.icon(NeoSystemIcons.Icon.LAN)",
+      "java_constant": "NeoBitmapIcon.ICONS_MENU_LAN"
+    },
+    {
+      "id": "neoworld:icons/ue305",
+      "name": "menu_mods",
+      "category": "icons",
+      "font_id": "neoworld:icons",
+      "codepoint": "U+E305",
+      "glyph": "",
+      "java_escape": "\\uE305",
+      "image_resource": "neoworld:font/icons/menu_mods.png",
+      "image_path": "src/main/resources/assets/neoworld/textures/font/icons/menu_mods.png",
+      "image_size": [
+        64,
+        64
+      ],
+      "source_rect": [
+        0,
+        0,
+        64,
+        64
+      ],
+      "alpha_bounds": [
+        3,
+        2,
+        59,
+        61
+      ],
+      "height": 16,
+      "ascent": 13,
+      "provider_index": 29,
+      "source_font": "src/main/resources/assets/neoworld/font/icons.json",
+      "default_font": {
+        "font_id": "neoworld:icons",
+        "height": 16,
+        "ascent": 13,
+        "same_metrics": true
+      },
+      "usage_java": "NeoSystemIcons.icon(NeoSystemIcons.Icon.MODS)",
+      "java_constant": "NeoBitmapIcon.ICONS_MENU_MODS"
+    },
+    {
+      "id": "neoworld:icons/ue302",
+      "name": "menu_party",
+      "category": "icons",
+      "font_id": "neoworld:icons",
+      "codepoint": "U+E302",
+      "glyph": "",
+      "java_escape": "\\uE302",
+      "image_resource": "neoworld:font/icons/menu_party.png",
+      "image_path": "src/main/resources/assets/neoworld/textures/font/icons/menu_party.png",
+      "image_size": [
+        64,
+        64
+      ],
+      "source_rect": [
+        0,
+        0,
+        64,
+        64
+      ],
+      "alpha_bounds": [
+        2,
+        16,
+        62,
+        49
+      ],
+      "height": 16,
+      "ascent": 13,
+      "provider_index": 30,
+      "source_font": "src/main/resources/assets/neoworld/font/icons.json",
+      "default_font": {
+        "font_id": "neoworld:icons",
+        "height": 16,
+        "ascent": 13,
+        "same_metrics": true
+      },
+      "usage_java": "NeoSystemIcons.icon(NeoSystemIcons.Icon.PARTY)",
+      "java_constant": "NeoBitmapIcon.ICONS_MENU_PARTY"
+    },
+    {
+      "id": "neoworld:icons/ue300",
+      "name": "menu_profile",
+      "category": "icons",
+      "font_id": "neoworld:icons",
+      "codepoint": "U+E300",
+      "glyph": "",
+      "java_escape": "\\uE300",
+      "image_resource": "neoworld:font/icons/menu_profile.png",
+      "image_path": "src/main/resources/assets/neoworld/textures/font/icons/menu_profile.png",
+      "image_size": [
+        64,
+        64
+      ],
+      "source_rect": [
+        0,
+        0,
+        64,
+        64
+      ],
+      "alpha_bounds": [
+        2,
+        3,
+        62,
+        61
+      ],
+      "height": 16,
+      "ascent": 13,
+      "provider_index": 31,
+      "source_font": "src/main/resources/assets/neoworld/font/icons.json",
+      "default_font": {
+        "font_id": "neoworld:icons",
+        "height": 16,
+        "ascent": 13,
+        "same_metrics": true
+      },
+      "usage_java": "NeoSystemIcons.icon(NeoSystemIcons.Icon.PROFILE)",
+      "java_constant": "NeoBitmapIcon.ICONS_MENU_PROFILE"
+    },
+    {
+      "id": "neoworld:icons/ue304",
+      "name": "menu_resume",
+      "category": "icons",
+      "font_id": "neoworld:icons",
+      "codepoint": "U+E304",
+      "glyph": "",
+      "java_escape": "\\uE304",
+      "image_resource": "neoworld:font/icons/menu_resume.png",
+      "image_path": "src/main/resources/assets/neoworld/textures/font/icons/menu_resume.png",
+      "image_size": [
+        64,
+        64
+      ],
+      "source_rect": [
+        0,
+        0,
+        64,
+        64
+      ],
+      "alpha_bounds": [
+        6,
+        2,
+        56,
+        62
+      ],
+      "height": 16,
+      "ascent": 13,
+      "provider_index": 32,
+      "source_font": "src/main/resources/assets/neoworld/font/icons.json",
+      "default_font": {
+        "font_id": "neoworld:icons",
+        "height": 16,
+        "ascent": 13,
+        "same_metrics": true
+      },
+      "usage_java": "NeoSystemIcons.icon(NeoSystemIcons.Icon.RESUME)",
+      "java_constant": "NeoBitmapIcon.ICONS_MENU_RESUME"
+    },
+    {
+      "id": "neoworld:icons/ue307",
+      "name": "menu_statistics",
+      "category": "icons",
+      "font_id": "neoworld:icons",
+      "codepoint": "U+E307",
+      "glyph": "",
+      "java_escape": "\\uE307",
+      "image_resource": "neoworld:font/icons/menu_statistics.png",
+      "image_path": "src/main/resources/assets/neoworld/textures/font/icons/menu_statistics.png",
+      "image_size": [
+        64,
+        64
+      ],
+      "source_rect": [
+        0,
+        0,
+        64,
+        64
+      ],
+      "alpha_bounds": [
+        2,
+        2,
+        62,
+        61
+      ],
+      "height": 16,
+      "ascent": 13,
+      "provider_index": 33,
+      "source_font": "src/main/resources/assets/neoworld/font/icons.json",
+      "default_font": {
+        "font_id": "neoworld:icons",
+        "height": 16,
+        "ascent": 13,
+        "same_metrics": true
+      },
+      "usage_java": "NeoSystemIcons.icon(NeoSystemIcons.Icon.STATISTICS)",
+      "java_constant": "NeoBitmapIcon.ICONS_MENU_STATISTICS"
+    },
+    {
+      "id": "neoworld:icons/ue301",
+      "name": "menu_title",
+      "category": "icons",
+      "font_id": "neoworld:icons",
+      "codepoint": "U+E301",
+      "glyph": "",
+      "java_escape": "\\uE301",
+      "image_resource": "neoworld:font/icons/menu_title.png",
+      "image_path": "src/main/resources/assets/neoworld/textures/font/icons/menu_title.png",
+      "image_size": [
+        64,
+        64
+      ],
+      "source_rect": [
+        0,
+        0,
+        64,
+        64
+      ],
+      "alpha_bounds": [
+        3,
+        2,
+        61,
+        62
+      ],
+      "height": 16,
+      "ascent": 13,
+      "provider_index": 34,
+      "source_font": "src/main/resources/assets/neoworld/font/icons.json",
+      "default_font": {
+        "font_id": "neoworld:icons",
+        "height": 16,
+        "ascent": 13,
+        "same_metrics": true
+      },
+      "usage_java": "NeoSystemIcons.icon(NeoSystemIcons.Icon.TITLES)",
+      "java_constant": "NeoBitmapIcon.ICONS_MENU_TITLE"
+    },
+    {
+      "id": "neoworld:icons/ue01a",
+      "name": "money",
+      "category": "icons",
+      "font_id": "neoworld:icons",
+      "codepoint": "U+E01A",
+      "glyph": "",
+      "java_escape": "\\uE01A",
+      "image_resource": "neoworld:font/icons/money.png",
+      "image_path": "src/main/resources/assets/neoworld/textures/font/icons/money.png",
+      "image_size": [
+        12,
+        12
+      ],
+      "source_rect": [
+        0,
+        0,
+        12,
+        12
+      ],
+      "alpha_bounds": [
+        0,
+        0,
+        12,
+        12
+      ],
+      "height": 9,
+      "ascent": 8,
+      "provider_index": 35,
+      "source_font": "src/main/resources/assets/neoworld/font/icons.json",
+      "default_font": {
+        "font_id": "neoworld:icons",
+        "height": 9,
+        "ascent": 8,
+        "same_metrics": true
+      },
+      "usage_java": "NeoBitmapFonts.text(\"\\uE01A\")",
+      "java_constant": "NeoBitmapIcon.ICONS_MONEY"
+    },
+    {
+      "id": "neoworld:icons/ue01b",
+      "name": "no",
+      "category": "icons",
+      "font_id": "neoworld:icons",
+      "codepoint": "U+E01B",
+      "glyph": "",
+      "java_escape": "\\uE01B",
+      "image_resource": "neoworld:font/icons/no.png",
+      "image_path": "src/main/resources/assets/neoworld/textures/font/icons/no.png",
+      "image_size": [
+        12,
+        12
+      ],
+      "source_rect": [
+        0,
+        0,
+        12,
+        12
+      ],
+      "alpha_bounds": [
+        0,
+        0,
+        12,
+        12
+      ],
+      "height": 9,
+      "ascent": 8,
+      "provider_index": 36,
+      "source_font": "src/main/resources/assets/neoworld/font/icons.json",
+      "default_font": {
+        "font_id": "neoworld:icons",
+        "height": 9,
+        "ascent": 8,
+        "same_metrics": true
+      },
+      "usage_java": "NeoBitmapFonts.text(\"\\uE01B\")",
+      "java_constant": "NeoBitmapIcon.ICONS_NO"
+    },
+    {
+      "id": "neoworld:icons/ue01c",
+      "name": "palmtree",
+      "category": "icons",
+      "font_id": "neoworld:icons",
+      "codepoint": "U+E01C",
+      "glyph": "",
+      "java_escape": "\\uE01C",
+      "image_resource": "neoworld:font/icons/palmtree.png",
+      "image_path": "src/main/resources/assets/neoworld/textures/font/icons/palmtree.png",
+      "image_size": [
+        12,
+        12
+      ],
+      "source_rect": [
+        0,
+        0,
+        12,
+        12
+      ],
+      "alpha_bounds": [
+        0,
+        0,
+        12,
+        12
+      ],
+      "height": 9,
+      "ascent": 8,
+      "provider_index": 37,
+      "source_font": "src/main/resources/assets/neoworld/font/icons.json",
+      "default_font": {
+        "font_id": "neoworld:icons",
+        "height": 9,
+        "ascent": 8,
+        "same_metrics": true
+      },
+      "usage_java": "NeoBitmapFonts.text(\"\\uE01C\")",
+      "java_constant": "NeoBitmapIcon.ICONS_PALMTREE"
+    },
+    {
+      "id": "neoworld:icons/ue01d",
+      "name": "seashell",
+      "category": "icons",
+      "font_id": "neoworld:icons",
+      "codepoint": "U+E01D",
+      "glyph": "",
+      "java_escape": "\\uE01D",
+      "image_resource": "neoworld:font/icons/seashell.png",
+      "image_path": "src/main/resources/assets/neoworld/textures/font/icons/seashell.png",
+      "image_size": [
+        12,
+        12
+      ],
+      "source_rect": [
+        0,
+        0,
+        12,
+        12
+      ],
+      "alpha_bounds": [
+        0,
+        0,
+        12,
+        12
+      ],
+      "height": 9,
+      "ascent": 8,
+      "provider_index": 38,
+      "source_font": "src/main/resources/assets/neoworld/font/icons.json",
+      "default_font": {
+        "font_id": "neoworld:icons",
+        "height": 9,
+        "ascent": 8,
+        "same_metrics": true
+      },
+      "usage_java": "NeoBitmapFonts.text(\"\\uE01D\")",
+      "java_constant": "NeoBitmapIcon.ICONS_SEASHELL"
+    },
+    {
+      "id": "neoworld:icons/ue01e",
+      "name": "starfish",
+      "category": "icons",
+      "font_id": "neoworld:icons",
+      "codepoint": "U+E01E",
+      "glyph": "",
+      "java_escape": "\\uE01E",
+      "image_resource": "neoworld:font/icons/starfish.png",
+      "image_path": "src/main/resources/assets/neoworld/textures/font/icons/starfish.png",
+      "image_size": [
+        12,
+        12
+      ],
+      "source_rect": [
+        0,
+        0,
+        12,
+        12
+      ],
+      "alpha_bounds": [
+        0,
+        0,
+        12,
+        12
+      ],
+      "height": 9,
+      "ascent": 8,
+      "provider_index": 39,
+      "source_font": "src/main/resources/assets/neoworld/font/icons.json",
+      "default_font": {
+        "font_id": "neoworld:icons",
+        "height": 9,
+        "ascent": 8,
+        "same_metrics": true
+      },
+      "usage_java": "NeoBitmapFonts.text(\"\\uE01E\")",
+      "java_constant": "NeoBitmapIcon.ICONS_STARFISH"
+    },
+    {
+      "id": "neoworld:icons/ue01f",
+      "name": "yes",
+      "category": "icons",
+      "font_id": "neoworld:icons",
+      "codepoint": "U+E01F",
+      "glyph": "",
+      "java_escape": "\\uE01F",
+      "image_resource": "neoworld:font/icons/yes.png",
+      "image_path": "src/main/resources/assets/neoworld/textures/font/icons/yes.png",
+      "image_size": [
+        12,
+        12
+      ],
+      "source_rect": [
+        0,
+        0,
+        12,
+        12
+      ],
+      "alpha_bounds": [
+        0,
+        1,
+        12,
+        11
+      ],
+      "height": 9,
+      "ascent": 8,
+      "provider_index": 40,
+      "source_font": "src/main/resources/assets/neoworld/font/icons.json",
+      "default_font": {
+        "font_id": "neoworld:icons",
+        "height": 9,
+        "ascent": 8,
+        "same_metrics": true
+      },
+      "usage_java": "NeoBitmapFonts.text(\"\\uE01F\")",
+      "java_constant": "NeoBitmapIcon.ICONS_YES"
+    },
+    {
+      "id": "neoworld:currency/ue048",
+      "name": "diamond_coin",
+      "category": "currency",
+      "font_id": "neoworld:currency",
+      "codepoint": "U+E048",
+      "glyph": "",
+      "java_escape": "\\uE048",
+      "image_resource": "neoworld:font/icons/diamond_coin.png",
+      "image_path": "src/main/resources/assets/neoworld/textures/font/icons/diamond_coin.png",
+      "image_size": [
+        12,
+        12
+      ],
+      "source_rect": [
+        0,
+        0,
+        12,
+        12
+      ],
+      "alpha_bounds": [
+        0,
+        0,
+        11,
+        12
+      ],
+      "height": 9,
+      "ascent": 8,
+      "provider_index": 0,
+      "source_font": "src/main/resources/assets/neoworld/font/currency.json",
+      "default_font": {
+        "font_id": "neoworld:currency",
+        "height": 9,
+        "ascent": 8,
+        "same_metrics": true
+      },
+      "usage_java": "NeoBitmapFonts.text(\"\\uE048\")",
+      "java_constant": "NeoBitmapIcon.CURRENCY_DIAMOND_COIN"
+    },
+    {
+      "id": "neoworld:currency/ue046",
+      "name": "silver_coin",
+      "category": "currency",
+      "font_id": "neoworld:currency",
+      "codepoint": "U+E046",
+      "glyph": "",
+      "java_escape": "\\uE046",
+      "image_resource": "neoworld:font/icons/silver_coin.png",
+      "image_path": "src/main/resources/assets/neoworld/textures/font/icons/silver_coin.png",
+      "image_size": [
+        12,
+        12
+      ],
+      "source_rect": [
+        0,
+        0,
+        12,
+        12
+      ],
+      "alpha_bounds": [
+        1,
+        0,
+        12,
+        12
+      ],
+      "height": 9,
+      "ascent": 8,
+      "provider_index": 1,
+      "source_font": "src/main/resources/assets/neoworld/font/currency.json",
+      "default_font": {
+        "font_id": "neoworld:currency",
+        "height": 9,
+        "ascent": 8,
+        "same_metrics": true
+      },
+      "usage_java": "NeoBitmapFonts.text(\"\\uE046\")",
+      "java_constant": "NeoBitmapIcon.CURRENCY_SILVER_COIN"
+    },
+    {
+      "id": "neoworld:ranks/ue020",
+      "name": "admin",
+      "category": "ranks",
+      "font_id": "neoworld:ranks",
+      "codepoint": "U+E020",
+      "glyph": "",
+      "java_escape": "\\uE020",
+      "image_resource": "neoworld:font/ranks/admin.png",
+      "image_path": "src/main/resources/assets/neoworld/textures/font/ranks/admin.png",
+      "image_size": [
+        54,
+        14
+      ],
+      "source_rect": [
+        0,
+        0,
+        54,
+        14
+      ],
+      "alpha_bounds": [
+        0,
+        0,
+        54,
+        14
+      ],
+      "height": 9,
+      "ascent": 8,
+      "provider_index": 0,
+      "source_font": "src/main/resources/assets/neoworld/font/ranks.json",
+      "default_font": {
+        "font_id": "neoworld:ranks",
+        "height": 9,
+        "ascent": 8,
+        "same_metrics": true
+      },
+      "usage_java": "NeoBitmapFonts.text(\"\\uE020\")",
+      "java_constant": "NeoBitmapIcon.RANKS_ADMIN"
+    },
+    {
+      "id": "neoworld:ranks/ue021",
+      "name": "admin_icon",
+      "category": "ranks",
+      "font_id": "neoworld:ranks",
+      "codepoint": "U+E021",
+      "glyph": "",
+      "java_escape": "\\uE021",
+      "image_resource": "neoworld:font/ranks/admin_icon.png",
+      "image_path": "src/main/resources/assets/neoworld/textures/font/ranks/admin_icon.png",
+      "image_size": [
+        15,
+        14
+      ],
+      "source_rect": [
+        0,
+        0,
+        15,
+        14
+      ],
+      "alpha_bounds": [
+        0,
+        0,
+        15,
+        14
+      ],
+      "height": 9,
+      "ascent": 8,
+      "provider_index": 1,
+      "source_font": "src/main/resources/assets/neoworld/font/ranks.json",
+      "default_font": {
+        "font_id": "neoworld:ranks",
+        "height": 9,
+        "ascent": 8,
+        "same_metrics": true
+      },
+      "usage_java": "NeoBitmapFonts.text(\"\\uE021\")",
+      "java_constant": "NeoBitmapIcon.RANKS_ADMIN_ICON"
+    },
+    {
+      "id": "neoworld:ranks/ue022",
+      "name": "builder",
+      "category": "ranks",
+      "font_id": "neoworld:ranks",
+      "codepoint": "U+E022",
+      "glyph": "",
+      "java_escape": "\\uE022",
+      "image_resource": "neoworld:font/ranks/builder.png",
+      "image_path": "src/main/resources/assets/neoworld/textures/font/ranks/builder.png",
+      "image_size": [
+        62,
+        14
+      ],
+      "source_rect": [
+        0,
+        0,
+        62,
+        14
+      ],
+      "alpha_bounds": [
+        0,
+        0,
+        62,
+        14
+      ],
+      "height": 9,
+      "ascent": 8,
+      "provider_index": 2,
+      "source_font": "src/main/resources/assets/neoworld/font/ranks.json",
+      "default_font": {
+        "font_id": "neoworld:ranks",
+        "height": 9,
+        "ascent": 8,
+        "same_metrics": true
+      },
+      "usage_java": "NeoBitmapFonts.text(\"\\uE022\")",
+      "java_constant": "NeoBitmapIcon.RANKS_BUILDER"
+    },
+    {
+      "id": "neoworld:ranks/ue023",
+      "name": "builder_icon",
+      "category": "ranks",
+      "font_id": "neoworld:ranks",
+      "codepoint": "U+E023",
+      "glyph": "",
+      "java_escape": "\\uE023",
+      "image_resource": "neoworld:font/ranks/builder_icon.png",
+      "image_path": "src/main/resources/assets/neoworld/textures/font/ranks/builder_icon.png",
+      "image_size": [
+        15,
+        14
+      ],
+      "source_rect": [
+        0,
+        0,
+        15,
+        14
+      ],
+      "alpha_bounds": [
+        0,
+        0,
+        15,
+        14
+      ],
+      "height": 9,
+      "ascent": 8,
+      "provider_index": 3,
+      "source_font": "src/main/resources/assets/neoworld/font/ranks.json",
+      "default_font": {
+        "font_id": "neoworld:ranks",
+        "height": 9,
+        "ascent": 8,
+        "same_metrics": true
+      },
+      "usage_java": "NeoBitmapFonts.text(\"\\uE023\")",
+      "java_constant": "NeoBitmapIcon.RANKS_BUILDER_ICON"
+    },
+    {
+      "id": "neoworld:ranks/ue024",
+      "name": "dev",
+      "category": "ranks",
+      "font_id": "neoworld:ranks",
+      "codepoint": "U+E024",
+      "glyph": "",
+      "java_escape": "\\uE024",
+      "image_resource": "neoworld:font/ranks/dev.png",
+      "image_path": "src/main/resources/assets/neoworld/textures/font/ranks/dev.png",
+      "image_size": [
+        42,
+        14
+      ],
+      "source_rect": [
+        0,
+        0,
+        42,
+        14
+      ],
+      "alpha_bounds": [
+        0,
+        0,
+        42,
+        14
+      ],
+      "height": 9,
+      "ascent": 8,
+      "provider_index": 4,
+      "source_font": "src/main/resources/assets/neoworld/font/ranks.json",
+      "default_font": {
+        "font_id": "neoworld:ranks",
+        "height": 9,
+        "ascent": 8,
+        "same_metrics": true
+      },
+      "usage_java": "NeoBitmapFonts.text(\"\\uE024\")",
+      "java_constant": "NeoBitmapIcon.RANKS_DEV"
+    },
+    {
+      "id": "neoworld:ranks/ue025",
+      "name": "dev_icon",
+      "category": "ranks",
+      "font_id": "neoworld:ranks",
+      "codepoint": "U+E025",
+      "glyph": "",
+      "java_escape": "\\uE025",
+      "image_resource": "neoworld:font/ranks/dev_icon.png",
+      "image_path": "src/main/resources/assets/neoworld/textures/font/ranks/dev_icon.png",
+      "image_size": [
+        15,
+        14
+      ],
+      "source_rect": [
+        0,
+        0,
+        15,
+        14
+      ],
+      "alpha_bounds": [
+        0,
+        0,
+        15,
+        14
+      ],
+      "height": 9,
+      "ascent": 8,
+      "provider_index": 5,
+      "source_font": "src/main/resources/assets/neoworld/font/ranks.json",
+      "default_font": {
+        "font_id": "neoworld:ranks",
+        "height": 9,
+        "ascent": 8,
+        "same_metrics": true
+      },
+      "usage_java": "NeoBitmapFonts.text(\"\\uE025\")",
+      "java_constant": "NeoBitmapIcon.RANKS_DEV_ICON"
+    },
+    {
+      "id": "neoworld:ranks/ue026",
+      "name": "exemple",
+      "category": "ranks",
+      "font_id": "neoworld:ranks",
+      "codepoint": "U+E026",
+      "glyph": "",
+      "java_escape": "\\uE026",
+      "image_resource": "neoworld:font/ranks/exemple.png",
+      "image_path": "src/main/resources/assets/neoworld/textures/font/ranks/exemple.png",
+      "image_size": [
+        59,
+        14
+      ],
+      "source_rect": [
+        0,
+        0,
+        59,
+        14
+      ],
+      "alpha_bounds": [
+        0,
+        0,
+        59,
+        14
+      ],
+      "height": 9,
+      "ascent": 8,
+      "provider_index": 6,
+      "source_font": "src/main/resources/assets/neoworld/font/ranks.json",
+      "default_font": {
+        "font_id": "neoworld:ranks",
+        "height": 9,
+        "ascent": 8,
+        "same_metrics": true
+      },
+      "usage_java": "NeoBitmapFonts.text(\"\\uE026\")",
+      "java_constant": "NeoBitmapIcon.RANKS_EXEMPLE"
+    },
+    {
+      "id": "neoworld:ranks/ue027",
+      "name": "graphiste",
+      "category": "ranks",
+      "font_id": "neoworld:ranks",
+      "codepoint": "U+E027",
+      "glyph": "",
+      "java_escape": "\\uE027",
+      "image_resource": "neoworld:font/ranks/graphiste.png",
+      "image_path": "src/main/resources/assets/neoworld/textures/font/ranks/graphiste.png",
+      "image_size": [
+        56,
+        14
+      ],
+      "source_rect": [
+        0,
+        0,
+        56,
+        14
+      ],
+      "alpha_bounds": [
+        0,
+        0,
+        56,
+        14
+      ],
+      "height": 9,
+      "ascent": 8,
+      "provider_index": 7,
+      "source_font": "src/main/resources/assets/neoworld/font/ranks.json",
+      "default_font": {
+        "font_id": "neoworld:ranks",
+        "height": 9,
+        "ascent": 8,
+        "same_metrics": true
+      },
+      "usage_java": "NeoBitmapFonts.text(\"\\uE027\")",
+      "java_constant": "NeoBitmapIcon.RANKS_GRAPHISTE"
+    },
+    {
+      "id": "neoworld:ranks/ue028",
+      "name": "graphiste_icon",
+      "category": "ranks",
+      "font_id": "neoworld:ranks",
+      "codepoint": "U+E028",
+      "glyph": "",
+      "java_escape": "\\uE028",
+      "image_resource": "neoworld:font/ranks/graphiste_icon.png",
+      "image_path": "src/main/resources/assets/neoworld/textures/font/ranks/graphiste_icon.png",
+      "image_size": [
+        15,
+        14
+      ],
+      "source_rect": [
+        0,
+        0,
+        15,
+        14
+      ],
+      "alpha_bounds": [
+        0,
+        0,
+        15,
+        14
+      ],
+      "height": 9,
+      "ascent": 8,
+      "provider_index": 8,
+      "source_font": "src/main/resources/assets/neoworld/font/ranks.json",
+      "default_font": {
+        "font_id": "neoworld:ranks",
+        "height": 9,
+        "ascent": 8,
+        "same_metrics": true
+      },
+      "usage_java": "NeoBitmapFonts.text(\"\\uE028\")",
+      "java_constant": "NeoBitmapIcon.RANKS_GRAPHISTE_ICON"
+    },
+    {
+      "id": "neoworld:ranks/ue029",
+      "name": "helper",
+      "category": "ranks",
+      "font_id": "neoworld:ranks",
+      "codepoint": "U+E029",
+      "glyph": "",
+      "java_escape": "\\uE029",
+      "image_resource": "neoworld:font/ranks/helper.png",
+      "image_path": "src/main/resources/assets/neoworld/textures/font/ranks/helper.png",
+      "image_size": [
+        57,
+        14
+      ],
+      "source_rect": [
+        0,
+        0,
+        57,
+        14
+      ],
+      "alpha_bounds": [
+        0,
+        0,
+        57,
+        14
+      ],
+      "height": 9,
+      "ascent": 8,
+      "provider_index": 9,
+      "source_font": "src/main/resources/assets/neoworld/font/ranks.json",
+      "default_font": {
+        "font_id": "neoworld:ranks",
+        "height": 9,
+        "ascent": 8,
+        "same_metrics": true
+      },
+      "usage_java": "NeoBitmapFonts.text(\"\\uE029\")",
+      "java_constant": "NeoBitmapIcon.RANKS_HELPER"
+    },
+    {
+      "id": "neoworld:ranks/ue02a",
+      "name": "helper_icon",
+      "category": "ranks",
+      "font_id": "neoworld:ranks",
+      "codepoint": "U+E02A",
+      "glyph": "",
+      "java_escape": "\\uE02A",
+      "image_resource": "neoworld:font/ranks/helper_icon.png",
+      "image_path": "src/main/resources/assets/neoworld/textures/font/ranks/helper_icon.png",
+      "image_size": [
+        15,
+        14
+      ],
+      "source_rect": [
+        0,
+        0,
+        15,
+        14
+      ],
+      "alpha_bounds": [
+        0,
+        0,
+        15,
+        14
+      ],
+      "height": 9,
+      "ascent": 8,
+      "provider_index": 10,
+      "source_font": "src/main/resources/assets/neoworld/font/ranks.json",
+      "default_font": {
+        "font_id": "neoworld:ranks",
+        "height": 9,
+        "ascent": 8,
+        "same_metrics": true
+      },
+      "usage_java": "NeoBitmapFonts.text(\"\\uE02A\")",
+      "java_constant": "NeoBitmapIcon.RANKS_HELPER_ICON"
+    },
+    {
+      "id": "neoworld:ranks/ue02b",
+      "name": "manager",
+      "category": "ranks",
+      "font_id": "neoworld:ranks",
+      "codepoint": "U+E02B",
+      "glyph": "",
+      "java_escape": "\\uE02B",
+      "image_resource": "neoworld:font/ranks/manager.png",
+      "image_path": "src/main/resources/assets/neoworld/textures/font/ranks/manager.png",
+      "image_size": [
+        69,
+        14
+      ],
+      "source_rect": [
+        0,
+        0,
+        69,
+        14
+      ],
+      "alpha_bounds": [
+        0,
+        0,
+        69,
+        14
+      ],
+      "height": 9,
+      "ascent": 8,
+      "provider_index": 11,
+      "source_font": "src/main/resources/assets/neoworld/font/ranks.json",
+      "default_font": {
+        "font_id": "neoworld:ranks",
+        "height": 9,
+        "ascent": 8,
+        "same_metrics": true
+      },
+      "usage_java": "NeoBitmapFonts.text(\"\\uE02B\")",
+      "java_constant": "NeoBitmapIcon.RANKS_MANAGER"
+    },
+    {
+      "id": "neoworld:ranks/ue02c",
+      "name": "manager_icon",
+      "category": "ranks",
+      "font_id": "neoworld:ranks",
+      "codepoint": "U+E02C",
+      "glyph": "",
+      "java_escape": "\\uE02C",
+      "image_resource": "neoworld:font/ranks/manager_icon.png",
+      "image_path": "src/main/resources/assets/neoworld/textures/font/ranks/manager_icon.png",
+      "image_size": [
+        15,
+        14
+      ],
+      "source_rect": [
+        0,
+        0,
+        15,
+        14
+      ],
+      "alpha_bounds": [
+        0,
+        0,
+        15,
+        14
+      ],
+      "height": 9,
+      "ascent": 8,
+      "provider_index": 12,
+      "source_font": "src/main/resources/assets/neoworld/font/ranks.json",
+      "default_font": {
+        "font_id": "neoworld:ranks",
+        "height": 9,
+        "ascent": 8,
+        "same_metrics": true
+      },
+      "usage_java": "NeoBitmapFonts.text(\"\\uE02C\")",
+      "java_constant": "NeoBitmapIcon.RANKS_MANAGER_ICON"
+    },
+    {
+      "id": "neoworld:ranks/ue02d",
+      "name": "mod",
+      "category": "ranks",
+      "font_id": "neoworld:ranks",
+      "codepoint": "U+E02D",
+      "glyph": "",
+      "java_escape": "\\uE02D",
+      "image_resource": "neoworld:font/ranks/mod.png",
+      "image_path": "src/main/resources/assets/neoworld/textures/font/ranks/mod.png",
+      "image_size": [
+        43,
+        14
+      ],
+      "source_rect": [
+        0,
+        0,
+        43,
+        14
+      ],
+      "alpha_bounds": [
+        0,
+        0,
+        43,
+        14
+      ],
+      "height": 9,
+      "ascent": 8,
+      "provider_index": 13,
+      "source_font": "src/main/resources/assets/neoworld/font/ranks.json",
+      "default_font": {
+        "font_id": "neoworld:ranks",
+        "height": 9,
+        "ascent": 8,
+        "same_metrics": true
+      },
+      "usage_java": "NeoBitmapFonts.text(\"\\uE02D\")",
+      "java_constant": "NeoBitmapIcon.RANKS_MOD"
+    },
+    {
+      "id": "neoworld:ranks/ue02e",
+      "name": "mod_icon",
+      "category": "ranks",
+      "font_id": "neoworld:ranks",
+      "codepoint": "U+E02E",
+      "glyph": "",
+      "java_escape": "\\uE02E",
+      "image_resource": "neoworld:font/ranks/mod_icon.png",
+      "image_path": "src/main/resources/assets/neoworld/textures/font/ranks/mod_icon.png",
+      "image_size": [
+        15,
+        14
+      ],
+      "source_rect": [
+        0,
+        0,
+        15,
+        14
+      ],
+      "alpha_bounds": [
+        0,
+        0,
+        15,
+        14
+      ],
+      "height": 9,
+      "ascent": 8,
+      "provider_index": 14,
+      "source_font": "src/main/resources/assets/neoworld/font/ranks.json",
+      "default_font": {
+        "font_id": "neoworld:ranks",
+        "height": 9,
+        "ascent": 8,
+        "same_metrics": true
+      },
+      "usage_java": "NeoBitmapFonts.text(\"\\uE02E\")",
+      "java_constant": "NeoBitmapIcon.RANKS_MOD_ICON"
+    },
+    {
+      "id": "neoworld:ranks/ue02f",
+      "name": "mvp",
+      "category": "ranks",
+      "font_id": "neoworld:ranks",
+      "codepoint": "U+E02F",
+      "glyph": "",
+      "java_escape": "\\uE02F",
+      "image_resource": "neoworld:font/ranks/mvp.png",
+      "image_path": "src/main/resources/assets/neoworld/textures/font/ranks/mvp.png",
+      "image_size": [
+        44,
+        14
+      ],
+      "source_rect": [
+        0,
+        0,
+        44,
+        14
+      ],
+      "alpha_bounds": [
+        0,
+        0,
+        44,
+        14
+      ],
+      "height": 9,
+      "ascent": 8,
+      "provider_index": 15,
+      "source_font": "src/main/resources/assets/neoworld/font/ranks.json",
+      "default_font": {
+        "font_id": "neoworld:ranks",
+        "height": 9,
+        "ascent": 8,
+        "same_metrics": true
+      },
+      "usage_java": "NeoBitmapFonts.text(\"\\uE02F\")",
+      "java_constant": "NeoBitmapIcon.RANKS_MVP"
+    },
+    {
+      "id": "neoworld:ranks/ue030",
+      "name": "mvp_icon",
+      "category": "ranks",
+      "font_id": "neoworld:ranks",
+      "codepoint": "U+E030",
+      "glyph": "",
+      "java_escape": "\\uE030",
+      "image_resource": "neoworld:font/ranks/mvp_icon.png",
+      "image_path": "src/main/resources/assets/neoworld/textures/font/ranks/mvp_icon.png",
+      "image_size": [
+        15,
+        14
+      ],
+      "source_rect": [
+        0,
+        0,
+        15,
+        14
+      ],
+      "alpha_bounds": [
+        0,
+        0,
+        15,
+        14
+      ],
+      "height": 9,
+      "ascent": 8,
+      "provider_index": 16,
+      "source_font": "src/main/resources/assets/neoworld/font/ranks.json",
+      "default_font": {
+        "font_id": "neoworld:ranks",
+        "height": 9,
+        "ascent": 8,
+        "same_metrics": true
+      },
+      "usage_java": "NeoBitmapFonts.text(\"\\uE030\")",
+      "java_constant": "NeoBitmapIcon.RANKS_MVP_ICON"
+    },
+    {
+      "id": "neoworld:ranks/ue031",
+      "name": "mvp_plus",
+      "category": "ranks",
+      "font_id": "neoworld:ranks",
+      "codepoint": "U+E031",
+      "glyph": "",
+      "java_escape": "\\uE031",
+      "image_resource": "neoworld:font/ranks/mvp_plus.png",
+      "image_path": "src/main/resources/assets/neoworld/textures/font/ranks/mvp_plus.png",
+      "image_size": [
+        52,
+        14
+      ],
+      "source_rect": [
+        0,
+        0,
+        52,
+        14
+      ],
+      "alpha_bounds": [
+        0,
+        0,
+        52,
+        14
+      ],
+      "height": 9,
+      "ascent": 8,
+      "provider_index": 17,
+      "source_font": "src/main/resources/assets/neoworld/font/ranks.json",
+      "default_font": {
+        "font_id": "neoworld:ranks",
+        "height": 9,
+        "ascent": 8,
+        "same_metrics": true
+      },
+      "usage_java": "NeoBitmapFonts.text(\"\\uE031\")",
+      "java_constant": "NeoBitmapIcon.RANKS_MVP_PLUS"
+    },
+    {
+      "id": "neoworld:ranks/ue032",
+      "name": "mvp_plus_icon",
+      "category": "ranks",
+      "font_id": "neoworld:ranks",
+      "codepoint": "U+E032",
+      "glyph": "",
+      "java_escape": "\\uE032",
+      "image_resource": "neoworld:font/ranks/mvp_plus_icon.png",
+      "image_path": "src/main/resources/assets/neoworld/textures/font/ranks/mvp_plus_icon.png",
+      "image_size": [
+        15,
+        14
+      ],
+      "source_rect": [
+        0,
+        0,
+        15,
+        14
+      ],
+      "alpha_bounds": [
+        0,
+        0,
+        15,
+        14
+      ],
+      "height": 9,
+      "ascent": 8,
+      "provider_index": 18,
+      "source_font": "src/main/resources/assets/neoworld/font/ranks.json",
+      "default_font": {
+        "font_id": "neoworld:ranks",
+        "height": 9,
+        "ascent": 8,
+        "same_metrics": true
+      },
+      "usage_java": "NeoBitmapFonts.text(\"\\uE032\")",
+      "java_constant": "NeoBitmapIcon.RANKS_MVP_PLUS_ICON"
+    },
+    {
+      "id": "neoworld:ranks/ue033",
+      "name": "owner",
+      "category": "ranks",
+      "font_id": "neoworld:ranks",
+      "codepoint": "U+E033",
+      "glyph": "",
+      "java_escape": "\\uE033",
+      "image_resource": "neoworld:font/ranks/owner.png",
+      "image_path": "src/main/resources/assets/neoworld/textures/font/ranks/owner.png",
+      "image_size": [
+        60,
+        14
+      ],
+      "source_rect": [
+        0,
+        0,
+        60,
+        14
+      ],
+      "alpha_bounds": [
+        0,
+        0,
+        60,
+        14
+      ],
+      "height": 9,
+      "ascent": 8,
+      "provider_index": 19,
+      "source_font": "src/main/resources/assets/neoworld/font/ranks.json",
+      "default_font": {
+        "font_id": "neoworld:ranks",
+        "height": 9,
+        "ascent": 8,
+        "same_metrics": true
+      },
+      "usage_java": "NeoBitmapFonts.text(\"\\uE033\")",
+      "java_constant": "NeoBitmapIcon.RANKS_OWNER"
+    },
+    {
+      "id": "neoworld:ranks/ue034",
+      "name": "owner_icon",
+      "category": "ranks",
+      "font_id": "neoworld:ranks",
+      "codepoint": "U+E034",
+      "glyph": "",
+      "java_escape": "\\uE034",
+      "image_resource": "neoworld:font/ranks/owner_icon.png",
+      "image_path": "src/main/resources/assets/neoworld/textures/font/ranks/owner_icon.png",
+      "image_size": [
+        15,
+        14
+      ],
+      "source_rect": [
+        0,
+        0,
+        15,
+        14
+      ],
+      "alpha_bounds": [
+        0,
+        0,
+        15,
+        14
+      ],
+      "height": 9,
+      "ascent": 8,
+      "provider_index": 20,
+      "source_font": "src/main/resources/assets/neoworld/font/ranks.json",
+      "default_font": {
+        "font_id": "neoworld:ranks",
+        "height": 9,
+        "ascent": 8,
+        "same_metrics": true
+      },
+      "usage_java": "NeoBitmapFonts.text(\"\\uE034\")",
+      "java_constant": "NeoBitmapIcon.RANKS_OWNER_ICON"
+    },
+    {
+      "id": "neoworld:ranks/ue035",
+      "name": "player",
+      "category": "ranks",
+      "font_id": "neoworld:ranks",
+      "codepoint": "U+E035",
+      "glyph": "",
+      "java_escape": "\\uE035",
+      "image_resource": "neoworld:font/ranks/player.png",
+      "image_path": "src/main/resources/assets/neoworld/textures/font/ranks/player.png",
+      "image_size": [
+        60,
+        14
+      ],
+      "source_rect": [
+        0,
+        0,
+        60,
+        14
+      ],
+      "alpha_bounds": [
+        0,
+        0,
+        60,
+        14
+      ],
+      "height": 9,
+      "ascent": 8,
+      "provider_index": 21,
+      "source_font": "src/main/resources/assets/neoworld/font/ranks.json",
+      "default_font": {
+        "font_id": "neoworld:ranks",
+        "height": 9,
+        "ascent": 8,
+        "same_metrics": true
+      },
+      "usage_java": "NeoBitmapFonts.text(\"\\uE035\")",
+      "java_constant": "NeoBitmapIcon.RANKS_PLAYER"
+    },
+    {
+      "id": "neoworld:ranks/ue036",
+      "name": "player_icon",
+      "category": "ranks",
+      "font_id": "neoworld:ranks",
+      "codepoint": "U+E036",
+      "glyph": "",
+      "java_escape": "\\uE036",
+      "image_resource": "neoworld:font/ranks/player_icon.png",
+      "image_path": "src/main/resources/assets/neoworld/textures/font/ranks/player_icon.png",
+      "image_size": [
+        15,
+        14
+      ],
+      "source_rect": [
+        0,
+        0,
+        15,
+        14
+      ],
+      "alpha_bounds": [
+        0,
+        0,
+        15,
+        14
+      ],
+      "height": 9,
+      "ascent": 8,
+      "provider_index": 22,
+      "source_font": "src/main/resources/assets/neoworld/font/ranks.json",
+      "default_font": {
+        "font_id": "neoworld:ranks",
+        "height": 9,
+        "ascent": 8,
+        "same_metrics": true
+      },
+      "usage_java": "NeoBitmapFonts.text(\"\\uE036\")",
+      "java_constant": "NeoBitmapIcon.RANKS_PLAYER_ICON"
+    },
+    {
+      "id": "neoworld:ranks/ue037",
+      "name": "staff",
+      "category": "ranks",
+      "font_id": "neoworld:ranks",
+      "codepoint": "U+E037",
+      "glyph": "",
+      "java_escape": "\\uE037",
+      "image_resource": "neoworld:font/ranks/staff.png",
+      "image_path": "src/main/resources/assets/neoworld/textures/font/ranks/staff.png",
+      "image_size": [
+        50,
+        14
+      ],
+      "source_rect": [
+        0,
+        0,
+        50,
+        14
+      ],
+      "alpha_bounds": [
+        0,
+        0,
+        50,
+        14
+      ],
+      "height": 9,
+      "ascent": 8,
+      "provider_index": 23,
+      "source_font": "src/main/resources/assets/neoworld/font/ranks.json",
+      "default_font": {
+        "font_id": "neoworld:ranks",
+        "height": 9,
+        "ascent": 8,
+        "same_metrics": true
+      },
+      "usage_java": "NeoBitmapFonts.text(\"\\uE037\")",
+      "java_constant": "NeoBitmapIcon.RANKS_STAFF"
+    },
+    {
+      "id": "neoworld:ranks/ue038",
+      "name": "staff_icon",
+      "category": "ranks",
+      "font_id": "neoworld:ranks",
+      "codepoint": "U+E038",
+      "glyph": "",
+      "java_escape": "\\uE038",
+      "image_resource": "neoworld:font/ranks/staff_icon.png",
+      "image_path": "src/main/resources/assets/neoworld/textures/font/ranks/staff_icon.png",
+      "image_size": [
+        15,
+        14
+      ],
+      "source_rect": [
+        0,
+        0,
+        15,
+        14
+      ],
+      "alpha_bounds": [
+        0,
+        0,
+        15,
+        14
+      ],
+      "height": 9,
+      "ascent": 8,
+      "provider_index": 24,
+      "source_font": "src/main/resources/assets/neoworld/font/ranks.json",
+      "default_font": {
+        "font_id": "neoworld:ranks",
+        "height": 9,
+        "ascent": 8,
+        "same_metrics": true
+      },
+      "usage_java": "NeoBitmapFonts.text(\"\\uE038\")",
+      "java_constant": "NeoBitmapIcon.RANKS_STAFF_ICON"
+    },
+    {
+      "id": "neoworld:ranks/ue039",
+      "name": "tiktok",
+      "category": "ranks",
+      "font_id": "neoworld:ranks",
+      "codepoint": "U+E039",
+      "glyph": "",
+      "java_escape": "\\uE039",
+      "image_resource": "neoworld:font/ranks/tiktok.png",
+      "image_path": "src/main/resources/assets/neoworld/textures/font/ranks/tiktok.png",
+      "image_size": [
+        59,
+        14
+      ],
+      "source_rect": [
+        0,
+        0,
+        59,
+        14
+      ],
+      "alpha_bounds": [
+        0,
+        0,
+        59,
+        14
+      ],
+      "height": 9,
+      "ascent": 8,
+      "provider_index": 25,
+      "source_font": "src/main/resources/assets/neoworld/font/ranks.json",
+      "default_font": {
+        "font_id": "neoworld:ranks",
+        "height": 9,
+        "ascent": 8,
+        "same_metrics": true
+      },
+      "usage_java": "NeoBitmapFonts.text(\"\\uE039\")",
+      "java_constant": "NeoBitmapIcon.RANKS_TIKTOK"
+    },
+    {
+      "id": "neoworld:ranks/ue03a",
+      "name": "tiktok_icon",
+      "category": "ranks",
+      "font_id": "neoworld:ranks",
+      "codepoint": "U+E03A",
+      "glyph": "",
+      "java_escape": "\\uE03A",
+      "image_resource": "neoworld:font/ranks/tiktok_icon.png",
+      "image_path": "src/main/resources/assets/neoworld/textures/font/ranks/tiktok_icon.png",
+      "image_size": [
+        15,
+        14
+      ],
+      "source_rect": [
+        0,
+        0,
+        15,
+        14
+      ],
+      "alpha_bounds": [
+        0,
+        0,
+        15,
+        14
+      ],
+      "height": 9,
+      "ascent": 8,
+      "provider_index": 26,
+      "source_font": "src/main/resources/assets/neoworld/font/ranks.json",
+      "default_font": {
+        "font_id": "neoworld:ranks",
+        "height": 9,
+        "ascent": 8,
+        "same_metrics": true
+      },
+      "usage_java": "NeoBitmapFonts.text(\"\\uE03A\")",
+      "java_constant": "NeoBitmapIcon.RANKS_TIKTOK_ICON"
+    },
+    {
+      "id": "neoworld:ranks/ue03b",
+      "name": "tiktok_v2",
+      "category": "ranks",
+      "font_id": "neoworld:ranks",
+      "codepoint": "U+E03B",
+      "glyph": "",
+      "java_escape": "\\uE03B",
+      "image_resource": "neoworld:font/ranks/tiktok_v2.png",
+      "image_path": "src/main/resources/assets/neoworld/textures/font/ranks/tiktok_v2.png",
+      "image_size": [
+        59,
+        14
+      ],
+      "source_rect": [
+        0,
+        0,
+        59,
+        14
+      ],
+      "alpha_bounds": [
+        0,
+        0,
+        59,
+        14
+      ],
+      "height": 9,
+      "ascent": 8,
+      "provider_index": 27,
+      "source_font": "src/main/resources/assets/neoworld/font/ranks.json",
+      "default_font": {
+        "font_id": "neoworld:ranks",
+        "height": 9,
+        "ascent": 8,
+        "same_metrics": true
+      },
+      "usage_java": "NeoBitmapFonts.text(\"\\uE03B\")",
+      "java_constant": "NeoBitmapIcon.RANKS_TIKTOK_V2"
+    },
+    {
+      "id": "neoworld:ranks/ue03c",
+      "name": "twitch",
+      "category": "ranks",
+      "font_id": "neoworld:ranks",
+      "codepoint": "U+E03C",
+      "glyph": "",
+      "java_escape": "\\uE03C",
+      "image_resource": "neoworld:font/ranks/twitch.png",
+      "image_path": "src/main/resources/assets/neoworld/textures/font/ranks/twitch.png",
+      "image_size": [
+        58,
+        14
+      ],
+      "source_rect": [
+        0,
+        0,
+        58,
+        14
+      ],
+      "alpha_bounds": [
+        0,
+        0,
+        58,
+        14
+      ],
+      "height": 9,
+      "ascent": 8,
+      "provider_index": 28,
+      "source_font": "src/main/resources/assets/neoworld/font/ranks.json",
+      "default_font": {
+        "font_id": "neoworld:ranks",
+        "height": 9,
+        "ascent": 8,
+        "same_metrics": true
+      },
+      "usage_java": "NeoBitmapFonts.text(\"\\uE03C\")",
+      "java_constant": "NeoBitmapIcon.RANKS_TWITCH"
+    },
+    {
+      "id": "neoworld:ranks/ue03d",
+      "name": "twitch_icon",
+      "category": "ranks",
+      "font_id": "neoworld:ranks",
+      "codepoint": "U+E03D",
+      "glyph": "",
+      "java_escape": "\\uE03D",
+      "image_resource": "neoworld:font/ranks/twitch_icon.png",
+      "image_path": "src/main/resources/assets/neoworld/textures/font/ranks/twitch_icon.png",
+      "image_size": [
+        15,
+        14
+      ],
+      "source_rect": [
+        0,
+        0,
+        15,
+        14
+      ],
+      "alpha_bounds": [
+        0,
+        0,
+        15,
+        14
+      ],
+      "height": 9,
+      "ascent": 8,
+      "provider_index": 29,
+      "source_font": "src/main/resources/assets/neoworld/font/ranks.json",
+      "default_font": {
+        "font_id": "neoworld:ranks",
+        "height": 9,
+        "ascent": 8,
+        "same_metrics": true
+      },
+      "usage_java": "NeoBitmapFonts.text(\"\\uE03D\")",
+      "java_constant": "NeoBitmapIcon.RANKS_TWITCH_ICON"
+    },
+    {
+      "id": "neoworld:ranks/ue03e",
+      "name": "twitch_v2",
+      "category": "ranks",
+      "font_id": "neoworld:ranks",
+      "codepoint": "U+E03E",
+      "glyph": "",
+      "java_escape": "\\uE03E",
+      "image_resource": "neoworld:font/ranks/twitch_v2.png",
+      "image_path": "src/main/resources/assets/neoworld/textures/font/ranks/twitch_v2.png",
+      "image_size": [
+        58,
+        14
+      ],
+      "source_rect": [
+        0,
+        0,
+        58,
+        14
+      ],
+      "alpha_bounds": [
+        0,
+        0,
+        58,
+        14
+      ],
+      "height": 9,
+      "ascent": 8,
+      "provider_index": 30,
+      "source_font": "src/main/resources/assets/neoworld/font/ranks.json",
+      "default_font": {
+        "font_id": "neoworld:ranks",
+        "height": 9,
+        "ascent": 8,
+        "same_metrics": true
+      },
+      "usage_java": "NeoBitmapFonts.text(\"\\uE03E\")",
+      "java_constant": "NeoBitmapIcon.RANKS_TWITCH_V2"
+    },
+    {
+      "id": "neoworld:ranks/ue03f",
+      "name": "vip",
+      "category": "ranks",
+      "font_id": "neoworld:ranks",
+      "codepoint": "U+E03F",
+      "glyph": "",
+      "java_escape": "\\uE03F",
+      "image_resource": "neoworld:font/ranks/vip.png",
+      "image_path": "src/main/resources/assets/neoworld/textures/font/ranks/vip.png",
+      "image_size": [
+        39,
+        14
+      ],
+      "source_rect": [
+        0,
+        0,
+        39,
+        14
+      ],
+      "alpha_bounds": [
+        0,
+        0,
+        39,
+        14
+      ],
+      "height": 9,
+      "ascent": 8,
+      "provider_index": 31,
+      "source_font": "src/main/resources/assets/neoworld/font/ranks.json",
+      "default_font": {
+        "font_id": "neoworld:ranks",
+        "height": 9,
+        "ascent": 8,
+        "same_metrics": true
+      },
+      "usage_java": "NeoBitmapFonts.text(\"\\uE03F\")",
+      "java_constant": "NeoBitmapIcon.RANKS_VIP"
+    },
+    {
+      "id": "neoworld:ranks/ue040",
+      "name": "vip_icon",
+      "category": "ranks",
+      "font_id": "neoworld:ranks",
+      "codepoint": "U+E040",
+      "glyph": "",
+      "java_escape": "\\uE040",
+      "image_resource": "neoworld:font/ranks/vip_icon.png",
+      "image_path": "src/main/resources/assets/neoworld/textures/font/ranks/vip_icon.png",
+      "image_size": [
+        15,
+        14
+      ],
+      "source_rect": [
+        0,
+        0,
+        15,
+        14
+      ],
+      "alpha_bounds": [
+        0,
+        0,
+        15,
+        14
+      ],
+      "height": 9,
+      "ascent": 8,
+      "provider_index": 32,
+      "source_font": "src/main/resources/assets/neoworld/font/ranks.json",
+      "default_font": {
+        "font_id": "neoworld:ranks",
+        "height": 9,
+        "ascent": 8,
+        "same_metrics": true
+      },
+      "usage_java": "NeoBitmapFonts.text(\"\\uE040\")",
+      "java_constant": "NeoBitmapIcon.RANKS_VIP_ICON"
+    },
+    {
+      "id": "neoworld:ranks/ue041",
+      "name": "vip_plus",
+      "category": "ranks",
+      "font_id": "neoworld:ranks",
+      "codepoint": "U+E041",
+      "glyph": "",
+      "java_escape": "\\uE041",
+      "image_resource": "neoworld:font/ranks/vip_plus.png",
+      "image_path": "src/main/resources/assets/neoworld/textures/font/ranks/vip_plus.png",
+      "image_size": [
+        47,
+        14
+      ],
+      "source_rect": [
+        0,
+        0,
+        47,
+        14
+      ],
+      "alpha_bounds": [
+        0,
+        0,
+        47,
+        14
+      ],
+      "height": 9,
+      "ascent": 8,
+      "provider_index": 33,
+      "source_font": "src/main/resources/assets/neoworld/font/ranks.json",
+      "default_font": {
+        "font_id": "neoworld:ranks",
+        "height": 9,
+        "ascent": 8,
+        "same_metrics": true
+      },
+      "usage_java": "NeoBitmapFonts.text(\"\\uE041\")",
+      "java_constant": "NeoBitmapIcon.RANKS_VIP_PLUS"
+    },
+    {
+      "id": "neoworld:ranks/ue042",
+      "name": "vip_plus_icon",
+      "category": "ranks",
+      "font_id": "neoworld:ranks",
+      "codepoint": "U+E042",
+      "glyph": "",
+      "java_escape": "\\uE042",
+      "image_resource": "neoworld:font/ranks/vip_plus_icon.png",
+      "image_path": "src/main/resources/assets/neoworld/textures/font/ranks/vip_plus_icon.png",
+      "image_size": [
+        15,
+        14
+      ],
+      "source_rect": [
+        0,
+        0,
+        15,
+        14
+      ],
+      "alpha_bounds": [
+        0,
+        0,
+        15,
+        14
+      ],
+      "height": 9,
+      "ascent": 8,
+      "provider_index": 34,
+      "source_font": "src/main/resources/assets/neoworld/font/ranks.json",
+      "default_font": {
+        "font_id": "neoworld:ranks",
+        "height": 9,
+        "ascent": 8,
+        "same_metrics": true
+      },
+      "usage_java": "NeoBitmapFonts.text(\"\\uE042\")",
+      "java_constant": "NeoBitmapIcon.RANKS_VIP_PLUS_ICON"
+    },
+    {
+      "id": "neoworld:ranks/ue043",
+      "name": "ytb",
+      "category": "ranks",
+      "font_id": "neoworld:ranks",
+      "codepoint": "U+E043",
+      "glyph": "",
+      "java_escape": "\\uE043",
+      "image_resource": "neoworld:font/ranks/ytb.png",
+      "image_path": "src/main/resources/assets/neoworld/textures/font/ranks/ytb.png",
+      "image_size": [
+        67,
+        14
+      ],
+      "source_rect": [
+        0,
+        0,
+        67,
+        14
+      ],
+      "alpha_bounds": [
+        0,
+        0,
+        67,
+        14
+      ],
+      "height": 9,
+      "ascent": 8,
+      "provider_index": 35,
+      "source_font": "src/main/resources/assets/neoworld/font/ranks.json",
+      "default_font": {
+        "font_id": "neoworld:ranks",
+        "height": 9,
+        "ascent": 8,
+        "same_metrics": true
+      },
+      "usage_java": "NeoBitmapFonts.text(\"\\uE043\")",
+      "java_constant": "NeoBitmapIcon.RANKS_YTB"
+    },
+    {
+      "id": "neoworld:ranks/ue044",
+      "name": "ytb_icon",
+      "category": "ranks",
+      "font_id": "neoworld:ranks",
+      "codepoint": "U+E044",
+      "glyph": "",
+      "java_escape": "\\uE044",
+      "image_resource": "neoworld:font/ranks/ytb_icon.png",
+      "image_path": "src/main/resources/assets/neoworld/textures/font/ranks/ytb_icon.png",
+      "image_size": [
+        15,
+        14
+      ],
+      "source_rect": [
+        0,
+        0,
+        15,
+        14
+      ],
+      "alpha_bounds": [
+        0,
+        0,
+        15,
+        14
+      ],
+      "height": 9,
+      "ascent": 8,
+      "provider_index": 36,
+      "source_font": "src/main/resources/assets/neoworld/font/ranks.json",
+      "default_font": {
+        "font_id": "neoworld:ranks",
+        "height": 9,
+        "ascent": 8,
+        "same_metrics": true
+      },
+      "usage_java": "NeoBitmapFonts.text(\"\\uE044\")",
+      "java_constant": "NeoBitmapIcon.RANKS_YTB_ICON"
+    },
+    {
+      "id": "neoworld:ranks/ue045",
+      "name": "ytb_v2",
+      "category": "ranks",
+      "font_id": "neoworld:ranks",
+      "codepoint": "U+E045",
+      "glyph": "",
+      "java_escape": "\\uE045",
+      "image_resource": "neoworld:font/ranks/ytb_v2.png",
+      "image_path": "src/main/resources/assets/neoworld/textures/font/ranks/ytb_v2.png",
+      "image_size": [
+        67,
+        14
+      ],
+      "source_rect": [
+        0,
+        0,
+        67,
+        14
+      ],
+      "alpha_bounds": [
+        0,
+        0,
+        67,
+        14
+      ],
+      "height": 9,
+      "ascent": 8,
+      "provider_index": 37,
+      "source_font": "src/main/resources/assets/neoworld/font/ranks.json",
+      "default_font": {
+        "font_id": "neoworld:ranks",
+        "height": 9,
+        "ascent": 8,
+        "same_metrics": true
+      },
+      "usage_java": "NeoBitmapFonts.text(\"\\uE045\")",
+      "java_constant": "NeoBitmapIcon.RANKS_YTB_V2"
+    },
+    {
+      "id": "neoworld:gui_icons/ue100",
+      "name": "leader",
+      "category": "gui_icons",
+      "font_id": "neoworld:gui_icons",
+      "codepoint": "U+E100",
+      "glyph": "",
+      "java_escape": "\\uE100",
+      "image_resource": "neoworld:gui/common/icons/leader.png",
+      "image_path": "src/main/resources/assets/neoworld/textures/gui/common/icons/leader.png",
+      "image_size": [
+        32,
+        32
+      ],
+      "source_rect": [
+        0,
+        0,
+        32,
+        32
+      ],
+      "alpha_bounds": [
+        2,
+        4,
+        30,
+        28
+      ],
+      "height": 16,
+      "ascent": 13,
+      "provider_index": 0,
+      "source_font": "src/main/resources/assets/neoworld/font/gui_icons.json",
+      "default_font": {
+        "font_id": "neoworld:gui_controls",
+        "height": 10,
+        "ascent": 9,
+        "same_metrics": false
+      },
+      "usage_java": "NeoGuiIcons.icon(NeoGuiIcons.LEADER)",
+      "java_constant": "NeoBitmapIcon.GUI_ICONS_LEADER"
+    },
+    {
+      "id": "neoworld:gui_icons/ue101",
+      "name": "member",
+      "category": "gui_icons",
+      "font_id": "neoworld:gui_icons",
+      "codepoint": "U+E101",
+      "glyph": "",
+      "java_escape": "\\uE101",
+      "image_resource": "neoworld:gui/common/icons/member.png",
+      "image_path": "src/main/resources/assets/neoworld/textures/gui/common/icons/member.png",
+      "image_size": [
+        32,
+        32
+      ],
+      "source_rect": [
+        0,
+        0,
+        32,
+        32
+      ],
+      "alpha_bounds": [
+        3,
+        2,
+        29,
+        30
+      ],
+      "height": 16,
+      "ascent": 13,
+      "provider_index": 1,
+      "source_font": "src/main/resources/assets/neoworld/font/gui_icons.json",
+      "default_font": {
+        "font_id": "neoworld:gui_controls",
+        "height": 10,
+        "ascent": 9,
+        "same_metrics": false
+      },
+      "usage_java": "NeoGuiIcons.icon(NeoGuiIcons.MEMBER)",
+      "java_constant": "NeoBitmapIcon.GUI_ICONS_MEMBER"
+    },
+    {
+      "id": "neoworld:gui_icons/ue102",
+      "name": "invite",
+      "category": "gui_icons",
+      "font_id": "neoworld:gui_icons",
+      "codepoint": "U+E102",
+      "glyph": "",
+      "java_escape": "\\uE102",
+      "image_resource": "neoworld:gui/common/icons/invite.png",
+      "image_path": "src/main/resources/assets/neoworld/textures/gui/common/icons/invite.png",
+      "image_size": [
+        32,
+        32
+      ],
+      "source_rect": [
+        0,
+        0,
+        32,
+        32
+      ],
+      "alpha_bounds": [
+        2,
+        3,
+        30,
+        29
+      ],
+      "height": 16,
+      "ascent": 13,
+      "provider_index": 2,
+      "source_font": "src/main/resources/assets/neoworld/font/gui_icons.json",
+      "default_font": {
+        "font_id": "neoworld:gui_controls",
+        "height": 10,
+        "ascent": 9,
+        "same_metrics": false
+      },
+      "usage_java": "NeoGuiIcons.icon(NeoGuiIcons.INVITE)",
+      "java_constant": "NeoBitmapIcon.GUI_ICONS_INVITE"
+    },
+    {
+      "id": "neoworld:gui_icons/ue103",
+      "name": "kick",
+      "category": "gui_icons",
+      "font_id": "neoworld:gui_icons",
+      "codepoint": "U+E103",
+      "glyph": "",
+      "java_escape": "\\uE103",
+      "image_resource": "neoworld:gui/common/icons/kick.png",
+      "image_path": "src/main/resources/assets/neoworld/textures/gui/common/icons/kick.png",
+      "image_size": [
+        32,
+        32
+      ],
+      "source_rect": [
+        0,
+        0,
+        32,
+        32
+      ],
+      "alpha_bounds": [
+        2,
+        2,
+        29,
+        30
+      ],
+      "height": 16,
+      "ascent": 13,
+      "provider_index": 3,
+      "source_font": "src/main/resources/assets/neoworld/font/gui_icons.json",
+      "default_font": {
+        "font_id": "neoworld:gui_controls",
+        "height": 10,
+        "ascent": 9,
+        "same_metrics": false
+      },
+      "usage_java": "NeoGuiIcons.icon(NeoGuiIcons.KICK)",
+      "java_constant": "NeoBitmapIcon.GUI_ICONS_KICK"
+    },
+    {
+      "id": "neoworld:gui_icons/ue104",
+      "name": "ready",
+      "category": "gui_icons",
+      "font_id": "neoworld:gui_icons",
+      "codepoint": "U+E104",
+      "glyph": "",
+      "java_escape": "\\uE104",
+      "image_resource": "neoworld:gui/common/icons/ready.png",
+      "image_path": "src/main/resources/assets/neoworld/textures/gui/common/icons/ready.png",
+      "image_size": [
+        32,
+        32
+      ],
+      "source_rect": [
+        0,
+        0,
+        32,
+        32
+      ],
+      "alpha_bounds": [
+        2,
+        2,
+        29,
+        30
+      ],
+      "height": 16,
+      "ascent": 13,
+      "provider_index": 4,
+      "source_font": "src/main/resources/assets/neoworld/font/gui_icons.json",
+      "default_font": {
+        "font_id": "neoworld:gui_controls",
+        "height": 10,
+        "ascent": 9,
+        "same_metrics": false
+      },
+      "usage_java": "NeoGuiIcons.icon(NeoGuiIcons.READY)",
+      "java_constant": "NeoBitmapIcon.GUI_ICONS_READY"
+    },
+    {
+      "id": "neoworld:gui_icons/ue105",
+      "name": "leave",
+      "category": "gui_icons",
+      "font_id": "neoworld:gui_icons",
+      "codepoint": "U+E105",
+      "glyph": "",
+      "java_escape": "\\uE105",
+      "image_resource": "neoworld:gui/common/icons/leave.png",
+      "image_path": "src/main/resources/assets/neoworld/textures/gui/common/icons/leave.png",
+      "image_size": [
+        32,
+        32
+      ],
+      "source_rect": [
+        0,
+        0,
+        32,
+        32
+      ],
+      "alpha_bounds": [
+        2,
+        2,
+        30,
+        30
+      ],
+      "height": 16,
+      "ascent": 13,
+      "provider_index": 5,
+      "source_font": "src/main/resources/assets/neoworld/font/gui_icons.json",
+      "default_font": {
+        "font_id": "neoworld:gui_controls",
+        "height": 10,
+        "ascent": 9,
+        "same_metrics": false
+      },
+      "usage_java": "NeoGuiIcons.icon(NeoGuiIcons.LEAVE)",
+      "java_constant": "NeoBitmapIcon.GUI_ICONS_LEAVE"
+    },
+    {
+      "id": "neoworld:gui_icons/ue106",
+      "name": "disband",
+      "category": "gui_icons",
+      "font_id": "neoworld:gui_icons",
+      "codepoint": "U+E106",
+      "glyph": "",
+      "java_escape": "\\uE106",
+      "image_resource": "neoworld:gui/common/icons/disband.png",
+      "image_path": "src/main/resources/assets/neoworld/textures/gui/common/icons/disband.png",
+      "image_size": [
+        32,
+        32
+      ],
+      "source_rect": [
+        0,
+        0,
+        32,
+        32
+      ],
+      "alpha_bounds": [
+        2,
+        4,
+        30,
+        27
+      ],
+      "height": 16,
+      "ascent": 13,
+      "provider_index": 6,
+      "source_font": "src/main/resources/assets/neoworld/font/gui_icons.json",
+      "default_font": {
+        "font_id": "neoworld:gui_controls",
+        "height": 10,
+        "ascent": 9,
+        "same_metrics": false
+      },
+      "usage_java": "NeoGuiIcons.icon(NeoGuiIcons.DISBAND)",
+      "java_constant": "NeoBitmapIcon.GUI_ICONS_DISBAND"
+    },
+    {
+      "id": "neoworld:gui_icons/ue107",
+      "name": "refresh",
+      "category": "gui_icons",
+      "font_id": "neoworld:gui_icons",
+      "codepoint": "U+E107",
+      "glyph": "",
+      "java_escape": "\\uE107",
+      "image_resource": "neoworld:gui/common/icons/refresh.png",
+      "image_path": "src/main/resources/assets/neoworld/textures/gui/common/icons/refresh.png",
+      "image_size": [
+        32,
+        32
+      ],
+      "source_rect": [
+        0,
+        0,
+        32,
+        32
+      ],
+      "alpha_bounds": [
+        2,
+        2,
+        30,
+        30
+      ],
+      "height": 16,
+      "ascent": 13,
+      "provider_index": 7,
+      "source_font": "src/main/resources/assets/neoworld/font/gui_icons.json",
+      "default_font": {
+        "font_id": "neoworld:gui_controls",
+        "height": 10,
+        "ascent": 9,
+        "same_metrics": false
+      },
+      "usage_java": "NeoGuiIcons.icon(NeoGuiIcons.REFRESH)",
+      "java_constant": "NeoBitmapIcon.GUI_ICONS_REFRESH"
+    },
+    {
+      "id": "neoworld:gui_controls/ue100",
+      "name": "leader",
+      "category": "gui_controls",
+      "font_id": "neoworld:gui_controls",
+      "codepoint": "U+E100",
+      "glyph": "",
+      "java_escape": "\\uE100",
+      "image_resource": "neoworld:gui/common/icons/leader.png",
+      "image_path": "src/main/resources/assets/neoworld/textures/gui/common/icons/leader.png",
+      "image_size": [
+        32,
+        32
+      ],
+      "source_rect": [
+        0,
+        0,
+        32,
+        32
+      ],
+      "alpha_bounds": [
+        2,
+        4,
+        30,
+        28
+      ],
+      "height": 10,
+      "ascent": 9,
+      "provider_index": 0,
+      "source_font": "src/main/resources/assets/neoworld/font/gui_controls.json",
+      "default_font": {
+        "font_id": "neoworld:gui_controls",
+        "height": 10,
+        "ascent": 9,
+        "same_metrics": true
+      },
+      "usage_java": "NeoGuiIcons.label(NeoGuiIcons.LEADER, \"ข้อความ\")",
+      "java_constant": "NeoBitmapIcon.GUI_CONTROLS_LEADER"
+    },
+    {
+      "id": "neoworld:gui_controls/ue101",
+      "name": "member",
+      "category": "gui_controls",
+      "font_id": "neoworld:gui_controls",
+      "codepoint": "U+E101",
+      "glyph": "",
+      "java_escape": "\\uE101",
+      "image_resource": "neoworld:gui/common/icons/member.png",
+      "image_path": "src/main/resources/assets/neoworld/textures/gui/common/icons/member.png",
+      "image_size": [
+        32,
+        32
+      ],
+      "source_rect": [
+        0,
+        0,
+        32,
+        32
+      ],
+      "alpha_bounds": [
+        3,
+        2,
+        29,
+        30
+      ],
+      "height": 10,
+      "ascent": 9,
+      "provider_index": 1,
+      "source_font": "src/main/resources/assets/neoworld/font/gui_controls.json",
+      "default_font": {
+        "font_id": "neoworld:gui_controls",
+        "height": 10,
+        "ascent": 9,
+        "same_metrics": true
+      },
+      "usage_java": "NeoGuiIcons.label(NeoGuiIcons.MEMBER, \"ข้อความ\")",
+      "java_constant": "NeoBitmapIcon.GUI_CONTROLS_MEMBER"
+    },
+    {
+      "id": "neoworld:gui_controls/ue102",
+      "name": "invite",
+      "category": "gui_controls",
+      "font_id": "neoworld:gui_controls",
+      "codepoint": "U+E102",
+      "glyph": "",
+      "java_escape": "\\uE102",
+      "image_resource": "neoworld:gui/common/icons/invite.png",
+      "image_path": "src/main/resources/assets/neoworld/textures/gui/common/icons/invite.png",
+      "image_size": [
+        32,
+        32
+      ],
+      "source_rect": [
+        0,
+        0,
+        32,
+        32
+      ],
+      "alpha_bounds": [
+        2,
+        3,
+        30,
+        29
+      ],
+      "height": 10,
+      "ascent": 9,
+      "provider_index": 2,
+      "source_font": "src/main/resources/assets/neoworld/font/gui_controls.json",
+      "default_font": {
+        "font_id": "neoworld:gui_controls",
+        "height": 10,
+        "ascent": 9,
+        "same_metrics": true
+      },
+      "usage_java": "NeoGuiIcons.label(NeoGuiIcons.INVITE, \"ข้อความ\")",
+      "java_constant": "NeoBitmapIcon.GUI_CONTROLS_INVITE"
+    },
+    {
+      "id": "neoworld:gui_controls/ue103",
+      "name": "kick",
+      "category": "gui_controls",
+      "font_id": "neoworld:gui_controls",
+      "codepoint": "U+E103",
+      "glyph": "",
+      "java_escape": "\\uE103",
+      "image_resource": "neoworld:gui/common/icons/kick.png",
+      "image_path": "src/main/resources/assets/neoworld/textures/gui/common/icons/kick.png",
+      "image_size": [
+        32,
+        32
+      ],
+      "source_rect": [
+        0,
+        0,
+        32,
+        32
+      ],
+      "alpha_bounds": [
+        2,
+        2,
+        29,
+        30
+      ],
+      "height": 10,
+      "ascent": 9,
+      "provider_index": 3,
+      "source_font": "src/main/resources/assets/neoworld/font/gui_controls.json",
+      "default_font": {
+        "font_id": "neoworld:gui_controls",
+        "height": 10,
+        "ascent": 9,
+        "same_metrics": true
+      },
+      "usage_java": "NeoGuiIcons.label(NeoGuiIcons.KICK, \"ข้อความ\")",
+      "java_constant": "NeoBitmapIcon.GUI_CONTROLS_KICK"
+    },
+    {
+      "id": "neoworld:gui_controls/ue104",
+      "name": "ready",
+      "category": "gui_controls",
+      "font_id": "neoworld:gui_controls",
+      "codepoint": "U+E104",
+      "glyph": "",
+      "java_escape": "\\uE104",
+      "image_resource": "neoworld:gui/common/icons/ready.png",
+      "image_path": "src/main/resources/assets/neoworld/textures/gui/common/icons/ready.png",
+      "image_size": [
+        32,
+        32
+      ],
+      "source_rect": [
+        0,
+        0,
+        32,
+        32
+      ],
+      "alpha_bounds": [
+        2,
+        2,
+        29,
+        30
+      ],
+      "height": 10,
+      "ascent": 9,
+      "provider_index": 4,
+      "source_font": "src/main/resources/assets/neoworld/font/gui_controls.json",
+      "default_font": {
+        "font_id": "neoworld:gui_controls",
+        "height": 10,
+        "ascent": 9,
+        "same_metrics": true
+      },
+      "usage_java": "NeoGuiIcons.label(NeoGuiIcons.READY, \"ข้อความ\")",
+      "java_constant": "NeoBitmapIcon.GUI_CONTROLS_READY"
+    },
+    {
+      "id": "neoworld:gui_controls/ue105",
+      "name": "leave",
+      "category": "gui_controls",
+      "font_id": "neoworld:gui_controls",
+      "codepoint": "U+E105",
+      "glyph": "",
+      "java_escape": "\\uE105",
+      "image_resource": "neoworld:gui/common/icons/leave.png",
+      "image_path": "src/main/resources/assets/neoworld/textures/gui/common/icons/leave.png",
+      "image_size": [
+        32,
+        32
+      ],
+      "source_rect": [
+        0,
+        0,
+        32,
+        32
+      ],
+      "alpha_bounds": [
+        2,
+        2,
+        30,
+        30
+      ],
+      "height": 10,
+      "ascent": 9,
+      "provider_index": 5,
+      "source_font": "src/main/resources/assets/neoworld/font/gui_controls.json",
+      "default_font": {
+        "font_id": "neoworld:gui_controls",
+        "height": 10,
+        "ascent": 9,
+        "same_metrics": true
+      },
+      "usage_java": "NeoGuiIcons.label(NeoGuiIcons.LEAVE, \"ข้อความ\")",
+      "java_constant": "NeoBitmapIcon.GUI_CONTROLS_LEAVE"
+    },
+    {
+      "id": "neoworld:gui_controls/ue106",
+      "name": "disband",
+      "category": "gui_controls",
+      "font_id": "neoworld:gui_controls",
+      "codepoint": "U+E106",
+      "glyph": "",
+      "java_escape": "\\uE106",
+      "image_resource": "neoworld:gui/common/icons/disband.png",
+      "image_path": "src/main/resources/assets/neoworld/textures/gui/common/icons/disband.png",
+      "image_size": [
+        32,
+        32
+      ],
+      "source_rect": [
+        0,
+        0,
+        32,
+        32
+      ],
+      "alpha_bounds": [
+        2,
+        4,
+        30,
+        27
+      ],
+      "height": 10,
+      "ascent": 9,
+      "provider_index": 6,
+      "source_font": "src/main/resources/assets/neoworld/font/gui_controls.json",
+      "default_font": {
+        "font_id": "neoworld:gui_controls",
+        "height": 10,
+        "ascent": 9,
+        "same_metrics": true
+      },
+      "usage_java": "NeoGuiIcons.label(NeoGuiIcons.DISBAND, \"ข้อความ\")",
+      "java_constant": "NeoBitmapIcon.GUI_CONTROLS_DISBAND"
+    },
+    {
+      "id": "neoworld:gui_controls/ue107",
+      "name": "refresh",
+      "category": "gui_controls",
+      "font_id": "neoworld:gui_controls",
+      "codepoint": "U+E107",
+      "glyph": "",
+      "java_escape": "\\uE107",
+      "image_resource": "neoworld:gui/common/icons/refresh.png",
+      "image_path": "src/main/resources/assets/neoworld/textures/gui/common/icons/refresh.png",
+      "image_size": [
+        32,
+        32
+      ],
+      "source_rect": [
+        0,
+        0,
+        32,
+        32
+      ],
+      "alpha_bounds": [
+        2,
+        2,
+        30,
+        30
+      ],
+      "height": 10,
+      "ascent": 9,
+      "provider_index": 7,
+      "source_font": "src/main/resources/assets/neoworld/font/gui_controls.json",
+      "default_font": {
+        "font_id": "neoworld:gui_controls",
+        "height": 10,
+        "ascent": 9,
+        "same_metrics": true
+      },
+      "usage_java": "NeoGuiIcons.label(NeoGuiIcons.REFRESH, \"ข้อความ\")",
+      "java_constant": "NeoBitmapIcon.GUI_CONTROLS_REFRESH"
+    },
+    {
+      "id": "neoworld:dungeon_hud/ue110",
+      "name": "clock",
+      "category": "dungeon_hud",
+      "font_id": "neoworld:dungeon_hud",
+      "codepoint": "U+E110",
+      "glyph": "",
+      "java_escape": "\\uE110",
+      "image_resource": "neoworld:gui/dungeon/hud/clock.png",
+      "image_path": "src/main/resources/assets/neoworld/textures/gui/dungeon/hud/clock.png",
+      "image_size": [
+        32,
+        32
+      ],
+      "source_rect": [
+        0,
+        0,
+        32,
+        32
+      ],
+      "alpha_bounds": [
+        2,
+        2,
+        30,
+        30
+      ],
+      "height": 12,
+      "ascent": 11,
+      "provider_index": 0,
+      "source_font": "src/main/resources/assets/neoworld/font/dungeon_hud.json",
+      "default_font": {
+        "font_id": "neoworld:dungeon_hud",
+        "height": 12,
+        "ascent": 11,
+        "same_metrics": true
+      },
+      "usage_java": "NeoBitmapIcon.DUNGEON_HUD_CLOCK.component()",
+      "java_constant": "NeoBitmapIcon.DUNGEON_HUD_CLOCK"
+    },
+    {
+      "id": "neoworld:dungeon_hud/ue101",
+      "name": "member",
+      "category": "dungeon_hud",
+      "font_id": "neoworld:dungeon_hud",
+      "codepoint": "U+E101",
+      "glyph": "",
+      "java_escape": "\\uE101",
+      "image_resource": "neoworld:gui/common/icons/member.png",
+      "image_path": "src/main/resources/assets/neoworld/textures/gui/common/icons/member.png",
+      "image_size": [
+        32,
+        32
+      ],
+      "source_rect": [
+        0,
+        0,
+        32,
+        32
+      ],
+      "alpha_bounds": [
+        3,
+        2,
+        29,
+        30
+      ],
+      "height": 12,
+      "ascent": 11,
+      "provider_index": 1,
+      "source_font": "src/main/resources/assets/neoworld/font/dungeon_hud.json",
+      "default_font": {
+        "font_id": "neoworld:gui_controls",
+        "height": 10,
+        "ascent": 9,
+        "same_metrics": false
+      },
+      "usage_java": "NeoBitmapIcon.DUNGEON_HUD_MEMBER.component()",
+      "java_constant": "NeoBitmapIcon.DUNGEON_HUD_MEMBER"
+    },
+    {
+      "id": "neoworld:fashion_tooltip/ue200",
+      "name": "fashion",
+      "category": "fashion_tooltip",
+      "font_id": "neoworld:fashion_tooltip",
+      "codepoint": "U+E200",
+      "glyph": "",
+      "java_escape": "\\uE200",
+      "image_resource": "neoworld:gui/fashion/tooltip/fashion.png",
+      "image_path": "src/main/resources/assets/neoworld/textures/gui/fashion/tooltip/fashion.png",
+      "image_size": [
+        64,
+        64
+      ],
+      "source_rect": [
+        0,
+        0,
+        64,
+        64
+      ],
+      "alpha_bounds": [
+        2,
+        4,
+        62,
+        60
+      ],
+      "height": 10,
+      "ascent": 8,
+      "provider_index": 0,
+      "source_font": "src/main/resources/assets/neoworld/font/fashion_tooltip.json",
+      "default_font": {
+        "font_id": "neoworld:fashion_tooltip",
+        "height": 10,
+        "ascent": 8,
+        "same_metrics": true
+      },
+      "usage_java": "NeoSystemIcons.icon(NeoSystemIcons.Icon.FASHION)",
+      "java_constant": "NeoBitmapIcon.FASHION_TOOLTIP_FASHION"
+    },
+    {
+      "id": "neoworld:fashion_tooltip/ue201",
+      "name": "back",
+      "category": "fashion_tooltip",
+      "font_id": "neoworld:fashion_tooltip",
+      "codepoint": "U+E201",
+      "glyph": "",
+      "java_escape": "\\uE201",
+      "image_resource": "neoworld:gui/fashion/tooltip/back.png",
+      "image_path": "src/main/resources/assets/neoworld/textures/gui/fashion/tooltip/back.png",
+      "image_size": [
+        32,
+        32
+      ],
+      "source_rect": [
+        0,
+        0,
+        32,
+        32
+      ],
+      "alpha_bounds": [
+        2,
+        5,
+        30,
+        27
+      ],
+      "height": 10,
+      "ascent": 8,
+      "provider_index": 1,
+      "source_font": "src/main/resources/assets/neoworld/font/fashion_tooltip.json",
+      "default_font": {
+        "font_id": "neoworld:fashion_tooltip",
+        "height": 10,
+        "ascent": 8,
+        "same_metrics": true
+      },
+      "usage_java": "NeoBitmapFonts.text(\"\\uE201\")",
+      "java_constant": "NeoBitmapIcon.FASHION_TOOLTIP_BACK"
+    },
+    {
+      "id": "neoworld:fashion_tooltip/ue202",
+      "name": "right_click",
+      "category": "fashion_tooltip",
+      "font_id": "neoworld:fashion_tooltip",
+      "codepoint": "U+E202",
+      "glyph": "",
+      "java_escape": "\\uE202",
+      "image_resource": "neoworld:gui/fashion/tooltip/right_click.png",
+      "image_path": "src/main/resources/assets/neoworld/textures/gui/fashion/tooltip/right_click.png",
+      "image_size": [
+        32,
+        32
+      ],
+      "source_rect": [
+        0,
+        0,
+        32,
+        32
+      ],
+      "alpha_bounds": [
+        5,
+        2,
+        27,
+        30
+      ],
+      "height": 10,
+      "ascent": 8,
+      "provider_index": 2,
+      "source_font": "src/main/resources/assets/neoworld/font/fashion_tooltip.json",
+      "default_font": {
+        "font_id": "neoworld:fashion_tooltip",
+        "height": 10,
+        "ascent": 8,
+        "same_metrics": true
+      },
+      "usage_java": "NeoBitmapFonts.text(\"\\uE202\")",
+      "java_constant": "NeoBitmapIcon.FASHION_TOOLTIP_RIGHT_CLICK"
+    },
+    {
+      "id": "neoworld:fashion_tooltip/ue203",
+      "name": "wardrobe",
+      "category": "fashion_tooltip",
+      "font_id": "neoworld:fashion_tooltip",
+      "codepoint": "U+E203",
+      "glyph": "",
+      "java_escape": "\\uE203",
+      "image_resource": "neoworld:gui/fashion/tooltip/wardrobe.png",
+      "image_path": "src/main/resources/assets/neoworld/textures/gui/fashion/tooltip/wardrobe.png",
+      "image_size": [
+        32,
+        32
+      ],
+      "source_rect": [
+        0,
+        0,
+        32,
+        32
+      ],
+      "alpha_bounds": [
+        3,
+        2,
+        29,
+        30
+      ],
+      "height": 10,
+      "ascent": 8,
+      "provider_index": 3,
+      "source_font": "src/main/resources/assets/neoworld/font/fashion_tooltip.json",
+      "default_font": {
+        "font_id": "neoworld:fashion_tooltip",
+        "height": 10,
+        "ascent": 8,
+        "same_metrics": true
+      },
+      "usage_java": "NeoBitmapFonts.text(\"\\uE203\")",
+      "java_constant": "NeoBitmapIcon.FASHION_TOOLTIP_WARDROBE"
+    },
+    {
+      "id": "neoworld:fashion_tooltip/ue204",
+      "name": "unlock",
+      "category": "fashion_tooltip",
+      "font_id": "neoworld:fashion_tooltip",
+      "codepoint": "U+E204",
+      "glyph": "",
+      "java_escape": "\\uE204",
+      "image_resource": "neoworld:gui/fashion/tooltip/unlock.png",
+      "image_path": "src/main/resources/assets/neoworld/textures/gui/fashion/tooltip/unlock.png",
+      "image_size": [
+        32,
+        32
+      ],
+      "source_rect": [
+        0,
+        0,
+        32,
+        32
+      ],
+      "alpha_bounds": [
+        4,
+        2,
+        28,
+        30
+      ],
+      "height": 10,
+      "ascent": 8,
+      "provider_index": 4,
+      "source_font": "src/main/resources/assets/neoworld/font/fashion_tooltip.json",
+      "default_font": {
+        "font_id": "neoworld:fashion_tooltip",
+        "height": 10,
+        "ascent": 8,
+        "same_metrics": true
+      },
+      "usage_java": "NeoBitmapFonts.text(\"\\uE204\")",
+      "java_constant": "NeoBitmapIcon.FASHION_TOOLTIP_UNLOCK"
+    },
+    {
+      "id": "neoworld:fashion_tooltip/ue205",
+      "name": "consume",
+      "category": "fashion_tooltip",
+      "font_id": "neoworld:fashion_tooltip",
+      "codepoint": "U+E205",
+      "glyph": "",
+      "java_escape": "\\uE205",
+      "image_resource": "neoworld:gui/fashion/tooltip/consume.png",
+      "image_path": "src/main/resources/assets/neoworld/textures/gui/fashion/tooltip/consume.png",
+      "image_size": [
+        32,
+        32
+      ],
+      "source_rect": [
+        0,
+        0,
+        32,
+        32
+      ],
+      "alpha_bounds": [
+        2,
+        4,
+        30,
+        29
+      ],
+      "height": 10,
+      "ascent": 8,
+      "provider_index": 5,
+      "source_font": "src/main/resources/assets/neoworld/font/fashion_tooltip.json",
+      "default_font": {
+        "font_id": "neoworld:fashion_tooltip",
+        "height": 10,
+        "ascent": 8,
+        "same_metrics": true
+      },
+      "usage_java": "NeoBitmapFonts.text(\"\\uE205\")",
+      "java_constant": "NeoBitmapIcon.FASHION_TOOLTIP_CONSUME"
+    },
+    {
+      "id": "neoworld:fashion_tooltip/ue206",
+      "name": "owned",
+      "category": "fashion_tooltip",
+      "font_id": "neoworld:fashion_tooltip",
+      "codepoint": "U+E206",
+      "glyph": "",
+      "java_escape": "\\uE206",
+      "image_resource": "neoworld:gui/fashion/tooltip/owned.png",
+      "image_path": "src/main/resources/assets/neoworld/textures/gui/fashion/tooltip/owned.png",
+      "image_size": [
+        32,
+        32
+      ],
+      "source_rect": [
+        0,
+        0,
+        32,
+        32
+      ],
+      "alpha_bounds": [
+        2,
+        2,
+        30,
+        29
+      ],
+      "height": 10,
+      "ascent": 8,
+      "provider_index": 6,
+      "source_font": "src/main/resources/assets/neoworld/font/fashion_tooltip.json",
+      "default_font": {
+        "font_id": "neoworld:fashion_tooltip",
+        "height": 10,
+        "ascent": 8,
+        "same_metrics": true
+      },
+      "usage_java": "NeoBitmapFonts.text(\"\\uE206\")",
+      "java_constant": "NeoBitmapIcon.FASHION_TOOLTIP_OWNED"
+    },
+    {
+      "id": "neoworld:fashion_tooltip/ue207",
+      "name": "info",
+      "category": "fashion_tooltip",
+      "font_id": "neoworld:fashion_tooltip",
+      "codepoint": "U+E207",
+      "glyph": "",
+      "java_escape": "\\uE207",
+      "image_resource": "neoworld:gui/fashion/tooltip/info.png",
+      "image_path": "src/main/resources/assets/neoworld/textures/gui/fashion/tooltip/info.png",
+      "image_size": [
+        32,
+        32
+      ],
+      "source_rect": [
+        0,
+        0,
+        32,
+        32
+      ],
+      "alpha_bounds": [
+        2,
+        2,
+        29,
+        30
+      ],
+      "height": 10,
+      "ascent": 8,
+      "provider_index": 7,
+      "source_font": "src/main/resources/assets/neoworld/font/fashion_tooltip.json",
+      "default_font": {
+        "font_id": "neoworld:fashion_tooltip",
+        "height": 10,
+        "ascent": 8,
+        "same_metrics": true
+      },
+      "usage_java": "NeoBitmapFonts.text(\"\\uE207\")",
+      "java_constant": "NeoBitmapIcon.FASHION_TOOLTIP_INFO"
+    },
+    {
+      "id": "neoworld:fashion_tooltip/ue208",
+      "name": "slot_head",
+      "category": "fashion_tooltip",
+      "font_id": "neoworld:fashion_tooltip",
+      "codepoint": "U+E208",
+      "glyph": "",
+      "java_escape": "\\uE208",
+      "image_resource": "neoworld:gui/fashion/tooltip/slot_head.png",
+      "image_path": "src/main/resources/assets/neoworld/textures/gui/fashion/tooltip/slot_head.png",
+      "image_size": [
+        32,
+        32
+      ],
+      "source_rect": [
+        0,
+        0,
+        32,
+        32
+      ],
+      "alpha_bounds": [
+        2,
+        8,
+        30,
+        25
+      ],
+      "height": 10,
+      "ascent": 8,
+      "provider_index": 8,
+      "source_font": "src/main/resources/assets/neoworld/font/fashion_tooltip.json",
+      "default_font": {
+        "font_id": "neoworld:fashion_tooltip",
+        "height": 10,
+        "ascent": 8,
+        "same_metrics": true
+      },
+      "usage_java": "NeoBitmapFonts.text(\"\\uE208\")",
+      "java_constant": "NeoBitmapIcon.FASHION_TOOLTIP_SLOT_HEAD"
+    },
+    {
+      "id": "neoworld:fashion_tooltip/ue209",
+      "name": "slot_face",
+      "category": "fashion_tooltip",
+      "font_id": "neoworld:fashion_tooltip",
+      "codepoint": "U+E209",
+      "glyph": "",
+      "java_escape": "\\uE209",
+      "image_resource": "neoworld:gui/fashion/tooltip/slot_face.png",
+      "image_path": "src/main/resources/assets/neoworld/textures/gui/fashion/tooltip/slot_face.png",
+      "image_size": [
+        32,
+        32
+      ],
+      "source_rect": [
+        0,
+        0,
+        32,
+        32
+      ],
+      "alpha_bounds": [
+        2,
+        8,
+        30,
+        23
+      ],
+      "height": 10,
+      "ascent": 8,
+      "provider_index": 9,
+      "source_font": "src/main/resources/assets/neoworld/font/fashion_tooltip.json",
+      "default_font": {
+        "font_id": "neoworld:fashion_tooltip",
+        "height": 10,
+        "ascent": 8,
+        "same_metrics": true
+      },
+      "usage_java": "NeoBitmapFonts.text(\"\\uE209\")",
+      "java_constant": "NeoBitmapIcon.FASHION_TOOLTIP_SLOT_FACE"
+    },
+    {
+      "id": "neoworld:fashion_tooltip/ue20a",
+      "name": "slot_back",
+      "category": "fashion_tooltip",
+      "font_id": "neoworld:fashion_tooltip",
+      "codepoint": "U+E20A",
+      "glyph": "",
+      "java_escape": "\\uE20A",
+      "image_resource": "neoworld:gui/fashion/tooltip/slot_back.png",
+      "image_path": "src/main/resources/assets/neoworld/textures/gui/fashion/tooltip/slot_back.png",
+      "image_size": [
+        32,
+        32
+      ],
+      "source_rect": [
+        0,
+        0,
+        32,
+        32
+      ],
+      "alpha_bounds": [
+        2,
+        4,
+        30,
+        28
+      ],
+      "height": 10,
+      "ascent": 8,
+      "provider_index": 10,
+      "source_font": "src/main/resources/assets/neoworld/font/fashion_tooltip.json",
+      "default_font": {
+        "font_id": "neoworld:fashion_tooltip",
+        "height": 10,
+        "ascent": 8,
+        "same_metrics": true
+      },
+      "usage_java": "NeoBitmapFonts.text(\"\\uE20A\")",
+      "java_constant": "NeoBitmapIcon.FASHION_TOOLTIP_SLOT_BACK"
+    },
+    {
+      "id": "neoworld:fashion_tooltip/ue20b",
+      "name": "slot_body",
+      "category": "fashion_tooltip",
+      "font_id": "neoworld:fashion_tooltip",
+      "codepoint": "U+E20B",
+      "glyph": "",
+      "java_escape": "\\uE20B",
+      "image_resource": "neoworld:gui/fashion/tooltip/slot_body.png",
+      "image_path": "src/main/resources/assets/neoworld/textures/gui/fashion/tooltip/slot_body.png",
+      "image_size": [
+        32,
+        32
+      ],
+      "source_rect": [
+        0,
+        0,
+        32,
+        32
+      ],
+      "alpha_bounds": [
+        2,
+        6,
+        30,
+        27
+      ],
+      "height": 10,
+      "ascent": 8,
+      "provider_index": 11,
+      "source_font": "src/main/resources/assets/neoworld/font/fashion_tooltip.json",
+      "default_font": {
+        "font_id": "neoworld:fashion_tooltip",
+        "height": 10,
+        "ascent": 8,
+        "same_metrics": true
+      },
+      "usage_java": "NeoBitmapFonts.text(\"\\uE20B\")",
+      "java_constant": "NeoBitmapIcon.FASHION_TOOLTIP_SLOT_BODY"
+    },
+    {
+      "id": "neoworld:fashion_tooltip/ue20c",
+      "name": "slot_legs",
+      "category": "fashion_tooltip",
+      "font_id": "neoworld:fashion_tooltip",
+      "codepoint": "U+E20C",
+      "glyph": "",
+      "java_escape": "\\uE20C",
+      "image_resource": "neoworld:gui/fashion/tooltip/slot_legs.png",
+      "image_path": "src/main/resources/assets/neoworld/textures/gui/fashion/tooltip/slot_legs.png",
+      "image_size": [
+        32,
+        32
+      ],
+      "source_rect": [
+        0,
+        0,
+        32,
+        32
+      ],
+      "alpha_bounds": [
+        3,
+        2,
+        29,
+        30
+      ],
+      "height": 10,
+      "ascent": 8,
+      "provider_index": 12,
+      "source_font": "src/main/resources/assets/neoworld/font/fashion_tooltip.json",
+      "default_font": {
+        "font_id": "neoworld:fashion_tooltip",
+        "height": 10,
+        "ascent": 8,
+        "same_metrics": true
+      },
+      "usage_java": "NeoBitmapFonts.text(\"\\uE20C\")",
+      "java_constant": "NeoBitmapIcon.FASHION_TOOLTIP_SLOT_LEGS"
+    },
+    {
+      "id": "neoworld:fashion_tooltip/ue20d",
+      "name": "slot_feet",
+      "category": "fashion_tooltip",
+      "font_id": "neoworld:fashion_tooltip",
+      "codepoint": "U+E20D",
+      "glyph": "",
+      "java_escape": "\\uE20D",
+      "image_resource": "neoworld:gui/fashion/tooltip/slot_feet.png",
+      "image_path": "src/main/resources/assets/neoworld/textures/gui/fashion/tooltip/slot_feet.png",
+      "image_size": [
+        32,
+        32
+      ],
+      "source_rect": [
+        0,
+        0,
+        32,
+        32
+      ],
+      "alpha_bounds": [
+        2,
+        9,
+        30,
+        23
+      ],
+      "height": 10,
+      "ascent": 8,
+      "provider_index": 13,
+      "source_font": "src/main/resources/assets/neoworld/font/fashion_tooltip.json",
+      "default_font": {
+        "font_id": "neoworld:fashion_tooltip",
+        "height": 10,
+        "ascent": 8,
+        "same_metrics": true
+      },
+      "usage_java": "NeoBitmapFonts.text(\"\\uE20D\")",
+      "java_constant": "NeoBitmapIcon.FASHION_TOOLTIP_SLOT_FEET"
+    },
+    {
+      "id": "neoworld:activity_icons/ue220",
+      "name": "icon_daily",
+      "category": "activity_icons",
+      "font_id": "neoworld:activity_icons",
+      "codepoint": "U+E220",
+      "glyph": "",
+      "java_escape": "\\uE220",
+      "image_resource": "neoworld:gui/activity/icon_daily.png",
+      "image_path": "src/main/resources/assets/neoworld/textures/gui/activity/icon_daily.png",
+      "image_size": [
+        32,
+        32
+      ],
+      "source_rect": [
+        0,
+        0,
+        32,
+        32
+      ],
+      "alpha_bounds": [
+        0,
+        0,
+        32,
+        32
+      ],
+      "height": 14,
+      "ascent": 12,
+      "provider_index": 0,
+      "source_font": "src/main/resources/assets/neoworld/font/activity_icons.json",
+      "default_font": {
+        "font_id": "neoworld:activity_icons",
+        "height": 14,
+        "ascent": 12,
+        "same_metrics": true
+      },
+      "usage_java": "NeoBitmapFonts.text(\"\\uE220\")",
+      "java_constant": "NeoBitmapIcon.ACTIVITY_ICONS_ICON_DAILY"
+    },
+    {
+      "id": "neoworld:activity_icons/ue221",
+      "name": "icon_monthly",
+      "category": "activity_icons",
+      "font_id": "neoworld:activity_icons",
+      "codepoint": "U+E221",
+      "glyph": "",
+      "java_escape": "\\uE221",
+      "image_resource": "neoworld:gui/activity/icon_monthly.png",
+      "image_path": "src/main/resources/assets/neoworld/textures/gui/activity/icon_monthly.png",
+      "image_size": [
+        32,
+        32
+      ],
+      "source_rect": [
+        0,
+        0,
+        32,
+        32
+      ],
+      "alpha_bounds": [
+        0,
+        0,
+        32,
+        32
+      ],
+      "height": 14,
+      "ascent": 12,
+      "provider_index": 1,
+      "source_font": "src/main/resources/assets/neoworld/font/activity_icons.json",
+      "default_font": {
+        "font_id": "neoworld:activity_icons",
+        "height": 14,
+        "ascent": 12,
+        "same_metrics": true
+      },
+      "usage_java": "NeoBitmapFonts.text(\"\\uE221\")",
+      "java_constant": "NeoBitmapIcon.ACTIVITY_ICONS_ICON_MONTHLY"
+    },
+    {
+      "id": "neoworld:activity_icons/ue222",
+      "name": "icon_online",
+      "category": "activity_icons",
+      "font_id": "neoworld:activity_icons",
+      "codepoint": "U+E222",
+      "glyph": "",
+      "java_escape": "\\uE222",
+      "image_resource": "neoworld:gui/activity/icon_online.png",
+      "image_path": "src/main/resources/assets/neoworld/textures/gui/activity/icon_online.png",
+      "image_size": [
+        32,
+        32
+      ],
+      "source_rect": [
+        0,
+        0,
+        32,
+        32
+      ],
+      "alpha_bounds": [
+        0,
+        0,
+        32,
+        32
+      ],
+      "height": 14,
+      "ascent": 12,
+      "provider_index": 2,
+      "source_font": "src/main/resources/assets/neoworld/font/activity_icons.json",
+      "default_font": {
+        "font_id": "neoworld:activity_icons",
+        "height": 14,
+        "ascent": 12,
+        "same_metrics": true
+      },
+      "usage_java": "NeoBitmapFonts.text(\"\\uE222\")",
+      "java_constant": "NeoBitmapIcon.ACTIVITY_ICONS_ICON_ONLINE"
+    },
+    {
+      "id": "neoworld:activity_icons/ue223",
+      "name": "icon_pending",
+      "category": "activity_icons",
+      "font_id": "neoworld:activity_icons",
+      "codepoint": "U+E223",
+      "glyph": "",
+      "java_escape": "\\uE223",
+      "image_resource": "neoworld:gui/activity/icon_pending.png",
+      "image_path": "src/main/resources/assets/neoworld/textures/gui/activity/icon_pending.png",
+      "image_size": [
+        32,
+        32
+      ],
+      "source_rect": [
+        0,
+        0,
+        32,
+        32
+      ],
+      "alpha_bounds": [
+        0,
+        0,
+        32,
+        32
+      ],
+      "height": 14,
+      "ascent": 12,
+      "provider_index": 3,
+      "source_font": "src/main/resources/assets/neoworld/font/activity_icons.json",
+      "default_font": {
+        "font_id": "neoworld:activity_icons",
+        "height": 14,
+        "ascent": 12,
+        "same_metrics": true
+      },
+      "usage_java": "NeoBitmapFonts.text(\"\\uE223\")",
+      "java_constant": "NeoBitmapIcon.ACTIVITY_ICONS_ICON_PENDING"
+    },
+    {
+      "id": "neoworld:pvp_titles/ue400",
+      "name": "victory",
+      "category": "pvp_titles",
+      "font_id": "neoworld:pvp_titles",
+      "codepoint": "U+E400",
+      "glyph": "",
+      "java_escape": "\\uE400",
+      "image_resource": "neoworld:font/pvp_titles/victory.png",
+      "image_path": "src/main/resources/assets/neoworld/textures/font/pvp_titles/victory.png",
+      "image_size": [
+        256,
+        141
+      ],
+      "source_rect": [
+        0,
+        0,
+        256,
+        141
+      ],
+      "alpha_bounds": [
+        2,
+        2,
+        254,
+        139
+      ],
+      "height": 18,
+      "ascent": 14,
+      "provider_index": 0,
+      "source_font": "src/main/resources/assets/neoworld/font/pvp_titles.json",
+      "default_font": null,
+      "usage_java": "PvpTitles.result(true)",
+      "java_constant": "NeoBitmapIcon.PVP_TITLES_VICTORY"
+    },
+    {
+      "id": "neoworld:pvp_titles/ue401",
+      "name": "defeat",
+      "category": "pvp_titles",
+      "font_id": "neoworld:pvp_titles",
+      "codepoint": "U+E401",
+      "glyph": "",
+      "java_escape": "\\uE401",
+      "image_resource": "neoworld:font/pvp_titles/defeat.png",
+      "image_path": "src/main/resources/assets/neoworld/textures/font/pvp_titles/defeat.png",
+      "image_size": [
+        256,
+        137
+      ],
+      "source_rect": [
+        0,
+        0,
+        256,
+        137
+      ],
+      "alpha_bounds": [
+        2,
+        2,
+        254,
+        135
+      ],
+      "height": 18,
+      "ascent": 14,
+      "provider_index": 1,
+      "source_font": "src/main/resources/assets/neoworld/font/pvp_titles.json",
+      "default_font": null,
+      "usage_java": "PvpTitles.result(false)",
+      "java_constant": "NeoBitmapIcon.PVP_TITLES_DEFEAT"
+    },
+    {
+      "id": "neoworld:pvp_titles/ue402",
+      "name": "5",
+      "category": "pvp_titles",
+      "font_id": "neoworld:pvp_titles",
+      "codepoint": "U+E402",
+      "glyph": "",
+      "java_escape": "\\uE402",
+      "image_resource": "neoworld:font/pvp_titles/5.png",
+      "image_path": "src/main/resources/assets/neoworld/textures/font/pvp_titles/5.png",
+      "image_size": [
+        128,
+        96
+      ],
+      "source_rect": [
+        0,
+        0,
+        128,
+        96
+      ],
+      "alpha_bounds": [
+        2,
+        5,
+        126,
+        91
+      ],
+      "height": 18,
+      "ascent": 14,
+      "provider_index": 2,
+      "source_font": "src/main/resources/assets/neoworld/font/pvp_titles.json",
+      "default_font": null,
+      "usage_java": "PvpTitles.countdown(5)",
+      "java_constant": "NeoBitmapIcon.PVP_TITLES_5"
+    },
+    {
+      "id": "neoworld:pvp_titles/ue403",
+      "name": "4",
+      "category": "pvp_titles",
+      "font_id": "neoworld:pvp_titles",
+      "codepoint": "U+E403",
+      "glyph": "",
+      "java_escape": "\\uE403",
+      "image_resource": "neoworld:font/pvp_titles/4.png",
+      "image_path": "src/main/resources/assets/neoworld/textures/font/pvp_titles/4.png",
+      "image_size": [
+        128,
+        96
+      ],
+      "source_rect": [
+        0,
+        0,
+        128,
+        96
+      ],
+      "alpha_bounds": [
+        2,
+        5,
+        126,
+        90
+      ],
+      "height": 18,
+      "ascent": 14,
+      "provider_index": 3,
+      "source_font": "src/main/resources/assets/neoworld/font/pvp_titles.json",
+      "default_font": null,
+      "usage_java": "PvpTitles.countdown(4)",
+      "java_constant": "NeoBitmapIcon.PVP_TITLES_4"
+    },
+    {
+      "id": "neoworld:pvp_titles/ue404",
+      "name": "3",
+      "category": "pvp_titles",
+      "font_id": "neoworld:pvp_titles",
+      "codepoint": "U+E404",
+      "glyph": "",
+      "java_escape": "\\uE404",
+      "image_resource": "neoworld:font/pvp_titles/3.png",
+      "image_path": "src/main/resources/assets/neoworld/textures/font/pvp_titles/3.png",
+      "image_size": [
+        128,
+        96
+      ],
+      "source_rect": [
+        0,
+        0,
+        128,
+        96
+      ],
+      "alpha_bounds": [
+        2,
+        6,
+        126,
+        90
+      ],
+      "height": 18,
+      "ascent": 14,
+      "provider_index": 4,
+      "source_font": "src/main/resources/assets/neoworld/font/pvp_titles.json",
+      "default_font": null,
+      "usage_java": "PvpTitles.countdown(3)",
+      "java_constant": "NeoBitmapIcon.PVP_TITLES_3"
+    },
+    {
+      "id": "neoworld:pvp_titles/ue405",
+      "name": "2",
+      "category": "pvp_titles",
+      "font_id": "neoworld:pvp_titles",
+      "codepoint": "U+E405",
+      "glyph": "",
+      "java_escape": "\\uE405",
+      "image_resource": "neoworld:font/pvp_titles/2.png",
+      "image_path": "src/main/resources/assets/neoworld/textures/font/pvp_titles/2.png",
+      "image_size": [
+        128,
+        96
+      ],
+      "source_rect": [
+        0,
+        0,
+        128,
+        96
+      ],
+      "alpha_bounds": [
+        2,
+        6,
+        126,
+        90
+      ],
+      "height": 18,
+      "ascent": 14,
+      "provider_index": 5,
+      "source_font": "src/main/resources/assets/neoworld/font/pvp_titles.json",
+      "default_font": null,
+      "usage_java": "PvpTitles.countdown(2)",
+      "java_constant": "NeoBitmapIcon.PVP_TITLES_2"
+    },
+    {
+      "id": "neoworld:pvp_titles/ue406",
+      "name": "1",
+      "category": "pvp_titles",
+      "font_id": "neoworld:pvp_titles",
+      "codepoint": "U+E406",
+      "glyph": "",
+      "java_escape": "\\uE406",
+      "image_resource": "neoworld:font/pvp_titles/1.png",
+      "image_path": "src/main/resources/assets/neoworld/textures/font/pvp_titles/1.png",
+      "image_size": [
+        128,
+        96
+      ],
+      "source_rect": [
+        0,
+        0,
+        128,
+        96
+      ],
+      "alpha_bounds": [
+        2,
+        5,
+        126,
+        91
+      ],
+      "height": 18,
+      "ascent": 14,
+      "provider_index": 6,
+      "source_font": "src/main/resources/assets/neoworld/font/pvp_titles.json",
+      "default_font": null,
+      "usage_java": "PvpTitles.countdown(1)",
+      "java_constant": "NeoBitmapIcon.PVP_TITLES_1"
+    },
+    {
+      "id": "neoworld:pvp_titles/ue407",
+      "name": "fight",
+      "category": "pvp_titles",
+      "font_id": "neoworld:pvp_titles",
+      "codepoint": "U+E407",
+      "glyph": "",
+      "java_escape": "\\uE407",
+      "image_resource": "neoworld:font/pvp_titles/fight.png",
+      "image_path": "src/main/resources/assets/neoworld/textures/font/pvp_titles/fight.png",
+      "image_size": [
+        256,
+        117
+      ],
+      "source_rect": [
+        0,
+        0,
+        256,
+        117
+      ],
+      "alpha_bounds": [
+        2,
+        2,
+        254,
+        115
+      ],
+      "height": 18,
+      "ascent": 14,
+      "provider_index": 7,
+      "source_font": "src/main/resources/assets/neoworld/font/pvp_titles.json",
+      "default_font": null,
+      "usage_java": "PvpTitles.fight()",
+      "java_constant": "NeoBitmapIcon.PVP_TITLES_FIGHT"
+    },
+    {
+      "id": "neoworld:pvp_rating/ue408",
+      "name": "rating_up",
+      "category": "pvp_rating",
+      "font_id": "neoworld:pvp_rating",
+      "codepoint": "U+E408",
+      "glyph": "",
+      "java_escape": "\\uE408",
+      "image_resource": "neoworld:font/pvp_titles/rating_up.png",
+      "image_path": "src/main/resources/assets/neoworld/textures/font/pvp_titles/rating_up.png",
+      "image_size": [
+        16,
+        16
+      ],
+      "source_rect": [
+        0,
+        0,
+        16,
+        16
+      ],
+      "alpha_bounds": [
+        1,
+        2,
+        15,
+        13
+      ],
+      "height": 9,
+      "ascent": 8,
+      "provider_index": 0,
+      "source_font": "src/main/resources/assets/neoworld/font/pvp_rating.json",
+      "default_font": null,
+      "usage_java": "NeoBitmapIcon.PVP_RATING_RATING_UP.component()",
+      "java_constant": "NeoBitmapIcon.PVP_RATING_RATING_UP"
+    },
+    {
+      "id": "neoworld:pvp_rating/ue409",
+      "name": "rating_down",
+      "category": "pvp_rating",
+      "font_id": "neoworld:pvp_rating",
+      "codepoint": "U+E409",
+      "glyph": "",
+      "java_escape": "\\uE409",
+      "image_resource": "neoworld:font/pvp_titles/rating_down.png",
+      "image_path": "src/main/resources/assets/neoworld/textures/font/pvp_titles/rating_down.png",
+      "image_size": [
+        16,
+        16
+      ],
+      "source_rect": [
+        0,
+        0,
+        16,
+        16
+      ],
+      "alpha_bounds": [
+        1,
+        3,
+        15,
+        14
+      ],
+      "height": 9,
+      "ascent": 8,
+      "provider_index": 1,
+      "source_font": "src/main/resources/assets/neoworld/font/pvp_rating.json",
+      "default_font": null,
+      "usage_java": "NeoBitmapIcon.PVP_RATING_RATING_DOWN.component()",
+      "java_constant": "NeoBitmapIcon.PVP_RATING_RATING_DOWN"
+    }
+  ]
+}

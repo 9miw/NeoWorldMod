@@ -7,7 +7,6 @@ import net.minecraft.core.BlockPos;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.world.level.block.Blocks;
-import net.minecraft.world.level.levelgen.structure.templatesystem.BlockIgnoreProcessor;
 import net.minecraft.world.level.levelgen.structure.templatesystem.StructurePlaceSettings;
 import net.minecraft.world.level.levelgen.structure.templatesystem.StructureTemplate;
 
@@ -18,57 +17,65 @@ public final class PvpArenaTemplates {
 
     private PvpArenaTemplates() { }
 
-    public record Layout(StructureTemplate template, Map<String, BlockPos> markers) {
-        public Layout { markers = Map.copyOf(markers); }
+    public record ResolvedPiece(PvpArenaPiece piece,StructureTemplate template,List<StructureTemplate.StructureBlockInfo> blocks,List<StructureTemplate.StructureBlockInfo> markerBlocks) { }
+    private static final class PinnedPalette extends StructurePlaceSettings {
+        private StructureTemplate.Palette palette;
+        @Override public StructureTemplate.Palette getRandomPalette(List<StructureTemplate.Palette> palettes,BlockPos pos) {
+            if(palette==null) palette=super.getRandomPalette(palettes,pos);
+            return palette;
+        }
+    }
+    public record Layout(List<ResolvedPiece> pieces,BlockPos size,Map<String, BlockPos> markers) {
+        public Layout { pieces=List.copyOf(pieces); markers = Map.copyOf(markers); }
         public BlockPos point(String name, BlockPos origin) { return origin.offset(markers.get(name)); }
-        public PvpArenaBounds bounds() { var size=template.getSize(); return new PvpArenaBounds(size.getX(),size.getY(),size.getZ()); }
+        public PvpArenaBounds bounds() { return new PvpArenaBounds(size.getX(),size.getY(),size.getZ()); }
         public boolean contains(BlockPos origin,double x,double y,double z) { return bounds().contains(x-origin.getX(),y-origin.getY(),z-origin.getZ()); }
     }
 
     public static Layout inspect(ServerLevel level, ResourceLocation id) {
-        StructureTemplate template = level.getStructureManager().get(id)
-                .orElseThrow(() -> new IllegalArgumentException("Missing structure: " + id));
-        var size = template.getSize();
-        if (size.getX() <= 0 || size.getY() <= 0 || size.getZ() <= 0) {
-            throw new IllegalArgumentException("Structure is empty: " + id);
-        }
+        return inspect(level,List.of(new PvpArenaPiece(id,BlockPos.ZERO)));
+    }
+    public static Layout inspect(ServerLevel level,List<PvpArenaPiece> pieces) {
+        if(pieces.isEmpty() || pieces.size()>512) throw new IllegalArgumentException("Arena needs 1..512 structure pieces");
+        var resolved=new java.util.ArrayList<ResolvedPiece>();
+        for(var piece:pieces) resolved.add(resolve(level,piece));
+        return assemble(resolved);
+    }
+    /** Load and inspect one piece, allowing callers to spread disk reads over ticks. */
+    public static ResolvedPiece resolve(ServerLevel level,PvpArenaPiece piece) {
+            var template=level.getStructureManager().get(piece.template()).orElseThrow(() -> new IllegalArgumentException("Missing structure: "+piece.template()));
+            PvpCapturePlan.checkSize(template.getSize().getX(),template.getSize().getY(),template.getSize().getZ());
+            var settings=new PinnedPalette();
+            settings.setRandom(net.minecraft.util.RandomSource.create(31L*piece.template().hashCode()+piece.offset().asLong()));
+            var markerBlocks=template.filterBlocks(BlockPos.ZERO,settings,Blocks.STRUCTURE_BLOCK);
+            if(settings.palette==null) throw new IllegalArgumentException("Structure has no palette: "+piece.template());
+            return new ResolvedPiece(piece,template,java.util.Collections.unmodifiableList(settings.palette.blocks()),markerBlocks);
+    }
+    public static Layout assemble(List<ResolvedPiece> resolved) {
+        var size=PvpArenaGeometry.size(resolved.stream().map(p -> new PvpArenaGeometry.Part(p.piece().offset(),p.template().getSize())).toList());
         Map<String, BlockPos> markers = new LinkedHashMap<>();
-        for (var info : template.filterBlocks(BlockPos.ZERO, new StructurePlaceSettings(), Blocks.STRUCTURE_BLOCK)) {
+        for(var part:resolved) for (var info : part.markerBlocks()) {
             if (info.nbt() == null || !"DATA".equals(info.nbt().getString("mode"))) continue;
             String name = info.nbt().getString("metadata").trim();
             if (!MARKERS.contains(name)) continue;
-            if (markers.putIfAbsent(name, info.pos().immutable()) != null) {
+            var partSize=part.template().getSize();
+            if(!new PvpArenaBounds(partSize.getX(),partSize.getY(),partSize.getZ()).contains(info.pos().getX(),info.pos().getY(),info.pos().getZ()))
+                throw new IllegalArgumentException("DATA marker outside its structure: "+name);
+            if (markers.putIfAbsent(name, part.piece().offset().offset(info.pos()).immutable()) != null) {
                 throw new IllegalArgumentException("Duplicate DATA marker: " + name);
             }
         }
-        for (String name : MARKERS) {
-            if (!markers.containsKey(name)) throw new IllegalArgumentException("Missing DATA marker: " + name);
-        }
-        var bounds=new PvpArenaBounds(size.getX(),size.getY(),size.getZ());
-        BlockPos a = markers.get("pvp_spawn_a"), b = markers.get("pvp_spawn_b");
-        if (a.equals(b)) throw new IllegalArgumentException("Spawn points must be different");
-        for (BlockPos spawn : List.of(a, b)) {
-            if (!bounds.spawnFits(spawn.getX(),spawn.getY(),spawn.getZ())) {
-                throw new IllegalArgumentException("Spawn points need a floor and two blocks of height inside the saved structure");
-            }
-        }
-        return new Layout(template, markers);
+        PvpArenaGeometry.markers(size,markers);
+        return new Layout(resolved,size,markers);
     }
 
-    /** For the future room allocator; caller owns the destination and slot lifecycle. */
-    public static Layout place(ServerLevel level, ResourceLocation id, BlockPos origin) {
-        Layout layout = inspect(level, id);
-        if (origin.getY() < level.getMinBuildHeight()
-                || (long) origin.getY() + layout.template().getSize().getY() > level.getMaxBuildHeight()) {
-            throw new IllegalArgumentException("Arena exceeds dimension build height");
+    public static boolean resourcesPresent(ServerLevel level,List<PvpArenaPiece> pieces) {
+        if(pieces.isEmpty()) return false;
+        for(var piece:pieces) {
+            var resource=ResourceLocation.fromNamespaceAndPath(piece.template().getNamespace(),"structure/"+piece.template().getPath()+".nbt");
+            if(!java.nio.file.Files.isRegularFile(level.getStructureManager().createAndValidatePathToGeneratedStructure(piece.template(),".nbt"))
+                    && level.getServer().getResourceManager().getResource(resource).isEmpty()) return false;
         }
-        StructurePlaceSettings settings = new StructurePlaceSettings().setIgnoreEntities(true)
-                .addProcessor(BlockIgnoreProcessor.STRUCTURE_BLOCK);
-        if (!layout.template().placeInWorld(level, origin, origin, settings, level.getRandom(), 2)) {
-            throw new IllegalStateException("Failed to place PvP arena: " + id);
-        }
-        // DATA blocks are metadata only; clear their cells so old terrain cannot obstruct spawn points.
-        for (BlockPos marker : layout.markers().values()) level.setBlock(origin.offset(marker), Blocks.AIR.defaultBlockState(), 2);
-        return layout;
+        return true;
     }
 }

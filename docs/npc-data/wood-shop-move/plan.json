@@ -1,0 +1,28 @@
+{
+  "uuid": "8bb489f7-da3a-4407-b3ff-734430b77773",
+  "oldPos": [
+    72.5,
+    108.0,
+    140.5
+  ],
+  "newPos": [
+    64.5,
+    104,
+    190.5
+  ],
+  "home": [
+    64,
+    104,
+    190
+  ],
+  "shopId": 7,
+  "oldCategory": "ย่านช่าง_ไม้_โรแกน",
+  "newCategory": "ตลาด_ไม้_โรแกน",
+  "changedDialogIds": [
+    37,
+    38,
+    43,
+    46
+  ],
+  "backup": "/home/miw/backups/neoworld-wood-shop-move-20261101-210029"
+}

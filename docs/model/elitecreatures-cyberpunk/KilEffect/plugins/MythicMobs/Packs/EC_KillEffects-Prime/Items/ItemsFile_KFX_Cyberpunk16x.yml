@@ -1,0 +1,92 @@
+
+
+# Current pack : Cyberpunk
+# SFX pack : cyberpunk_animated
+# KFX name : BurstingCore / Bursting-Core / bursting_core
+
+####################################################################################################################################
+####################################################################################################################################
+
+### Question:
+
+# I CAN'T BIND ANY SCROLLS TO MY ITEM !
+# IT SAYS " This item was already a Mythic-Item "
+#         " Call staffs for help "
+
+### Answer:
+
+# Make any Mythic Items
+# be able to use Kill Effects!
+
+## For Example:
+
+My_MythicItem_That_I_Want_To_Enable_Kill_Effects_To_It:
+  Id: DIAMOND_SWORD # Anything
+  Display: '&eMy beloved item' #Up to you
+  Lore:
+  - ' &e This sword is made by my fiance for our anniversary' #Up to you
+  - ' &d and I want to make this sword special by adding Kill Effects' #Up to you
+
+  # Here! these are what to add to enable Kill-Effect function for Your Mythic Crucible Items !
+  Skills:
+  # Add these 2 lines to your item ' Skills: ' after this, do command "/mm reload"
+  - setItemNBT{key=KFX-Mergeable;value=True} @self ~onHold ?!stringequals{val1="<caster.item.nbt.KFX-Mergeable>";val2="True"}
+  - skill{s=KFX_Prime-Cyberpunk-Priority} @trigger ~onPlayerKill
+  # This line is optional to enable the Kill-Effects with Mobs
+  # Commented out for Default !
+  #- onDeath{onDeathSkill=KFX_Prime-Cyberpunk-Priority;aura=KillEffect;d=2;i=1} @trigger ~onAttack ?~!isplayer
+  #- onDeath{onDeathSkill=KFX_Prime-Cyberpunk-Priority;aura=KillEffect;d=2;i=1} @trigger ~onBowHit ?~!isplayer
+  
+####################################################################################################################################
+####################################################################################################################################
+
+
+######################################
+#          Effects Scrolls
+######################################
+
+KillEffect_Prime-Cyberpunk-Scroll-BurstingCore:
+  Id: BOOK
+  Display: '&6&lKill-Effect&r&e Scroll &d『 Bursting-Core 』  '
+  Model: 7531601
+  Lore:
+  - '&8&n_________________________________________'
+  - ' '
+  - '&e» &7Equip the &aweapon&7 to bind in &bOFF-HAND'
+  - '&a» &7Equip &dThe Scroll&7 in main hand'
+  - '&b『RIGHT-CLICK』&r &7to &d❖ bind&7 the scroll with the item'
+  - '&a '
+  - '&4❎ Cannot bind with Bound-Item or Mythic-Item ❎'
+  Skills:
+  - skill{s=KFX_Prime-Cyberpunk-ScrollBind} @self ~onUse
+    
+######################################
+#            Functions
+######################################
+
+KillEffect_Prime-Cyberpunk-UnbindingScroll:
+  Id: BOOK
+  Display: '&eThe Unbinding Scroll'
+  Model: 7531600
+  Lore:
+  - '&8&n_________________________________________'
+  - ' '
+  - '&e» &7Equip the &aweapon&7 to unbind in &bOFF-HAND'
+  - '&a» &7Equip &dThe Scroll&7 in main hand'
+  - '&b『RIGHT-CLICK』&r &7to &c❖ unbind&7 the effect from the item'
+  - '&a '
+  Skills:
+  - skill{s=KFX_Prime-Cyberpunk-UnbindingScroll} @self ~onUse
+
+#####################################
+
+# Default Function
+
+KillEffect_Prime-Cyberpunk-Main:
+  Id: DIAMOND_SWORD
+  Skills:
+  - skill{s=KFX_Prime-Cyberpunk-Priority} @trigger ~onPlayerKill
+  # This line is optional to enable the Kill-Effects with Mobs
+  # Commented out for Default !
+  #- onDeath{onDeathSkill=KFX_Prime-Cyberpunk-Priority;aura=KillEffect;d=2;i=1} @trigger ~onAttack ?~!isplayer
+  #- onDeath{onDeathSkill=KFX_Prime-Cyberpunk-Priority;aura=KillEffect;d=2;i=1} @trigger ~onBowHit ?~!isplayer

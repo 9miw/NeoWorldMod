@@ -1,0 +1,29 @@
+{
+  "ModRev": 18,
+  "Id": 12,
+  "CompleterNpc": "ลิออน",
+  "QuestCommand": "",
+  "RandomReward": 0,
+  "RewardExp": 0,
+  "Rewards": {
+    "NpcMiscInv": []
+  },
+  "QuestCompletion": 0,
+  "QuestRepeat": 0,
+  "QuestFactionPoints": {},
+  "QuestMail": {},
+  "LeaveItems": 0,
+  "IgnoreDamage": 1,
+  "IgnoreNBT": 1,
+  "Type": 1,
+  "Title": "7/7 นักผจญภัยของเมือง",
+  "Text": "ไปพบ§6§lลิออน§r เลือกเข้าพบเจ้าเมือง แล้วปิดหน้าต่างและคุยอีกครั้งเพื่อส่งงานจบบท",
+  "CompleteText": "จบบทแรกแล้ว! เลือกสร้างบ้าน ค้าขาย ศึกษา Create หรือทำงานประจำวันกับ§6§lนาริน§rได้ เนื้อเรื่องบทถัดไปยังไม่เปิด",
+  "NextQuestId": -1,
+  "QuestDialogs": [
+    {
+      "Slot": 0,
+      "Integer": 135
+    }
+  ]
+}

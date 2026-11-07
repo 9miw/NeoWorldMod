@@ -1,0 +1,166 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 672 506" width="100%" height="100%" style="background:#0a192f;font-family:monospace">
+  <defs>
+    <pattern id="front-grid" width="28" height="28" patternUnits="userSpaceOnUse">
+      <path d="M 28 0 L 0 0 0 28" fill="none" stroke="#1e3a5f" stroke-width="0.8"/>
+    </pattern>
+  </defs>
+  <rect width="100%" height="100%" fill="#0a192f"/>
+  <rect x="70" y="70" width="532" height="336" fill="url(#front-grid)"/>
+
+  <!-- Title & Specs -->
+  <text x="70" y="36" fill="#38bdf8" font-size="18" font-weight="bold" letter-spacing="1.5">ZONE 03: THE WINGED GUARDIAN FOUNTAIN — SOUTH ELEVATION</text>
+  <text x="70" y="54" fill="#94a3b8" font-size="12">FRONT VIEW FACING NORTH · STATUE WELCOMING TRAVELERS ARRIVING FROM SPAWN</text>
+<text x="84" y="426" fill="#64748b" font-size="10" text-anchor="middle">X151</text><text x="112" y="426" fill="#64748b" font-size="10" text-anchor="middle">X152</text><text x="140" y="426" fill="#64748b" font-size="10" text-anchor="middle">X153</text><text x="168" y="426" fill="#64748b" font-size="10" text-anchor="middle">X154</text><text x="196" y="426" fill="#64748b" font-size="10" text-anchor="middle">X155</text><text x="224" y="426" fill="#64748b" font-size="10" text-anchor="middle">X156</text><text x="252" y="426" fill="#64748b" font-size="10" text-anchor="middle">X157</text><text x="280" y="426" fill="#64748b" font-size="10" text-anchor="middle">X158</text><text x="308" y="426" fill="#64748b" font-size="10" text-anchor="middle">X159</text><text x="336" y="426" fill="#fde047" font-size="10" text-anchor="middle">X160</text><text x="364" y="426" fill="#64748b" font-size="10" text-anchor="middle">X161</text><text x="392" y="426" fill="#64748b" font-size="10" text-anchor="middle">X162</text><text x="420" y="426" fill="#64748b" font-size="10" text-anchor="middle">X163</text><text x="448" y="426" fill="#64748b" font-size="10" text-anchor="middle">X164</text><text x="476" y="426" fill="#64748b" font-size="10" text-anchor="middle">X165</text><text x="504" y="426" fill="#64748b" font-size="10" text-anchor="middle">X166</text><text x="532" y="426" fill="#64748b" font-size="10" text-anchor="middle">X167</text><text x="560" y="426" fill="#64748b" font-size="10" text-anchor="middle">X168</text><text x="588" y="426" fill="#64748b" font-size="10" text-anchor="middle">X169</text><text x="58" y="396" fill="#64748b" font-size="10" text-anchor="end">Y103</text><line x1="70" y1="406" x2="602" y2="406" stroke="#1e3a5f" stroke-width="1" stroke-dasharray="2 4"/><text x="58" y="368" fill="#38bdf8" font-size="10" text-anchor="end">Y104</text><line x1="70" y1="378" x2="602" y2="378" stroke="#1e3a5f" stroke-width="1" stroke-dasharray="2 4"/><text x="58" y="340" fill="#64748b" font-size="10" text-anchor="end">Y105</text><line x1="70" y1="350" x2="602" y2="350" stroke="#1e3a5f" stroke-width="1" stroke-dasharray="2 4"/><text x="58" y="312" fill="#64748b" font-size="10" text-anchor="end">Y106</text><line x1="70" y1="322" x2="602" y2="322" stroke="#1e3a5f" stroke-width="1" stroke-dasharray="2 4"/><text x="58" y="284" fill="#64748b" font-size="10" text-anchor="end">Y107</text><line x1="70" y1="294" x2="602" y2="294" stroke="#1e3a5f" stroke-width="1" stroke-dasharray="2 4"/><text x="58" y="256" fill="#64748b" font-size="10" text-anchor="end">Y108</text><line x1="70" y1="266" x2="602" y2="266" stroke="#1e3a5f" stroke-width="1" stroke-dasharray="2 4"/><text x="58" y="228" fill="#64748b" font-size="10" text-anchor="end">Y109</text><line x1="70" y1="238" x2="602" y2="238" stroke="#1e3a5f" stroke-width="1" stroke-dasharray="2 4"/><text x="58" y="200" fill="#64748b" font-size="10" text-anchor="end">Y110</text><line x1="70" y1="210" x2="602" y2="210" stroke="#1e3a5f" stroke-width="1" stroke-dasharray="2 4"/><text x="58" y="172" fill="#64748b" font-size="10" text-anchor="end">Y111</text><line x1="70" y1="182" x2="602" y2="182" stroke="#1e3a5f" stroke-width="1" stroke-dasharray="2 4"/><text x="58" y="144" fill="#64748b" font-size="10" text-anchor="end">Y112</text><line x1="70" y1="154" x2="602" y2="154" stroke="#1e3a5f" stroke-width="1" stroke-dasharray="2 4"/><text x="58" y="116" fill="#fde047" font-size="10" text-anchor="end">Y113</text><line x1="70" y1="126" x2="602" y2="126" stroke="#1e3a5f" stroke-width="1" stroke-dasharray="2 4"/><text x="58" y="88" fill="#64748b" font-size="10" text-anchor="end">Y114</text><line x1="70" y1="98" x2="602" y2="98" stroke="#1e3a5f" stroke-width="1" stroke-dasharray="2 4"/><rect x="71" y="379" width="26" height="26" rx="2" fill="#64748b" fill-opacity="1" stroke="#0f2b48" stroke-width="1">
+      <title>X:151, Y:103, Z:224 - polished andesite</title>
+    </rect><rect x="99" y="379" width="26" height="26" rx="2" fill="#64748b" fill-opacity="1" stroke="#0f2b48" stroke-width="1">
+      <title>X:152, Y:103, Z:224 - stone bricks</title>
+    </rect><rect x="127" y="379" width="26" height="26" rx="2" fill="#64748b" fill-opacity="1" stroke="#0f2b48" stroke-width="1">
+      <title>X:153, Y:103, Z:224 - stone bricks</title>
+    </rect><rect x="155" y="379" width="26" height="26" rx="2" fill="#64748b" fill-opacity="1" stroke="#0f2b48" stroke-width="1">
+      <title>X:154, Y:103, Z:224 - stone bricks</title>
+    </rect><rect x="183" y="379" width="26" height="26" rx="2" fill="#64748b" fill-opacity="1" stroke="#0f2b48" stroke-width="1">
+      <title>X:155, Y:103, Z:224 - stone bricks</title>
+    </rect><rect x="211" y="379" width="26" height="26" rx="2" fill="#64748b" fill-opacity="1" stroke="#0f2b48" stroke-width="1">
+      <title>X:156, Y:103, Z:224 - stone bricks</title>
+    </rect><rect x="239" y="379" width="26" height="26" rx="2" fill="#64748b" fill-opacity="1" stroke="#0f2b48" stroke-width="1">
+      <title>X:157, Y:103, Z:224 - stone bricks</title>
+    </rect><rect x="267" y="379" width="26" height="26" rx="2" fill="#64748b" fill-opacity="1" stroke="#0f2b48" stroke-width="1">
+      <title>X:158, Y:103, Z:224 - stone bricks</title>
+    </rect><rect x="295" y="379" width="26" height="26" rx="2" fill="#64748b" fill-opacity="1" stroke="#0f2b48" stroke-width="1">
+      <title>X:159, Y:103, Z:224 - smooth stone</title>
+    </rect><rect x="323" y="379" width="26" height="26" rx="2" fill="#64748b" fill-opacity="1" stroke="#0f2b48" stroke-width="1">
+      <title>X:160, Y:103, Z:224 - smooth stone</title>
+    </rect><rect x="351" y="379" width="26" height="26" rx="2" fill="#64748b" fill-opacity="1" stroke="#0f2b48" stroke-width="1">
+      <title>X:161, Y:103, Z:224 - smooth stone</title>
+    </rect><rect x="379" y="379" width="26" height="26" rx="2" fill="#64748b" fill-opacity="1" stroke="#0f2b48" stroke-width="1">
+      <title>X:162, Y:103, Z:224 - stone bricks</title>
+    </rect><rect x="407" y="379" width="26" height="26" rx="2" fill="#64748b" fill-opacity="1" stroke="#0f2b48" stroke-width="1">
+      <title>X:163, Y:103, Z:224 - stone bricks</title>
+    </rect><rect x="435" y="379" width="26" height="26" rx="2" fill="#64748b" fill-opacity="1" stroke="#0f2b48" stroke-width="1">
+      <title>X:164, Y:103, Z:224 - stone bricks</title>
+    </rect><rect x="463" y="379" width="26" height="26" rx="2" fill="#64748b" fill-opacity="1" stroke="#0f2b48" stroke-width="1">
+      <title>X:165, Y:103, Z:224 - stone bricks</title>
+    </rect><rect x="491" y="379" width="26" height="26" rx="2" fill="#64748b" fill-opacity="1" stroke="#0f2b48" stroke-width="1">
+      <title>X:166, Y:103, Z:224 - stone bricks</title>
+    </rect><rect x="519" y="379" width="26" height="26" rx="2" fill="#64748b" fill-opacity="1" stroke="#0f2b48" stroke-width="1">
+      <title>X:167, Y:103, Z:224 - stone bricks</title>
+    </rect><rect x="547" y="379" width="26" height="26" rx="2" fill="#64748b" fill-opacity="1" stroke="#0f2b48" stroke-width="1">
+      <title>X:168, Y:103, Z:224 - stone bricks</title>
+    </rect><rect x="575" y="379" width="26" height="26" rx="2" fill="#64748b" fill-opacity="1" stroke="#0f2b48" stroke-width="1">
+      <title>X:169, Y:103, Z:224 - polished andesite</title>
+    </rect><rect x="71" y="351" width="26" height="26" rx="2" fill="#64748b" fill-opacity="1" stroke="#0f2b48" stroke-width="1">
+      <title>X:151, Y:104, Z:207 - stone brick slab</title>
+    </rect><rect x="99" y="351" width="26" height="26" rx="2" fill="#334155" fill-opacity="1" stroke="#0f2b48" stroke-width="1">
+      <title>X:152, Y:104, Z:216 - deepslate tile stairs</title>
+    </rect><rect x="127" y="351" width="26" height="26" rx="2" fill="#334155" fill-opacity="1" stroke="#0f2b48" stroke-width="1">
+      <title>X:153, Y:104, Z:222 - chiseled deepslate</title>
+    </rect><rect x="155" y="351" width="26" height="26" rx="2" fill="#334155" fill-opacity="1" stroke="#0f2b48" stroke-width="1">
+      <title>X:154, Y:104, Z:217 - chiseled deepslate</title>
+    </rect><rect x="183" y="351" width="26" height="26" rx="2" fill="#334155" fill-opacity="1" stroke="#0f2b48" stroke-width="1">
+      <title>X:155, Y:104, Z:218 - deepslate tile stairs</title>
+    </rect><rect x="211" y="351" width="26" height="26" rx="2" fill="#334155" fill-opacity="1" stroke="#0f2b48" stroke-width="1">
+      <title>X:156, Y:104, Z:219 - chiseled deepslate</title>
+    </rect><rect x="239" y="351" width="26" height="26" rx="2" fill="#334155" fill-opacity="1" stroke="#0f2b48" stroke-width="1">
+      <title>X:157, Y:104, Z:220 - deepslate tile stairs</title>
+    </rect><rect x="267" y="351" width="26" height="26" rx="2" fill="#334155" fill-opacity="1" stroke="#0f2b48" stroke-width="1">
+      <title>X:158, Y:104, Z:221 - chiseled deepslate</title>
+    </rect><rect x="295" y="351" width="26" height="26" rx="2" fill="#334155" fill-opacity="1" stroke="#0f2b48" stroke-width="1">
+      <title>X:159, Y:104, Z:223 - deepslate tile stairs</title>
+    </rect><rect x="323" y="351" width="26" height="26" rx="2" fill="#334155" fill-opacity="1" stroke="#0f2b48" stroke-width="1">
+      <title>X:160, Y:104, Z:223 - deepslate tile stairs</title>
+    </rect><rect x="351" y="351" width="26" height="26" rx="2" fill="#334155" fill-opacity="1" stroke="#0f2b48" stroke-width="1">
+      <title>X:161, Y:104, Z:223 - deepslate tile stairs</title>
+    </rect><rect x="379" y="351" width="26" height="26" rx="2" fill="#334155" fill-opacity="1" stroke="#0f2b48" stroke-width="1">
+      <title>X:162, Y:104, Z:221 - chiseled deepslate</title>
+    </rect><rect x="407" y="351" width="26" height="26" rx="2" fill="#334155" fill-opacity="1" stroke="#0f2b48" stroke-width="1">
+      <title>X:163, Y:104, Z:220 - deepslate tile stairs</title>
+    </rect><rect x="435" y="351" width="26" height="26" rx="2" fill="#334155" fill-opacity="1" stroke="#0f2b48" stroke-width="1">
+      <title>X:164, Y:104, Z:219 - chiseled deepslate</title>
+    </rect><rect x="463" y="351" width="26" height="26" rx="2" fill="#334155" fill-opacity="1" stroke="#0f2b48" stroke-width="1">
+      <title>X:165, Y:104, Z:218 - deepslate tile stairs</title>
+    </rect><rect x="491" y="351" width="26" height="26" rx="2" fill="#334155" fill-opacity="1" stroke="#0f2b48" stroke-width="1">
+      <title>X:166, Y:104, Z:217 - chiseled deepslate</title>
+    </rect><rect x="519" y="351" width="26" height="26" rx="2" fill="#334155" fill-opacity="1" stroke="#0f2b48" stroke-width="1">
+      <title>X:167, Y:104, Z:222 - chiseled deepslate</title>
+    </rect><rect x="547" y="351" width="26" height="26" rx="2" fill="#334155" fill-opacity="1" stroke="#0f2b48" stroke-width="1">
+      <title>X:168, Y:104, Z:216 - deepslate tile stairs</title>
+    </rect><rect x="575" y="351" width="26" height="26" rx="2" fill="#64748b" fill-opacity="1" stroke="#0f2b48" stroke-width="1">
+      <title>X:169, Y:104, Z:207 - stone brick slab</title>
+    </rect><rect x="127" y="323" width="26" height="26" rx="2" fill="#f43f5e" fill-opacity="1" stroke="#0f2b48" stroke-width="1">
+      <title>X:153, Y:105, Z:222 - lily of the valley</title>
+    </rect><rect x="295" y="323" width="26" height="26" rx="2" fill="#334155" fill-opacity="1" stroke="#0f2b48" stroke-width="1">
+      <title>X:159, Y:105, Z:216 - deepslate tile wall</title>
+    </rect><rect x="323" y="323" width="26" height="26" rx="2" fill="#38bdf8" fill-opacity="0.7" stroke="#0f2b48" stroke-width="1">
+      <title>X:160, Y:105, Z:217 - water</title>
+    </rect><rect x="351" y="323" width="26" height="26" rx="2" fill="#334155" fill-opacity="1" stroke="#0f2b48" stroke-width="1">
+      <title>X:161, Y:105, Z:216 - deepslate tile wall</title>
+    </rect><rect x="519" y="323" width="26" height="26" rx="2" fill="#f43f5e" fill-opacity="1" stroke="#0f2b48" stroke-width="1">
+      <title>X:167, Y:105, Z:222 - blue orchid</title>
+    </rect><rect x="295" y="295" width="26" height="26" rx="2" fill="#334155" fill-opacity="1" stroke="#0f2b48" stroke-width="1">
+      <title>X:159, Y:106, Z:216 - deepslate tile stairs</title>
+    </rect><rect x="323" y="295" width="26" height="26" rx="2" fill="#38bdf8" fill-opacity="0.7" stroke="#0f2b48" stroke-width="1">
+      <title>X:160, Y:106, Z:217 - water</title>
+    </rect><rect x="351" y="295" width="26" height="26" rx="2" fill="#334155" fill-opacity="1" stroke="#0f2b48" stroke-width="1">
+      <title>X:161, Y:106, Z:216 - deepslate tile stairs</title>
+    </rect><rect x="295" y="267" width="26" height="26" rx="2" fill="#ffffff" fill-opacity="1" stroke="#0f2b48" stroke-width="1">
+      <title>X:159, Y:107, Z:215 - smooth quartz stairs</title>
+    </rect><rect x="323" y="267" width="26" height="26" rx="2" fill="#38bdf8" fill-opacity="0.7" stroke="#0f2b48" stroke-width="1">
+      <title>X:160, Y:107, Z:217 - water</title>
+    </rect><rect x="351" y="267" width="26" height="26" rx="2" fill="#ffffff" fill-opacity="1" stroke="#0f2b48" stroke-width="1">
+      <title>X:161, Y:107, Z:215 - smooth quartz stairs</title>
+    </rect><rect x="295" y="239" width="26" height="26" rx="2" fill="#ffffff" fill-opacity="1" stroke="#0f2b48" stroke-width="1">
+      <title>X:159, Y:108, Z:215 - smooth quartz stairs</title>
+    </rect><rect x="323" y="239" width="26" height="26" rx="2" fill="#38bdf8" fill-opacity="0.7" stroke="#0f2b48" stroke-width="1">
+      <title>X:160, Y:108, Z:217 - water</title>
+    </rect><rect x="351" y="239" width="26" height="26" rx="2" fill="#ffffff" fill-opacity="1" stroke="#0f2b48" stroke-width="1">
+      <title>X:161, Y:108, Z:215 - smooth quartz stairs</title>
+    </rect><rect x="295" y="211" width="26" height="26" rx="2" fill="#ffffff" fill-opacity="1" stroke="#0f2b48" stroke-width="1">
+      <title>X:159, Y:109, Z:216 - smooth quartz stairs</title>
+    </rect><rect x="323" y="211" width="26" height="26" rx="2" fill="#38bdf8" fill-opacity="0.7" stroke="#0f2b48" stroke-width="1">
+      <title>X:160, Y:109, Z:217 - water</title>
+    </rect><rect x="351" y="211" width="26" height="26" rx="2" fill="#ffffff" fill-opacity="1" stroke="#0f2b48" stroke-width="1">
+      <title>X:161, Y:109, Z:216 - smooth quartz stairs</title>
+    </rect><rect x="267" y="183" width="26" height="26" rx="2" fill="#ffffff" fill-opacity="1" stroke="#0f2b48" stroke-width="1">
+      <title>X:158, Y:110, Z:214 - smooth quartz stairs</title>
+    </rect><rect x="295" y="183" width="26" height="26" rx="2" fill="#ffffff" fill-opacity="1" stroke="#0f2b48" stroke-width="1">
+      <title>X:159, Y:110, Z:214 - smooth quartz</title>
+    </rect><rect x="323" y="183" width="26" height="26" rx="2" fill="#38bdf8" fill-opacity="0.7" stroke="#0f2b48" stroke-width="1">
+      <title>X:160, Y:110, Z:217 - water</title>
+    </rect><rect x="351" y="183" width="26" height="26" rx="2" fill="#ffffff" fill-opacity="1" stroke="#0f2b48" stroke-width="1">
+      <title>X:161, Y:110, Z:214 - smooth quartz</title>
+    </rect><rect x="379" y="183" width="26" height="26" rx="2" fill="#ffffff" fill-opacity="1" stroke="#0f2b48" stroke-width="1">
+      <title>X:162, Y:110, Z:214 - smooth quartz stairs</title>
+    </rect><rect x="239" y="155" width="26" height="26" rx="2" fill="#ffffff" fill-opacity="1" stroke="#0f2b48" stroke-width="1">
+      <title>X:157, Y:111, Z:214 - smooth quartz stairs</title>
+    </rect><rect x="267" y="155" width="26" height="26" rx="2" fill="#ffffff" fill-opacity="1" stroke="#0f2b48" stroke-width="1">
+      <title>X:158, Y:111, Z:214 - smooth quartz</title>
+    </rect><rect x="323" y="155" width="26" height="26" rx="2" fill="#ffffff" fill-opacity="1" stroke="#0f2b48" stroke-width="1">
+      <title>X:160, Y:111, Z:215 - smooth quartz slab</title>
+    </rect><rect x="379" y="155" width="26" height="26" rx="2" fill="#ffffff" fill-opacity="1" stroke="#0f2b48" stroke-width="1">
+      <title>X:162, Y:111, Z:214 - smooth quartz</title>
+    </rect><rect x="407" y="155" width="26" height="26" rx="2" fill="#ffffff" fill-opacity="1" stroke="#0f2b48" stroke-width="1">
+      <title>X:163, Y:111, Z:214 - smooth quartz stairs</title>
+    </rect><rect x="211" y="127" width="26" height="26" rx="2" fill="#ffffff" fill-opacity="1" stroke="#0f2b48" stroke-width="1">
+      <title>X:156, Y:112, Z:214 - smooth quartz stairs</title>
+    </rect><rect x="239" y="127" width="26" height="26" rx="2" fill="#ffffff" fill-opacity="1" stroke="#0f2b48" stroke-width="1">
+      <title>X:157, Y:112, Z:214 - smooth quartz</title>
+    </rect><rect x="407" y="127" width="26" height="26" rx="2" fill="#ffffff" fill-opacity="1" stroke="#0f2b48" stroke-width="1">
+      <title>X:163, Y:112, Z:214 - smooth quartz</title>
+    </rect><rect x="435" y="127" width="26" height="26" rx="2" fill="#ffffff" fill-opacity="1" stroke="#0f2b48" stroke-width="1">
+      <title>X:164, Y:112, Z:214 - smooth quartz stairs</title>
+    </rect><rect x="211" y="99" width="26" height="26" rx="2" fill="#ffffff" fill-opacity="1" stroke="#0f2b48" stroke-width="1">
+      <title>X:156, Y:113, Z:214 - smooth quartz slab</title>
+    </rect><rect x="435" y="99" width="26" height="26" rx="2" fill="#ffffff" fill-opacity="1" stroke="#0f2b48" stroke-width="1">
+      <title>X:164, Y:113, Z:214 - smooth quartz slab</title>
+    </rect><rect x="211" y="71" width="26" height="26" rx="2" fill="#fde047" fill-opacity="1" stroke="#0f2b48" stroke-width="1">
+      <title>X:156, Y:114, Z:214 - end rod</title>
+    </rect><rect x="435" y="71" width="26" height="26" rx="2" fill="#fde047" fill-opacity="1" stroke="#0f2b48" stroke-width="1">
+      <title>X:164, Y:114, Z:214 - end rod</title>
+    </rect>
+  <!-- Ground Line -->
+  <line x1="50" y1="406" x2="622" y2="406" stroke="#64748b" stroke-width="2"/>
+  <text x="627" y="402" fill="#64748b" font-size="11">PLAZA GROUND (Y=103)</text>
+  <text x="627" y="366" fill="#38bdf8" font-size="11">BASIN RIM (Y=104)</text>
+  <text x="627" y="226" fill="#a855f7" font-size="11">SACRED URN (Y=109)</text>
+  <text x="627" y="114" fill="#fde047" font-size="11">WINGTIPS (Y=113)</text>
+</svg>

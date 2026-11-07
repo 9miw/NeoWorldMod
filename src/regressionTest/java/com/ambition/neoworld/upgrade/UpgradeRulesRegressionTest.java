@@ -4,6 +4,21 @@ import static com.ambition.neoworld.upgrade.UpgradeRules.*;
 
 public final class UpgradeRulesRegressionTest {
     public static void main(String[] args) {
+        int boostedSuccess = 0;
+        for (int roll = 0; roll < 100; roll++) {
+            Result guarded = resolve(9, 2, 40, 25, 25, 10, combinedBonus(5, true), Protection.FULL, roll);
+            check(guarded.level() >= 9, "Unified protection must prevent both downgrade and reset");
+            if (guarded.applied() == Outcome.SUCCESS) {
+                boostedSuccess++;
+                check(guarded.failures() == 0, "Boosted success clears pity");
+            } else check(guarded.applied() == Outcome.UNCHANGED && guarded.failures() == 3,
+                    "Every protected failure preserves the item level and earns pity");
+        }
+        check(boostedSuccess == 55, "40 base + 5 pity + 10 booster must give 55 successes out of 100");
+        check(combinedBonus(95, true) == 100 && combinedBonus(5, false) == 5, "Booster cap and absent booster");
+        for (int roll = 0; roll < 100; roll++) check(resolve(14, 0, 95, 5, 0, 0,
+                combinedBonus(0, true), Protection.FULL, roll).applied() == Outcome.SUCCESS,
+                "95 plus booster must cap at guaranteed success");
         int[] counts = new int[4];
         for (int roll = 0; roll < 100; roll++) {
             Result result = resolve(14, 5, 5, 5, 40, 50, 5, Protection.NONE, roll);
@@ -11,12 +26,12 @@ public final class UpgradeRulesRegressionTest {
         }
         check(counts[0] == 10 && counts[1] == 0 && counts[2] == 40 && counts[3] == 50,
                 "Pity must add five percentage points and retain total probability");
-        Result reset = resolve(14, 9, 5, 5, 40, 50, 0, Protection.DOWNGRADE, 99);
-        check(reset.level() == 0 && reset.failures() == 0, "Downgrade scroll must not prevent a break");
-        Result protectedBreak = resolve(14, 9, 5, 5, 40, 50, 0, Protection.BREAK, 99);
-        check(protectedBreak.rolled() == Outcome.RESET && protectedBreak.applied() == Outcome.DOWNGRADE
-                && protectedBreak.level() == 13 && protectedBreak.failures() == 10, "Break scroll converts reset to downgrade");
-        Result protectedDown = resolve(9, 2, 20, 15, 40, 25, 0, Protection.DOWNGRADE, 40);
+        Result reset = resolve(14, 9, 5, 5, 40, 50, 0, Protection.NONE, 99);
+        check(reset.level() == 0 && reset.failures() == 0, "Unprotected break resets level and pity");
+        Result protectedBreak = resolve(14, 9, 5, 5, 40, 50, 0, Protection.FULL, 99);
+        check(protectedBreak.rolled() == Outcome.RESET && protectedBreak.applied() == Outcome.UNCHANGED
+                && protectedBreak.level() == 14 && protectedBreak.failures() == 10, "Unified scroll preserves level on a break");
+        Result protectedDown = resolve(9, 2, 20, 15, 40, 25, 0, Protection.FULL, 40);
         check(protectedDown.level() == 9 && protectedDown.failures() == 3, "Downgrade protection preserves level");
         Result success = resolve(14, 9, 5, 5, 40, 50, 0, Protection.NONE, 0);
         check(success.level() == 15 && success.failures() == 0, "Success resets failure points");

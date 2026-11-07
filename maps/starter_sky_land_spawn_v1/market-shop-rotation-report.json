@@ -1,0 +1,52 @@
+{
+  "shop": {
+    "id": "general",
+    "bounds": [
+      65,
+      189,
+      91,
+      215
+    ],
+    "floorY": 103,
+    "entrance": [
+      83,
+      104,
+      210
+    ],
+    "roofRidgeY": 115,
+    "stage": "open timber frame; roof outline",
+    "localSize": [
+      19,
+      19
+    ],
+    "center": [
+      78,
+      103,
+      202
+    ],
+    "rotationDegrees": 30,
+    "faces": "southeast toward market fountain",
+    "corners": [
+      [
+        66,
+        199
+      ],
+      [
+        81,
+        190
+      ],
+      [
+        90,
+        205
+      ],
+      [
+        75,
+        214
+      ]
+    ]
+  },
+  "changedBlocks": 449,
+  "changedChunks": 6,
+  "backup": "archive\\map-edit-backups\\before-market-shop-rotation\\starter_sky_land_spawn_v1",
+  "walkableCells": 4967
+}

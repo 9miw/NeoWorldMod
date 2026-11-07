@@ -1,0 +1,198 @@
+info:
+  namespace: elitecreatures
+items:
+
+########### FUNDAMENTAL ITEMS
+
+  cyberpunk_animated-axe:
+    display_name: Display
+    resource:
+      material: DIAMOND_AXE
+      generate: false
+      #model_id: Define your custom Model Data 
+      model_path: cyberpunk_animated/axe
+  cyberpunk_animated-bow:
+    display_name: Display
+    resource:
+      material: BOW
+      generate: false
+      #model_id: Define your custom Model Data 
+      model_path: cyberpunk_animated/bow
+  cyberpunk_animated-crossbow:
+    display_name: Display
+    resource:
+      material: CROSSBOW
+      generate: false
+      #model_id: Define your custom Model Data 
+      model_path: cyberpunk_animated/crossbow
+  cyberpunk_animated-fishing_rod:
+    display_name: Display
+    resource:
+      material: FISHING_ROD
+      generate: false
+      #model_id: Define your custom Model Data 
+      model_path: cyberpunk_animated/fishing_rod
+  cyberpunk_animated-hoe:
+    display_name: Display
+    resource:
+      material: DIAMOND_HOE
+      generate: false
+      #model_id: Define your custom Model Data 
+      model_path: cyberpunk_animated/hoe
+  cyberpunk_animated-pickaxe:
+    display_name: Display
+    resource:
+      material: DIAMOND_PICKAXE
+      generate: false
+      #model_id: Define your custom Model Data 
+      model_path: cyberpunk_animated/pickaxe
+  cyberpunk_animated-shield:
+    display_name: Display
+    resource:
+      material: SHIELD
+      generate: false
+      #model_id: Define your custom Model Data 
+      model_path: cyberpunk_animated/shield
+  cyberpunk_animated-shovel:
+    display_name: Display
+    resource:
+      material: DIAMOND_SHOVEL
+      generate: false
+      #model_id: Define your custom Model Data 
+      model_path: cyberpunk_animated/shovel
+  cyberpunk_animated-sword:
+    display_name: Display
+    resource:
+      material: DIAMOND_SWORD
+      generate: false
+      #model_id: Define your custom Model Data 
+      model_path: cyberpunk_animated/sword
+
+########### FANTASY WEAPONS
+
+  cyberpunk_animated-assault_rifle:
+    display_name: Display
+    resource:
+      material: DIAMOND_SWORD
+      generate: false
+      #model_id: Define your custom Model Data 
+      model_path: cyberpunk_animated/assault_rifle
+  cyberpunk_animated-baton:
+    display_name: Display
+    resource:
+      material: DIAMOND_SWORD
+      generate: false
+      #model_id: Define your custom Model Data 
+      model_path: cyberpunk_animated/baton
+  cyberpunk_animated-dagger:
+    display_name: Display
+    resource:
+      material: DIAMOND_SWORD
+      generate: false
+      #model_id: Define your custom Model Data 
+      model_path: cyberpunk_animated/dagger
+  cyberpunk_animated-gauntlet:
+    display_name: Display
+    resource:
+      material: DIAMOND_SWORD
+      generate: false
+      #model_id: Define your custom Model Data 
+      model_path: cyberpunk_animated/gauntlet
+  cyberpunk_animated-greatsword:
+    display_name: Display
+    resource:
+      material: DIAMOND_SWORD
+      generate: false
+      #model_id: Define your custom Model Data 
+      model_path: cyberpunk_animated/greatsword
+  cyberpunk_animated-hammer:
+    display_name: Display
+    resource:
+      material: DIAMOND_SWORD
+      generate: false
+      #model_id: Define your custom Model Data 
+      model_path: cyberpunk_animated/hammer
+  cyberpunk_animated-shotgun:
+    display_name: Display
+    resource:
+      material: DIAMOND_SWORD
+      generate: false
+      #model_id: Define your custom Model Data 
+      model_path: cyberpunk_animated/shotgun
+  cyberpunk_animated-spear:
+    display_name: Display
+    resource:
+      material: DIAMOND_SWORD
+      generate: false
+      #model_id: Define your custom Model Data 
+      model_path: cyberpunk_animated/spear
+
+########### COSMETICS
+
+  cyberpunk_animated-back:
+    display_name: Display
+    resource:
+      material: PAPER
+      generate: false
+      #model_id: Define your custom Model Data 
+      model_path: cyberpunk_animated/back
+  cyberpunk_animated-back_normal:
+    display_name: Display
+    resource:
+      material: PAPER
+      generate: false
+      #model_id: Define your custom Model Data 
+      model_path: cyberpunk_animated/back_normal
+  cyberpunk_animated-back_normal_2:
+    display_name: Display
+    resource:
+      material: PAPER
+      generate: false
+      #model_id: Define your custom Model Data 
+      model_path: cyberpunk_animated/back_normal_2
+  cyberpunk_animated-back_self:
+    display_name: Display
+    resource:
+      material: PAPER
+      generate: false
+      #model_id: Define your custom Model Data 
+      model_path: cyberpunk_animated/back_self
+  cyberpunk_animated-back_self_2:
+    display_name: Display
+    resource:
+      material: PAPER
+      generate: false
+      #model_id: Define your custom Model Data 
+      model_path: cyberpunk_animated/back_self_2
+
+########### CHEST & KEY
+
+  cyberpunk_animated-key:
+    display_name: Display
+    resource:
+      material: PAPER
+      generate: false
+      #model_id: Define your custom Model Data 
+      model_path: cyberpunk_animated/key
+  cyberpunk_animated-chest:
+    display_name: Display
+    resource:
+      material: PAPER
+      generate: false
+      model_path: cyberpunk_animated/chest
+    behaviours:
+      furniture:
+        solid: true
+        fixed_rotation: true
+        entity: armor_stand
+        hitbox:
+          length: 1
+          width: 1
+          height: 1
+          length_offset: 0
+          width_offset: 0
+          height_offset: 0
+        placeable_on:
+          walls: false
+          ceiling: false
+          floor: true

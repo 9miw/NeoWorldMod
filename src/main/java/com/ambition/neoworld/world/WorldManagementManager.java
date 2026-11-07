@@ -9,7 +9,10 @@ import com.ambition.neoworld.registry.ModDimensionRegistries;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import com.google.gson.JsonObject;
+import com.google.gson.JsonParser;
+import com.mojang.serialization.JsonOps;
 import java.io.IOException;
+import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.StandardCopyOption;
@@ -33,6 +36,7 @@ import net.minecraft.core.registries.Registries;
 import net.minecraft.nbt.NbtAccounter;
 import net.minecraft.nbt.NbtIo;
 import net.minecraft.network.chat.Component;
+import net.minecraft.resources.RegistryOps;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.server.MinecraftServer;
@@ -71,6 +75,7 @@ public final class WorldManagementManager {
     private final Map<String, ResetWarning> warnings = new HashMap<>();
     private final List<ServerLevel> detached = new ArrayList<>();
     private final ArrayDeque<RandomJob> randomJobs = new ArrayDeque<>();
+    private final Map<ResourceKey<Level>, UnloadJob> unloadJobs = new java.util.LinkedHashMap<>();
     private State state;
     private boolean storageFailed;
     private boolean stopping;
@@ -84,7 +89,10 @@ public final class WorldManagementManager {
         int version = 1;
         Map<String, ResetEntry> worlds = new HashMap<>();
         Map<String, Visit> visits = new HashMap<>();
+        Map<String, Map<String, PlayerLocation>> lastLocations = new HashMap<>();
     }
+
+    private record PlayerLocation(double x, double y, double z, float yaw, float pitch) {}
 
     private static final class ResetEntry {
         int intervalDays;
@@ -131,6 +139,17 @@ public final class WorldManagementManager {
             this.target = target;
             this.source = source;
             this.radius = radius;
+        }
+    }
+
+    private static final class UnloadJob {
+        final ServerLevel level;
+        final CommandSourceStack source;
+        long deadline;
+        boolean draining;
+        UnloadJob(ServerLevel level, CommandSourceStack source) {
+            this.level = level;
+            this.source = source;
         }
     }
 
@@ -254,7 +273,27 @@ public final class WorldManagementManager {
     public List<String> worldIds() {
         Set<String> ids = new HashSet<>();
         server.levelKeys().forEach(dimension -> ids.add(dimension.location().toString()));
+        unloadJobs.keySet().forEach(dimension -> ids.add(dimension.location().toString()));
         if (state != null && state.worlds != null) ids.addAll(state.worlds.keySet());
+        Path dimensionsDir = server.getWorldPath(LevelResource.ROOT).resolve("dimensions");
+        if (Files.isDirectory(dimensionsDir)) {
+            try (var namespaces = Files.list(dimensionsDir)) {
+                for (Path nsPath : namespaces.toList()) {
+                    if (Files.isDirectory(nsPath)) {
+                        String ns = nsPath.getFileName().toString();
+                        try (var worlds = Files.list(nsPath)) {
+                            for (Path worldPath : worlds.toList()) {
+                                if (Files.isDirectory(worldPath)) {
+                                    ids.add(ns + ":" + worldPath.getFileName().toString());
+                                }
+                            }
+                        }
+                    }
+                }
+            } catch (IOException ignored) {}
+        }
+        var stemRegistry = server.registryAccess().registry(Registries.LEVEL_STEM);
+        stemRegistry.ifPresent(reg -> reg.keySet().forEach(loc -> ids.add(loc.toString())));
         return ids.stream().sorted().toList();
     }
 
@@ -262,6 +301,7 @@ public final class WorldManagementManager {
         requireStorage();
         return worldIds().stream().map(id -> {
             ResetEntry entry = state.worlds.get(id);
+            if (unloadJobs.containsKey(key(id))) return id + " [รอ unload/กำลัง unload]";
             String loaded = server.getLevel(key(id)) == null ? " [ไม่โหลด]" : "";
             if (failures.contains(id)) return id + " [รีไม่สำเร็จ/ล็อก]" + loaded;
             if (entry != null && entry.pendingReset != 0) return id + " [รอรี/กำลังรี]" + loaded;
@@ -275,7 +315,7 @@ public final class WorldManagementManager {
         if (dimension.equals(Level.OVERWORLD)) return false;
         if (storageFailed || stopping) return true;
         ResetEntry entry = state.worlds.get(dimension.location().toString());
-        return failures.contains(dimension.location().toString()) || entry != null
+        return unloadJobs.containsKey(dimension) || failures.contains(dimension.location().toString()) || entry != null
                 && (entry.pendingReset != 0 || entry.intervalDays > 0 && System.currentTimeMillis() >= entry.nextReset);
     }
 
@@ -285,8 +325,154 @@ public final class WorldManagementManager {
         return level;
     }
 
+    public void loadWorld(ResourceLocation id) {
+        ResourceKey<Level> key = key(id.toString());
+        if (unloadJobs.containsKey(key) || detached.stream().anyMatch(level -> level.dimension().equals(key))
+                || failures.contains(id.toString())) throw new IllegalStateException("โลกนี้ยัง unload ไม่เสร็จหรือมีข้อผิดพลาด กรุณาตรวจ log");
+        if (server.getLevel(key) != null) {
+            throw new IllegalStateException("โลกนี้โหลดอยู่ในระบบแล้ว: " + id);
+        }
+        LevelStem stem = resolveStem(key);
+        if (stem == null) {
+            throw new IllegalArgumentException("ไม่พบข้อมูล definition หรือ generator ของโลก: " + id);
+        }
+        WorldServerAccessor access = (WorldServerAccessor) server;
+        ServerLevel level = new ServerLevel(
+                server,
+                access.neoworld$worldExecutor(),
+                access.neoworld$worldStorage(),
+                new DerivedLevelData(server.getWorldData(), server.getWorldData().overworldData()),
+                key,
+                stem,
+                new ChunkProgressListener() {
+                    public void updateSpawnPos(ChunkPos position) {}
+                    public void onStatusChange(ChunkPos position, ChunkStatus status) {}
+                    public void start() {}
+                    public void stop() {}
+                },
+                server.getWorldData().isDebugWorld(),
+                BiomeManager.obfuscateSeed(server.getWorldData().worldGenOptions().seed()),
+                List.of(),
+                false,
+                null
+        );
+        level.getWorldBorder().applySettings(server.overworld().getWorldBorder().createSettings());
+        Path save = server.getWorldPath(LevelResource.ROOT).toAbsolutePath().normalize();
+        Path expected = DimensionType.getStorageFolder(key, save).toAbsolutePath().normalize();
+        Path importMeta = expected.resolve("neoworld-import.json");
+        if (Files.exists(importMeta)) {
+            try {
+                JsonObject meta = JsonParser.parseString(Files.readString(importMeta, StandardCharsets.UTF_8)).getAsJsonObject();
+                if (meta.has("spawnX") && meta.has("spawnY") && meta.has("spawnZ")) {
+                    level.setDefaultSpawnPos(new BlockPos(meta.get("spawnX").getAsInt(), meta.get("spawnY").getAsInt(), meta.get("spawnZ").getAsInt()), 0.0f);
+                }
+            } catch (Exception e) {
+                NeoWorld.LOGGER.warn("Could not read spawn from import metadata for {}", id, e);
+            }
+        }
+        server.forgeGetWorldMap().put(key, level);
+        server.markWorldsDirty();
+        NeoForge.EVENT_BUS.post(new LevelEvent.Load(level));
+        NeoWorld.LOGGER.info("Dynamically loaded world {} into server", id);
+    }
+
+    public void unloadWorld(ResourceLocation id, CommandSourceStack source) {
+        requireStorage();
+        ResourceKey<Level> key = key(id.toString());
+        if (key.equals(Level.OVERWORLD)) {
+            throw new IllegalArgumentException("ไม่อนุญาตให้ unload โลก Overworld หลัก");
+        }
+        ServerLevel level = server.getLevel(key);
+        if (level == null) {
+            throw new IllegalStateException("โลกนี้ไม่ได้โหลดอยู่ในระบบ: " + id);
+        }
+        if (isLocked(key)) throw new IllegalStateException("โลกนี้กำลังรีเซ็ต/unload หรือมีข้อผิดพลาด");
+        unloadJobs.put(key, new UnloadJob(level, source));
+    }
+
+    private void advanceUnload() {
+        if (unloadJobs.isEmpty()) return;
+        var item = unloadJobs.entrySet().iterator().next();
+        ResourceKey<Level> key = item.getKey();
+        UnloadJob job = item.getValue();
+        ServerLevel level = job.level;
+        try {
+            if (!job.draining) {
+                for (ServerPlayer player : List.copyOf(level.players())) {
+                    recordLastLocation(player);
+                    if (storageFailed || !evacuate(player)) throw new IllegalStateException("ย้ายผู้เล่นออกหรือบันทึกจุดกลับไม่สำเร็จ");
+                    player.sendSystemMessage(Component.literal("โลกที่คุณอยู่กำลัง unload จึงย้ายกลับจุดปลอดภัย"));
+                }
+                if (!level.players().isEmpty()) throw new IllegalStateException("ยังมีผู้เล่นอยู่ในโลก");
+                server.getPlayerList().saveAll();
+                level.save(null, true, false);
+                server.forgeGetWorldMap().remove(key);
+                server.markWorldsDirty();
+                detached.add(level);
+                job.draining = true;
+                job.deadline = System.currentTimeMillis() + Duration.ofSeconds(60).toMillis();
+                return;
+            }
+            level.getChunkSource().removeTicketsOnClosing();
+            level.getChunkSource().tick(() -> true, false);
+            long pollUntil = System.nanoTime() + 5_000_000;
+            while (System.nanoTime() < pollUntil && level.getChunkSource().pollTask()) {}
+            if (level.getChunkSource().chunkMap.hasWork()) {
+                if (System.currentTimeMillis() >= job.deadline) throw new IllegalStateException("ระบาย chunk ก่อน unload ไม่สำเร็จภายใน 60 วินาที");
+                return;
+            }
+            WorldBorder border = server.overworld().getWorldBorder();
+            for (BorderChangeListener listener : List.copyOf(((WorldBorderAccessor) border).neoworld$borderListeners())) {
+                if (listener instanceof BorderChangeListener.DelegateBorderChangeListener
+                        && ((WorldBorderDelegateAccessor) listener).neoworld$delegateBorder() == level.getWorldBorder()) border.removeListener(listener);
+            }
+            NeoForge.EVENT_BUS.post(new LevelEvent.Unload(level));
+            level.close();
+            detached.remove(level);
+            unloadJobs.remove(key);
+            job.source.sendSuccess(() -> Component.literal("Unload โลก " + key.location() + " และบันทึกข้อมูลเรียบร้อยแล้ว"), true);
+            NeoWorld.LOGGER.info("Dynamically unloaded world {} from server", key.location());
+        } catch (IOException | RuntimeException exception) {
+            failures.add(key.location().toString());
+            unloadJobs.remove(key);
+            NeoWorld.LOGGER.error("World unload failed for {}; entry remains locked until restart", key.location(), exception);
+            job.source.sendFailure(Component.literal("Unload โลกไม่สำเร็จ ปิดการเข้าโลกไว้ กรุณาตรวจ log และแก้สาเหตุก่อนรีสตาร์ต"));
+        }
+    }
+
+    private LevelStem resolveStem(ResourceKey<Level> key) {
+        var stemRegistry = server.registryAccess().registry(Registries.LEVEL_STEM);
+        if (stemRegistry.isPresent() && stemRegistry.get().containsKey(key.location())) {
+            return stemRegistry.get().get(key.location());
+        }
+        Path save = server.getWorldPath(LevelResource.ROOT).toAbsolutePath().normalize();
+        String packName = "neoworld-import-" + UUID.nameUUIDFromBytes(key.location().toString().getBytes(StandardCharsets.UTF_8));
+        Path defPath = save.resolve("datapacks").resolve(packName).resolve("data")
+                .resolve(key.location().getNamespace()).resolve("dimension")
+                .resolve(key.location().getPath() + ".json");
+        if (Files.exists(defPath)) {
+            try {
+                String jsonStr = Files.readString(defPath, StandardCharsets.UTF_8);
+                JsonObject json = JsonParser.parseString(jsonStr).getAsJsonObject();
+                var parsed = LevelStem.CODEC.parse(RegistryOps.create(JsonOps.INSTANCE, server.registryAccess()), json);
+                if (parsed.result().isPresent()) {
+                    return parsed.result().get();
+                }
+            } catch (Exception e) {
+                NeoWorld.LOGGER.warn("Failed to parse dimension definition from {}", defPath, e);
+            }
+        }
+        Path expected = DimensionType.getStorageFolder(key, save).toAbsolutePath().normalize();
+        if (Files.exists(expected)) {
+            ServerLevel overworld = server.overworld();
+            return new LevelStem(overworld.dimensionTypeRegistration(), overworld.getChunkSource().getGenerator());
+        }
+        return null;
+    }
+
     private void requireResettable(ResourceKey<Level> dimension) {
         requireStorage();
+        if (unloadJobs.containsKey(dimension)) throw new IllegalStateException("โลกนี้กำลังรอ unload หรือ unload อยู่");
         if (dimension.equals(Level.OVERWORLD)) throw new IllegalArgumentException("รี Overworld หลักขณะเซิร์ฟเวอร์เปิดอยู่ไม่ได้");
         ServerLevel level = server.getLevel(dimension);
         if (level == null) throw new IllegalArgumentException("โลกนี้ยังไม่ได้โหลด: " + dimension.location());
@@ -388,7 +574,26 @@ public final class WorldManagementManager {
         }
     }
 
+    public void recordLastLocation(ServerPlayer player) {
+        if (storageFailed || stopping || state == null) return;
+        if (state.lastLocations == null) state.lastLocations = new HashMap<>();
+        String uuid = player.getUUID().toString();
+        String world = player.level().dimension().location().toString();
+        State before = snapshot();
+        state.lastLocations.computeIfAbsent(uuid, k -> new HashMap<>())
+                .put(world, new PlayerLocation(player.getX(), player.getY(), player.getZ(), player.getYRot(), player.getXRot()));
+        try {
+            commit(before);
+        } catch (RuntimeException exception) {
+            NeoWorld.LOGGER.error("Could not record last location for {} in {}", uuid, world, exception);
+        }
+    }
+
     public boolean teleport(ServerPlayer player, ServerLevel target, Vec3 position) {
+        return teleport(player, target, position, player.getYRot(), player.getXRot());
+    }
+
+    public boolean teleport(ServerPlayer player, ServerLevel target, Vec3 position, float yaw, float pitch) {
         if (server.getLevel(target.dimension()) != target || isLocked(target.dimension())) {
             throw new IllegalStateException("โลกปลายทางกำลังรีเซ็ตหรือไม่พร้อมให้เข้า");
         }
@@ -398,11 +603,39 @@ public final class WorldManagementManager {
                 || !target.getWorldBorder().isWithinBounds(BlockPos.containing(position))) {
             throw new IllegalArgumentException("พิกัดอยู่นอกขอบเขตโลก");
         }
+        recordLastLocation(player);
         if (!remember(player, target.dimension())) throw new IllegalStateException("บันทึกจุดกลับไม่สำเร็จ");
-        player.teleportTo(target, position.x, position.y, position.z, player.getYRot(), player.getXRot());
+        player.teleportTo(target, position.x, position.y, position.z, yaw, pitch);
         boolean arrived = player.level() == target && player.position().distanceToSqr(position) < 1.0;
         if (arrived) player.fallDistance = 0;
         return arrived;
+    }
+
+    public boolean teleportToLast(ServerPlayer player, ServerLevel target) {
+        requireStorage();
+        if (server.getLevel(target.dimension()) != target || isLocked(target.dimension())) {
+            throw new IllegalStateException("โลกปลายทางกำลังรีเซ็ตหรือไม่พร้อมให้เข้า");
+        }
+        String uuid = player.getUUID().toString();
+        String world = target.dimension().location().toString();
+        PlayerLocation last = (state.lastLocations != null && state.lastLocations.containsKey(uuid))
+                ? state.lastLocations.get(uuid).get(world)
+                : null;
+        Vec3 position;
+        float yaw;
+        float pitch;
+        if (last != null && target.getWorldBorder().isWithinBounds(BlockPos.containing(last.x(), last.y(), last.z()))
+                && last.y() >= target.getMinBuildHeight() && last.y() < target.getMaxBuildHeight()) {
+            position = new Vec3(last.x(), last.y(), last.z());
+            yaw = last.yaw();
+            pitch = last.pitch();
+        } else {
+            BlockPos spawn = target.getSharedSpawnPos();
+            position = new Vec3(spawn.getX() + 0.5, spawn.getY(), spawn.getZ() + 0.5);
+            yaw = player.getYRot();
+            pitch = player.getXRot();
+        }
+        return teleport(player, target, position, yaw, pitch);
     }
 
     public boolean queueRandom(ServerPlayer player, ServerLevel target, CommandSourceStack source, int radius) {
@@ -555,6 +788,7 @@ public final class WorldManagementManager {
         if (stopping || storageFailed || advancing) return;
         advancing = true;
         try {
+            advanceUnload();
             tickRandom();
             ticks++;
             long now = System.currentTimeMillis();
@@ -563,7 +797,8 @@ public final class WorldManagementManager {
                 lastScheduleSecond = second;
                 for (String id : List.copyOf(state.worlds.keySet())) {
                     ResetEntry entry = state.worlds.get(id);
-                    if (entry.pendingReset != 0 || entry.intervalDays == 0 || failures.contains(id)) continue;
+                    if (entry.pendingReset != 0 || entry.intervalDays == 0 || failures.contains(id)
+                            || unloadJobs.containsKey(key(id)) || server.getLevel(key(id)) == null) continue;
                     if (now >= entry.nextReset) {
                         try {
                             requestReset(ResourceLocation.parse(id));

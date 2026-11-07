@@ -1,0 +1,678 @@
+{
+  "sourceHash": "4ae29206247c08e05c537b98de5c88355164d3a86a48219ba4718c86e823e166",
+  "backup": "archive\\map-edit-backups\\before-guild-forecourt-20261101\\starter_sky_land_spawn_v1",
+  "bounds": [
+    225,
+    100,
+    207,
+    263,
+    119,
+    241
+  ],
+  "dimensions": [
+    39,
+    35
+  ],
+  "floorY": 107,
+  "compass": {
+    "center": [
+      244,
+      107,
+      224
+    ],
+    "size": [
+      15,
+      15
+    ]
+  },
+  "mainLane": {
+    "x": [
+      240,
+      248
+    ],
+    "width": 9
+  },
+  "pergolas": [
+    [
+      226,
+      225,
+      233,
+      233
+    ],
+    [
+      254,
+      208,
+      261,
+      216
+    ]
+  ],
+  "monument": {
+    "from": [
+      244,
+      224
+    ],
+    "to": [
+      257,
+      233
+    ],
+    "offset": [
+      13,
+      0,
+      9
+    ],
+    "voxels": [
+      {
+        "position": [
+          242,
+          108,
+          222
+        ],
+        "state": {
+          "Name": "minecraft:polished_andesite"
+        }
+      },
+      {
+        "position": [
+          243,
+          108,
+          222
+        ],
+        "state": {
+          "Name": "minecraft:polished_andesite"
+        }
+      },
+      {
+        "position": [
+          244,
+          108,
+          222
+        ],
+        "state": {
+          "Name": "minecraft:polished_andesite"
+        }
+      },
+      {
+        "position": [
+          245,
+          108,
+          222
+        ],
+        "state": {
+          "Name": "minecraft:polished_andesite"
+        }
+      },
+      {
+        "position": [
+          246,
+          108,
+          222
+        ],
+        "state": {
+          "Name": "minecraft:polished_andesite"
+        }
+      },
+      {
+        "position": [
+          242,
+          108,
+          223
+        ],
+        "state": {
+          "Name": "minecraft:polished_andesite"
+        }
+      },
+      {
+        "position": [
+          243,
+          108,
+          223
+        ],
+        "state": {
+          "Name": "minecraft:polished_andesite"
+        }
+      },
+      {
+        "position": [
+          243,
+          109,
+          223
+        ],
+        "state": {
+          "Name": "minecraft:chiseled_stone_bricks"
+        }
+      },
+      {
+        "position": [
+          243,
+          115,
+          223
+        ],
+        "state": {
+          "Name": "minecraft:smooth_stone_slab",
+          "Properties": {
+            "type": "bottom",
+            "waterlogged": "false"
+          }
+        }
+      },
+      {
+        "position": [
+          244,
+          108,
+          223
+        ],
+        "state": {
+          "Name": "minecraft:polished_andesite"
+        }
+      },
+      {
+        "position": [
+          244,
+          109,
+          223
+        ],
+        "state": {
+          "Name": "minecraft:chiseled_stone_bricks"
+        }
+      },
+      {
+        "position": [
+          244,
+          115,
+          223
+        ],
+        "state": {
+          "Name": "minecraft:smooth_stone_slab",
+          "Properties": {
+            "type": "bottom",
+            "waterlogged": "false"
+          }
+        }
+      },
+      {
+        "position": [
+          245,
+          108,
+          223
+        ],
+        "state": {
+          "Name": "minecraft:polished_andesite"
+        }
+      },
+      {
+        "position": [
+          245,
+          109,
+          223
+        ],
+        "state": {
+          "Name": "minecraft:chiseled_stone_bricks"
+        }
+      },
+      {
+        "position": [
+          245,
+          115,
+          223
+        ],
+        "state": {
+          "Name": "minecraft:smooth_stone_slab",
+          "Properties": {
+            "type": "bottom",
+            "waterlogged": "false"
+          }
+        }
+      },
+      {
+        "position": [
+          246,
+          108,
+          223
+        ],
+        "state": {
+          "Name": "minecraft:polished_andesite"
+        }
+      },
+      {
+        "position": [
+          242,
+          108,
+          224
+        ],
+        "state": {
+          "Name": "minecraft:polished_andesite"
+        }
+      },
+      {
+        "position": [
+          243,
+          108,
+          224
+        ],
+        "state": {
+          "Name": "minecraft:polished_andesite"
+        }
+      },
+      {
+        "position": [
+          243,
+          109,
+          224
+        ],
+        "state": {
+          "Name": "minecraft:chiseled_stone_bricks"
+        }
+      },
+      {
+        "position": [
+          243,
+          115,
+          224
+        ],
+        "state": {
+          "Name": "minecraft:smooth_stone_slab",
+          "Properties": {
+            "type": "bottom",
+            "waterlogged": "false"
+          }
+        }
+      },
+      {
+        "position": [
+          244,
+          108,
+          224
+        ],
+        "state": {
+          "Name": "minecraft:polished_andesite"
+        }
+      },
+      {
+        "position": [
+          244,
+          109,
+          224
+        ],
+        "state": {
+          "Name": "minecraft:chiseled_stone_bricks"
+        }
+      },
+      {
+        "position": [
+          244,
+          110,
+          224
+        ],
+        "state": {
+          "Name": "minecraft:quartz_pillar",
+          "Properties": {
+            "axis": "y"
+          }
+        }
+      },
+      {
+        "position": [
+          244,
+          111,
+          224
+        ],
+        "state": {
+          "Name": "minecraft:quartz_pillar",
+          "Properties": {
+            "axis": "y"
+          }
+        }
+      },
+      {
+        "position": [
+          244,
+          112,
+          224
+        ],
+        "state": {
+          "Name": "minecraft:quartz_pillar",
+          "Properties": {
+            "axis": "y"
+          }
+        }
+      },
+      {
+        "position": [
+          244,
+          113,
+          224
+        ],
+        "state": {
+          "Name": "minecraft:quartz_pillar",
+          "Properties": {
+            "axis": "y"
+          }
+        }
+      },
+      {
+        "position": [
+          244,
+          114,
+          224
+        ],
+        "state": {
+          "Name": "minecraft:quartz_pillar",
+          "Properties": {
+            "axis": "y"
+          }
+        }
+      },
+      {
+        "position": [
+          244,
+          115,
+          224
+        ],
+        "state": {
+          "Name": "minecraft:sea_lantern",
+          "Properties": {}
+        }
+      },
+      {
+        "position": [
+          244,
+          116,
+          224
+        ],
+        "state": {
+          "Name": "minecraft:purpur_slab",
+          "Properties": {
+            "type": "bottom",
+            "waterlogged": "false"
+          }
+        }
+      },
+      {
+        "position": [
+          245,
+          108,
+          224
+        ],
+        "state": {
+          "Name": "minecraft:polished_andesite"
+        }
+      },
+      {
+        "position": [
+          245,
+          109,
+          224
+        ],
+        "state": {
+          "Name": "minecraft:chiseled_stone_bricks"
+        }
+      },
+      {
+        "position": [
+          245,
+          115,
+          224
+        ],
+        "state": {
+          "Name": "minecraft:smooth_stone_slab",
+          "Properties": {
+            "type": "bottom",
+            "waterlogged": "false"
+          }
+        }
+      },
+      {
+        "position": [
+          246,
+          108,
+          224
+        ],
+        "state": {
+          "Name": "minecraft:polished_andesite"
+        }
+      },
+      {
+        "position": [
+          242,
+          108,
+          225
+        ],
+        "state": {
+          "Name": "minecraft:polished_andesite"
+        }
+      },
+      {
+        "position": [
+          243,
+          108,
+          225
+        ],
+        "state": {
+          "Name": "minecraft:polished_andesite"
+        }
+      },
+      {
+        "position": [
+          243,
+          109,
+          225
+        ],
+        "state": {
+          "Name": "minecraft:chiseled_stone_bricks"
+        }
+      },
+      {
+        "position": [
+          243,
+          115,
+          225
+        ],
+        "state": {
+          "Name": "minecraft:smooth_stone_slab",
+          "Properties": {
+            "type": "bottom",
+            "waterlogged": "false"
+          }
+        }
+      },
+      {
+        "position": [
+          244,
+          108,
+          225
+        ],
+        "state": {
+          "Name": "minecraft:polished_andesite"
+        }
+      },
+      {
+        "position": [
+          244,
+          109,
+          225
+        ],
+        "state": {
+          "Name": "minecraft:chiseled_stone_bricks"
+        }
+      },
+      {
+        "position": [
+          244,
+          115,
+          225
+        ],
+        "state": {
+          "Name": "minecraft:smooth_stone_slab",
+          "Properties": {
+            "type": "bottom",
+            "waterlogged": "false"
+          }
+        }
+      },
+      {
+        "position": [
+          245,
+          108,
+          225
+        ],
+        "state": {
+          "Name": "minecraft:polished_andesite"
+        }
+      },
+      {
+        "position": [
+          245,
+          109,
+          225
+        ],
+        "state": {
+          "Name": "minecraft:chiseled_stone_bricks"
+        }
+      },
+      {
+        "position": [
+          245,
+          115,
+          225
+        ],
+        "state": {
+          "Name": "minecraft:smooth_stone_slab",
+          "Properties": {
+            "type": "bottom",
+            "waterlogged": "false"
+          }
+        }
+      },
+      {
+        "position": [
+          246,
+          108,
+          225
+        ],
+        "state": {
+          "Name": "minecraft:polished_andesite"
+        }
+      },
+      {
+        "position": [
+          242,
+          108,
+          226
+        ],
+        "state": {
+          "Name": "minecraft:polished_andesite"
+        }
+      },
+      {
+        "position": [
+          243,
+          108,
+          226
+        ],
+        "state": {
+          "Name": "minecraft:polished_andesite"
+        }
+      },
+      {
+        "position": [
+          244,
+          108,
+          226
+        ],
+        "state": {
+          "Name": "minecraft:polished_andesite"
+        }
+      },
+      {
+        "position": [
+          245,
+          108,
+          226
+        ],
+        "state": {
+          "Name": "minecraft:polished_andesite"
+        }
+      },
+      {
+        "position": [
+          246,
+          108,
+          226
+        ],
+        "state": {
+          "Name": "minecraft:polished_andesite"
+        }
+      }
+    ]
+  },
+  "shrubs": [
+    {
+      "from": [
+        258,
+        108,
+        211
+      ],
+      "to": [
+        262,
+        108,
+        211
+      ],
+      "state": {
+        "Name": "minecraft:oak_leaves",
+        "Properties": {
+          "persistent": "true",
+          "distance": "7",
+          "waterlogged": "false"
+        }
+      }
+    },
+    {
+      "from": [
+        233,
+        108,
+        240
+      ],
+      "to": [
+        233,
+        108,
+        240
+      ],
+      "state": {
+        "Name": "minecraft:oak_leaves",
+        "Properties": {
+          "persistent": "true",
+          "distance": "7",
+          "waterlogged": "false"
+        }
+      }
+    }
+  ],
+  "supportColumns": 0,
+  "pavedCells": 1015,
+  "gardenCells": 249,
+  "netChangedBlocks": 1294,
+  "verification": {
+    "webGL": false,
+    "inGame": false,
+    "deployed": false,
+    "serverNPCDataModified": false,
+    "compileJava": "SUCCESS",
+    "native": "576 chunks / 3557241 blocks / 181 states / 30 block entities",
+    "independentReview": "No important findings",
+    "intermediateWebGLInspected": true,
+    "finalVisualPending": "User pressed Escape to stop Computer Use before final screenshot",
+    "levelDatUnchanged": true
+  },
+  "validation": {
+    "netChangedBlocks": 1294,
+    "nineWideLaneCells": 315,
+    "clearRouteCells": 273,
+    "reachableGroundCells": 1092,
+    "lanterns": 17,
+    "flowers": 108,
+    "outsideScopeChanges": 0
+  },
+  "blockEntitiesPreserved": 30,
+  "changedChunks": 12,
+  "resultHash": "b9b402e838aa081a07fab3236c5c953718aebec33c879d38aee4b4c00a74531f"
+}

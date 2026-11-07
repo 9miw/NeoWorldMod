@@ -53,7 +53,16 @@ public final class MarketSellMenu extends AbstractContainerMenu {
         return salesTaxRateBps;
     }
 
+    public ItemStack getListingItem() {
+        return listing.getItem(0);
+    }
+
     public MarketService.ListingResult submit(ServerPlayer player, int quantity, long unitPrice, long durationTicks) {
+        return submit(player, java.util.UUID.randomUUID(), quantity, unitPrice, durationTicks);
+    }
+
+    public MarketService.ListingResult submit(ServerPlayer player, java.util.UUID operationId, int quantity,
+                                              long unitPrice, long durationTicks) {
         if (player.containerMenu != this || quantity <= 0) {
             return new MarketService.ListingResult(MarketResult.INVALID_QUANTITY, java.util.OptionalLong.empty());
         }
@@ -62,7 +71,7 @@ public final class MarketSellMenu extends AbstractContainerMenu {
         }
         ItemStack source = listing.getItem(0);
         MarketService.ListingResult result = MarketService.createListing(
-                player, source, quantity, unitPrice, durationTicks);
+                operationId, player, source, quantity, unitPrice, durationTicks);
         if (result.result() == MarketResult.SUCCESS) {
             listing.setChanged();
             broadcastChanges();

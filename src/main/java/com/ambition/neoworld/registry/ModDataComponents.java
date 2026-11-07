@@ -16,6 +16,29 @@ public class ModDataComponents {
     public static final DeferredRegister.DataComponents DATA_COMPONENTS =
             DeferredRegister.createDataComponents(Registries.DATA_COMPONENT_TYPE, NeoWorld.MODID);
 
+    private static final Codec<String> LOOT_BOX_ID_CODEC = Codec.STRING.validate(value -> {
+        try {
+            com.ambition.neoworld.lootbox.LootBoxRules.validateId(value);
+            return DataResult.success(value);
+        } catch (IllegalArgumentException invalid) {
+            return DataResult.error(invalid::getMessage);
+        }
+    });
+    public static final DeferredHolder<DataComponentType<?>, DataComponentType<String>> LOOT_BOX_ID =
+            DATA_COMPONENTS.registerComponentType("loot_box_id", builder -> builder
+                    .persistent(LOOT_BOX_ID_CODEC).networkSynchronized(ByteBufCodecs.fromCodec(LOOT_BOX_ID_CODEC)));
+
+    private static final Codec<String> ITEM_RARITY_CODEC = Codec.STRING.validate(value -> switch (value) {
+        case "common", "uncommon", "rare", "epic", "legendary" -> DataResult.success(value);
+        default -> DataResult.error(() -> "Unknown NeoWorld item rarity: " + value);
+    });
+
+    // Optional per-stack presentation tier, independent of upgrade level and item attributes.
+    public static final DeferredHolder<DataComponentType<?>, DataComponentType<String>> ITEM_RARITY =
+            DATA_COMPONENTS.registerComponentType("item_rarity", builder -> builder
+                    .persistent(ITEM_RARITY_CODEC)
+                    .networkSynchronized(ByteBufCodecs.fromCodec(ITEM_RARITY_CODEC)));
+
     public static final DeferredHolder<DataComponentType<?>, DataComponentType<Integer>> UPGRADE_LEVEL =
             DATA_COMPONENTS.registerComponentType("upgrade_level", builder -> builder
                     .persistent(Codec.intRange(0, 15)).networkSynchronized(ByteBufCodecs.VAR_INT));

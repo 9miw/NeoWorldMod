@@ -2,6 +2,7 @@ package com.ambition.neoworld;
 
 import java.io.IOException;
 import java.nio.file.Files;
+import java.nio.file.Path;
 
 import org.slf4j.Logger;
 
@@ -44,6 +45,8 @@ public class NeoWorld {
 
         // ลงทะเบียนระบบรีจิสเตอร์ต่างๆ
         ModBlocks.BLOCKS.register(modEventBus);
+        com.ambition.neoworld.registry.ModBlockEntities.TYPES.register(modEventBus);
+        com.ambition.neoworld.navigation.NavigationRegistry.register(modEventBus);
         ModItems.ITEMS.register(modEventBus);
         ModCreativeTabs.CREATIVE_MODE_TABS.register(modEventBus);
         ModAttachments.ATTACHMENT_TYPES.register(modEventBus);
@@ -58,16 +61,34 @@ public class NeoWorld {
         NeoForge.EVENT_BUS.register(this);
 
         modEventBus.addListener(this::addCreative);
+        String worldMessagesConfig = MODID + "/world-messages.toml";
+        String upgradeConfig = MODID + "/upgrade.toml";
+        String monsterExperienceConfig = MODID + "/monster-experience.toml";
         try {
-            Files.createDirectories(FMLPaths.CONFIGDIR.get().resolve(MODID));
+            var configDirectory = FMLPaths.CONFIGDIR.get();
+            Files.createDirectories(configDirectory.resolve(MODID));
+            moveLegacyConfig(configDirectory, "neoworld-world-messages.toml", worldMessagesConfig);
+            moveLegacyConfig(configDirectory, "neoworld-upgrade.toml", upgradeConfig);
+            moveLegacyConfig(configDirectory, "neoworld-monster-experience.toml", monsterExperienceConfig);
         } catch (IOException exception) {
-            throw new IllegalStateException("Could not create the NeoWorld config directory", exception);
+            throw new IllegalStateException("Could not prepare the NeoWorld config directory", exception);
         }
         modContainer.registerConfig(ModConfig.Type.COMMON, Config.SPEC, MODID + "/neoworld.toml");
         modContainer.registerConfig(ModConfig.Type.SERVER,
-                com.ambition.neoworld.world.WorldMessageConfig.SPEC, "neoworld-world-messages.toml");
+                com.ambition.neoworld.world.WorldMessageConfig.SPEC, worldMessagesConfig);
         modContainer.registerConfig(ModConfig.Type.SERVER,
-                com.ambition.neoworld.upgrade.UpgradeConfig.SPEC, "neoworld-upgrade.toml");
+                com.ambition.neoworld.upgrade.UpgradeConfig.COMPATIBLE_SPEC, upgradeConfig);
+        com.ambition.neoworld.experience.MonsterExperienceConfig.registerListeners(modEventBus);
+        modContainer.registerConfig(ModConfig.Type.SERVER,
+                com.ambition.neoworld.experience.MonsterExperienceConfig.SPEC, monsterExperienceConfig);
+    }
+
+    private static void moveLegacyConfig(Path configDirectory, String oldName, String newName) throws IOException {
+        Path source = configDirectory.resolve(oldName);
+        Path destination = configDirectory.resolve(newName);
+        if (Files.isRegularFile(source) && Files.notExists(destination)) {
+            Files.move(source, destination);
+        }
     }
 
     private void commonSetup(FMLCommonSetupEvent event) {
@@ -103,10 +124,12 @@ public class NeoWorld {
 
     @SubscribeEvent
     public void onServerStarting(ServerStartingEvent event) {
-        NeoWorldDatabase.initialize();
+        NeoWorldDatabase.initialize(event.getServer().registryAccess());
+        com.ambition.neoworld.economy.analytics.EconomyAnalytics.start();
         try {
             com.ambition.neoworld.title.service.TitleService.start(event.getServer());
         } catch (RuntimeException exception) {
+            com.ambition.neoworld.economy.analytics.EconomyAnalytics.stop();
             NeoWorldDatabase.shutdown();
             throw exception;
         }
@@ -114,6 +137,9 @@ public class NeoWorld {
 
     @SubscribeEvent
     public void onServerStopping(ServerStoppingEvent event) {
+        for (var player : event.getServer().getPlayerList().getPlayers())
+            com.ambition.neoworld.economy.analytics.EconomyAnalytics.logout(player);
+        com.ambition.neoworld.economy.analytics.EconomyAnalytics.stop();
         com.ambition.neoworld.title.service.TitleService.stop();
         com.ambition.neoworld.title.sync.TitleSync.clear();
         NeoWorldDatabase.shutdown();

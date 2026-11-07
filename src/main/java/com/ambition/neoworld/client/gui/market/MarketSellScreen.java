@@ -4,6 +4,7 @@ import com.ambition.neoworld.client.gui.common.NeoBitmapFonts;
 
 import com.ambition.neoworld.NeoWorld;
 import com.ambition.neoworld.client.gui.common.NeoPopupScreen;
+import com.ambition.neoworld.client.gui.widget.EconomyBalanceWidget;
 import com.ambition.neoworld.client.gui.widget.NeoButton;
 import com.ambition.neoworld.market.MarketMath;
 import com.ambition.neoworld.market.menu.MarketSellMenu;
@@ -77,6 +78,9 @@ public final class MarketSellScreen extends AbstractContainerScreen<MarketSellMe
         priceInput.setValue(preservedPrice);
         addRenderableWidget(priceInput);
 
+        addRenderableWidget(new EconomyBalanceWidget(3, 0, 190, 20,
+                EconomyBalanceWidget.Alignment.LEFT));
+
         decreaseButton = addRenderableWidget(button("-", formX + 73, topPos + 76, 20, 18,
                 () -> changeQuantity(-1)));
         increaseButton = addRenderableWidget(button("+", formX + 123, topPos + 76, 20, 18,
@@ -84,9 +88,10 @@ public final class MarketSellScreen extends AbstractContainerScreen<MarketSellMe
         durationButton = addRenderableWidget(button(DURATION_LABELS[durationIndex], formX + 73,
                 topPos + 122, 70, 18, this::cycleDuration));
 
-        addRenderableWidget(button("กลับ", leftPos + 15, topPos + 219, 68, 20, this::backToManagement));
+        int actionY = topPos + 216;
+        addRenderableWidget(button("กลับ", leftPos + 15, actionY, 68, 20, this::backToManagement));
         confirmButton = addRenderableWidget(button("ยืนยันวางขาย", leftPos + imageWidth - 116,
-                topPos + 219, 101, 20, this::confirmListing).style(NeoButton.Style.PRIMARY));
+                actionY, 101, 20, this::confirmListing).style(NeoButton.Style.PRIMARY));
         NeoButton close = addRenderableWidget(button("\uE01B", closeButtonX(), closeButtonY(), 24, 18, this::onClose)
                 .style(NeoButton.Style.DESTRUCTIVE).textScrolling(false));
         close.setTooltip(Tooltip.create(Component.literal("ปิดและคืนสินค้าที่ยังไม่ได้วางขาย")));
@@ -128,18 +133,22 @@ public final class MarketSellScreen extends AbstractContainerScreen<MarketSellMe
     @Override
     protected void renderLabels(GuiGraphics graphics, int mouseX, int mouseY) {
         drawCentered(graphics, "วางขายสินค้า", 0, imageWidth, 10, COLOR_TEXT);
-        graphics.drawString(font, "ช่องเก็บของผู้เล่น", 20, 45, COLOR_TEXT, false);
-        graphics.drawString(font, "สินค้าที่วางขาย", 281, 35, COLOR_TEXT, false);
+        graphics.drawString(font, "คลังผู้เล่น", 20, 45, COLOR_TEXT, false);
+        graphics.drawString(font, "ช่องด่วน", 20, 139, COLOR_TEXT, false);
+        graphics.drawString(font, "ตั้งค่าวางขาย", 281, 35, COLOR_TEXT, false);
 
         ItemStack stack = menu.getSlot(0).getItem();
         String itemName = stack.isEmpty() ? "วางไอเทมในช่อง" : stack.getHoverName().getString();
         graphics.drawString(font, trim(itemName, 116), 323, 53, stack.isEmpty() ? COLOR_MUTED : COLOR_TEAL, false);
         graphics.drawString(font, stack.isEmpty() ? "" : "มีทั้งหมด " + stack.getCount(), 323, 65, COLOR_MUTED, false);
 
-        graphics.drawString(font, "จำนวนขาย", 281, 81, COLOR_TEXT, false);
+        renderStepBadge(graphics, 281, 76, "1");
+        renderStepBadge(graphics, 281, 99, "2");
+        renderStepBadge(graphics, 281, 122, "3");
+        graphics.drawString(font, "จำนวนขาย", 305, 81, COLOR_TEXT, false);
         drawCentered(graphics, Integer.toString(quantity), 374, 404, 81, COLOR_TEXT);
-        graphics.drawString(font, "ราคาต่อชิ้น", 281, 104, COLOR_TEXT, false);
-        graphics.drawString(font, "ระยะเวลาขาย", 281, 127, COLOR_TEXT, false);
+        graphics.drawString(font, "ราคาต่อชิ้น", 305, 104, COLOR_TEXT, false);
+        graphics.drawString(font, "ระยะเวลาขาย", 305, 127, COLOR_TEXT, false);
 
         long gross = safeMultiply(validPrice(), quantity);
         long tax = MarketMath.percentage(gross, menu.salesTaxRateBps());
@@ -157,6 +166,12 @@ public final class MarketSellScreen extends AbstractContainerScreen<MarketSellMe
         String amount = value < 0 ? "-" : String.format("%,d %s", value, SILVER_ICON);
         Component amountLabel = NeoBitmapFonts.text(amount);
         graphics.drawString(font, amountLabel, imageWidth - 18 - font.width(amountLabel), y, color, false);
+    }
+
+    private void renderStepBadge(GuiGraphics graphics, int x, int y, String number) {
+        graphics.blit(SLOT_STATES, x, y, 18, 18, 139, 168, 474, 474,
+                SLOT_ATLAS_WIDTH, SLOT_ATLAS_HEIGHT);
+        drawCentered(graphics, number, x, x + 18, y + 5, COLOR_TEXT);
     }
 
     @Override
@@ -191,7 +206,7 @@ public final class MarketSellScreen extends AbstractContainerScreen<MarketSellMe
     private void submit(long price) {
         submitting = true;
         PacketDistributor.sendToServer(new MarketSellSubmitPayload(
-                menu.containerId, quantity, price, DURATIONS[durationIndex]));
+                java.util.UUID.randomUUID(), menu.containerId, quantity, price, DURATIONS[durationIndex]));
     }
 
     public void receiveAction(MarketActionResultPayload payload) {

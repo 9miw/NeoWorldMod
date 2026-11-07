@@ -1,17 +1,9 @@
-# Wardrobe Window Shell
+# กรอบหน้าต่างตู้เสื้อผ้า
 
-The outer shell replaces the legacy combined `fashion_frame.png` at runtime.
-The old asset is retained for reference. No dynamic text or icons are baked into
-the new shell, title plaque or close-button PNGs.
+กรอบนอกแทน `fashion_frame.png` เก่าที่รวมทุกอย่างระหว่างรันไทม์ เก็บแอสเซ็ตเก่าไว้อ้างอิง ไม่ฝังข้อความหรือไอคอนไดนามิกในกรอบใหม่ แผ่นหัวข้อ หรือ PNG ปุ่มปิด
 
-- `fashion_shell.png`: 860 x 444. Eight surrounding slices use 24-pixel source
-  edges rendered at 6 GUI pixels; the center is filled by code with charcoal.
-- `fashion_title_plaque.png`: 480 x 112. Positioned at logical (154, 0), 122 x 28.
-- `fashion_close_normal.png` and `fashion_close_hover.png`: 64 x 64.
-  The close button is 16 x 16 with a dynamic X and a Thai tooltip.
+- `fashion_shell.png`: 860 x 444 แปด slice รอบนอกใช้ขอบต้นทาง 24 พิกเซล วาดที่ 6 พิกเซล GUI เติมกลางด้วยโค้ดสีชาร์โคล
+- `fashion_title_plaque.png`: 480 x 112 วางพิกัดเชิงตรรกะ (154, 0) ขนาด 122 x 28
+- `fashion_close_normal.png` และ `fashion_close_hover.png`: 64 x 64 ปุ่มปิด 16 x 16 มี X ไดนามิกและทูลทิปไทย
 
-The body begins at logical y=14, so the title plaque overlaps its upper edge.
-Existing panels begin at y=34 and remain within the silver outer border.
-`export-shell-assets.ps1` reproduces the bounded PNG exports.
-`preview-shell-assets.ps1` assembles the runtime frame with the previous panel
-previews and an illustrative reference character. This is not an in-game capture.
+ตัวกรอบเริ่ม y=14 เชิงตรรกะ ให้แผ่นหัวข้อซ้อนขอบบน แผงเดิมเริ่ม y=34 และอยู่ในขอบเงินนอก `export-shell-assets.ps1` สร้างการส่งออก PNG ตามขอบเขตซ้ำ `preview-shell-assets.ps1` ประกอบกรอบรันไทม์กับพรีวิวแผงก่อนหน้าและตัวละครอ้างอิงประกอบ ไม่ใช่ภาพจับในเกม

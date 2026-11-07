@@ -1,0 +1,255 @@
+{
+  "backup": "/home/miw/backups/neoworld-market-organization-20261026-005356",
+  "npcCount": 32,
+  "fixedNPCs": [
+    {
+      "name": "มาลี",
+      "uuid": "df3b4fb2-986e-4a29-bb8b-ff173389652f",
+      "pos": [
+        120.5,
+        104.0,
+        228.5
+      ],
+      "rotation": [
+        90.0,
+        0.0
+      ],
+      "savedPos": [
+        120.5,
+        104.0,
+        228.5
+      ],
+      "savedHome": [
+        120,
+        104,
+        228
+      ]
+    },
+    {
+      "name": "ธารา",
+      "uuid": "fbd944fd-71d7-47fe-969b-9caa00d00a96",
+      "pos": [
+        103.5,
+        103.9375,
+        237.5
+      ],
+      "rotation": [
+        180.0,
+        0.0
+      ],
+      "savedPos": [
+        103.5,
+        103.9375,
+        237.5
+      ],
+      "savedHome": [
+        103,
+        104,
+        237
+      ]
+    },
+    {
+      "name": "ภูผา",
+      "uuid": "4c6fc590-55f9-4f76-8e88-9bf5d6726279",
+      "pos": [
+        120.5,
+        104.0,
+        239.5
+      ],
+      "rotation": [
+        90.0,
+        0.0
+      ],
+      "savedPos": [
+        120.5,
+        104.0,
+        239.5
+      ],
+      "savedHome": [
+        120,
+        104,
+        239
+      ]
+    },
+    {
+      "name": "เรเวน",
+      "uuid": "2635d007-bff0-4dcd-88a1-cd4ff0c85792",
+      "pos": [
+        249.5,
+        111.0,
+        201.5
+      ],
+      "rotation": [
+        0.0,
+        0.0
+      ],
+      "savedPos": [
+        249.5,
+        111.0,
+        201.5
+      ],
+      "savedHome": [
+        249,
+        111,
+        201
+      ]
+    }
+  ],
+  "signs": [
+    {
+      "owner": "ออสการ์",
+      "shop": "ตลาดกลาง",
+      "pos": [
+        84,
+        104,
+        210
+      ],
+      "rotation": 2,
+      "lines": [
+        "ตลาดกลาง",
+        "ออสการ์",
+        "ซื้อขายของผู้เล่น",
+        "อาคารใหญ่"
+      ]
+    },
+    {
+      "owner": "เดรก",
+      "shop": "ร้านอาหาร",
+      "pos": [
+        99,
+        104,
+        198
+      ],
+      "rotation": 0,
+      "lines": [
+        "ร้านอาหาร",
+        "เดรก",
+        "อาหารและเสบียง",
+        "ร้าน 1"
+      ]
+    },
+    {
+      "owner": "เอลินา",
+      "shop": "ร้านสมุนไพร",
+      "pos": [
+        120,
+        104,
+        199
+      ],
+      "rotation": 0,
+      "lines": [
+        "ร้านสมุนไพร",
+        "เอลินา",
+        "วัตถุดิบปรุงยา",
+        "ร้าน 9"
+      ]
+    },
+    {
+      "owner": "ฟินน์",
+      "shop": "สินค้าเร่และอุปกรณ์",
+      "pos": [
+        76,
+        104,
+        224
+      ],
+      "rotation": 12,
+      "lines": [
+        "แผงฟินน์",
+        "สินค้าเร่",
+        "อุปกรณ์ผจญภัย",
+        "ร้าน 3 / 11"
+      ]
+    },
+    {
+      "owner": "มาลี",
+      "shop": "เกษตรและผึ้ง",
+      "pos": [
+        115,
+        104,
+        228
+      ],
+      "rotation": 4,
+      "lines": [
+        "แผงมาลี",
+        "เกษตรและผึ้ง",
+        "ผลผลิตและวัตถุดิบ",
+        "ร้าน 4 / 10"
+      ]
+    },
+    {
+      "owner": "ธารา",
+      "shop": "ร้านประมง",
+      "pos": [
+        108,
+        104,
+        238
+      ],
+      "rotation": 0,
+      "lines": [
+        "แผงธารา",
+        "ร้านประมง",
+        "สินค้าและวัตถุดิบ",
+        "ร้าน 5"
+      ]
+    },
+    {
+      "owner": "ภูผา",
+      "shop": "ร้านปศุสัตว์",
+      "pos": [
+        115,
+        104,
+        239
+      ],
+      "rotation": 4,
+      "lines": [
+        "แผงภูผา",
+        "ร้านปศุสัตว์",
+        "สินค้าและวัตถุดิบ",
+        "ร้าน 6"
+      ]
+    },
+    {
+      "owner": null,
+      "shop": "แผงสำรอง",
+      "pos": [
+        75,
+        104,
+        236
+      ],
+      "rotation": 12,
+      "lines": [
+        "แผงสำรอง",
+        "ยังไม่เปิดบริการ",
+        "",
+        ""
+      ]
+    },
+    {
+      "owner": null,
+      "shop": "แผงสำรอง",
+      "pos": [
+        75,
+        104,
+        248
+      ],
+      "rotation": 12,
+      "lines": [
+        "แผงสำรอง",
+        "ยังไม่เปิดบริการ",
+        "",
+        ""
+      ]
+    }
+  ],
+  "verification": {
+    "uuidsUnchanged": true,
+    "dialogQuestFilesIdentical": true,
+    "npcProtectedFieldsUnchanged": true,
+    "signTextsCorrect": true,
+    "changedBlocksInCheckedSections": 9,
+    "checkedSections": "Y96..111 of all sign chunks",
+    "inGameVisualCheck": false
+  },
+  "shops": "buildings: auction/food/herbs; stalls: Finn/Mali/Thara/Phupha; two reserved",
+  "decoration": "existing building/stall decor preserved; added nine signs only"
+}

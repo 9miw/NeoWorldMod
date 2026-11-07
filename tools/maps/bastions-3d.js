@@ -1,0 +1,44 @@
+'use strict';
+const $=id=>document.getElementById(id),canvas=$('view'),gl=canvas.getContext('webgl2',{antialias:true,alpha:false});
+const sourceURL=document.currentScript?.dataset.model||'bastions.json';
+let dirty=true,geometry,theta=.55,phi=.43,distance=105,target=[0,10,0],focus='all',cut=136,program,buffer,vertices=0,positions=0,frames=0;const ranges=[];
+function fail(e){$('error').hidden=false;$('error').textContent='เปิดภาพ 3D ไม่สำเร็จ: '+e.message;}
+function compile(type,src){const s=gl.createShader(type);gl.shaderSource(s,src);gl.compileShader(s);if(!gl.getShaderParameter(s,gl.COMPILE_STATUS))throw Error(gl.getShaderInfoLog(s));return s;}
+const vertex=`#version 300 es
+in vec3 aPosition;in vec3 aNormal;in vec3 aColor;uniform mat4 uVP;out vec3 vPosition;out vec3 vNormal;out vec3 vColor;
+void main(){vPosition=aPosition;vNormal=aNormal;vColor=aColor;gl_Position=uVP*vec4(aPosition,1.);}`;
+const fragment=`#version 300 es
+precision highp float;in vec3 vPosition;in vec3 vNormal;in vec3 vColor;uniform float uCut;out vec4 color;
+void main(){if(vPosition.y>uCut)discard;float light=.66+.34*max(0.,dot(normalize(vNormal),normalize(vec3(-.5,.9,.7))));vec2 uv=abs(vNormal.y)>.5?vPosition.xz:abs(vNormal.x)>.5?vPosition.zy:vPosition.xy;vec2 f=fract(uv+.0001);float edge=min(min(f.x,1.-f.x),min(f.y,1.-f.y));float aa=max(fwidth(uv.x),fwidth(uv.y));float mortar=mix(.88,1.,smoothstep(.012-aa,.012+aa,edge));color=vec4(vColor*light*mortar,1.);}`;
+const normalize=v=>{const n=Math.hypot(...v);return v.map(a=>a/n);},cross=(a,b)=>[a[1]*b[2]-a[2]*b[1],a[2]*b[0]-a[0]*b[2],a[0]*b[1]-a[1]*b[0]],dot=(a,b)=>a.reduce((n,v,i)=>n+v*b[i],0);
+function perspective(fov,aspect,near,far){const f=1/Math.tan(fov/2),nf=1/(near-far);return [f/aspect,0,0,0,0,f,0,0,0,0,(far+near)*nf,-1,0,0,2*far*near*nf,0];}
+function lookAt(eye,center){const z=normalize(eye.map((v,i)=>v-center[i])),x=normalize(cross([0,1,0],z)),y=cross(z,x);return [x[0],y[0],z[0],0,x[1],y[1],z[1],0,x[2],y[2],z[2],0,-dot(x,eye),-dot(y,eye),-dot(z,eye),1];}
+function multiply(a,b){const c=new Float32Array(16);for(let col=0;col<4;col++)for(let row=0;row<4;row++)for(let k=0;k<4;k++)c[col*4+row]+=a[k*4+row]*b[col*4+k];return c;}
+function boxes(s){const p=s.Properties||{},n=s.Name;
+ if(n.endsWith('_stairs')){const top=p.half==='top',lo=top?0:.5,hi=top?.5:1,full=top?[0,.5,0,1,1,1]:[0,0,0,1,.5,1];return [full,p.facing==='north'?[0,lo,0,1,hi,.5]:p.facing==='south'?[0,lo,.5,1,hi,1]:p.facing==='east'?[.5,lo,0,1,hi,1]:[0,lo,0,.5,hi,1]];}
+ if(n.endsWith('_slab'))return p.type==='top'?[[0,.5,0,1,1,1]]:p.type==='double'?[[0,0,0,1,1,1]]:[[0,0,0,1,.5,1]];
+ if(n.endsWith(':lantern'))return [[.25,0,.25,.75,.5,.75],[.375,.5,.375,.625,.75,.625]];
+ if(n.endsWith(':iron_bars'))return p.north==='true'||p.south==='true'?[[.4375,0,0,.5625,1,1]]:[[0,0,.4375,1,1,.5625]];
+ return [[0,0,0,1,1,1]];
+}
+function material(s){const n=s.Name;if(n.includes('blue_wool'))return [.15,.32,.64];if(n.includes('white_wool'))return [.93,.92,.86];if(n.includes('gold'))return [.82,.66,.32];if(n.includes('lantern'))return [1,.77,.29];if(n.includes('iron_bars'))return [.21,.28,.31];if(n.includes('chiseled'))return [.58,.66,.62];if(n.includes('quartz'))return [.86,.85,.77];if(n.includes('stone_brick'))return [.61,.66,.62];if(n.includes('calcite'))return [.77,.79,.73];return [.66,.70,.67];}
+function mesh(blocks){const a=[],emit=(pts,n,c)=>{for(const i of [0,1,2,0,2,3])a.push(...pts[i],...n,...c);};
+ for(const b of blocks){if(b.state.Name==='minecraft:air')continue;const [X,Y,Z]=b.position,c=material(b.state);for(const [x0,y0,z0,x1,y1,z1]of boxes(b.state)){const x=X-160,z=Z-114,y=Y-112,P=(xx,yy,zz)=>[x+xx,y+yy,z+zz];
+ emit([P(x0,y0,z1),P(x1,y0,z1),P(x1,y1,z1),P(x0,y1,z1)],[0,0,1],c);
+ emit([P(x1,y0,z0),P(x0,y0,z0),P(x0,y1,z0),P(x1,y1,z0)],[0,0,-1],c);
+ emit([P(x1,y0,z1),P(x1,y0,z0),P(x1,y1,z0),P(x1,y1,z1)],[1,0,0],c);
+ emit([P(x0,y0,z0),P(x0,y0,z1),P(x0,y1,z1),P(x0,y1,z0)],[-1,0,0],c);
+ emit([P(x0,y1,z1),P(x1,y1,z1),P(x1,y1,z0),P(x0,y1,z0)],[0,1,0],c);
+ emit([P(x0,y0,z0),P(x1,y0,z0),P(x1,y0,z1),P(x0,y0,z1)],[0,-1,0],c);
+ }}return new Float32Array(a);
+}
+function reset(angle=.55,pitch=.43){theta=angle;phi=pitch;focus=$('focus').value;const view=geometry?.preview,item=focus==='all'?view:view?.focuses?.[focus];target=item?.center?[item.center[0]-160,item.center[1]-112,item.center[2]-114]:focus==='west'?[-35,9,-2]:focus==='east'?[35,9,-2]:focus==='gate'?[0,10,2]:[0,9,0];distance=item?.distance||(focus==='all'?105:43);dirty=true;}
+function render(){if(dirty&&program){const dpr=Math.min(2,window.devicePixelRatio||1),w=Math.max(1,Math.round(canvas.clientWidth*dpr)),h=Math.max(1,Math.round(canvas.clientHeight*dpr));if(canvas.width!==w||canvas.height!==h){canvas.width=w;canvas.height=h;}gl.viewport(0,0,w,h);gl.clearColor(.065,.115,.15,1);gl.clear(gl.COLOR_BUFFER_BIT|gl.DEPTH_BUFFER_BIT);const aspect=w/h,r=distance*Math.max(1,1.3/aspect),eye=[target[0]+r*Math.sin(theta)*Math.cos(phi),target[1]+r*Math.sin(phi),target[2]+r*Math.cos(theta)*Math.cos(phi)],vp=multiply(perspective(Math.PI/4,aspect,1,4000),lookAt(eye,target));gl.uniformMatrix4fv(gl.getUniformLocation(program,'uVP'),false,vp);gl.uniform1f(gl.getUniformLocation(program,'uCut'),cut-112);for(const range of ranges)if(focus==='all'||focus===range.name)gl.drawArrays(gl.TRIANGLES,range.first,range.count);dirty=false;frames++;}requestAnimationFrame(render);}
+const pointers=new Map();let previous;
+function gesture(){const p=[...pointers.values()];if(p.length>=2)return {mode:'pan',x:(p[0].x+p[1].x)/2,y:(p[0].y+p[1].y)/2,d:Math.hypot(p[0].x-p[1].x,p[0].y-p[1].y)};if(p.length)return {mode:p[0].button===2?'pan':'orbit',x:p[0].x,y:p[0].y,d:0};return null;}
+canvas.onpointerdown=e=>{canvas.setPointerCapture(e.pointerId);pointers.set(e.pointerId,{x:e.clientX,y:e.clientY,button:e.button});previous=gesture();};
+canvas.onpointermove=e=>{if(!pointers.has(e.pointerId))return;pointers.set(e.pointerId,{x:e.clientX,y:e.clientY,button:pointers.get(e.pointerId).button});const now=gesture();if(previous&&now.mode===previous.mode){const dx=now.x-previous.x,dy=now.y-previous.y;if(now.mode==='orbit'){theta-=dx*.008;phi=Math.max(-.1,Math.min(1.48,phi+dy*.008));}else{const scale=distance/canvas.clientHeight;target[0]-=dx*scale*Math.cos(theta);target[2]+=dx*scale*Math.sin(theta);target[1]+=dy*scale;if(now.d&&previous.d)distance=Math.max(12,Math.min(500,distance*previous.d/now.d));}dirty=true;}previous=now;};
+for(const name of ['onpointerup','onpointercancel'])canvas[name]=e=>{pointers.delete(e.pointerId);previous=gesture();};canvas.oncontextmenu=e=>e.preventDefault();canvas.addEventListener('wheel',e=>{e.preventDefault();distance=Math.max(12,Math.min(500,distance*Math.exp(e.deltaY*.001)));dirty=true;},{passive:false});
+$('focus').onchange=()=>reset();$('front').onclick=()=>reset(0,.08);$('back').onclick=()=>reset(Math.PI,.4);$('oblique').onclick=()=>reset();$('top').onclick=()=>reset(0,1.47);$('home').onclick=()=>{$('focus').value='all';$('cut').value=136;$('cutValue').textContent=136;cut=136;reset();};$('cut').oninput=()=>{cut=+$('cut').value;$('cutValue').textContent=cut;dirty=true;};window.addEventListener('resize',()=>dirty=true);
+(async()=>{try{if(!gl)throw Error('เบราว์เซอร์นี้ไม่รองรับ WebGL 2');program=gl.createProgram();gl.attachShader(program,compile(gl.VERTEX_SHADER,vertex));gl.attachShader(program,compile(gl.FRAGMENT_SHADER,fragment));gl.linkProgram(program);if(!gl.getProgramParameter(program,gl.LINK_STATUS))throw Error(gl.getProgramInfoLog(program));gl.useProgram(program);const response=await fetch(sourceURL,{cache:'no-store'});if(!response.ok)throw Error('โหลดข้อมูลไม่สำเร็จ');geometry=await response.json();if(!geometry.blocks?.length)throw Error('ไม่มีข้อมูลบล็อกละเอียด');positions=geometry.blocks.length;const parts=[];let length=0;for(const name of ['west','gate','east']){const part=mesh(geometry.blocks.filter(b=>(b.position[0]<140?'west':b.position[0]>180?'east':'gate')===name));ranges.push({name,first:length/9,count:part.length/9});parts.push(part);length+=part.length;}const values=new Float32Array(length);let offset=0;for(const part of parts){values.set(part,offset);offset+=part.length;}vertices=values.length/9;buffer=gl.createBuffer();gl.bindBuffer(gl.ARRAY_BUFFER,buffer);gl.bufferData(gl.ARRAY_BUFFER,values,gl.STATIC_DRAW);for(const [name,offset]of [['aPosition',0],['aNormal',12],['aColor',24]]){const i=gl.getAttribLocation(program,name);gl.enableVertexAttribArray(i);gl.vertexAttribPointer(i,3,gl.FLOAT,false,36,offset);}gl.enable(gl.DEPTH_TEST);gl.enable(gl.CULL_FACE);$('status').textContent=`${positions.toLocaleString('th-TH')} บล็อก · บันไดและครึ่งบล็อกแสดงตามทิศจริง · พร้อมตรวจแบบ`;reset();render();}catch(e){fail(e);}})();
+

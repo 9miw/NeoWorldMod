@@ -15,6 +15,9 @@ public final class PlayerActionNetworkHandler {
 
     public static void handle(PlayerActionPayload payload, IPayloadContext context) {
         if (!(context.player() instanceof ServerPlayer actor)) return;
+        if (payload.action() == PlayerActionPayload.Action.TRADE && !TradeManager.isEnabled()) {
+            reply(context, payload, false, "ระบบแลกเปลี่ยนระหว่างผู้เล่นปิดใช้งานอยู่"); return;
+        }
         int tick = actor.getServer().getTickCount();
         Integer previous = LAST_ACTION.get(actor);
         if (previous != null && tick - previous < 5) {
@@ -27,11 +30,11 @@ public final class PlayerActionNetworkHandler {
                 || actor.serverLevel() != target.serverLevel()) {
             reply(context, payload, false, "ผู้เล่นไม่พร้อมใช้งาน"); return;
         }
-        if (payload.action() != PlayerActionPayload.Action.TRADE && actor.distanceToSqr(target) > 64) {
-            reply(context, payload, false, "ผู้เล่นอยู่ห่างเกิน 8 บล็อก"); return;
+        if (payload.action() != PlayerActionPayload.Action.TRADE && actor.distanceToSqr(target) > 25) {
+            reply(context, payload, false, "ผู้เล่นอยู่ห่างเกิน 5 บล็อก"); return;
         }
         switch (payload.action()) {
-            case PROFILE -> context.reply(PlayerProfileSnapshot.capture(payload, target));
+            case PROFILE -> PlayerProfileService.send(payload,actor,target);
             case TRADE -> {
                 String error = TradeManager.get(actor.getServer()).request(actor, target);
                 reply(context, payload, error == null || error.isEmpty(), error == null ? "" : error);

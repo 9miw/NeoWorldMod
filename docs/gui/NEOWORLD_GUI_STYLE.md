@@ -1,75 +1,79 @@
-# NeoWorld GUI Style Guide
+# คู่มือสไตล์ GUI ของ NeoWorld
 
-This is the default visual language for NeoWorld interfaces. New systems should reuse it so the mod feels like one product rather than a collection of unrelated screens.
+เอกสารนี้กำหนดภาษาภาพร่วมสำหรับอินเทอร์เฟซ NeoWorld ไลบรารีคอมโพเนนต์กลางที่อนุมัติแล้วเป็นมาตรฐาน หน้าจอแต่ละฟีเจอร์รวมถึง Market เป็นตัวอย่างการใช้งาน ไม่ใช่ต้นกำเนิดธีม
 
-## Visual Identity
+## เอกลักษณ์ภาพ
 
-- Use a dark charcoal and gunmetal base with layered silver-gray beveled borders.
-- Use muted teal for primary actions, active controls, and selected information.
-- Use brighter cyan-teal for hover feedback.
-- Use gold sparingly for selected categories, important values, and small title accents.
-- Use red only for destructive actions, errors, and the hovered close button.
-- Keep the style crisp and pixel-art compatible with Minecraft. Disable texture blur and clamp GUI textures.
-- Dim or blur the game world behind the interface, but never draw that effect over the GUI itself.
+- ใช้พื้นสีชาร์โคลเข้มและกันเมทัล พร้อมขอบบากสีเงินเทาซ้อนชั้น
+- ใช้สีทีลหม่นกับการกระทำหลัก ตัวควบคุมที่ทำงาน และข้อมูลที่เลือก
+- ใช้ไซแอนทีลสว่างขึ้นเมื่อชี้เมาส์
+- ใช้ทองพอประมาณกับหมวดที่เลือก ค่าสำคัญ และรายละเอียดเล็ก ๆ ของหัวข้อ
+- ใช้แดงเฉพาะการกระทำที่ทำลายข้อมูล ข้อผิดพลาด และปุ่มปิดขณะชี้เมาส์
+- รักษาภาพคมและเข้ากับพิกเซลอาร์ต Minecraft ปิด blur และเปิด clamp สำหรับเท็กซ์เจอร์ GUI
+- หรี่หรือเบลอโลกด้านหลังอินเทอร์เฟซ แต่ห้ามวาดเอฟเฟกต์ทับ GUI
 
-## Composition
+## การจัดองค์ประกอบ
 
-- Center the main interface and let it occupy most of the usable screen without hiding every edge of the world.
-- Use a raised title plaque centered above the main frame.
-- Put navigation or category tabs near the top.
-- Put search and compact tool controls below the tabs.
-- Use a dense scannable grid or list for primary content.
-- Place details and the primary action in a dedicated panel on the right when space permits.
-- Put pagination at the bottom of the content area.
-- Always provide a visible `X` close button in the upper-right corner. Escape should continue to close the screen.
-- Preserve usable margins and prevent text, icons, or controls from overlapping at every supported GUI scale.
+- วางหน้าจอหลักกลางจอ ให้กินพื้นที่ใช้งานส่วนใหญ่แต่ยังเห็นขอบโลกบางส่วน
+- ใช้ `NeoTitlePlaque` กับหัวข้อหลัก เลือก Slim, Raised หรือ Crest ตามลำดับความสำคัญ
+- ใช้ `NeoSectionHeading` กับหัวข้อภายใน: Text + Line, Accent Strip หรือ Small Plaque
+- เลือกการนำทาง ตัวกรอง รายการ กริด พรีวิว และแผงรายละเอียดตามฟีเจอร์ การค้นหา แผงขวา ยอดเงิน และแบ่งหน้าเป็นตัวควบคุมเสริม ไม่ใช่ข้อบังคับธีมกลาง
+- รักษาระยะห่างร่วมและจัดเนื้อหาตามขอบเขตแผงที่ชัดเจน วางการกระทำหลักตามขั้นตอนงานปัจจุบัน
+- หน้าจอทั่วไปต้องมีปุ่มปิดที่มองเห็นและคงพฤติกรรม Escape การแจ้งเตือนโมดัลใช้วงจรการกระทำ/หมดเวลา/การกระทำรองของ `NeoPopupScreen`
+- เว้นขอบให้ใช้ได้จริง และป้องกันข้อความ ไอคอน หรือตัวควบคุมทับกันในทุก GUI Scale ที่รองรับ
 
-## Assets
+## แอสเซ็ต
 
-- Design decorative frames and reusable control states as separate transparent PNG files.
-- Keep runtime text, item icons, player names, balances, prices, counts, timers, and database content dynamic.
-- Store game textures in `src/main/resources/assets/neoworld/textures/gui/`.
-- Store design sources and previews in `docs/gui/`.
-- Add `.png.mcmeta` with `blur: false` and `clamp: true` for GUI textures.
-- Use a widget atlas for normal, hover, selected, disabled, primary, and destructive states.
-- Do not bake a selected state into the base frame when selection can change at runtime.
+- ก่อนสร้าง bitmap icon หรือ Font ID ใหม่ ให้ค้น [ทะเบียนไอคอนกลาง](common/bitmap-icons/README.md) และใช้รูป/ตัวช่วยเดิมเมื่อมี ตรวจคู่ Font ID + Unicode และ height/ascent ให้ตรงบริบท หลังแก้แหล่งไอคอนให้สร้างทะเบียนใหม่และรัน `tools/fonts/icon_catalog.py --check`
 
-## Interaction
+- แยกกรอบตกแต่งและสถานะตัวควบคุมที่ใช้ซ้ำเป็นไฟล์ PNG โปร่งใส
+- ข้อความรันไทม์ ไอคอนไอเทม ชื่อผู้เล่น ยอดเงิน ราคา จำนวน ตัวจับเวลา และข้อมูลฐานข้อมูลต้องเป็นไดนามิก
+- เก็บเท็กซ์เจอร์เกมที่ `src/main/resources/assets/neoworld/textures/gui/`
+- เก็บต้นฉบับออกแบบและพรีวิวที่ `docs/gui/`
+- เพิ่ม `.png.mcmeta` ที่ตั้ง `blur: false` และ `clamp: true` สำหรับเท็กซ์เจอร์ GUI
+- ใช้แอตลาสวิดเจ็ตสำหรับสถานะปกติ ชี้เมาส์ เลือก ปิดใช้ หลัก และทำลายข้อมูล
+- อย่าฝังสถานะเลือกในกรอบพื้นฐานเมื่อเปลี่ยนการเลือกได้ระหว่างรันไทม์
 
-- Every clickable control needs visible normal, hover, active/selected, and disabled feedback where applicable.
-- Icon-only controls need a tooltip.
-- Keep primary actions visually dominant but disable them when the action is unavailable.
-- Confirmation dialogs must block interaction with the screen behind them.
-- Search should debounce network requests.
-- Filtering, sorting, and pagination for large datasets should run on the server.
+## การโต้ตอบ
 
-## Market Reference
+- ตัวควบคุมที่คลิกได้ต้องแสดงสถานะปกติ ชี้เมาส์ ทำงาน/เลือก และปิดใช้ตามความเหมาะสม
+- ปุ่มไอคอนล้วนต้องมีทูลทิป
+- ทำการกระทำหลักให้เด่น แต่ปิดใช้เมื่อยังทำไม่ได้
+- กล่องยืนยันต้องบล็อกการโต้ตอบกับหน้าจอข้างหลัง
+- การค้นหาควร debounce คำขอเครือข่าย
+- การกรอง เรียง และแบ่งหน้าข้อมูลมากควรทำฝั่งเซิร์ฟเวอร์
 
-The market is the canonical reference implementation:
+## คอมโพเนนต์กลางอ้างอิง
 
-- Design preview: `docs/gui/market/01-inventory-grid.png`
-- PNG frame source: `docs/gui/market/04-png-frame-source.png`
-- Widget atlas source: `docs/gui/market/05-widget-atlas.png`
-- Silver coin source: `docs/gui/market/06-silver-coin.png`
-- Runtime frame: `src/main/resources/assets/neoworld/textures/gui/market/market_frame.png`
-- Runtime widgets: `src/main/resources/assets/neoworld/textures/gui/market/market_widgets.png`
-- Runtime coin: `src/main/resources/assets/neoworld/textures/gui/market/silver_coin.png`
-- Screen implementation: `src/main/java/com/ambition/neoworld/client/gui/MarketScreen.java`
+ฐานหน้าต่างกลางระยะแรกใช้ `client/gui/common/NeoWindowScreen` ร่วมกับ `NeoWindowLayout`, `NeoText` และ `widget/NeoCloseButton` โดยใช้กรอบ PNG Teal Smoke เดิม เปิดหน้าตัวอย่างด้วยคำสั่งฝั่งไคลเอนต์ `/neogui` ดูวิธีใช้และขอบเขตที่ [SHARED_GUI_LIBRARY.md](common/SHARED_GUI_LIBRARY.md) หน้าจอเดิมยังไม่ได้ย้ายมาใช้ฐานนี้ และยังต้องตรวจภาพจริงในเกม
 
-The market layout uses six icon categories, a search field, a compact sort control, a Silver balance, a 9x5 item grid, a right-side detail panel, pagination, a teal purchase action, and a close button.
+ใช้คอมโพเนนต์วาดภาพร่วมจาก `src/main/java/com/ambition/neoworld/client/gui/widget/`:
 
-## Implementation Notes
+| คอมโพเนนต์ | รูปลักษณ์ร่วม / แอสเซ็ตใต้ `textures/gui/common/` |
+| --- | --- |
+| `NeoButton` | Standard / Primary / Destructive; `buttons.png` |
+| `NeoTitlePlaque` | Slim / Raised / Crest; `title_plaques.png` |
+| `NeoSectionHeading` | Text + Line / Accent Strip / Small Plaque; ใช้ `section_heading.png` สำหรับแผ่นหัวข้อ |
+| `NeoProgressBar` | PNG Soft Slim ปรับสีเติมได้; `progress_soft_slim.png` |
+| `NeoScrollbar` | รางและตัวเลื่อน Vertical Slim ไม่มีลูกศร; `scrollbar_slim.png` |
 
-- Reuse existing Minecraft and NeoForge components before building replacements. Inventory interfaces should use `AbstractContainerMenu`, `AbstractContainerScreen`, and `Slot`, keeping vanilla item rendering, tooltips, cursor handling, dragging, splitting, hotkeys, and container synchronization.
-- Apply NeoWorld decoration around those components. Use vanilla slot textures first; a new visual theme does not justify reimplementing slot mechanics.
-- Reference-only item previews must be read-only on the server for pickup, placement, shift-click, swapping, throwing, cloning, drag distribution, and double-click collection. Never refund or drop preview copies. Add custom behavior only when an actual feature requirement needs it.
+ใช้ `client/gui/common/NeoPopupScreen.java` สำหรับโมดัลร่วม ใช้ `NeoBitmapFonts` กับ `neoworld:icons`, `neoworld:currency`, `neoworld:ranks` และใช้ `NeoGuiIcons` กับฟอนต์ไอคอนการกระทำร่วมที่แยกไว้ ป้ายและไอคอนเหล่านี้ต้องเป็นไดนามิก
 
-- Shared icons use `client/gui/common/NeoGuiIcons.java`, with PNGs under `textures/gui/common/icons/`. Reuse this set across systems when the action matches the icon.
-- `NeoGuiIcons.icon(...)` uses `neoworld:gui_icons` (height 16, ascent 13); `NeoGuiIcons.label(..., label)` uses `neoworld:gui_controls` (height 10, ascent 9) for the glyph while keeping label text in the ordinary font. Do not use these glyphs as plain default-font characters.
-- The approved shared icon preview and source are `docs/gui/common/neo-icons-approved-mockup.png` and `docs/gui/common/neo-icons-source.png`. The preview retains its original Party-room demonstration.
+ม็อกอัปคอมโพเนนต์ที่อนุมัติและตัวอย่างออกแบบใหม่อยู่ใต้ `docs/gui/common/` ภาพ `docs/gui/common/neo-shared-theme-example.png` แสดงโทนร่วมในฮับระบบกลาง เป็นเพียงภาพประกอบ ไม่ใช่หน้าจอที่ทำแล้วหรือแอตลาสต้นฉบับ ไอคอนประกอบและรายละเอียดเลย์เอาต์ต้องตรวจสอบแยก
+ตัวช่วยสีและการวาดอยู่ใน `client/gui/style/` ให้ตรวจโค้ดจริง เพราะค่าคงที่เท็กซ์เจอร์กรอบ/วิดเจ็ตบางตัวยังอ้างแอสเซ็ต Market การแก้เอกสารนี้ไม่ได้ย้ายการอ้างอิงเก่าหรือหน้าจอเดิม และไม่ได้เพิ่ม PNG กรอบหลักสากล
 
-- Prefer reusable render helpers and texture regions over duplicating drawing logic.
-- Scale layout coordinates from the source texture dimensions so the texture and hit boxes stay aligned.
-- Keep click regions identical to their rendered bounds.
-- Render the background once, then the custom frame and content, then widgets and tooltips. Do not call a parent render method that redraws blur over custom content.
-- During iterative GUI work, use `compileJava` for quick verification. Reserve a full build for major milestones or final packaging.
+Market (`client/gui/market/MarketScreen.java`) ยังเป็นตัวอย่างพฤติกรรมเฉพาะตลาด ระบบอื่นควรใช้คอมโพเนนต์กลางร่วมกับเลย์เอาต์ที่เหมาะกับตน แทนการคัดลอกกริดคลัง ตัวควบคุมเงิน หรือแผงซื้อ
+
+## หมายเหตุการพัฒนา
+
+- ใช้คอมโพเนนต์ Minecraft/NeoForge ที่มีอยู่ก่อนสร้างทดแทน อินเทอร์เฟซคลังควรใช้ `AbstractContainerMenu`, `AbstractContainerScreen` และ `Slot` เพื่อคงการวาดไอเทม ทูลทิป เคอร์เซอร์ ลาก แบ่ง ปุ่มลัด และซิงก์คอนเทนเนอร์ของ Vanilla
+- ตกแต่ง NeoWorld รอบคอมโพเนนต์เหล่านั้น ใช้เท็กซ์เจอร์ช่อง Vanilla ก่อน ธีมภาพใหม่ไม่ใช่เหตุให้สร้างกลไกช่องใหม่
+- พรีวิวไอเทมแบบอ้างอิงต้องอ่านอย่างเดียวฝั่งเซิร์ฟเวอร์สำหรับหยิบ วาง shift-click สลับ โยน โคลน ลากกระจาย และดับเบิลคลิกรวม ห้ามคืนหรือทิ้งสำเนาพรีวิว เพิ่มพฤติกรรมเฉพาะเมื่อข้อกำหนดฟีเจอร์ต้องการจริง
+- ไอคอนร่วมใช้ `client/gui/common/NeoGuiIcons.java` และ PNG ใต้ `textures/gui/common/icons/` ใช้ชุดนี้ซ้ำข้ามระบบเมื่อความหมายตรงกัน
+- `NeoGuiIcons.icon(...)` ใช้ `neoworld:gui_icons` (height 16, ascent 13); `NeoGuiIcons.label(..., label)` ใช้ `neoworld:gui_controls` (height 10, ascent 9) เฉพาะ glyph ข้อความป้ายยังใช้ฟอนต์ปกติ ห้ามใช้ glyph เหล่านี้เป็นอักขระฟอนต์เริ่มต้นธรรมดา
+- พรีวิวและต้นฉบับไอคอนร่วมที่อนุมัติคือ `docs/gui/common/neo-icons-approved-mockup.png` และ `docs/gui/common/neo-icons-source.png` พรีวิวคงตัวอย่างห้อง Party เดิม
+- ใช้ตัวช่วยวาดและขอบเขตเท็กซ์เจอร์ซ้ำ แทนคัดลอกตรรกะวาด
+- ปรับพิกัดเลย์เอาต์จากขนาดเท็กซ์เจอร์ต้นทางเพื่อให้ภาพกับฮิตบ็อกซ์ตรงกัน
+- ขอบเขตคลิกต้องตรงกับขอบเขตที่วาด
+- วาดพื้นหลังครั้งเดียว ตามด้วยกรอบและเนื้อหา วิดเจ็ต แล้วทูลทิป ห้ามเรียก render ของคลาสแม่ที่วาด blur ซ้ำทับเนื้อหา
+- หลังแก้ Java ให้รัน `compileJava` รัน full build หรือแพ็กเฉพาะเมื่อผู้ใช้ขอชัดเจน การแก้เฉพาะเอกสารไม่ต้องคอมไพล์

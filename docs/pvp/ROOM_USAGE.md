@@ -1,46 +1,27 @@
-# Private 1vs1 rooms
+# ห้องส่วนตัว 1 ต่อ 1
 
-After defeat, the loser enters Spectator and the private-room result is displayed
-for five seconds before returning both players. See [ROUND_RESULTS.md](ROUND_RESULTS.md).
+หลังแพ้ ผู้แพ้เข้า Spectator แสดงผลห้องส่วนตัวห้าวินาทีก่อนส่งทั้งคู่กลับ ดู [ROUND_RESULTS.md](ROUND_RESULTS.md)
 
-Use `/neow` or `/neoworld`. Room commands are available to ordinary players.
-Arena setup requires OP level 2. Save and register a complete arena first.
+ใช้ `/neow` หรือ `/neoworld` คำสั่งห้องเปิดผู้เล่นทั่วไป ตั้งสนามต้อง OP 2 ให้บันทึกและลงทะเบียนสนามครบก่อน
 
-1. Owner: `/neow pvp room create arena_1` (returns a room number).
-2. Opponent: `/neow pvp room join 1`.
-3. Both: `/neow pvp room ready`.
-4. Owner: `/neow pvp room start`.
+1. เจ้าของ: `/neow pvp room create arena_1` คืนหมายเลขห้อง
+2. คู่แข่ง: `/neow pvp room join 1`
+3. เจ้าของ: `/neow pvp room start` เปิดยืนยันทั้งคู่
+4. ทั้งคู่รับใน 30 วินาที แล้วจึงวางสนาม
 
-Other commands:
-- `/neow pvp room list`: rooms and their occupancy/state.
-- `/neow pvp room info`: your room, owner and readiness.
-- `/neow pvp room unready`: cancel readiness before starting.
-- `/neow pvp room leave`: leave; after starting this ends the room for both players.
-- `/neow pvp room cancel`: owner closes the room.
+GUI ใช้ Invite แทนแสดงคำสั่งเข้า เจ้าของเลือกคนออนไลน์ ผู้รับได้คำเชิญ 30 วินาทีพร้อม Join/Decline เฉพาะผู้รับที่ตั้งใจใช้ token เซิร์ฟเวอร์ออกให้แบบครั้งเดียวได้ เซิร์ฟเวอร์ตรวจความจุ เจ้าของ ออนไลน์ และเกณฑ์ PvP ซ้ำตอนรับ การเข้า ปิดห้อง และหลุดถอนคำเชิญที่รอ
 
-Joining/leaving resets readiness. Owner leaving closes the room. Each player can
-belong to one room. Both players must be online, alive, unmounted, awake and
-outside the PvP dimension when starting. Spawn points need empty feet/head cells
-and solid floors. Do not enter while participating in another gameplay activity.
+คำสั่งอื่น:
 
-Starting places the arena in the PvP dimension, teleports players to A/B and gives
-a 3-second countdown with damage disabled. The room ends on defeat, disconnect,
-leaving the bounds/dimension, cancellation or after 10 minutes. Lethal damage is
-cancelled to prevent death item/EXP drops. Original health and locations are
-restored; other consumed combat resources are not refunded. This stage has no
-round scoring or Rating in private rooms. Open the selection GUI with `/neow pvp`;
-see [GUI_USAGE.md](../gui/pvp/GUI_USAGE.md). Ranked matchmaking and scoring
-are described in [RANKED_USAGE.md](RANKED_USAGE.md).
+- `/neow pvp room list`: ห้อง จำนวนคน/สถานะ
+- `/neow pvp room info`: ห้องตน เจ้าของ และสมาชิก
+- `/neow pvp room leave`: ออก หลังเริ่มจะจบห้องทั้งคู่
+- `/neow pvp room cancel`: เจ้าของปิดห้อง
 
-Generated slots start at X/Z 1,000,000 and Y=32, with X spacing 1024. Reserve this
-area for PvP: do not put permanent builds there. Up to 128 slots are available.
-Templates are limited to 512 x 224 x 512 and 262144 total cells. Cleanup removes
-2048 cells per tick; slots remain reserved until complete, including across
-restarts. Cleanup pauses for regions with players. Participants cannot break,
-place or interact with blocks after starting.
+ไม่มีสถานะหรือคำสั่งพร้อม/ไม่พร้อมในลอบบี้ เจ้าของออกปิดห้อง ผู้เล่นอยู่ได้หนึ่งห้อง เมื่อเริ่มทั้งคู่ต้องออนไลน์ มีชีวิต ไม่ขี่ ไม่หลับ และอยู่นอกมิติ PvP จุดเกิดต้องเท้า/หัวว่างและพื้นทึบ ห้ามเข้าระหว่างร่วมกิจกรรมเกมเพลย์อื่น
 
-Rooms close on restart. Return points and cleanup regions persist in
-`<world>/data/neoworld_pvp_recovery.dat`. Pending players return at login/respawn,
-using the Overworld spawn if the original dimension is missing. Data is persisted
-by normal world saves; abrupt process/storage failures between saves are not
-transactionally covered.
+Fight เปิดหน้ายืนยันคู่แข่งเดิมให้ทั้งคู่ การยืนยันส่วนตัวหมดอายุ/ไม่ครบกลับลอบบี้เดิม ไม่มีโทษคิวหรือ Rating เมื่อรับทั้งคู่วางสนามในมิติ PvP เทเลพอร์ตไป A/B ใน Adventure และ Title/Subtitle นับห้าวินาที ล็อกตำแหน่งและปิดดาเมจ ยังหมุนกล้องได้ ห้องจบเมื่อแพ้ หลุด ออกขอบ/มิติ ยกเลิก หรือครบสิบนาที ยกเลิกดาเมจถึงตายเพื่อไม่ให้ของ/EXP ตก คืนเลือดและตำแหน่งเดิม ทรัพยากรต่อสู้ที่ใช้ไม่คืน ระยะนี้ห้องส่วนตัวไม่มีคะแนนยกหรือ Rating เปิด GUI ด้วย `/neow pvp` ดู [GUI_USAGE.md](../gui/pvp/GUI_USAGE.md) การจับคู่/คะแนนแรงก์อยู่ [RANKED_USAGE.md](RANKED_USAGE.md)
+
+สล็อตสร้างเริ่ม X/Z 1,000,000 และ Y=32 ระยะ X 1024 สงวนพื้นที่นี้ให้ PvP ห้ามสร้างถาวร มีสูงสุด 128 สล็อต เทมเพลตจำกัด 512 x 224 x 512 รวม 8,388,608 เซลล์ ผู้เล่นรอที่เดิมระหว่างโหลด/วางเป็นขั้น แล้วจึงเทเลพอร์ตนับห้าวินาที ล้าง 2048 เซลล์ต่อทิก สล็อตยังจองจนเสร็จรวมข้ามรีสตาร์ต หยุดล้างพื้นที่มีผู้เล่น ผู้ร่วมทุบ วาง หรือโต้ตอบบล็อกไม่ได้หลังเริ่ม
+
+รีสตาร์ตปิดห้อง จุดกลับและพื้นที่ล้างคงใน `<world>/data/neoworld_pvp_recovery.dat` ผู้เล่นที่รอคืนตอนเข้า/เกิด หากมิติเดิมขาดใช้จุดเกิด Overworld ข้อมูลเซฟตามโลกปกติ ไม่รับประกันธุรกรรมเมื่อโปรเซส/ที่เก็บล้มกะทันหันระหว่างเซฟ

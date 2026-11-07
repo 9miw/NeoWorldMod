@@ -1,0 +1,44 @@
+{
+  "ModRev": 18,
+  "Id": 10,
+  "CompleterNpc": "Kocimira",
+  "QuestCommand": "",
+  "RandomReward": 0,
+  "RewardExp": 0,
+  "Rewards": {
+    "NpcMiscInv": [
+      {
+        "Slot": 0,
+        "id": "minecraft:iron_ingot",
+        "count": 4
+      },
+      {
+        "Slot": 1,
+        "id": "minecraft:bread",
+        "count": 4
+      }
+    ]
+  },
+  "QuestCompletion": 0,
+  "QuestRepeat": 0,
+  "QuestFactionPoints": {},
+  "QuestMail": {},
+  "LeaveItems": 0,
+  "IgnoreDamage": 1,
+  "IgnoreNBT": 1,
+  "Type": 2,
+  "Title": "5/7 ประสบการณ์ภาคสนาม",
+  "Text": "หลังรับขั้นนี้ กำจัด§aซอมบี้ 8 ตัว§r และ§aโครงกระดูก 4 ตัว§r แล้วกลับส่ง§6§lโคซิไมรา§r เตรียมอาหารและถอยพักเมื่อไม่พร้อม",
+  "CompleteText": "เจ้าเรียนรู้การเตรียมตัวและรับผิดชอบงานแล้ว ไปพบ§6§lเอเดน§rเพื่อรายงานตัวกับราชสำนัก",
+  "NextQuestId": 11,
+  "QuestDialogs": [
+    {
+      "Slot": "minecraft:zombie",
+      "Value": 8
+    },
+    {
+      "Slot": "minecraft:skeleton",
+      "Value": 4
+    }
+  ]
+}

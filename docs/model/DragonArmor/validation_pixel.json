@@ -1,0 +1,56 @@
+{
+  "reference": "User attached knight armor showcase image; original geometry and procedural pixel texture, no downloaded model",
+  "source_file": "C:\\Users\\miw\\Documents\\NeoWorldMod\\docs\\model\\DragonArmor\\dragon_armor_pixel.blend",
+  "parts": {
+    "dragon_helmet.001": {
+      "vertices": 232,
+      "faces": 196,
+      "unweighted": 0,
+      "bones": [
+        "Head"
+      ]
+    },
+    "dragon_chestplate.001": {
+      "vertices": 920,
+      "faces": 734,
+      "unweighted": 0,
+      "bones": [
+        "Chest",
+        "Torso",
+        "Arm_L",
+        "Hand_L",
+        "Arm_R",
+        "Hand_R"
+      ]
+    },
+    "dragon_leggings.001": {
+      "vertices": 296,
+      "faces": 222,
+      "unweighted": 0,
+      "bones": [
+        "Torso",
+        "Thigh_L",
+        "Leg_L",
+        "Thigh_R",
+        "Leg_R"
+      ]
+    },
+    "dragon_boots.001": {
+      "vertices": 216,
+      "faces": 180,
+      "unweighted": 0,
+      "bones": [
+        "Leg_L",
+        "Leg_R"
+      ]
+    }
+  },
+  "status": "Blender prototype; not exported or tested in Minecraft",
+  "pose_test_max_displacement": {
+    "dragon_helmet.001": 0.2802939075212093,
+    "dragon_chestplate.001": 0.11601885982139842,
+    "dragon_leggings.001": 0.08588693564429704,
+    "dragon_boots.001": 0.16412914858095617
+  },
+  "restored_rest_pose": true
+}

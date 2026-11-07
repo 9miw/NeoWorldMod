@@ -51,6 +51,24 @@ public final class TitleStorageRegressionTest {
                 com.ambition.neoworld.network.title.TitleGuiRequestPayload.Action.QUERY, "", 0, "no_such_title", 0, true, false);
         check(com.ambition.neoworld.network.title.TitleGuiPages.build(absent, state, TitleRegistry.all()).entries().isEmpty(),
                 "empty search returns an empty page");
+        var owned = new com.ambition.neoworld.network.title.TitleGuiRequestPayload(id,
+                com.ambition.neoworld.network.title.TitleGuiRequestPayload.Action.QUERY, "", 0, "", 0, true, false, 1, 0);
+        var ownedPage = com.ambition.neoworld.network.title.TitleGuiPages.build(owned, state, TitleRegistry.all());
+        check(ownedPage.filteredCount() == 1 && ownedPage.entries().getFirst().id().equals("traveler"), "ownership filter shows only owned titles");
+        var locked = new com.ambition.neoworld.network.title.TitleGuiRequestPayload(id,
+                com.ambition.neoworld.network.title.TitleGuiRequestPayload.Action.QUERY, "", 0, "", 0, true, false, 2, 1);
+        var lockedPage = com.ambition.neoworld.network.title.TitleGuiPages.build(locked, state, TitleRegistry.all());
+        check(lockedPage.filteredCount() == 11 && lockedPage.entries().stream().noneMatch(e -> e.unlocked())
+                && lockedPage.entries().getFirst().rare(), "locked filter and rarity sort run before pagination");
+        var combined = new com.ambition.neoworld.network.title.TitleGuiRequestPayload(id,
+                com.ambition.neoworld.network.title.TitleGuiRequestPayload.Action.QUERY, "", 2, "", 999, true, false, 1, 2);
+        var combinedPage = com.ambition.neoworld.network.title.TitleGuiPages.build(combined, state, TitleRegistry.all());
+        check(combinedPage.filteredCount() == 0 && combinedPage.page() == 0, "ownership and category filters compose and clamp empty page");
+        var sortBuffer = new net.minecraft.network.RegistryFriendlyByteBuf(io.netty.buffer.Unpooled.buffer(), net.minecraft.core.RegistryAccess.EMPTY);
+        try {
+            com.ambition.neoworld.network.title.TitleGuiRequestPayload.STREAM_CODEC.encode(sortBuffer, locked);
+            check(com.ambition.neoworld.network.title.TitleGuiRequestPayload.STREAM_CODEC.decode(sortBuffer).equals(locked), "ownership and sort codec round trip");
+        } finally { sortBuffer.release(); }
         var buffer = new net.minecraft.network.RegistryFriendlyByteBuf(io.netty.buffer.Unpooled.buffer(), net.minecraft.core.RegistryAccess.EMPTY);
         try {
             com.ambition.neoworld.network.title.TitleGuiRequestPayload.STREAM_CODEC.encode(buffer, request);
@@ -101,20 +119,23 @@ public final class TitleStorageRegressionTest {
         Path directory = Files.createTempDirectory("neoworld-title-test-");
         Path file = directory.resolve("titles.json");
         try {
-            TitleRegistry.load(file);
-            check(Files.exists(file) && TitleRegistry.all().size() == 12, "default JSON created with 12 titles");
-            String original = Files.readString(file);
+            loadFixture(file);
+            check(!Files.exists(file) && TitleRegistry.all().size() == 12, "default catalogue read without creating JSON");
+            String original;
+            try (var input = TitleRegistry.class.getResourceAsStream("/data/neoworld/default_titles.json")) {
+                original = new String(input.readAllBytes(), java.nio.charset.StandardCharsets.UTF_8);
+            }
             Files.writeString(file, original.replaceAll(",\"display\":\"[^\"]*\"", ""));
-            TitleRegistry.load(file);
+            loadFixture(file);
             check(TitleRegistry.all().stream().allMatch(t -> t.display().equals(t.name())),
                     "legacy catalogue without display falls back to name");
             Files.writeString(file, original.replace("นักเดินทาง", "นักเดินทางทดสอบ").replace("#73D8CD", "#112233"));
-            TitleRegistry.load(file);
+            loadFixture(file);
             check(TitleRegistry.find("traveler").orElseThrow().name().equals("นักเดินทางทดสอบ")
                     && TitleRegistry.find("traveler").orElseThrow().rgb() == 0x112233, "name/color reload uses same stable ID");
             Files.writeString(file, original.replace("\"display\":\"นักเดินทาง\"", "\"display\":\"✦ ผู้เดินทาง ✦\"")
                     .replace("#73D8CD", "#112233"));
-            TitleRegistry.load(file);
+            loadFixture(file);
             var title = TitleRegistry.find("traveler").orElseThrow();
             check(title.name().equals("นักเดินทาง") && title.display().equals("✦ ผู้เดินทาง ✦"),
                     "display reload changes display independently from name and ID");
@@ -140,16 +161,19 @@ public final class TitleStorageRegressionTest {
                     original.replace("\"display\":\"นักเดินทาง\"", "\"display\":\"bad\\nline\"")}) {
                 Files.writeString(file, invalid);
                 boolean rejected = false;
-                try { TitleRegistry.load(file); } catch (java.io.IOException expected) { rejected = true; }
+                try { loadFixture(file); } catch (java.io.IOException expected) { rejected = true; }
                 check(rejected && TitleRegistry.find("traveler").orElseThrow().rgb() == 0x112233,
                         "invalid reload preserves previous catalogue");
             }
             Files.writeString(file, original);
-            TitleRegistry.load(file);
+            loadFixture(file);
         } finally {
             Files.deleteIfExists(file);
             Files.deleteIfExists(directory);
         }
+    }
+    private static void loadFixture(Path file) throws java.io.IOException {
+        TitleRegistry.replace(TitleRegistry.readCatalogue(file));
     }
     private static void storage(boolean mariaMode) throws Exception {
         var source = new JdbcDataSource();
@@ -255,7 +279,7 @@ public final class TitleStorageRegressionTest {
             statement.executeUpdate("DROP TABLE upgrade_title_progress");
             statement.executeUpdate("DROP TABLE upgrade_title_unlocks");
             statement.executeUpdate("DROP TABLE upgrade_title_players");
-            statement.executeUpdate("DELETE FROM upgrade_schema_history WHERE version IN (4, 5, 6, 7)");
+            statement.executeUpdate("DELETE FROM upgrade_schema_history WHERE version >= 4");
             // Emulate interrupted DDL with one pre-existing new table and schema still at v3.
             statement.executeUpdate("CREATE TABLE upgrade_title_players(player_id VARCHAR(36) PRIMARY KEY,"
                     + " equipped_title VARCHAR(64) NOT NULL DEFAULT '', show_title BOOLEAN NOT NULL DEFAULT TRUE,"
@@ -265,7 +289,7 @@ public final class TitleStorageRegressionTest {
         NeoWorldDatabase.runMigrations(source, Config.DatabaseType.H2, "upgrade_");
         try (var connection = source.getConnection(); var statement = connection.createStatement()) {
             try (var result = statement.executeQuery("SELECT MAX(version) FROM upgrade_schema_history")) {
-                result.next(); check(result.getInt(1) == 7, "v3 upgrade and interrupted migration retry reach v7");
+                result.next(); check(result.getInt(1) == 17, "v3 upgrade and interrupted migration retry reach v17");
             }
             try (var result = statement.executeQuery("SELECT metadata_value FROM upgrade_metadata WHERE metadata_key = 'existing'")) {
                 result.next(); check(result.getString(1).equals("keep"), "upgrade preserves old metadata");

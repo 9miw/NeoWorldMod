@@ -1,0 +1,13 @@
+cosmetics:
+  cyberpunk_animated-back:
+    display_name: "[ Cyberpunk ] Wings "
+    type: BODY_ITEM
+    model:
+      gui: elitecreatures:cyberpunk_animated-back
+      normal: elitecreatures:cyberpunk_animated-back_normal
+      self: elitecreatures:cyberpunk_animated-back_self
+      normal_2: elitecreatures:cyberpunk_animated-back_normal_2
+      self_2: elitecreatures:cyberpunk_animated-back_self_2
+    dye:
+      enabled: false
+      default: "#000000"

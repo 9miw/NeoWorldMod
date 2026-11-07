@@ -30,18 +30,32 @@ import net.minecraft.world.phys.AABB;
 public final class PvpRoomManager {
     private static final Map<MinecraftServer, PvpRoomManager> MANAGERS = new HashMap<>();
     private final MinecraftServer server;
+    private final PvpSoundEffects sounds=new PvpSoundEffects();
+    private final Map<UUID,Long> countdownSounds=new HashMap<>();
     private final Map<Integer, PvpRoom> rooms = new LinkedHashMap<>();
     private final Map<UUID, Integer> membership = new HashMap<>();
     private final Map<Integer, Run> runs = new HashMap<>();
+    private final Map<Integer,PendingLoad> placements=new LinkedHashMap<>();
+    private static final class PendingLoad implements AutoCloseable {
+        final List<com.ambition.neoworld.pvp.arena.PvpArenaPiece> pieces;
+        final java.util.ArrayList<PvpArenaTemplates.ResolvedPiece> resolved=new java.util.ArrayList<>();
+        com.ambition.neoworld.pvp.arena.PvpArenaPlacement placement;
+        long started=-1;
+        PendingLoad(List<com.ambition.neoworld.pvp.arena.PvpArenaPiece> pieces) { this.pieces=List.copyOf(pieces); }
+        @Override public void close() { if(placement!=null) placement.close(); }
+    }
     private final Map<Integer,RoundIntermission> intermissions=new HashMap<>();
+    private final Map<Integer,PvpClientLoadBarrier> clientLoads=new HashMap<>();
     private final ArrayDeque<Cleanup> cleanup = new ArrayDeque<>();
     private final Map<UUID, QueueEntry> queue = new LinkedHashMap<>();
     private final Map<Integer, RankedMatch> ranked = new HashMap<>();
     private final Map<String, Long> recentPairs = new HashMap<>();
-    private record QueueEntry(String arena, int rating, long entered) { }
+    private record QueueEntry(int rating, long entered) { }
     private record Offer(MatchConfirmation confirmation,QueueEntry first,QueueEntry second,
-            PvpMatchOfferPayload.Player a,PvpMatchOfferPayload.Player b) { }
+            PvpMatchOfferPayload.Player a,PvpMatchOfferPayload.Player b,int privateRoom,String arena) { }
+    private boolean warnedNoRankedArena;
     private final Map<UUID,Offer> offers=new LinkedHashMap<>();
+    private final PvpInvitationBook invitations=new PvpInvitationBook();
     private int nextId = 1;
     private long ticks;
     private record Run(int slot, BlockPos origin, PvpArenaTemplates.Layout layout, long started) { }
@@ -55,7 +69,7 @@ public final class PvpRoomManager {
     }
     public static PvpRoomManager get(MinecraftServer server) { return MANAGERS.computeIfAbsent(server, PvpRoomManager::new); }
     public static void stop(MinecraftServer server) { MANAGERS.remove(server); com.ambition.neoworld.pvp.ranked.PvpRankingCache.clear(); }
-    public void shutdown() { for(var offer:List.copyOf(offers.values())) removeOffer(offer); for(UUID id:List.copyOf(queue.keySet())) removeQueue(id); for (var room : List.copyOf(rooms.values())) close(room, "Server stopping; room closed without penalty"); }
+    public void shutdown() { sounds.clear(); countdownSounds.clear(); for(var offer:List.copyOf(offers.values())) removeOffer(offer); for(UUID id:List.copyOf(queue.keySet())) removeQueue(id); for (var room : List.copyOf(rooms.values())) close(room, "Server stopping; room closed without penalty"); }
     public List<PvpRoom> rooms() { return List.copyOf(rooms.values()); }
     public boolean queued(UUID player) { return queue.containsKey(player); }
     private Offer offer(UUID player) { return offers.values().stream().filter(entry -> entry.confirmation().contains(player)).findFirst().orElse(null); }
@@ -72,8 +86,12 @@ public final class PvpRoomManager {
         return removed;
     }
     public boolean isRanked(int room) { return ranked.containsKey(room); }
+    public boolean arenaInUse(String arena) {
+        return rooms.values().stream().anyMatch(room -> room.arena().equals(arena))
+                || offers.values().stream().anyMatch(offer -> offer.arena().equals(arena));
+    }
     public PvpRoom room(UUID player) { return rooms.get(membership.get(player)); }
-    public boolean inArena(UUID player) { var room = room(player); return room != null && room.state() != PvpRoom.State.WAITING; }
+    public boolean inArena(UUID player) { var room = room(player); return room != null && (room.state()==PvpRoom.State.CLIENT_LOADING || room.state()==PvpRoom.State.COUNTDOWN || room.state()==PvpRoom.State.ACTIVE); }
     public boolean canFight(UUID first, UUID second) {
         var room = room(first);
         return room != null && room == room(second) && room.state() == PvpRoom.State.ACTIVE;
@@ -90,10 +108,11 @@ public final class PvpRoomManager {
         checkOffer(player);
         if (queue.containsKey(player.getUUID())) throw new IllegalArgumentException("Leave the ranked queue first");
         if (room(player.getUUID()) != null) throw new IllegalArgumentException("You already have a room");
-        if (PvpArenaData.get(server).template(arena) == null) throw new IllegalArgumentException("Unknown arena: " + arena);
+        if (PvpArenaData.get(server).get(arena)==null || !PvpArenaData.get(server).get(arena).validated()) throw new IllegalArgumentException("Unknown or empty arena: " + arena);
+        if(com.ambition.neoworld.pvp.arena.PvpCaptureService.isSaving(server,arena)) throw new IllegalArgumentException("สนามกำลังบันทึก กรุณารอสักครู่");
         var room = new PvpRoom(nextId++, arena, player.getUUID());
         rooms.put(room.id(), room); membership.put(player.getUUID(), room.id());
-        message(room, "Room " + room.id() + " created. Invite your opponent with /neow pvp room join " + room.id());
+        message(room, "สร้างห้องแล้ว ใช้ปุ่มเชิญผู้เล่นเพื่อเชิญคู่ต่อสู้");
         return room.id();
     }
     public void join(ServerPlayer player, int id) {
@@ -103,23 +122,55 @@ public final class PvpRoomManager {
         if (room(player.getUUID()) != null) throw new IllegalArgumentException("You already have a room");
         PvpRoom room = rooms.get(id);
         if (room == null) throw new IllegalArgumentException("Unknown room: " + id);
+        if(room.members().stream().anyMatch(member -> offer(member)!=null)) throw new IllegalArgumentException("กำลังยืนยันคู่ต่อสู้");
         room.join(player.getUUID()); membership.put(player.getUUID(), id);
-        message(room, player.getGameProfile().getName() + " joined. Both players must use /neow pvp room ready");
+        invitations.revokeRoom(id);
+        message(room, player.getGameProfile().getName() + " เข้าห้องแล้ว หัวหน้าห้องสามารถกดต่อสู้ได้");
+        notifyRoom(room);
     }
     private PvpRoom require(ServerPlayer player) {
         var room = room(player.getUUID());
         if (room == null) throw new IllegalArgumentException("You are not in a PvP room");
         return room;
     }
-    public void ready(ServerPlayer player, boolean ready) {
-        var room = require(player); room.setReady(player.getUUID(), ready);
-        message(room, player.getGameProfile().getName() + (ready ? " is ready" : " is not ready"));
+    private void notifyRoom(PvpRoom room) {
+        for(UUID id:room.members()) {
+            var player=server.getPlayerList().getPlayer(id);
+            if(player!=null) com.ambition.neoworld.network.pvp.PvpGuiNetworkHandler.push(player);
+        }
+    }
+    private void reopenRoom(PvpRoom room) {
+        for(UUID id:room.members()) {
+            var player=server.getPlayerList().getPlayer(id);
+            if(player!=null) net.neoforged.neoforge.network.PacketDistributor.sendToPlayer(player,com.ambition.neoworld.network.pvp.OpenPvpPayload.INSTANCE);
+        }
+    }
+    public void invite(ServerPlayer owner,UUID targetId) {
+        var room=require(owner); checkOffer(owner);
+        if(!room.owner().equals(owner.getUUID()) || room.state()!=PvpRoom.State.WAITING || room.members().size()!=1 || isRanked(room.id()))
+            throw new IllegalArgumentException("เฉพาะหัวหน้าห้องที่ยังมีที่ว่างเท่านั้นที่เชิญได้");
+        var target=server.getPlayerList().getPlayer(targetId);
+        if(target==null) throw new IllegalArgumentException("ผู้เล่นไม่ได้ออนไลน์");
+        eligible(target); checkOffer(target);
+        if(room(targetId)!=null || queued(targetId)) throw new IllegalArgumentException("ผู้เล่นกำลังอยู่ในห้องหรือคิว PvP");
+        var invitation=invitations.create(room.id(),owner.getUUID(),targetId,ticks);
+        sounds.emit(target,PvpSoundEffects.Cue.INVITED,ticks);
+        net.neoforged.neoforge.network.PacketDistributor.sendToPlayer(target,new com.ambition.neoworld.network.pvp.PvpInvitationPayload(invitation.token(),room.id(),owner.getGameProfile().getName()));
+    }
+    public void answerInvitation(ServerPlayer player,UUID token,boolean accept) {
+        var invitation=invitations.take(token,player.getUUID(),ticks);
+        var room=rooms.get(invitation.room());
+        if(room==null || !room.owner().equals(invitation.owner())) throw new IllegalArgumentException("ห้องนี้ปิดแล้ว");
+        if(!accept) { message(room,player.getGameProfile().getName()+" ปฏิเสธคำเชิญ"); return; }
+        join(player,room.id());
+        net.neoforged.neoforge.network.PacketDistributor.sendToPlayer(player,com.ambition.neoworld.network.pvp.OpenPvpPayload.INSTANCE);
     }
     public void leave(ServerPlayer player) {
         var room = require(player);
+        var confirmation=offer(player.getUUID()); if(confirmation!=null && confirmation.privateRoom()>0) failOffer(confirmation,null);
         if (ranked.containsKey(room.id())) { forfeit(room, player.getUUID()); return; }
         if (room.owner().equals(player.getUUID()) || room.state() != PvpRoom.State.WAITING) close(room, "Room closed");
-        else { room.leave(player.getUUID()); membership.remove(player.getUUID()); message(room, "Opponent left; readiness reset"); }
+        else { room.leave(player.getUUID()); membership.remove(player.getUUID()); message(room, "ผู้เล่นออกจากห้อง"); notifyRoom(room); }
     }
     public void cancel(ServerPlayer player) {
         var room = require(player);
@@ -128,22 +179,36 @@ public final class PvpRoomManager {
         close(room, "Owner cancelled the room");
     }
     public void start(ServerPlayer owner) {
+        var room=require(owner);
+        if(!room.owner().equals(owner.getUUID()) || room.state()!=PvpRoom.State.WAITING || room.members().size()!=2 || isRanked(room.id()))
+            throw new IllegalArgumentException("เฉพาะหัวหน้าห้องที่มีผู้เล่นครบ 2 คนเท่านั้นที่เริ่มได้");
+        var opponent=server.getPlayerList().getPlayer(room.members().get(1));
+        if(opponent==null) throw new IllegalArgumentException("คู่ต่อสู้ไม่ได้ออนไลน์");
+        eligible(owner); eligible(opponent); checkOffer(owner); checkOffer(opponent);
+        invitations.revokeRoom(room.id());
+        var c=new MatchConfirmation(owner.getUUID(),opponent.getUUID(),ticks);
+        var offer=new Offer(c,null,null,preview(owner,-1),preview(opponent,-1),room.id(),room.arena());
+        offers.put(c.id,offer); sendOffer(offer); offerSound(offer,PvpSoundEffects.Cue.FOUND); loadOfferPositions(offer);
+    }
+    private void startArena(ServerPlayer owner) {
         var room = require(owner);
         if (!room.owner().equals(owner.getUUID())) throw new IllegalArgumentException("Only the owner can start");
-        if (!room.canStart()) throw new IllegalArgumentException("Both players must be ready");
+        if (!room.canStart()) throw new IllegalArgumentException("Two players are required");
         ServerLevel level = server.getLevel(PvpDimensions.LEVEL);
         if (level == null) throw new IllegalArgumentException("PvP dimension is unavailable");
-        var template = PvpArenaData.get(server).template(room.arena());
-        var layout = PvpArenaTemplates.inspect(level, template);
-        var size = layout.template().getSize();
-        if (size.getX() > 512 || size.getZ() > 512 || size.getY() > 224 || (long)size.getX()*size.getY()*size.getZ() > 262144) {
-            throw new IllegalArgumentException("Arena exceeds slot limits: 512 x 224 x 512, at most 262144 blocks");
-        }
+        var pieces = PvpArenaData.get(server).pieces(room.arena());
+        if(pieces.isEmpty()) throw new IllegalArgumentException("Arena has no structures");
         var players = room.members().stream().map(server.getPlayerList()::getPlayer).toList();
         for (ServerPlayer player : players) {
             if (player == null) throw new IllegalArgumentException("Both players must be online");
             eligible(player);
         }
+        room.beginLoading();
+        placements.put(room.id(),new PendingLoad(pieces));
+        message(room,"กำลังเตรียมสนาม กรุณารอที่เดิม ระบบจะวาร์ปเมื่อสนามพร้อม");
+    }
+    private void initializePlacement(PvpRoom room,PendingLoad pending,ServerLevel level) {
+        var layout=PvpArenaTemplates.assemble(pending.resolved); var size=layout.size();
         var recovery = PvpRecoveryData.get(server);
         int slot = 0;
         while (recovery.regions().containsKey(slot)) slot++;
@@ -156,32 +221,126 @@ public final class PvpRoomManager {
         recovery.reserve(slot, new PvpRecoveryData.Region(origin, size.getX(), size.getY(), size.getZ()));
         Run run = new Run(slot, origin, layout, ticks);
         runs.put(room.id(), run);
+        pending.placement=new com.ambition.neoworld.pvp.arena.PvpArenaPlacement(level,layout,origin);
+    }
+    private void tickPlacements() {
+        if(placements.isEmpty()) return;
+        int id=placements.keySet().iterator().next(); var room=rooms.get(id); var placement=placements.get(id);
+        if(room==null) { placements.remove(id).close(); return; }
         try {
-            PvpArenaTemplates.place(level, template, origin);
-            for (String name : List.of("pvp_spawn_a", "pvp_spawn_b")) {
-                BlockPos spawn = layout.point(name, origin);
-                if (!level.getBlockState(spawn).getCollisionShape(level, spawn).isEmpty()
-                        || !level.getBlockState(spawn.above()).getCollisionShape(level, spawn.above()).isEmpty()
-                        || !level.getBlockState(spawn.below()).isCollisionShapeFullBlock(level, spawn.below())) {
-                    throw new IllegalArgumentException("Spawn requires empty feet/head cells and a solid floor: " + name);
+            if(placement.started<0) placement.started=ticks;
+            if(ticks-placement.started>12000) throw new IllegalArgumentException("หมดเวลาเตรียมสนาม");
+            for(UUID playerId:room.members()) {
+                var player=server.getPlayerList().getPlayer(playerId);
+                if(player==null) throw new IllegalArgumentException("ผู้เล่นออกระหว่างเตรียมสนาม");
+                eligible(player);
+            }
+            if(placement.placement==null) {
+                var level=server.getLevel(PvpDimensions.LEVEL);
+                if(level==null) throw new IllegalArgumentException("PvP dimension is unavailable");
+                if(placement.resolved.size()<placement.pieces.size()) {
+                    placement.resolved.add(PvpArenaTemplates.resolve(level,placement.pieces.get(placement.resolved.size())));
+                    if(ticks%100==0) message(room,"กำลังอ่านสนาม "+placement.resolved.size()+"/"+placement.pieces.size()+" ชิ้น");
+                    return;
                 }
+                initializePlacement(room,placement,level); return;
             }
-            for (ServerPlayer player : players) recovery.capture(player);
-            room.begin();
-            for (int i = 0; i < players.size(); i++) {
-                BlockPos spawn = layout.point(i == 0 ? "pvp_spawn_a" : "pvp_spawn_b", origin);
-                ServerPlayer player = players.get(i);
-                player.teleportTo(level, spawn.getX()+0.5, spawn.getY(), spawn.getZ()+0.5, i == 0 ? -90 : 90, 0);
-                player.fallDistance = 0;
-            }
-            message(room, "Fight starts in 3 seconds. No Rating in private rooms.");
-        } catch (RuntimeException exception) {
-            close(room, "Could not start: " + exception.getMessage());
-            NeoWorld.LOGGER.warn("Could not start PvP room {}", room.id(), exception);
-            throw new IllegalArgumentException("Could not start arena; room closed safely");
+            if(placement.placement.tick()) {
+                finishLoading(room);
+                placements.remove(id); placement.close();
+            } else if(ticks%100==0) message(room,"กำลังเตรียมสนาม "+placement.placement.percent()+"%");
+        } catch(RuntimeException exception) {
+            close(room,"เตรียมสนามไม่สำเร็จ ยกเลิกโดยไม่หักคะแนน: "+exception.getMessage());
+            NeoWorld.LOGGER.warn("PvP room {} preparation failed",id,exception);
         }
     }
+    private void finishLoading(PvpRoom room) {
+        var run=runs.get(room.id()); var layout=run.layout(); var origin=run.origin();
+        var level=server.getLevel(PvpDimensions.LEVEL);
+        for(var marker:layout.markers().values()) level.setBlock(origin.offset(marker),Blocks.AIR.defaultBlockState(),2);
+        for(String name:List.of("pvp_spawn_a","pvp_spawn_b")) {
+            var spawn=layout.point(name,origin);
+            if(!level.getBlockState(spawn).getCollisionShape(level,spawn).isEmpty()
+                    || !level.getBlockState(spawn.above()).getCollisionShape(level,spawn.above()).isEmpty()
+                    || !level.getBlockState(spawn.below()).isCollisionShapeFullBlock(level,spawn.below()))
+                throw new IllegalArgumentException("Spawn requires empty feet/head cells and a solid floor: "+name);
+        }
+        var players=room.members().stream().map(server.getPlayerList()::getPlayer).toList();
+        for(var player:players) eligible(player);
+        for(var player:players) PvpRecoveryData.get(server).capture(player);
+        run=new Run(run.slot(),origin,layout,ticks); runs.put(room.id(),run);
+        var match=ranked.get(room.id());
+        if(match!=null) resetRound(room,match);
+        else {
+            for(int i=0;i<players.size();i++) {
+                var player=players.get(i); var spawn=layout.point(i==0 ? "pvp_spawn_a" : "pvp_spawn_b",origin);
+                player.setGameMode(net.minecraft.world.level.GameType.ADVENTURE);
+                player.teleportTo(level,spawn.getX()+0.5,spawn.getY(),spawn.getZ()+0.5,i==0 ? -90 : 90,0); player.fallDistance=0;
+            }
+            waitForClients(room);
+        }
+        notifyRoom(room);
+    }
+    private void waitForClients(PvpRoom room) {
+        room.awaitClients();
+        var barrier=new PvpClientLoadBarrier(room.members(),ticks); clientLoads.put(room.id(),barrier);
+        var run=runs.get(room.id());
+        for(int i=0;i<room.members().size();i++) {
+            var player=server.getPlayerList().getPlayer(room.members().get(i));
+            var spawn=run.layout().point(i==0 ? "pvp_spawn_a" : "pvp_spawn_b",run.origin());
+            net.neoforged.neoforge.network.PacketDistributor.sendToPlayer(player,
+                    new com.ambition.neoworld.network.pvp.PvpArenaLoadPayload(barrier.token(),true,spawn));
+        }
+        preparation(room,run,0);
+        message(room,"สนามพร้อม กำลังรอเครื่องผู้เล่นทั้งสองโหลดพื้นที่ (สูงสุด 60 วินาที)");
+    }
+    public void arenaReady(ServerPlayer player,UUID token) {
+        var room=room(player.getUUID());
+        if(room==null || room.state()!=PvpRoom.State.CLIENT_LOADING) return;
+        var barrier=clientLoads.get(room.id()); var run=runs.get(room.id());
+        if(barrier==null || run==null || !player.isAlive() || !player.serverLevel().dimension().equals(PvpDimensions.LEVEL)
+                || player.gameMode.getGameModeForPlayer()!=net.minecraft.world.level.GameType.ADVENTURE) return;
+        int index=room.members().indexOf(player.getUUID()); if(index<0) return;
+        var spawn=run.layout().point(index==0 ? "pvp_spawn_a" : "pvp_spawn_b",run.origin());
+        if(player.distanceToSqr(spawn.getX()+.5,spawn.getY(),spawn.getZ()+.5)>1) return;
+        barrier.accept(token,player.getUUID(),ticks);
+    }
+    private void clearClientLoad(PvpRoom room) {
+        var barrier=clientLoads.remove(room.id()); if(barrier==null) return;
+        for(var id:room.members()) {
+            var player=server.getPlayerList().getPlayer(id);
+            if(player!=null) net.neoforged.neoforge.network.PacketDistributor.sendToPlayer(player,
+                    com.ambition.neoworld.network.pvp.PvpArenaLoadPayload.closed(barrier.token()));
+        }
+    }
+    private void tickClientLoad(PvpRoom room,Run run) {
+        var barrier=clientLoads.get(room.id());
+        if(barrier==null || barrier.expired(ticks)) {
+            close(room,"โหลดสนามไม่ทันเวลา ยกเลิกก่อนเริ่มสู้โดยไม่หัก Rating"); return;
+        }
+        for(var id:room.members()) {
+            var player=server.getPlayerList().getPlayer(id);
+            if(player==null || !player.isAlive() || !player.serverLevel().dimension().equals(PvpDimensions.LEVEL)
+                    || player.gameMode.getGameModeForPlayer()!=net.minecraft.world.level.GameType.ADVENTURE) {
+                close(room,"ผู้เล่นไม่พร้อมระหว่างโหลดสนาม ยกเลิกโดยไม่หัก Rating"); return;
+            }
+        }
+        preparation(room,run,0);
+        if(!barrier.ready(ticks)) {
+            if(ticks%40==0) for(var id:room.members()) combatTitle(server.getPlayerList().getPlayer(id),
+                    Component.literal("กำลังโหลดสนาม").withStyle(net.minecraft.ChatFormatting.GOLD),"รอผู้เล่นทั้งสองฝ่าย",45);
+            return;
+        }
+        clearClientLoad(room); room.begin();
+        run=new Run(run.slot(),run.origin(),run.layout(),ticks); runs.put(room.id(),run);
+        var match=ranked.get(room.id());
+        if(match!=null) { match.countdown=ticks+100; match.roundStarted=match.countdown; }
+        preparation(room,run,ticks+100);
+        notifyRoom(room); message(room,"ผู้เล่นทั้งสองโหลดสนามพร้อมแล้ว เริ่มต่อสู้ใน 5 วินาที");
+    }
     public void disconnect(ServerPlayer player) {
+        sounds.forget(player.getUUID()); countdownSounds.remove(player.getUUID());
+        invitations.revokePlayer(player.getUUID());
         var pending=offer(player.getUUID()); if(pending!=null) failOffer(pending,player.getUUID());
         removeQueue(player.getUUID());
         var room = room(player.getUUID());
@@ -206,6 +365,10 @@ public final class PvpRoomManager {
         }
     }
     private void close(PvpRoom room, String reason) {
+        clearClientLoad(room);
+        var placement=placements.remove(room.id()); if(placement!=null) placement.close();
+        invitations.revokeRoom(room.id());
+        var confirmation=offer(room.owner()); if(confirmation!=null && confirmation.privateRoom()==room.id()) removeOffer(confirmation);
         message(room, reason);
         for (UUID id : room.members()) {
             membership.remove(id);
@@ -213,6 +376,7 @@ public final class PvpRoomManager {
             if (player != null && player.isAlive()) recover(player);
         }
         rooms.remove(room.id());
+        notifyRoom(room);
         intermissions.remove(room.id());
         ranked.remove(room.id());
         Run run = runs.remove(room.id());
@@ -242,6 +406,9 @@ public final class PvpRoomManager {
     }
     public void tick() {
         ticks++;
+        sounds.tick(server,ticks);
+        tickPlacements();
+        invitations.expire(ticks);
         tickOffers();
         if (ticks % 20 == 0) {
             matchQueue();
@@ -250,8 +417,11 @@ public final class PvpRoomManager {
         if (ticks % 100 == 0) retryResults();
         for (var room : List.copyOf(rooms.values())) {
             Run run = runs.get(room.id()); if (run == null) continue;
+            if(room.state()==PvpRoom.State.LOADING) continue;
+            if(room.state()==PvpRoom.State.CLIENT_LOADING) { tickClientLoad(room,run); continue; }
             if (ranked.containsKey(room.id())) { tickRanked(room, run, ranked.get(room.id())); continue; }
             if(intermissions.containsKey(room.id())) { tickIntermission(room,null); continue; }
+            if(room.state()==PvpRoom.State.COUNTDOWN) preparation(room,run,run.started()+100);
             boolean invalid = false;
             for (UUID id : room.members()) {
                 ServerPlayer player = server.getPlayerList().getPlayer(id);
@@ -259,29 +429,30 @@ public final class PvpRoomManager {
                         || !run.layout().contains(run.origin(),player.getX(),player.getY(),player.getZ())) invalid = true;
             }
             if (invalid || ticks - run.started() >= 12000) { close(room, "Room ended: player left the arena or time expired"); continue; }
-            if (room.state() == PvpRoom.State.COUNTDOWN && ticks - run.started() >= 60) { room.activate(); message(room, "Fight!"); }
+            if (room.state() == PvpRoom.State.COUNTDOWN && ticks - run.started() >= 100) { room.activate(); fightTitle(room); message(room, "Fight!"); }
         }
         clean();
     }
-    public void queue(ServerPlayer player, String arena) {
+    public void queue(ServerPlayer player) {
         eligible(player);
         checkOffer(player);
         int penalty=PvpQueuePenaltyData.get(server).remaining(player.getUUID(),System.currentTimeMillis());
         if(penalty>0) throw new IllegalArgumentException("Ranked queue cooldown: " + penalty + " seconds");
-        if (player.isCreative() || room(player.getUUID()) != null || queue.containsKey(player.getUUID())) throw new IllegalArgumentException("Already queued, in a room, or in Creative mode");
+        if (room(player.getUUID()) != null || queue.containsKey(player.getUUID())) throw new IllegalArgumentException("Already queued or in a room");
         var level = server.getLevel(PvpDimensions.LEVEL);
-        var template = PvpArenaData.get(server).template(arena);
-        if (level == null || template == null) throw new IllegalArgumentException("Unknown or unavailable arena");
-        PvpArenaTemplates.inspect(level, template);
+        if(level==null || PvpArenaData.get(server).all().entrySet().stream().noneMatch(entry -> rankedArenaReady(level,entry.getKey(),entry.getValue())))
+            throw new IllegalArgumentException("ยังไม่มีสนามจัดอันดับพร้อมใช้งาน");
         try {
             var rating = PvpRatingRepository.player(player.getUUID(), player.getGameProfile().getName());
-            queue.put(player.getUUID(), new QueueEntry(arena, rating.rating(), ticks));
+            queue.put(player.getUUID(), new QueueEntry(rating.rating(), ticks));
             sendQueueState(player);
+            sounds.emit(player,PvpSoundEffects.Cue.QUEUED,ticks);
             player.sendSystemMessage(Component.literal("[PvP] Ranked queue joined. Rating " + rating.rating()));
         } catch (java.sql.SQLException exception) { throw new IllegalArgumentException("Rating database unavailable; queue not joined"); }
     }
     public void unqueue(ServerPlayer player) {
         if (!removeQueue(player.getUUID())) throw new IllegalArgumentException("Not in ranked queue");
+        sounds.emit(player,PvpSoundEffects.Cue.CANCELLED,ticks);
         player.sendSystemMessage(Component.literal("[PvP] Left ranked queue"));
     }
     private static String pair(UUID a, UUID b) { return a.compareTo(b) < 0 ? a+":"+b : b+":"+a; }
@@ -289,7 +460,7 @@ public final class PvpRoomManager {
         recentPairs.entrySet().removeIf(entry -> ticks-entry.getValue() >= 12000);
         for (UUID id : List.copyOf(queue.keySet())) {
             var player = server.getPlayerList().getPlayer(id);
-            try { if (player == null || player.isCreative()) throw new IllegalArgumentException(); eligible(player); }
+            try { if (player == null) throw new IllegalArgumentException(); eligible(player); }
             catch (IllegalArgumentException exception) { removeQueue(id); }
         }
         var ids = List.copyOf(queue.keySet());
@@ -301,16 +472,27 @@ public final class PvpRoomManager {
                 UUID b=ids.get(j); QueueEntry second=queue.get(b); if (second==null) continue;
                 int allowed=(int)Math.min(600,100+(ticks-Math.min(first.entered(),second.entered()))/400*50);
                 int gap=Math.abs(first.rating()-second.rating());
-                if (first.arena().equals(second.arena()) && gap<=allowed && gap<distance && !recentPairs.containsKey(pair(a,b))) { best=b; distance=gap; }
+                if (gap<=allowed && gap<distance && !recentPairs.containsKey(pair(a,b))) { best=b; distance=gap; }
             }
             if (best==null) continue;
+            var arena=randomRankedArena();
+            if(arena.isEmpty()) {
+                if(!warnedNoRankedArena) for(UUID id:queue.keySet()) {
+                    var waiting=server.getPlayerList().getPlayer(id);
+                    if(waiting!=null) waiting.sendSystemMessage(Component.literal("[PvP] รอสนามพร้อมใช้งาน คิวเดิมยังคงอยู่"));
+                }
+                warnedNoRankedArena=true; return;
+            }
+            warnedNoRankedArena=false;
             var owner=server.getPlayerList().getPlayer(a); var opponent=server.getPlayerList().getPlayer(best);
             QueueEntry second=queue.get(best);
             removeQueue(a); removeQueue(best);
             try {
                 var confirmation=new MatchConfirmation(a,best,ticks);
-                var offer=new Offer(confirmation,first,second,preview(owner,first.rating()),preview(opponent,second.rating()));
-                offers.put(confirmation.id,offer); sendOffer(offer); loadOfferPositions(offer);
+                var offer=new Offer(confirmation,first,second,preview(owner,first.rating()),preview(opponent,second.rating()),0,arena.get());
+                offers.put(confirmation.id,offer); sendOffer(offer); offerSound(offer,PvpSoundEffects.Cue.FOUND); loadOfferPositions(offer);
+                owner.sendSystemMessage(Component.literal("[PvP] สุ่มสนาม: "+arena.get()));
+                opponent.sendSystemMessage(Component.literal("[PvP] สุ่มสนาม: "+arena.get()));
             } catch (RuntimeException exception) {
                 if (owner!=null) owner.sendSystemMessage(Component.literal("[PvP] Matchmaking could not start the arena; rejoin the queue"));
                 if (opponent!=null) opponent.sendSystemMessage(Component.literal("[PvP] Matchmaking could not start the arena; rejoin the queue"));
@@ -318,7 +500,18 @@ public final class PvpRoomManager {
             }
         }
     }
-    private PvpMatchOfferPayload.Player preview(ServerPlayer player,int rating) {
+    private java.util.Optional<String> randomRankedArena() {
+        var level=server.getLevel(PvpDimensions.LEVEL);
+        if(level==null) return java.util.Optional.empty();
+        var arenas=PvpArenaData.get(server).all();
+        return com.ambition.neoworld.pvp.ranked.RankedArenaSelector.pick(arenas.keySet().stream().sorted().toList(),id -> rankedArenaReady(level,id,arenas.get(id)),java.util.concurrent.ThreadLocalRandom.current());
+    }
+    private boolean rankedArenaReady(ServerLevel level,String id,PvpArenaData.Arena definition) {
+        if(!definition.validated() || definition.pieces().isEmpty() || com.ambition.neoworld.pvp.arena.PvpCaptureService.isSaving(server,id)) return false;
+        try { return PvpArenaTemplates.resourcesPresent(level,definition.pieces()); }
+        catch(RuntimeException exception) { return false; }
+    }
+    public PvpMatchOfferPayload.Player preview(ServerPlayer player,int rating) {
         var equipment=java.util.Arrays.stream(new net.minecraft.world.entity.EquipmentSlot[]{
                 net.minecraft.world.entity.EquipmentSlot.MAINHAND,net.minecraft.world.entity.EquipmentSlot.OFFHAND,
                 net.minecraft.world.entity.EquipmentSlot.FEET,net.minecraft.world.entity.EquipmentSlot.LEGS,
@@ -327,17 +520,21 @@ public final class PvpRoomManager {
         return new PvpMatchOfferPayload.Player(player.getUUID(),player.getGameProfile().getName(),rating,-1,equipment);
     }
     private void loadOfferPositions(Offer offer) {
-        java.util.concurrent.CompletableFuture.supplyAsync(() -> {
-            try { return new int[]{PvpRatingRepository.position(offer.a().id()),PvpRatingRepository.position(offer.b().id())}; }
-            catch(java.sql.SQLException | IllegalStateException exception) { return new int[]{-1,-1}; }
-        }).thenAccept(positions -> server.execute(() -> {
+        var cacheA=com.ambition.neoworld.pvp.ranked.PvpRankingCache.player(offer.a().id(),offer.a().name()).exceptionally(error -> null);
+        var cacheB=com.ambition.neoworld.pvp.ranked.PvpRankingCache.player(offer.b().id(),offer.b().name()).exceptionally(error -> null);
+        cacheA.thenCombine(cacheB,(a,b) -> new PvpRatingRepository.View[]{a,b}).thenAccept(positions -> server.execute(() -> {
             if(!offers.containsKey(offer.confirmation().id)) return;
             var a=offer.a(); var b=offer.b();
             var updated=new Offer(offer.confirmation(),offer.first(),offer.second(),
-                    new PvpMatchOfferPayload.Player(a.id(),a.name(),a.rating(),positions[0],a.equipment()),
-                    new PvpMatchOfferPayload.Player(b.id(),b.name(),b.rating(),positions[1],b.equipment()));
+                    new PvpMatchOfferPayload.Player(a.id(),a.name(),positions[0]==null ? a.rating() : positions[0].player().rating(),positions[0]==null ? -1 : positions[0].position(),a.equipment()),
+                    new PvpMatchOfferPayload.Player(b.id(),b.name(),positions[1]==null ? b.rating() : positions[1].player().rating(),positions[1]==null ? -1 : positions[1].position(),b.equipment()),offer.privateRoom(),offer.arena());
             offers.put(offer.confirmation().id,updated); sendOffer(updated);
         }));
+    }
+    private void offerSound(Offer offer,PvpSoundEffects.Cue cue) {
+        for(var id:List.of(offer.confirmation().a,offer.confirmation().b)) {
+            var player=server.getPlayerList().getPlayer(id); if(player!=null) sounds.emit(player,cue,ticks);
+        }
     }
     private void sendOffer(Offer offer) {
         var c=offer.confirmation();
@@ -358,19 +555,31 @@ public final class PvpRoomManager {
     public void confirm(ServerPlayer player,UUID offerId) {
         var offer=offers.get(offerId);
         if(offer==null || !offer.confirmation().contains(player.getUUID())) return;
-        offer.confirmation().accept(player.getUUID(),ticks); sendOffer(offer);
+        if(offer.confirmation().ready(player.getUUID())) return;
+        if(offer.confirmation().accept(player.getUUID(),ticks)) {
+            sounds.emit(player,PvpSoundEffects.Cue.ACCEPTED,ticks); sendOffer(offer);
+        }
     }
     private void requeue(UUID id,QueueEntry entry) {
         var player=server.getPlayerList().getPlayer(id); if(player==null) return;
         try {
-            eligible(player); if(player.isCreative() || room(id)!=null) return;
+            eligible(player); if(room(id)!=null) return;
             if(PvpQueuePenaltyData.get(server).remaining(id,System.currentTimeMillis())>0) return;
             queue.put(id,entry); sendQueueState(player);
             player.sendSystemMessage(Component.literal("[PvP] Returning to ranked queue with original waiting time"));
         } catch(IllegalArgumentException ignored) { }
     }
     private void failOffer(Offer offer,UUID disconnected) {
+        offerSound(offer,PvpSoundEffects.Cue.ERROR);
         removeOffer(offer); var c=offer.confirmation();
+        if(offer.privateRoom()>0) {
+            var room=rooms.get(offer.privateRoom());
+            if(room!=null) {
+                message(room,"ยืนยันไม่ครบ กลับห้องเดิมโดยไม่หักคะแนนหรือลงโทษ");
+                reopenRoom(room);
+            }
+            return;
+        }
         for(UUID id:List.of(c.a,c.b)) {
             boolean penalize=disconnected==null ? !c.ready(id) : id.equals(disconnected);
             if(penalize) {
@@ -387,16 +596,35 @@ public final class PvpRoomManager {
             if(a==null || b==null) { failOffer(offer,a==null ? c.a : c.b); continue; }
             if(c.status(ticks)==MatchConfirmation.Status.EXPIRED) { failOffer(offer,null); continue; }
             if(c.status(ticks)==MatchConfirmation.Status.ACCEPTED) { startConfirmed(offer,a,b); continue; }
+            long remaining=c.deadline-ticks;
+            if(remaining>0 && remaining<=100 && remaining%20==0) {
+                if(!c.ready(c.a)) sounds.emit(a,PvpSoundEffects.Cue.TICK,ticks);
+                if(!c.ready(c.b)) sounds.emit(b,PvpSoundEffects.Cue.TICK,ticks);
+            }
             if(ticks%20==0) sendOffer(offer);
         }
     }
     private void startConfirmed(Offer offer,ServerPlayer owner,ServerPlayer opponent) {
+        offerSound(offer,PvpSoundEffects.Cue.BOTH_READY);
+        if(offer.privateRoom()>0) {
+            removeOffer(offer);
+            var room=rooms.get(offer.privateRoom());
+            if(room==null || !room.owner().equals(owner.getUUID()) || room.state()!=PvpRoom.State.WAITING
+                    || !room.members().equals(List.of(owner.getUUID(),opponent.getUUID()))) return;
+            try {
+                startArena(owner); notifyRoom(room);
+            } catch(RuntimeException exception) {
+                message(room,"ไม่สามารถเริ่มสนามได้: "+exception.getMessage());
+                if(rooms.containsKey(room.id())) reopenRoom(room);
+                NeoWorld.LOGGER.warn("Private PvP arena start failed",exception);
+            }
+            return;
+        }
         removeOffer(offer); PvpRoom room=null;
         try {
-            room=rooms.get(create(owner,offer.first().arena())); join(opponent,room.id());
-            room.setReady(owner.getUUID(),true); room.setReady(opponent.getUUID(),true);
+            room=rooms.get(create(owner,offer.arena())); join(opponent,room.id());
             var match=new RankedMatch(owner.getUUID(),opponent.getUUID(),owner.getGameProfile().getName(),opponent.getGameProfile().getName(),ticks);
-            ranked.put(room.id(),match); start(owner); resetRound(room,match);
+            ranked.put(room.id(),match); startArena(owner);
             message(room,"Ranked 1vs1: first to 2 round wins. Leaving forfeits the match.");
         } catch(RuntimeException exception) {
             if(room!=null && rooms.containsKey(room.id())) close(room,"Ranked start cancelled without penalty");
@@ -407,10 +635,11 @@ public final class PvpRoomManager {
     }
     private void resetRound(PvpRoom room, RankedMatch match) {
         var run=runs.get(room.id()); var level=server.getLevel(PvpDimensions.LEVEL);
-        room.pause(); match.countdown=ticks+60; match.roundStarted=ticks+60;
+        if(match.began) { room.pause(); match.countdown=ticks+60; match.roundStarted=match.countdown; }
         for (int i=0;i<room.members().size();i++) {
             var player=server.getPlayerList().getPlayer(room.members().get(i)); if (player==null) continue;
-            restoreMode(player);
+            player.setCamera(player);
+            player.setGameMode(net.minecraft.world.level.GameType.ADVENTURE);
             player.connection.send(new net.minecraft.network.protocol.game.ClientboundClearTitlesPacket(true));
             var spawn=run.layout().point(i==0 ? "pvp_spawn_a" : "pvp_spawn_b",run.origin());
             player.teleportTo(level,spawn.getX()+0.5,spawn.getY(),spawn.getZ()+0.5,i==0 ? -90 : 90,0);
@@ -418,8 +647,10 @@ public final class PvpRoomManager {
             player.clearFire(); player.fallDistance=0;
         }
         var box=new AABB(run.origin().getX(),run.origin().getY(),run.origin().getZ(),
-                run.origin().getX()+run.layout().template().getSize().getX(),run.origin().getY()+run.layout().template().getSize().getY(),run.origin().getZ()+run.layout().template().getSize().getZ());
+                run.origin().getX()+run.layout().size().getX(),run.origin().getY()+run.layout().size().getY(),run.origin().getZ()+run.layout().size().getZ());
         level.getEntitiesOfClass(net.minecraft.world.entity.projectile.Projectile.class,box).forEach(net.minecraft.world.entity.Entity::discard);
+        if(match.began) preparation(room,run,match.countdown);
+        else waitForClients(room);
     }
     private void forfeit(PvpRoom room, UUID loser) {
         var match=ranked.get(room.id());
@@ -462,6 +693,7 @@ public final class PvpRoomManager {
             return;
         }
         if(intermissions.containsKey(room.id())) { tickIntermission(room,match); return; }
+        if(room.state()==PvpRoom.State.COUNTDOWN) preparation(room,run,match.countdown);
         for (var player : List.of(a,b)) {
             if (!player.isAlive() || player.isCreative() || player.isSpectator() || !player.serverLevel().dimension().equals(PvpDimensions.LEVEL)
                     || !run.layout().contains(run.origin(),player.getX(),player.getY(),player.getZ())) {
@@ -469,7 +701,7 @@ public final class PvpRoomManager {
             }
         }
         if (room.state()==PvpRoom.State.COUNTDOWN && ticks>=match.countdown) {
-            room.activate(); match.began=true; message(room,"Ranked round: Fight!");
+            room.activate(); match.began=true; fightTitle(room); message(room,"Ranked round: Fight!");
         }
         if (room.state()==PvpRoom.State.ACTIVE && ticks-match.roundStarted>=3600) {
             float ha=a.getHealth()/a.getMaxHealth(), hb=b.getHealth()/b.getMaxHealth();
@@ -487,6 +719,36 @@ public final class PvpRoomManager {
         message(room,"Round score " + match.winsA + " : " + match.winsB);
         if(match.result!=null) { finishRanked(room,match); }
         else { intermissions.put(room.id(),RoundIntermission.begin(ticks,defeated,false,null)); announceIntermission(room,match); }
+    }
+    private void preparation(PvpRoom room,Run run,long deadline) {
+        long remaining=Math.max(0,deadline-ticks);
+        var level=server.getLevel(PvpDimensions.LEVEL); if(level==null) return;
+        for(int i=0;i<room.members().size();i++) {
+            var player=server.getPlayerList().getPlayer(room.members().get(i));
+            if(player==null || player.serverLevel()!=level) continue;
+            var spawn=run.layout().point(i==0 ? "pvp_spawn_a" : "pvp_spawn_b",run.origin());
+            double x=spawn.getX()+0.5,y=spawn.getY(),z=spawn.getZ()+0.5;
+            player.setDeltaMovement(net.minecraft.world.phys.Vec3.ZERO);
+            player.fallDistance=0;
+            if(player.distanceToSqr(x,y,z)>0.000001)
+                player.teleportTo(level,x,y,z,player.getYRot(),player.getXRot());
+            if(remaining>0 && remaining%20==0) {
+                combatTitle(player,PvpTitles.countdown((int)((remaining+19)/20)),"เตรียมพร้อมต่อสู้",25);
+                if(!java.util.Objects.equals(countdownSounds.put(player.getUUID(),ticks),ticks))
+                    sounds.emit(player,PvpSoundEffects.Cue.TICK,ticks);
+            }
+        }
+    }
+    private void fightTitle(PvpRoom room) {
+        for(UUID id:room.members()) {
+            var player=server.getPlayerList().getPlayer(id);
+            if(player!=null) { combatTitle(player,PvpTitles.fight(),"",30); sounds.emit(player,PvpSoundEffects.Cue.FIGHT,ticks); }
+        }
+    }
+    private void combatTitle(ServerPlayer player,Component title,String subtitle,int duration) {
+        player.connection.send(new net.minecraft.network.protocol.game.ClientboundSetTitlesAnimationPacket(0,duration,5));
+        player.connection.send(new net.minecraft.network.protocol.game.ClientboundSetSubtitleTextPacket(Component.literal(subtitle)));
+        player.connection.send(new net.minecraft.network.protocol.game.ClientboundSetTitleTextPacket(title));
     }
     private void restoreMode(ServerPlayer player) {
         var point=PvpRecoveryData.get(server).point(player.getUUID()); if(point==null) return;
@@ -508,18 +770,34 @@ public final class PvpRoomManager {
         }
         return score+" • "+rating+" • กลับใน "+seconds+" วิ";
     }
+    private Component resultSubtitleComponent(PvpRoom room,RankedMatch match,UUID player,RoundIntermission pause) {
+        if(!pause.terminal() || match==null || pause.report()==null || !pause.report().available())
+            return Component.literal(resultSubtitle(room,match,player,pause));
+        boolean own=player.equals(match.a);
+        int before=own ? pause.report().beforeA() : pause.report().beforeB();
+        int after=own ? pause.report().afterA() : pause.report().afterB();
+        String score=(own ? match.winsA : match.winsB)+"–"+(own ? match.winsB : match.winsA);
+        return Component.literal(score+" • ").append(PvpTitles.ratingChange(before,after))
+                .append(" • กลับใน "+pause.seconds(ticks)+" วิ");
+    }
     private void announceIntermission(PvpRoom room,RankedMatch match) {
         var pause=intermissions.get(room.id());
         for(UUID id:room.members()) {
             var player=server.getPlayerList().getPlayer(id); if(player==null) continue;
             String title;
+            if(pause.defeated()!=null) {
+                boolean lost=id.equals(pause.defeated());
+                sounds.emit(player,pause.terminal() ? (lost ? PvpSoundEffects.Cue.DEFEAT : PvpSoundEffects.Cue.VICTORY)
+                        : (lost ? PvpSoundEffects.Cue.ROUND_LOSS : PvpSoundEffects.Cue.ROUND_WIN),ticks);
+            }
             net.minecraft.ChatFormatting color;
             if(pause.defeated()==null) { title=pause.terminal() ? "เสมอ" : "รอบเสมอ"; color=net.minecraft.ChatFormatting.GOLD; }
             else if(id.equals(pause.defeated())) { title=pause.terminal() ? "คุณแพ้การแข่งขัน" : "คุณแพ้รอบนี้"; color=net.minecraft.ChatFormatting.RED; }
             else { title=pause.terminal() ? "ยินดีด้วย! คุณชนะ" : "ชนะรอบนี้"; color=net.minecraft.ChatFormatting.AQUA; }
             player.connection.send(new net.minecraft.network.protocol.game.ClientboundSetTitlesAnimationPacket(0,110,10));
-            player.connection.send(new net.minecraft.network.protocol.game.ClientboundSetSubtitleTextPacket(Component.literal(resultSubtitle(room,match,id,pause))));
-            player.connection.send(new net.minecraft.network.protocol.game.ClientboundSetTitleTextPacket(Component.literal(title).withStyle(color)));
+            player.connection.send(new net.minecraft.network.protocol.game.ClientboundSetSubtitleTextPacket(resultSubtitleComponent(room,match,id,pause)));
+            Component decorated=pause.defeated()==null ? Component.literal(title).withStyle(color) : PvpTitles.result(!id.equals(pause.defeated()));
+            player.connection.send(new net.minecraft.network.protocol.game.ClientboundSetTitleTextPacket(decorated));
             if(pause.terminal()) player.sendSystemMessage(Component.literal("[PvP] " + title + " • " + resultSubtitle(room,match,id,pause)));
         }
     }
@@ -533,7 +811,7 @@ public final class PvpRoomManager {
         }
         if(ticks%20==0) for(UUID id:room.members()) {
             var player=server.getPlayerList().getPlayer(id);
-            if(player!=null) player.connection.send(new net.minecraft.network.protocol.game.ClientboundSetSubtitleTextPacket(Component.literal(resultSubtitle(room,match,id,pause))));
+            if(player!=null) player.connection.send(new net.minecraft.network.protocol.game.ClientboundSetSubtitleTextPacket(resultSubtitleComponent(room,match,id,pause)));
         }
     }
     private void retryResults() {
@@ -556,9 +834,15 @@ public final class PvpRoomManager {
             cleanup.remove(); cleanup.add(job); return;
         }
         int total = region.x()*region.y()*region.z();
+        int loadedChunks=0;
         for (int budget = 0; budget < 2048 && job.index < total; budget++, job.index++) {
             int x = job.index % region.x(), z = (job.index / region.x()) % region.z(), y = job.index / (region.x()*region.z());
-            level.setBlock(region.origin().offset(x, y, z), Blocks.AIR.defaultBlockState(), 2);
+            var position=region.origin().offset(x,y,z);
+            if(!level.hasChunk(position.getX()>>4,position.getZ()>>4)) {
+                if(loadedChunks>=4) break;
+                level.getChunk(position.getX()>>4,position.getZ()>>4); loadedChunks++;
+            }
+            level.setBlock(position, Blocks.AIR.defaultBlockState(), 2);
         }
         if (job.index == total) {
             level.getEntitiesOfClass(net.minecraft.world.entity.Entity.class, box,

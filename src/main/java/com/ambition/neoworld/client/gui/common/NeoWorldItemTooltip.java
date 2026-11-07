@@ -5,11 +5,10 @@ import com.ambition.neoworld.item.CoinItem;
 import com.ambition.neoworld.item.ExperienceItem;
 import com.ambition.neoworld.item.fashion.SimpleFashionItem;
 import com.ambition.neoworld.registry.ModItems;
-import com.mojang.blaze3d.systems.RenderSystem;
 import com.mojang.datafixers.util.Either;
 import net.minecraft.core.registries.BuiltInRegistries;
+import net.minecraft.client.gui.screens.inventory.tooltip.DefaultTooltipPositioner;
 import net.minecraft.network.chat.Component;
-import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.*;
 import net.neoforged.api.distmarker.Dist;
 import net.neoforged.bus.api.EventPriority;
@@ -24,8 +23,6 @@ import java.util.List;
 /** Adds presentation only; gameplay restrictions remain in their server handlers. */
 @EventBusSubscriber(modid = NeoWorld.MODID, value = Dist.CLIENT)
 public final class NeoWorldItemTooltip {
-    private static final ResourceLocation FRAME = ResourceLocation.fromNamespaceAndPath(NeoWorld.MODID,
-            "textures/gui/common/item_tooltip_frame.png");
     private static final int TEXT = 0xD4D9DE;
     private static final int MUTED = 0x9EA7AE;
     private static final int TEAL = 0x66DDD5;
@@ -42,12 +39,11 @@ public final class NeoWorldItemTooltip {
     }
 
     private static boolean stone(Item item) {
-        return item == ModItems.UPGRADE_STONE.get() || item == ModItems.ADVANCED_UPGRADE_STONE.get()
-                || item == ModItems.SUPREME_UPGRADE_STONE.get();
+        return item == ModItems.UPGRADE_STONE.get() || item == ModItems.ADVANCED_UPGRADE_STONE.get();
     }
 
     private static boolean scroll(Item item) {
-        return item == ModItems.DOWNGRADE_PROTECTION_SCROLL.get() || item == ModItems.BREAK_PROTECTION_SCROLL.get();
+        return item == ModItems.PROTECTION_SCROLL.get() || item == ModItems.SUCCESS_BOOSTER.get();
     }
 
     private static String type(ItemStack stack) {
@@ -82,12 +78,12 @@ public final class NeoWorldItemTooltip {
             details.add(label("durability", TEXT, Math.max(0, stack.getMaxDamage() - stack.getDamageValue()), stack.getMaxDamage()));
         }
         if (stone(item)) {
-            int minimum = item == ModItems.UPGRADE_STONE.get() ? 1 : item == ModItems.ADVANCED_UPGRADE_STONE.get() ? 7 : 13;
-            details.add(label("stone.range", TEXT, minimum, minimum + (minimum == 13 ? 2 : 5)));
+            boolean basic = item == ModItems.UPGRADE_STONE.get();
+            details.add(label("stone.range", TEXT, basic ? 1 : 7, basic ? 6 : 15));
             details.add(label("stone.cost", MUTED));
         }
-        if (scroll(item)) details.add(label(item == ModItems.DOWNGRADE_PROTECTION_SCROLL.get()
-                ? "scroll.downgrade" : "scroll.break", TEXT));
+        if (scroll(item)) details.add(label(item == ModItems.PROTECTION_SCROLL.get()
+                ? "scroll.protection" : "scroll.booster", TEXT));
         tooltip.addAll(2, details);
         String usage = null;
         if (item instanceof CoinItem) usage = "use.currency";
@@ -110,7 +106,7 @@ public final class NeoWorldItemTooltip {
     @SubscribeEvent(priority = EventPriority.LOWEST)
     public static void gather(RenderTooltipEvent.GatherComponents event) {
         if (!applies(event.getItemStack())) return;
-        int limit = Math.max(24, Math.min(240, event.getScreenWidth() - 28));
+        int limit = Math.max(24, Math.min(240, event.getScreenWidth() - NeoTooltipFrame.OUTER_MARGIN * 2));
         if (event.getMaxWidth() >= 0) limit = Math.min(limit, Math.max(24, event.getMaxWidth()));
         event.setMaxWidth(limit);
         var elements = event.getTooltipElements();
@@ -123,6 +119,25 @@ public final class NeoWorldItemTooltip {
     }
 
     @SubscribeEvent
+    public static void position(RenderTooltipEvent.Pre event) {
+        if (!applies(event.getItemStack()) || !(event.getTooltipPositioner() instanceof DefaultTooltipPositioner)) return;
+        int width = 0, height = event.getComponents().size() == 1 ? -2 : 0;
+        for (var component : event.getComponents()) {
+            width = Math.max(width, component.getWidth(event.getFont()));
+            height += component.getHeight();
+        }
+        var position = event.getTooltipPositioner().positionTooltip(event.getScreenWidth(), event.getScreenHeight(),
+                event.getX(), event.getY(), width, height);
+        int marginX = Math.min(NeoTooltipFrame.OUTER_MARGIN, Math.max(0, (event.getScreenWidth() - width) / 2));
+        int marginY = Math.min(NeoTooltipFrame.OUTER_MARGIN, Math.max(0, (event.getScreenHeight() - height) / 2));
+        int x = Math.max(marginX, Math.min(position.x(), event.getScreenWidth() - width - marginX));
+        int y = Math.max(marginY, Math.min(position.y(), event.getScreenHeight() - height - marginY));
+        // Vanilla offsets the text origin +12/-12 from the anchor. Reserve the decorative rim too.
+        if (x != position.x()) event.setX(x - 12);
+        if (y != position.y()) event.setY(y + 12);
+    }
+
+    @SubscribeEvent
     public static void frame(RenderTooltipEvent.Color event) {
         if (!applies(event.getItemStack())) return;
         int width = 0;
@@ -131,33 +146,8 @@ public final class NeoWorldItemTooltip {
             width = Math.max(width, component.getWidth(event.getFont()));
             height += component.getHeight();
         }
-        var graphics = event.getGraphics();
-        graphics.flush();
-        graphics.pose().pushPose();
-        try {
-            graphics.pose().translate(0, 0, 399);
-            // Keep the four-pixel border and add two pixels of content padding on every side.
-            int x = event.getX() - 6, y = event.getY() - 6;
-            graphics.fill(x + 2, y + 2, x + width + 10, y + height + 10, 0xFF191F23);
-            int[] dw = {4, width + 4, 4}, dh = {4, height + 4, 4};
-            int[] sw = {24, 812, 24}, sh = {24, 396, 24};
-            RenderSystem.enableBlend();
-            int ty = y, v = 0;
-            for (int row = 0; row < 3; row++) {
-                int tx = x, u = 0;
-                for (int column = 0; column < 3; column++) {
-                    if (row != 1 || column != 1) graphics.blit(FRAME, tx, ty, dw[column], dh[row], u, v,
-                            sw[column], sh[row], 860, 444);
-                    tx += dw[column];
-                    u += sw[column];
-                }
-                ty += dh[row];
-                v += sh[row];
-            }
-            graphics.flush();
-        } finally {
-            graphics.pose().popPose();
-        }
+        NeoTooltipFrame.render(event.getGraphics(), NeoTooltipRarity.of(event.getItemStack()),
+                event.getX(), event.getY(), width, height);
         event.setBackground(0);
         event.setBorderStart(0);
         event.setBorderEnd(0);

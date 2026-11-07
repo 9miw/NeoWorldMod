@@ -22,7 +22,7 @@ public class NoppesUtilPlayerMixin {
 
     /**
      * ดักจับการตรวจสอบไอเทมของผู้เล่นในระบบ Custom NPCs
-     * หากไอเทมที่ใช้ตรวจสอบคือ CoinItem (Silver, Gold, Diamond) จะเปลี่ยนไปเช็คยอดเงินในระบบ Economy แทน
+     * หากไอเทมที่ใช้ตรวจสอบคือ CoinItem (Silver, Diamond) จะเปลี่ยนไปเช็คยอดเงินในระบบ Economy แทน
      */
     @Inject(
             method = "compareItems(Lnet/minecraft/world/entity/player/Player;Lnet/minecraft/world/item/ItemStack;ZZ)Z",
@@ -45,7 +45,6 @@ public class NoppesUtilPlayerMixin {
                 // ฝั่ง Client สำหรับเรนเดอร์สถานะใน GUI Trader
                 boolean hasEnough = switch (coinItem.getCoinType()) {
                     case SILVER -> ClientEconomyData.getSilver() >= requiredAmount;
-                    case GOLD -> ClientEconomyData.getGold() >= requiredAmount;
                     case DIAMOND -> ClientEconomyData.getDiamond() >= requiredAmount;
                 };
                 cir.setReturnValue(hasEnough);
@@ -55,7 +54,6 @@ public class NoppesUtilPlayerMixin {
                     PlayerData data = player.getData(ModAttachments.PLAYER_DATA);
                     boolean hasEnough = switch (coinItem.getCoinType()) {
                         case SILVER -> data.hasEnoughSilver(requiredAmount);
-                        case GOLD -> data.hasEnoughGold(requiredAmount);
                         case DIAMOND -> data.hasEnoughDiamond(requiredAmount);
                     };
                     cir.setReturnValue(hasEnough);
@@ -76,28 +74,29 @@ public class NoppesUtilPlayerMixin {
             cancellable = true
     )
     private static void neoworld$onConsumeItem(Player player, ItemStack item, boolean ignoreDamage, boolean ignoreNBT, CallbackInfo ci) {
-        if (player == null || item == null || item.isEmpty()) {
-            return;
-        }
-
-        if (item.getItem() instanceof CoinItem coinItem) {
-            long deductAmount = CoinItem.getTotalValue(item);
-
-            if (!player.level().isClientSide() && player instanceof ServerPlayer serverPlayer) {
-                if (player.hasData(ModAttachments.PLAYER_DATA)) {
-                    PlayerData data = player.getData(ModAttachments.PLAYER_DATA);
-                    boolean paid = switch (coinItem.getCoinType()) {
-                        case SILVER -> data.removeSilver(deductAmount);
-                        case GOLD -> data.removeGold(deductAmount);
-                        case DIAMOND -> data.removeDiamond(deductAmount);
-                    };
-                    if (!paid) {
-                        NeoWorld.LOGGER.warn("Rejected invalid or unaffordable coin debit for {}", serverPlayer.getUUID());
-                    }
-                    PlayerEconomyManager.syncToClient(serverPlayer);
-                }
+        try (var analyticsScope = com.ambition.neoworld.economy.analytics.EconomyAnalytics.observe(player instanceof ServerPlayer p ? p : null, "customnpc_consume", "", "SINK")) {
+            if (player == null || item == null || item.isEmpty()) {
+                return;
             }
-            ci.cancel();
+
+            if (item.getItem() instanceof CoinItem coinItem) {
+                long deductAmount = CoinItem.getTotalValue(item);
+
+                if (!player.level().isClientSide() && player instanceof ServerPlayer serverPlayer) {
+                    if (player.hasData(ModAttachments.PLAYER_DATA)) {
+                        PlayerData data = player.getData(ModAttachments.PLAYER_DATA);
+                        boolean paid = switch (coinItem.getCoinType()) {
+                            case SILVER -> data.removeSilver(deductAmount);
+                            case DIAMOND -> data.removeDiamond(deductAmount);
+                        };
+                        if (!paid) {
+                            NeoWorld.LOGGER.warn("Rejected invalid or unaffordable coin debit for {}", serverPlayer.getUUID());
+                        }
+                        PlayerEconomyManager.syncToClient(serverPlayer);
+                    }
+                }
+                ci.cancel();
+            }
         }
     }
 }

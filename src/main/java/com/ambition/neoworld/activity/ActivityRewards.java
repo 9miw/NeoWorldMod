@@ -19,13 +19,13 @@ public record ActivityRewards(ActivityReward daily, List<ActivityReward> monthly
         var heal = new ActivityReward.ItemGrant("minecraft:potion", 1, "minecraft:healing");
         var stone = new ActivityReward.ItemGrant("neoworld:upgrade_stone", 1, "");
         var monthly = new ArrayList<ActivityReward>();
-        for (int day = 1; day <= 28; day++) {
+        for (int day = 1; day <= 30; day++) {
             monthly.add(new ActivityReward(day % 7 == 0 ? day * 100L : 50,
-                    day % 7 == 0 ? List.of(new ActivityReward.ItemGrant(stone.item(), day / 7, "")) : List.of()));
+                    day % 7 == 0 ? List.of(new ActivityReward.ItemGrant(stone.item(), day / 7, "")) : List.of()).itemRewards());
         }
-        return new ActivityRewards(new ActivityReward(100, List.of(heal)), monthly,
-                List.of(new ActivityReward(0, List.of(heal)), new ActivityReward(100, List.of()),
-                        new ActivityReward(0, List.of(stone)), new ActivityReward(300, List.of(stone, heal))), 300);
+        return new ActivityRewards(new ActivityReward(100, List.of(heal)).itemRewards(), monthly,
+                List.of(new ActivityReward(0, List.of(heal)), new ActivityReward(100, List.of()).itemRewards(),
+                        new ActivityReward(0, List.of(stone)), new ActivityReward(300, List.of(stone, heal)).itemRewards()), 300);
     }
     public static Path path() { return FMLPaths.CONFIGDIR.get().resolve("neoworld/activity-rewards.json"); }
     public static ActivityRewards load() throws java.io.IOException {
@@ -42,9 +42,17 @@ public record ActivityRewards(ActivityReward daily, List<ActivityReward> monthly
         for (var value : json.getAsJsonArray("monthly")) monthly.add(parse(value.getAsJsonObject()));
         for (var value : json.getAsJsonArray("online")) online.add(parse(value.getAsJsonObject()));
         int afk = com.mojang.serialization.Codec.intRange(1, 3600).parse(JsonOps.INSTANCE, json.get("afkSeconds")).getOrThrow();
-        if (monthly.size() != 28 || online.size() != 4 || afk < 1 || afk > 3600)
-            throw new IllegalArgumentException("Expected 28 monthly, 4 online rewards and afkSeconds in 1..3600");
+        // Keep existing 28-day custom entries; add defaults for the two new days in memory.
+        monthly = new ArrayList<>(upgradeMonthly(monthly));
+        if (online.size() != 4 || afk < 1 || afk > 3600)
+            throw new IllegalArgumentException("Expected 30 monthly, 4 online rewards and afkSeconds in 1..3600");
         return new ActivityRewards(daily, monthly, online, afk);
+    }
+    public static List<ActivityReward> upgradeMonthly(List<ActivityReward> previous) {
+        var result = new ArrayList<>(previous);
+        if (result.size() == 28) result.addAll(defaults().monthly().subList(28, 30));
+        if (result.size() != 30) throw new IllegalArgumentException("Expected 30 monthly rewards (legacy 28 supported)");
+        return List.copyOf(result);
     }
     public static JsonObject toJson(ActivityRewards rewards) {
         var json = new JsonObject();
@@ -58,6 +66,6 @@ public record ActivityRewards(ActivityReward daily, List<ActivityReward> monthly
         var reward = ActivityReward.CODEC.parse(JsonOps.INSTANCE, json).getOrThrow();
         if (reward.items().size() > 16 || reward.silver() == 0 && reward.items().isEmpty())
             throw new IllegalArgumentException("Reward must be nonempty and have at most 16 item entries");
-        return reward;
+        return reward.itemRewards();
     }
 }

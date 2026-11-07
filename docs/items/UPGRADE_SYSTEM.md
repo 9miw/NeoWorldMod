@@ -1,40 +1,46 @@
-# Upgrade server core
+# แกนเซิร์ฟเวอร์ระบบอัปเกรด
 
-Implemented: per-stack level/failure metadata, server config, eligible-item tag, outcome rules, `UpgradeService.attempt`, and derived equipment combat modifiers. No player command, network request, table menu, or material drop source is connected yet.
+ทำแล้ว: เมทาดาทาเลเวล/ล้มเหลวรายสแต็ก คอนฟิกเซิร์ฟเวอร์ แท็กไอเทมเข้าเกณฑ์ กฎผล จ่าย/ใช้ทรัพยากรฝั่งเซิร์ฟเวอร์ มอดิไฟเออร์ต่อสู้อุปกรณ์ที่คำนวณจากข้อมูล และเมนู/จอโต๊ะแบบ A พร้อมเพย์โหลดคำขอ ยังไม่เชื่อมแหล่งดรอปวัตถุดิบหรือคำสั่งผู้เล่น
 
-## Costs and eligibility
+## ต้นทุนและเงื่อนไข
 
-Server config: `neoworld-upgrade.toml` in the world's server config directory. Target levels 1..15 have independent Gold and stone costs. Defaults: Gold = 100 * target level squared; stones = 1 for +1..+6, 2 for +7..+12, 3 for +13..+15. Currency is the existing player Gold balance, not physical coin items. Every accepted attempt spends its full cost, including a selected protection scroll, regardless of outcome. Rejected attempts spend nothing.
+หินมีสองชนิด: พื้นฐานสำหรับเป้าหมาย +1..+6 และขั้นสูง +7..+15 ไม่ลงทะเบียน supreme stone เก่าแล้ว จำนวนหิน Silver และโอกาสสำเร็จ/ล้มเหลวแต่ละขั้นไม่เปลี่ยน เป้าหมาย +13..+15 ยังเริ่มต้นสามก้อน แต่ใช้หินขั้นสูง
 
-`data/neoworld/tags/item/upgradeable.json` opts in swords, axes, tridents, vanilla armor and NeoWorld equipment. Add custom Epic Fight items through this tag (explicit server opt-in) or `upgrade.extraAllowedItems` for recognized SwordItem/AxeItem/TridentItem/ArmorItem classes. Single-item, non-stackable equipment is required. Eligibility does not implement Epic Fight combat bonuses.
+คอนฟิกเซิร์ฟเวอร์ `config/neoworld/upgrade.toml` เป้าหมาย 1..15 แยกต้นทุน Silver/หิน ค่าเริ่มต้น Silver = 100 * เลเวลเป้าหมายยกกำลังสอง หินหนึ่งสำหรับ +1..+6 สองสำหรับ +7..+12 สามสำหรับ +13..+15 ใช้ยอด Silver ผู้เล่นเดิม ไม่ใช่ไอเทมเหรียญ ทุกความพยายามที่รับจ่ายเต็ม รวมสกรอลล์ป้องกันที่เลือก ไม่ว่าผลใด คำขอถูกปฏิเสธไม่จ่าย
 
-## Outcome and protection rules
+`data/neoworld/tags/item/upgradeable.json` เปิดรับดาบ ขวาน ตรีศูล เกราะ Vanilla และอุปกรณ์ NeoWorld เพิ่มไอเทม Epic Fight ผ่านแท็กนี้โดยเซิร์ฟเวอร์เลือกชัด หรือ `upgrade.extraAllowedItems` สำหรับคลาส SwordItem/AxeItem/TridentItem/ArmorItem ที่รู้จัก ต้องเป็นอุปกรณ์ชิ้นเดียวซ้อนไม่ได้ การเข้าเกณฑ์ไม่ได้ทำโบนัสต่อสู้ Epic Fight ให้เอง
 
-The configured chances are success, unchanged, downgrade, reset-to-zero, totaling 100. Failure bonus defaults to one percentage point per stored failure, capped at five. It transfers probability from unchanged first, then downgrade, then reset. There are no level checkpoints; downgrade stops at zero.
+## กฎผลและป้องกัน
 
-Exactly one protection choice: none, downgrade scroll, or break scroll. Downgrade protection changes a downgrade into unchanged but does not prevent reset-to-zero. Break protection changes reset-to-zero into downgrade. The scroll is consumed on every accepted attempt. Success and an actual reset clear failure points; unchanged and downgrade increment them, including a protected break converted to downgrade. The counter saturates at Integer.MAX_VALUE.
+โอกาสตั้งค่าเป็นสำเร็จ ไม่เปลี่ยน ลดขั้น รีเซ็ตศูนย์ รวม 100 โบนัสล้มเหลวเริ่มหนึ่งจุดเปอร์เซ็นต์ต่อครั้งที่เก็บ ไม่เกินห้า ย้ายโอกาสจากไม่เปลี่ยนก่อน ต่อด้วยลดขั้นและรีเซ็ต ไม่มีจุดประกันเลเวล ลดขั้นต่ำสุดศูนย์
 
-## Future caller contract
+ป้องกันใช้ไอเทมเดียว `neoworld:protection_scroll` เปลี่ยนผลลดขั้นและรีเซ็ตเป็นไม่เปลี่ยน ใช้ร่วม `neoworld:success_booster` หนึ่งชิ้นต่อครั้งได้ เพิ่มสำเร็จสิบจุดเปอร์เซ็นต์เหนือ pity ไม่เกิน 100 ทั้งสองเป็นของเสริม ใช้อย่างละหนึ่งทุกความพยายามที่รับ รวมสำเร็จ คำขอถูกปฏิเสธไม่ใช้ทั้งคู่ สำเร็จและรีเซ็ตจริงที่ไม่ป้องกันล้าง pity ล้มเหลวที่ป้องกันเพิ่ม pity รายการรีจิสทรีสกรอลล์ downgrade/break เก่าถูกแทนด้วยของใหม่ ยังไม่มีแปลงสแต็กเก่าอัตโนมัติ
 
-Invoke `UpgradeService.attempt` on the server thread with distinct main-inventory indices (0..35), an independent server-owned copy of the equipment shown in the preview, and protection slot -1 when none is selected. The service compares the current stack against that snapshot, rechecks costs/materials/eligibility, rolls on the server, prepares an updated copy preserving enchantments and other components, charges Gold, consumes resources, and broadcasts inventory and balance changes.
+โต๊ะมีช่องเอสโครว์สี่ช่อง อุปกรณ์ หิน ป้องกันรวม booster เปลี่ยนช่องใดก็ทำรีวิชันเซิร์ฟเวอร์ใช้ไม่ได้ การส่ง shift-click และคืนเมื่อปิดครอบคลุมสี่ช่อง UI ใช้ `UpgradeRules.combinedBonus` เดียวกับเซิร์ฟเวอร์และแสดงเฉพาะเปอร์เซ็นต์สำเร็จสุดท้าย เพิ่มโปรโตคอลสำหรับช่องที่เปลี่ยน ทั้งคู่ต้องรุ่นเดียว ทางเข้าบริการคลังผู้เล่นเดิมรองรับป้องกันโดยไม่มี booster โต๊ะส่ง booster เสริมผ่านธุรกรรมร่วม
 
-Before exposing it through a table or packet, the caller must verify the menu session, table access/distance, player permissions, request identity, and that the preview snapshot belongs to that session. Do not pass an arbitrary client stack as the trusted preview. Return fresh preview data after each attempt. This service does not authorize remote table access by itself.
+ไอคอนสร้างด้วย imagegen ในตัว: ม้วนกระดาษโล่ทีล/ลูกศรทองสำหรับป้องกันรวม คริสตัลมรกต/เชฟรอนทองสำหรับ booster ต้นฉบับ `docs/items/protection_scroll-source.png`, `success_booster-source.png` เท็กซ์เจอร์ RGBA 64x64 ที่ปรับและโมเดลอยู่พาธไอเทมปกติ `tools/prepare_upgrade_consumable_icons.py` ส่งออกซ้ำและสร้าง `docs/items/upgrade-consumables-preview.png`
 
-## Equipment bonuses
+## สัญญาการเรียกใช้
 
-`upgrade.bonuses` config defaults:
+เรียก `UpgradeService.attempt` บนเธรดเซิร์ฟเวอร์ พร้อมดัชนีคลังหลักไม่ซ้ำ (0..35) สำเนาอิสระที่เซิร์ฟเวอร์เป็นเจ้าของของอุปกรณ์ในพรีวิว และช่องป้องกัน -1 เมื่อไม่เลือก บริการเทียบสแต็กปัจจุบันกับสแนปช็อต ตรวจต้นทุน/วัตถุดิบ/เกณฑ์ซ้ำ สุ่มบนเซิร์ฟเวอร์ เตรียมสำเนาใหม่ที่คงเอนชานต์และคอมโพเนนต์ หัก Silver ใช้ทรัพยากร และส่งการเปลี่ยนคลัง/ยอด
 
-| Key | Default | Meaning |
+ก่อนเปิดผ่านโต๊ะหรือแพ็กเก็ต ผู้เรียกต้องตรวจเซสชันเมนู การเข้าถึง/ระยะโต๊ะ สิทธิ์ผู้เล่น ตัวตนคำขอ และสแนปช็อตพรีวิวเป็นของเซสชันนั้น ห้ามเชื่อสแต็กใด ๆ จากไคลเอนต์เป็นพรีวิวที่เชื่อถือ ส่งพรีวิวใหม่หลังทุกครั้ง บริการนี้ไม่ได้อนุญาตใช้โต๊ะระยะไกลเอง
+
+## โบนัสอุปกรณ์
+
+ค่าเริ่มต้นคอนฟิก `upgrade.bonuses`:
+
+| คีย์ | ค่าเริ่มต้น | ความหมาย |
 |---|---|---|
-| `damagePercentPerLevel` | 3.0 | Percent of original weapon damage per level |
-| `impactPerLevel` | 0.10 | Flat Epic Fight Impact per level |
-| `armorPerLevel` | 0.20 | Flat Armor per level, per equipped armor piece |
-| `stunArmorPerLevel` | 0.10 | Flat Epic Fight Stun Armor per level, per equipped armor piece |
+| `damagePercentPerLevel` | 3.0 | เปอร์เซ็นต์ดาเมจอาวุธต้นฉบับต่อเลเวล |
+| `impactPerLevel` | 0.10 | ค่า Epic Fight Impact แบบคงที่ต่อเลเวล |
+| `armorPerLevel` | 0.20 | ค่า Armor แบบคงที่ต่อเลเวลต่อเกราะที่สวม |
+| `stunArmorPerLevel` | 0.10 | ค่า Epic Fight Stun Armor แบบคงที่ต่อเลเวลต่อเกราะที่สวม |
 
-Rates accept 0..100; zero disables that bonus. Original weapon damage is standard player base damage 1 plus the item's original main-hand damage modifiers, evaluated with their operations. It excludes enchantments, player effects, other event-added modifiers, and any style-specific weapon capability damage. Thus the NeoWorld example sword's base 50 gets +22.5 at +15. Weapon bonuses apply only in the main hand; armor bonuses apply only in each piece's proper slot. Explicitly tagged non-armor equipment without a main-hand attack-damage modifier gets no weapon bonus.
+อัตรารับ 0..100 ศูนย์ปิดโบนัสนั้น ดาเมจอาวุธต้นฉบับคือดาเมจพื้นฐานผู้เล่นมาตรฐาน 1 บวกมอดิไฟเออร์ดาเมจมือหลักต้นฉบับไอเทม โดยประเมินตาม operation ไม่รวมเอนชานต์ เอฟเฟกต์ผู้เล่น มอดิไฟเออร์จากอีเวนต์อื่น หรือดาเมจ capability อาวุธเฉพาะสไตล์ ดาบตัวอย่าง NeoWorld พื้นฐาน 50 จึงได้ +22.5 ที่ +15 โบนัสอาวุธเฉพาะมือหลัก โบนัสเกราะเฉพาะช่องถูกต้องของชิ้นนั้น อุปกรณ์ที่ไม่ใช่เกราะแต่ติดแท็กชัดเจนและไม่มีมอดิไฟเออร์ attack-damage มือหลักไม่ได้โบนัสอาวุธ
 
-`UpgradeAttributeHandler` uses `ItemAttributeModifierEvent` on both logical sides. The installed Epic Fight build's `CapabilityItem.getAttributeModifiersAsWeapon` reads `ItemStack.getAttributeModifiers()` before adding capability modifiers, so this hook reaches its weapon attribute calculation. No capability, enchantment, or original attribute component is rewritten. Stable IDs under `neoworld:upgrade_bonus/` are removed and replaced per query, with distinct armor-slot IDs. A lower level changes the derived amount; +0 adds none. Configuration must be loaded before applying bonuses. After editing/reloading bonus config, re-equip affected gear to refresh the equipped attribute instances.
+`UpgradeAttributeHandler` ใช้ `ItemAttributeModifierEvent` ทั้งสอง logical side Epic Fight ที่ติดตั้งอ่าน `ItemStack.getAttributeModifiers()` ใน `CapabilityItem.getAttributeModifiersAsWeapon` ก่อนเพิ่ม capability modifier hook นี้จึงถึงการคำนวณอาวุธ ไม่เขียน capability เอนชานต์ หรือคอมโพเนนต์แอตทริบิวต์ต้นฉบับใหม่ ID คงที่ใต้ `neoworld:upgrade_bonus/` ถูกลบ/แทนทุก query โดยเกราะแยก ID ตามช่อง เลเวลต่ำลดค่าคำนวณ +0 ไม่เพิ่ม ต้องโหลดคอนฟิกก่อนใช้โบนัส หลังแก้/รีโหลดคอนฟิกโบนัสให้ถอดใส่อุปกรณ์ที่เกี่ยวข้องเพื่อรีเฟรชแอตทริบิวต์ขณะสวม
 
-## Verification details
+## รายละเอียดตรวจสอบ
 
-`UpgradeRulesRegressionTest` checks all 100 rolls for the +15 pity distribution, both scroll behaviors, success/reset counter clearing, zero level floor, counter overflow, full-bonus transfer, and invalid requests. `UpgradeBonusRegressionTest` checks percentage and flat bonus arithmetic, downgrade/reset amounts, four-piece armor totals, disabled rates, and invalid inputs. These are pure logic tests, not equipped-attribute or combat integration tests. Compile project Java with `compileJava`. Inventory payment, networking, equip/unequip, login/respawn, and Epic Fight combat still require in-game verification.
+`UpgradeRulesRegressionTest` ตรวจผลสุ่มครบ 100 ค่าของการกระจาย pity +15 พฤติกรรมสกรอลล์ทั้งสอง การล้างตัวนับสำเร็จ/รีเซ็ต พื้นเลเวลศูนย์ ตัวนับล้น โอนโบนัสเต็ม และคำขอผิด `UpgradeBonusRegressionTest` ตรวจคำนวณโบนัสเปอร์เซ็นต์/คงที่ ค่าลดขั้น/รีเซ็ต รวมเกราะสี่ชิ้น อัตราปิด และอินพุตผิด เป็นการทดสอบตรรกะล้วน ไม่ใช่แอตทริบิวต์ขณะสวมหรือการต่อสู้รวม คอมไพล์ Java ด้วย `compileJava` การจ่ายคลัง เครือข่าย สวม/ถอด เข้าเกม/เกิดใหม่ และต่อสู้ Epic Fight ยังต้องตรวจในเกม

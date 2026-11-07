@@ -1,0 +1,8432 @@
+{
+  "format": "Minecraft Java 1.21.1",
+  "dataVersion": 3955,
+  "footprint": [
+    384,
+    384
+  ],
+  "chunks": 576,
+  "spawn": [
+    160,
+    98,
+    310
+  ],
+  "floorY": 24,
+  "rooms": [
+    {
+      "name": "Spawn",
+      "bounds": [
+        134,
+        281,
+        186,
+        333
+      ],
+      "center": [
+        160,
+        98,
+        310
+      ]
+    },
+    {
+      "id": "03-streets-square",
+      "name": "Streets / Square",
+      "bounds": [
+        112,
+        150,
+        208,
+        301
+      ],
+      "center": [
+        160,
+        104,
+        215
+      ],
+      "floorY": 103,
+      "squareBounds": [
+        149,
+        197,
+        171,
+        233
+      ],
+      "mainPathWidth": 13,
+      "sidePathWidth": 5,
+      "spawnBaseY": 97,
+      "heightDifference": 6,
+      "status": "Long avenue with tapered fountain widening; surrounding buildings pending",
+      "sideFloorY": 103,
+      "details": {
+        "axis": [
+          160,
+          150,
+          160,
+          301
+        ],
+        "mainWidth": 13,
+        "mainLength": 152,
+        "fountainWidening": {
+          "z": [
+            197,
+            233
+          ],
+          "maxWidth": 23,
+          "shape": "tapered curved widening"
+        },
+        "profile": [
+          {
+            "z": 150,
+            "y": 108,
+            "width": 13,
+            "stairs": false
+          },
+          {
+            "z": 151,
+            "y": 108,
+            "width": 13,
+            "stairs": false
+          },
+          {
+            "z": 152,
+            "y": 108,
+            "width": 13,
+            "stairs": false
+          },
+          {
+            "z": 153,
+            "y": 108,
+            "width": 13,
+            "stairs": false
+          },
+          {
+            "z": 154,
+            "y": 108,
+            "width": 13,
+            "stairs": false
+          },
+          {
+            "z": 155,
+            "y": 108,
+            "width": 13,
+            "stairs": false
+          },
+          {
+            "z": 156,
+            "y": 108,
+            "width": 13,
+            "stairs": true
+          },
+          {
+            "z": 157,
+            "y": 107,
+            "width": 13,
+            "stairs": false
+          },
+          {
+            "z": 158,
+            "y": 107,
+            "width": 13,
+            "stairs": false
+          },
+          {
+            "z": 159,
+            "y": 107,
+            "width": 13,
+            "stairs": true
+          },
+          {
+            "z": 160,
+            "y": 106,
+            "width": 13,
+            "stairs": false
+          },
+          {
+            "z": 161,
+            "y": 106,
+            "width": 13,
+            "stairs": false
+          },
+          {
+            "z": 162,
+            "y": 106,
+            "width": 13,
+            "stairs": true
+          },
+          {
+            "z": 163,
+            "y": 105,
+            "width": 13,
+            "stairs": false
+          },
+          {
+            "z": 164,
+            "y": 105,
+            "width": 13,
+            "stairs": false
+          },
+          {
+            "z": 165,
+            "y": 105,
+            "width": 13,
+            "stairs": true
+          },
+          {
+            "z": 166,
+            "y": 104,
+            "width": 13,
+            "stairs": false
+          },
+          {
+            "z": 167,
+            "y": 104,
+            "width": 13,
+            "stairs": false
+          },
+          {
+            "z": 168,
+            "y": 104,
+            "width": 13,
+            "stairs": true
+          },
+          {
+            "z": 169,
+            "y": 103,
+            "width": 13,
+            "stairs": false
+          },
+          {
+            "z": 170,
+            "y": 103,
+            "width": 13,
+            "stairs": false
+          },
+          {
+            "z": 171,
+            "y": 103,
+            "width": 13,
+            "stairs": false
+          },
+          {
+            "z": 172,
+            "y": 103,
+            "width": 13,
+            "stairs": false
+          },
+          {
+            "z": 173,
+            "y": 103,
+            "width": 13,
+            "stairs": false
+          },
+          {
+            "z": 174,
+            "y": 103,
+            "width": 13,
+            "stairs": false
+          },
+          {
+            "z": 175,
+            "y": 103,
+            "width": 13,
+            "stairs": false
+          },
+          {
+            "z": 176,
+            "y": 103,
+            "width": 13,
+            "stairs": false
+          },
+          {
+            "z": 177,
+            "y": 103,
+            "width": 13,
+            "stairs": false
+          },
+          {
+            "z": 178,
+            "y": 103,
+            "width": 13,
+            "stairs": false
+          },
+          {
+            "z": 179,
+            "y": 103,
+            "width": 13,
+            "stairs": false
+          },
+          {
+            "z": 180,
+            "y": 103,
+            "width": 13,
+            "stairs": false
+          },
+          {
+            "z": 181,
+            "y": 103,
+            "width": 13,
+            "stairs": false
+          },
+          {
+            "z": 182,
+            "y": 103,
+            "width": 13,
+            "stairs": false
+          },
+          {
+            "z": 183,
+            "y": 103,
+            "width": 13,
+            "stairs": false
+          },
+          {
+            "z": 184,
+            "y": 103,
+            "width": 13,
+            "stairs": false
+          },
+          {
+            "z": 185,
+            "y": 103,
+            "width": 13,
+            "stairs": false
+          },
+          {
+            "z": 186,
+            "y": 103,
+            "width": 13,
+            "stairs": false
+          },
+          {
+            "z": 187,
+            "y": 103,
+            "width": 13,
+            "stairs": false
+          },
+          {
+            "z": 188,
+            "y": 103,
+            "width": 13,
+            "stairs": false
+          },
+          {
+            "z": 189,
+            "y": 103,
+            "width": 13,
+            "stairs": false
+          },
+          {
+            "z": 190,
+            "y": 103,
+            "width": 13,
+            "stairs": false
+          },
+          {
+            "z": 191,
+            "y": 103,
+            "width": 13,
+            "stairs": false
+          },
+          {
+            "z": 192,
+            "y": 103,
+            "width": 13,
+            "stairs": false
+          },
+          {
+            "z": 193,
+            "y": 103,
+            "width": 13,
+            "stairs": false
+          },
+          {
+            "z": 194,
+            "y": 103,
+            "width": 13,
+            "stairs": false
+          },
+          {
+            "z": 195,
+            "y": 103,
+            "width": 13,
+            "stairs": false
+          },
+          {
+            "z": 196,
+            "y": 103,
+            "width": 13,
+            "stairs": false
+          },
+          {
+            "z": 197,
+            "y": 103,
+            "width": 13,
+            "stairs": false
+          },
+          {
+            "z": 198,
+            "y": 103,
+            "width": 13,
+            "stairs": false
+          },
+          {
+            "z": 199,
+            "y": 103,
+            "width": 13,
+            "stairs": false
+          },
+          {
+            "z": 200,
+            "y": 103,
+            "width": 13,
+            "stairs": false
+          },
+          {
+            "z": 201,
+            "y": 103,
+            "width": 15,
+            "stairs": false
+          },
+          {
+            "z": 202,
+            "y": 103,
+            "width": 15,
+            "stairs": false
+          },
+          {
+            "z": 203,
+            "y": 103,
+            "width": 15,
+            "stairs": false
+          },
+          {
+            "z": 204,
+            "y": 103,
+            "width": 17,
+            "stairs": false
+          },
+          {
+            "z": 205,
+            "y": 103,
+            "width": 17,
+            "stairs": false
+          },
+          {
+            "z": 206,
+            "y": 103,
+            "width": 19,
+            "stairs": false
+          },
+          {
+            "z": 207,
+            "y": 103,
+            "width": 19,
+            "stairs": false
+          },
+          {
+            "z": 208,
+            "y": 103,
+            "width": 19,
+            "stairs": false
+          },
+          {
+            "z": 209,
+            "y": 103,
+            "width": 21,
+            "stairs": false
+          },
+          {
+            "z": 210,
+            "y": 103,
+            "width": 21,
+            "stairs": false
+          },
+          {
+            "z": 211,
+            "y": 103,
+            "width": 21,
+            "stairs": false
+          },
+          {
+            "z": 212,
+            "y": 103,
+            "width": 23,
+            "stairs": false
+          },
+          {
+            "z": 213,
+            "y": 103,
+            "width": 23,
+            "stairs": false
+          },
+          {
+            "z": 214,
+            "y": 103,
+            "width": 23,
+            "stairs": false
+          },
+          {
+            "z": 215,
+            "y": 103,
+            "width": 23,
+            "stairs": false
+          },
+          {
+            "z": 216,
+            "y": 103,
+            "width": 23,
+            "stairs": false
+          },
+          {
+            "z": 217,
+            "y": 103,
+            "width": 23,
+            "stairs": false
+          },
+          {
+            "z": 218,
+            "y": 103,
+            "width": 23,
+            "stairs": false
+          },
+          {
+            "z": 219,
+            "y": 103,
+            "width": 21,
+            "stairs": false
+          },
+          {
+            "z": 220,
+            "y": 103,
+            "width": 21,
+            "stairs": false
+          },
+          {
+            "z": 221,
+            "y": 103,
+            "width": 21,
+            "stairs": false
+          },
+          {
+            "z": 222,
+            "y": 103,
+            "width": 19,
+            "stairs": false
+          },
+          {
+            "z": 223,
+            "y": 103,
+            "width": 19,
+            "stairs": false
+          },
+          {
+            "z": 224,
+            "y": 103,
+            "width": 19,
+            "stairs": false
+          },
+          {
+            "z": 225,
+            "y": 103,
+            "width": 17,
+            "stairs": false
+          },
+          {
+            "z": 226,
+            "y": 103,
+            "width": 17,
+            "stairs": false
+          },
+          {
+            "z": 227,
+            "y": 103,
+            "width": 15,
+            "stairs": false
+          },
+          {
+            "z": 228,
+            "y": 103,
+            "width": 15,
+            "stairs": false
+          },
+          {
+            "z": 229,
+            "y": 103,
+            "width": 15,
+            "stairs": false
+          },
+          {
+            "z": 230,
+            "y": 103,
+            "width": 13,
+            "stairs": false
+          },
+          {
+            "z": 231,
+            "y": 103,
+            "width": 13,
+            "stairs": false
+          },
+          {
+            "z": 232,
+            "y": 103,
+            "width": 13,
+            "stairs": false
+          },
+          {
+            "z": 233,
+            "y": 103,
+            "width": 13,
+            "stairs": false
+          },
+          {
+            "z": 234,
+            "y": 103,
+            "width": 13,
+            "stairs": false
+          },
+          {
+            "z": 235,
+            "y": 103,
+            "width": 13,
+            "stairs": false
+          },
+          {
+            "z": 236,
+            "y": 103,
+            "width": 13,
+            "stairs": false
+          },
+          {
+            "z": 237,
+            "y": 103,
+            "width": 13,
+            "stairs": false
+          },
+          {
+            "z": 238,
+            "y": 103,
+            "width": 13,
+            "stairs": false
+          },
+          {
+            "z": 239,
+            "y": 103,
+            "width": 13,
+            "stairs": false
+          },
+          {
+            "z": 240,
+            "y": 103,
+            "width": 13,
+            "stairs": false
+          },
+          {
+            "z": 241,
+            "y": 103,
+            "width": 13,
+            "stairs": false
+          },
+          {
+            "z": 242,
+            "y": 103,
+            "width": 13,
+            "stairs": false
+          },
+          {
+            "z": 243,
+            "y": 103,
+            "width": 13,
+            "stairs": false
+          },
+          {
+            "z": 244,
+            "y": 103,
+            "width": 13,
+            "stairs": false
+          },
+          {
+            "z": 245,
+            "y": 103,
+            "width": 13,
+            "stairs": false
+          },
+          {
+            "z": 246,
+            "y": 103,
+            "width": 13,
+            "stairs": false
+          },
+          {
+            "z": 247,
+            "y": 103,
+            "width": 13,
+            "stairs": false
+          },
+          {
+            "z": 248,
+            "y": 103,
+            "width": 13,
+            "stairs": false
+          },
+          {
+            "z": 249,
+            "y": 103,
+            "width": 13,
+            "stairs": false
+          },
+          {
+            "z": 250,
+            "y": 103,
+            "width": 13,
+            "stairs": false
+          },
+          {
+            "z": 251,
+            "y": 103,
+            "width": 13,
+            "stairs": false
+          },
+          {
+            "z": 252,
+            "y": 103,
+            "width": 13,
+            "stairs": false
+          },
+          {
+            "z": 253,
+            "y": 103,
+            "width": 13,
+            "stairs": false
+          },
+          {
+            "z": 254,
+            "y": 103,
+            "width": 13,
+            "stairs": false
+          },
+          {
+            "z": 255,
+            "y": 103,
+            "width": 13,
+            "stairs": false
+          },
+          {
+            "z": 256,
+            "y": 103,
+            "width": 13,
+            "stairs": false
+          },
+          {
+            "z": 257,
+            "y": 103,
+            "width": 13,
+            "stairs": false
+          },
+          {
+            "z": 258,
+            "y": 103,
+            "width": 13,
+            "stairs": false
+          },
+          {
+            "z": 259,
+            "y": 103,
+            "width": 13,
+            "stairs": false
+          },
+          {
+            "z": 260,
+            "y": 103,
+            "width": 13,
+            "stairs": false
+          },
+          {
+            "z": 261,
+            "y": 103,
+            "width": 13,
+            "stairs": false
+          },
+          {
+            "z": 262,
+            "y": 103,
+            "width": 13,
+            "stairs": false
+          },
+          {
+            "z": 263,
+            "y": 103,
+            "width": 13,
+            "stairs": false
+          },
+          {
+            "z": 264,
+            "y": 103,
+            "width": 13,
+            "stairs": false
+          },
+          {
+            "z": 265,
+            "y": 103,
+            "width": 13,
+            "stairs": false
+          },
+          {
+            "z": 266,
+            "y": 103,
+            "width": 13,
+            "stairs": false
+          },
+          {
+            "z": 267,
+            "y": 103,
+            "width": 13,
+            "stairs": false
+          },
+          {
+            "z": 268,
+            "y": 103,
+            "width": 13,
+            "stairs": false
+          },
+          {
+            "z": 269,
+            "y": 103,
+            "width": 13,
+            "stairs": false
+          },
+          {
+            "z": 270,
+            "y": 103,
+            "width": 13,
+            "stairs": false
+          },
+          {
+            "z": 271,
+            "y": 103,
+            "width": 13,
+            "stairs": false
+          },
+          {
+            "z": 272,
+            "y": 103,
+            "width": 13,
+            "stairs": false
+          },
+          {
+            "z": 273,
+            "y": 103,
+            "width": 13,
+            "stairs": false
+          },
+          {
+            "z": 274,
+            "y": 103,
+            "width": 13,
+            "stairs": false
+          },
+          {
+            "z": 275,
+            "y": 103,
+            "width": 13,
+            "stairs": false
+          },
+          {
+            "z": 276,
+            "y": 103,
+            "width": 13,
+            "stairs": false
+          },
+          {
+            "z": 277,
+            "y": 103,
+            "width": 13,
+            "stairs": false
+          },
+          {
+            "z": 278,
+            "y": 103,
+            "width": 13,
+            "stairs": false
+          }
+        ],
+        "lamps": [
+          [
+            151,
+            108,
+            155
+          ],
+          [
+            169,
+            108,
+            155
+          ],
+          [
+            151,
+            103,
+            175
+          ],
+          [
+            169,
+            103,
+            175
+          ],
+          [
+            151,
+            103,
+            195
+          ],
+          [
+            169,
+            103,
+            195
+          ],
+          [
+            146,
+            103,
+            210
+          ],
+          [
+            174,
+            103,
+            210
+          ],
+          [
+            151,
+            103,
+            235
+          ],
+          [
+            169,
+            103,
+            235
+          ],
+          [
+            151,
+            103,
+            249
+          ],
+          [
+            169,
+            103,
+            249
+          ],
+          [
+            151,
+            103,
+            272
+          ],
+          [
+            169,
+            103,
+            272
+          ],
+          [
+            123,
+            103,
+            210
+          ],
+          [
+            197,
+            103,
+            210
+          ]
+        ],
+        "benches": [
+          [
+            150,
+            104,
+            232
+          ],
+          [
+            170,
+            104,
+            232
+          ],
+          [
+            150,
+            104,
+            244
+          ],
+          [
+            170,
+            104,
+            244
+          ]
+        ],
+        "beds": [
+          [
+            149,
+            205
+          ],
+          [
+            149,
+            237
+          ],
+          [
+            169,
+            205
+          ],
+          [
+            169,
+            237
+          ]
+        ],
+        "flags": [
+          [
+            151,
+            104,
+            178
+          ],
+          [
+            169,
+            104,
+            178
+          ]
+        ],
+        "trees": [
+          {
+            "asset": "t210",
+            "center": [
+              146,
+              104,
+              190
+            ],
+            "rotation": 0,
+            "blocks": 77,
+            "size": [
+              5,
+              17,
+              5
+            ]
+          },
+          {
+            "asset": "t210",
+            "center": [
+              174,
+              104,
+              190
+            ],
+            "rotation": 90,
+            "blocks": 77,
+            "size": [
+              5,
+              17,
+              5
+            ]
+          },
+          {
+            "asset": "t210",
+            "center": [
+              146,
+              104,
+              225
+            ],
+            "rotation": 180,
+            "blocks": 77,
+            "size": [
+              5,
+              17,
+              5
+            ]
+          },
+          {
+            "asset": "t210",
+            "center": [
+              174,
+              104,
+              225
+            ],
+            "rotation": 270,
+            "blocks": 77,
+            "size": [
+              5,
+              17,
+              5
+            ]
+          }
+        ],
+        "fountain": {
+          "center": [
+            160,
+            104,
+            215
+          ],
+          "bounds": [
+            155,
+            103,
+            210,
+            165,
+            110,
+            220
+          ],
+          "water": "real water; sealed lower basin"
+        },
+        "sideRoads": [
+          [
+            112,
+            212,
+            148,
+            218
+          ],
+          [
+            172,
+            212,
+            208,
+            218
+          ]
+        ]
+      },
+      "avenueLandscaping": {
+        "mainPathWidth": 13,
+        "treeRowsX": [
+          146,
+          174
+        ],
+        "newTrees": [
+          {
+            "asset": "t210",
+            "center": [
+              146,
+              104,
+              174
+            ],
+            "rotation": 0,
+            "blocks": 77,
+            "size": [
+              5,
+              17,
+              5
+            ]
+          },
+          {
+            "asset": "t210",
+            "center": [
+              174,
+              104,
+              174
+            ],
+            "rotation": 90,
+            "blocks": 77,
+            "size": [
+              5,
+              17,
+              5
+            ]
+          },
+          {
+            "asset": "t210",
+            "center": [
+              146,
+              104,
+              246
+            ],
+            "rotation": 180,
+            "blocks": 77,
+            "size": [
+              5,
+              17,
+              5
+            ]
+          },
+          {
+            "asset": "t210",
+            "center": [
+              174,
+              104,
+              246
+            ],
+            "rotation": 270,
+            "blocks": 77,
+            "size": [
+              5,
+              17,
+              5
+            ]
+          },
+          {
+            "asset": "t210",
+            "center": [
+              146,
+              104,
+              264
+            ],
+            "rotation": 0,
+            "blocks": 77,
+            "size": [
+              5,
+              17,
+              5
+            ]
+          },
+          {
+            "asset": "t210",
+            "center": [
+              174,
+              104,
+              264
+            ],
+            "rotation": 90,
+            "blocks": 77,
+            "size": [
+              5,
+              17,
+              5
+            ]
+          }
+        ],
+        "retainedTreeRowsZ": [
+          190,
+          225
+        ],
+        "newFlags": [
+          {
+            "base": [
+              150,
+              104,
+              200
+            ],
+            "topY": 114,
+            "colors": [
+              "white",
+              "blue"
+            ]
+          },
+          {
+            "base": [
+              170,
+              104,
+              200
+            ],
+            "topY": 114,
+            "colors": [
+              "white",
+              "blue"
+            ]
+          },
+          {
+            "base": [
+              150,
+              104,
+              256
+            ],
+            "topY": 114,
+            "colors": [
+              "white",
+              "blue"
+            ]
+          },
+          {
+            "base": [
+              170,
+              104,
+              256
+            ],
+            "topY": 114,
+            "colors": [
+              "white",
+              "blue"
+            ]
+          },
+          {
+            "base": [
+              150,
+              104,
+              274
+            ],
+            "topY": 114,
+            "colors": [
+              "white",
+              "blue"
+            ]
+          },
+          {
+            "base": [
+              170,
+              104,
+              274
+            ],
+            "topY": 114,
+            "colors": [
+              "white",
+              "blue"
+            ]
+          }
+        ],
+        "retainedFlagsZ": 178,
+        "shoulderColumns": 0,
+        "totalAvenueTrees": 10,
+        "treeAsset": "t210",
+        "treeSize": [
+          5,
+          17,
+          5
+        ],
+        "trees": [
+          {
+            "asset": "t210",
+            "center": [
+              146,
+              104,
+              190
+            ],
+            "rotation": 0,
+            "blocks": 77,
+            "size": [
+              5,
+              17,
+              5
+            ]
+          },
+          {
+            "asset": "t210",
+            "center": [
+              174,
+              104,
+              190
+            ],
+            "rotation": 90,
+            "blocks": 77,
+            "size": [
+              5,
+              17,
+              5
+            ]
+          },
+          {
+            "asset": "t210",
+            "center": [
+              146,
+              104,
+              225
+            ],
+            "rotation": 180,
+            "blocks": 77,
+            "size": [
+              5,
+              17,
+              5
+            ]
+          },
+          {
+            "asset": "t210",
+            "center": [
+              174,
+              104,
+              225
+            ],
+            "rotation": 270,
+            "blocks": 77,
+            "size": [
+              5,
+              17,
+              5
+            ]
+          },
+          {
+            "asset": "t210",
+            "center": [
+              146,
+              104,
+              174
+            ],
+            "rotation": 0,
+            "blocks": 77,
+            "size": [
+              5,
+              17,
+              5
+            ]
+          },
+          {
+            "asset": "t210",
+            "center": [
+              174,
+              104,
+              174
+            ],
+            "rotation": 90,
+            "blocks": 77,
+            "size": [
+              5,
+              17,
+              5
+            ]
+          },
+          {
+            "asset": "t210",
+            "center": [
+              146,
+              104,
+              246
+            ],
+            "rotation": 180,
+            "blocks": 77,
+            "size": [
+              5,
+              17,
+              5
+            ]
+          },
+          {
+            "asset": "t210",
+            "center": [
+              174,
+              104,
+              246
+            ],
+            "rotation": 270,
+            "blocks": 77,
+            "size": [
+              5,
+              17,
+              5
+            ]
+          },
+          {
+            "asset": "t210",
+            "center": [
+              146,
+              104,
+              264
+            ],
+            "rotation": 0,
+            "blocks": 77,
+            "size": [
+              5,
+              17,
+              5
+            ]
+          },
+          {
+            "asset": "t210",
+            "center": [
+              174,
+              104,
+              264
+            ],
+            "rotation": 90,
+            "blocks": 77,
+            "size": [
+              5,
+              17,
+              5
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "name": "Fountain",
+      "center": [
+        160,
+        104,
+        215
+      ],
+      "bounds": [
+        155,
+        210,
+        165,
+        220
+      ]
+    },
+    {
+      "id": "04-market",
+      "name": "Market",
+      "bounds": [
+        41,
+        175,
+        141,
+        244
+      ],
+      "floorY": 103,
+      "shops": [
+        {
+          "id": "general",
+          "bounds": [
+            50,
+            177,
+            90,
+            217
+          ],
+          "floorY": 103,
+          "entrance": [
+            82,
+            104,
+            206
+          ],
+          "roofRidgeY": 126,
+          "stage": "expanded furnished market shop",
+          "localSize": [
+            31,
+            29
+          ],
+          "center": [
+            70,
+            103,
+            197
+          ],
+          "rotationDegrees": 30,
+          "faces": "southeast toward market fountain",
+          "corners": [
+            [
+              50,
+              192
+            ],
+            [
+              76,
+              177
+            ],
+            [
+              90,
+              202
+            ],
+            [
+              64,
+              217
+            ]
+          ],
+          "decoration": {
+            "postStyle": "timber bays",
+            "roofOverhang": 1,
+            "windowFrames": true,
+            "entranceCanopy": true
+          },
+          "upperFloorY": 110
+        },
+        {
+          "id": "food-materials",
+          "bounds": [
+            94,
+            177,
+            110,
+            197
+          ],
+          "floorY": 103,
+          "entrance": [
+            102,
+            104,
+            197
+          ],
+          "roofRidgeY": 118,
+          "stage": "expanded furnished market shop",
+          "decoration": {
+            "postStyle": "timber bays",
+            "roofOverhang": 1,
+            "windowFrames": true,
+            "entranceCanopy": true
+          },
+          "localSize": [
+            17,
+            21
+          ],
+          "center": [
+            102,
+            103,
+            187
+          ],
+          "chimneyTopY": 121
+        },
+        {
+          "id": "supplies",
+          "bounds": [
+            115,
+            179,
+            138,
+            197
+          ],
+          "floorY": 103,
+          "entrance": [
+            123,
+            104,
+            197
+          ],
+          "roofRidgeY": 121,
+          "stage": "expanded furnished market shop",
+          "decoration": {
+            "postStyle": "timber bays",
+            "roofOverhang": 1,
+            "windowFrames": true,
+            "entranceCanopy": true
+          },
+          "localSize": [
+            17,
+            19
+          ],
+          "bayBounds": [
+            132,
+            182,
+            138,
+            196
+          ],
+          "center": [
+            123,
+            103,
+            188
+          ]
+        }
+      ],
+      "stallPlots": [
+        [
+          66,
+          223,
+          74,
+          229
+        ],
+        [
+          66,
+          234,
+          74,
+          240
+        ],
+        [
+          81,
+          237,
+          89,
+          243
+        ],
+        [
+          99,
+          235,
+          107,
+          241
+        ],
+        [
+          116,
+          226,
+          124,
+          232
+        ],
+        [
+          116,
+          237,
+          124,
+          243
+        ]
+      ],
+      "smithRoute": [
+        112,
+        104,
+        181
+      ],
+      "stage": "expanded merchant/food/herb market; external glass bay; pending visual acceptance",
+      "stalls": [
+        {
+          "bounds": [
+            66,
+            223,
+            74,
+            229
+          ],
+          "color": "blue"
+        },
+        {
+          "bounds": [
+            66,
+            234,
+            74,
+            240
+          ],
+          "color": "orange"
+        },
+        {
+          "bounds": [
+            81,
+            237,
+            89,
+            243
+          ],
+          "color": "red"
+        },
+        {
+          "bounds": [
+            99,
+            235,
+            107,
+            241
+          ],
+          "color": "orange"
+        },
+        {
+          "bounds": [
+            116,
+            226,
+            124,
+            232
+          ],
+          "color": "green"
+        },
+        {
+          "bounds": [
+            116,
+            237,
+            124,
+            243
+          ],
+          "color": "green"
+        }
+      ],
+      "fountain": {
+        "center": [
+          95,
+          104,
+          224
+        ],
+        "radius": 5,
+        "floorY": 103,
+        "topY": 109
+      },
+      "buildingDetails": [
+        {
+          "id": "general",
+          "localSize": [
+            31,
+            29
+          ],
+          "bounds": [
+            50,
+            177,
+            90,
+            217
+          ],
+          "roofTopY": 126
+        },
+        {
+          "id": "food-materials",
+          "localSize": [
+            17,
+            21
+          ],
+          "bounds": [
+            94,
+            177,
+            110,
+            197
+          ],
+          "roofTopY": 118,
+          "chimneyTopY": 121
+        },
+        {
+          "id": "supplies",
+          "localSize": [
+            17,
+            19
+          ],
+          "bounds": [
+            115,
+            179,
+            138,
+            197
+          ],
+          "roofTopY": 121
+        }
+      ],
+      "landscapeSmoothing": {
+        "bounds": [
+          43,
+          162,
+          147,
+          267
+        ],
+        "columns": 1332,
+        "beforeJumps": 178,
+        "afterJumps": 4,
+        "maxBefore": 7,
+        "maxAfter": 5
+      },
+      "ground": {
+        "type": "grass with dirt paths and coarse dirt edges",
+        "floorY": 103,
+        "grassCells": 2073,
+        "pathCells": 749,
+        "routes": [
+          {
+            "name": "main approach",
+            "width": 5,
+            "points": [
+              [
+                133,
+                215
+              ],
+              [
+                116,
+                215
+              ],
+              [
+                106,
+                212
+              ],
+              [
+                95,
+                215
+              ]
+            ]
+          },
+          {
+            "name": "large shop",
+            "width": 3,
+            "points": [
+              [
+                95,
+                215
+              ],
+              [
+                88,
+                214
+              ],
+              [
+                83,
+                210
+              ],
+              [
+                82,
+                207
+              ]
+            ]
+          },
+          {
+            "name": "food shop",
+            "width": 3,
+            "points": [
+              [
+                106,
+                212
+              ],
+              [
+                102,
+                205
+              ],
+              [
+                102,
+                196
+              ]
+            ]
+          },
+          {
+            "name": "supplies shop",
+            "width": 3,
+            "points": [
+              [
+                116,
+                215
+              ],
+              [
+                123,
+                208
+              ],
+              [
+                123,
+                198
+              ]
+            ]
+          },
+          {
+            "name": "blue west stall",
+            "width": 3,
+            "points": [
+              [
+                87,
+                224
+              ],
+              [
+                80,
+                224
+              ],
+              [
+                70,
+                226
+              ]
+            ]
+          },
+          {
+            "name": "orange west stall",
+            "width": 3,
+            "points": [
+              [
+                80,
+                224
+              ],
+              [
+                80,
+                231
+              ],
+              [
+                70,
+                237
+              ]
+            ]
+          },
+          {
+            "name": "red inner stall",
+            "width": 3,
+            "points": [
+              [
+                92,
+                232
+              ],
+              [
+                90,
+                235
+              ],
+              [
+                85,
+                240
+              ]
+            ]
+          },
+          {
+            "name": "blue inner stall",
+            "width": 3,
+            "points": [
+              [
+                99,
+                231
+              ],
+              [
+                103,
+                235
+              ],
+              [
+                103,
+                238
+              ]
+            ]
+          },
+          {
+            "name": "orange east stall",
+            "width": 3,
+            "points": [
+              [
+                103,
+                224
+              ],
+              [
+                112,
+                225
+              ],
+              [
+                120,
+                229
+              ]
+            ]
+          },
+          {
+            "name": "red east stall",
+            "width": 3,
+            "points": [
+              [
+                112,
+                225
+              ],
+              [
+                115,
+                235
+              ],
+              [
+                120,
+                240
+              ]
+            ]
+          },
+          {
+            "name": "future smith connection",
+            "width": 3,
+            "points": [
+              [
+                112,
+                215
+              ],
+              [
+                112,
+                201
+              ],
+              [
+                112,
+                181
+              ]
+            ]
+          }
+        ],
+        "fountainRingRadius": 8
+      },
+      "report": "market-redesign-report.json",
+      "eaves": {
+        "supersededReport": "market-eaves-report.json",
+        "currentReport": "market-expansion-v2-report.json",
+        "projection": 1
+      },
+      "expansion": {
+        "report": "market-expansion-v2-report.json",
+        "dimensions": {
+          "merchant": [
+            31,
+            29
+          ],
+          "food": [
+            17,
+            21
+          ],
+          "herbsMain": [
+            17,
+            19
+          ],
+          "herbsBay": [
+            7,
+            15
+          ]
+        },
+        "floorCells": {
+          "merchant": 901,
+          "food": 357,
+          "herbs": 428
+        }
+      }
+    },
+    {
+      "id": "05-blacksmith",
+      "name": "Blacksmith",
+      "bounds": [
+        62,
+        104,
+        115,
+        163
+      ],
+      "buildingBounds": [
+        66,
+        112,
+        96,
+        146
+      ],
+      "buildingSize": [
+        31,
+        35
+      ],
+      "shape": "L",
+      "floorY": 107,
+      "entrance": [
+        87,
+        108,
+        134
+      ],
+      "workBay": [
+        79,
+        135,
+        95,
+        146
+      ],
+      "chimneyBounds": [
+        67,
+        108,
+        123,
+        73,
+        129,
+        129
+      ],
+      "marketApproach": [
+        112,
+        104,
+        178
+      ],
+      "mainStreetConnection": [
+        153,
+        109,
+        150
+      ],
+      "stations": [
+        {
+          "type": "anvil",
+          "at": [
+            84,
+            108,
+            139
+          ]
+        },
+        {
+          "type": "smithing_table",
+          "at": [
+            92,
+            108,
+            130
+          ]
+        },
+        {
+          "type": "crafting_table",
+          "at": [
+            80,
+            108,
+            125
+          ]
+        },
+        {
+          "type": "smithing_table",
+          "at": [
+            70,
+            108,
+            117
+          ]
+        },
+        {
+          "type": "anvil",
+          "at": [
+            91,
+            108,
+            117
+          ]
+        }
+      ],
+      "stage": "built; vanilla workstations; no NPC or mod service integration",
+      "paths": {
+        "marketCurve": [
+          [
+            112,
+            178
+          ],
+          [
+            128,
+            168
+          ],
+          [
+            116,
+            157
+          ],
+          [
+            102,
+            149
+          ]
+        ],
+        "roadCurve": [
+          [
+            114,
+            139
+          ],
+          [
+            131,
+            136
+          ],
+          [
+            137,
+            149
+          ],
+          [
+            153,
+            150
+          ]
+        ],
+        "widths": [
+          7,
+          5
+        ],
+        "marketStairRows": [
+          172,
+          166,
+          160,
+          154
+        ],
+        "mainStreetStairX": 147
+      },
+      "rearExtension": {
+        "length": 10,
+        "bounds": [
+          66,
+          112,
+          96,
+          121
+        ],
+        "floorY": 107,
+        "clearAisle": [
+          76,
+          82
+        ],
+        "connection": [
+          79,
+          108,
+          122
+        ]
+      },
+      "rearCourt": {
+        "bounds": [
+          62,
+          104,
+          100,
+          111
+        ],
+        "floorY": 107,
+        "depth": 8,
+        "sidePaths": [
+          [
+            62,
+            112,
+            65,
+            121
+          ],
+          [
+            97,
+            112,
+            100,
+            121
+          ]
+        ],
+        "pavedCells": 382
+      }
+    },
+    {
+      "id": "07-castle",
+      "name": "Governor Castle",
+      "bounds": [
+        103,
+        4,
+        217,
+        124
+      ],
+      "buildingBounds": [
+        118,
+        16,
+        202,
+        100
+      ],
+      "buildingSize": [
+        85,
+        85
+      ],
+      "floorY": 116,
+      "courtFloorY": 112,
+      "highestY": 171,
+      "heightAboveFloor": 55,
+      "entrance": [
+        160,
+        117,
+        80
+      ],
+      "towers": [
+        {
+          "center": [
+            125,
+            116,
+            45
+          ],
+          "radius": 7,
+          "deckY": 150,
+          "tipY": 166
+        },
+        {
+          "center": [
+            195,
+            116,
+            45
+          ],
+          "radius": 7,
+          "deckY": 150,
+          "tipY": 166
+        },
+        {
+          "center": [
+            125,
+            116,
+            93
+          ],
+          "radius": 7,
+          "deckY": 142,
+          "tipY": 158
+        },
+        {
+          "center": [
+            195,
+            116,
+            93
+          ],
+          "radius": 7,
+          "deckY": 142,
+          "tipY": 158
+        }
+      ],
+      "rooms": [
+        {
+          "name": "West archive and services",
+          "bounds": [
+            119,
+            52,
+            140,
+            68
+          ],
+          "floorY": 116,
+          "deckY": 140,
+          "clearInterior": [
+            18,
+            13
+          ]
+        },
+        {
+          "name": "West recessed link",
+          "bounds": [
+            121,
+            67,
+            138,
+            86
+          ],
+          "floorY": 116,
+          "deckY": 136,
+          "clearInterior": [
+            14,
+            16
+          ]
+        },
+        {
+          "name": "West reception wing",
+          "bounds": [
+            119,
+            84,
+            140,
+            100
+          ],
+          "floorY": 116,
+          "deckY": 138,
+          "clearInterior": [
+            18,
+            13
+          ]
+        },
+        {
+          "name": "East guard and residence",
+          "bounds": [
+            180,
+            52,
+            201,
+            68
+          ],
+          "floorY": 116,
+          "deckY": 140,
+          "clearInterior": [
+            18,
+            13
+          ]
+        },
+        {
+          "name": "East recessed link",
+          "bounds": [
+            182,
+            67,
+            199,
+            86
+          ],
+          "floorY": 116,
+          "deckY": 136,
+          "clearInterior": [
+            14,
+            16
+          ]
+        },
+        {
+          "name": "East service wing",
+          "bounds": [
+            180,
+            84,
+            201,
+            100
+          ],
+          "floorY": 116,
+          "deckY": 138,
+          "clearInterior": [
+            18,
+            13
+          ]
+        },
+        {
+          "name": "Great hall",
+          "bounds": [
+            143,
+            50,
+            177,
+            80
+          ],
+          "floorY": 116,
+          "deckY": 142,
+          "clearInterior": [
+            31,
+            27
+          ]
+        },
+        {
+          "name": "Rear connecting gallery",
+          "bounds": [
+            149,
+            37,
+            171,
+            51
+          ],
+          "floorY": 116,
+          "deckY": 138,
+          "clearInterior": [
+            19,
+            11
+          ]
+        },
+        {
+          "name": "Central keep",
+          "bounds": [
+            149,
+            16,
+            171,
+            38
+          ],
+          "floorY": 116,
+          "deckY": 156,
+          "clearInterior": [
+            19,
+            19
+          ]
+        }
+      ],
+      "verifiedRoutes": [
+        {
+          "name": "court",
+          "x": 160,
+          "z": 116,
+          "h": 113
+        },
+        {
+          "name": "great hall",
+          "x": 160,
+          "z": 85,
+          "h": 117
+        },
+        {
+          "name": "left service",
+          "x": 133,
+          "z": 82,
+          "h": 117
+        },
+        {
+          "name": "right service",
+          "x": 187,
+          "z": 82,
+          "h": 117
+        },
+        {
+          "name": "upper gallery",
+          "x": 140,
+          "z": 60,
+          "h": 129
+        },
+        {
+          "name": "keep upper hall",
+          "x": 160,
+          "z": 48,
+          "h": 153
+        }
+      ],
+      "stage": "completed architecture and furnishings; no gameplay/NPC integration",
+      "style": "fortified stone castle with gatehouse, flat defensive terraces and pointed turrets",
+      "wallDetails": {
+        "posts": [
+          {
+            "face": "front",
+            "at": [
+              120,
+              112,
+              124
+            ],
+            "topY": 123
+          },
+          {
+            "face": "front",
+            "at": [
+              132,
+              112,
+              124
+            ],
+            "topY": 123
+          },
+          {
+            "face": "front",
+            "at": [
+              144,
+              112,
+              124
+            ],
+            "topY": 123
+          },
+          {
+            "face": "front",
+            "at": [
+              176,
+              112,
+              124
+            ],
+            "topY": 123
+          },
+          {
+            "face": "front",
+            "at": [
+              188,
+              112,
+              124
+            ],
+            "topY": 123
+          },
+          {
+            "face": "front",
+            "at": [
+              200,
+              112,
+              124
+            ],
+            "topY": 123
+          },
+          {
+            "face": "left",
+            "at": [
+              107,
+              116,
+              48
+            ],
+            "topY": 127
+          },
+          {
+            "face": "left",
+            "at": [
+              107,
+              116,
+              60
+            ],
+            "topY": 127
+          },
+          {
+            "face": "left",
+            "at": [
+              107,
+              116,
+              72
+            ],
+            "topY": 127
+          },
+          {
+            "face": "left",
+            "at": [
+              107,
+              116,
+              84
+            ],
+            "topY": 127
+          },
+          {
+            "face": "left",
+            "at": [
+              107,
+              116,
+              96
+            ],
+            "topY": 127
+          },
+          {
+            "face": "right",
+            "at": [
+              213,
+              116,
+              48
+            ],
+            "topY": 127
+          },
+          {
+            "face": "right",
+            "at": [
+              213,
+              116,
+              60
+            ],
+            "topY": 127
+          },
+          {
+            "face": "right",
+            "at": [
+              213,
+              116,
+              72
+            ],
+            "topY": 127
+          },
+          {
+            "face": "right",
+            "at": [
+              213,
+              116,
+              84
+            ],
+            "topY": 127
+          },
+          {
+            "face": "right",
+            "at": [
+              213,
+              116,
+              96
+            ],
+            "topY": 127
+          },
+          {
+            "face": "rear",
+            "at": [
+              124,
+              116,
+              33
+            ],
+            "topY": 127
+          },
+          {
+            "face": "rear",
+            "at": [
+              136,
+              116,
+              33
+            ],
+            "topY": 127
+          },
+          {
+            "face": "rear",
+            "at": [
+              148,
+              116,
+              33
+            ],
+            "topY": 127
+          },
+          {
+            "face": "rear",
+            "at": [
+              160,
+              116,
+              33
+            ],
+            "topY": 127
+          },
+          {
+            "face": "rear",
+            "at": [
+              172,
+              116,
+              33
+            ],
+            "topY": 127
+          },
+          {
+            "face": "rear",
+            "at": [
+              184,
+              116,
+              33
+            ],
+            "topY": 127
+          },
+          {
+            "face": "rear",
+            "at": [
+              196,
+              116,
+              33
+            ],
+            "topY": 127
+          }
+        ],
+        "slits": [
+          {
+            "face": "front",
+            "at": [
+              126,
+              115,
+              124
+            ]
+          },
+          {
+            "face": "front",
+            "at": [
+              138,
+              115,
+              124
+            ]
+          },
+          {
+            "face": "front",
+            "at": [
+              182,
+              115,
+              124
+            ]
+          },
+          {
+            "face": "front",
+            "at": [
+              194,
+              115,
+              124
+            ]
+          },
+          {
+            "face": "left",
+            "at": [
+              107,
+              119,
+              54
+            ]
+          },
+          {
+            "face": "left",
+            "at": [
+              107,
+              119,
+              66
+            ]
+          },
+          {
+            "face": "left",
+            "at": [
+              107,
+              119,
+              78
+            ]
+          },
+          {
+            "face": "left",
+            "at": [
+              107,
+              119,
+              90
+            ]
+          },
+          {
+            "face": "right",
+            "at": [
+              213,
+              119,
+              54
+            ]
+          },
+          {
+            "face": "right",
+            "at": [
+              213,
+              119,
+              66
+            ]
+          },
+          {
+            "face": "right",
+            "at": [
+              213,
+              119,
+              78
+            ]
+          },
+          {
+            "face": "right",
+            "at": [
+              213,
+              119,
+              90
+            ]
+          },
+          {
+            "face": "rear",
+            "at": [
+              130,
+              119,
+              33
+            ]
+          },
+          {
+            "face": "rear",
+            "at": [
+              142,
+              119,
+              33
+            ]
+          },
+          {
+            "face": "rear",
+            "at": [
+              154,
+              119,
+              33
+            ]
+          },
+          {
+            "face": "rear",
+            "at": [
+              166,
+              119,
+              33
+            ]
+          },
+          {
+            "face": "rear",
+            "at": [
+              178,
+              119,
+              33
+            ]
+          },
+          {
+            "face": "rear",
+            "at": [
+              190,
+              119,
+              33
+            ]
+          }
+        ],
+        "banners": [
+          {
+            "face": "front",
+            "at": [
+              120,
+              115,
+              127
+            ],
+            "colors": [
+              "white",
+              "blue"
+            ]
+          },
+          {
+            "face": "front",
+            "at": [
+              144,
+              115,
+              127
+            ],
+            "colors": [
+              "white",
+              "blue"
+            ]
+          },
+          {
+            "face": "front",
+            "at": [
+              176,
+              115,
+              127
+            ],
+            "colors": [
+              "white",
+              "blue"
+            ]
+          },
+          {
+            "face": "front",
+            "at": [
+              200,
+              115,
+              127
+            ],
+            "colors": [
+              "white",
+              "blue"
+            ]
+          },
+          {
+            "face": "left",
+            "at": [
+              104,
+              119,
+              60
+            ],
+            "colors": [
+              "white",
+              "blue"
+            ]
+          },
+          {
+            "face": "left",
+            "at": [
+              104,
+              119,
+              84
+            ],
+            "colors": [
+              "white",
+              "blue"
+            ]
+          },
+          {
+            "face": "right",
+            "at": [
+              216,
+              119,
+              60
+            ],
+            "colors": [
+              "white",
+              "blue"
+            ]
+          },
+          {
+            "face": "right",
+            "at": [
+              216,
+              119,
+              84
+            ],
+            "colors": [
+              "white",
+              "blue"
+            ]
+          }
+        ],
+        "slopedStoneBase": true,
+        "projectingCorbels": true,
+        "walkwayPreserved": true
+      },
+      "leftWallConnection": {
+        "centerline": [
+          [
+            109,
+            114
+          ],
+          [
+            110,
+            115
+          ],
+          [
+            112,
+            116
+          ],
+          [
+            114,
+            117
+          ],
+          [
+            116,
+            118
+          ],
+          [
+            118,
+            120
+          ],
+          [
+            121,
+            122
+          ],
+          [
+            124,
+            123
+          ],
+          [
+            126,
+            123
+          ]
+        ],
+        "deckY": 120,
+        "minimumWidth": 3,
+        "stairUnderpass": true
+      },
+      "frontDefense": {
+        "stage": "front and side defense retained; north end caps opened to completed rear curtain",
+        "outerEntrance": [
+          160,
+          113,
+          124
+        ],
+        "gateDeckY": 132,
+        "bastionDeckY": 128,
+        "sideDeckY": 124,
+        "minimumWalkWidth": 3,
+        "sections": [
+          {
+            "type": "frontWest",
+            "centerline": [
+              [
+                132,
+                112
+              ],
+              [
+                137,
+                114
+              ],
+              [
+                142,
+                117
+              ],
+              [
+                148,
+                120
+              ],
+              [
+                150,
+                120
+              ]
+            ]
+          },
+          {
+            "type": "frontEast",
+            "centerline": [
+              [
+                188,
+                112
+              ],
+              [
+                183,
+                114
+              ],
+              [
+                178,
+                117
+              ],
+              [
+                172,
+                120
+              ],
+              [
+                170,
+                120
+              ]
+            ]
+          },
+          {
+            "type": "sideWest",
+            "centerline": [
+              [
+                119,
+                106
+              ],
+              [
+                113,
+                104
+              ],
+              [
+                109,
+                100
+              ],
+              [
+                108,
+                87
+              ],
+              [
+                108,
+                63
+              ],
+              [
+                110,
+                50
+              ],
+              [
+                112,
+                40
+              ]
+            ]
+          },
+          {
+            "type": "sideEast",
+            "centerline": [
+              [
+                201,
+                106
+              ],
+              [
+                207,
+                104
+              ],
+              [
+                211,
+                100
+              ],
+              [
+                212,
+                87
+              ],
+              [
+                212,
+                63
+              ],
+              [
+                210,
+                50
+              ],
+              [
+                208,
+                40
+              ]
+            ]
+          }
+        ],
+        "verifiedTargets": [
+          [
+            "court",
+            160,
+            113,
+            106
+          ],
+          [
+            "palace hall",
+            160,
+            117,
+            80
+          ],
+          [
+            "west palace",
+            133,
+            117,
+            82
+          ],
+          [
+            "east palace",
+            187,
+            117,
+            82
+          ],
+          [
+            "gallery",
+            140,
+            129,
+            60
+          ],
+          [
+            "keep upper",
+            163,
+            153,
+            48
+          ],
+          [
+            "old gate guard",
+            160,
+            141,
+            90
+          ],
+          [
+            "old gate deck",
+            160,
+            149,
+            96
+          ],
+          [
+            "keep deck",
+            160,
+            157,
+            45
+          ],
+          [
+            "new gate floor",
+            160,
+            113,
+            120
+          ],
+          [
+            "new gate deck",
+            160,
+            133,
+            116
+          ],
+          [
+            "west tower room",
+            125,
+            113,
+            112
+          ],
+          [
+            "west tower deck",
+            125,
+            129,
+            112
+          ],
+          [
+            "east tower room",
+            195,
+            113,
+            112
+          ],
+          [
+            "east tower deck",
+            195,
+            129,
+            112
+          ],
+          [
+            "west front wall",
+            140,
+            129,
+            116
+          ],
+          [
+            "east front wall",
+            180,
+            129,
+            116
+          ],
+          [
+            "west side wall",
+            108,
+            125,
+            63
+          ],
+          [
+            "east side wall",
+            212,
+            125,
+            63
+          ]
+        ],
+        "backup": "archive\\map-edit-backups\\before-front-defense\\starter_sky_land_spawn_v1"
+      },
+      "completion": {
+        "bounds": [
+          100,
+          24,
+          4,
+          220,
+          171,
+          102
+        ],
+        "sourceHash": "0c7824dcdf177f5e669795deea9fea7ab1b3c62df3e9286916714265745f4358",
+        "backup": "archive\\map-edit-backups\\before-castle-completion\\starter_sky_land_spawn_v1",
+        "changedBlocks": 393681,
+        "changedChunks": 48,
+        "addedLandColumns": 2721,
+        "verifiedTargets": [
+          [
+            "court",
+            160,
+            113,
+            100
+          ],
+          [
+            "hall",
+            160,
+            117,
+            74
+          ],
+          [
+            "west wing",
+            136,
+            117,
+            88
+          ],
+          [
+            "east wing",
+            183,
+            117,
+            88
+          ],
+          [
+            "west upper",
+            136,
+            129,
+            75
+          ],
+          [
+            "east upper",
+            194,
+            129,
+            75
+          ],
+          [
+            "hall gallery",
+            148,
+            129,
+            64
+          ],
+          [
+            "keep admin",
+            160,
+            117,
+            33
+          ],
+          [
+            "keep council",
+            160,
+            129,
+            33
+          ],
+          [
+            "keep residence",
+            163,
+            141,
+            33
+          ],
+          [
+            "keep library",
+            163,
+            153,
+            33
+          ],
+          [
+            "keep crown",
+            163,
+            157,
+            24
+          ],
+          [
+            "west roof",
+            136,
+            137,
+            75
+          ],
+          [
+            "east roof",
+            194,
+            137,
+            75
+          ],
+          [
+            "west front tower",
+            125,
+            117,
+            93
+          ],
+          [
+            "east front tower",
+            195,
+            117,
+            93
+          ],
+          [
+            "west rear tower",
+            125,
+            117,
+            45
+          ],
+          [
+            "east rear tower",
+            195,
+            117,
+            45
+          ],
+          [
+            "west front tower upper",
+            125,
+            129,
+            93
+          ],
+          [
+            "east front tower upper",
+            195,
+            129,
+            93
+          ],
+          [
+            "west rear tower upper",
+            125,
+            129,
+            45
+          ],
+          [
+            "east rear tower upper",
+            195,
+            129,
+            45
+          ],
+          [
+            "preserved gate",
+            160,
+            133,
+            116
+          ],
+          [
+            "preserved west bastion",
+            125,
+            129,
+            112
+          ],
+          [
+            "preserved east bastion",
+            195,
+            129,
+            112
+          ],
+          [
+            "west rear wall",
+            113,
+            125,
+            22
+          ],
+          [
+            "east rear wall",
+            207,
+            125,
+            22
+          ],
+          [
+            "north wall",
+            160,
+            125,
+            10
+          ]
+        ],
+        "inGameTested": false,
+        "blueRoofCorrection": {
+          "changedBlocks": 1332,
+          "changedChunks": 16,
+          "backup": "archive\\map-edit-backups\\before-castle-blue-roofs\\starter_sky_land_spawn_v1",
+          "reason": "blue concrete instead of green Vanilla prismarine roof stairs",
+          "savedVoxelComparison": true
+        }
+      }
+    },
+    {
+      "id": "08-dimensional-station",
+      "name": "Portal Garden Island",
+      "bounds": [
+        277,
+        186,
+        375,
+        246
+      ],
+      "center": [
+        344,
+        108,
+        216
+      ],
+      "islandBounds": [
+        320,
+        190,
+        374,
+        244
+      ],
+      "bridgeBounds": [
+        277,
+        214,
+        319,
+        235
+      ],
+      "portalCenter": [
+        351,
+        110,
+        216
+      ],
+      "floorY": 108,
+      "portalFloorY": 110,
+      "status": "active",
+      "details": {
+        "clearBridgeWidth": 5,
+        "spanLength": 26,
+        "portalDimensions": [
+          15,
+          17
+        ],
+        "geometry": "curved_stone_timber_bridge_and_terraced_garden",
+        "gameplayConnected": false
+      }
+    },
+    {
+      "id": "06-adventurers-hall",
+      "name": "Adventurers Guild Campus",
+      "bounds": [
+        203,
+        102,
+        313,
+        246
+      ],
+      "buildingBounds": [
+        232,
+        110,
+        171,
+        256,
+        137,
+        199
+      ],
+      "buildingSize": [
+        25,
+        29
+      ],
+      "center": [
+        244,
+        111,
+        185
+      ],
+      "entrance": [
+        244,
+        111,
+        199
+      ],
+      "front": "south (+Z)",
+      "floorY": 110,
+      "courtyardFloorY": 107,
+      "interiorBounds": [
+        233,
+        111,
+        172,
+        255,
+        124,
+        198
+      ],
+      "aisleWidth": 7,
+      "gameplayConnected": false,
+      "report": "guild-campus-report.json"
+    },
+    {
+      "id": "guild-quest-wing",
+      "name": "Quest Wing",
+      "center": [
+        219,
+        111,
+        176
+      ],
+      "bounds": [
+        211,
+        164,
+        229,
+        188
+      ]
+    },
+    {
+      "id": "guild-map-room",
+      "name": "World Map",
+      "center": [
+        218,
+        111,
+        154
+      ],
+      "bounds": [
+        210,
+        146,
+        226,
+        162
+      ]
+    },
+    {
+      "id": "guild-party-room",
+      "name": "Party Planning",
+      "center": [
+        237,
+        111,
+        158
+      ],
+      "bounds": [
+        230,
+        152,
+        244,
+        164
+      ]
+    },
+    {
+      "id": "guild-inn",
+      "name": "Tavern & Inn",
+      "center": [
+        282,
+        111,
+        183
+      ],
+      "bounds": [
+        267,
+        166,
+        297,
+        200
+      ]
+    },
+    {
+      "id": "guild-training",
+      "name": "Training Court",
+      "center": [
+        249,
+        114,
+        136
+      ],
+      "bounds": [
+        234,
+        124,
+        264,
+        148
+      ]
+    },
+    {
+      "id": "guild-supplies",
+      "name": "Supplies & First Aid",
+      "center": [
+        284,
+        114,
+        137
+      ],
+      "bounds": [
+        273,
+        128,
+        295,
+        146
+      ]
+    },
+    {
+      "id": "guild-honor",
+      "name": "Hall of Honor",
+      "center": [
+        252,
+        119,
+        194
+      ],
+      "bounds": [
+        249,
+        191,
+        255,
+        198
+      ]
+    }
+  ],
+  "reachableFloorCells": 1890,
+  "blockStates": [
+    {
+      "Name": "minecraft:air"
+    },
+    {
+      "Name": "minecraft:stone"
+    },
+    {
+      "Name": "minecraft:andesite"
+    },
+    {
+      "Name": "minecraft:cobblestone"
+    },
+    {
+      "Name": "minecraft:dirt"
+    },
+    {
+      "Name": "minecraft:grass_block",
+      "Properties": {
+        "snowy": "false"
+      }
+    },
+    {
+      "Name": "minecraft:stone_bricks"
+    },
+    {
+      "Name": "minecraft:smooth_quartz_slab",
+      "Properties": {
+        "type": "bottom",
+        "waterlogged": "false"
+      }
+    },
+    {
+      "Name": "minecraft:chiseled_stone_bricks"
+    },
+    {
+      "Name": "minecraft:stone_brick_stairs",
+      "Properties": {
+        "facing": "south",
+        "half": "bottom",
+        "shape": "straight",
+        "waterlogged": "false"
+      }
+    },
+    {
+      "Name": "minecraft:blue_wool"
+    },
+    {
+      "Name": "minecraft:gold_block"
+    },
+    {
+      "Name": "minecraft:white_wool"
+    },
+    {
+      "Name": "minecraft:iron_bars",
+      "Properties": {
+        "north": "false",
+        "south": "false",
+        "east": "true",
+        "west": "true",
+        "waterlogged": "false"
+      }
+    },
+    {
+      "Name": "minecraft:stone_brick_stairs",
+      "Properties": {
+        "facing": "south",
+        "half": "top",
+        "shape": "straight",
+        "waterlogged": "false"
+      }
+    },
+    {
+      "Name": "minecraft:lantern",
+      "Properties": {
+        "hanging": "false",
+        "waterlogged": "false"
+      }
+    },
+    {
+      "Name": "minecraft:blue_concrete"
+    },
+    {
+      "Name": "minecraft:polished_andesite"
+    },
+    {
+      "Name": "minecraft:oak_leaves",
+      "Properties": {
+        "persistent": "true",
+        "distance": "7",
+        "waterlogged": "false"
+      }
+    },
+    {
+      "Name": "minecraft:moss_block"
+    },
+    {
+      "Name": "minecraft:spruce_stairs",
+      "Properties": {
+        "facing": "north",
+        "half": "bottom",
+        "shape": "straight",
+        "waterlogged": "false"
+      }
+    },
+    {
+      "Name": "minecraft:white_tulip"
+    },
+    {
+      "Name": "minecraft:smooth_stone"
+    },
+    {
+      "Name": "minecraft:stone_brick_stairs",
+      "Properties": {
+        "facing": "east",
+        "half": "bottom",
+        "shape": "straight",
+        "waterlogged": "false"
+      }
+    },
+    {
+      "Name": "minecraft:dark_oak_planks"
+    },
+    {
+      "Name": "minecraft:stone_brick_stairs",
+      "Properties": {
+        "facing": "north",
+        "half": "bottom",
+        "shape": "straight",
+        "waterlogged": "false"
+      }
+    },
+    {
+      "Name": "minecraft:smooth_quartz"
+    },
+    {
+      "Name": "minecraft:calcite"
+    },
+    {
+      "Name": "minecraft:quartz_stairs",
+      "Properties": {
+        "facing": "south",
+        "half": "bottom",
+        "shape": "straight",
+        "waterlogged": "false"
+      }
+    },
+    {
+      "Name": "minecraft:quartz_stairs",
+      "Properties": {
+        "facing": "east",
+        "half": "bottom",
+        "shape": "straight",
+        "waterlogged": "false"
+      }
+    },
+    {
+      "Name": "minecraft:light_blue_stained_glass"
+    },
+    {
+      "Name": "minecraft:spruce_planks"
+    },
+    {
+      "Name": "minecraft:spruce_stairs",
+      "Properties": {
+        "facing": "east",
+        "half": "bottom",
+        "shape": "straight",
+        "waterlogged": "false"
+      }
+    },
+    {
+      "Name": "minecraft:bookshelf"
+    },
+    {
+      "Name": "minecraft:quartz_stairs",
+      "Properties": {
+        "facing": "south",
+        "half": "top",
+        "shape": "straight",
+        "waterlogged": "false"
+      }
+    },
+    {
+      "Name": "minecraft:quartz_stairs",
+      "Properties": {
+        "facing": "east",
+        "half": "top",
+        "shape": "straight",
+        "waterlogged": "false"
+      }
+    },
+    {
+      "Name": "minecraft:stone_brick_stairs",
+      "Properties": {
+        "facing": "west",
+        "half": "bottom",
+        "shape": "straight",
+        "waterlogged": "false"
+      }
+    },
+    {
+      "Name": "minecraft:quartz_stairs",
+      "Properties": {
+        "facing": "west",
+        "half": "bottom",
+        "shape": "straight",
+        "waterlogged": "false"
+      }
+    },
+    {
+      "Name": "minecraft:spruce_stairs",
+      "Properties": {
+        "facing": "west",
+        "half": "bottom",
+        "shape": "straight",
+        "waterlogged": "false"
+      }
+    },
+    {
+      "Name": "minecraft:quartz_stairs",
+      "Properties": {
+        "facing": "west",
+        "half": "top",
+        "shape": "straight",
+        "waterlogged": "false"
+      }
+    },
+    {
+      "Name": "minecraft:oak_fence",
+      "Properties": {
+        "north": "false",
+        "south": "false",
+        "east": "false",
+        "west": "false",
+        "waterlogged": "false"
+      }
+    },
+    {
+      "Name": "minecraft:mossy_cobblestone"
+    },
+    {
+      "Name": "minecraft:stone_brick_stairs",
+      "Properties": {
+        "facing": "east",
+        "half": "top",
+        "shape": "straight",
+        "waterlogged": "false"
+      }
+    },
+    {
+      "Name": "minecraft:quartz_stairs",
+      "Properties": {
+        "facing": "north",
+        "half": "bottom",
+        "shape": "straight",
+        "waterlogged": "false"
+      }
+    },
+    {
+      "Name": "minecraft:stone_brick_stairs",
+      "Properties": {
+        "facing": "north",
+        "half": "top",
+        "shape": "straight",
+        "waterlogged": "false"
+      }
+    },
+    {
+      "Name": "minecraft:quartz_stairs",
+      "Properties": {
+        "facing": "north",
+        "half": "top",
+        "shape": "straight",
+        "waterlogged": "false"
+      }
+    },
+    {
+      "Name": "minecraft:stone_brick_stairs",
+      "Properties": {
+        "facing": "west",
+        "half": "top",
+        "shape": "straight",
+        "waterlogged": "false"
+      }
+    },
+    {
+      "Name": "minecraft:short_grass"
+    },
+    {
+      "Name": "minecraft:fern"
+    },
+    {
+      "Name": "minecraft:coarse_dirt"
+    },
+    {
+      "Name": "minecraft:jungle_wood",
+      "Properties": {
+        "axis": "y"
+      }
+    },
+    {
+      "Name": "minecraft:jungle_log",
+      "Properties": {
+        "axis": "y"
+      }
+    },
+    {
+      "Name": "minecraft:spruce_leaves",
+      "Properties": {
+        "persistent": "true",
+        "distance": "7",
+        "waterlogged": "false"
+      }
+    },
+    {
+      "Name": "minecraft:iron_bars",
+      "Properties": {
+        "north": "true",
+        "south": "true",
+        "east": "false",
+        "west": "false",
+        "waterlogged": "false"
+      }
+    },
+    {
+      "Name": "minecraft:spruce_slab",
+      "Properties": {
+        "type": "bottom",
+        "waterlogged": "false"
+      }
+    },
+    {
+      "Name": "minecraft:blue_carpet"
+    },
+    {
+      "Name": "minecraft:spruce_stairs",
+      "Properties": {
+        "facing": "south",
+        "half": "bottom",
+        "shape": "straight",
+        "waterlogged": "false"
+      }
+    },
+    {
+      "Name": "minecraft:stone_brick_wall",
+      "Properties": {
+        "up": "true",
+        "north": "low",
+        "south": "low",
+        "east": "none",
+        "west": "none",
+        "waterlogged": "false"
+      }
+    },
+    {
+      "Name": "minecraft:lantern",
+      "Properties": {
+        "hanging": "true",
+        "waterlogged": "false"
+      }
+    },
+    {
+      "Name": "minecraft:chain",
+      "Properties": {
+        "axis": "y",
+        "waterlogged": "false"
+      }
+    },
+    {
+      "Name": "minecraft:stripped_spruce_wood",
+      "Properties": {
+        "axis": "y"
+      }
+    },
+    {
+      "Name": "minecraft:spruce_fence",
+      "Properties": {
+        "waterlogged": "false",
+        "north": "false",
+        "east": "false",
+        "south": "true",
+        "west": "false"
+      }
+    },
+    {
+      "Name": "minecraft:dandelion"
+    },
+    {
+      "Name": "minecraft:oak_wood",
+      "Properties": {
+        "axis": "y"
+      }
+    },
+    {
+      "Name": "minecraft:oxeye_daisy"
+    },
+    {
+      "Name": "minecraft:crafting_table"
+    },
+    {
+      "Name": "minecraft:smithing_table"
+    },
+    {
+      "Name": "minecraft:oak_log",
+      "Properties": {
+        "axis": "y"
+      }
+    },
+    {
+      "Name": "minecraft:spruce_fence",
+      "Properties": {
+        "waterlogged": "false",
+        "north": "false",
+        "east": "false",
+        "south": "false",
+        "west": "false"
+      }
+    },
+    {
+      "Name": "minecraft:spruce_fence",
+      "Properties": {
+        "waterlogged": "false",
+        "north": "true",
+        "east": "false",
+        "south": "false",
+        "west": "false"
+      }
+    },
+    {
+      "Name": "minecraft:oak_log",
+      "Properties": {
+        "axis": "z"
+      }
+    },
+    {
+      "Name": "minecraft:spruce_fence",
+      "Properties": {
+        "waterlogged": "false",
+        "north": "false",
+        "east": "true",
+        "south": "false",
+        "west": "false"
+      }
+    },
+    {
+      "Name": "minecraft:spruce_wood",
+      "Properties": {
+        "axis": "y"
+      }
+    },
+    {
+      "Name": "minecraft:stone_brick_slab",
+      "Properties": {
+        "type": "bottom",
+        "waterlogged": "false"
+      }
+    },
+    {
+      "Name": "minecraft:water",
+      "Properties": {
+        "level": "0"
+      }
+    },
+    {
+      "Name": "minecraft:azure_bluet"
+    },
+    {
+      "Name": "minecraft:dark_oak_slab",
+      "Properties": {
+        "type": "bottom",
+        "waterlogged": "false"
+      }
+    },
+    {
+      "Name": "minecraft:allium"
+    },
+    {
+      "Name": "minecraft:birch_leaves",
+      "Properties": {
+        "persistent": "true",
+        "distance": "7",
+        "waterlogged": "false"
+      }
+    },
+    {
+      "Name": "minecraft:blue_orchid"
+    },
+    {
+      "Name": "minecraft:dark_oak_log",
+      "Properties": {
+        "axis": "y"
+      }
+    },
+    {
+      "Name": "minecraft:dark_oak_log",
+      "Properties": {
+        "axis": "x"
+      }
+    },
+    {
+      "Name": "minecraft:anvil",
+      "Properties": {
+        "facing": "north"
+      }
+    },
+    {
+      "Name": "minecraft:deepslate_bricks"
+    },
+    {
+      "Name": "minecraft:magma_block"
+    },
+    {
+      "Name": "minecraft:shroomlight"
+    },
+    {
+      "Name": "minecraft:iron_bars",
+      "Properties": {
+        "north": "true",
+        "south": "true",
+        "east": "true",
+        "west": "true",
+        "waterlogged": "false"
+      }
+    },
+    {
+      "Name": "minecraft:smooth_quartz_slab",
+      "Properties": {
+        "type": "top",
+        "waterlogged": "false"
+      }
+    },
+    {
+      "Name": "minecraft:sandstone"
+    },
+    {
+      "Name": "minecraft:purple_concrete"
+    },
+    {
+      "Name": "minecraft:raw_iron_block"
+    },
+    {
+      "Name": "minecraft:coal_block"
+    },
+    {
+      "Name": "minecraft:dirt_path"
+    },
+    {
+      "Name": "minecraft:white_carpet"
+    },
+    {
+      "Name": "minecraft:hay_block",
+      "Properties": {
+        "axis": "y"
+      }
+    },
+    {
+      "Name": "minecraft:carved_pumpkin",
+      "Properties": {
+        "facing": "south"
+      }
+    },
+    {
+      "Name": "minecraft:purple_stained_glass"
+    },
+    {
+      "Name": "minecraft:purpur_slab",
+      "Properties": {
+        "type": "bottom",
+        "waterlogged": "false"
+      }
+    },
+    {
+      "Name": "minecraft:oak_wall_sign",
+      "Properties": {
+        "facing": "south",
+        "waterlogged": "false"
+      }
+    },
+    {
+      "Name": "minecraft:red_carpet"
+    },
+    {
+      "Name": "minecraft:oak_wall_sign",
+      "Properties": {
+        "facing": "west",
+        "waterlogged": "false"
+      }
+    },
+    {
+      "Name": "minecraft:dark_oak_stairs",
+      "Properties": {
+        "facing": "west",
+        "half": "top",
+        "shape": "straight",
+        "waterlogged": "false"
+      }
+    },
+    {
+      "Name": "minecraft:dark_oak_stairs",
+      "Properties": {
+        "facing": "east",
+        "half": "top",
+        "shape": "straight",
+        "waterlogged": "false"
+      }
+    },
+    {
+      "Name": "minecraft:sea_lantern",
+      "Properties": {}
+    },
+    {
+      "Name": "minecraft:lapis_block"
+    },
+    {
+      "Name": "minecraft:spruce_fence",
+      "Properties": {
+        "waterlogged": "false",
+        "south": "false",
+        "west": "true",
+        "north": "false",
+        "east": "false"
+      }
+    },
+    {
+      "Name": "minecraft:spruce_fence",
+      "Properties": {
+        "waterlogged": "false",
+        "south": "true",
+        "west": "false",
+        "north": "false",
+        "east": "true"
+      }
+    },
+    {
+      "Name": "minecraft:spruce_fence",
+      "Properties": {
+        "waterlogged": "false",
+        "south": "false",
+        "west": "false",
+        "north": "true",
+        "east": "true"
+      }
+    },
+    {
+      "Name": "minecraft:green_wool"
+    },
+    {
+      "Name": "minecraft:spruce_fence",
+      "Properties": {
+        "waterlogged": "false",
+        "south": "true",
+        "west": "true",
+        "north": "false",
+        "east": "false"
+      }
+    },
+    {
+      "Name": "minecraft:birch_planks"
+    },
+    {
+      "Name": "minecraft:oak_wall_sign",
+      "Properties": {
+        "facing": "east",
+        "waterlogged": "false"
+      }
+    },
+    {
+      "Name": "minecraft:cut_copper"
+    },
+    {
+      "Name": "minecraft:iron_block"
+    },
+    {
+      "Name": "minecraft:dark_oak_log",
+      "Properties": {
+        "axis": "z"
+      }
+    },
+    {
+      "Name": "minecraft:purple_wool"
+    },
+    {
+      "Name": "minecraft:white_terracotta"
+    },
+    {
+      "Name": "minecraft:mud_bricks"
+    },
+    {
+      "Name": "minecraft:glass"
+    },
+    {
+      "Name": "minecraft:orange_terracotta"
+    },
+    {
+      "Name": "minecraft:red_sandstone_stairs",
+      "Properties": {
+        "facing": "east",
+        "half": "bottom",
+        "shape": "straight",
+        "waterlogged": "false"
+      }
+    },
+    {
+      "Name": "minecraft:red_sandstone_slab",
+      "Properties": {
+        "type": "bottom",
+        "waterlogged": "false"
+      }
+    },
+    {
+      "Name": "minecraft:barrel",
+      "Properties": {
+        "facing": "up",
+        "open": "false"
+      }
+    },
+    {
+      "Name": "minecraft:red_sandstone_stairs",
+      "Properties": {
+        "facing": "west",
+        "half": "bottom",
+        "shape": "straight",
+        "waterlogged": "false"
+      }
+    },
+    {
+      "Name": "minecraft:cauldron"
+    },
+    {
+      "Name": "minecraft:bricks"
+    },
+    {
+      "Name": "minecraft:brick_slab",
+      "Properties": {
+        "type": "bottom",
+        "waterlogged": "false"
+      }
+    },
+    {
+      "Name": "minecraft:potted_fern"
+    },
+    {
+      "Name": "minecraft:cornflower"
+    },
+    {
+      "Name": "minecraft:purple_carpet"
+    },
+    {
+      "Name": "minecraft:dark_oak_fence",
+      "Properties": {
+        "north": "false",
+        "south": "true",
+        "east": "false",
+        "west": "false",
+        "waterlogged": "false"
+      }
+    },
+    {
+      "Name": "minecraft:dark_oak_fence",
+      "Properties": {
+        "north": "true",
+        "south": "true",
+        "east": "false",
+        "west": "false",
+        "waterlogged": "false"
+      }
+    },
+    {
+      "Name": "minecraft:dark_oak_fence",
+      "Properties": {
+        "north": "true",
+        "south": "true",
+        "east": "false",
+        "west": "true",
+        "waterlogged": "false"
+      }
+    },
+    {
+      "Name": "minecraft:dark_oak_fence",
+      "Properties": {
+        "north": "true",
+        "south": "true",
+        "east": "true",
+        "west": "false",
+        "waterlogged": "false"
+      }
+    },
+    {
+      "Name": "minecraft:deepslate"
+    },
+    {
+      "Name": "minecraft:stone_brick_wall",
+      "Properties": {
+        "up": "true",
+        "waterlogged": "false",
+        "east": "none",
+        "north": "none",
+        "south": "none",
+        "west": "none"
+      }
+    },
+    {
+      "Name": "minecraft:spruce_trapdoor",
+      "Properties": {
+        "facing": "south",
+        "half": "bottom",
+        "open": "true",
+        "powered": "false",
+        "waterlogged": "false"
+      }
+    },
+    {
+      "Name": "minecraft:poppy"
+    },
+    {
+      "Name": "minecraft:spruce_stairs",
+      "Properties": {
+        "facing": "north",
+        "half": "top",
+        "shape": "straight",
+        "waterlogged": "false"
+      }
+    },
+    {
+      "Name": "minecraft:orange_wool"
+    },
+    {
+      "Name": "minecraft:spruce_fence",
+      "Properties": {
+        "waterlogged": "false",
+        "north": "true",
+        "east": "false",
+        "south": "true",
+        "west": "false"
+      }
+    },
+    {
+      "Name": "minecraft:spruce_fence",
+      "Properties": {
+        "waterlogged": "false",
+        "north": "true",
+        "east": "true",
+        "south": "true",
+        "west": "false"
+      }
+    },
+    {
+      "Name": "minecraft:spruce_fence",
+      "Properties": {
+        "north": "true",
+        "south": "false",
+        "east": "false",
+        "west": "true",
+        "waterlogged": "false"
+      }
+    },
+    {
+      "Name": "minecraft:deepslate_tile_stairs",
+      "Properties": {
+        "facing": "south",
+        "half": "bottom",
+        "shape": "straight",
+        "waterlogged": "false"
+      }
+    },
+    {
+      "Name": "minecraft:dark_oak_fence",
+      "Properties": {
+        "north": "true",
+        "south": "false",
+        "east": "false",
+        "west": "false",
+        "waterlogged": "false"
+      }
+    },
+    {
+      "Name": "minecraft:brick_slab",
+      "Properties": {
+        "type": "double",
+        "waterlogged": "false"
+      }
+    },
+    {
+      "Name": "minecraft:tuff"
+    },
+    {
+      "Name": "minecraft:flowering_azalea_leaves",
+      "Properties": {
+        "persistent": "true",
+        "distance": "7",
+        "waterlogged": "false"
+      }
+    },
+    {
+      "Name": "minecraft:lily_of_the_valley"
+    },
+    {
+      "Name": "minecraft:spruce_fence",
+      "Properties": {
+        "waterlogged": "false",
+        "north": "false",
+        "east": "true",
+        "south": "false",
+        "west": "true"
+      }
+    },
+    {
+      "Name": "minecraft:deepslate_tiles"
+    },
+    {
+      "Name": "minecraft:chiseled_deepslate"
+    },
+    {
+      "Name": "minecraft:crying_obsidian"
+    },
+    {
+      "Name": "minecraft:deepslate_tile_stairs",
+      "Properties": {
+        "facing": "north",
+        "half": "bottom",
+        "shape": "straight",
+        "waterlogged": "false"
+      }
+    },
+    {
+      "Name": "minecraft:deepslate_tile_stairs",
+      "Properties": {
+        "facing": "east",
+        "half": "bottom",
+        "shape": "straight",
+        "waterlogged": "false"
+      }
+    },
+    {
+      "Name": "minecraft:deepslate_tile_stairs",
+      "Properties": {
+        "facing": "west",
+        "half": "bottom",
+        "shape": "straight",
+        "waterlogged": "false"
+      }
+    },
+    {
+      "Name": "minecraft:deepslate_tile_wall",
+      "Properties": {
+        "up": "true",
+        "waterlogged": "false",
+        "east": "none",
+        "north": "none",
+        "south": "none",
+        "west": "none"
+      }
+    },
+    {
+      "Name": "minecraft:deepslate_tile_stairs",
+      "Properties": {
+        "facing": "north",
+        "half": "top",
+        "shape": "straight",
+        "waterlogged": "false"
+      }
+    },
+    {
+      "Name": "minecraft:deepslate_tile_stairs",
+      "Properties": {
+        "facing": "west",
+        "half": "top",
+        "shape": "straight",
+        "waterlogged": "false"
+      }
+    },
+    {
+      "Name": "minecraft:deepslate_tile_stairs",
+      "Properties": {
+        "facing": "south",
+        "half": "top",
+        "shape": "straight",
+        "waterlogged": "false"
+      }
+    },
+    {
+      "Name": "minecraft:smooth_quartz_stairs",
+      "Properties": {
+        "facing": "west",
+        "half": "bottom",
+        "shape": "straight",
+        "waterlogged": "false"
+      }
+    },
+    {
+      "Name": "minecraft:smooth_quartz_stairs",
+      "Properties": {
+        "facing": "east",
+        "half": "bottom",
+        "shape": "straight",
+        "waterlogged": "false"
+      }
+    },
+    {
+      "Name": "minecraft:end_rod",
+      "Properties": {
+        "facing": "up"
+      }
+    },
+    {
+      "Name": "minecraft:deepslate_tile_stairs",
+      "Properties": {
+        "facing": "east",
+        "half": "top",
+        "shape": "straight",
+        "waterlogged": "false"
+      }
+    },
+    {
+      "Name": "minecraft:smooth_quartz_stairs",
+      "Properties": {
+        "facing": "north",
+        "half": "bottom",
+        "shape": "straight",
+        "waterlogged": "false"
+      }
+    },
+    {
+      "Name": "minecraft:smooth_quartz_stairs",
+      "Properties": {
+        "facing": "south",
+        "half": "bottom",
+        "shape": "straight",
+        "waterlogged": "false"
+      }
+    },
+    {
+      "Name": "minecraft:polished_diorite"
+    },
+    {
+      "Name": "minecraft:chiseled_quartz_block"
+    },
+    {
+      "Name": "minecraft:oak_leaves",
+      "Properties": {
+        "distance": "1",
+        "persistent": "true",
+        "waterlogged": "false"
+      }
+    },
+    {
+      "Name": "minecraft:purple_terracotta"
+    },
+    {
+      "Name": "minecraft:yellow_terracotta"
+    },
+    {
+      "Name": "minecraft:dark_oak_fence",
+      "Properties": {
+        "north": "false",
+        "south": "false",
+        "east": "false",
+        "west": "false",
+        "waterlogged": "false"
+      }
+    },
+    {
+      "Name": "minecraft:spruce_log",
+      "Properties": {
+        "axis": "z"
+      }
+    },
+    {
+      "Name": "minecraft:cyan_stained_glass"
+    },
+    {
+      "Name": "minecraft:amethyst_block"
+    },
+    {
+      "Name": "minecraft:amethyst_cluster",
+      "Properties": {
+        "facing": "up",
+        "waterlogged": "false"
+      }
+    },
+    {
+      "Name": "minecraft:red_wool"
+    },
+    {
+      "Name": "minecraft:birch_trapdoor",
+      "Properties": {
+        "facing": "east",
+        "half": "bottom",
+        "open": "true",
+        "powered": "false",
+        "waterlogged": "false"
+      }
+    },
+    {
+      "Name": "minecraft:quartz_pillar",
+      "Properties": {
+        "axis": "y"
+      }
+    },
+    {
+      "Name": "minecraft:smooth_stone_slab",
+      "Properties": {
+        "type": "bottom",
+        "waterlogged": "false"
+      }
+    }
+  ],
+  "blockEntities": 0,
+  "gameplay": "Only the spawn area has been built. No NPCs, functional portals or other city zones. North opening is a connection point, not a completed city road.",
+  "name": "Sky Land · Spawn 1",
+  "description": "Sky town · expanded adventurers guild campus, inn and rear training court",
+  "zones": [
+    {
+      "id": "01-island",
+      "name": "Mainland",
+      "bounds": [
+        24,
+        24,
+        303,
+        343
+      ],
+      "outline": [
+        [
+          123,
+          24
+        ],
+        [
+          181,
+          24
+        ],
+        [
+          218,
+          37
+        ],
+        [
+          246,
+          59
+        ],
+        [
+          254,
+          88
+        ],
+        [
+          242,
+          108
+        ],
+        [
+          264,
+          119
+        ],
+        [
+          287,
+          144
+        ],
+        [
+          303,
+          178
+        ],
+        [
+          301,
+          207
+        ],
+        [
+          285,
+          231
+        ],
+        [
+          260,
+          247
+        ],
+        [
+          233,
+          257
+        ],
+        [
+          222,
+          279
+        ],
+        [
+          218,
+          303
+        ],
+        [
+          203,
+          326
+        ],
+        [
+          182,
+          339
+        ],
+        [
+          160,
+          343
+        ],
+        [
+          139,
+          334
+        ],
+        [
+          126,
+          317
+        ],
+        [
+          115,
+          291
+        ],
+        [
+          99,
+          269
+        ],
+        [
+          73,
+          258
+        ],
+        [
+          46,
+          242
+        ],
+        [
+          29,
+          218
+        ],
+        [
+          24,
+          188
+        ],
+        [
+          28,
+          162
+        ],
+        [
+          42,
+          145
+        ],
+        [
+          56,
+          136
+        ],
+        [
+          51,
+          121
+        ],
+        [
+          45,
+          105
+        ],
+        [
+          50,
+          84
+        ],
+        [
+          72,
+          64
+        ],
+        [
+          96,
+          51
+        ],
+        [
+          104,
+          35
+        ]
+      ]
+    },
+    {
+      "id": "02-spawn",
+      "name": "Spawn",
+      "bounds": [
+        134,
+        281,
+        186,
+        333
+      ],
+      "center": [
+        160,
+        97,
+        310
+      ],
+      "terrace": [
+        53,
+        49
+      ],
+      "exitWidth": 13,
+      "exit": [
+        160,
+        97,
+        281
+      ],
+      "reachableCells": 1890
+    }
+  ],
+  "terrain": {
+    "width": 280,
+    "depth": 320,
+    "landColumns": 58493,
+    "minSurfaceY": 96,
+    "maxSurfaceY": 122,
+    "lowestRockY": 24,
+    "deepestColumn": 96,
+    "lastSmoothing": {
+      "changedBlocks": 68373,
+      "changedColumns": 28111,
+      "beforeJumps": 5664,
+      "afterJumps": 0,
+      "changedChunks": 258,
+      "sourceRegionSha256": "1964303496249c0191bcb2754da446bbfe142047b3d43b0d98617f8c959e2e59",
+      "backup": "archive\\map-edit-backups\\before-terrain-smooth\\starter_sky_land_spawn_v1"
+    }
+  },
+  "spawnPlatform": {
+    "vertices": [
+      [
+        152,
+        302
+      ],
+      [
+        168,
+        302
+      ],
+      [
+        170,
+        314
+      ],
+      [
+        160,
+        320
+      ],
+      [
+        150,
+        314
+      ]
+    ],
+    "baseY": 97,
+    "pillarHeight": 2,
+    "stairs": [
+      "north",
+      "west",
+      "east"
+    ],
+    "lanternSupports": {
+      "points": [
+        [
+          153,
+          97,
+          325
+        ],
+        [
+          167,
+          97,
+          325
+        ]
+      ],
+      "report": "island-audit-repairs-report.json"
+    }
+  },
+  "streetsSquare": {
+    "id": "03-streets-square",
+    "name": "Streets / Square",
+    "bounds": [
+      112,
+      150,
+      208,
+      301
+    ],
+    "center": [
+      160,
+      104,
+      215
+    ],
+    "floorY": 103,
+    "squareBounds": [
+      149,
+      197,
+      171,
+      233
+    ],
+    "mainPathWidth": 13,
+    "sidePathWidth": 5,
+    "spawnBaseY": 97,
+    "heightDifference": 6,
+    "status": "Long avenue with tapered fountain widening; surrounding buildings pending",
+    "sideFloorY": 103,
+    "details": {
+      "axis": [
+        160,
+        150,
+        160,
+        301
+      ],
+      "mainWidth": 13,
+      "mainLength": 152,
+      "fountainWidening": {
+        "z": [
+          197,
+          233
+        ],
+        "maxWidth": 23,
+        "shape": "tapered curved widening"
+      },
+      "profile": [
+        {
+          "z": 150,
+          "y": 108,
+          "width": 13,
+          "stairs": false
+        },
+        {
+          "z": 151,
+          "y": 108,
+          "width": 13,
+          "stairs": false
+        },
+        {
+          "z": 152,
+          "y": 108,
+          "width": 13,
+          "stairs": false
+        },
+        {
+          "z": 153,
+          "y": 108,
+          "width": 13,
+          "stairs": false
+        },
+        {
+          "z": 154,
+          "y": 108,
+          "width": 13,
+          "stairs": false
+        },
+        {
+          "z": 155,
+          "y": 108,
+          "width": 13,
+          "stairs": false
+        },
+        {
+          "z": 156,
+          "y": 108,
+          "width": 13,
+          "stairs": true
+        },
+        {
+          "z": 157,
+          "y": 107,
+          "width": 13,
+          "stairs": false
+        },
+        {
+          "z": 158,
+          "y": 107,
+          "width": 13,
+          "stairs": false
+        },
+        {
+          "z": 159,
+          "y": 107,
+          "width": 13,
+          "stairs": true
+        },
+        {
+          "z": 160,
+          "y": 106,
+          "width": 13,
+          "stairs": false
+        },
+        {
+          "z": 161,
+          "y": 106,
+          "width": 13,
+          "stairs": false
+        },
+        {
+          "z": 162,
+          "y": 106,
+          "width": 13,
+          "stairs": true
+        },
+        {
+          "z": 163,
+          "y": 105,
+          "width": 13,
+          "stairs": false
+        },
+        {
+          "z": 164,
+          "y": 105,
+          "width": 13,
+          "stairs": false
+        },
+        {
+          "z": 165,
+          "y": 105,
+          "width": 13,
+          "stairs": true
+        },
+        {
+          "z": 166,
+          "y": 104,
+          "width": 13,
+          "stairs": false
+        },
+        {
+          "z": 167,
+          "y": 104,
+          "width": 13,
+          "stairs": false
+        },
+        {
+          "z": 168,
+          "y": 104,
+          "width": 13,
+          "stairs": true
+        },
+        {
+          "z": 169,
+          "y": 103,
+          "width": 13,
+          "stairs": false
+        },
+        {
+          "z": 170,
+          "y": 103,
+          "width": 13,
+          "stairs": false
+        },
+        {
+          "z": 171,
+          "y": 103,
+          "width": 13,
+          "stairs": false
+        },
+        {
+          "z": 172,
+          "y": 103,
+          "width": 13,
+          "stairs": false
+        },
+        {
+          "z": 173,
+          "y": 103,
+          "width": 13,
+          "stairs": false
+        },
+        {
+          "z": 174,
+          "y": 103,
+          "width": 13,
+          "stairs": false
+        },
+        {
+          "z": 175,
+          "y": 103,
+          "width": 13,
+          "stairs": false
+        },
+        {
+          "z": 176,
+          "y": 103,
+          "width": 13,
+          "stairs": false
+        },
+        {
+          "z": 177,
+          "y": 103,
+          "width": 13,
+          "stairs": false
+        },
+        {
+          "z": 178,
+          "y": 103,
+          "width": 13,
+          "stairs": false
+        },
+        {
+          "z": 179,
+          "y": 103,
+          "width": 13,
+          "stairs": false
+        },
+        {
+          "z": 180,
+          "y": 103,
+          "width": 13,
+          "stairs": false
+        },
+        {
+          "z": 181,
+          "y": 103,
+          "width": 13,
+          "stairs": false
+        },
+        {
+          "z": 182,
+          "y": 103,
+          "width": 13,
+          "stairs": false
+        },
+        {
+          "z": 183,
+          "y": 103,
+          "width": 13,
+          "stairs": false
+        },
+        {
+          "z": 184,
+          "y": 103,
+          "width": 13,
+          "stairs": false
+        },
+        {
+          "z": 185,
+          "y": 103,
+          "width": 13,
+          "stairs": false
+        },
+        {
+          "z": 186,
+          "y": 103,
+          "width": 13,
+          "stairs": false
+        },
+        {
+          "z": 187,
+          "y": 103,
+          "width": 13,
+          "stairs": false
+        },
+        {
+          "z": 188,
+          "y": 103,
+          "width": 13,
+          "stairs": false
+        },
+        {
+          "z": 189,
+          "y": 103,
+          "width": 13,
+          "stairs": false
+        },
+        {
+          "z": 190,
+          "y": 103,
+          "width": 13,
+          "stairs": false
+        },
+        {
+          "z": 191,
+          "y": 103,
+          "width": 13,
+          "stairs": false
+        },
+        {
+          "z": 192,
+          "y": 103,
+          "width": 13,
+          "stairs": false
+        },
+        {
+          "z": 193,
+          "y": 103,
+          "width": 13,
+          "stairs": false
+        },
+        {
+          "z": 194,
+          "y": 103,
+          "width": 13,
+          "stairs": false
+        },
+        {
+          "z": 195,
+          "y": 103,
+          "width": 13,
+          "stairs": false
+        },
+        {
+          "z": 196,
+          "y": 103,
+          "width": 13,
+          "stairs": false
+        },
+        {
+          "z": 197,
+          "y": 103,
+          "width": 13,
+          "stairs": false
+        },
+        {
+          "z": 198,
+          "y": 103,
+          "width": 13,
+          "stairs": false
+        },
+        {
+          "z": 199,
+          "y": 103,
+          "width": 13,
+          "stairs": false
+        },
+        {
+          "z": 200,
+          "y": 103,
+          "width": 13,
+          "stairs": false
+        },
+        {
+          "z": 201,
+          "y": 103,
+          "width": 15,
+          "stairs": false
+        },
+        {
+          "z": 202,
+          "y": 103,
+          "width": 15,
+          "stairs": false
+        },
+        {
+          "z": 203,
+          "y": 103,
+          "width": 15,
+          "stairs": false
+        },
+        {
+          "z": 204,
+          "y": 103,
+          "width": 17,
+          "stairs": false
+        },
+        {
+          "z": 205,
+          "y": 103,
+          "width": 17,
+          "stairs": false
+        },
+        {
+          "z": 206,
+          "y": 103,
+          "width": 19,
+          "stairs": false
+        },
+        {
+          "z": 207,
+          "y": 103,
+          "width": 19,
+          "stairs": false
+        },
+        {
+          "z": 208,
+          "y": 103,
+          "width": 19,
+          "stairs": false
+        },
+        {
+          "z": 209,
+          "y": 103,
+          "width": 21,
+          "stairs": false
+        },
+        {
+          "z": 210,
+          "y": 103,
+          "width": 21,
+          "stairs": false
+        },
+        {
+          "z": 211,
+          "y": 103,
+          "width": 21,
+          "stairs": false
+        },
+        {
+          "z": 212,
+          "y": 103,
+          "width": 23,
+          "stairs": false
+        },
+        {
+          "z": 213,
+          "y": 103,
+          "width": 23,
+          "stairs": false
+        },
+        {
+          "z": 214,
+          "y": 103,
+          "width": 23,
+          "stairs": false
+        },
+        {
+          "z": 215,
+          "y": 103,
+          "width": 23,
+          "stairs": false
+        },
+        {
+          "z": 216,
+          "y": 103,
+          "width": 23,
+          "stairs": false
+        },
+        {
+          "z": 217,
+          "y": 103,
+          "width": 23,
+          "stairs": false
+        },
+        {
+          "z": 218,
+          "y": 103,
+          "width": 23,
+          "stairs": false
+        },
+        {
+          "z": 219,
+          "y": 103,
+          "width": 21,
+          "stairs": false
+        },
+        {
+          "z": 220,
+          "y": 103,
+          "width": 21,
+          "stairs": false
+        },
+        {
+          "z": 221,
+          "y": 103,
+          "width": 21,
+          "stairs": false
+        },
+        {
+          "z": 222,
+          "y": 103,
+          "width": 19,
+          "stairs": false
+        },
+        {
+          "z": 223,
+          "y": 103,
+          "width": 19,
+          "stairs": false
+        },
+        {
+          "z": 224,
+          "y": 103,
+          "width": 19,
+          "stairs": false
+        },
+        {
+          "z": 225,
+          "y": 103,
+          "width": 17,
+          "stairs": false
+        },
+        {
+          "z": 226,
+          "y": 103,
+          "width": 17,
+          "stairs": false
+        },
+        {
+          "z": 227,
+          "y": 103,
+          "width": 15,
+          "stairs": false
+        },
+        {
+          "z": 228,
+          "y": 103,
+          "width": 15,
+          "stairs": false
+        },
+        {
+          "z": 229,
+          "y": 103,
+          "width": 15,
+          "stairs": false
+        },
+        {
+          "z": 230,
+          "y": 103,
+          "width": 13,
+          "stairs": false
+        },
+        {
+          "z": 231,
+          "y": 103,
+          "width": 13,
+          "stairs": false
+        },
+        {
+          "z": 232,
+          "y": 103,
+          "width": 13,
+          "stairs": false
+        },
+        {
+          "z": 233,
+          "y": 103,
+          "width": 13,
+          "stairs": false
+        },
+        {
+          "z": 234,
+          "y": 103,
+          "width": 13,
+          "stairs": false
+        },
+        {
+          "z": 235,
+          "y": 103,
+          "width": 13,
+          "stairs": false
+        },
+        {
+          "z": 236,
+          "y": 103,
+          "width": 13,
+          "stairs": false
+        },
+        {
+          "z": 237,
+          "y": 103,
+          "width": 13,
+          "stairs": false
+        },
+        {
+          "z": 238,
+          "y": 103,
+          "width": 13,
+          "stairs": false
+        },
+        {
+          "z": 239,
+          "y": 103,
+          "width": 13,
+          "stairs": false
+        },
+        {
+          "z": 240,
+          "y": 103,
+          "width": 13,
+          "stairs": false
+        },
+        {
+          "z": 241,
+          "y": 103,
+          "width": 13,
+          "stairs": false
+        },
+        {
+          "z": 242,
+          "y": 103,
+          "width": 13,
+          "stairs": false
+        },
+        {
+          "z": 243,
+          "y": 103,
+          "width": 13,
+          "stairs": false
+        },
+        {
+          "z": 244,
+          "y": 103,
+          "width": 13,
+          "stairs": false
+        },
+        {
+          "z": 245,
+          "y": 103,
+          "width": 13,
+          "stairs": false
+        },
+        {
+          "z": 246,
+          "y": 103,
+          "width": 13,
+          "stairs": false
+        },
+        {
+          "z": 247,
+          "y": 103,
+          "width": 13,
+          "stairs": false
+        },
+        {
+          "z": 248,
+          "y": 103,
+          "width": 13,
+          "stairs": false
+        },
+        {
+          "z": 249,
+          "y": 103,
+          "width": 13,
+          "stairs": false
+        },
+        {
+          "z": 250,
+          "y": 103,
+          "width": 13,
+          "stairs": false
+        },
+        {
+          "z": 251,
+          "y": 103,
+          "width": 13,
+          "stairs": false
+        },
+        {
+          "z": 252,
+          "y": 103,
+          "width": 13,
+          "stairs": false
+        },
+        {
+          "z": 253,
+          "y": 103,
+          "width": 13,
+          "stairs": false
+        },
+        {
+          "z": 254,
+          "y": 103,
+          "width": 13,
+          "stairs": false
+        },
+        {
+          "z": 255,
+          "y": 103,
+          "width": 13,
+          "stairs": false
+        },
+        {
+          "z": 256,
+          "y": 103,
+          "width": 13,
+          "stairs": false
+        },
+        {
+          "z": 257,
+          "y": 103,
+          "width": 13,
+          "stairs": false
+        },
+        {
+          "z": 258,
+          "y": 103,
+          "width": 13,
+          "stairs": false
+        },
+        {
+          "z": 259,
+          "y": 103,
+          "width": 13,
+          "stairs": false
+        },
+        {
+          "z": 260,
+          "y": 103,
+          "width": 13,
+          "stairs": false
+        },
+        {
+          "z": 261,
+          "y": 103,
+          "width": 13,
+          "stairs": false
+        },
+        {
+          "z": 262,
+          "y": 103,
+          "width": 13,
+          "stairs": false
+        },
+        {
+          "z": 263,
+          "y": 103,
+          "width": 13,
+          "stairs": false
+        },
+        {
+          "z": 264,
+          "y": 103,
+          "width": 13,
+          "stairs": false
+        },
+        {
+          "z": 265,
+          "y": 103,
+          "width": 13,
+          "stairs": false
+        },
+        {
+          "z": 266,
+          "y": 103,
+          "width": 13,
+          "stairs": false
+        },
+        {
+          "z": 267,
+          "y": 103,
+          "width": 13,
+          "stairs": false
+        },
+        {
+          "z": 268,
+          "y": 103,
+          "width": 13,
+          "stairs": false
+        },
+        {
+          "z": 269,
+          "y": 103,
+          "width": 13,
+          "stairs": false
+        },
+        {
+          "z": 270,
+          "y": 103,
+          "width": 13,
+          "stairs": false
+        },
+        {
+          "z": 271,
+          "y": 103,
+          "width": 13,
+          "stairs": false
+        },
+        {
+          "z": 272,
+          "y": 103,
+          "width": 13,
+          "stairs": false
+        },
+        {
+          "z": 273,
+          "y": 103,
+          "width": 13,
+          "stairs": false
+        },
+        {
+          "z": 274,
+          "y": 103,
+          "width": 13,
+          "stairs": false
+        },
+        {
+          "z": 275,
+          "y": 103,
+          "width": 13,
+          "stairs": false
+        },
+        {
+          "z": 276,
+          "y": 103,
+          "width": 13,
+          "stairs": false
+        },
+        {
+          "z": 277,
+          "y": 103,
+          "width": 13,
+          "stairs": false
+        },
+        {
+          "z": 278,
+          "y": 103,
+          "width": 13,
+          "stairs": false
+        }
+      ],
+      "lamps": [
+        [
+          151,
+          108,
+          155
+        ],
+        [
+          169,
+          108,
+          155
+        ],
+        [
+          151,
+          103,
+          175
+        ],
+        [
+          169,
+          103,
+          175
+        ],
+        [
+          151,
+          103,
+          195
+        ],
+        [
+          169,
+          103,
+          195
+        ],
+        [
+          146,
+          103,
+          210
+        ],
+        [
+          174,
+          103,
+          210
+        ],
+        [
+          151,
+          103,
+          235
+        ],
+        [
+          169,
+          103,
+          235
+        ],
+        [
+          151,
+          103,
+          249
+        ],
+        [
+          169,
+          103,
+          249
+        ],
+        [
+          151,
+          103,
+          272
+        ],
+        [
+          169,
+          103,
+          272
+        ],
+        [
+          123,
+          103,
+          210
+        ],
+        [
+          197,
+          103,
+          210
+        ]
+      ],
+      "benches": [
+        [
+          150,
+          104,
+          232
+        ],
+        [
+          170,
+          104,
+          232
+        ],
+        [
+          150,
+          104,
+          244
+        ],
+        [
+          170,
+          104,
+          244
+        ]
+      ],
+      "beds": [
+        [
+          149,
+          205
+        ],
+        [
+          149,
+          237
+        ],
+        [
+          169,
+          205
+        ],
+        [
+          169,
+          237
+        ]
+      ],
+      "flags": [
+        [
+          151,
+          104,
+          178
+        ],
+        [
+          169,
+          104,
+          178
+        ]
+      ],
+      "trees": [
+        {
+          "asset": "t210",
+          "center": [
+            146,
+            104,
+            190
+          ],
+          "rotation": 0,
+          "blocks": 77,
+          "size": [
+            5,
+            17,
+            5
+          ]
+        },
+        {
+          "asset": "t210",
+          "center": [
+            174,
+            104,
+            190
+          ],
+          "rotation": 90,
+          "blocks": 77,
+          "size": [
+            5,
+            17,
+            5
+          ]
+        },
+        {
+          "asset": "t210",
+          "center": [
+            146,
+            104,
+            225
+          ],
+          "rotation": 180,
+          "blocks": 77,
+          "size": [
+            5,
+            17,
+            5
+          ]
+        },
+        {
+          "asset": "t210",
+          "center": [
+            174,
+            104,
+            225
+          ],
+          "rotation": 270,
+          "blocks": 77,
+          "size": [
+            5,
+            17,
+            5
+          ]
+        }
+      ],
+      "fountain": {
+        "center": [
+          160,
+          104,
+          215
+        ],
+        "bounds": [
+          155,
+          103,
+          210,
+          165,
+          110,
+          220
+        ],
+        "water": "real water; sealed lower basin"
+      },
+      "sideRoads": [
+        [
+          112,
+          212,
+          148,
+          218
+        ],
+        [
+          172,
+          212,
+          208,
+          218
+        ]
+      ]
+    },
+    "avenueLandscaping": {
+      "mainPathWidth": 13,
+      "treeRowsX": [
+        146,
+        174
+      ],
+      "newTrees": [
+        {
+          "asset": "t210",
+          "center": [
+            146,
+            104,
+            174
+          ],
+          "rotation": 0,
+          "blocks": 77,
+          "size": [
+            5,
+            17,
+            5
+          ]
+        },
+        {
+          "asset": "t210",
+          "center": [
+            174,
+            104,
+            174
+          ],
+          "rotation": 90,
+          "blocks": 77,
+          "size": [
+            5,
+            17,
+            5
+          ]
+        },
+        {
+          "asset": "t210",
+          "center": [
+            146,
+            104,
+            246
+          ],
+          "rotation": 180,
+          "blocks": 77,
+          "size": [
+            5,
+            17,
+            5
+          ]
+        },
+        {
+          "asset": "t210",
+          "center": [
+            174,
+            104,
+            246
+          ],
+          "rotation": 270,
+          "blocks": 77,
+          "size": [
+            5,
+            17,
+            5
+          ]
+        },
+        {
+          "asset": "t210",
+          "center": [
+            146,
+            104,
+            264
+          ],
+          "rotation": 0,
+          "blocks": 77,
+          "size": [
+            5,
+            17,
+            5
+          ]
+        },
+        {
+          "asset": "t210",
+          "center": [
+            174,
+            104,
+            264
+          ],
+          "rotation": 90,
+          "blocks": 77,
+          "size": [
+            5,
+            17,
+            5
+          ]
+        }
+      ],
+      "retainedTreeRowsZ": [
+        190,
+        225
+      ],
+      "newFlags": [
+        {
+          "base": [
+            150,
+            104,
+            200
+          ],
+          "topY": 114,
+          "colors": [
+            "white",
+            "blue"
+          ]
+        },
+        {
+          "base": [
+            170,
+            104,
+            200
+          ],
+          "topY": 114,
+          "colors": [
+            "white",
+            "blue"
+          ]
+        },
+        {
+          "base": [
+            150,
+            104,
+            256
+          ],
+          "topY": 114,
+          "colors": [
+            "white",
+            "blue"
+          ]
+        },
+        {
+          "base": [
+            170,
+            104,
+            256
+          ],
+          "topY": 114,
+          "colors": [
+            "white",
+            "blue"
+          ]
+        },
+        {
+          "base": [
+            150,
+            104,
+            274
+          ],
+          "topY": 114,
+          "colors": [
+            "white",
+            "blue"
+          ]
+        },
+        {
+          "base": [
+            170,
+            104,
+            274
+          ],
+          "topY": 114,
+          "colors": [
+            "white",
+            "blue"
+          ]
+        }
+      ],
+      "retainedFlagsZ": 178,
+      "shoulderColumns": 0,
+      "totalAvenueTrees": 10,
+      "treeAsset": "t210",
+      "treeSize": [
+        5,
+        17,
+        5
+      ],
+      "trees": [
+        {
+          "asset": "t210",
+          "center": [
+            146,
+            104,
+            190
+          ],
+          "rotation": 0,
+          "blocks": 77,
+          "size": [
+            5,
+            17,
+            5
+          ]
+        },
+        {
+          "asset": "t210",
+          "center": [
+            174,
+            104,
+            190
+          ],
+          "rotation": 90,
+          "blocks": 77,
+          "size": [
+            5,
+            17,
+            5
+          ]
+        },
+        {
+          "asset": "t210",
+          "center": [
+            146,
+            104,
+            225
+          ],
+          "rotation": 180,
+          "blocks": 77,
+          "size": [
+            5,
+            17,
+            5
+          ]
+        },
+        {
+          "asset": "t210",
+          "center": [
+            174,
+            104,
+            225
+          ],
+          "rotation": 270,
+          "blocks": 77,
+          "size": [
+            5,
+            17,
+            5
+          ]
+        },
+        {
+          "asset": "t210",
+          "center": [
+            146,
+            104,
+            174
+          ],
+          "rotation": 0,
+          "blocks": 77,
+          "size": [
+            5,
+            17,
+            5
+          ]
+        },
+        {
+          "asset": "t210",
+          "center": [
+            174,
+            104,
+            174
+          ],
+          "rotation": 90,
+          "blocks": 77,
+          "size": [
+            5,
+            17,
+            5
+          ]
+        },
+        {
+          "asset": "t210",
+          "center": [
+            146,
+            104,
+            246
+          ],
+          "rotation": 180,
+          "blocks": 77,
+          "size": [
+            5,
+            17,
+            5
+          ]
+        },
+        {
+          "asset": "t210",
+          "center": [
+            174,
+            104,
+            246
+          ],
+          "rotation": 270,
+          "blocks": 77,
+          "size": [
+            5,
+            17,
+            5
+          ]
+        },
+        {
+          "asset": "t210",
+          "center": [
+            146,
+            104,
+            264
+          ],
+          "rotation": 0,
+          "blocks": 77,
+          "size": [
+            5,
+            17,
+            5
+          ]
+        },
+        {
+          "asset": "t210",
+          "center": [
+            174,
+            104,
+            264
+          ],
+          "rotation": 90,
+          "blocks": 77,
+          "size": [
+            5,
+            17,
+            5
+          ]
+        }
+      ]
+    },
+    "royalAvenue": {
+      "pavingStyle": "light-stone-andesite-diamonds",
+      "mainClearWidth": 13,
+      "curbsOutsideRoad": true,
+      "lights": 50,
+      "doubleLampPosts": 14,
+      "updated": "2026-10-27",
+      "deployed": true
+    }
+  },
+  "spawnSurroundings": {
+    "bounds": [
+      98,
+      210,
+      230,
+      334
+    ],
+    "cityFloorY": 103,
+    "spawnBaseY": 97,
+    "bowl": {
+      "center": [
+        160,
+        309
+      ],
+      "radius": [
+        30,
+        27
+      ],
+      "open": "south",
+      "slopeWidth": 18,
+      "profile": "smoothstep terrain rim; protected built columns; stair shoulders"
+    },
+    "blendWidth": 24
+  },
+  "adventurersHall": {
+    "id": "06-adventurers-hall",
+    "name": "Adventurers Guild Campus",
+    "bounds": [
+      203,
+      102,
+      313,
+      246
+    ],
+    "buildingBounds": [
+      232,
+      110,
+      171,
+      256,
+      137,
+      199
+    ],
+    "buildingSize": [
+      25,
+      29
+    ],
+    "center": [
+      244,
+      111,
+      185
+    ],
+    "entrance": [
+      244,
+      111,
+      199
+    ],
+    "front": "south (+Z)",
+    "floorY": 110,
+    "courtyardFloorY": 107,
+    "interiorBounds": [
+      233,
+      111,
+      172,
+      255,
+      124,
+      198
+    ],
+    "aisleWidth": 7,
+    "gameplayConnected": false,
+    "report": "guild-campus-report.json"
+  },
+  "market": {
+    "id": "04-market",
+    "name": "Market",
+    "bounds": [
+      41,
+      175,
+      141,
+      244
+    ],
+    "floorY": 103,
+    "shops": [
+      {
+        "id": "general",
+        "bounds": [
+          50,
+          177,
+          90,
+          217
+        ],
+        "floorY": 103,
+        "entrance": [
+          82,
+          104,
+          206
+        ],
+        "roofRidgeY": 126,
+        "stage": "expanded furnished market shop",
+        "localSize": [
+          31,
+          29
+        ],
+        "center": [
+          70,
+          103,
+          197
+        ],
+        "rotationDegrees": 30,
+        "faces": "southeast toward market fountain",
+        "corners": [
+          [
+            50,
+            192
+          ],
+          [
+            76,
+            177
+          ],
+          [
+            90,
+            202
+          ],
+          [
+            64,
+            217
+          ]
+        ],
+        "decoration": {
+          "postStyle": "timber bays",
+          "roofOverhang": 1,
+          "windowFrames": true,
+          "entranceCanopy": true
+        },
+        "upperFloorY": 110
+      },
+      {
+        "id": "food-materials",
+        "bounds": [
+          94,
+          177,
+          110,
+          197
+        ],
+        "floorY": 103,
+        "entrance": [
+          102,
+          104,
+          197
+        ],
+        "roofRidgeY": 118,
+        "stage": "expanded furnished market shop",
+        "decoration": {
+          "postStyle": "timber bays",
+          "roofOverhang": 1,
+          "windowFrames": true,
+          "entranceCanopy": true
+        },
+        "localSize": [
+          17,
+          21
+        ],
+        "center": [
+          102,
+          103,
+          187
+        ],
+        "chimneyTopY": 121
+      },
+      {
+        "id": "supplies",
+        "bounds": [
+          115,
+          179,
+          138,
+          197
+        ],
+        "floorY": 103,
+        "entrance": [
+          123,
+          104,
+          197
+        ],
+        "roofRidgeY": 121,
+        "stage": "expanded furnished market shop",
+        "decoration": {
+          "postStyle": "timber bays",
+          "roofOverhang": 1,
+          "windowFrames": true,
+          "entranceCanopy": true
+        },
+        "localSize": [
+          17,
+          19
+        ],
+        "bayBounds": [
+          132,
+          182,
+          138,
+          196
+        ],
+        "center": [
+          123,
+          103,
+          188
+        ]
+      }
+    ],
+    "stallPlots": [
+      [
+        66,
+        223,
+        74,
+        229
+      ],
+      [
+        66,
+        234,
+        74,
+        240
+      ],
+      [
+        81,
+        237,
+        89,
+        243
+      ],
+      [
+        99,
+        235,
+        107,
+        241
+      ],
+      [
+        116,
+        226,
+        124,
+        232
+      ],
+      [
+        116,
+        237,
+        124,
+        243
+      ]
+    ],
+    "smithRoute": [
+      112,
+      104,
+      181
+    ],
+    "stage": "expanded merchant/food/herb market; external glass bay; pending visual acceptance",
+    "stalls": [
+      {
+        "bounds": [
+          66,
+          223,
+          74,
+          229
+        ],
+        "color": "blue"
+      },
+      {
+        "bounds": [
+          66,
+          234,
+          74,
+          240
+        ],
+        "color": "orange"
+      },
+      {
+        "bounds": [
+          81,
+          237,
+          89,
+          243
+        ],
+        "color": "red"
+      },
+      {
+        "bounds": [
+          99,
+          235,
+          107,
+          241
+        ],
+        "color": "orange"
+      },
+      {
+        "bounds": [
+          116,
+          226,
+          124,
+          232
+        ],
+        "color": "green"
+      },
+      {
+        "bounds": [
+          116,
+          237,
+          124,
+          243
+        ],
+        "color": "green"
+      }
+    ],
+    "fountain": {
+      "center": [
+        95,
+        104,
+        224
+      ],
+      "radius": 5,
+      "floorY": 103,
+      "topY": 109
+    },
+    "buildingDetails": [
+      {
+        "id": "general",
+        "localSize": [
+          31,
+          29
+        ],
+        "bounds": [
+          50,
+          177,
+          90,
+          217
+        ],
+        "roofTopY": 126
+      },
+      {
+        "id": "food-materials",
+        "localSize": [
+          17,
+          21
+        ],
+        "bounds": [
+          94,
+          177,
+          110,
+          197
+        ],
+        "roofTopY": 118,
+        "chimneyTopY": 121
+      },
+      {
+        "id": "supplies",
+        "localSize": [
+          17,
+          19
+        ],
+        "bounds": [
+          115,
+          179,
+          138,
+          197
+        ],
+        "roofTopY": 121
+      }
+    ],
+    "landscapeSmoothing": {
+      "bounds": [
+        43,
+        162,
+        147,
+        267
+      ],
+      "columns": 1332,
+      "beforeJumps": 178,
+      "afterJumps": 4,
+      "maxBefore": 7,
+      "maxAfter": 5
+    },
+    "ground": {
+      "type": "grass with dirt paths and coarse dirt edges",
+      "floorY": 103,
+      "grassCells": 2073,
+      "pathCells": 749,
+      "routes": [
+        {
+          "name": "main approach",
+          "width": 5,
+          "points": [
+            [
+              133,
+              215
+            ],
+            [
+              116,
+              215
+            ],
+            [
+              106,
+              212
+            ],
+            [
+              95,
+              215
+            ]
+          ]
+        },
+        {
+          "name": "large shop",
+          "width": 3,
+          "points": [
+            [
+              95,
+              215
+            ],
+            [
+              88,
+              214
+            ],
+            [
+              83,
+              210
+            ],
+            [
+              82,
+              207
+            ]
+          ]
+        },
+        {
+          "name": "food shop",
+          "width": 3,
+          "points": [
+            [
+              106,
+              212
+            ],
+            [
+              102,
+              205
+            ],
+            [
+              102,
+              196
+            ]
+          ]
+        },
+        {
+          "name": "supplies shop",
+          "width": 3,
+          "points": [
+            [
+              116,
+              215
+            ],
+            [
+              123,
+              208
+            ],
+            [
+              123,
+              198
+            ]
+          ]
+        },
+        {
+          "name": "blue west stall",
+          "width": 3,
+          "points": [
+            [
+              87,
+              224
+            ],
+            [
+              80,
+              224
+            ],
+            [
+              70,
+              226
+            ]
+          ]
+        },
+        {
+          "name": "orange west stall",
+          "width": 3,
+          "points": [
+            [
+              80,
+              224
+            ],
+            [
+              80,
+              231
+            ],
+            [
+              70,
+              237
+            ]
+          ]
+        },
+        {
+          "name": "red inner stall",
+          "width": 3,
+          "points": [
+            [
+              92,
+              232
+            ],
+            [
+              90,
+              235
+            ],
+            [
+              85,
+              240
+            ]
+          ]
+        },
+        {
+          "name": "blue inner stall",
+          "width": 3,
+          "points": [
+            [
+              99,
+              231
+            ],
+            [
+              103,
+              235
+            ],
+            [
+              103,
+              238
+            ]
+          ]
+        },
+        {
+          "name": "orange east stall",
+          "width": 3,
+          "points": [
+            [
+              103,
+              224
+            ],
+            [
+              112,
+              225
+            ],
+            [
+              120,
+              229
+            ]
+          ]
+        },
+        {
+          "name": "red east stall",
+          "width": 3,
+          "points": [
+            [
+              112,
+              225
+            ],
+            [
+              115,
+              235
+            ],
+            [
+              120,
+              240
+            ]
+          ]
+        },
+        {
+          "name": "future smith connection",
+          "width": 3,
+          "points": [
+            [
+              112,
+              215
+            ],
+            [
+              112,
+              201
+            ],
+            [
+              112,
+              181
+            ]
+          ]
+        }
+      ],
+      "fountainRingRadius": 8
+    },
+    "report": "market-redesign-report.json",
+    "eaves": {
+      "supersededReport": "market-eaves-report.json",
+      "currentReport": "market-expansion-v2-report.json",
+      "projection": 1
+    },
+    "expansion": {
+      "report": "market-expansion-v2-report.json",
+      "dimensions": {
+        "merchant": [
+          31,
+          29
+        ],
+        "food": [
+          17,
+          21
+        ],
+        "herbsMain": [
+          17,
+          19
+        ],
+        "herbsBay": [
+          7,
+          15
+        ]
+      },
+      "floorCells": {
+        "merchant": 901,
+        "food": 357,
+        "herbs": 428
+      }
+    }
+  },
+  "blacksmith": {
+    "id": "05-blacksmith",
+    "name": "Blacksmith",
+    "bounds": [
+      62,
+      104,
+      115,
+      163
+    ],
+    "buildingBounds": [
+      66,
+      112,
+      96,
+      146
+    ],
+    "buildingSize": [
+      31,
+      35
+    ],
+    "shape": "L",
+    "floorY": 107,
+    "entrance": [
+      87,
+      108,
+      134
+    ],
+    "workBay": [
+      79,
+      135,
+      95,
+      146
+    ],
+    "chimneyBounds": [
+      67,
+      108,
+      123,
+      73,
+      129,
+      129
+    ],
+    "marketApproach": [
+      112,
+      104,
+      178
+    ],
+    "mainStreetConnection": [
+      153,
+      109,
+      150
+    ],
+    "stations": [
+      {
+        "type": "anvil",
+        "at": [
+          84,
+          108,
+          139
+        ]
+      },
+      {
+        "type": "smithing_table",
+        "at": [
+          92,
+          108,
+          130
+        ]
+      },
+      {
+        "type": "crafting_table",
+        "at": [
+          80,
+          108,
+          125
+        ]
+      },
+      {
+        "type": "smithing_table",
+        "at": [
+          70,
+          108,
+          117
+        ]
+      },
+      {
+        "type": "anvil",
+        "at": [
+          91,
+          108,
+          117
+        ]
+      }
+    ],
+    "stage": "built; vanilla workstations; no NPC or mod service integration",
+    "paths": {
+      "marketCurve": [
+        [
+          112,
+          178
+        ],
+        [
+          128,
+          168
+        ],
+        [
+          116,
+          157
+        ],
+        [
+          102,
+          149
+        ]
+      ],
+      "roadCurve": [
+        [
+          114,
+          139
+        ],
+        [
+          131,
+          136
+        ],
+        [
+          137,
+          149
+        ],
+        [
+          153,
+          150
+        ]
+      ],
+      "widths": [
+        7,
+        5
+      ],
+      "marketStairRows": [
+        172,
+        166,
+        160,
+        154
+      ],
+      "mainStreetStairX": 147
+    },
+    "rearExtension": {
+      "length": 10,
+      "bounds": [
+        66,
+        112,
+        96,
+        121
+      ],
+      "floorY": 107,
+      "clearAisle": [
+        76,
+        82
+      ],
+      "connection": [
+        79,
+        108,
+        122
+      ]
+    },
+    "rearCourt": {
+      "bounds": [
+        62,
+        104,
+        100,
+        111
+      ],
+      "floorY": 107,
+      "depth": 8,
+      "sidePaths": [
+        [
+          62,
+          112,
+          65,
+          121
+        ],
+        [
+          97,
+          112,
+          100,
+          121
+        ]
+      ],
+      "pavedCells": 382
+    }
+  },
+  "castle": {
+    "id": "07-castle",
+    "name": "Governor Castle",
+    "bounds": [
+      103,
+      4,
+      217,
+      124
+    ],
+    "buildingBounds": [
+      118,
+      16,
+      202,
+      100
+    ],
+    "buildingSize": [
+      85,
+      85
+    ],
+    "floorY": 116,
+    "courtFloorY": 112,
+    "highestY": 171,
+    "heightAboveFloor": 55,
+    "entrance": [
+      160,
+      117,
+      80
+    ],
+    "towers": [
+      {
+        "center": [
+          125,
+          116,
+          45
+        ],
+        "radius": 7,
+        "deckY": 150,
+        "tipY": 166
+      },
+      {
+        "center": [
+          195,
+          116,
+          45
+        ],
+        "radius": 7,
+        "deckY": 150,
+        "tipY": 166
+      },
+      {
+        "center": [
+          125,
+          116,
+          93
+        ],
+        "radius": 7,
+        "deckY": 142,
+        "tipY": 158
+      },
+      {
+        "center": [
+          195,
+          116,
+          93
+        ],
+        "radius": 7,
+        "deckY": 142,
+        "tipY": 158
+      }
+    ],
+    "rooms": [
+      {
+        "name": "West archive and services",
+        "bounds": [
+          119,
+          52,
+          140,
+          68
+        ],
+        "floorY": 116,
+        "deckY": 140,
+        "clearInterior": [
+          18,
+          13
+        ]
+      },
+      {
+        "name": "West recessed link",
+        "bounds": [
+          121,
+          67,
+          138,
+          86
+        ],
+        "floorY": 116,
+        "deckY": 136,
+        "clearInterior": [
+          14,
+          16
+        ]
+      },
+      {
+        "name": "West reception wing",
+        "bounds": [
+          119,
+          84,
+          140,
+          100
+        ],
+        "floorY": 116,
+        "deckY": 138,
+        "clearInterior": [
+          18,
+          13
+        ]
+      },
+      {
+        "name": "East guard and residence",
+        "bounds": [
+          180,
+          52,
+          201,
+          68
+        ],
+        "floorY": 116,
+        "deckY": 140,
+        "clearInterior": [
+          18,
+          13
+        ]
+      },
+      {
+        "name": "East recessed link",
+        "bounds": [
+          182,
+          67,
+          199,
+          86
+        ],
+        "floorY": 116,
+        "deckY": 136,
+        "clearInterior": [
+          14,
+          16
+        ]
+      },
+      {
+        "name": "East service wing",
+        "bounds": [
+          180,
+          84,
+          201,
+          100
+        ],
+        "floorY": 116,
+        "deckY": 138,
+        "clearInterior": [
+          18,
+          13
+        ]
+      },
+      {
+        "name": "Great hall",
+        "bounds": [
+          143,
+          50,
+          177,
+          80
+        ],
+        "floorY": 116,
+        "deckY": 142,
+        "clearInterior": [
+          31,
+          27
+        ]
+      },
+      {
+        "name": "Rear connecting gallery",
+        "bounds": [
+          149,
+          37,
+          171,
+          51
+        ],
+        "floorY": 116,
+        "deckY": 138,
+        "clearInterior": [
+          19,
+          11
+        ]
+      },
+      {
+        "name": "Central keep",
+        "bounds": [
+          149,
+          16,
+          171,
+          38
+        ],
+        "floorY": 116,
+        "deckY": 156,
+        "clearInterior": [
+          19,
+          19
+        ]
+      }
+    ],
+    "verifiedRoutes": [
+      {
+        "name": "court",
+        "x": 160,
+        "z": 116,
+        "h": 113
+      },
+      {
+        "name": "great hall",
+        "x": 160,
+        "z": 85,
+        "h": 117
+      },
+      {
+        "name": "left service",
+        "x": 133,
+        "z": 82,
+        "h": 117
+      },
+      {
+        "name": "right service",
+        "x": 187,
+        "z": 82,
+        "h": 117
+      },
+      {
+        "name": "upper gallery",
+        "x": 140,
+        "z": 60,
+        "h": 129
+      },
+      {
+        "name": "keep upper hall",
+        "x": 160,
+        "z": 48,
+        "h": 153
+      }
+    ],
+    "stage": "completed architecture and furnishings; no gameplay/NPC integration",
+    "style": "fortified stone castle with gatehouse, flat defensive terraces and pointed turrets",
+    "wallDetails": {
+      "posts": [
+        {
+          "face": "front",
+          "at": [
+            120,
+            112,
+            124
+          ],
+          "topY": 123
+        },
+        {
+          "face": "front",
+          "at": [
+            132,
+            112,
+            124
+          ],
+          "topY": 123
+        },
+        {
+          "face": "front",
+          "at": [
+            144,
+            112,
+            124
+          ],
+          "topY": 123
+        },
+        {
+          "face": "front",
+          "at": [
+            176,
+            112,
+            124
+          ],
+          "topY": 123
+        },
+        {
+          "face": "front",
+          "at": [
+            188,
+            112,
+            124
+          ],
+          "topY": 123
+        },
+        {
+          "face": "front",
+          "at": [
+            200,
+            112,
+            124
+          ],
+          "topY": 123
+        },
+        {
+          "face": "left",
+          "at": [
+            107,
+            116,
+            48
+          ],
+          "topY": 127
+        },
+        {
+          "face": "left",
+          "at": [
+            107,
+            116,
+            60
+          ],
+          "topY": 127
+        },
+        {
+          "face": "left",
+          "at": [
+            107,
+            116,
+            72
+          ],
+          "topY": 127
+        },
+        {
+          "face": "left",
+          "at": [
+            107,
+            116,
+            84
+          ],
+          "topY": 127
+        },
+        {
+          "face": "left",
+          "at": [
+            107,
+            116,
+            96
+          ],
+          "topY": 127
+        },
+        {
+          "face": "right",
+          "at": [
+            213,
+            116,
+            48
+          ],
+          "topY": 127
+        },
+        {
+          "face": "right",
+          "at": [
+            213,
+            116,
+            60
+          ],
+          "topY": 127
+        },
+        {
+          "face": "right",
+          "at": [
+            213,
+            116,
+            72
+          ],
+          "topY": 127
+        },
+        {
+          "face": "right",
+          "at": [
+            213,
+            116,
+            84
+          ],
+          "topY": 127
+        },
+        {
+          "face": "right",
+          "at": [
+            213,
+            116,
+            96
+          ],
+          "topY": 127
+        },
+        {
+          "face": "rear",
+          "at": [
+            124,
+            116,
+            33
+          ],
+          "topY": 127
+        },
+        {
+          "face": "rear",
+          "at": [
+            136,
+            116,
+            33
+          ],
+          "topY": 127
+        },
+        {
+          "face": "rear",
+          "at": [
+            148,
+            116,
+            33
+          ],
+          "topY": 127
+        },
+        {
+          "face": "rear",
+          "at": [
+            160,
+            116,
+            33
+          ],
+          "topY": 127
+        },
+        {
+          "face": "rear",
+          "at": [
+            172,
+            116,
+            33
+          ],
+          "topY": 127
+        },
+        {
+          "face": "rear",
+          "at": [
+            184,
+            116,
+            33
+          ],
+          "topY": 127
+        },
+        {
+          "face": "rear",
+          "at": [
+            196,
+            116,
+            33
+          ],
+          "topY": 127
+        }
+      ],
+      "slits": [
+        {
+          "face": "front",
+          "at": [
+            126,
+            115,
+            124
+          ]
+        },
+        {
+          "face": "front",
+          "at": [
+            138,
+            115,
+            124
+          ]
+        },
+        {
+          "face": "front",
+          "at": [
+            182,
+            115,
+            124
+          ]
+        },
+        {
+          "face": "front",
+          "at": [
+            194,
+            115,
+            124
+          ]
+        },
+        {
+          "face": "left",
+          "at": [
+            107,
+            119,
+            54
+          ]
+        },
+        {
+          "face": "left",
+          "at": [
+            107,
+            119,
+            66
+          ]
+        },
+        {
+          "face": "left",
+          "at": [
+            107,
+            119,
+            78
+          ]
+        },
+        {
+          "face": "left",
+          "at": [
+            107,
+            119,
+            90
+          ]
+        },
+        {
+          "face": "right",
+          "at": [
+            213,
+            119,
+            54
+          ]
+        },
+        {
+          "face": "right",
+          "at": [
+            213,
+            119,
+            66
+          ]
+        },
+        {
+          "face": "right",
+          "at": [
+            213,
+            119,
+            78
+          ]
+        },
+        {
+          "face": "right",
+          "at": [
+            213,
+            119,
+            90
+          ]
+        },
+        {
+          "face": "rear",
+          "at": [
+            130,
+            119,
+            33
+          ]
+        },
+        {
+          "face": "rear",
+          "at": [
+            142,
+            119,
+            33
+          ]
+        },
+        {
+          "face": "rear",
+          "at": [
+            154,
+            119,
+            33
+          ]
+        },
+        {
+          "face": "rear",
+          "at": [
+            166,
+            119,
+            33
+          ]
+        },
+        {
+          "face": "rear",
+          "at": [
+            178,
+            119,
+            33
+          ]
+        },
+        {
+          "face": "rear",
+          "at": [
+            190,
+            119,
+            33
+          ]
+        }
+      ],
+      "banners": [
+        {
+          "face": "front",
+          "at": [
+            120,
+            115,
+            127
+          ],
+          "colors": [
+            "white",
+            "blue"
+          ]
+        },
+        {
+          "face": "front",
+          "at": [
+            144,
+            115,
+            127
+          ],
+          "colors": [
+            "white",
+            "blue"
+          ]
+        },
+        {
+          "face": "front",
+          "at": [
+            176,
+            115,
+            127
+          ],
+          "colors": [
+            "white",
+            "blue"
+          ]
+        },
+        {
+          "face": "front",
+          "at": [
+            200,
+            115,
+            127
+          ],
+          "colors": [
+            "white",
+            "blue"
+          ]
+        },
+        {
+          "face": "left",
+          "at": [
+            104,
+            119,
+            60
+          ],
+          "colors": [
+            "white",
+            "blue"
+          ]
+        },
+        {
+          "face": "left",
+          "at": [
+            104,
+            119,
+            84
+          ],
+          "colors": [
+            "white",
+            "blue"
+          ]
+        },
+        {
+          "face": "right",
+          "at": [
+            216,
+            119,
+            60
+          ],
+          "colors": [
+            "white",
+            "blue"
+          ]
+        },
+        {
+          "face": "right",
+          "at": [
+            216,
+            119,
+            84
+          ],
+          "colors": [
+            "white",
+            "blue"
+          ]
+        }
+      ],
+      "slopedStoneBase": true,
+      "projectingCorbels": true,
+      "walkwayPreserved": true
+    },
+    "leftWallConnection": {
+      "centerline": [
+        [
+          109,
+          114
+        ],
+        [
+          110,
+          115
+        ],
+        [
+          112,
+          116
+        ],
+        [
+          114,
+          117
+        ],
+        [
+          116,
+          118
+        ],
+        [
+          118,
+          120
+        ],
+        [
+          121,
+          122
+        ],
+        [
+          124,
+          123
+        ],
+        [
+          126,
+          123
+        ]
+      ],
+      "deckY": 120,
+      "minimumWidth": 3,
+      "stairUnderpass": true
+    },
+    "frontDefense": {
+      "stage": "front and side defense retained; north end caps opened to completed rear curtain",
+      "outerEntrance": [
+        160,
+        113,
+        124
+      ],
+      "gateDeckY": 132,
+      "bastionDeckY": 128,
+      "sideDeckY": 124,
+      "minimumWalkWidth": 3,
+      "sections": [
+        {
+          "type": "frontWest",
+          "centerline": [
+            [
+              132,
+              112
+            ],
+            [
+              137,
+              114
+            ],
+            [
+              142,
+              117
+            ],
+            [
+              148,
+              120
+            ],
+            [
+              150,
+              120
+            ]
+          ]
+        },
+        {
+          "type": "frontEast",
+          "centerline": [
+            [
+              188,
+              112
+            ],
+            [
+              183,
+              114
+            ],
+            [
+              178,
+              117
+            ],
+            [
+              172,
+              120
+            ],
+            [
+              170,
+              120
+            ]
+          ]
+        },
+        {
+          "type": "sideWest",
+          "centerline": [
+            [
+              119,
+              106
+            ],
+            [
+              113,
+              104
+            ],
+            [
+              109,
+              100
+            ],
+            [
+              108,
+              87
+            ],
+            [
+              108,
+              63
+            ],
+            [
+              110,
+              50
+            ],
+            [
+              112,
+              40
+            ]
+          ]
+        },
+        {
+          "type": "sideEast",
+          "centerline": [
+            [
+              201,
+              106
+            ],
+            [
+              207,
+              104
+            ],
+            [
+              211,
+              100
+            ],
+            [
+              212,
+              87
+            ],
+            [
+              212,
+              63
+            ],
+            [
+              210,
+              50
+            ],
+            [
+              208,
+              40
+            ]
+          ]
+        }
+      ],
+      "verifiedTargets": [
+        [
+          "court",
+          160,
+          113,
+          106
+        ],
+        [
+          "palace hall",
+          160,
+          117,
+          80
+        ],
+        [
+          "west palace",
+          133,
+          117,
+          82
+        ],
+        [
+          "east palace",
+          187,
+          117,
+          82
+        ],
+        [
+          "gallery",
+          140,
+          129,
+          60
+        ],
+        [
+          "keep upper",
+          163,
+          153,
+          48
+        ],
+        [
+          "old gate guard",
+          160,
+          141,
+          90
+        ],
+        [
+          "old gate deck",
+          160,
+          149,
+          96
+        ],
+        [
+          "keep deck",
+          160,
+          157,
+          45
+        ],
+        [
+          "new gate floor",
+          160,
+          113,
+          120
+        ],
+        [
+          "new gate deck",
+          160,
+          133,
+          116
+        ],
+        [
+          "west tower room",
+          125,
+          113,
+          112
+        ],
+        [
+          "west tower deck",
+          125,
+          129,
+          112
+        ],
+        [
+          "east tower room",
+          195,
+          113,
+          112
+        ],
+        [
+          "east tower deck",
+          195,
+          129,
+          112
+        ],
+        [
+          "west front wall",
+          140,
+          129,
+          116
+        ],
+        [
+          "east front wall",
+          180,
+          129,
+          116
+        ],
+        [
+          "west side wall",
+          108,
+          125,
+          63
+        ],
+        [
+          "east side wall",
+          212,
+          125,
+          63
+        ]
+      ],
+      "backup": "archive\\map-edit-backups\\before-front-defense\\starter_sky_land_spawn_v1"
+    },
+    "completion": {
+      "bounds": [
+        100,
+        24,
+        4,
+        220,
+        171,
+        102
+      ],
+      "sourceHash": "0c7824dcdf177f5e669795deea9fea7ab1b3c62df3e9286916714265745f4358",
+      "backup": "archive\\map-edit-backups\\before-castle-completion\\starter_sky_land_spawn_v1",
+      "changedBlocks": 393681,
+      "changedChunks": 48,
+      "addedLandColumns": 2721,
+      "verifiedTargets": [
+        [
+          "court",
+          160,
+          113,
+          100
+        ],
+        [
+          "hall",
+          160,
+          117,
+          74
+        ],
+        [
+          "west wing",
+          136,
+          117,
+          88
+        ],
+        [
+          "east wing",
+          183,
+          117,
+          88
+        ],
+        [
+          "west upper",
+          136,
+          129,
+          75
+        ],
+        [
+          "east upper",
+          194,
+          129,
+          75
+        ],
+        [
+          "hall gallery",
+          148,
+          129,
+          64
+        ],
+        [
+          "keep admin",
+          160,
+          117,
+          33
+        ],
+        [
+          "keep council",
+          160,
+          129,
+          33
+        ],
+        [
+          "keep residence",
+          163,
+          141,
+          33
+        ],
+        [
+          "keep library",
+          163,
+          153,
+          33
+        ],
+        [
+          "keep crown",
+          163,
+          157,
+          24
+        ],
+        [
+          "west roof",
+          136,
+          137,
+          75
+        ],
+        [
+          "east roof",
+          194,
+          137,
+          75
+        ],
+        [
+          "west front tower",
+          125,
+          117,
+          93
+        ],
+        [
+          "east front tower",
+          195,
+          117,
+          93
+        ],
+        [
+          "west rear tower",
+          125,
+          117,
+          45
+        ],
+        [
+          "east rear tower",
+          195,
+          117,
+          45
+        ],
+        [
+          "west front tower upper",
+          125,
+          129,
+          93
+        ],
+        [
+          "east front tower upper",
+          195,
+          129,
+          93
+        ],
+        [
+          "west rear tower upper",
+          125,
+          129,
+          45
+        ],
+        [
+          "east rear tower upper",
+          195,
+          129,
+          45
+        ],
+        [
+          "preserved gate",
+          160,
+          133,
+          116
+        ],
+        [
+          "preserved west bastion",
+          125,
+          129,
+          112
+        ],
+        [
+          "preserved east bastion",
+          195,
+          129,
+          112
+        ],
+        [
+          "west rear wall",
+          113,
+          125,
+          22
+        ],
+        [
+          "east rear wall",
+          207,
+          125,
+          22
+        ],
+        [
+          "north wall",
+          160,
+          125,
+          10
+        ]
+      ],
+      "inGameTested": false,
+      "blueRoofCorrection": {
+        "changedBlocks": 1332,
+        "changedChunks": 16,
+        "backup": "archive\\map-edit-backups\\before-castle-blue-roofs\\starter_sky_land_spawn_v1",
+        "reason": "blue concrete instead of green Vanilla prismarine roof stairs",
+        "savedVoxelComparison": true
+      }
+    }
+  },
+  "guildCampus": {
+    "bounds": [
+      203,
+      102,
+      313,
+      246
+    ],
+    "floors": {
+      "court": 107,
+      "main": 110,
+      "inn": 110,
+      "training": 113,
+      "services": 113,
+      "innUpper": 117,
+      "mezzanine": 118
+    },
+    "dimensions": {
+      "main": [
+        25,
+        29
+      ],
+      "quest": [
+        19,
+        25
+      ],
+      "mapBay": [
+        17,
+        17
+      ],
+      "party": [
+        15,
+        13
+      ],
+      "innLocal": [
+        23,
+        29
+      ],
+      "innWorldBounds": [
+        267,
+        166,
+        297,
+        200
+      ],
+      "trainingClear": [
+        25,
+        21
+      ],
+      "trainingWithGallery": [
+        31,
+        25
+      ],
+      "services": [
+        23,
+        19
+      ],
+      "court": [
+        39,
+        35
+      ]
+    },
+    "report": "guild-campus-report.json",
+    "status": "built-verified-offline",
+    "auditRepairs": {
+      "report": "island-audit-repairs-report.json",
+      "innRoof": {
+        "wallLocalSize": [
+          23,
+          29
+        ],
+        "roofLocalSize": [
+          25,
+          31
+        ],
+        "rotationDegrees": 20,
+        "addedColumns": 108
+      },
+      "galleryRailsConnected": true
+    },
+    "forecourt": {
+      "report": "guild-forecourt-report.json",
+      "bounds": [
+        225,
+        100,
+        207,
+        263,
+        119,
+        241
+      ],
+      "floorY": 107,
+      "compass": {
+        "center": [
+          244,
+          107,
+          224
+        ],
+        "size": [
+          15,
+          15
+        ]
+      },
+      "monument": {
+        "from": [
+          244,
+          224
+        ],
+        "to": [
+          257,
+          233
+        ]
+      },
+      "pergolas": [
+        [
+          226,
+          225,
+          233,
+          233
+        ],
+        [
+          254,
+          208,
+          261,
+          216
+        ]
+      ],
+      "stage": "built; visual acceptance pending"
+    }
+  }
+}

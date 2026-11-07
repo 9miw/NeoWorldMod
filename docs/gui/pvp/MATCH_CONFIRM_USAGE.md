@@ -1,52 +1,23 @@
-# Ranked match confirmation
+# การยืนยันแมตช์แรงก์
 
-After matchmaking selects two queued players, both receive the approved
-`pvp-match-confirm-mockup-v1.png` confirmation screen. Actual local/remote skin
-and equipped item preview copies stand on either side, with names, Elo Rating,
-numeric rank, a VS label and a server-owned 30-second countdown.
+หลังจับคู่ผู้เล่นในคิวสองคน ทั้งคู่ได้รับหน้ายืนยันตาม `pvp-match-confirm-mockup-v1.png` พรีวิวสำเนาสกินและอุปกรณ์จริงฝั่งตน/อีกฝ่ายยืนสองข้าง พร้อมชื่อ Elo Rating อันดับตัวเลข VS และเวลานับถอยหลัง 30 วินาทีจากเซิร์ฟเวอร์
 
-The Ready button accepts the current offer UUID for the acting player only.
-Acceptance is irreversible for that offer. Repeated clicks cannot accept for the
-other player, and acceptance at/after the deadline is rejected. Both acceptance
-flags must be true before creating a ranked room, allocating an arena or teleporting.
-Ranks load asynchronously; an unavailable rank displays `—`, while a player without
-a completed ranked win/loss displays `ยังไม่มีอันดับ`.
+Ready ยอมรับ UUID ข้อเสนอปัจจุบันเฉพาะผู้กด ยอมรับแล้วถอนไม่ได้สำหรับข้อเสนอนั้น คลิกซ้ำรับแทนอีกคนไม่ได้ รับที่/หลังเส้นตายถูกปฏิเสธ ต้องรับทั้งคู่ก่อนสร้างห้องแรงก์ จองสนาม หรือเทเลพอร์ต โหลดอันดับแบบอะซิงโครนัส ถ้าไม่พร้อมแสดง `—` ถ้ายังไม่มีผลชนะ/แพ้แรงก์ที่จบแสดง `ยังไม่มีอันดับ`
 
-At deadline:
-- Each unready player receives a 60-second ranked queue suspension, with no Elo change.
-- A ready, online, eligible player returns automatically to the original arena queue,
-  retaining its original entry time and cached matchmaking Rating.
-- If neither accepted, both are suspended and neither is requeued.
+เมื่อถึงเส้นตาย:
 
-Disconnecting during an offer cancels it immediately and suspends the disconnected
-player for 60 seconds. The other eligible online player returns to their queue.
-Unfinished offers are void on server shutdown without penalties. Confirmed arena
-startup failure likewise produces no penalty or Rating change; the players can
-rejoin after the arena is available.
+- คนที่ยังไม่พร้อมแต่ละคนถูกระงับคิวแรงก์ 60 วินาที ไม่เปลี่ยน Elo
+- คนที่พร้อม ออนไลน์ และมีสิทธิ์กลับคิวแรงก์ร่วมอัตโนมัติ โดยคงเวลาเข้าเดิมและ Rating จับคู่ที่แคช
+- ถ้าไม่รับทั้งคู่ ทั้งคู่ถูกระงับและไม่กลับคิว
 
-X/Escape dismisses the screen without accepting or resetting the server timer.
-Use `/neow pvp`, `/neoworld pvp` or the Hub PvP button to reopen the same current
-offer. Closing the screen while unready does not exempt a player from timeout.
-K remains queue-only: pressing it after a match offer cannot accept, cancel or
-surrender an offer/match. The small search HUD is hidden while an offer is pending.
+หลุดระหว่างข้อเสนอยกเลิกทันทีและระงับคนหลุด 60 วินาที อีกคนที่ออนไลน์และมีสิทธิ์กลับคิว ข้อเสนอไม่เสร็จเป็นโมฆะเมื่อปิดเซิร์ฟเวอร์โดยไม่ลงโทษ การเริ่มสนามที่ยืนยันแล้วล้มเหลวก็ไม่ลงโทษ/เปลี่ยน Rating ผู้เล่นเข้าคิวใหม่ได้เมื่อสนามพร้อม
 
-Suspensions use wall-clock expiry in `<world>/data/neoworld_pvp_queue_penalties.dat`
-and survive relogging and normal save/restart. Offers and their queues remain
-transient. Abrupt process failure before a world save is not transactionally covered.
-Protocol version 12 requires matching client/server code.
+X/Escape ปิดจอโดยไม่ยอมรับหรือรีเซ็ตเวลาเซิร์ฟเวอร์ ใช้ `/neow pvp`, `/neoworld pvp` หรือปุ่ม PvP ในฮับเปิดข้อเสนอปัจจุบันเดิม ปิดจอขณะไม่พร้อมไม่ยกเว้นหมดเวลา K ใช้เฉพาะคิว กดหลังมีข้อเสนอไม่รับ ยกเลิก หรือยอมแพ้ข้อเสนอ/แมตช์ HUD ค้นหาเล็กซ่อนขณะมีข้อเสนอรอ
 
-The PNG frame has no characters, controls or text baked in; previews are rendered
-with Minecraft's inventory entity renderer and separate NeoButton widgets.
-Ready status and button labels reuse the shared NeoGuiIcons READY/REFRESH glyphs.
-Unconfirmed players show a continuously rotating eight-segment pixel spinner.
-The static stone pedestals have separate animated reflection/glow layers, with
-teal emphasis after server-confirmed readiness. VS lettering has a shadow and
-teal side accents; the timer turns red in its last five seconds. Shared buttons
-provide hover/focus/selected/disabled artwork without baking states into the frame.
-Compilation and isolated model/payload/penalty tests are available through
-`compileJava`, `pvpRegressionTest`, `regressionTest`. In-game two-player UI behavior,
-skin/equipment rendering with other mods and dedicated-server loading are still
-runtime verification tasks.
-The standalone harness validates closed-offer/acceptance codecs and rejects invalid
-countdown headers. It cannot bootstrap the NeoForge item registry, so active-offer
-round trips containing equipment still require a fully loaded game environment.
+บทลงโทษเก็บเวลาหมดอายุตามนาฬิกาจริงใน `<world>/data/neoworld_pvp_queue_penalties.dat` คงหลังเข้าใหม่และเซฟ/รีสตาร์ตปกติ ข้อเสนอและคิวเป็นชั่วคราว ไม่ครอบคลุมเชิงธุรกรรมเมื่อโปรเซสล้มก่อนเซฟโลก โปรโตคอล 25 ต้องตรงทั้งคู่ เซิร์ฟเวอร์เลือกสนามแรงก์หลังจับคู่ก่อนยืนยันและคงสนามนั้นตลอดข้อเสนอ ห้องส่วนตัวยังใช้สนามเจ้าของเลือก
+
+Fight ห้องส่วนตัวใช้หน้ายืนยันนี้เมื่อครบสองคน ต้องรับทั้งคู่ใน 30 วินาทีก่อนวางสนาม หมดเวลา/ยกเลิกส่วนตัวกลับลอบบี้เดิม ไม่ระงับคิว ไม่กลับคิว ไม่เปลี่ยน Rating บทลงโทษข้างต้นเฉพาะจับคู่แรงก์
+
+กรอบ PNG ไม่ฝังตัวละคร ตัวควบคุม หรือข้อความ พรีวิวใช้ตัววาดเอนทิตีคลัง Minecraft และวิดเจ็ต NeoButton แยก สถานะพร้อม/ป้ายปุ่มใช้ glyph READY/REFRESH ของ NeoGuiIcons ร่วม คนยังไม่ยืนยันแสดงสปินเนอร์พิกเซลแปดส่วนหมุนต่อเนื่อง แท่นหินนิ่งมีชั้นสะท้อน/เรืองเคลื่อนไหวแยก เน้นทีลหลังเซิร์ฟเวอร์ยืนยันพร้อม VS มีเงาและแต้มทีลข้าง เวลาเป็นแดงห้าวินาทีสุดท้าย ปุ่มร่วมให้ภาพชี้/โฟกัส/เลือก/ปิดใช้ ไม่ฝังสถานะในกรอบ
+คอมไพล์และทดสอบโมเดล/เพย์โหลด/บทลงโทษแยกผ่าน `compileJava`, `pvpRegressionTest`, `regressionTest` พฤติกรรม UI สองคนในเกม การวาดสกิน/อุปกรณ์ร่วมม็อดอื่น และโหลด dedicated server ยังต้องตรวจรันไทม์
+ชุดทดสอบแยกตรวจ codec ข้อเสนอปิด/การยอมรับ และปฏิเสธหัวนับถอยหลังผิด เริ่มรีจิสทรีไอเทม NeoForge ไม่ได้ ข้อเสนอที่มีอุปกรณ์จึงยังต้องทดสอบไปกลับในเกมที่โหลดครบ

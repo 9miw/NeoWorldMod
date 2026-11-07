@@ -12,6 +12,7 @@ public final class NeoBitmapFonts {
     public static final ResourceLocation CURRENCY = ResourceLocation.fromNamespaceAndPath("neoworld", "currency");
     public static final ResourceLocation RANKS = ResourceLocation.fromNamespaceAndPath("neoworld", "ranks");
     public static final ResourceLocation FASHION_TOOLTIP = ResourceLocation.fromNamespaceAndPath("neoworld", "fashion_tooltip");
+    public static final ResourceLocation ACTIVITY_ICONS = ResourceLocation.fromNamespaceAndPath("neoworld", "activity_icons");
     private NeoBitmapFonts() {}
 
     /** Converts legacy formatted labels while assigning only bitmap glyphs their font. */
@@ -35,6 +36,8 @@ public final class NeoBitmapFonts {
                     : c >= '\uE020' && c <= '\uE045' ? RANKS
                     : c >= '\uE001' && c <= '\uE01F' ? ICONS
                     : c >= '\uE200' && c <= '\uE20D' ? FASHION_TOOLTIP : null;
+            if (c >= '\uE300' && c <= '\uE309') font = ICONS;
+            if (c >= '\uE220' && c <= '\uE223') font = ACTIVITY_ICONS;
             if (!java.util.Objects.equals(font, currentFont) && !run.isEmpty()) {
                 result.append(Component.literal(run.toString()).withStyle(style.withFont(currentFont)));
                 run.setLength(0);

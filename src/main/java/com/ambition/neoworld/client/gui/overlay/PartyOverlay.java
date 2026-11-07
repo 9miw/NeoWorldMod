@@ -8,7 +8,7 @@ import net.minecraft.client.gui.GuiGraphics;
 import net.minecraft.client.gui.LayeredDraw;
 
 public final class PartyOverlay implements LayeredDraw.Layer {
-    private static final int BAR_WIDTH = 100;
+    private static final int BAR_WIDTH = 80;
     private static final int BAR_HEIGHT = 3;
 
     @Override
@@ -16,12 +16,13 @@ public final class PartyOverlay implements LayeredDraw.Layer {
         Minecraft minecraft = Minecraft.getInstance();
         var members = ClientPartyHudData.members();
         if (minecraft.player == null || minecraft.level == null || minecraft.options.hideGui || members.isEmpty()) return;
-        int rowWidth = Math.min(180, graphics.guiWidth() / 2 - 16);
-        int rowHeight = Math.min(20, (graphics.guiHeight() - 56) / members.size());
-        if (rowWidth < BAR_WIDTH || rowHeight < 20) return;
+        int rowWidth = Math.min(144, graphics.guiWidth() / 2 - 16);
+        int rowHeight = Math.min(18, (graphics.guiHeight() - 16) / members.size());
+        if (rowWidth < BAR_WIDTH || rowHeight < 18) return;
         int x = 8;
-        int y = 8;
         var font = minecraft.font;
+        int groupHeight = (members.size() - 1) * rowHeight + font.lineHeight + 3 + BAR_HEIGHT;
+        int y = Math.max(8, (graphics.guiHeight() - groupHeight) / 2);
         for (var member : members) {
             boolean available = member.maxHealth() > 0;
             String level = available ? "Lv." + member.level() : "Lv.-";

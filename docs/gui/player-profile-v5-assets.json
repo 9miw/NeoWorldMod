@@ -1,0 +1,169 @@
+{
+  "approved_reference": "docs/gui/player-profile-v5-approved.png",
+  "generator": "OpenAI ImageGen",
+  "shell_size": "1672x940",
+  "alpha_policy": "binary threshold160; nearest-neighbor normalization",
+  "components": [
+    {
+      "name": "tab_normal",
+      "source_x": 25,
+      "source_y": 98,
+      "source_width": 349,
+      "source_height": 92,
+      "width": 320,
+      "height": 80,
+      "file": "src/main/resources/assets/neoworld/textures/gui/player/v5/tab_normal.png"
+    },
+    {
+      "name": "tab_hover",
+      "source_x": 406,
+      "source_y": 98,
+      "source_width": 347,
+      "source_height": 92,
+      "width": 320,
+      "height": 80,
+      "file": "src/main/resources/assets/neoworld/textures/gui/player/v5/tab_hover.png"
+    },
+    {
+      "name": "tab_selected",
+      "source_x": 784,
+      "source_y": 98,
+      "source_width": 348,
+      "source_height": 92,
+      "width": 320,
+      "height": 80,
+      "file": "src/main/resources/assets/neoworld/textures/gui/player/v5/tab_selected.png"
+    },
+    {
+      "name": "tab_disabled",
+      "source_x": 1163,
+      "source_y": 98,
+      "source_width": 348,
+      "source_height": 92,
+      "width": 320,
+      "height": 80,
+      "file": "src/main/resources/assets/neoworld/textures/gui/player/v5/tab_disabled.png"
+    },
+    {
+      "name": "panel",
+      "source_x": 24,
+      "source_y": 297,
+      "source_width": 387,
+      "source_height": 229,
+      "width": 320,
+      "height": 192,
+      "file": "src/main/resources/assets/neoworld/textures/gui/player/v5/panel.png"
+    },
+    {
+      "name": "row_normal",
+      "source_x": 445,
+      "source_y": 362,
+      "source_width": 424,
+      "source_height": 92,
+      "width": 320,
+      "height": 64,
+      "file": "src/main/resources/assets/neoworld/textures/gui/player/v5/row_normal.png"
+    },
+    {
+      "name": "card",
+      "source_x": 904,
+      "source_y": 285,
+      "source_width": 227,
+      "source_height": 245,
+      "width": 160,
+      "height": 192,
+      "file": "src/main/resources/assets/neoworld/textures/gui/player/v5/card.png"
+    },
+    {
+      "name": "portrait",
+      "source_x": 1246,
+      "source_y": 271,
+      "source_width": 188,
+      "source_height": 274,
+      "width": 160,
+      "height": 256,
+      "file": "src/main/resources/assets/neoworld/textures/gui/player/v5/portrait.png"
+    },
+    {
+      "name": "button_normal",
+      "source_x": 25,
+      "source_y": 636,
+      "source_width": 349,
+      "source_height": 96,
+      "width": 320,
+      "height": 80,
+      "file": "src/main/resources/assets/neoworld/textures/gui/player/v5/button_normal.png"
+    },
+    {
+      "name": "button_hover",
+      "source_x": 406,
+      "source_y": 636,
+      "source_width": 347,
+      "source_height": 96,
+      "width": 320,
+      "height": 80,
+      "file": "src/main/resources/assets/neoworld/textures/gui/player/v5/button_hover.png"
+    },
+    {
+      "name": "button_selected",
+      "source_x": 784,
+      "source_y": 636,
+      "source_width": 348,
+      "source_height": 96,
+      "width": 320,
+      "height": 80,
+      "file": "src/main/resources/assets/neoworld/textures/gui/player/v5/button_selected.png"
+    },
+    {
+      "name": "button_disabled",
+      "source_x": 1163,
+      "source_y": 636,
+      "source_width": 348,
+      "source_height": 96,
+      "width": 320,
+      "height": 80,
+      "file": "src/main/resources/assets/neoworld/textures/gui/player/v5/button_disabled.png"
+    },
+    {
+      "name": "section",
+      "source_x": 23,
+      "source_y": 835,
+      "source_width": 356,
+      "source_height": 79,
+      "width": 320,
+      "height": 56,
+      "file": "src/main/resources/assets/neoworld/textures/gui/player/v5/section.png"
+    },
+    {
+      "name": "row_hover",
+      "source_x": 408,
+      "source_y": 834,
+      "source_width": 352,
+      "source_height": 84,
+      "width": 320,
+      "height": 64,
+      "file": "src/main/resources/assets/neoworld/textures/gui/player/v5/row_hover.png"
+    },
+    {
+      "name": "progress_track",
+      "source_x": 791,
+      "source_y": 849,
+      "source_width": 356,
+      "source_height": 53,
+      "width": 320,
+      "height": 40,
+      "file": "src/main/resources/assets/neoworld/textures/gui/player/v5/progress_track.png"
+    },
+    {
+      "name": "progress_fill",
+      "source_x": 1188,
+      "source_y": 861,
+      "source_width": 316,
+      "source_height": 26,
+      "width": 300,
+      "height": 16,
+      "file": "src/main/resources/assets/neoworld/textures/gui/player/v5/progress_fill.png"
+    }
+  ],
+  "source_sha256": "314C8372256EAFA5AD833A388AD8CB90F39531E7A1843B9307B41398E225A535"
+}

@@ -27,6 +27,9 @@ import net.neoforged.neoforge.network.PacketDistributor;
 
 /** All access is confined to the server thread. No assets leave inventory before commit. */
 public final class TradeManager {
+    // Temporarily disabled while the central market remains the supported trading system.
+    public static boolean isEnabled() { return false; }
+
     private static final Map<MinecraftServer, TradeManager> INSTANCES = new HashMap<>();
     private final MinecraftServer server;
     private final Map<UUID, Session> players = new HashMap<>();
@@ -65,6 +68,7 @@ public final class TradeManager {
 
     public String request(ServerPlayer requester, ServerPlayer target) {
         assertThread();
+        if (!isEnabled()) return "ระบบแลกเปลี่ยนระหว่างผู้เล่นปิดใช้งานอยู่";
         if (target == null || requester == target) return "ไม่พบผู้เล่นที่แลกเปลี่ยนได้";
         if (players.containsKey(requester.getUUID()) || players.containsKey(target.getUUID())) return "ผู้เล่นกำลังมีคำขอหรือรายการแลกเปลี่ยนอยู่";
         if (tick - requestCooldown.getOrDefault(requester.getUUID(), -100L) < 100) return "กรุณารอสักครู่ก่อนส่งคำขอใหม่";
@@ -78,6 +82,9 @@ public final class TradeManager {
 
     public void action(ServerPlayer player, TradeActionPayload payload) {
         assertThread();
+        if (!isEnabled()) {
+            cancel(player.getUUID(), "ระบบแลกเปลี่ยนระหว่างผู้เล่นปิดใช้งานอยู่"); return;
+        }
         Session s = players.get(player.getUUID());
         if (s == null || s.finished || !s.id.equals(payload.sessionId())) return;
         Side side = s.side(player.getUUID());
@@ -138,7 +145,14 @@ public final class TradeManager {
     }
 
     public void tick() {
-        assertThread(); tick++;
+        assertThread();
+        if (!isEnabled()) {
+            for (Session session : new java.util.HashSet<>(players.values())) {
+                finish(session, Phase.CANCELLED, "ระบบแลกเปลี่ยนระหว่างผู้เล่นปิดใช้งานอยู่");
+            }
+            return;
+        }
+        tick++;
         for (Session s : new java.util.HashSet<>(players.values())) {
             if (!valid(s)) { finish(s, Phase.CANCELLED, "ผู้เล่นไม่อยู่ในระยะหรือไม่พร้อมแลกเปลี่ยน"); continue; }
             if (s.phase == Phase.REQUESTED) {
@@ -163,6 +177,7 @@ public final class TradeManager {
     }
 
     public boolean menuValid(ServerPlayer player, UUID id) {
+        if (!isEnabled()) return false;
         Session s = players.get(player.getUUID());
         return s != null && !s.finished && s.id.equals(id) && s.phase != Phase.REQUESTED
                 && physicallyEligible(player(s.a), player(s.b));
@@ -228,28 +243,31 @@ public final class TradeManager {
     }
 
     private void commit(Session s) {
-        Plan plan;
-        try { plan = preflight(s); }
-        catch (IllegalArgumentException exception) { changed(s); sync(s, exception.getMessage()); return; }
-        ServerPlayer a = player(s.a), b = player(s.b);
-        List<ItemStack> beforeA = snapshot(a), beforeB = snapshot(b);
-        long silverA = balance(a), silverB = balance(b);
-        // No yielding or database IO within this mutation. This is not crash-atomic across player files.
-        try {
-            apply(a, plan.a); apply(b, plan.b);
-            a.getData(ModAttachments.PLAYER_DATA).setSilver(plan.silverA);
-            b.getData(ModAttachments.PLAYER_DATA).setSilver(plan.silverB);
-        } catch (RuntimeException exception) {
-            apply(a, beforeA); apply(b, beforeB);
-            a.getData(ModAttachments.PLAYER_DATA).setSilver(silverA);
-            b.getData(ModAttachments.PLAYER_DATA).setSilver(silverB);
-            NeoWorld.LOGGER.error("Trade {} failed and was rolled back", s.id, exception);
-            finish(s, Phase.CANCELLED, "โอนไม่สำเร็จ ยกเลิกรายการแล้ว");
-            broadcastInventory(a); broadcastInventory(b); return;
+        try (var analyticsA = com.ambition.neoworld.economy.analytics.EconomyAnalytics.observe(player(s.a), "player_trade", s.id.toString(), "TRANSFER");
+             var analyticsB = com.ambition.neoworld.economy.analytics.EconomyAnalytics.observe(player(s.b), "player_trade", s.id.toString(), "TRANSFER")) {
+            Plan plan;
+            try { plan = preflight(s); }
+            catch (IllegalArgumentException exception) { changed(s); sync(s, exception.getMessage()); return; }
+            ServerPlayer a = player(s.a), b = player(s.b);
+            List<ItemStack> beforeA = snapshot(a), beforeB = snapshot(b);
+            long silverA = balance(a), silverB = balance(b);
+            // No yielding or database IO within this mutation. This is not crash-atomic across player files.
+            try {
+                apply(a, plan.a); apply(b, plan.b);
+                a.getData(ModAttachments.PLAYER_DATA).setSilver(plan.silverA);
+                b.getData(ModAttachments.PLAYER_DATA).setSilver(plan.silverB);
+            } catch (RuntimeException exception) {
+                apply(a, beforeA); apply(b, beforeB);
+                a.getData(ModAttachments.PLAYER_DATA).setSilver(silverA);
+                b.getData(ModAttachments.PLAYER_DATA).setSilver(silverB);
+                NeoWorld.LOGGER.error("Trade {} failed and was rolled back", s.id, exception);
+                finish(s, Phase.CANCELLED, "โอนไม่สำเร็จ ยกเลิกรายการแล้ว");
+                broadcastInventory(a); broadcastInventory(b); return;
+            }
+            // Remove ownership before publishing success so repeated packets cannot commit twice.
+            finish(s, Phase.COMMITTED, "แลกเปลี่ยนสำเร็จ");
+            broadcastInventory(a); broadcastInventory(b);
         }
-        // Remove ownership before publishing success so repeated packets cannot commit twice.
-        finish(s, Phase.COMMITTED, "แลกเปลี่ยนสำเร็จ");
-        broadcastInventory(a); broadcastInventory(b);
     }
     private static void apply(ServerPlayer player, List<ItemStack> items) {
         for (int slot = 0; slot < 36; slot++) player.getInventory().setItem(slot, items.get(slot).copy());
@@ -287,6 +305,7 @@ public final class TradeManager {
     }
     private ServerPlayer player(Side side) { return server.getPlayerList().getPlayer(side.player); }
     private boolean valid(Session s) {
+        if (!isEnabled()) return false;
         ServerPlayer a = player(s.a), b = player(s.b);
         if (s.phase == Phase.REQUESTED) return requestEligible(a, b);
         if (!physicallyEligible(a, b)) return false;

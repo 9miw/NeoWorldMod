@@ -1,0 +1,31 @@
+{
+  "asset": "t106",
+  "origin": [
+    234,
+    103,
+    134
+  ],
+  "size": [
+    20,
+    36,
+    19
+  ],
+  "trunkCenter": [
+    244,
+    103,
+    143
+  ],
+  "bounds": [
+    234,
+    103,
+    134,
+    253,
+    138,
+    152
+  ],
+  "changedBlocks": 2291,
+  "changedChunks": 4,
+  "verifiedAssetBlocks": 2291,
+  "outsideChanges": 0,
+  "backup": "archive\\map-edit-backups\\before-hall-rear-tree\\starter_sky_land_spawn_v1"
+}

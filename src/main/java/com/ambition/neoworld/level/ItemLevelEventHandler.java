@@ -18,7 +18,6 @@ import net.neoforged.fml.common.EventBusSubscriber;
 import net.neoforged.neoforge.common.util.TriState;
 import net.neoforged.neoforge.event.entity.living.LivingIncomingDamageEvent;
 import net.neoforged.neoforge.event.entity.player.AttackEntityEvent;
-import net.neoforged.neoforge.event.entity.player.ItemTooltipEvent;
 import net.neoforged.neoforge.event.entity.player.PlayerInteractEvent;
 import net.neoforged.neoforge.event.tick.PlayerTickEvent;
 
@@ -91,6 +90,11 @@ public class ItemLevelEventHandler {
         if (player.level().isClientSide()) {
             return;
         }
+        if (!player.isAlive()) return;
+        if (player.tickCount % 5 == 0 && player.hasData(ModAttachments.UNDER_LEVEL_ARMOR)) {
+            player.getData(ModAttachments.UNDER_LEVEL_ARMOR)
+                    .restore(stack -> UnderLevelArmorRecovery.insertIntoInventory(player.getInventory(), stack));
+        }
 
         for (EquipmentSlot slot : new EquipmentSlot[] {
                 EquipmentSlot.HEAD, EquipmentSlot.CHEST, EquipmentSlot.LEGS, EquipmentSlot.FEET
@@ -101,25 +105,15 @@ public class ItemLevelEventHandler {
             }
 
             ItemStack removed = armor.copy();
+            // Save ownership before unequipping; a full inventory must never drop valuable armor.
+            var recovery = player.getData(ModAttachments.UNDER_LEVEL_ARMOR);
+            recovery.retain(removed);
             player.setItemSlot(slot, ItemStack.EMPTY);
-            if (!player.getInventory().add(removed)) {
-                player.drop(removed, false);
-            }
+            recovery.restore(stack -> UnderLevelArmorRecovery.insertIntoInventory(player.getInventory(), stack));
             rejectUse(player, removed);
         }
     }
 
-    @SubscribeEvent
-    public static void onTooltip(ItemTooltipEvent event) {
-        ItemStack stack = event.getItemStack();
-        if (stack.isEmpty()) {
-            return;
-        }
-        int requiredLevel = getRequiredLevel(stack);
-        if (requiredLevel > 0) {
-            event.getToolTip().add(Component.literal("ต้องการเลเวล " + requiredLevel).withStyle(ChatFormatting.GOLD));
-        }
-    }
 
     private static boolean canUse(Player player, ItemStack stack) {
         int requiredLevel = getRequiredLevel(stack);

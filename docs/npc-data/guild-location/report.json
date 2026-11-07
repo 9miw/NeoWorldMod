@@ -1,0 +1,28 @@
+{
+  "backup": "/home/miw/backups/neoworld-guild-location-20261027-011208",
+  "newDialogId": 138,
+  "questChain": [
+    5,
+    13,
+    6
+  ],
+  "waypoint": [
+    244,
+    110,
+    195
+  ],
+  "range": 4,
+  "changed": [
+    "quests/มือใหม่/5.json",
+    "quests/มือใหม่/13.json",
+    "dialogs/กิลด์_เจ้าหน้าที่_เซริน/127.json",
+    "dialogs/ลานเกิด_เสบียง_อัลเลย์/138.json",
+    "dialogs/ลานเกิด_เสบียง_อัลเลย์/30.json",
+    "dialogs/ลานเกิด_เสบียง_อัลเลย์/24.json"
+  ],
+  "gameplayTested": false,
+  "result": "PASS",
+  "unchangedOtherQuestDialogFiles": true,
+  "starterRewardUnchanged": true,
+  "waypointSaved": true
+}

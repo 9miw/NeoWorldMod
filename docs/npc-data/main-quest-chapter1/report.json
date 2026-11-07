@@ -1,0 +1,35 @@
+{
+  "result": "PASS",
+  "npcBefore": 41,
+  "npcAfter": 42,
+  "serinUUID": "b63632e2-de1e-4fe2-9905-02458b1dc754",
+  "questIDs": [
+    6,
+    7,
+    8,
+    9,
+    10,
+    11,
+    12
+  ],
+  "dialogIDs": [
+    127,
+    128,
+    129,
+    130,
+    131,
+    132,
+    133,
+    134,
+    135,
+    136,
+    137
+  ],
+  "unchangedOriginalNPCs": true,
+  "unchangedDailyQuests": true,
+  "unchangedOriginalQuest5Mechanics": true,
+  "stageMatchesLiveFiles": true,
+  "validReferencesAndGates": true,
+  "gameplayTested": false,
+  "backup": "/home/miw/backups/neoworld-main-quest-chapter1-20261026-221620"
+}

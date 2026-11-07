@@ -1,0 +1,9 @@
+{
+  "changedBlocks": 68373,
+  "changedColumns": 28111,
+  "beforeJumps": 5664,
+  "afterJumps": 0,
+  "changedChunks": 258,
+  "sourceRegionSha256": "1964303496249c0191bcb2754da446bbfe142047b3d43b0d98617f8c959e2e59",
+  "backup": "archive\\map-edit-backups\\before-terrain-smooth\\starter_sky_land_spawn_v1"
+}

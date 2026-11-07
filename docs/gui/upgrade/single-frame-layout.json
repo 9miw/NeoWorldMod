@@ -1,0 +1,32 @@
+{
+  "size": [
+    320,
+    232
+  ],
+  "inventory": [
+    147,
+    151,
+    9,
+    3,
+    18
+  ],
+  "hotbarY": 207,
+  "dividerX": 138,
+  "dividerY": 138,
+  "action": [
+    18,
+    206,
+    110,
+    16
+  ],
+  "frameSourceAlphaBounds": [
+    33,
+    37,
+    1441,
+    1009
+  ],
+  "frameTextureSize": [
+    640,
+    464
+  ]
+}

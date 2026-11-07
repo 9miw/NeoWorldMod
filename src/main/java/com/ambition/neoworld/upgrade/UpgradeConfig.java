@@ -25,7 +25,7 @@ public final class UpgradeConfig {
 
     private static final ModConfigSpec.Builder BUILDER = new ModConfigSpec.Builder();
     private static final List<ModConfigSpec.ConfigValue<String>> LEVEL_CHANCES = new ArrayList<>();
-    private static final List<ModConfigSpec.LongValue> GOLD_COSTS = new ArrayList<>();
+    private static final List<ModConfigSpec.LongValue> SILVER_COSTS = new ArrayList<>();
     private static final List<ModConfigSpec.IntValue> STONE_COSTS = new ArrayList<>();
     public static final ModConfigSpec.ConfigValue<List<? extends String>> EXTRA_ALLOWED_ITEMS;
     public static final ModConfigSpec.IntValue FAILURE_BONUS_PER_POINT;
@@ -35,6 +35,7 @@ public final class UpgradeConfig {
     public static final ModConfigSpec.DoubleValue ARMOR_PER_LEVEL;
     public static final ModConfigSpec.DoubleValue STUN_ARMOR_PER_LEVEL;
     public static final ModConfigSpec SPEC;
+    public static final net.neoforged.fml.config.IConfigSpec COMPATIBLE_SPEC;
 
     static {
         BUILDER.push("upgrade");
@@ -57,7 +58,7 @@ public final class UpgradeConfig {
         BUILDER.pop();
         BUILDER.push("costs");
         for (int level = 1; level <= UpgradeData.MAX_LEVEL; level++) {
-            GOLD_COSTS.add(BUILDER.defineInRange("goldForLevel" + level, 100L * level * level, 1L, Long.MAX_VALUE));
+            SILVER_COSTS.add(BUILDER.defineInRange("silverForLevel" + level, 100L * level * level, 1L, Long.MAX_VALUE));
             STONE_COSTS.add(BUILDER.defineInRange("stonesForLevel" + level, level <= 6 ? 1 : level <= 12 ? 2 : 3, 1, 64));
         }
         BUILDER.pop();
@@ -73,6 +74,7 @@ public final class UpgradeConfig {
         BUILDER.pop();
         BUILDER.pop();
         SPEC = BUILDER.build();
+        COMPATIBLE_SPEC = new RetiredUpgradeConfig(SPEC);
     }
 
     private UpgradeConfig() {}
@@ -99,9 +101,9 @@ public final class UpgradeConfig {
         return (int) Math.min((long) failures * FAILURE_BONUS_PER_POINT.get(), FAILURE_BONUS_CAP.get());
     }
 
-    public static long goldCost(int targetLevel) {
+    public static long silverCost(int targetLevel) {
         chances(targetLevel);
-        return GOLD_COSTS.get(targetLevel - 1).get();
+        return SILVER_COSTS.get(targetLevel - 1).get();
     }
 
     public static int stoneCost(int targetLevel) {

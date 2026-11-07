@@ -1,0 +1,81 @@
+{
+  "changedBlocks": 35321,
+  "changedChunks": 48,
+  "fortress": {
+    "gatehouse": [
+      149,
+      116,
+      83,
+      171,
+      151,
+      99
+    ],
+    "wallWalkWidth": 3,
+    "verifiedRoutes": [
+      [
+        "court",
+        160,
+        116,
+        113
+      ],
+      [
+        "great hall",
+        160,
+        80,
+        117
+      ],
+      [
+        "left room",
+        133,
+        82,
+        117
+      ],
+      [
+        "right room",
+        187,
+        82,
+        117
+      ],
+      [
+        "gallery",
+        140,
+        60,
+        129
+      ],
+      [
+        "keep upper",
+        163,
+        48,
+        153
+      ],
+      [
+        "guard hall",
+        160,
+        90,
+        141
+      ],
+      [
+        "gate battlements",
+        160,
+        96,
+        149
+      ],
+      [
+        "keep battlements",
+        160,
+        45,
+        157
+      ],
+      [
+        "outer wall",
+        115,
+        110,
+        121
+      ]
+    ],
+    "removedLargeGables": true,
+    "highestY": 171
+  },
+  "reachableSurfaces": 53232,
+  "backup": "archive\\map-edit-backups\\before-castle-fortress\\starter_sky_land_spawn_v1"
+}

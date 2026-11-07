@@ -1,7 +1,9 @@
 package com.ambition.neoworld.command;
 
 import com.ambition.neoworld.world.WorldManagementManager;
+import com.ambition.neoworld.world.WorldImportService;
 import com.mojang.brigadier.arguments.IntegerArgumentType;
+import com.mojang.brigadier.arguments.StringArgumentType;
 import com.mojang.brigadier.builder.LiteralArgumentBuilder;
 import com.mojang.brigadier.builder.RequiredArgumentBuilder;
 import com.mojang.brigadier.context.CommandContext;
@@ -26,11 +28,38 @@ public final class WorldManagementCommand {
         return Commands.literal("world")
                 .requires(source -> source.hasPermission(2))
                 .executes(context -> help(context.getSource()))
+                .then(Commands.literal("help").executes(context -> help(context.getSource())))
+                .then(WorldStructureCommand.build())
+                .then(buildAdminCommand());
+    }
+
+    private static LiteralArgumentBuilder<CommandSourceStack> buildAdminCommand() {
+        return Commands.literal("admin")
+                .requires(source -> source.hasPermission(2))
+                .executes(context -> help(context.getSource()))
+                .then(Commands.literal("help").executes(context -> help(context.getSource())))
+                .then(WorldStructureCommand.build())
                 .then(Commands.literal("list").executes(WorldManagementCommand::list))
+                .then(Commands.literal("import")
+                        .then(Commands.literal("check").then(Commands.argument("folder", StringArgumentType.word())
+                                .executes(context -> importWorld(context, false))
+                                .then(Commands.literal("experimental").executes(context -> importWorld(context, false, true)))))
+                        .then(Commands.literal("add").then(Commands.argument("folder", StringArgumentType.word())
+                                .then(Commands.argument("name", ResourceLocationArgument.id())
+                                        .executes(context -> importWorld(context, true))
+                                        .then(Commands.literal("experimental").executes(context -> importWorld(context, true, true)))))))
+                .then(Commands.literal("load").then(worldArgument().executes(WorldManagementCommand::load)))
+                .then(Commands.literal("unload").then(worldArgument().executes(WorldManagementCommand::unload)))
                 .then(Commands.literal("tp")
                         .then(Commands.argument("players", EntityArgument.players())
-                                .then(worldArgument().then(Commands.argument("position", Vec3Argument.vec3())
-                                        .executes(WorldManagementCommand::teleport)))))
+                                .then(worldArgument()
+                                        .executes(WorldManagementCommand::teleportToLast)
+                                        .then(Commands.literal("random")
+                                                .executes(context -> random(context, 1000))
+                                                .then(Commands.argument("radius", IntegerArgumentType.integer(1, 10_000))
+                                                        .executes(context -> random(context, IntegerArgumentType.getInteger(context, "radius")))))
+                                        .then(Commands.argument("position", Vec3Argument.vec3())
+                                                .executes(WorldManagementCommand::teleport)))))
                 .then(Commands.literal("random")
                         .then(Commands.argument("players", EntityArgument.players())
                                 .then(worldArgument()
@@ -45,7 +74,7 @@ public final class WorldManagementCommand {
                         .then(Commands.literal("now").then(worldArgument()
                                 .executes(context -> {
                                     ResourceLocation id = ResourceLocationArgument.getId(context, "world");
-                                    context.getSource().sendSuccess(() -> Component.literal("ยืนยันรีด้วย /neoworld world reset now "
+                                    context.getSource().sendSuccess(() -> Component.literal("ยืนยันรีด้วย /neow world admin reset now "
                                             + id + " confirm — บล็อก สิ่งปลูกสร้าง และของในโลกจะถูกรีเซ็ต"), false);
                                     return 1;
                                 })
@@ -64,14 +93,54 @@ public final class WorldManagementCommand {
 
     private static int help(CommandSourceStack source) {
         for (String command : new String[] {
-                "ระบบจัดการโลก (แอดมิน): /neoworld world list",
-                "/neoworld world tp <ผู้เล่น> <โลก> <x> <y> <z>",
-                "/neoworld world random <ผู้เล่น> <โลก> [รัศมี 1–10000; ค่าเริ่มต้น 1000]",
-                "/neoworld world reset add <โลก> <วัน> | reset remove <โลก>",
-                "/neoworld world reset now <โลก> confirm"}) {
+                "ระบบจัดการโลก (แอดมิน): /neow world admin list",
+                "/neow world structure tool | pos1 | pos2 | selection | cancel",
+                "/neow world structure save <ชื่อ> | scan <ชื่อ> | update <ชื่อ> | list",
+                "/neow world structure delete <ชื่อ> | place <ชื่อ> confirm",
+                "/neow world admin import check <โฟลเดอร์> | import add <โฟลเดอร์> <ชื่อโลก>",
+                "/neow world admin load <โลก> | unload <โลก>",
+                "/neow world admin tp <ผู้เล่น> <โลก> [x y z | random [รัศมี]] (ไม่ใส่พิกัดจะไปจุดล่าสุดหรือจุดเกิด)",
+                "/neow world admin random <ผู้เล่น> <โลก> [รัศมี 1–10000; ค่าเริ่มต้น 1000]",
+                "/neow world admin reset add <โลก> <วัน> | reset remove <โลก>",
+                "/neow world admin reset now <โลก> confirm"}) {
             source.sendSuccess(() -> Component.literal(command), false);
         }
         return 1;
+    }
+
+    private static int load(CommandContext<CommandSourceStack> context) {
+        ResourceLocation id = ResourceLocationArgument.getId(context, "world");
+        try {
+            manager(context).loadWorld(id);
+            context.getSource().sendSuccess(() -> Component.literal("โหลดโลก " + id + " เรียบร้อยแล้ว สามารถเข้าใช้งานได้ทันที"), true);
+            return 1;
+        } catch (RuntimeException exception) {
+            return error(context.getSource(), exception);
+        }
+    }
+
+    private static int unload(CommandContext<CommandSourceStack> context) {
+        ResourceLocation id = ResourceLocationArgument.getId(context, "world");
+        try {
+            manager(context).unloadWorld(id, context.getSource());
+            context.getSource().sendSuccess(() -> Component.literal("เพิ่มโลก " + id + " เข้าคิว unload แล้ว"), true);
+            return 1;
+        } catch (RuntimeException exception) {
+            return error(context.getSource(), exception);
+        }
+    }
+
+    private static int importWorld(CommandContext<CommandSourceStack> context, boolean install) {
+        return importWorld(context, install, false);
+    }
+
+    private static int importWorld(CommandContext<CommandSourceStack> context, boolean install, boolean experimental) {
+        try {
+            return WorldImportService.submit(context.getSource(), StringArgumentType.getString(context, "folder"),
+                    install ? ResourceLocationArgument.getId(context, "name") : null, experimental);
+        } catch (RuntimeException exception) {
+            return error(context.getSource(), exception);
+        }
     }
 
     private static int list(CommandContext<CommandSourceStack> context) {
@@ -79,6 +148,29 @@ public final class WorldManagementCommand {
             var worlds = manager(context).describeWorlds();
             for (String world : worlds) context.getSource().sendSuccess(() -> Component.literal(world), false);
             return worlds.size();
+        } catch (RuntimeException exception) {
+            return error(context.getSource(), exception);
+        }
+    }
+
+    private static int teleportToLast(CommandContext<CommandSourceStack> context) throws CommandSyntaxException {
+        var players = EntityArgument.getPlayers(context, "players");
+        int moved = 0;
+        try {
+            WorldManagementManager manager = manager(context);
+            ServerLevel target = manager.loadedWorld(ResourceLocationArgument.getId(context, "world"));
+            for (ServerPlayer player : players) {
+                try {
+                    if (manager.teleportToLast(player, target)) moved++;
+                    else context.getSource().sendFailure(Component.literal("ย้าย " + player.getGameProfile().getName() + " ไม่สำเร็จ"));
+                } catch (RuntimeException exception) {
+                    error(context.getSource(), exception);
+                }
+            }
+            final int count = moved;
+            if (count > 0) context.getSource().sendSuccess(() -> Component.literal("ย้ายผู้เล่น " + count + " คนไป "
+                    + target.dimension().location() + " (จุดล่าสุด/จุดเกิด)"), true);
+            return count;
         } catch (RuntimeException exception) {
             return error(context.getSource(), exception);
         }

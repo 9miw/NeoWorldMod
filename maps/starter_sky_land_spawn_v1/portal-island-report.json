@@ -1,0 +1,70 @@
+{
+  "zone": "08-dimensional-station",
+  "name": "Portal Island",
+  "status": "applied",
+  "sourceHash": "63cee13667522ef66d747255615fc6b2352f31caa8790dbe354525cba5faf670",
+  "changedBlocks": 23406,
+  "zoneBounds": [
+    276,
+    196,
+    360,
+    236
+  ],
+  "islandBounds": [
+    320,
+    196,
+    360,
+    236
+  ],
+  "bridgeBounds": [
+    276,
+    214,
+    319,
+    230
+  ],
+  "islandCenter": [
+    340,
+    108,
+    216
+  ],
+  "portalCenter": [
+    346,
+    110,
+    216
+  ],
+  "counts": {
+    "minecraft:polished_andesite": 200,
+    "minecraft:stone_brick_stairs": 15,
+    "minecraft:stone_bricks": 611,
+    "minecraft:stone_brick_wall": 291,
+    "minecraft:chiseled_stone_bricks": 44,
+    "minecraft:lantern": 7,
+    "minecraft:stone": 9240,
+    "minecraft:smooth_stone": 150,
+    "minecraft:deepslate_tiles": 299,
+    "minecraft:chiseled_deepslate": 40,
+    "minecraft:sea_lantern": 26,
+    "minecraft:deepslate_tile_wall": 38,
+    "minecraft:deepslate_tile_stairs": 45,
+    "minecraft:crying_obsidian": 253,
+    "minecraft:soul_lantern": 6,
+    "minecraft:grass_block": 300,
+    "minecraft:dirt": 971,
+    "minecraft:cobblestone": 4488,
+    "minecraft:tuff": 2802,
+    "minecraft:andesite": 3367,
+    "minecraft:amethyst_block": 225,
+    "minecraft:amethyst_cluster": 7,
+    "minecraft:polished_blackstone_bricks": 81,
+    "minecraft:purple_stained_glass": 20,
+    "minecraft:cyan_stained_glass": 24,
+    "minecraft:lectern": 1,
+    "minecraft:allium": 2,
+    "minecraft:cornflower": 2,
+    "minecraft:flowering_azalea_leaves": 6,
+    "minecraft:blue_orchid": 2
+  },
+  "changedChunks": 15,
+  "backup": "archive\\map-edit-backups\\before-zone08-portal\\starter_sky_land_spawn_v1",
+  "savedBlockComparison": "All voxels match planned result using Name and sorted Properties"
+}

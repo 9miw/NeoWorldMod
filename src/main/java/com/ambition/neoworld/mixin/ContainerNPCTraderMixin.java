@@ -44,14 +44,12 @@ public class ContainerNPCTraderMixin {
                 if (player.level().isClientSide()) {
                     balance = switch (type) {
                         case SILVER -> ClientEconomyData.getSilver();
-                        case GOLD -> ClientEconomyData.getGold();
                         case DIAMOND -> ClientEconomyData.getDiamond();
                     };
                 } else {
                     PlayerData data = player.getData(ModAttachments.PLAYER_DATA);
                     balance = switch (type) {
                         case SILVER -> data.getSilver();
-                        case GOLD -> data.getGold();
                         case DIAMOND -> data.getDiamond();
                     };
                 }

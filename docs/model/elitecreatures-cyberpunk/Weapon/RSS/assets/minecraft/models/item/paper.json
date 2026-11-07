@@ -1,0 +1,12 @@
+{
+    "parent": "minecraft:item/generated",
+    "textures": {
+        "layer0": "minecraft:item/paper"
+    },
+    "overrides": [
+        {"predicate": {"custom_model_data":10000}, "model": "elitecreatures:cyberpunk_animated/hat"},
+        {"predicate": {"custom_model_data":10001}, "model": "elitecreatures:cyberpunk_animated/key"},
+        {"predicate": {"custom_model_data":10002}, "model": "elitecreatures:cyberpunk_animated/chest"},
+        {"predicate": {"custom_model_data":10003}, "model": "elitecreatures:cyberpunk_animated/back"}
+    ]
+}

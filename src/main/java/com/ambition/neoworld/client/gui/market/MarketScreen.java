@@ -36,24 +36,32 @@ public final class MarketScreen extends Screen {
     private static final int ROWS = 4;
     private static final int PAGE_SIZE = COLUMNS * ROWS;
     private static final int SEARCH_DELAY_TICKS = 8;
+    private static final int QUANTITY_HOLD_DELAY_TICKS = 8;
+    private static final int QUANTITY_HOLD_REPEAT_TICKS = 2;
     private static final String SILVER_ICON = "§f\uE046";
 
-    private static final ResourceLocation FRAME_TEXTURE = ResourceLocation.fromNamespaceAndPath(
-            NeoWorld.MODID, "textures/gui/market/market_frame.png");
+    private static final ResourceLocation SHELL_TEXTURE = ResourceLocation.fromNamespaceAndPath(
+            NeoWorld.MODID, "textures/gui/market/market_shell_obsidian.png");
     private static final ResourceLocation SLOT_TEXTURE = ResourceLocation.fromNamespaceAndPath(
             NeoWorld.MODID, "textures/gui/market/market_slot_states.png");
     private static final ResourceLocation SEARCH_TEXTURE = ResourceLocation.fromNamespaceAndPath(
             NeoWorld.MODID, "textures/gui/market/market_search_states.png");
     private static final ResourceLocation DETAIL_TEXTURE = ResourceLocation.fromNamespaceAndPath(
-            NeoWorld.MODID, "textures/gui/market/market_detail_scroll.png");
-    private static final int FRAME_TEXTURE_WIDTH = 1556;
-    private static final int FRAME_TEXTURE_HEIGHT = 1011;
+            NeoWorld.MODID, "textures/gui/market/market_detail_panel_v2.png");
+    private static final ResourceLocation TITLE_TEXTURE = ResourceLocation.fromNamespaceAndPath(
+            NeoWorld.MODID, "textures/gui/market/market_title_obsidian_gold.png");
+    private static final int DESIGN_WIDTH = 350;
+    private static final int DESIGN_HEIGHT = 225;
+    private static final int SHELL_TEXTURE_WIDTH = 1530;
+    private static final int SHELL_TEXTURE_HEIGHT = 882;
     private static final int SLOT_TEXTURE_WIDTH = 1944;
     private static final int SLOT_TEXTURE_HEIGHT = 809;
     private static final int SEARCH_TEXTURE_WIDTH = 1945;
     private static final int SEARCH_TEXTURE_HEIGHT = 808;
-    private static final int DETAIL_TEXTURE_WIDTH = 1505;
-    private static final int DETAIL_TEXTURE_HEIGHT = 1045;
+    private static final int DETAIL_TEXTURE_WIDTH = 602;
+    private static final int DETAIL_TEXTURE_HEIGHT = 1354;
+    private static final int TITLE_TEXTURE_WIDTH = 184;
+    private static final int TITLE_TEXTURE_HEIGHT = 56;
 
     private static final int COLOR_FRAME_DARK = 0xFF20252A;
     private static final int COLOR_FRAME = 0xFF4B535A;
@@ -80,6 +88,7 @@ public final class MarketScreen extends Screen {
     private NeoButton nextButton;
     private NeoButton decreaseQuantityButton;
     private NeoButton increaseQuantityButton;
+    private EconomyBalanceWidget balanceWidget;
     private int panelX;
     private int panelY;
     private int panelWidth;
@@ -109,6 +118,10 @@ public final class MarketScreen extends Screen {
     private long serverGameTime;
     private int requestId;
     private int pendingSearchTicks = -1;
+    private int quantityHoldDelta;
+    private int quantityHoldTicks;
+    private double pointerX;
+    private double pointerY;
     private boolean loading;
     private String status = "";
     private int statusColor = 0xFFE3E7EA;
@@ -127,28 +140,28 @@ public final class MarketScreen extends Screen {
     @Override
     protected void init() {
         String previousSearch = searchBox == null ? "" : searchBox.getValue();
-        panelWidth = Math.min(404, width - 8);
-        panelHeight = Math.min(232, height - 8);
+        panelWidth = Math.min(DESIGN_WIDTH, width - 8);
+        panelHeight = Math.min(DESIGN_HEIGHT, height - 8);
         panelX = (width - panelWidth) / 2;
         panelY = (height - panelHeight) / 2;
-        categoryX = panelX + scaleX(60);
-        gridX = panelX + scaleX(118);
-        categoryY = panelY + scaleY(156);
-        searchY = panelY + scaleY(258);
-        gridY = panelY + scaleY(350);
-        slotWidth = Math.max(22, scaleX(96));
+        categoryX = panelX + layoutX(14);
+        gridX = panelX + layoutX(10);
+        categoryY = panelY + layoutY(30);
+        searchY = panelY + layoutY(59);
+        gridY = panelY + layoutY(81);
+        slotWidth = Math.max(18, layoutX(25));
         slotHeight = slotWidth;
         gridWidth = slotWidth * COLUMNS;
-        detailX = panelX + scaleX(1079);
-        detailWidth = scaleX(417);
-        categoryWidth = scaleX(116);
+        detailX = panelX + layoutX(239);
+        detailWidth = Math.max(76, panelX + panelWidth - layoutX(8) - detailX);
+        categoryWidth = Math.max(24, layoutX(28));
 
-        searchX = panelX + scaleX(60);
-        searchWidth = scaleX(900);
-        sortX = panelX + scaleX(970);
-        pagerY = panelY + scaleY(881);
-        buyY = pagerY;
-        detailY = panelY + scaleY(145);
+        searchX = panelX + layoutX(10);
+        searchWidth = layoutX(192);
+        sortX = panelX + layoutX(207);
+        pagerY = panelY + layoutY(199);
+        buyY = panelY + layoutY(188);
+        detailY = panelY + layoutY(58);
 
         searchBox = new EditBox(font, searchX + 30, searchY + 4, Math.max(20, searchWidth - 34), 14,
                 Component.literal("ค้นหาสินค้า"));
@@ -164,10 +177,10 @@ public final class MarketScreen extends Screen {
         categoryButtons.clear();
         int categoryIndex = 0;
         for (MarketCategory value : MarketCategory.values()) {
-            int buttonX = categoryX + categoryIndex++ * (categoryWidth + 3);
+            int buttonX = categoryX + categoryIndex++ * (categoryWidth + layoutX(3));
             NeoButton button = addRenderableWidget(new NeoButton(
                     Button.builder(Component.empty(), ignored -> selectCategory(value))
-                            .bounds(buttonX, categoryY, categoryWidth, 21)
+                            .bounds(buttonX, categoryY, categoryWidth, categoryWidth)
                             .tooltip(Tooltip.create(Component.literal(categoryLabel(value))))));
             categoryButtons.put(value, button);
         }
@@ -208,7 +221,7 @@ public final class MarketScreen extends Screen {
         int balanceHeight = 20;
         int balanceX = 3;
         int balanceY = 0;
-        addRenderableWidget(new EconomyBalanceWidget(balanceX, balanceY, balanceWidth, balanceHeight,
+        balanceWidget = addWidget(new EconomyBalanceWidget(balanceX, balanceY, balanceWidth, balanceHeight,
                 EconomyBalanceWidget.Alignment.LEFT));
         requestPage(page);
     }
@@ -219,10 +232,13 @@ public final class MarketScreen extends Screen {
         serverGameTime++;
         if (pendingSearchTicks > 0 && --pendingSearchTicks == 0) requestPage(1);
         if (statusTicks > 0) statusTicks--;
+        tickQuantityHold();
     }
 
     @Override
     public void render(GuiGraphics graphics, int mouseX, int mouseY, float partialTick) {
+        pointerX = mouseX;
+        pointerY = mouseY;
         renderBackground(graphics, mouseX, mouseY, partialTick);
         renderFrame(graphics);
         renderTitlePlate(graphics);
@@ -235,6 +251,7 @@ public final class MarketScreen extends Screen {
             renderable.render(graphics, mouseX, mouseY, partialTick);
         }
         renderButtonIcons(graphics);
+        balanceWidget.render(graphics, mouseX, mouseY, partialTick);
 
         MarketPagePayload.Entry hovered = entryAt(mouseX, mouseY);
         MarketPagePayload.Entry selected = selectedEntry();
@@ -247,21 +264,24 @@ public final class MarketScreen extends Screen {
     }
 
     private void renderFrame(GuiGraphics graphics) {
-        graphics.blit(FRAME_TEXTURE, panelX, panelY, panelWidth, panelHeight, 0, 0,
-                FRAME_TEXTURE_WIDTH, FRAME_TEXTURE_HEIGHT, FRAME_TEXTURE_WIDTH, FRAME_TEXTURE_HEIGHT);
+        graphics.blit(SHELL_TEXTURE, panelX, panelY, panelWidth, panelHeight, 0, 0,
+                SHELL_TEXTURE_WIDTH, SHELL_TEXTURE_HEIGHT, SHELL_TEXTURE_WIDTH, SHELL_TEXTURE_HEIGHT);
     }
 
     private void renderTitlePlate(GuiGraphics graphics) {
-        int plateWidth = scaleX(620);
+        int plateWidth = layoutX(160);
+        int plateHeight = layoutY(34);
         int x = panelX + (panelWidth - plateWidth) / 2;
-        int y = panelY + scaleY(42);
+        int y = panelY - layoutY(2);
+        graphics.blit(TITLE_TEXTURE, x, y, plateWidth, plateHeight, 0, 0,
+                TITLE_TEXTURE_WIDTH, TITLE_TEXTURE_HEIGHT, TITLE_TEXTURE_WIDTH, TITLE_TEXTURE_HEIGHT);
+        int textY = y + Math.round(plateHeight * 0.48F);
         graphics.pose().pushPose();
-        graphics.pose().translate(x + plateWidth / 2.0F, y, 0);
+        graphics.pose().translate(x + plateWidth / 2.0F, textY, 0);
         graphics.pose().scale(1.25F, 1.25F, 1.0F);
-        graphics.drawString(font, title, -font.width(title) / 2, 0, 0xFFF4F6F7, false);
+        graphics.drawString(font, title, -font.width(title) / 2, -font.lineHeight / 2,
+                0xFFFFF4DB, true);
         graphics.pose().popPose();
-        graphics.drawString(font, "+", x + 10, y + 1, COLOR_GOLD, false);
-        graphics.drawString(font, "+", x + plateWidth - 15, y + 1, COLOR_GOLD, false);
     }
 
     private void renderSearch(GuiGraphics graphics) {
@@ -275,7 +295,8 @@ public final class MarketScreen extends Screen {
         for (Map.Entry<MarketCategory, NeoButton> entry : categoryButtons.entrySet()) {
             NeoButton button = entry.getValue();
             graphics.renderItem(categoryIcons.get(entry.getKey()),
-                    button.getX() + (button.getWidth() - 16) / 2, button.getY() + 2);
+                    button.getX() + (button.getWidth() - 16) / 2,
+                    button.getY() + (button.getHeight() - 16) / 2);
         }
         graphics.renderItem(new ItemStack(Items.HOPPER),
                 sortButton.getX() + (sortButton.getWidth() - 16) / 2, sortButton.getY() + 1);
@@ -311,9 +332,9 @@ public final class MarketScreen extends Screen {
 
     private void renderDetails(GuiGraphics graphics, int mouseX, int mouseY) {
         int top = detailY;
-        int panelHeight = Math.max(80, buyY - top - 4);
-        graphics.blit(DETAIL_TEXTURE, detailX, top, detailWidth, panelHeight,
-                80, 121, 653, 864, DETAIL_TEXTURE_WIDTH, DETAIL_TEXTURE_HEIGHT);
+        int targetHeight = Math.max(80, panelY + panelHeight - top - layoutY(10));
+        blitNineSlice(graphics, DETAIL_TEXTURE, detailX, top, detailWidth, targetHeight,
+                DETAIL_TEXTURE_WIDTH, DETAIL_TEXTURE_HEIGHT, 64, 7);
         MarketPagePayload.Entry selected = selectedEntry();
         if (selected == null) {
             drawCentered(graphics, loading ? "กำลังโหลด..." : "เลือกสินค้า", detailX, detailWidth, top + 18,
@@ -365,6 +386,7 @@ public final class MarketScreen extends Screen {
 
     @Override
     public boolean mouseClicked(double mouseX, double mouseY, int button) {
+        if (button == 0) stopQuantityHold();
         if (inside(mouseX, mouseY, gridX, gridY, gridWidth, ROWS * slotHeight)) {
             int column = ((int) mouseX - gridX) / slotWidth;
             int row = ((int) mouseY - gridY) / slotHeight;
@@ -375,7 +397,23 @@ public final class MarketScreen extends Screen {
             }
             return true;
         }
-        return super.mouseClicked(mouseX, mouseY, button);
+        boolean handled = super.mouseClicked(mouseX, mouseY, button);
+        if (button == 0 && handled) {
+            if (decreaseQuantityButton.active && decreaseQuantityButton.visible
+                    && decreaseQuantityButton.isMouseOver(mouseX, mouseY)) {
+                startQuantityHold(-1);
+            } else if (increaseQuantityButton.active && increaseQuantityButton.visible
+                    && increaseQuantityButton.isMouseOver(mouseX, mouseY)) {
+                startQuantityHold(1);
+            }
+        }
+        return handled;
+    }
+
+    @Override
+    public boolean mouseReleased(double mouseX, double mouseY, int button) {
+        if (button == 0) stopQuantityHold();
+        return super.mouseReleased(mouseX, mouseY, button);
     }
 
     public void receivePage(MarketPagePayload payload) {
@@ -477,9 +515,33 @@ public final class MarketScreen extends Screen {
         purchaseQuantity = Math.max(1, Math.min(selected.item().getCount(), purchaseQuantity + delta));
     }
 
+    private void startQuantityHold(int delta) {
+        quantityHoldDelta = delta;
+        quantityHoldTicks = 0;
+    }
+
+    private void stopQuantityHold() {
+        quantityHoldDelta = 0;
+        quantityHoldTicks = 0;
+    }
+
+    private void tickQuantityHold() {
+        if (quantityHoldDelta == 0) return;
+        NeoButton button = quantityHoldDelta < 0 ? decreaseQuantityButton : increaseQuantityButton;
+        if (button == null || !button.active || !button.visible || !button.isMouseOver(pointerX, pointerY)) {
+            stopQuantityHold();
+            return;
+        }
+        quantityHoldTicks++;
+        if (quantityHoldTicks >= QUANTITY_HOLD_DELAY_TICKS
+                && (quantityHoldTicks - QUANTITY_HOLD_DELAY_TICKS) % QUANTITY_HOLD_REPEAT_TICKS == 0) {
+            changePurchaseQuantity(quantityHoldDelta);
+        }
+    }
+
     private void confirmPurchase(long listingId, int quantity) {
         loading = true;
-        PacketDistributor.sendToServer(new MarketBuyPayload(listingId, quantity));
+        PacketDistributor.sendToServer(new MarketBuyPayload(java.util.UUID.randomUUID(), listingId, quantity));
     }
 
     private MarketPagePayload.Entry selectedEntry() {
@@ -528,6 +590,42 @@ public final class MarketScreen extends Screen {
                 SLOT_TEXTURE_WIDTH, SLOT_TEXTURE_HEIGHT);
     }
 
+    private void blitNineSlice(GuiGraphics graphics, ResourceLocation texture,
+                               int x, int y, int width, int height,
+                               int textureWidth, int textureHeight,
+                               int sourceBorder, int targetBorder) {
+        int sourceXBorder = Math.min(sourceBorder, textureWidth / 2);
+        int sourceYBorder = Math.min(sourceBorder, textureHeight / 2);
+        int targetXBorder = Math.min(targetBorder, width / 2);
+        int targetYBorder = Math.min(targetBorder, height / 2);
+        int sourceCenterWidth = textureWidth - sourceXBorder * 2;
+        int sourceCenterHeight = textureHeight - sourceYBorder * 2;
+        int targetCenterWidth = width - targetXBorder * 2;
+        int targetCenterHeight = height - targetYBorder * 2;
+
+        graphics.blit(texture, x, y, targetXBorder, targetYBorder,
+                0, 0, sourceXBorder, sourceYBorder, textureWidth, textureHeight);
+        graphics.blit(texture, x + targetXBorder, y, targetCenterWidth, targetYBorder,
+                sourceXBorder, 0, sourceCenterWidth, sourceYBorder, textureWidth, textureHeight);
+        graphics.blit(texture, x + width - targetXBorder, y, targetXBorder, targetYBorder,
+                textureWidth - sourceXBorder, 0, sourceXBorder, sourceYBorder, textureWidth, textureHeight);
+        graphics.blit(texture, x, y + targetYBorder, targetXBorder, targetCenterHeight,
+                0, sourceYBorder, sourceXBorder, sourceCenterHeight, textureWidth, textureHeight);
+        graphics.blit(texture, x + targetXBorder, y + targetYBorder, targetCenterWidth, targetCenterHeight,
+                sourceXBorder, sourceYBorder, sourceCenterWidth, sourceCenterHeight, textureWidth, textureHeight);
+        graphics.blit(texture, x + width - targetXBorder, y + targetYBorder, targetXBorder, targetCenterHeight,
+                textureWidth - sourceXBorder, sourceYBorder, sourceXBorder, sourceCenterHeight,
+                textureWidth, textureHeight);
+        graphics.blit(texture, x, y + height - targetYBorder, targetXBorder, targetYBorder,
+                0, textureHeight - sourceYBorder, sourceXBorder, sourceYBorder, textureWidth, textureHeight);
+        graphics.blit(texture, x + targetXBorder, y + height - targetYBorder, targetCenterWidth, targetYBorder,
+                sourceXBorder, textureHeight - sourceYBorder, sourceCenterWidth, sourceYBorder,
+                textureWidth, textureHeight);
+        graphics.blit(texture, x + width - targetXBorder, y + height - targetYBorder,
+                targetXBorder, targetYBorder, textureWidth - sourceXBorder, textureHeight - sourceYBorder,
+                sourceXBorder, sourceYBorder, textureWidth, textureHeight);
+    }
+
     private int closeButtonX() {
         int rightOutside = panelX + panelWidth + 3;
         return rightOutside + 18 <= width - 2 ? rightOutside : panelX + panelWidth - 18;
@@ -535,16 +633,16 @@ public final class MarketScreen extends Screen {
 
     private int closeButtonY() {
         return closeButtonX() > panelX + panelWidth
-                ? panelY + scaleY(105)
+                ? panelY + layoutY(3)
                 : Math.max(2, panelY - 20);
     }
 
-    private int scaleX(int textureX) {
-        return Math.round(textureX * panelWidth / (float) FRAME_TEXTURE_WIDTH);
+    private int layoutX(int designX) {
+        return Math.round(designX * panelWidth / (float) DESIGN_WIDTH);
     }
 
-    private int scaleY(int textureY) {
-        return Math.round(textureY * panelHeight / (float) FRAME_TEXTURE_HEIGHT);
+    private int layoutY(int designY) {
+        return Math.round(designY * panelHeight / (float) DESIGN_HEIGHT);
     }
 
     private void drawSeparator(GuiGraphics graphics, int startX, int endX, int y) {

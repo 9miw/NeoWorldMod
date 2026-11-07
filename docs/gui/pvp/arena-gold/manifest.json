@@ -1,0 +1,170 @@
+[
+  {
+    "name": "victory",
+    "glyph": "U+E400",
+    "source_rect": [
+      0,
+      0,
+      628,
+      390
+    ],
+    "alpha_crop": [
+      30,
+      47,
+      621,
+      368
+    ],
+    "output_size": [
+      256,
+      141
+    ],
+    "title_gui_width": 132
+  },
+  {
+    "name": "defeat",
+    "glyph": "U+E401",
+    "source_rect": [
+      628,
+      0,
+      1254,
+      390
+    ],
+    "alpha_crop": [
+      20,
+      60,
+      596,
+      363
+    ],
+    "output_size": [
+      256,
+      137
+    ],
+    "title_gui_width": 136
+  },
+  {
+    "name": "5",
+    "glyph": "U+E402",
+    "source_rect": [
+      0,
+      390,
+      628,
+      675
+    ],
+    "alpha_crop": [
+      144,
+      23,
+      505,
+      272
+    ],
+    "output_size": [
+      128,
+      96
+    ],
+    "title_gui_width": 96
+  },
+  {
+    "name": "4",
+    "glyph": "U+E403",
+    "source_rect": [
+      628,
+      390,
+      1254,
+      675
+    ],
+    "alpha_crop": [
+      113,
+      23,
+      475,
+      272
+    ],
+    "output_size": [
+      128,
+      96
+    ],
+    "title_gui_width": 96
+  },
+  {
+    "name": "3",
+    "glyph": "U+E404",
+    "source_rect": [
+      0,
+      675,
+      628,
+      945
+    ],
+    "alpha_crop": [
+      144,
+      14,
+      505,
+      260
+    ],
+    "output_size": [
+      128,
+      96
+    ],
+    "title_gui_width": 96
+  },
+  {
+    "name": "2",
+    "glyph": "U+E405",
+    "source_rect": [
+      628,
+      675,
+      1254,
+      945
+    ],
+    "alpha_crop": [
+      113,
+      15,
+      475,
+      260
+    ],
+    "output_size": [
+      128,
+      96
+    ],
+    "title_gui_width": 96
+  },
+  {
+    "name": "1",
+    "glyph": "U+E406",
+    "source_rect": [
+      0,
+      945,
+      628,
+      1254
+    ],
+    "alpha_crop": [
+      144,
+      16,
+      505,
+      266
+    ],
+    "output_size": [
+      128,
+      96
+    ],
+    "title_gui_width": 96
+  },
+  {
+    "name": "fight",
+    "glyph": "U+E407",
+    "source_rect": [
+      628,
+      945,
+      1254,
+      1254
+    ],
+    "alpha_crop": [
+      8,
+      10,
+      592,
+      273
+    ],
+    "output_size": [
+      256,
+      117
+    ],
+    "title_gui_width": 156
+  }
+]

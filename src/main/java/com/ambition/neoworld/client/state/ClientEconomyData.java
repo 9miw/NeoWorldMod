@@ -6,7 +6,6 @@ import java.util.Locale;
 // คลาสเก็บข้อมูลยอดเงินระบบ Economy ฝั่ง Client สำหรับเรนเดอร์ HUD
 public class ClientEconomyData {
     private static long silver = 0;
-    private static long gold = 0;
     private static long diamond = 0;
 
     private static final NumberFormat NUMBER_FORMAT = NumberFormat.getInstance(Locale.US);
@@ -15,9 +14,6 @@ public class ClientEconomyData {
         return silver;
     }
 
-    public static long getGold() {
-        return gold;
-    }
 
     public static long getDiamond() {
         return diamond;
@@ -67,9 +63,6 @@ public class ClientEconomyData {
         return formatCompact(silver);
     }
 
-    public static String getFormattedGold() {
-        return formatCompact(gold);
-    }
 
     public static String getFormattedDiamond() {
         return formatCompact(diamond);
@@ -79,9 +72,6 @@ public class ClientEconomyData {
         return formatCompact(silver);
     }
 
-    public static String getCompactGold() {
-        return formatCompact(gold);
-    }
 
     public static String getCompactDiamond() {
         return formatCompact(diamond);
@@ -91,23 +81,18 @@ public class ClientEconomyData {
         return NUMBER_FORMAT.format(silver);
     }
 
-    public static String getFullGold() {
-        return NUMBER_FORMAT.format(gold);
-    }
 
     public static String getFullDiamond() {
         return NUMBER_FORMAT.format(diamond);
     }
 
-    public static void update(long newSilver, long newGold, long newDiamond) {
+    public static void update(long newSilver, long newDiamond) {
         silver = newSilver;
-        gold = newGold;
         diamond = newDiamond;
     }
 
     public static void reset() {
         silver = 0L;
-        gold = 0L;
         diamond = 0L;
     }
 }

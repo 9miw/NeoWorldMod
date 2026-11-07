@@ -1,0 +1,11 @@
+{
+  "parent": "neoworld:cyberpunk_animated/fishing_rod",
+  "overrides": [
+    {
+      "predicate": {
+        "cast": 1
+      },
+      "model": "neoworld:cyberpunk_animated/fishing_rod_cast"
+    }
+  ]
+}

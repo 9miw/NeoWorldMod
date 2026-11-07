@@ -1,0 +1,288 @@
+{
+  "stage": "applied to saved working map",
+  "sourceHash": "8803ad56a696df48787eeabb0fd52756f49c9eec3d1e4632857bb87c3d03c1cf",
+  "changedBlocks": 28635,
+  "protectedOriginalColumns": 119,
+  "sections": [
+    {
+      "type": "frontWest",
+      "centerline": [
+        [
+          132,
+          112
+        ],
+        [
+          137,
+          114
+        ],
+        [
+          142,
+          117
+        ],
+        [
+          148,
+          120
+        ],
+        [
+          150,
+          120
+        ]
+      ]
+    },
+    {
+      "type": "frontEast",
+      "centerline": [
+        [
+          188,
+          112
+        ],
+        [
+          183,
+          114
+        ],
+        [
+          178,
+          117
+        ],
+        [
+          172,
+          120
+        ],
+        [
+          170,
+          120
+        ]
+      ]
+    },
+    {
+      "type": "sideWest",
+      "centerline": [
+        [
+          119,
+          106
+        ],
+        [
+          113,
+          104
+        ],
+        [
+          109,
+          100
+        ],
+        [
+          108,
+          87
+        ],
+        [
+          108,
+          63
+        ],
+        [
+          110,
+          50
+        ],
+        [
+          112,
+          40
+        ]
+      ]
+    },
+    {
+      "type": "sideEast",
+      "centerline": [
+        [
+          201,
+          106
+        ],
+        [
+          207,
+          104
+        ],
+        [
+          211,
+          100
+        ],
+        [
+          212,
+          87
+        ],
+        [
+          212,
+          63
+        ],
+        [
+          210,
+          50
+        ],
+        [
+          208,
+          40
+        ]
+      ]
+    }
+  ],
+  "reachableTargets": [
+    [
+      "court",
+      160,
+      113,
+      106
+    ],
+    [
+      "palace hall",
+      160,
+      117,
+      80
+    ],
+    [
+      "west palace",
+      133,
+      117,
+      82
+    ],
+    [
+      "east palace",
+      187,
+      117,
+      82
+    ],
+    [
+      "gallery",
+      140,
+      129,
+      60
+    ],
+    [
+      "keep upper",
+      163,
+      153,
+      48
+    ],
+    [
+      "old gate guard",
+      160,
+      141,
+      90
+    ],
+    [
+      "old gate deck",
+      160,
+      149,
+      96
+    ],
+    [
+      "keep deck",
+      160,
+      157,
+      45
+    ],
+    [
+      "new gate floor",
+      160,
+      113,
+      120
+    ],
+    [
+      "new gate deck",
+      160,
+      133,
+      116
+    ],
+    [
+      "west tower room",
+      125,
+      113,
+      112
+    ],
+    [
+      "west tower deck",
+      125,
+      129,
+      112
+    ],
+    [
+      "east tower room",
+      195,
+      113,
+      112
+    ],
+    [
+      "east tower deck",
+      195,
+      129,
+      112
+    ],
+    [
+      "west front wall",
+      140,
+      129,
+      116
+    ],
+    [
+      "east front wall",
+      180,
+      129,
+      116
+    ],
+    [
+      "west side wall",
+      108,
+      125,
+      63
+    ],
+    [
+      "east side wall",
+      212,
+      125,
+      63
+    ]
+  ],
+  "routeMethod": "half-block surfaces and 2-block point headroom; not full entity collision simulation",
+  "outsideChanges": 0,
+  "palaceEnvelopeProtected": true,
+  "rearWallUnchanged": true,
+  "preview": {
+    "center": [
+      160,
+      124,
+      84
+    ],
+    "distance": 135,
+    "focuses": {
+      "west": {
+        "center": [
+          119,
+          124,
+          84
+        ],
+        "distance": 105
+      },
+      "east": {
+        "center": [
+          201,
+          124,
+          84
+        ],
+        "distance": 105
+      },
+      "gate": {
+        "center": [
+          160,
+          126,
+          119
+        ],
+        "distance": 60
+      }
+    }
+  },
+  "changedChunks": 32,
+  "backup": "archive\\map-edit-backups\\before-front-defense\\starter_sky_land_spawn_v1",
+  "inGameTested": false,
+  "applied": true,
+  "nativeVerification": {
+    "chunks": 576,
+    "blocks": 3067045,
+    "namedStates": 101,
+    "success": true
+  }
+}

@@ -27,12 +27,13 @@ public class ExperienceItem extends Item {
     }
 
     public static long getRandomValue(ItemStack stack) {
-        long minimum = getMinimumValue(stack);
-        long maximum = getValue(stack);
-        if (minimum <= 0L || maximum < minimum) return 0L;
-        long range = maximum - minimum;
-        if (range == Long.MAX_VALUE) return minimum + (long) (Math.random() * Long.MAX_VALUE);
-        return minimum + (long) (Math.random() * (range + 1L));
+        return com.ambition.neoworld.experience.ExperienceRoll.roll(getMinimumValue(stack), getValue(stack));
+    }
+
+    public static long rollTotal(ItemStack stack) {
+        if (stack == null || stack.isEmpty()) return 0;
+        return com.ambition.neoworld.experience.ExperienceRoll.total(getMinimumValue(stack), getValue(stack),
+                stack.getCount(), java.util.concurrent.ThreadLocalRandom.current());
     }
 
     public static long getTotalValue(ItemStack stack) {

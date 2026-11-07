@@ -4,11 +4,14 @@ import java.util.List;
 import java.util.Locale;
 import java.util.UUID;
 import com.ambition.neoworld.NeoWorld;
+import com.ambition.neoworld.network.player.ProfileDetails;
+import com.ambition.neoworld.client.gui.widget.NeoScrollbar;
+import net.minecraft.util.FormattedCharSequence;
 import com.ambition.neoworld.client.gui.common.NeoPopupScreen;
-import com.ambition.neoworld.client.gui.common.NeoGuiIcons;
 import com.ambition.neoworld.client.gui.style.NeoGuiStyle;
 import com.ambition.neoworld.client.gui.widget.NeoButton;
-import com.ambition.neoworld.client.gui.widget.NeoProgressBar;
+import com.ambition.neoworld.client.gui.common.NeoSystemIcons;
+import com.ambition.neoworld.client.gui.common.NeoBitmapIcon;
 import com.ambition.neoworld.client.gui.title.TitleScreenController;
 import com.ambition.neoworld.network.player.PlayerActionPayload;
 import com.ambition.neoworld.network.player.PlayerActionResultPayload;
@@ -22,92 +25,147 @@ import net.minecraft.client.gui.screens.Screen;
 import net.minecraft.client.gui.screens.inventory.InventoryScreen;
 import net.minecraft.network.chat.Component;
 import net.minecraft.resources.ResourceLocation;
+import net.minecraft.world.entity.EquipmentSlot;
+import net.minecraft.world.item.ItemStack;
 import net.neoforged.neoforge.network.PacketDistributor;
 
-/** Read-only server snapshot. No local changes to player stats or inventory. */
+/** Four-tab read-only server snapshot; the detached preview cannot modify live equipment. */
 public final class PlayerProfileScreen extends Screen {
-    private static final int W = 440, H = 324;
-    private static final int CLOSE_GAP = 4, CLOSE_WIDTH = 20;
-    private static final ResourceLocation FRAME = ResourceLocation.fromNamespaceAndPath(NeoWorld.MODID, "textures/gui/player/profile_frame.png");
-    private static final int TEXTURE_W = 1462, TEXTURE_H = 1076;
-    private static final int CONTENT_X = 16, CONTENT_Y = 198, CONTENT_W = 408, CONTENT_H = 96;
-    private static final int VISIBLE_ROWS = 4;
-    private PlayerProfilePayload data;
+    private static final int W = 620, H = 350;
+
+
+    private final PlayerProfilePayload data;
+    private ProfileDetails.Pvp pvp;
     private UUID pending;
-    private int waiting, tab, scroll;
+    private int waiting, tab;
+    private int selectedGear, selectedSkill, skillScroll, detailScroll;
+    private NeoScrollbar skillScrollbar, detailScrollbar;
+    private ProfilePlayerPreview preview;
+    private static final int SKILL_ROWS=6, DETAIL_ROWS=17;
     private float scale;
     private int x, y;
-    private NeoButton refresh;
-    private boolean draggingScroll;
-    private final NeoProgressBar expBar = new NeoProgressBar().color(0xFFE2B551).showPercentage(false);
-    private final NeoProgressBar healthBar = new NeoProgressBar().color(0xFF20B99F).showPercentage(false);
-    private final NeoProgressBar staminaBar = new NeoProgressBar().color(0xFF1EC9D5).showPercentage(false);
 
+    private static final int EXP_COLOR=0xFFE2B551,HP_COLOR=0xFFEF4554,STAMINA_COLOR=0xFF49BC76;
     public PlayerProfileScreen(PlayerProfilePayload data) {
-        super(Component.literal("โปรไฟล์ผู้เล่น"));
-        this.data = data;
+        super(Component.literal("โปรไฟล์ผู้เล่น")); this.data = data; this.pvp=data.details().pvp();
     }
     public static void receive(PlayerProfilePayload payload) {
         Minecraft mc = Minecraft.getInstance();
-        if (payload.requestId().equals(PlayerProfilePayload.COMMAND_REQUEST) && mc.player != null
-                && payload.targetId().equals(mc.player.getUUID())) {
-            mc.setScreen(new PlayerProfileScreen(payload));
+        // Async ranking results update only their original still-open screen, including beneath a popup.
+        if(!payload.details().pvp().loading()) {
+            var current=NeoPopupScreen.findScreen(PlayerProfileScreen.class);
+            if(current!=null && current.data.sameSnapshot(payload)) current.pvp=payload.details().pvp();
             return;
         }
-        if (mc.screen instanceof PlayerActionScreen actions && actions.acceptsProfile(payload)) {
+        if (payload.requestId().equals(PlayerProfilePayload.COMMAND_REQUEST) && mc.player != null
+                && payload.targetId().equals(mc.player.getUUID())) mc.setScreen(new PlayerProfileScreen(payload));
+        else if (mc.screen instanceof PlayerActionScreen actions && actions.acceptsProfile(payload))
             mc.setScreen(new PlayerProfileScreen(payload));
-        } else if (mc.screen instanceof PlayerProfileScreen profile && payload.targetId().equals(profile.data.targetId())
-                && payload.requestId().equals(profile.pending)) {
-            profile.data = payload; profile.pending = null; profile.waiting = 0; profile.rebuildWidgets();
-        }
     }
     public static boolean receiveError(PlayerActionResultPayload result) {
-        if (!(Minecraft.getInstance().screen instanceof PlayerProfileScreen screen)
-                || !result.targetId().equals(screen.data.targetId()) || !result.requestId().equals(screen.pending)) return false;
+        PlayerProfileScreen screen = NeoPopupScreen.findScreen(PlayerProfileScreen.class);
+        if (screen == null || !result.targetId().equals(screen.data.targetId()) || !result.requestId().equals(screen.pending)) return false;
         screen.pending = null; screen.rebuildWidgets();
-        NeoPopupScreen.showAlert(Component.literal("อัปเดตโปรไฟล์ไม่ได้"), Component.literal(result.message()), () -> {});
+        NeoPopupScreen.showAlert(Component.literal(result.success() ? "ปาร์ตี้" : "ทำรายการไม่ได้"), Component.literal(result.message()), () -> {});
         return true;
     }
+    private boolean ownProfile() { return data.details().owner(); }
     @Override protected void init() {
-        scroll = Math.clamp(scroll, 0, maxScroll());
-        draggingScroll = false;
-        scale = Math.min(1.25F, Math.min((width - 16F) / (W + 2 * (CLOSE_GAP + CLOSE_WIDTH)), (height - 16F) / H));
-        scale = Math.max(0.1F, scale);
-        x = (width - Math.round(W * scale)) / 2; y = (height - Math.round(H * scale)) / 2;
-        addRenderableWidget(new NeoButton(Button.builder(Component.literal("×"), b -> onClose())
-                .bounds(px(W + CLOSE_GAP), py(24), size(CLOSE_WIDTH), size(19)).tooltip(Tooltip.create(Component.literal("ปิดโปรไฟล์"))))
-                .style(NeoButton.Style.DESTRUCTIVE));
-        boolean ownProfile = minecraft.player != null && data.targetId().equals(minecraft.player.getUUID());
-        NeoButton titleButton = addRenderableWidget(new NeoButton(Button.builder(Component.literal("ฉายา"), b -> TitleScreenController.open())
-                .bounds(px(366), py(48), size(58), size(19))
-                .tooltip(Tooltip.create(Component.literal(ownProfile ? "จัดการฉายาของคุณ" : "จัดการได้เฉพาะฉายาของตัวเอง"))))
-                .style(NeoButton.Style.PRIMARY));
-        titleButton.active = ownProfile;
-        String[] labels = {"ภาพรวม", "ค่าพลังต่อสู้", "ผลสถานะ"};
-        for (int i = 0; i < labels.length; i++) {
+
+        scale = Math.max(0.1F, Math.min(1.5F, Math.min((width - 20F) / (W + 24), (height - 16F) / H)));
+        x = (width - Math.round((W + 24) * scale)) / 2; y = (height - Math.round(H * scale)) / 2;
+        button("×", W + 3, 20, 20, 20, () -> onClose()).style(NeoButton.Style.DESTRUCTIVE);
+        String[] tabs = {"ภาพรวม", "ค่าพลังต่อสู้", "อุปกรณ์และแฟชั่น", "สกิล"};
+        int[] tabX={166,264,382,532},tabWidth={92,112,144,68};
+        for (int i = 0; i < tabs.length; i++) {
             final int index = i;
-            addRenderableWidget(new NeoButton(Button.builder(Component.literal(labels[i]), b -> {
-                tab = index; scroll = 0; rebuildWidgets();
-            }).bounds(px(16 + i * 138), py(168), size(132), size(22)))
-                    .style(tab == i ? NeoButton.Style.PRIMARY : NeoButton.Style.STANDARD).selected(tab == i));
+            button(tabs[i], tabX[i], 48, tabWidth[i], 25, () -> { tab = index; rebuildWidgets(); })
+                    .selected(tab == i);
         }
-        refresh = addRenderableWidget(new NeoButton(Button.builder(NeoGuiIcons.label(NeoGuiIcons.REFRESH, "อัปเดต"), b -> request())
-                .bounds(px(300), py(298), size(124), size(19))
-                .tooltip(Tooltip.create(Component.literal("ดึงค่าล่าสุดจากเซิร์ฟเวอร์")))).style(NeoButton.Style.PRIMARY));
-        refresh.active = pending == null;
+        if (tab == 0 && ownProfile()) {
+            button("จัดการฉายา", 388, 275, 104, 26, () -> TitleScreenController.open());
+            button("เปิดหน้าแฟชั่น", 496, 275, 104, 26, () -> {
+                if (minecraft.getConnection() != null) minecraft.getConnection().sendCommand("neow fashion open");
+            });
+        } else if (tab == 0) {
+            button("เชิญเข้าปาร์ตี้", 388, 275, 212, 26, () -> {
+                if (pending != null) return;
+                pending = UUID.randomUUID(); waiting = 0;
+                PacketDistributor.sendToServer(new PlayerActionPayload(pending, data.targetId(), PlayerActionPayload.Action.INVITE));
+                rebuildWidgets();
+            }).active = pending == null;
+        }
+        skillScrollbar=null; detailScrollbar=null;
+        if(tab==2) {
+            for(int i=0;i<data.details().gear().size();i++) {
+                final int index=i;
+                int[] pos=gearPosition(i);
+                addRenderableWidget(new NeoButton(Button.builder(Component.empty(),b -> {selectedGear=index;detailScroll=0;rebuildWidgets();})
+                        .bounds(px(pos[0]),py(pos[1]),size(40),size(40))
+                        .createNarration(ignored -> Component.literal(gearLabel(data.details().gear().get(index).slot()))))
+                        .frameRenderer((g,b) -> { if(b.isFocused()) g.renderOutline(b.getX(),b.getY(),b.getWidth(),b.getHeight(),0xFF2FB5A7); }));
+            }
+        }
+        if(tab==3 && !data.details().skills().isEmpty()) {
+            selectedSkill=Math.clamp(selectedSkill,0,data.details().skills().size()-1);
+            skillScroll=Math.clamp(skillScroll,0,Math.max(0,data.details().skills().size()-SKILL_ROWS));
+            for(int i=0;i<SKILL_ROWS && skillScroll+i<data.details().skills().size();i++) {
+                final int rowIndex=i;
+                int sy=108+i*32;
+                addRenderableWidget(new NeoButton(Button.builder(Component.empty(),b -> {selectedSkill=skillScroll+rowIndex;detailScroll=0;rebuildWidgets();})
+                        .bounds(px(166),py(sy),size(164),size(30))
+                        .createNarration(ignored -> Component.translatable(data.details().skills().get(skillScroll+rowIndex).key())))
+                        .frameRenderer((g,b) -> { if(b.isFocused()) g.renderOutline(b.getX(),b.getY(),b.getWidth(),b.getHeight(),0xFF2FB5A7); }));
+            }
+            if(data.details().skills().size()>SKILL_ROWS) skillScrollbar=addRenderableWidget(new NeoScrollbar(px(332),py(108),size(6),size(192),Component.literal("เลื่อนรายการสกิล"))
+                    .range(SKILL_ROWS,data.details().skills().size()).scrollStep(1).value(skillScroll).onChange(v -> skillScroll=(int)Math.round(v)));
+        }
+        if(tab==2 || tab==3) {
+            int count=detailLines().size();
+            detailScroll=Math.clamp(detailScroll,0,Math.max(0,count-DETAIL_ROWS));
+            if(count>DETAIL_ROWS) detailScrollbar=addRenderableWidget(new NeoScrollbar(px(594),py(tab==3 ? 134 : 126),size(6),size(170),Component.literal("เลื่อนรายละเอียด"))
+                    .range(DETAIL_ROWS,count).scrollStep(1).value(detailScroll).onChange(v -> detailScroll=(int)Math.round(v)));
+        }
+    }
+    private NeoButton button(String label, int bx, int by, int bw, int bh, Runnable action) {
+        // Keep NeoButton's vanilla input/focus/narration; paint feature art and a scaled label once.
+        return addRenderableWidget(new NeoButton(Button.builder(Component.empty(), b -> action.run())
+                .bounds(px(bx), py(by), size(bw), size(bh))
+                .createNarration(supplier -> Component.literal(label))
+                .tooltip(Tooltip.create(Component.literal(label))))
+                .frameRenderer((g, b) -> renderButton(g, b, label)));
+    }
+    private void renderButton(GuiGraphics g, NeoButton b, String label) {
+        int bw = Math.round(b.getWidth() / scale), bh = Math.round(b.getHeight() / scale);
+        boolean navigation=label.equals("ภาพรวม") || label.equals("ค่าพลังต่อสู้") || label.equals("อุปกรณ์และแฟชั่น") || label.equals("สกิล") || label.equals("×");
+        int state = !b.active ? 3 : b.isSelected() ? 2 : b.isHoveredOrFocused() ? 1 : 0;
+        g.pose().pushPose(); g.pose().translate(b.getX(), b.getY(), 0); g.pose().scale(scale, scale, 1);
+        if (b.getStyle() == NeoButton.Style.DESTRUCTIVE && b.isHoveredOrFocused()) g.setColor(1,0.4F,0.4F,1);
+        ProfileSkin.frame(g,(navigation ? ProfileSkin.TABS : ProfileSkin.BUTTONS)[state],0,0,bw,bh,5);
+        g.setColor(1,1,1,1);
+        int left = 9, right = 9;
+        if (label.equals("ภาพรวม")) { NeoSystemIcons.render(g, NeoSystemIcons.Icon.PROFILE, 12, (bh-12)/2, 12, b.active); left=31; }
+        else if (label.equals("อุปกรณ์และแฟชั่น")) { NeoSystemIcons.render(g, NeoSystemIcons.Icon.FASHION, 12, (bh-12)/2, 12, b.active); left=31; }
+        else if (label.equals("ค่าพลังต่อสู้")) { ProfileSkin.icon(g, ProfileSkin.SWORDS, 12, (bh-13)/2, 13); left=33; }
+        else if (label.equals("สกิล")) { NeoSystemIcons.render(g, NeoSystemIcons.Icon.STATISTICS, 12, (bh-12)/2, 12, b.active); left=32; }
+        else if (label.equals("จัดการฉายา")) { NeoSystemIcons.render(g, NeoSystemIcons.Icon.TITLES, 12, (bh-12)/2, 12, b.active); left=31; }
+        else if (label.equals("เปิดหน้าแฟชั่น")) { NeoSystemIcons.render(g, NeoSystemIcons.Icon.FASHION, 12, (bh-12)/2, 12, b.active); left=31; }
+        else if (label.equals("เชิญเข้าปาร์ตี้")) { NeoSystemIcons.render(g, NeoSystemIcons.Icon.PARTY, 12, (bh-12)/2, 12, b.active); left=31; }
+        if (bw < 30) { left=4; right=4; }
+        int available=Math.max(1,bw-left-right);
+        float textScale=Math.min(1F,available/(float)Math.max(1,font.width(label)));
+        int textWidth=Math.round(font.width(label)*textScale);
+        fitText(g,label,left+(available-textWidth)/2,(int)((bh-font.lineHeight*textScale)/2),Math.min(available,font.width(label)),
+                !b.active ? 0xFF777F85 : b.isSelected() || !navigation ? 0xFFE3BC67 : 0xFFDDE5E7);
+        g.pose().popPose();
     }
     private int px(int n) { return x + Math.round(n * scale); }
     private int py(int n) { return y + Math.round(n * scale); }
     private int size(int n) { return Math.max(1, Math.round(n * scale)); }
-    private void request() {
-        if (pending != null) return;
-        pending = UUID.randomUUID(); waiting = 0; refresh.active = false;
-        PacketDistributor.sendToServer(new PlayerActionPayload(pending, data.targetId(), PlayerActionPayload.Action.PROFILE));
-    }
     @Override public void tick() {
         if (pending != null && ++waiting >= 200) {
-            pending = null; refresh.active = true;
-            NeoPopupScreen.showAlert(Component.literal("หมดเวลารอ"), Component.literal("ไม่ได้รับคำตอบจากเซิร์ฟเวอร์ กดอัปเดตเพื่อลองอีกครั้ง"), () -> {});
+            pending = null; rebuildWidgets();
+            NeoPopupScreen.showAlert(Component.literal("หมดเวลารอ"), Component.literal("ไม่ได้รับคำตอบจากเซิร์ฟเวอร์"), () -> {});
         }
     }
     @Override public void render(GuiGraphics g, int mouseX, int mouseY, float partialTick) {
@@ -116,105 +174,157 @@ public final class PlayerProfileScreen extends Screen {
         List<Component> tooltip = null;
         g.pose().pushPose(); g.pose().translate(x, y, 0); g.pose().scale(scale, scale, 1);
         RenderSystem.enableBlend();
-        g.blit(FRAME, 0, 0, W, H, 0, 0, TEXTURE_W, TEXTURE_H, TEXTURE_W, TEXTURE_H);
-        g.drawCenteredString(font, title, W / 2, 18, NeoGuiStyle.COLOR_TEXT);
-        panel(g, 16, 44, 112, 112);
-        var player = minecraft.level == null ? null : minecraft.level.getPlayerByUUID(data.targetId());
-        if (player != null) {
-            InventoryScreen.renderEntityInInventoryFollowsMouse(g, 20, 48, 124, 152, 44, 0.0625F, mx, my, player);
+        var shell=ProfileSkin.SHELL;
+        g.blit(shell.texture(),0,0,W,H,0,0,shell.width(),shell.height(),shell.width(),shell.height());
+        g.pose().pushPose(); g.pose().translate(W / 2F, 18, 0); g.pose().scale(1.35F, 1.35F, 1); g.drawCenteredString(font, title, 0, 0, 0xFFE3BC67); g.pose().popPose();
+        ProfileSkin.frame(g,ProfileSkin.PORTRAIT,18,48,136,270,6);
+        if(minecraft.level!=null) {
+            if(preview==null || preview.level()!=minecraft.level) {
+                var live=minecraft.level.getPlayerByUUID(data.targetId());
+                preview=new ProfilePlayerPreview(minecraft.level,live==null ? new com.mojang.authlib.GameProfile(data.targetId(),data.name()) : live.getGameProfile(),data);
+            }
+            preview.tickCount=waiting;
+            preview.render(g,mx,my);
+        } else text(g,"ตัวละครไม่พร้อมใช้งาน",26,130,120,NeoGuiStyle.COLOR_TEXT_MUTED);
+        panel(g,24,250,124,62);
+        int nameColor=data.killerSin()>0 ? 0xFFFF5555 : NeoGuiStyle.COLOR_TEXT;
+        g.drawCenteredString(font,font.plainSubstrByWidth(data.name(),108),86,258,nameColor);
+        g.drawCenteredString(font,"Lv. "+data.level(),86,278,0xFFE3BC67);
+        if(!data.details().title().isEmpty()) g.drawCenteredString(font,font.plainSubstrByWidth(data.details().title(),108),86,300,0xFF000000|data.details().titleColor());
+        if(inside(mx,my,24,252,124,62)) tooltip=List.of(Component.literal(data.name()),Component.literal(data.details().title()));
+        if(tab==0) {
+            panel(g,166,80,434,90);heading(g,"สถานะตัวละคร",166,80,434);
+            bar(g,"HP",number(data.health())+" / "+number(data.maxHealth()),ratio(data.health(),data.maxHealth()),180,106,HP_COLOR);
+            bar(g,"Stamina",data.maxStamina()<0 ? "ไม่พร้อมใช้งาน" : number(data.stamina())+" / "+number(data.maxStamina()),ratio(data.stamina(),data.maxStamina()),180,128,data.maxStamina()<0 ? 0xFF596971 : STAMINA_COLOR);
+            if(ownProfile()) {
+                boolean max=data.level()>=com.ambition.neoworld.level.LevelFormula.MAX_LEVEL;
+                bar(g,"EXP",max ? "MAX" : data.exp()+" / "+data.requiredExp(),max ? 1 : ratio(data.exp(),data.requiredExp()),180,150,EXP_COLOR);
+            }
+            var p=pvp;
+            boolean ranked=p.available() && (long)p.wins()+p.losses()>0;
+            String status=p.loading() ? " · กำลังโหลด…" : !p.available() ? " · ข้อมูลไม่พร้อม" : !ranked ? " · ยังไม่จัดอันดับ" : "";
+            heading(g,"PvP จัดอันดับ"+status,166,176,434);
+            String[] labels={"Rating","อันดับ","ชนะ","แพ้","อัตราชนะ"};
+            NeoBitmapIcon[] icons={NeoBitmapIcon.ICONS_MEDAL_GOLD,NeoBitmapIcon.ICONS_MENU_STATISTICS,
+                    NeoBitmapIcon.ICONS_YES,NeoBitmapIcon.ICONS_NO,NeoBitmapIcon.ICONS_CLOVER};
+            String[] values={ranked ? ""+p.rating() : "—",ranked && p.position()>0 ? ""+p.position() : "—",
+                    p.available() ? ""+p.wins() : "—",p.available() ? ""+p.losses() : "—",ranked ? number(p.winRate())+"%" : "—"};
+            for(int i=0;i<5;i++) {
+                int cx=166+i*87;
+                ProfileSkin.frame(g,ProfileSkin.CARD,cx,204,82,62,5);
+                g.drawCenteredString(font,labels[i],cx+41,212,NeoGuiStyle.COLOR_TEXT);
+                catalogueIcon(g,icons[i],cx+33,226,16);
+                g.drawCenteredString(font,values[i],cx+41,250,i==2 ? 0xFF77D69A : i==3 ? 0xFFED7780 : 0xFFE3BC67);
+            }
+            panel(g,166,275,210,26);
+            g.drawString(font,NeoBitmapIcon.ICONS_FIRE.component(),178,283,0xFFFFFFFF,false);
+            text(g,"ค่าบาป: "+data.killerSin()+(data.killerSin()>0 ? " · หัวแดง" : " · ปกติ"),194,284,168,data.killerSin()>0 ? 0xFFFF7777 : 0xFF77D69A);
+        } else if(tab==1) {
+            tooltip=group(g,"การโจมตี",166,80,mx,my,"attack_damage","attack_speed","armor_negation","impact","max_strikes");
+            var right=group(g,"การป้องกัน",390,80,mx,my,"armor","armor_toughness","knockback_resistance","stun_armor");
+            if(right!=null) tooltip=right;
+            var lower=group(g,"การเคลื่อนไหวและความอึด",166,216,mx,my,"movement_speed","weight","stamina_regen");
+            if(lower!=null) tooltip=lower;
+            panel(g,390,216,210,88);heading(g,"การอ่านค่าพลัง",390,216,210);
+            drawWrapped(g,"ค่าตามอุปกรณ์ ณ ตอนเปิดหน้า\nโบนัสคริติคอล/ดูดเลือดและเงื่อนไขอยู่ในแท็บสกิล\nบางสกิลอาจเปลี่ยนการฟื้น Stamina",400,246,188,5);
+        } else if(tab==2) {
+            heading(g,"ชุดเกราะ",166,80,266);
+            heading(g,"แฟชั่นที่สวม",166,176,266);
+            for(int i=0;i<data.details().gear().size();i++) {
+                var gear=data.details().gear().get(i);int[] pos=gearPosition(i);
+                var tip=item(g,gear.stack(),gearLabel(gear.slot()),pos[0],pos[1],mx,my);
+                if(i==selectedGear) g.renderOutline(pos[0]-1,pos[1]-1,42,42,0xFFE3BC67);
+                if(tip!=null) tooltip=tip;
+            }
+            panel(g,444,80,156,224);heading(g,"รายละเอียด",444,80,156);
+            if(!data.details().gear().isEmpty()) {
+                var item=data.details().gear().get(Math.clamp(selectedGear,0,data.details().gear().size()-1)).stack();
+                if(!item.isEmpty()) g.renderItem(item,454,107);
+                renderDetail(g,454,126,132);
+            } else text(g,"ข้อมูลไม่พร้อม",454,116,130,NeoGuiStyle.COLOR_TEXT_MUTED);
         } else {
-            text(g, "ตัวละครอยู่นอกระยะ", 22, 96, 100, NeoGuiStyle.COLOR_TEXT_MUTED);
-        }
-        g.pose().pushPose(); g.pose().translate(140, 48, 0); g.pose().scale(1.4F, 1.4F, 1);
-        text(g, data.name(), 0, 0, 154, NeoGuiStyle.COLOR_TEXT);
-        g.pose().popPose();
-        text(g, "Lv. ", 140, 64, 104, NeoGuiStyle.COLOR_TEXT_MUTED);
-        text(g, Integer.toString(data.level()), 140 + font.width("Lv. "), 64, 48, NeoGuiStyle.COLOR_GOLD);
-        g.fill(140, 77, 424, 78, NeoGuiStyle.COLOR_FRAME);
-        boolean max = data.level() >= com.ambition.neoworld.level.LevelFormula.MAX_LEVEL;
-        bar(g, "EXP", max ? "MAX" : data.exp() + " / " + data.requiredExp(),
-                max ? 1 : ratio(data.exp(), data.requiredExp()), 140, 83, expBar);
-        bar(g, "HP", number(data.health()) + " / " + number(data.maxHealth()), ratio(data.health(), data.maxHealth()), 140, 103, healthBar);
-        staminaBar.enabled(data.maxStamina() >= 0);
-        bar(g, "Stamina", data.maxStamina() < 0 ? "ไม่พร้อมใช้งาน" : number(data.stamina()) + " / " + number(data.maxStamina()),
-                ratio(data.stamina(), data.maxStamina()), 140, 123, staminaBar);
-        text(g, "อาวุธ:", 140, 146, 42, NeoGuiStyle.COLOR_TEXT_MUTED);
-        text(g, data.weapon().isEmpty() ? "มือเปล่า" : Component.translatable(data.weapon()).getString(), 174, 146, 248, NeoGuiStyle.COLOR_ACCENT);
-        if (tab == 0) {
-            for (int i = 0; i < data.stats().size(); i++) {
-                if (i >= 12) break;
-                var stat = data.stats().get(i); int sx = CONTENT_X + i % 2 * 208, sy = CONTENT_Y + i / 2 * 16;
-                boolean hover = inside(mx, my, sx, sy, 200, 16);
-                row(g, sx, sy, 200, 16, hover);
-                String value = statValue(stat);
-                int valueWidth = Math.min(78, font.width(value));
-                int labelWidth = Math.max(12, 182 - valueWidth);
-                text(g, label(stat), sx + 7, sy + 4, labelWidth, NeoGuiStyle.COLOR_TEXT);
-                fitText(g, value, sx + 194 - valueWidth, sy + 4, valueWidth, NeoGuiStyle.COLOR_GOLD);
-                if (hover) tooltip = statTooltip(stat);
+            heading(g,"สกิลที่สวม",166,80,172);heading(g,"รายละเอียดสกิล",348,80,252);
+            if(data.details().skills().isEmpty()) text(g,"ไม่มีข้อมูลสกิลที่สวม",176,115,410,NeoGuiStyle.COLOR_TEXT_MUTED);
+            for(int i=0;i<SKILL_ROWS && skillScroll+i<data.details().skills().size();i++) {
+                int index=skillScroll+i,sy=108+i*32;var skill=data.details().skills().get(index);
+                row(g,166,sy,164,30,index==selectedSkill || inside(mx,my,166,sy,164,30));
+                skillIcon(g,skill,176,sy+7,16);
+                fitText(g,Component.translatable(skill.key()).getString(),198,sy+6,120,skill.enabled() ? 0xFFE3BC67 : NeoGuiStyle.COLOR_TEXT_MUTED);
+                text(g,skillSlot(skill.slot()),198,sy+18,120,NeoGuiStyle.COLOR_TEXT_MUTED);
             }
-        } else if (tab == 1) {
-            for (int i = 0; i < VISIBLE_ROWS && scroll + i < data.stats().size(); i++) {
-                var stat = data.stats().get(scroll + i); int sy = CONTENT_Y + i * 24;
-                boolean hover = inside(mx, my, CONTENT_X, sy, 398, 23);
-                row(g, CONTENT_X, sy, 398, 23, hover);
-                text(g, label(stat) + "  " + statValue(stat), 23, sy + 2, 380, NeoGuiStyle.COLOR_GOLD);
-                text(g, "พื้นฐาน " + number(stat.base()) + "  |  " + (stat.weaponValue() ? "รวมอาวุธ/การปรับของ Epic Fight" : "รวมอุปกรณ์และผลสถานะ"), 23, sy + 12, 380, NeoGuiStyle.COLOR_TEXT_MUTED);
-                if (hover) tooltip = statTooltip(stat);
-            }
-        } else {
-            if (data.effects().isEmpty()) text(g, "ไม่มีผลสถานะที่ใช้งาน", 23, 208, 380, NeoGuiStyle.COLOR_TEXT_MUTED);
-            for (int i = 0; i < VISIBLE_ROWS && scroll + i < data.effects().size(); i++) {
-                var effect = data.effects().get(scroll + i); int sy = CONTENT_Y + i * 24;
-                row(g, CONTENT_X, sy, 398, 23, inside(mx, my, CONTENT_X, sy, 398, 23));
-                String duration = effect.ticks() < 0 ? "ถาวร" : (effect.ticks() / 20 / 60) + ":" + String.format(Locale.ROOT, "%02d", effect.ticks() / 20 % 60);
-                String name = Component.translatable(effect.key()).getString();
-                text(g, name + " " + (effect.amplifier() + 1), 23, sy + 7, 286, NeoGuiStyle.COLOR_TEXT);
-                text(g, duration, 332, sy + 7, 72, NeoGuiStyle.COLOR_GOLD);
-                if (inside(mx, my, CONTENT_X, sy, 398, 23)) tooltip = List.of(Component.literal(name + " " + (effect.amplifier() + 1)), Component.literal("เวลาที่เหลือ ณ ตอนอัปเดต: " + duration));
+            panel(g,348,106,252,198);
+            if(!data.details().skills().isEmpty()) {
+                var selected=data.details().skills().get(selectedSkill);
+                skillIcon(g,selected,358,110,14);
+                fitText(g,Component.translatable(selected.key()).getString(),380,113,202,0xFFE3BC67);
+                renderDetail(g,358,134,228);
             }
         }
-        if (maxScroll() > 0) {
-            g.fill(418, CONTENT_Y, 424, CONTENT_Y + CONTENT_H, NeoGuiStyle.COLOR_PANEL_DARK);
-            int thumb = Math.max(12, CONTENT_H * VISIBLE_ROWS / totalRows());
-            int top = CONTENT_Y + Math.round((CONTENT_H - thumb) * scroll / (float)maxScroll());
-            g.fill(419, top, 423, top + thumb, draggingScroll ? NeoGuiStyle.COLOR_ACCENT : NeoGuiStyle.COLOR_FRAME_LIGHT);
-        }
-        g.fill(16, 296, 424, 297, NeoGuiStyle.COLOR_FRAME);
-        text(g, "ข้อมูล ณ ตอนอัปเดตจากเซิร์ฟเวอร์", 16, 305, 274, NeoGuiStyle.COLOR_TEXT_MUTED);
+        // Keep the footer above the outer bevel and outside the expanded right-hand details.
+        fitText(g, tab == 1 ? "ค่าตามอุปกรณ์ ณ ตอนเปิด · ชี้เพื่อดูรายละเอียด" : "ข้อมูล ณ ตอนเปิดหน้า · PvP ใช้แคช", 166, 312, 210, NeoGuiStyle.COLOR_TEXT_MUTED);
         g.pose().popPose();
         for (var widget : renderables) widget.render(g, mouseX, mouseY, partialTick);
         if (tooltip != null) g.renderComponentTooltip(font, tooltip, mouseX, mouseY);
     }
-    private void panel(GuiGraphics g, int x, int y, int w, int h) {
-        g.fill(x, y, x + w, y + h, 0xFF090D10);
-        g.fill(x + 1, y + 1, x + w - 1, y + h - 1, NeoGuiStyle.COLOR_FRAME_LIGHT);
-        g.fill(x + 2, y + 2, x + w - 2, y + h - 2, NeoGuiStyle.COLOR_FRAME);
-        g.fill(x + 3, y + 3, x + w - 3, y + h - 3, NeoGuiStyle.COLOR_PANEL_DARK);
-        for (int cx : new int[] {x + 1, x + w - 4}) {
-            for (int cy : new int[] {y + 1, y + h - 4}) {
-                g.fill(cx, cy, cx + 3, cy + 3, 0xFFABB4BA);
-                g.fill(cx + 1, cy + 1, cx + 2, cy + 2, 0xFF31393E);
-            }
+    private void heading(GuiGraphics g, String title, int hx, int hy, int width) {
+        ProfileSkin.frame(g, ProfileSkin.SECTION, hx, hy, width, 23, 6);
+        ProfileSkin.Sprite icon = title.equals("การโจมตี") ? ProfileSkin.SWORDS
+                : title.equals("การป้องกัน") ? ProfileSkin.SHIELD
+                : title.equals("การเคลื่อนไหวและความอึด") ? ProfileSkin.BOOT : null;
+        int inset=12;
+        if(icon!=null) { ProfileSkin.icon(g,icon,hx+12,hy+5,13); inset=33; }
+        fitText(g,title,hx+inset,hy+7,width-inset-14,0xFFE3BC67);
+    }
+    private List<Component> group(GuiGraphics g, String name, int gx, int gy, float mx, float my, String... keys) {
+        ProfileSkin.frame(g,ProfileSkin.PANEL,gx-2,gy-2,214,30+keys.length*20,5);
+        heading(g, name, gx, gy, 210);
+        List<Component> tooltip = null; int index = 0;
+        for (String key : keys) {
+            var found = data.stats().stream().filter(s -> s.key().endsWith("." + key)).findFirst();
+            if (found.isEmpty()) continue;
+            var stat = found.get(); int ry = gy + 26 + index++ * 20;
+            boolean hover = inside(mx, my, gx, ry, 210, 19);
+            row(g, gx, ry, 210, 19, hover);
+            // The PNG end ornaments extend inward: reserve 18px at both ends.
+            text(g, label(stat), gx + 18, ry + 5, 124, NeoGuiStyle.COLOR_TEXT);
+            String value = statValue(stat);
+            int valueWidth = Math.min(44, font.width(value));
+            fitText(g, value, gx + 192 - valueWidth, ry + 5, valueWidth, 0xFFE3BC67);
+            if (hover) tooltip = statTooltip(stat);
         }
+        return tooltip;
+    }
+    private List<Component> item(GuiGraphics g, ItemStack stack, String name, int ix, int iy, float mx, float my) {
+        row(g, ix, iy, 40, 40, inside(mx, my, ix, iy, 40, 40));
+        if (!stack.isEmpty()) { g.renderItem(stack, ix + 12, iy + 10); g.renderItemDecorations(font, stack, ix + 12, iy + 10); }
+        text(g, name, ix, iy + 42, 64, NeoGuiStyle.COLOR_TEXT_MUTED);
+        return inside(mx, my, ix, iy, 40, 40) ? (stack.isEmpty() ? List.of(Component.literal("ไม่ได้สวมไอเทมในช่องนี้")) : Screen.getTooltipFromItem(minecraft, stack)) : null;
+    }
+    private void panel(GuiGraphics g, int x, int y, int w, int h) {
+        ProfileSkin.frame(g,ProfileSkin.PANEL,x,y,w,h,6);
     }
     private void row(GuiGraphics g, int x, int y, int w, int h, boolean hover) {
-        g.fill(x, y, x + w, y + h, hover ? 0xFF283A3E : 0xD012171A);
-        g.fill(x, y, x + w, y + 1, hover ? NeoGuiStyle.COLOR_ACCENT : NeoGuiStyle.COLOR_FRAME);
-        g.fill(x, y, x + 1, y + h, NeoGuiStyle.COLOR_FRAME);
-        g.fill(x + w - 1, y, x + w, y + h, 0xFF30383D);
-        g.fill(x, y + h - 1, x + w, y + h, 0xFF090D10);
+        ProfileSkin.frame(g,hover ? ProfileSkin.ROW_HOVER : ProfileSkin.ROW,x,y,w,h,3);
     }
     private void text(GuiGraphics g, String value, int x, int y, int maxWidth, int color) {
         g.drawString(font, font.plainSubstrByWidth(value, maxWidth), x, y, color, false);
     }
-    private void bar(GuiGraphics g, String label, String value, float progress, int x, int y, NeoProgressBar bar) {
-        text(g, label, x, y + 3, 44, NeoGuiStyle.COLOR_TEXT);
+    private void bar(GuiGraphics g, String label, String value, float progress, int x, int y, int color) {
+        ProfileSkin.frame(g,ProfileSkin.ROW,x-6,y-2,418,20,3);
+        fitText(g,label,x+16,y+3,50,NeoGuiStyle.COLOR_TEXT);
+        if(label.equals("HP")) g.blitSprite(ResourceLocation.withDefaultNamespace("hud/heart/full"),x,y+2,10,10);
+        else if(label.equals("Stamina")) ProfileSkin.icon(g,ProfileSkin.BOOT,x,y+1,11);
+        else catalogueIcon(g,NeoBitmapIcon.ICONS_MENU_ADVANCEMENTS,x,y+1,11);
         int valueWidth = Math.min(110, font.width(value));
-        // Fixed track width keeps all three bars aligned when numeric labels change.
-        bar.bounds(x + 46, y, 120, 14).progress(progress).loading(pending != null).render(g, font);
-        fitText(g, value, x + 284 - valueWidth, y + 3, valueWidth, NeoGuiStyle.COLOR_GOLD);
-        g.fill(x, y + 17, x + 284, y + 18, 0xFF30383D);
+        ProfileSkin.progress(g,x+70,y,208,14,progress,color);
+        fitText(g, value, x + 406 - valueWidth, y + 3, valueWidth, 0xFFE3BC67);
+    }
+    private void catalogueIcon(GuiGraphics g,NeoBitmapIcon icon,int ix,int iy,int size) {
+        var glyph=icon.component();int inkWidth=Math.max(1,font.width(glyph)-1);
+        float factor=size/(float)Math.max(inkWidth,icon.height());
+        g.pose().pushPose();
+        g.pose().translate(ix+(size-inkWidth*factor)/2F,iy+(size-icon.height()*factor)/2F,0);
+        g.pose().scale(factor,factor,1);g.drawString(font,glyph,0,icon.ascent()-7,0xFFFFFFFF,false);g.pose().popPose();
     }
     private void fitText(GuiGraphics g, String value, int tx, int ty, int available, int color) {
         float factor = Math.min(1F, available / (float)Math.max(1, font.width(value)));
@@ -260,30 +370,73 @@ public final class PlayerProfileScreen extends Screen {
                 Component.literal("พื้นฐาน: " + number(stat.base())), Component.literal("รวม: " + number(stat.value())),
                 Component.literal(stat.weaponValue() ? "รวมอาวุธและการปรับของ Epic Fight" : "รวมอุปกรณ์และผลสถานะ"));
     }
-    @Override public boolean mouseScrolled(double mx, double my, double dx, double dy) {
-        if (tab == 0 || dy == 0 || !inside((float)((mx - x) / scale), (float)((my - y) / scale), CONTENT_X, CONTENT_Y, CONTENT_W, CONTENT_H)) return super.mouseScrolled(mx, my, dx, dy);
-        scroll = Math.clamp(scroll + (dy < 0 ? 1 : -1), 0, maxScroll()); return true;
+    private static int[] gearPosition(int index) {
+        return index<4 ? new int[]{178+index*62,112} : new int[]{186+(index-4)%3*74,204+(index-4)/3*54};
     }
-    private int totalRows() { return tab == 1 ? data.stats().size() : tab == 2 ? data.effects().size() : 0; }
-    private int maxScroll() { return Math.max(0, totalRows() - VISIBLE_ROWS); }
-    private void scrollTo(double mouseY) {
-        int thumb = Math.max(12, CONTENT_H * VISIBLE_ROWS / totalRows());
-        double pos = (mouseY - y) / scale - CONTENT_Y - thumb / 2.0;
-        scroll = Math.clamp((int)Math.round(pos * maxScroll() / (CONTENT_H - thumb)), 0, maxScroll());
+    private static String gearLabel(String slot) {
+        return switch(slot) {
+            case "head","fashion_head" -> "หัว";case "chest" -> "อก";case "legs","fashion_legs" -> "ขา";
+            case "feet","fashion_feet" -> "เท้า";case "fashion_face" -> "หน้า";case "fashion_back" -> "หลัง";case "fashion_body" -> "ตัว";default -> slot;
+        };
     }
-    @Override public boolean mouseClicked(double mx, double my, int button) {
-        if (button == 0 && maxScroll() > 0 && inside((float)((mx - x) / scale), (float)((my - y) / scale), 418, CONTENT_Y, 6, CONTENT_H)) {
-            draggingScroll = true; scrollTo(my); return true;
+    private static String skillSlot(String slot) {
+        if(slot.startsWith("passive")) return "Passive "+slot.substring(7);
+        return switch(slot) {
+            case "weapon_passive" -> "Passive ประจำอาวุธ";case "weapon_innate" -> "สกิลประจำอาวุธ";
+            case "dodge" -> "หลบ";case "guard" -> "ป้องกัน";case "mover" -> "เคลื่อนที่";case "identity" -> "Identity";
+            case "knockdown_wakeup" -> "ลุกหลังล้ม";default -> slot;
+        };
+    }
+    private void skillIcon(GuiGraphics g,ProfileDetails.EquippedSkill skill,int ix,int iy,int size) {
+        var texture=ResourceLocation.tryParse(skill.texture());
+        if(texture!=null && minecraft.getResourceManager().getResource(texture).isPresent()) {
+            RenderSystem.enableBlend();g.blit(texture,ix,iy,size,size,0,0,64,64,64,64);
+        } else NeoSystemIcons.render(g,NeoSystemIcons.Icon.STATISTICS,ix,iy,size,skill.enabled());
+    }
+    private List<FormattedCharSequence> detailLines() {
+        var out=new java.util.ArrayList<FormattedCharSequence>();
+        if(tab==2 && !data.details().gear().isEmpty()) {
+            var gear=data.details().gear().get(Math.clamp(selectedGear,0,data.details().gear().size()-1));
+            out.addAll(font.split(Component.literal(gearLabel(gear.slot())),132));
+            if(gear.stack().isEmpty()) out.addAll(font.split(Component.literal("ไม่ได้สวมไอเทมในช่องนี้"),132));
+            else for(var line:Screen.getTooltipFromItem(minecraft,gear.stack())) out.addAll(font.split(line,132));
+        } else if(tab==3 && !data.details().skills().isEmpty()) {
+            var skill=data.details().skills().get(Math.clamp(selectedSkill,0,data.details().skills().size()-1));
+            String mod=skill.id().substring(0,skill.id().indexOf(':')<0 ? skill.id().length() : skill.id().indexOf(':'));
+            String source="มอด: "+mod+" · "+skillSlot(skill.slot())+(skill.enabled() ? "" : " · ปิดใช้งาน");
+            out.addAll(font.split(Component.literal(source),228));
+            if(!skill.bonuses().isEmpty()) {
+                out.addAll(font.split(Component.literal("ค่าจากสกิล ณ ตอนเปิดหน้า").withColor(0xE3BC67),228));
+                for(var line:skill.bonuses()) out.addAll(font.split(Component.literal(line),228));
+            }
+            String key=skill.key()+".tooltip",raw=Component.translatable(key).getString();
+            if(skill.id().equals("wom:critical_knowledge")) raw="เพิ่มโอกาสคริติคอลและโบนัสความเสียหายเมื่อสวมสกิล\nFire Protection เพิ่มโอกาส · Blast Protection เพิ่มความเสียหาย\nไม่ใช่ค่าคริติคอลรวมของทุกท่าโจมตี";
+            if(skill.id().equals("wom:vampirize")) raw="ฟื้น HP ตามความเสียหายจากการโจมตีที่สกิลได้รับ ไม่ใช่การฟื้น HP ต่อวินาที";
+            if(raw.equals(key)) raw="มอดไม่ได้ให้คำอธิบายสกิลนี้ในชุดภาษาปัจจุบัน";
+            boolean unresolved=raw.matches("(?s).*%(?:\\d+\\$)?[-+\\d.]*[sdif].*");
+            raw=raw.replaceAll("%(?:\\d+\\$)?[-+\\d.]*[sdif]","[ตามอุปกรณ์/เงื่อนไข]");
+            out.addAll(font.split(Component.literal("ความสามารถและเงื่อนไข").withColor(0xE3BC67),228));
+            for(String line:raw.split("\\n",-1)) out.addAll(font.split(Component.literal(line.isEmpty() ? " " : line),228));
+            if(unresolved) out.addAll(font.split(Component.literal("ค่าตัวเลขบางส่วนต้องดูจากหน้าสกิลของมอด ไม่ใช่ค่าถาวรของตัวละคร"),228));
         }
-        return super.mouseClicked(mx, my, button);
+        return out;
     }
-    @Override public boolean mouseDragged(double mx, double my, int button, double dx, double dy) {
-        if (button == 0 && draggingScroll && maxScroll() > 0) { scrollTo(my); return true; }
-        return super.mouseDragged(mx, my, button, dx, dy);
+    private void renderDetail(GuiGraphics g,int dx,int dy,int width) {
+        var lines=detailLines();
+        for(int i=0;i<DETAIL_ROWS && detailScroll+i<lines.size();i++)
+            g.drawString(font,lines.get(detailScroll+i),dx,dy+i*10,NeoGuiStyle.COLOR_TEXT,false);
     }
-    @Override public boolean mouseReleased(double mx, double my, int button) {
-        if (button == 0 && draggingScroll) { draggingScroll = false; return true; }
-        return super.mouseReleased(mx, my, button);
+    private void drawWrapped(GuiGraphics g,String message,int dx,int dy,int width,int maxRows) {
+        int count=0;
+        for(var line:font.split(Component.literal(message),width)) {
+            if(count>=maxRows) break;g.drawString(font,line,dx,dy+count++*10,NeoGuiStyle.COLOR_TEXT_MUTED,false);
+        }
+    }
+    @Override public boolean mouseScrolled(double mx,double my,double dx,double dy) {
+        float lx=(float)((mx-x)/scale),ly=(float)((my-y)/scale);
+        if(tab==3 && skillScrollbar!=null && inside(lx,ly,166,108,172,192)) return skillScrollbar.scroll(dy);
+        if(detailScrollbar!=null && inside(lx,ly,tab==2 ? 444 : 348,106,tab==2 ? 156 : 252,198)) return detailScrollbar.scroll(dy);
+        return super.mouseScrolled(mx,my,dx,dy);
     }
     @Override public boolean isPauseScreen() { return false; }
 }

@@ -1,0 +1,156 @@
+{
+  "castle": {
+    "id": "07-castle",
+    "name": "Governor Castle",
+    "bounds": [
+      103,
+      30,
+      217,
+      124
+    ],
+    "buildingBounds": [
+      118,
+      40,
+      202,
+      99
+    ],
+    "buildingSize": [
+      85,
+      60
+    ],
+    "floorY": 116,
+    "courtFloorY": 112,
+    "highestY": 171,
+    "heightAboveFloor": 55,
+    "entrance": [
+      160,
+      117,
+      94
+    ],
+    "towers": [
+      {
+        "center": [
+          125,
+          116,
+          47
+        ],
+        "radius": 7,
+        "tipY": 166
+      },
+      {
+        "center": [
+          195,
+          116,
+          47
+        ],
+        "radius": 7,
+        "tipY": 166
+      },
+      {
+        "center": [
+          125,
+          116,
+          92
+        ],
+        "radius": 7,
+        "tipY": 158
+      },
+      {
+        "center": [
+          195,
+          116,
+          92
+        ],
+        "radius": 7,
+        "tipY": 158
+      }
+    ],
+    "rooms": [
+      {
+        "name": "great hall",
+        "bounds": [
+          142,
+          58,
+          178,
+          94
+        ]
+      },
+      {
+        "name": "left services",
+        "bounds": [
+          118,
+          42,
+          142,
+          92
+        ]
+      },
+      {
+        "name": "right services",
+        "bounds": [
+          178,
+          42,
+          202,
+          92
+        ]
+      },
+      {
+        "name": "keep",
+        "bounds": [
+          149,
+          43,
+          171,
+          65
+        ],
+        "floors": [
+          116,
+          128,
+          140,
+          152
+        ]
+      }
+    ],
+    "verifiedRoutes": [
+      {
+        "name": "court",
+        "x": 160,
+        "z": 116,
+        "h": 113
+      },
+      {
+        "name": "great hall",
+        "x": 160,
+        "z": 85,
+        "h": 117
+      },
+      {
+        "name": "left service",
+        "x": 133,
+        "z": 82,
+        "h": 117
+      },
+      {
+        "name": "right service",
+        "x": 187,
+        "z": 82,
+        "h": 117
+      },
+      {
+        "name": "upper gallery",
+        "x": 140,
+        "z": 60,
+        "h": 129
+      },
+      {
+        "name": "keep upper hall",
+        "x": 160,
+        "z": 48,
+        "h": 153
+      }
+    ],
+    "stage": "castle architecture and usable rooms; no NPC integration"
+  },
+  "changedBlocks": 101997,
+  "changedChunks": 66,
+  "reachableSurfaces": 51456,
+  "backup": "archive\\map-edit-backups\\before-governor-castle\\starter_sky_land_spawn_v1"
+}

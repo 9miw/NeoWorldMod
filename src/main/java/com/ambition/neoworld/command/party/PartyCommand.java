@@ -67,9 +67,28 @@ public final class PartyCommand {
                 .then(Commands.literal("info").executes(context -> info(context.getSource())))
                 .then(Commands.literal("gui").executes(context -> openGui(context.getSource())))
                 .then(Commands.literal("open").executes(context -> openGui(context.getSource())))
-                .then(Commands.literal("list")
+                .then(Commands.literal("help").executes(context -> help(context.getSource())))
+                .then(Commands.literal("admin")
                         .requires(source -> ModPermissions.hasPermission(source, ModPermissions.COMMAND_DUNGEON_ADMIN, 2))
-                        .executes(context -> listParties(context.getSource())));
+                        .executes(context -> adminHelp(context.getSource()))
+                        .then(Commands.literal("help").executes(context -> adminHelp(context.getSource())))
+                        .then(Commands.literal("list").executes(context -> listParties(context.getSource()))));
+    }
+
+    private static int help(CommandSourceStack source) {
+        for (String command : java.util.List.of("create <trio|raid|3|6>", "invite <player>",
+                "accept <leader>", "decline <leader>", "leave", "kick <player>", "disband",
+                "ready", "info", "gui", "open")) {
+            source.sendSuccess(() -> Component.literal("/neow party " + command), false);
+        }
+        if (ModPermissions.hasPermission(source, ModPermissions.COMMAND_DUNGEON_ADMIN, 2))
+            source.sendSuccess(() -> Component.literal("/neow party admin help — คำสั่งแอดมิน"), false);
+        return 1;
+    }
+
+    private static int adminHelp(CommandSourceStack source) {
+        source.sendSuccess(() -> Component.literal("/neow party admin list — ดูปาร์ตี้ทั้งหมด"), false);
+        return 1;
     }
 
     private static int createParty(CommandSourceStack source, String sizeName) throws CommandSyntaxException {
@@ -96,7 +115,7 @@ public final class PartyCommand {
         PartyActionResult result = PartyManager.get(source.getServer()).invite(leader, target);
         if (result.successful()) {
             target.sendSystemMessage(Component.literal("§e[NeoWorld] " + leader.getGameProfile().getName()
-                    + " เชิญคุณเข้าปาร์ตี้ ใช้ /neoworld party accept " + leader.getGameProfile().getName()));
+                    + " เชิญคุณเข้าปาร์ตี้ ใช้ /neow party accept " + leader.getGameProfile().getName()));
         }
         return sendResult(source, result);
     }

@@ -1,0 +1,44 @@
+{
+  "changedBlocks": 395,
+  "changedChunks": 2,
+  "points": [
+    [
+      109,
+      114
+    ],
+    [
+      110,
+      115
+    ],
+    [
+      112,
+      116
+    ],
+    [
+      114,
+      117
+    ],
+    [
+      116,
+      118
+    ],
+    [
+      118,
+      120
+    ],
+    [
+      121,
+      122
+    ],
+    [
+      124,
+      123
+    ],
+    [
+      126,
+      123
+    ]
+  ],
+  "deckY": 120,
+  "backup": "archive\\map-edit-backups\\before-castle-left-wall-fix\\starter_sky_land_spawn_v1"
+}

@@ -30,7 +30,6 @@ import com.ambition.neoworld.network.dungeon.OpenDungeonBrowserPayload;
 import com.ambition.neoworld.registry.ModAttachments;
 import com.ambition.neoworld.registry.ModDimensionRegistries;
 import com.mojang.brigadier.arguments.IntegerArgumentType;
-import com.mojang.brigadier.arguments.LongArgumentType;
 import com.mojang.brigadier.arguments.StringArgumentType;
 import com.mojang.brigadier.builder.LiteralArgumentBuilder;
 import com.mojang.brigadier.exceptions.CommandSyntaxException;
@@ -67,11 +66,7 @@ public final class DungeonCommand {
                 .requires(source -> ModPermissions.hasPermission(source, ModPermissions.COMMAND_DUNGEON_USE, 0))
                 .executes(context -> openDungeonBrowser(context.getSource().getPlayerOrException()))
                 .then(Commands.literal("help")
-                        .executes(context -> showHelp(context.getSource(), 1))
-                        .then(Commands.argument("page", IntegerArgumentType.integer(1, 4))
-                                .executes(context -> showHelp(
-                                        context.getSource(),
-                                        IntegerArgumentType.getInteger(context, "page")))))
+                        .executes(context -> showHelp(context.getSource(), 1)))
                 .then(Commands.literal("list")
                         .executes(context -> listEnabledDefinitions(context.getSource())))
                 .then(Commands.literal("info")
@@ -83,6 +78,20 @@ public final class DungeonCommand {
                 .then(Commands.literal("exit")
                         .executes(context -> exitDungeon(context.getSource())))
                 .then(buildRoomCommand())
+                .then(buildAdminCommand());
+    }
+
+    private static LiteralArgumentBuilder<CommandSourceStack> buildAdminCommand() {
+        return Commands.literal("admin")
+                .requires(DungeonCommand::isDungeonAdmin)
+                .executes(context -> showHelp(context.getSource(), 2))
+                .then(Commands.literal("help")
+                        .executes(context -> showHelp(context.getSource(), 2))
+                        .then(Commands.argument("page", IntegerArgumentType.integer(1, 3))
+                                .executes(context -> showHelp(context.getSource(),
+                                        IntegerArgumentType.getInteger(context, "page") + 1))))
+                .then(DungeonCaptureCommands.build())
+                .then(DungeonLootCommands.build())
                 .then(buildCreateDefinitionCommand())
                 .then(buildDefinitionsCommand())
                 .then(buildSetCommand())
@@ -127,7 +136,7 @@ public final class DungeonCommand {
         }
         PacketDistributor.sendToPlayer(player, OpenDungeonBrowserPayload.INSTANCE);
         PacketDistributor.sendToPlayer(player, DungeonBrowserDataPayload.fromDefinitions(
-                DungeonDefinitionData.get(player.getServer()).all()));
+                player.getServer(), DungeonDefinitionData.get(player.getServer()).all()));
         return 1;
     }
 
@@ -186,6 +195,13 @@ public final class DungeonCommand {
                                         .executes(context -> setDefinitionName(context.getSource(),
                                                 StringArgumentType.getString(context, "id"),
                                                 StringArgumentType.getString(context, "value")))))
+                        .then(Commands.literal("image")
+                                .then(Commands.literal("clear").executes(context -> setDefinitionImage(context.getSource(),
+                                        StringArgumentType.getString(context, "id"), null)))
+                                .then(Commands.argument("resource", ResourceLocationArgument.id())
+                                        .executes(context -> setDefinitionImage(context.getSource(),
+                                                StringArgumentType.getString(context, "id"),
+                                                ResourceLocationArgument.getId(context, "resource")))))
                         .then(Commands.literal("level")
                                 .then(Commands.argument("value", IntegerArgumentType.integer(1, 100))
                                         .executes(context -> setDefinitionMinimumLevel(context.getSource(),
@@ -206,12 +222,16 @@ public final class DungeonCommand {
                                         .executes(context -> scanStructureBlocks(
                                                 context.getSource(),
                                                 StringArgumentType.getString(context, "id"))))
-                                .then(Commands.argument("resource", ResourceLocationArgument.id())
+                                .then(Commands.argument("resource", StringArgumentType.greedyString())
                                         .suggests((context, builder) -> SharedSuggestionProvider.suggest(
-                                                structureIds(context.getSource()), builder))
+                                                java.util.stream.Stream.concat(
+                                                        definitions(context.getSource()).mapIds().stream().map(map ->
+                                                                map.getNamespace().equals("neoworld") && map.getPath().startsWith("dungeon/")
+                                                                        ? map.getPath().substring(8) : map.toString()),
+                                                        structureIds(context.getSource()).stream()), builder))
                                         .executes(context -> linkStructure(context.getSource(),
                                                 StringArgumentType.getString(context, "id"),
-                                                ResourceLocationArgument.getId(context, "resource")))))
+                                                StringArgumentType.getString(context, "resource")))))
                         .then(Commands.literal("boss")
                                 .then(Commands.argument("clone_tab", IntegerArgumentType.integer(1, 9))
                                         .then(Commands.argument("clone_name", StringArgumentType.greedyString())
@@ -221,24 +241,25 @@ public final class DungeonCommand {
                                                         StringArgumentType.getString(context, "clone_name"))))))
                         .then(Commands.literal("reward")
                                 .then(Commands.argument("loot_table", ResourceLocationArgument.id())
-                                        .then(Commands.argument("experience", IntegerArgumentType.integer(0))
-                                                .then(Commands.argument("money", LongArgumentType.longArg(0L))
-                                                        .executes(context -> setDefinitionReward(context.getSource(),
+                                        .suggests((context, builder) -> SharedSuggestionProvider.suggest(
+                                                definitions(context.getSource()).lootPresetIds().stream().flatMap(id ->
+                                                        id.getNamespace().equals("neoworld") && id.getPath().startsWith("dungeon/rewards/")
+                                                                ? java.util.stream.Stream.of(id.getPath().substring(16), id.toString())
+                                                                : java.util.stream.Stream.of(id.toString())), builder))
+                                        .executes(context -> setDefinitionReward(context.getSource(),
                                                                 StringArgumentType.getString(context, "id"),
-                                                                ResourceLocationArgument.getId(context, "loot_table"),
-                                                                IntegerArgumentType.getInteger(context, "experience"),
-                                                                LongArgumentType.getLong(context, "money")))))))
+                                                                context.getNodes().stream().filter(node -> node.getNode().getName().equals("loot_table"))
+                                                                        .findFirst().orElseThrow().getRange().get(context.getInput())))))
                         .then(Commands.literal("wave")
+                        .then(buildWaveSpawnEditCommand())
                         .then(Commands.literal("add")
                                 .then(Commands.argument("clone_tab", IntegerArgumentType.integer(1, 9))
-                                        .then(Commands.argument("count", IntegerArgumentType.integer(1))
-                                                .then(Commands.argument("clone_name", StringArgumentType.greedyString())
+                                        .then(Commands.argument("clone_name", StringArgumentType.greedyString())
                                                         .executes(context -> addDefinitionMonsterWave(
                                                                 context.getSource(),
                                                                 StringArgumentType.getString(context, "id"),
                                                                 IntegerArgumentType.getInteger(context, "clone_tab"),
-                                                                StringArgumentType.getString(context, "clone_name"),
-                                                                IntegerArgumentType.getInteger(context, "count")))))))
+                                                                StringArgumentType.getString(context, "clone_name"))))))
                         .then(Commands.literal("clear")
                                 .executes(context -> clearDefinitionMonsterWaves(
                                         context.getSource(), StringArgumentType.getString(context, "id"))))));
@@ -252,6 +273,35 @@ public final class DungeonCommand {
                                 definitionIds(context.getSource()), builder))
                         .executes(context -> validateDefinition(
                                 context.getSource(), StringArgumentType.getString(context, "id"), enable)));
+    }
+
+    private static LiteralArgumentBuilder<CommandSourceStack> buildWaveSpawnEditCommand() {
+        var spawn = Commands.literal("spawn");
+        for (DungeonMonsterWave.SpawnMode mode : DungeonMonsterWave.SpawnMode.values()) {
+            spawn.then(Commands.literal(mode.id())
+                    .then(Commands.argument("spawn_count", IntegerArgumentType.integer(1, 1024))
+                            .executes(context -> setWaveSpawn(context.getSource(),
+                                    StringArgumentType.getString(context, "id"),
+                                    IntegerArgumentType.getInteger(context, "wave_index"), mode,
+                                    IntegerArgumentType.getInteger(context, "spawn_count")))));
+        }
+        return Commands.literal("edit")
+                .then(Commands.argument("wave_index", IntegerArgumentType.integer(1)).then(spawn));
+    }
+
+    private static int setWaveSpawn(CommandSourceStack source, String id, int waveNumber,
+            DungeonMonsterWave.SpawnMode mode, int count) {
+        DungeonDefinition definition = requireDefinition(source, id);
+        if (definition == null) return 0;
+        if (waveNumber > definition.monsterWaves().size()) {
+            source.sendFailure(Component.literal("ไม่พบ Wave " + waveNumber));
+            return 0;
+        }
+        DungeonMonsterWave old = definition.monsterWaves().get(waveNumber - 1);
+        definitions(source).updateMonsterWave(definition, waveNumber - 1,
+                new DungeonMonsterWave(old.cloneTab(), old.cloneName(), count, mode));
+        return definitionUpdated(source, definition,
+                "wave=" + waveNumber + " spawn=" + mode.id() + " count=" + count);
     }
 
     private static int createDefinition(CommandSourceStack source, String id) {
@@ -284,6 +334,19 @@ public final class DungeonCommand {
         return definitionUpdated(source, definition, "min_level=" + value);
     }
 
+    private static int setDefinitionImage(CommandSourceStack source, String id, ResourceLocation image) {
+        DungeonDefinition definition = requireDefinition(source, id);
+        if (definition == null) return 0;
+        if (image != null && !DungeonDefinition.isImageResource(image)) {
+            source.sendFailure(Component.literal("§c[NeoWorld] รูปต้องเป็น resource textures/...png ความยาวไม่เกิน 256 ตัวอักษร"));
+            return 0;
+        }
+        definitions(source).updateImage(definition, image);
+        source.sendSuccess(() -> Component.literal("§a[NeoWorld] รูปดัน " + id + ": "
+                + (image == null ? "ใช้รูปเริ่มต้น" : image.toString())), true);
+        return 1;
+    }
+
     private static int setDefinitionTimeLimit(CommandSourceStack source, String id, int seconds) {
         DungeonDefinition definition = requireDefinition(source, id);
         if (definition == null) return 0;
@@ -311,104 +374,54 @@ public final class DungeonCommand {
         return definitionUpdated(source, definition, "modes=" + roomTypeNames(definition));
     }
 
-    private static int linkStructure(CommandSourceStack source, String id, ResourceLocation structureId) {
+    private static int linkStructure(CommandSourceStack source, String id, String name) {
         DungeonDefinition definition = requireDefinition(source, id);
         if (definition == null) return 0;
-        definitions(source).updateStructure(definition, structureId);
+        if (com.ambition.neoworld.dungeon.instance.DungeonRuntime.get(source.getServer()).activeInstances()
+                .stream().anyMatch(instance -> instance.dungeonId().equals(id))) {
+            source.sendFailure(Component.literal("ดันนี้กำลังมีผู้เล่น กรุณารอให้จบรอบก่อนเปลี่ยนแผนที่"));
+            return 0;
+        }
+        ResourceLocation structureId = ResourceLocation.tryParse(name.contains(":") ? name.trim() : "neoworld:dungeon/" + name.trim());
+        if (structureId == null) {
+            source.sendFailure(Component.literal("ชื่อแผนที่ไม่ถูกต้อง"));
+            return 0;
+        }
+        var pieces = definitions(source).map(structureId).orElse(null);
+        if (pieces != null) {
+            ServerLevel level = dungeonLevel(source);
+            if (level == null) return 0;
+            for (DungeonTemplatePiece piece : pieces) {
+                if (level.getStructureManager().get(piece.templateId()).isEmpty()) {
+                    source.sendFailure(Component.literal("ไม่พบไฟล์ของแผนที่: " + piece.templateId()));
+                    return 0;
+                }
+            }
+            definitions(source).updateStructurePieces(definition, pieces);
+        } else {
+            ServerLevel level = dungeonLevel(source);
+            if (level == null) return 0;
+            if (level.getStructureManager().get(structureId).isEmpty()) {
+                source.sendFailure(Component.literal("ไม่พบแผนที่ " + name + " กรุณาบันทึกด้วย admin structure save ก่อน"));
+                return 0;
+            }
+            definitions(source).updateStructure(definition, structureId);
+        }
         return definitionUpdated(source, definition, "structure=" + structureId);
     }
 
     private static int scanStructureBlocks(CommandSourceStack source, String id) throws CommandSyntaxException {
-        DungeonDefinition definition = requireDefinition(source, id);
-        if (definition == null) return 0;
-
-        ServerPlayer player = source.getPlayerOrException();
-        HitResult hit = player.pick(8.0D, 1.0F, false);
-        if (!(hit instanceof BlockHitResult blockHit)
-                || player.level().getBlockState(blockHit.getBlockPos()).getBlock() != Blocks.STRUCTURE_BLOCK) {
-            source.sendFailure(Component.literal("§c[NeoWorld] กรุณาเล็ง Structure Block ตัวแรกภายในระยะ 8 บล็อก"));
-            return 0;
-        }
-
-        BlockPos firstBlock = blockHit.getBlockPos();
-        StructureBlockEntity firstStructureBlock = (StructureBlockEntity) player.level().getBlockEntity(firstBlock);
-        String firstName = firstStructureBlock.getStructureName().trim();
-        ResourceLocation firstId = ResourceLocation.tryParse(firstName);
-        java.util.regex.Matcher firstMatch = java.util.regex.Pattern.compile("^(.*_)(\\d+)$")
-                .matcher(firstId == null ? "" : firstId.getPath());
-        if (firstId == null || !firstMatch.matches() || !firstMatch.group(2).equals("01")) {
-            source.sendFailure(Component.literal(
-                    "§c[NeoWorld] Structure Block ตัวแรกต้องลงท้ายด้วย _01 เช่น neoworld:dungeon/forgotten_mine_01"));
-            return 0;
-        }
-
-        String pathPrefix = firstMatch.group(1);
-        java.util.regex.Pattern piecePattern = java.util.regex.Pattern.compile(
-                "^" + java.util.regex.Pattern.quote(pathPrefix) + "(\\d+)$");
-        java.util.Map<Integer, DungeonTemplatePiece> piecesByIndex = new java.util.HashMap<>();
-        int minimumChunkX = (firstBlock.getX() - STRUCTURE_SCAN_RADIUS) >> 4;
-        int maximumChunkX = (firstBlock.getX() + STRUCTURE_SCAN_RADIUS) >> 4;
-        int minimumChunkZ = (firstBlock.getZ() - STRUCTURE_SCAN_RADIUS) >> 4;
-        int maximumChunkZ = (firstBlock.getZ() + STRUCTURE_SCAN_RADIUS) >> 4;
-        for (int chunkX = minimumChunkX; chunkX <= maximumChunkX; chunkX++) {
-            for (int chunkZ = minimumChunkZ; chunkZ <= maximumChunkZ; chunkZ++) {
-                for (var blockEntity : player.serverLevel().getChunk(chunkX, chunkZ).getBlockEntities().values()) {
-                    if (!(blockEntity instanceof StructureBlockEntity structureBlock)) continue;
-                    BlockPos controlPos = structureBlock.getBlockPos();
-                    if (Math.abs(controlPos.getX() - firstBlock.getX()) > STRUCTURE_SCAN_RADIUS
-                            || Math.abs(controlPos.getZ() - firstBlock.getZ()) > STRUCTURE_SCAN_RADIUS) {
-                        continue;
-                    }
-                    ResourceLocation templateId = ResourceLocation.tryParse(structureBlock.getStructureName().trim());
-                    if (templateId == null || !templateId.getNamespace().equals(firstId.getNamespace())) continue;
-                    java.util.regex.Matcher pieceMatch = piecePattern.matcher(templateId.getPath());
-                    if (!pieceMatch.matches()) continue;
-
-                    int pieceIndex;
-                    try {
-                        pieceIndex = Integer.parseInt(pieceMatch.group(1));
-                    } catch (NumberFormatException exception) {
-                        source.sendFailure(Component.literal("§c[NeoWorld] หมายเลข Structure ใหญ่เกินไป: " + templateId));
-                        return 0;
-                    }
-                    if (pieceIndex < 1) continue;
-                    if (player.serverLevel().getStructureManager().get(templateId).isEmpty()) {
-                        source.sendFailure(Component.literal("§c[NeoWorld] ไม่พบ Structure Template: " + templateId));
-                        return 0;
-                    }
-                    DungeonTemplatePiece previous = piecesByIndex.putIfAbsent(
-                            pieceIndex,
-                            new DungeonTemplatePiece(templateId, controlPos.subtract(firstBlock))
-                    );
-                    if (previous != null) {
-                        source.sendFailure(Component.literal(String.format(
-                                "§c[NeoWorld] พบหมายเลข Structure ซ้ำ _%02d: %s", pieceIndex, templateId)));
-                        return 0;
-                    }
-                }
-            }
-        }
-        if (!piecesByIndex.containsKey(1)) {
-            source.sendFailure(Component.literal("§c[NeoWorld] ไม่พบ Structure Block _01 ในพื้นที่สแกน"));
-            return 0;
-        }
-
-        int highestIndex = piecesByIndex.keySet().stream().mapToInt(Integer::intValue).max().orElse(0);
-        List<DungeonTemplatePiece> pieces = new java.util.ArrayList<>(highestIndex);
-        for (int pieceIndex = 1; pieceIndex <= highestIndex; pieceIndex++) {
-            DungeonTemplatePiece piece = piecesByIndex.get(pieceIndex);
-            if (piece == null) {
-                source.sendFailure(Component.literal(String.format(
-                        "§c[NeoWorld] ลำดับ Structure ขาด _%02d", pieceIndex)));
-                return 0;
-            }
-            pieces.add(piece);
-        }
-
-        definitions(source).updateStructurePieces(definition, pieces);
-        return definitionUpdated(source, definition, String.format(
-                "structure_layout=%d pieces, prefix=%s, radius=%d",
-                pieces.size(), firstId.getNamespace() + ":" + pathPrefix, STRUCTURE_SCAN_RADIUS));
+        DungeonDefinition definition=requireDefinition(source,id);
+        if(definition==null)return 0;
+        var player=source.getPlayerOrException();var hit=player.pick(8D,1F,false);
+        if(!(hit instanceof BlockHitResult blockHit)) { source.sendFailure(Component.literal("เล็ง Structure Block _01 ภายใน 8 บล็อก"));return 0; }
+        try {
+            var pieces=com.ambition.neoworld.world.structure.StructureBlockScanner.scan(player.serverLevel(),blockHit.getBlockPos(),STRUCTURE_SCAN_RADIUS);
+            if(com.ambition.neoworld.world.structure.StructureCaptureService.get(player.getServer()).isReserved(pieces))
+                throw new IllegalArgumentException("ไฟล์ยังอยู่ระหว่างบันทึก");
+            definitions(source).updateStructurePieces(definition,DungeonDefinitionData.dungeonPieces(pieces));
+            return definitionUpdated(source,definition,"structure_layout="+pieces.size()+" pieces, radius="+STRUCTURE_SCAN_RADIUS);
+        } catch(RuntimeException exception) { source.sendFailure(Component.literal(exception.getMessage()));return 0; }
     }
 
     private static int setDefinitionBoss(
@@ -435,8 +448,7 @@ public final class DungeonCommand {
             CommandSourceStack source,
             String id,
             int cloneTab,
-            String cloneName,
-            int count
+            String cloneName
     ) {
         DungeonDefinition definition = requireDefinition(source, id);
         if (definition == null) return 0;
@@ -446,9 +458,9 @@ public final class DungeonCommand {
                     "§c[NeoWorld] ไม่พบ CustomNPC clone '%s' ใน tab %d", cloneName, cloneTab)));
             return 0;
         }
-        definitions(source).addMonsterWave(definition, new DungeonMonsterWave(cloneTab, cloneName, count));
+        definitions(source).addMonsterWave(definition, new DungeonMonsterWave(cloneTab, cloneName, 1));
         return definitionUpdated(source, definition,
-                "monster_wave=tab" + cloneTab + "/" + cloneName + " x" + count
+                "monster_wave=tab" + cloneTab + "/" + cloneName + " | spawn=round_robin count=1"
                         + " (#" + definition.monsterWaves().size() + ")");
     }
 
@@ -462,16 +474,19 @@ public final class DungeonCommand {
     private static int setDefinitionReward(
             CommandSourceStack source,
             String id,
-            ResourceLocation lootTableId,
-            int experience,
-            long money
+            String name
     ) {
         DungeonDefinition definition = requireDefinition(source, id);
         if (definition == null) return 0;
-        definitions(source).updateReward(definition,
-                new DungeonRewardConfig(lootTableId, experience, money));
-        return definitionUpdated(source, definition, String.format(
-                "reward=%s xp=%d money=%d", lootTableId, experience, money));
+        ResourceLocation preset = DungeonLootCommands.presetId(name);
+        boolean saved = definitions(source).lootPresetIds().contains(preset);
+        if (!saved && !name.contains(":")) {
+            source.sendFailure(Component.literal("ไม่พบชุดรางวัล " + name + " ใช้ admin loot save ก่อน หรือระบุ Loot Table แบบ namespace:path"));
+            return 0;
+        }
+        definitions(source).updateReward(definition, saved
+                ? new DungeonRewardConfig(null, preset) : new DungeonRewardConfig(ResourceLocation.parse(name)));
+        return definitionUpdated(source, definition, "reward=" + (saved ? preset : name));
     }
 
     private static int validateDefinition(CommandSourceStack source, String id, boolean enable) {
@@ -484,6 +499,13 @@ public final class DungeonCommand {
         if (definition.reward() == null) {
             source.sendFailure(Component.literal("§c[NeoWorld] Validation ไม่ผ่าน: ยังไม่ได้ตั้งค่ารางวัล"));
             return 0;
+        }
+        if (definition.reward().presetId() != null) {
+            try { definitions(source).lootPresetItems(definition.reward().presetId(), source.registryAccess()); }
+            catch (IllegalArgumentException exception) {
+                source.sendFailure(Component.literal("ชุดรางวัลใช้ไม่ได้: " + exception.getMessage()));
+                return 0;
+            }
         }
         if (!cloneExists(definition.boss().cloneTab(), definition.boss().cloneName())) {
             source.sendFailure(Component.literal(String.format(
@@ -513,6 +535,15 @@ public final class DungeonCommand {
                 .mapToInt(DungeonRoomType::capacity)
                 .max()
                 .orElse(0);
+        for (int i = 0; i < definition.monsterWaves().size(); i++) {
+            int markers = validation.markers().getOrDefault("mob_spawn_" + (i + 1), List.of()).size();
+            try {
+                definition.monsterWaves().get(i).totalCount(markers);
+            } catch (IllegalArgumentException exception) {
+                source.sendFailure(Component.literal("Wave " + (i + 1) + ": " + exception.getMessage()));
+                return 0;
+            }
+        }
         int playerSpawnCount = validation.markers().getOrDefault("player_spawn", List.of()).size();
         if (playerSpawnCount < requiredPlayerSpawns) {
             source.sendFailure(Component.literal(String.format(
@@ -584,6 +615,7 @@ public final class DungeonCommand {
         if (definition == null) return 0;
         source.sendSuccess(() -> Component.literal("§6=== " + definition.displayName() + " ==="), false);
         sendDefinitionLine(source, definition);
+        source.sendSuccess(() -> Component.literal("§7Image: §f" + (definition.imageId() == null ? "default" : definition.imageId())), false);
         source.sendSuccess(() -> Component.literal(definition.boss() == null
                 ? "§7Boss: §funset"
                 : "§7Boss: §ftab" + definition.boss().cloneTab() + "/" + definition.boss().cloneName()), false);
@@ -592,14 +624,13 @@ public final class DungeonCommand {
             int waveNumber = i + 1;
             DungeonMonsterWave wave = definition.monsterWaves().get(i);
             source.sendSuccess(() -> Component.literal(String.format(
-                    "§7  Wave %d: §ftab%d/%s x%d",
-                    waveNumber, wave.cloneTab(), wave.cloneName(), wave.count())), false);
+                    "§7  Wave %d: §ftab%d/%s x%d | spawn=%s%s",
+                    waveNumber, wave.cloneTab(), wave.cloneName(), wave.count(), wave.spawnMode().id(),
+                    wave.spawnMode() == DungeonMonsterWave.SpawnMode.EACH ? " (ต่อจุด)" : " (รวม)")), false);
         }
         source.sendSuccess(() -> Component.literal(definition.reward() == null
                 ? "§7Reward: §funset"
-                : String.format("§7Reward: §f%s §7| XP=§f%d §7| money=§f%d",
-                        definition.reward().lootTableId(), definition.reward().experience(),
-                        definition.reward().money())), false);
+                : "§7Reward: §f" + definition.reward().sourceId()), false);
         return 1;
     }
 
@@ -890,53 +921,74 @@ public final class DungeonCommand {
     }
 
     private static int showHelp(CommandSourceStack source, int page) {
-        source.sendSuccess(() -> Component.literal("§6=== Dungeon Help §f" + page + "/4 §6==="), false);
+        source.sendSuccess(() -> Component.literal(page == 1 ? "§6=== Dungeon Help ==="
+                : "§6=== Dungeon Admin Help §f" + (page - 1) + "/3 §6==="), false);
         switch (page) {
             case 1 -> {
-                sendHelpCommand(source, "/neoworld dungeon list", "ดูดันเจี้ยนที่เปิดใช้งาน", true);
-                sendHelpCommand(source, "/neoworld dungeon info dung01", "ดูรายละเอียดดันเจี้ยน", false);
-                sendHelpCommand(source, "/neoworld dungeon room create dung01 solo", "สร้างห้อง solo/trio/raid", false);
-                sendHelpCommand(source, "/neoworld dungeon room list", "ดูห้องที่เปิดอยู่", true);
-                sendHelpCommand(source, "/neoworld dungeon room join 1", "เข้าร่วมห้องตามหมายเลข", false);
-                sendHelpCommand(source, "/neoworld dungeon room leave", "ออกจากห้อง", true);
-                sendHelpCommand(source, "/neoworld dungeon room start", "เริ่มดันเจี้ยน", true);
-                sendHelpCommand(source, "/neoworld dungeon room disband", "ยุบห้อง", true);
-                sendHelpCommand(source, "/neoworld dungeon exit", "ออกจากดันเจี้ยนทันที", true);
+                sendHelpCommand(source, "/neow dungeon list", "ดูดันเจี้ยนที่เปิดใช้งาน", true);
+                sendHelpCommand(source, "/neow dungeon info dung01", "ดูรายละเอียดดันเจี้ยน", false);
+                sendHelpCommand(source, "/neow dungeon room create dung01 solo", "สร้างห้อง solo/trio/raid", false);
+                sendHelpCommand(source, "/neow dungeon room list", "ดูห้องที่เปิดอยู่", true);
+                sendHelpCommand(source, "/neow dungeon room join 1", "เข้าร่วมห้องตามหมายเลข", false);
+                sendHelpCommand(source, "/neow dungeon room leave", "ออกจากห้อง", true);
+                sendHelpCommand(source, "/neow dungeon room ready", "สลับสถานะพร้อม", true);
+                sendHelpCommand(source, "/neow dungeon room start", "เริ่มดันเจี้ยน", true);
+                sendHelpCommand(source, "/neow dungeon room disband", "ยุบห้อง", true);
+                sendHelpCommand(source, "/neow dungeon exit", "ออกจากดันเจี้ยนทันที", true);
             }
             case 2 -> {
-                sendHelpCommand(source, "/neoworld dungeon create dung01", "สร้าง Dungeon Definition", false);
-                sendHelpCommand(source, "/neoworld dungeon definitions", "ดู Definition ทั้งหมด", true);
-                sendHelpCommand(source, "/neoworld dungeon set dung01 name Forgotten Mine", "ตั้งชื่อ", false);
-                sendHelpCommand(source, "/neoworld dungeon set dung01 level 1", "ตั้งเลเวลขั้นต่ำ", false);
-                sendHelpCommand(source, "/neoworld dungeon set dung01 time 1200", "ตั้งเวลาเป็นวินาที", false);
-                sendHelpCommand(source, "/neoworld dungeon set dung01 modes solo trio raid", "ตั้งโหมดที่รองรับ", false);
-                sendHelpCommand(source, "/neoworld dungeon set dung01 structure neoworld:dungeon/forgotten_mine",
+                sendHelpCommand(source, "/neow dungeon create dung01", "สร้าง Dungeon Definition", false);
+                sendHelpCommand(source, "/neow dungeon definitions", "ดู Definition ทั้งหมด", true);
+                sendHelpCommand(source, "/neow dungeon set dung01 name Forgotten Mine", "ตั้งชื่อ", false);
+                sendHelpCommand(source, "/neow dungeon set dung01 level 1", "ตั้งเลเวลขั้นต่ำ", false);
+                sendHelpCommand(source, "/neow dungeon set dung01 image neoworld:textures/gui/dungeon/previews/forgotten_mine.png", "ตั้งรูป PNG รวมถึงภาพ F2", false);
+                sendHelpCommand(source, "/neow dungeon set dung01 image clear", "ใช้รูปเริ่มต้น", false);
+                sendHelpCommand(source, "/neow dungeon set dung01 time 1200", "ตั้งเวลาเป็นวินาที", false);
+                sendHelpCommand(source, "/neow dungeon set dung01 modes solo trio raid", "ตั้งโหมดที่รองรับ", false);
+                sendHelpCommand(source, "/neow dungeon set dung01 structure neoworld:dungeon/forgotten_mine",
                         "เชื่อม Structure Template", false);
-                sendHelpCommand(source, "/neoworld dungeon set dung01 structure scan",
+                sendHelpCommand(source, "/neow dungeon set dung01 structure scan",
                         "สแกน Structure Block prefix เดียวกันในรัศมี 256 บล็อก", false);
             }
             case 3 -> {
-                sendHelpCommand(source, "/neoworld dungeon set dung01 boss 1 Mine Boss",
+                sendHelpCommand(source, "/neow dungeon admin loot save slime_reward", "บันทึกไอเทมจากกล่องที่เล็ง (ไม่ล้างกล่อง)", false);
+                sendHelpCommand(source, "/neow dungeon admin loot chance slime_reward 1 25", "ช่อง 1 มีโอกาสดรอป 25%", false);
+                sendHelpCommand(source, "/neow dungeon admin loot amount slime_reward 1 2 5", "ช่อง 1 สุ่มจำนวน 2–5 ชิ้น", false);
+                sendHelpCommand(source, "/neow dungeon admin set dung01 reward slime_reward", "ใช้ชุดรางวัลจากกล่อง", false);
+                sendHelpCommand(source, "/neow dungeon set dung01 boss 1 Mine Boss",
                         "ตั้ง CustomNPC clone เป็นบอส", false);
-                sendHelpCommand(source, "/neoworld dungeon set dung01 wave add 1 6 Cave Zombie",
-                        "เพิ่ม Monster Wave", false);
-                sendHelpCommand(source, "/neoworld dungeon set dung01 wave clear",
+                sendHelpCommand(source, "/neow dungeon set dung01 wave add 1 Cave Zombie",
+                        "เพิ่ม Wave เลือก Clone (เริ่มต้น 1 ตัว ตั้งจำนวนด้วย wave edit)", false);
+                sendHelpCommand(source, "/neow dungeon set dung01 wave clear",
                         "ล้าง Monster Waves", false);
+                sendHelpCommand(source, "/neow dungeon set dung01 wave edit 1 spawn each 5",
+                        "เกิด 5 ตัวต่อจุด mob_spawn_1", false);
+                sendHelpCommand(source, "/neow dungeon set dung01 wave edit 1 spawn random 20",
+                        "สุ่มกระจายรวม 20 ตัวตามจุด mob_spawn_1", false);
                 sendHelpCommand(source,
-                        "/neoworld dungeon set dung01 reward neoworld:chests/dungeon/test_reward 500 1000",
-                        "ตั้ง Loot Table, EXP และเงิน", false);
+                        "/neow dungeon set dung01 reward neoworld:chests/dungeon/test_reward",
+                        "ตั้ง Loot Table รางวัลไอเทม", false);
             }
             case 4 -> {
-                sendHelpCommand(source, "/neoworld dungeon validate dung01", "ตรวจความพร้อม", false);
-                sendHelpCommand(source, "/neoworld dungeon enable dung01", "ตรวจและเปิดใช้งาน", false);
-                sendHelpCommand(source, "/neoworld dungeon disable dung01", "ปิดใช้งาน", false);
-                sendHelpCommand(source, "/neoworld dungeon instances", "ดู Instance ที่กำลังทำงาน", true);
-                sendHelpCommand(source, "/neoworld dungeon build dung01 0", "วาง Structure ใน slot", false);
-                sendHelpCommand(source, "/neoworld dungeon clear dung01 0", "ล้าง Structure จาก slot", false);
+                sendHelpCommand(source, "/neow dungeon structure tool", "รับไม้เลือกพื้นที่: คลิกซ้ายมุม 1 / ขวามุม 2", true);
+                sendHelpCommand(source, "/neow dungeon structure selection", "ดูมุมที่เลือก", true);
+                sendHelpCommand(source, "/neow dungeon admin structure list", "ดูแผนที่และปุ่มจัดการ", true);
+                sendHelpCommand(source, "/neow dungeon admin structure update neoworld:dungeon/silme_map", "บันทึกพื้นที่ใหม่แทนชุดเดิม พร้อมสำรอง", false);
+                sendHelpCommand(source, "/neow dungeon admin structure delete neoworld:dungeon/silme_map", "ขอยืนยันลบแผนที่ที่ไม่มีดันใช้งาน", false);
+                sendHelpCommand(source, "/neow dungeon structure save forgotten_mine", "บันทึกแผนที่อย่างเดียว ไม่เชื่อมดัน", false);
+                sendHelpCommand(source, "/neow dungeon set dung01 structure forgotten_mine", "เชื่อมแผนที่ทั้งชุดด้วยชื่อเดียว", false);
+                sendHelpCommand(source, "/neow dungeon structure cancel", "ล้างการเลือกและยกเลิกงานบันทึก", true);
+                sendHelpCommand(source, "/neow dungeon validate dung01", "ตรวจความพร้อม", false);
+                sendHelpCommand(source, "/neow dungeon enable dung01", "ตรวจและเปิดใช้งาน", false);
+                sendHelpCommand(source, "/neow dungeon disable dung01", "ปิดใช้งาน", false);
+                sendHelpCommand(source, "/neow dungeon instances", "ดู Instance ที่กำลังทำงาน", true);
+                sendHelpCommand(source, "/neow dungeon build dung01 0", "วาง Structure ใน slot", false);
+                sendHelpCommand(source, "/neow dungeon clear dung01 0", "ล้าง Structure จาก slot", false);
             }
             default -> throw new IllegalArgumentException("Unknown help page: " + page);
         }
-        source.sendSuccess(() -> helpNavigation(page), false);
+        if (page > 1) source.sendSuccess(() -> helpNavigation(page), false);
+        else if (isDungeonAdmin(source)) sendHelpCommand(source, "/neow dungeon admin help", "คำสั่งแอดมิน", true);
         return 1;
     }
 
@@ -950,14 +1002,19 @@ public final class DungeonCommand {
     }
 
     private static MutableComponent commandButton(String command, String description, boolean runOnClick) {
+        String prefix = "/neow dungeon ";
+        String subcommand = command.startsWith(prefix) ? command.substring(prefix.length()).split(" ", 2)[0] : "";
+        String actual = java.util.Set.of("create", "definitions", "set", "structure", "validate", "enable",
+                "disable", "instances", "build", "clear").contains(subcommand)
+                ? prefix + "admin " + command.substring(prefix.length()) : command;
         ClickEvent.Action action = runOnClick
                 ? ClickEvent.Action.RUN_COMMAND
                 : ClickEvent.Action.SUGGEST_COMMAND;
         String hint = runOnClick ? "คลิกเพื่อรันคำสั่ง" : "คลิกเพื่อเติมคำสั่งในช่องแชท";
-        return Component.literal("  " + command)
+        return Component.literal("  " + actual)
                 .withStyle(style -> style
                         .withColor(ChatFormatting.YELLOW)
-                        .withClickEvent(new ClickEvent(action, command))
+                        .withClickEvent(new ClickEvent(action, actual))
                         .withHoverEvent(new HoverEvent(
                                 HoverEvent.Action.SHOW_TEXT,
                                 Component.literal(hint))))
@@ -966,14 +1023,14 @@ public final class DungeonCommand {
 
     private static MutableComponent helpNavigation(int page) {
         MutableComponent navigation = Component.literal("");
-        if (page > 1) navigation.append(helpPageButton("§e[ก่อนหน้า]", page - 1));
-        if (page > 1 && page < 4) navigation.append(Component.literal("  "));
+        if (page > 2) navigation.append(helpPageButton("§e[ก่อนหน้า]", page - 1));
+        if (page > 2 && page < 4) navigation.append(Component.literal("  "));
         if (page < 4) navigation.append(helpPageButton("§e[ถัดไป]", page + 1));
         return navigation;
     }
 
     private static MutableComponent helpPageButton(String label, int page) {
-        String command = "/neoworld dungeon help " + page;
+        String command = "/neow dungeon admin help " + (page - 1);
         return Component.literal(label).withStyle(style -> style
                 .withClickEvent(new ClickEvent(ClickEvent.Action.RUN_COMMAND, command))
                 .withHoverEvent(new HoverEvent(

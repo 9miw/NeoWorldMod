@@ -1,31 +1,19 @@
-# Nearby player actions
+# การโต้ตอบกับผู้เล่นใกล้เคียง
 
-Aim at another player and press G (rebindable under Controls / NeoWorld).
-The compact non-pausing menu captures that player's UUID and name once.
-X or Escape closes it. Minecraft's existing crosshair entity hit result is used;
-this does not extend the crosshair targeting range to eight blocks.
+กด B ค้าง (เปลี่ยนปุ่มได้ใน Controls / NeoWorld) เพื่อเปิดหน้าจอที่ไม่หยุดเกม แสดงผู้เล่นอื่นที่ยังมีชีวิตและไม่อยู่โหมดผู้ชมภายในห้าบล็อกในโลกฝั่งไคลเอนต์ปัจจุบัน ไม่ต้องเล็งเป้า รายชื่ออัปเดตระหว่างกดค้าง แม้ตอนเปิดยังไม่มีใครอยู่ใกล้ ปล่อยปุ่มที่ตั้งไว้หรือกด Escape เพื่อปิดและคืนการจับเมาส์ ไม่มีปุ่ม X หรือ Trade
 
-Each action sends a fresh request UUID plus the captured target UUID. The server
-resolves the sender from network context and checks online status, alive/non-spectator
-state, same dimension and a maximum distance of eight blocks. Requests are throttled
-to one per five ticks per sender. Replies only affect the matching pending request
-in the matching open screen. Pending controls time out after 200 client ticks;
-timeouts never retry a mutation automatically.
+ผู้เล่นแต่ละคนมีแผงแสดงชื่อ ปุ่มที่ผูก UUID, UUID คำขอที่รอ และเวลาหมดอายุ คำตอบต้องตรงทั้งเป้าหมายและคำขอ เป้าหมายที่หายไปหรือคำตอบหลังปล่อยปุ่มเปิดโปรไฟล์ไม่ได้ ปุ่มโปรไฟล์เปิดหน้าจอเดิม คำเชิญปาร์ตี้ใช้สิทธิ์ กฎ และการแจ้งเตือนเดิม ไม่สร้างปาร์ตี้อัตโนมัติ การกระทำฝั่งเซิร์ฟเวอร์ระบุตัวผู้กระทำจากคอนเท็กซ์ และตรวจการมีอยู่ของเป้าหมาย มิติ และระยะห้าบล็อกซ้ำสำหรับโปรไฟล์/คำเชิญ คงการจำกัดความถี่และเงื่อนไข Trade แบบเก่าที่แยกอยู่ ไม่เปลี่ยนรูปแบบเพย์โหลด
 
-- Profile exposes only the target's account name and level from PLAYER_DATA.
-- Trade calls the existing TradeManager.request, retaining its eligibility,
-  cooldown, invitation popup and server-opened vanilla container flow.
-- Party invite checks the existing dungeon-use permission and reuses the existing
-  invitation rules/notification path. A party must already exist and the sender
-  must be its leader. This menu does not create parties automatically.
+ฉายตำแหน่งตัวผู้เล่นทั้งหมดก่อนวางแผง เลย์เอาต์ที่ให้ผลแน่นอนจะหลบตัวผู้เล่น แผงที่วางก่อน คำแนะนำ และพื้นที่ล่าง 70 พิกเซลเชิงตรรกะที่สงวนให้ HUD เป้าหมายนอกกล้องมีจุดยึดริมจอ ผู้เล่นใกล้สุดได้ลำดับวางก่อน หากระยะเท่ากันใช้ UUID ตัดสิน เมื่อจอวางไม่ครบ คำแนะนำแสดงจำนวนที่ซ่อน และล้อเมาส์หมุนลำดับความสำคัญเพื่อให้ลองวางแผงที่แออัดก่อน ไม่ย่อข้อความไม่สิ้นสุดหรือวางแผงซ้อนกัน หากวิวพอร์ตถูกบังทั้งหมดอาจไม่มีตำแหน่งที่ใช้ได้
 
-Uses Minecraft Screen/KeyMapping, NeoButton, NeoPopupScreen, shared theme colors
-and the existing PNG title plaque. No new database, inventory logic or assets.
-The additive payloads use the current protocol registration; both clients and
-server require a build containing them.
+สเกลตามระยะคือ 1.2..0.9 สำหรับระยะศูนย์..ห้าบล็อก คูณสเกลวิวพอร์ต 0.75..1.0 แผงพื้นฐานขนาด 180 x 142 หัวแสดงชื่อเจ้าของ ปุ่มใช้ออฟเซ็ตพื้นฐาน 50/94 สูง 34 ความกว้างขั้นต่ำรองรับข้อความเชิญภาษาไทยที่วัดแล้ว การวาดและขอบเขตคลิกใช้ขนาดเดียวกัน
 
-Runtime checklist: two players; rebind G; change aim after opening; move beyond
-eight blocks, change dimension, logout or die before clicking; profile level;
-trade accept/decline and return; party leader/non-leader/full/busy/permission
-rejection; delayed replies after closing/reopening; X/Escape, GUI scales and long
-names. Compilation and regression checks do not replace this in-game verification.
+แอสเซ็ต: action_frame.png แบบ nine-slice แอตลาสปุ่มร่วม และ NeoSystemIcons PROFILE/PARTY หัวข้อ ชื่อเจ้าของ ตัวควบคุม และคำแนะนำปุ่มที่ตั้งไว้เป็นข้อความรันไทม์ ม็อกอัปเป้าหมายเดี่ยวที่อนุมัติก่อนหน้าอยู่ใน gui/player-actions/ การอัปเดตนี้เพิ่มชื่อและหลายแผงโดยไม่สร้างภาพอ้างอิงใหม่
+
+การตรวจสอบ: compileJava ผ่าน รันชุดรีเกรสชันการจัดวางล้วนด้วย:
+
+    java --class-path build/classes/java/main src/regressionTest/java/com/ambition/neoworld/client/gui/player/PlayerActionLayoutRegressionTest.java
+
+ทดสอบการวางที่ให้ผลแน่นอน หลายแผง วิวพอร์ตเล็ก/มีสิ่งบัง ขอบเขตหน้าต่างและ HUD และการเว้นสิ่งกีดขวางในเลย์เอาต์สุ่ม ไม่ได้ตรวจเมทริกซ์กล้อง การโต้ตอบหลายผู้เล่นจริง หรือภาพในเกม
+
+รายการตรวจรันไทม์: กดค้าง/ปล่อยและเปลี่ยนปุ่ม; เปิดเมื่อไม่มีคนแล้วให้คนเดินเข้ามา; หลายคนเข้าออกระยะห้าบล็อก; เป้าหมายหลังกล้อง; จอแออัดและลำดับจากล้อเมาส์; ตรวจชื่อ/ปุ่ม/โปรไฟล์และเป้าหมายคำเชิญแต่ละคน; คำตอบสลับลำดับและออก/เข้าใหม่ขณะมีคำขอ; เสียโฟกัส ตาย เปลี่ยนมิติ/หลุด; หน้าต่าง 1280 x 720 ที่ GUI Scale จริง สถานะชี้เมาส์ โฟกัสคีย์บอร์ด ชื่อภาษาไทย และคำแนะนำปุ่มที่ตั้งไว้ ยังไม่ได้แพ็กหรือติดตั้งแพ็กเกจ

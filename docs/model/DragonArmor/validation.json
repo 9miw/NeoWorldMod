@@ -1,0 +1,55 @@
+{
+  "source_file": "C:\\Users\\miw\\Documents\\NeoWorldMod\\docs\\epicfight tool\\armor_helmet.blend",
+  "parts": {
+    "dragon_helmet": {
+      "vertices": 250,
+      "faces": 266,
+      "unweighted": 0,
+      "bones": [
+        "Head"
+      ]
+    },
+    "dragon_chestplate": {
+      "vertices": 564,
+      "faces": 590,
+      "unweighted": 0,
+      "bones": [
+        "Chest",
+        "Torso",
+        "Arm_L",
+        "Hand_L",
+        "Arm_R",
+        "Hand_R"
+      ]
+    },
+    "dragon_leggings": {
+      "vertices": 174,
+      "faces": 180,
+      "unweighted": 0,
+      "bones": [
+        "Torso",
+        "Thigh_L",
+        "Leg_L",
+        "Thigh_R",
+        "Leg_R"
+      ]
+    },
+    "dragon_boots": {
+      "vertices": 162,
+      "faces": 170,
+      "unweighted": 0,
+      "bones": [
+        "Leg_L",
+        "Leg_R"
+      ]
+    }
+  },
+  "status": "Blender prototype; not exported or tested in Minecraft",
+  "pose_test_max_displacement": {
+    "dragon_helmet": 0.31523206581380203,
+    "dragon_chestplate": 0.11281574110212737,
+    "dragon_leggings": 0.08043954101246159,
+    "dragon_boots": 0.1638225876082333
+  },
+  "restored_rest_pose": true
+}

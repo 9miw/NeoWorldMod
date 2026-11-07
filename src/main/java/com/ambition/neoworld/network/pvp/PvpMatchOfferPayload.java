@@ -26,11 +26,11 @@ public record PvpMatchOfferPayload(UUID offer,boolean active,int seconds,Player 
         if(offer==null || seconds<0 || seconds>30 || active && (self==null || opponent==null || self.id().equals(opponent.id()))) throw new IllegalArgumentException("Invalid match offer");
     }
     public static PvpMatchOfferPayload closed(UUID id) { return new PvpMatchOfferPayload(id,false,0,null,null,false,false); }
-    private static void write(RegistryFriendlyByteBuf b,Player p) {
+    public static void write(RegistryFriendlyByteBuf b,Player p) {
         b.writeUUID(p.id); b.writeUtf(p.name,64); b.writeVarInt(p.rating); b.writeVarInt(p.position);
         for(ItemStack stack:p.equipment) ItemStack.OPTIONAL_STREAM_CODEC.encode(b,stack);
     }
-    private static Player read(RegistryFriendlyByteBuf b) {
+    public static Player read(RegistryFriendlyByteBuf b) {
         UUID id=b.readUUID(); String name=b.readUtf(64); int rating=b.readVarInt(),position=b.readVarInt();
         var equipment=new java.util.ArrayList<ItemStack>(); for(int i=0;i<6;i++) equipment.add(ItemStack.OPTIONAL_STREAM_CODEC.decode(b));
         return new Player(id,name,rating,position,equipment);

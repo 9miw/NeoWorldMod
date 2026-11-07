@@ -1,0 +1,2700 @@
+{
+  "changedChunks": 5,
+  "editedBlocks": 314,
+  "spawn": [
+    160,
+    98,
+    310
+  ],
+  "vertices": [
+    [
+      152,
+      302
+    ],
+    [
+      168,
+      302
+    ],
+    [
+      170,
+      314
+    ],
+    [
+      160,
+      320
+    ],
+    [
+      150,
+      314
+    ]
+  ],
+  "baseY": 97,
+  "pillarHeight": 2,
+  "exits": [
+    [
+      158,
+      301
+    ],
+    [
+      159,
+      301
+    ],
+    [
+      160,
+      301
+    ],
+    [
+      161,
+      301
+    ],
+    [
+      162,
+      301
+    ],
+    [
+      150,
+      308
+    ],
+    [
+      170,
+      308
+    ],
+    [
+      150,
+      309
+    ],
+    [
+      170,
+      309
+    ],
+    [
+      150,
+      310
+    ],
+    [
+      170,
+      310
+    ],
+    [
+      150,
+      311
+    ],
+    [
+      170,
+      311
+    ],
+    [
+      150,
+      312
+    ],
+    [
+      170,
+      312
+    ]
+  ],
+  "backup": "archive\\map-edit-backups\\before-spawn-platform\\starter_sky_land_spawn_v1",
+  "changes": [
+    {
+      "x": 152,
+      "y": 97,
+      "z": 302,
+      "state": {
+        "Name": "minecraft:polished_andesite"
+      }
+    },
+    {
+      "x": 153,
+      "y": 97,
+      "z": 302,
+      "state": {
+        "Name": "minecraft:polished_andesite"
+      }
+    },
+    {
+      "x": 154,
+      "y": 97,
+      "z": 302,
+      "state": {
+        "Name": "minecraft:polished_andesite"
+      }
+    },
+    {
+      "x": 155,
+      "y": 97,
+      "z": 302,
+      "state": {
+        "Name": "minecraft:polished_andesite"
+      }
+    },
+    {
+      "x": 156,
+      "y": 97,
+      "z": 302,
+      "state": {
+        "Name": "minecraft:polished_andesite"
+      }
+    },
+    {
+      "x": 157,
+      "y": 97,
+      "z": 302,
+      "state": {
+        "Name": "minecraft:polished_andesite"
+      }
+    },
+    {
+      "x": 158,
+      "y": 97,
+      "z": 302,
+      "state": {
+        "Name": "minecraft:polished_andesite"
+      }
+    },
+    {
+      "x": 159,
+      "y": 97,
+      "z": 302,
+      "state": {
+        "Name": "minecraft:polished_andesite"
+      }
+    },
+    {
+      "x": 160,
+      "y": 97,
+      "z": 302,
+      "state": {
+        "Name": "minecraft:polished_andesite"
+      }
+    },
+    {
+      "x": 161,
+      "y": 97,
+      "z": 302,
+      "state": {
+        "Name": "minecraft:polished_andesite"
+      }
+    },
+    {
+      "x": 162,
+      "y": 97,
+      "z": 302,
+      "state": {
+        "Name": "minecraft:polished_andesite"
+      }
+    },
+    {
+      "x": 163,
+      "y": 97,
+      "z": 302,
+      "state": {
+        "Name": "minecraft:polished_andesite"
+      }
+    },
+    {
+      "x": 164,
+      "y": 97,
+      "z": 302,
+      "state": {
+        "Name": "minecraft:polished_andesite"
+      }
+    },
+    {
+      "x": 165,
+      "y": 97,
+      "z": 302,
+      "state": {
+        "Name": "minecraft:polished_andesite"
+      }
+    },
+    {
+      "x": 166,
+      "y": 97,
+      "z": 302,
+      "state": {
+        "Name": "minecraft:polished_andesite"
+      }
+    },
+    {
+      "x": 167,
+      "y": 97,
+      "z": 302,
+      "state": {
+        "Name": "minecraft:polished_andesite"
+      }
+    },
+    {
+      "x": 168,
+      "y": 97,
+      "z": 302,
+      "state": {
+        "Name": "minecraft:polished_andesite"
+      }
+    },
+    {
+      "x": 152,
+      "y": 97,
+      "z": 303,
+      "state": {
+        "Name": "minecraft:polished_andesite"
+      }
+    },
+    {
+      "x": 153,
+      "y": 97,
+      "z": 303,
+      "state": {
+        "Name": "minecraft:polished_diorite"
+      }
+    },
+    {
+      "x": 154,
+      "y": 97,
+      "z": 303,
+      "state": {
+        "Name": "minecraft:polished_diorite"
+      }
+    },
+    {
+      "x": 155,
+      "y": 97,
+      "z": 303,
+      "state": {
+        "Name": "minecraft:polished_diorite"
+      }
+    },
+    {
+      "x": 156,
+      "y": 97,
+      "z": 303,
+      "state": {
+        "Name": "minecraft:polished_diorite"
+      }
+    },
+    {
+      "x": 157,
+      "y": 97,
+      "z": 303,
+      "state": {
+        "Name": "minecraft:polished_diorite"
+      }
+    },
+    {
+      "x": 158,
+      "y": 97,
+      "z": 303,
+      "state": {
+        "Name": "minecraft:polished_diorite"
+      }
+    },
+    {
+      "x": 159,
+      "y": 97,
+      "z": 303,
+      "state": {
+        "Name": "minecraft:smooth_stone"
+      }
+    },
+    {
+      "x": 160,
+      "y": 97,
+      "z": 303,
+      "state": {
+        "Name": "minecraft:smooth_stone"
+      }
+    },
+    {
+      "x": 161,
+      "y": 97,
+      "z": 303,
+      "state": {
+        "Name": "minecraft:smooth_stone"
+      }
+    },
+    {
+      "x": 162,
+      "y": 97,
+      "z": 303,
+      "state": {
+        "Name": "minecraft:polished_diorite"
+      }
+    },
+    {
+      "x": 163,
+      "y": 97,
+      "z": 303,
+      "state": {
+        "Name": "minecraft:polished_diorite"
+      }
+    },
+    {
+      "x": 164,
+      "y": 97,
+      "z": 303,
+      "state": {
+        "Name": "minecraft:polished_diorite"
+      }
+    },
+    {
+      "x": 165,
+      "y": 97,
+      "z": 303,
+      "state": {
+        "Name": "minecraft:polished_diorite"
+      }
+    },
+    {
+      "x": 166,
+      "y": 97,
+      "z": 303,
+      "state": {
+        "Name": "minecraft:polished_diorite"
+      }
+    },
+    {
+      "x": 167,
+      "y": 97,
+      "z": 303,
+      "state": {
+        "Name": "minecraft:polished_diorite"
+      }
+    },
+    {
+      "x": 168,
+      "y": 97,
+      "z": 303,
+      "state": {
+        "Name": "minecraft:polished_andesite"
+      }
+    },
+    {
+      "x": 152,
+      "y": 97,
+      "z": 304,
+      "state": {
+        "Name": "minecraft:polished_andesite"
+      }
+    },
+    {
+      "x": 153,
+      "y": 97,
+      "z": 304,
+      "state": {
+        "Name": "minecraft:polished_diorite"
+      }
+    },
+    {
+      "x": 154,
+      "y": 97,
+      "z": 304,
+      "state": {
+        "Name": "minecraft:polished_diorite"
+      }
+    },
+    {
+      "x": 155,
+      "y": 97,
+      "z": 304,
+      "state": {
+        "Name": "minecraft:polished_diorite"
+      }
+    },
+    {
+      "x": 156,
+      "y": 97,
+      "z": 304,
+      "state": {
+        "Name": "minecraft:polished_diorite"
+      }
+    },
+    {
+      "x": 157,
+      "y": 97,
+      "z": 304,
+      "state": {
+        "Name": "minecraft:polished_diorite"
+      }
+    },
+    {
+      "x": 158,
+      "y": 97,
+      "z": 304,
+      "state": {
+        "Name": "minecraft:polished_diorite"
+      }
+    },
+    {
+      "x": 159,
+      "y": 97,
+      "z": 304,
+      "state": {
+        "Name": "minecraft:smooth_stone"
+      }
+    },
+    {
+      "x": 160,
+      "y": 97,
+      "z": 304,
+      "state": {
+        "Name": "minecraft:smooth_stone"
+      }
+    },
+    {
+      "x": 161,
+      "y": 97,
+      "z": 304,
+      "state": {
+        "Name": "minecraft:smooth_stone"
+      }
+    },
+    {
+      "x": 162,
+      "y": 97,
+      "z": 304,
+      "state": {
+        "Name": "minecraft:polished_diorite"
+      }
+    },
+    {
+      "x": 163,
+      "y": 97,
+      "z": 304,
+      "state": {
+        "Name": "minecraft:polished_diorite"
+      }
+    },
+    {
+      "x": 164,
+      "y": 97,
+      "z": 304,
+      "state": {
+        "Name": "minecraft:polished_diorite"
+      }
+    },
+    {
+      "x": 165,
+      "y": 97,
+      "z": 304,
+      "state": {
+        "Name": "minecraft:polished_diorite"
+      }
+    },
+    {
+      "x": 166,
+      "y": 97,
+      "z": 304,
+      "state": {
+        "Name": "minecraft:polished_diorite"
+      }
+    },
+    {
+      "x": 167,
+      "y": 97,
+      "z": 304,
+      "state": {
+        "Name": "minecraft:polished_diorite"
+      }
+    },
+    {
+      "x": 168,
+      "y": 97,
+      "z": 304,
+      "state": {
+        "Name": "minecraft:polished_andesite"
+      }
+    },
+    {
+      "x": 152,
+      "y": 97,
+      "z": 305,
+      "state": {
+        "Name": "minecraft:polished_andesite"
+      }
+    },
+    {
+      "x": 153,
+      "y": 97,
+      "z": 305,
+      "state": {
+        "Name": "minecraft:polished_diorite"
+      }
+    },
+    {
+      "x": 154,
+      "y": 97,
+      "z": 305,
+      "state": {
+        "Name": "minecraft:polished_diorite"
+      }
+    },
+    {
+      "x": 155,
+      "y": 97,
+      "z": 305,
+      "state": {
+        "Name": "minecraft:polished_diorite"
+      }
+    },
+    {
+      "x": 156,
+      "y": 97,
+      "z": 305,
+      "state": {
+        "Name": "minecraft:polished_diorite"
+      }
+    },
+    {
+      "x": 157,
+      "y": 97,
+      "z": 305,
+      "state": {
+        "Name": "minecraft:polished_diorite"
+      }
+    },
+    {
+      "x": 158,
+      "y": 97,
+      "z": 305,
+      "state": {
+        "Name": "minecraft:polished_diorite"
+      }
+    },
+    {
+      "x": 159,
+      "y": 97,
+      "z": 305,
+      "state": {
+        "Name": "minecraft:smooth_stone"
+      }
+    },
+    {
+      "x": 160,
+      "y": 97,
+      "z": 305,
+      "state": {
+        "Name": "minecraft:smooth_stone"
+      }
+    },
+    {
+      "x": 161,
+      "y": 97,
+      "z": 305,
+      "state": {
+        "Name": "minecraft:smooth_stone"
+      }
+    },
+    {
+      "x": 162,
+      "y": 97,
+      "z": 305,
+      "state": {
+        "Name": "minecraft:polished_diorite"
+      }
+    },
+    {
+      "x": 163,
+      "y": 97,
+      "z": 305,
+      "state": {
+        "Name": "minecraft:polished_diorite"
+      }
+    },
+    {
+      "x": 164,
+      "y": 97,
+      "z": 305,
+      "state": {
+        "Name": "minecraft:polished_diorite"
+      }
+    },
+    {
+      "x": 165,
+      "y": 97,
+      "z": 305,
+      "state": {
+        "Name": "minecraft:polished_diorite"
+      }
+    },
+    {
+      "x": 166,
+      "y": 97,
+      "z": 305,
+      "state": {
+        "Name": "minecraft:polished_diorite"
+      }
+    },
+    {
+      "x": 167,
+      "y": 97,
+      "z": 305,
+      "state": {
+        "Name": "minecraft:polished_diorite"
+      }
+    },
+    {
+      "x": 168,
+      "y": 97,
+      "z": 305,
+      "state": {
+        "Name": "minecraft:polished_andesite"
+      }
+    },
+    {
+      "x": 152,
+      "y": 97,
+      "z": 306,
+      "state": {
+        "Name": "minecraft:polished_andesite"
+      }
+    },
+    {
+      "x": 153,
+      "y": 97,
+      "z": 306,
+      "state": {
+        "Name": "minecraft:polished_diorite"
+      }
+    },
+    {
+      "x": 154,
+      "y": 97,
+      "z": 306,
+      "state": {
+        "Name": "minecraft:polished_diorite"
+      }
+    },
+    {
+      "x": 155,
+      "y": 97,
+      "z": 306,
+      "state": {
+        "Name": "minecraft:polished_diorite"
+      }
+    },
+    {
+      "x": 156,
+      "y": 97,
+      "z": 306,
+      "state": {
+        "Name": "minecraft:polished_diorite"
+      }
+    },
+    {
+      "x": 157,
+      "y": 97,
+      "z": 306,
+      "state": {
+        "Name": "minecraft:polished_diorite"
+      }
+    },
+    {
+      "x": 158,
+      "y": 97,
+      "z": 306,
+      "state": {
+        "Name": "minecraft:polished_diorite"
+      }
+    },
+    {
+      "x": 159,
+      "y": 97,
+      "z": 306,
+      "state": {
+        "Name": "minecraft:smooth_stone"
+      }
+    },
+    {
+      "x": 160,
+      "y": 97,
+      "z": 306,
+      "state": {
+        "Name": "minecraft:sea_lantern"
+      }
+    },
+    {
+      "x": 161,
+      "y": 97,
+      "z": 306,
+      "state": {
+        "Name": "minecraft:smooth_stone"
+      }
+    },
+    {
+      "x": 162,
+      "y": 97,
+      "z": 306,
+      "state": {
+        "Name": "minecraft:polished_diorite"
+      }
+    },
+    {
+      "x": 163,
+      "y": 97,
+      "z": 306,
+      "state": {
+        "Name": "minecraft:polished_diorite"
+      }
+    },
+    {
+      "x": 164,
+      "y": 97,
+      "z": 306,
+      "state": {
+        "Name": "minecraft:polished_diorite"
+      }
+    },
+    {
+      "x": 165,
+      "y": 97,
+      "z": 306,
+      "state": {
+        "Name": "minecraft:polished_diorite"
+      }
+    },
+    {
+      "x": 166,
+      "y": 97,
+      "z": 306,
+      "state": {
+        "Name": "minecraft:polished_diorite"
+      }
+    },
+    {
+      "x": 167,
+      "y": 97,
+      "z": 306,
+      "state": {
+        "Name": "minecraft:polished_diorite"
+      }
+    },
+    {
+      "x": 168,
+      "y": 97,
+      "z": 306,
+      "state": {
+        "Name": "minecraft:polished_andesite"
+      }
+    },
+    {
+      "x": 152,
+      "y": 97,
+      "z": 307,
+      "state": {
+        "Name": "minecraft:polished_andesite"
+      }
+    },
+    {
+      "x": 153,
+      "y": 97,
+      "z": 307,
+      "state": {
+        "Name": "minecraft:polished_diorite"
+      }
+    },
+    {
+      "x": 154,
+      "y": 97,
+      "z": 307,
+      "state": {
+        "Name": "minecraft:polished_diorite"
+      }
+    },
+    {
+      "x": 155,
+      "y": 97,
+      "z": 307,
+      "state": {
+        "Name": "minecraft:polished_diorite"
+      }
+    },
+    {
+      "x": 156,
+      "y": 97,
+      "z": 307,
+      "state": {
+        "Name": "minecraft:polished_diorite"
+      }
+    },
+    {
+      "x": 157,
+      "y": 97,
+      "z": 307,
+      "state": {
+        "Name": "minecraft:polished_diorite"
+      }
+    },
+    {
+      "x": 158,
+      "y": 97,
+      "z": 307,
+      "state": {
+        "Name": "minecraft:polished_diorite"
+      }
+    },
+    {
+      "x": 159,
+      "y": 97,
+      "z": 307,
+      "state": {
+        "Name": "minecraft:smooth_stone"
+      }
+    },
+    {
+      "x": 160,
+      "y": 97,
+      "z": 307,
+      "state": {
+        "Name": "minecraft:smooth_stone"
+      }
+    },
+    {
+      "x": 161,
+      "y": 97,
+      "z": 307,
+      "state": {
+        "Name": "minecraft:smooth_stone"
+      }
+    },
+    {
+      "x": 162,
+      "y": 97,
+      "z": 307,
+      "state": {
+        "Name": "minecraft:polished_diorite"
+      }
+    },
+    {
+      "x": 163,
+      "y": 97,
+      "z": 307,
+      "state": {
+        "Name": "minecraft:polished_diorite"
+      }
+    },
+    {
+      "x": 164,
+      "y": 97,
+      "z": 307,
+      "state": {
+        "Name": "minecraft:polished_diorite"
+      }
+    },
+    {
+      "x": 165,
+      "y": 97,
+      "z": 307,
+      "state": {
+        "Name": "minecraft:polished_diorite"
+      }
+    },
+    {
+      "x": 166,
+      "y": 97,
+      "z": 307,
+      "state": {
+        "Name": "minecraft:polished_diorite"
+      }
+    },
+    {
+      "x": 167,
+      "y": 97,
+      "z": 307,
+      "state": {
+        "Name": "minecraft:polished_diorite"
+      }
+    },
+    {
+      "x": 168,
+      "y": 97,
+      "z": 307,
+      "state": {
+        "Name": "minecraft:polished_andesite"
+      }
+    },
+    {
+      "x": 151,
+      "y": 97,
+      "z": 308,
+      "state": {
+        "Name": "minecraft:polished_andesite"
+      }
+    },
+    {
+      "x": 152,
+      "y": 97,
+      "z": 308,
+      "state": {
+        "Name": "minecraft:polished_diorite"
+      }
+    },
+    {
+      "x": 153,
+      "y": 97,
+      "z": 308,
+      "state": {
+        "Name": "minecraft:polished_diorite"
+      }
+    },
+    {
+      "x": 154,
+      "y": 97,
+      "z": 308,
+      "state": {
+        "Name": "minecraft:polished_diorite"
+      }
+    },
+    {
+      "x": 155,
+      "y": 97,
+      "z": 308,
+      "state": {
+        "Name": "minecraft:polished_diorite"
+      }
+    },
+    {
+      "x": 156,
+      "y": 97,
+      "z": 308,
+      "state": {
+        "Name": "minecraft:polished_diorite"
+      }
+    },
+    {
+      "x": 157,
+      "y": 97,
+      "z": 308,
+      "state": {
+        "Name": "minecraft:polished_diorite"
+      }
+    },
+    {
+      "x": 158,
+      "y": 97,
+      "z": 308,
+      "state": {
+        "Name": "minecraft:polished_diorite"
+      }
+    },
+    {
+      "x": 159,
+      "y": 97,
+      "z": 308,
+      "state": {
+        "Name": "minecraft:smooth_stone"
+      }
+    },
+    {
+      "x": 160,
+      "y": 97,
+      "z": 308,
+      "state": {
+        "Name": "minecraft:smooth_stone"
+      }
+    },
+    {
+      "x": 161,
+      "y": 97,
+      "z": 308,
+      "state": {
+        "Name": "minecraft:smooth_stone"
+      }
+    },
+    {
+      "x": 162,
+      "y": 97,
+      "z": 308,
+      "state": {
+        "Name": "minecraft:polished_diorite"
+      }
+    },
+    {
+      "x": 163,
+      "y": 97,
+      "z": 308,
+      "state": {
+        "Name": "minecraft:polished_diorite"
+      }
+    },
+    {
+      "x": 164,
+      "y": 97,
+      "z": 308,
+      "state": {
+        "Name": "minecraft:polished_diorite"
+      }
+    },
+    {
+      "x": 165,
+      "y": 97,
+      "z": 308,
+      "state": {
+        "Name": "minecraft:polished_diorite"
+      }
+    },
+    {
+      "x": 166,
+      "y": 97,
+      "z": 308,
+      "state": {
+        "Name": "minecraft:polished_diorite"
+      }
+    },
+    {
+      "x": 167,
+      "y": 97,
+      "z": 308,
+      "state": {
+        "Name": "minecraft:polished_diorite"
+      }
+    },
+    {
+      "x": 168,
+      "y": 97,
+      "z": 308,
+      "state": {
+        "Name": "minecraft:polished_diorite"
+      }
+    },
+    {
+      "x": 169,
+      "y": 97,
+      "z": 308,
+      "state": {
+        "Name": "minecraft:polished_andesite"
+      }
+    },
+    {
+      "x": 151,
+      "y": 97,
+      "z": 309,
+      "state": {
+        "Name": "minecraft:polished_andesite"
+      }
+    },
+    {
+      "x": 152,
+      "y": 97,
+      "z": 309,
+      "state": {
+        "Name": "minecraft:polished_diorite"
+      }
+    },
+    {
+      "x": 153,
+      "y": 97,
+      "z": 309,
+      "state": {
+        "Name": "minecraft:polished_diorite"
+      }
+    },
+    {
+      "x": 154,
+      "y": 97,
+      "z": 309,
+      "state": {
+        "Name": "minecraft:polished_diorite"
+      }
+    },
+    {
+      "x": 155,
+      "y": 97,
+      "z": 309,
+      "state": {
+        "Name": "minecraft:polished_diorite"
+      }
+    },
+    {
+      "x": 156,
+      "y": 97,
+      "z": 309,
+      "state": {
+        "Name": "minecraft:polished_diorite"
+      }
+    },
+    {
+      "x": 157,
+      "y": 97,
+      "z": 309,
+      "state": {
+        "Name": "minecraft:polished_diorite"
+      }
+    },
+    {
+      "x": 158,
+      "y": 97,
+      "z": 309,
+      "state": {
+        "Name": "minecraft:polished_diorite"
+      }
+    },
+    {
+      "x": 159,
+      "y": 97,
+      "z": 309,
+      "state": {
+        "Name": "minecraft:smooth_stone"
+      }
+    },
+    {
+      "x": 160,
+      "y": 97,
+      "z": 309,
+      "state": {
+        "Name": "minecraft:smooth_stone"
+      }
+    },
+    {
+      "x": 161,
+      "y": 97,
+      "z": 309,
+      "state": {
+        "Name": "minecraft:smooth_stone"
+      }
+    },
+    {
+      "x": 162,
+      "y": 97,
+      "z": 309,
+      "state": {
+        "Name": "minecraft:polished_diorite"
+      }
+    },
+    {
+      "x": 163,
+      "y": 97,
+      "z": 309,
+      "state": {
+        "Name": "minecraft:polished_diorite"
+      }
+    },
+    {
+      "x": 164,
+      "y": 97,
+      "z": 309,
+      "state": {
+        "Name": "minecraft:polished_diorite"
+      }
+    },
+    {
+      "x": 165,
+      "y": 97,
+      "z": 309,
+      "state": {
+        "Name": "minecraft:polished_diorite"
+      }
+    },
+    {
+      "x": 166,
+      "y": 97,
+      "z": 309,
+      "state": {
+        "Name": "minecraft:polished_diorite"
+      }
+    },
+    {
+      "x": 167,
+      "y": 97,
+      "z": 309,
+      "state": {
+        "Name": "minecraft:polished_diorite"
+      }
+    },
+    {
+      "x": 168,
+      "y": 97,
+      "z": 309,
+      "state": {
+        "Name": "minecraft:polished_diorite"
+      }
+    },
+    {
+      "x": 169,
+      "y": 97,
+      "z": 309,
+      "state": {
+        "Name": "minecraft:polished_andesite"
+      }
+    },
+    {
+      "x": 151,
+      "y": 97,
+      "z": 310,
+      "state": {
+        "Name": "minecraft:polished_andesite"
+      }
+    },
+    {
+      "x": 152,
+      "y": 97,
+      "z": 310,
+      "state": {
+        "Name": "minecraft:smooth_stone"
+      }
+    },
+    {
+      "x": 153,
+      "y": 97,
+      "z": 310,
+      "state": {
+        "Name": "minecraft:smooth_stone"
+      }
+    },
+    {
+      "x": 154,
+      "y": 97,
+      "z": 310,
+      "state": {
+        "Name": "minecraft:smooth_stone"
+      }
+    },
+    {
+      "x": 155,
+      "y": 97,
+      "z": 310,
+      "state": {
+        "Name": "minecraft:smooth_stone"
+      }
+    },
+    {
+      "x": 156,
+      "y": 97,
+      "z": 310,
+      "state": {
+        "Name": "minecraft:sea_lantern"
+      }
+    },
+    {
+      "x": 157,
+      "y": 97,
+      "z": 310,
+      "state": {
+        "Name": "minecraft:smooth_stone"
+      }
+    },
+    {
+      "x": 158,
+      "y": 97,
+      "z": 310,
+      "state": {
+        "Name": "minecraft:smooth_stone"
+      }
+    },
+    {
+      "x": 159,
+      "y": 97,
+      "z": 310,
+      "state": {
+        "Name": "minecraft:smooth_stone"
+      }
+    },
+    {
+      "x": 160,
+      "y": 97,
+      "z": 310,
+      "state": {
+        "Name": "minecraft:smooth_stone"
+      }
+    },
+    {
+      "x": 161,
+      "y": 97,
+      "z": 310,
+      "state": {
+        "Name": "minecraft:smooth_stone"
+      }
+    },
+    {
+      "x": 162,
+      "y": 97,
+      "z": 310,
+      "state": {
+        "Name": "minecraft:smooth_stone"
+      }
+    },
+    {
+      "x": 163,
+      "y": 97,
+      "z": 310,
+      "state": {
+        "Name": "minecraft:smooth_stone"
+      }
+    },
+    {
+      "x": 164,
+      "y": 97,
+      "z": 310,
+      "state": {
+        "Name": "minecraft:sea_lantern"
+      }
+    },
+    {
+      "x": 165,
+      "y": 97,
+      "z": 310,
+      "state": {
+        "Name": "minecraft:smooth_stone"
+      }
+    },
+    {
+      "x": 166,
+      "y": 97,
+      "z": 310,
+      "state": {
+        "Name": "minecraft:smooth_stone"
+      }
+    },
+    {
+      "x": 167,
+      "y": 97,
+      "z": 310,
+      "state": {
+        "Name": "minecraft:smooth_stone"
+      }
+    },
+    {
+      "x": 168,
+      "y": 97,
+      "z": 310,
+      "state": {
+        "Name": "minecraft:smooth_stone"
+      }
+    },
+    {
+      "x": 169,
+      "y": 97,
+      "z": 310,
+      "state": {
+        "Name": "minecraft:polished_andesite"
+      }
+    },
+    {
+      "x": 151,
+      "y": 97,
+      "z": 311,
+      "state": {
+        "Name": "minecraft:polished_andesite"
+      }
+    },
+    {
+      "x": 152,
+      "y": 97,
+      "z": 311,
+      "state": {
+        "Name": "minecraft:polished_diorite"
+      }
+    },
+    {
+      "x": 153,
+      "y": 97,
+      "z": 311,
+      "state": {
+        "Name": "minecraft:polished_diorite"
+      }
+    },
+    {
+      "x": 154,
+      "y": 97,
+      "z": 311,
+      "state": {
+        "Name": "minecraft:polished_diorite"
+      }
+    },
+    {
+      "x": 155,
+      "y": 97,
+      "z": 311,
+      "state": {
+        "Name": "minecraft:polished_diorite"
+      }
+    },
+    {
+      "x": 156,
+      "y": 97,
+      "z": 311,
+      "state": {
+        "Name": "minecraft:polished_diorite"
+      }
+    },
+    {
+      "x": 157,
+      "y": 97,
+      "z": 311,
+      "state": {
+        "Name": "minecraft:polished_diorite"
+      }
+    },
+    {
+      "x": 158,
+      "y": 97,
+      "z": 311,
+      "state": {
+        "Name": "minecraft:polished_diorite"
+      }
+    },
+    {
+      "x": 159,
+      "y": 97,
+      "z": 311,
+      "state": {
+        "Name": "minecraft:smooth_stone"
+      }
+    },
+    {
+      "x": 160,
+      "y": 97,
+      "z": 311,
+      "state": {
+        "Name": "minecraft:smooth_stone"
+      }
+    },
+    {
+      "x": 161,
+      "y": 97,
+      "z": 311,
+      "state": {
+        "Name": "minecraft:smooth_stone"
+      }
+    },
+    {
+      "x": 162,
+      "y": 97,
+      "z": 311,
+      "state": {
+        "Name": "minecraft:polished_diorite"
+      }
+    },
+    {
+      "x": 163,
+      "y": 97,
+      "z": 311,
+      "state": {
+        "Name": "minecraft:polished_diorite"
+      }
+    },
+    {
+      "x": 164,
+      "y": 97,
+      "z": 311,
+      "state": {
+        "Name": "minecraft:polished_diorite"
+      }
+    },
+    {
+      "x": 165,
+      "y": 97,
+      "z": 311,
+      "state": {
+        "Name": "minecraft:polished_diorite"
+      }
+    },
+    {
+      "x": 166,
+      "y": 97,
+      "z": 311,
+      "state": {
+        "Name": "minecraft:polished_diorite"
+      }
+    },
+    {
+      "x": 167,
+      "y": 97,
+      "z": 311,
+      "state": {
+        "Name": "minecraft:polished_diorite"
+      }
+    },
+    {
+      "x": 168,
+      "y": 97,
+      "z": 311,
+      "state": {
+        "Name": "minecraft:polished_diorite"
+      }
+    },
+    {
+      "x": 169,
+      "y": 97,
+      "z": 311,
+      "state": {
+        "Name": "minecraft:polished_andesite"
+      }
+    },
+    {
+      "x": 151,
+      "y": 97,
+      "z": 312,
+      "state": {
+        "Name": "minecraft:polished_andesite"
+      }
+    },
+    {
+      "x": 152,
+      "y": 97,
+      "z": 312,
+      "state": {
+        "Name": "minecraft:polished_diorite"
+      }
+    },
+    {
+      "x": 153,
+      "y": 97,
+      "z": 312,
+      "state": {
+        "Name": "minecraft:polished_diorite"
+      }
+    },
+    {
+      "x": 154,
+      "y": 97,
+      "z": 312,
+      "state": {
+        "Name": "minecraft:polished_diorite"
+      }
+    },
+    {
+      "x": 155,
+      "y": 97,
+      "z": 312,
+      "state": {
+        "Name": "minecraft:polished_diorite"
+      }
+    },
+    {
+      "x": 156,
+      "y": 97,
+      "z": 312,
+      "state": {
+        "Name": "minecraft:polished_diorite"
+      }
+    },
+    {
+      "x": 157,
+      "y": 97,
+      "z": 312,
+      "state": {
+        "Name": "minecraft:polished_diorite"
+      }
+    },
+    {
+      "x": 158,
+      "y": 97,
+      "z": 312,
+      "state": {
+        "Name": "minecraft:polished_diorite"
+      }
+    },
+    {
+      "x": 159,
+      "y": 97,
+      "z": 312,
+      "state": {
+        "Name": "minecraft:smooth_stone"
+      }
+    },
+    {
+      "x": 160,
+      "y": 97,
+      "z": 312,
+      "state": {
+        "Name": "minecraft:smooth_stone"
+      }
+    },
+    {
+      "x": 161,
+      "y": 97,
+      "z": 312,
+      "state": {
+        "Name": "minecraft:smooth_stone"
+      }
+    },
+    {
+      "x": 162,
+      "y": 97,
+      "z": 312,
+      "state": {
+        "Name": "minecraft:polished_diorite"
+      }
+    },
+    {
+      "x": 163,
+      "y": 97,
+      "z": 312,
+      "state": {
+        "Name": "minecraft:polished_diorite"
+      }
+    },
+    {
+      "x": 164,
+      "y": 97,
+      "z": 312,
+      "state": {
+        "Name": "minecraft:polished_diorite"
+      }
+    },
+    {
+      "x": 165,
+      "y": 97,
+      "z": 312,
+      "state": {
+        "Name": "minecraft:polished_diorite"
+      }
+    },
+    {
+      "x": 166,
+      "y": 97,
+      "z": 312,
+      "state": {
+        "Name": "minecraft:polished_diorite"
+      }
+    },
+    {
+      "x": 167,
+      "y": 97,
+      "z": 312,
+      "state": {
+        "Name": "minecraft:polished_diorite"
+      }
+    },
+    {
+      "x": 168,
+      "y": 97,
+      "z": 312,
+      "state": {
+        "Name": "minecraft:polished_diorite"
+      }
+    },
+    {
+      "x": 169,
+      "y": 97,
+      "z": 312,
+      "state": {
+        "Name": "minecraft:polished_andesite"
+      }
+    },
+    {
+      "x": 151,
+      "y": 97,
+      "z": 313,
+      "state": {
+        "Name": "minecraft:polished_andesite"
+      }
+    },
+    {
+      "x": 152,
+      "y": 97,
+      "z": 313,
+      "state": {
+        "Name": "minecraft:polished_diorite"
+      }
+    },
+    {
+      "x": 153,
+      "y": 97,
+      "z": 313,
+      "state": {
+        "Name": "minecraft:polished_diorite"
+      }
+    },
+    {
+      "x": 154,
+      "y": 97,
+      "z": 313,
+      "state": {
+        "Name": "minecraft:polished_diorite"
+      }
+    },
+    {
+      "x": 155,
+      "y": 97,
+      "z": 313,
+      "state": {
+        "Name": "minecraft:polished_diorite"
+      }
+    },
+    {
+      "x": 156,
+      "y": 97,
+      "z": 313,
+      "state": {
+        "Name": "minecraft:polished_diorite"
+      }
+    },
+    {
+      "x": 157,
+      "y": 97,
+      "z": 313,
+      "state": {
+        "Name": "minecraft:polished_diorite"
+      }
+    },
+    {
+      "x": 158,
+      "y": 97,
+      "z": 313,
+      "state": {
+        "Name": "minecraft:polished_diorite"
+      }
+    },
+    {
+      "x": 159,
+      "y": 97,
+      "z": 313,
+      "state": {
+        "Name": "minecraft:smooth_stone"
+      }
+    },
+    {
+      "x": 160,
+      "y": 97,
+      "z": 313,
+      "state": {
+        "Name": "minecraft:smooth_stone"
+      }
+    },
+    {
+      "x": 161,
+      "y": 97,
+      "z": 313,
+      "state": {
+        "Name": "minecraft:smooth_stone"
+      }
+    },
+    {
+      "x": 162,
+      "y": 97,
+      "z": 313,
+      "state": {
+        "Name": "minecraft:polished_diorite"
+      }
+    },
+    {
+      "x": 163,
+      "y": 97,
+      "z": 313,
+      "state": {
+        "Name": "minecraft:polished_diorite"
+      }
+    },
+    {
+      "x": 164,
+      "y": 97,
+      "z": 313,
+      "state": {
+        "Name": "minecraft:polished_diorite"
+      }
+    },
+    {
+      "x": 165,
+      "y": 97,
+      "z": 313,
+      "state": {
+        "Name": "minecraft:polished_diorite"
+      }
+    },
+    {
+      "x": 166,
+      "y": 97,
+      "z": 313,
+      "state": {
+        "Name": "minecraft:polished_diorite"
+      }
+    },
+    {
+      "x": 167,
+      "y": 97,
+      "z": 313,
+      "state": {
+        "Name": "minecraft:polished_diorite"
+      }
+    },
+    {
+      "x": 168,
+      "y": 97,
+      "z": 313,
+      "state": {
+        "Name": "minecraft:polished_diorite"
+      }
+    },
+    {
+      "x": 169,
+      "y": 97,
+      "z": 313,
+      "state": {
+        "Name": "minecraft:polished_andesite"
+      }
+    },
+    {
+      "x": 150,
+      "y": 97,
+      "z": 314,
+      "state": {
+        "Name": "minecraft:polished_andesite"
+      }
+    },
+    {
+      "x": 151,
+      "y": 97,
+      "z": 314,
+      "state": {
+        "Name": "minecraft:polished_andesite"
+      }
+    },
+    {
+      "x": 152,
+      "y": 97,
+      "z": 314,
+      "state": {
+        "Name": "minecraft:polished_diorite"
+      }
+    },
+    {
+      "x": 153,
+      "y": 97,
+      "z": 314,
+      "state": {
+        "Name": "minecraft:polished_diorite"
+      }
+    },
+    {
+      "x": 154,
+      "y": 97,
+      "z": 314,
+      "state": {
+        "Name": "minecraft:polished_diorite"
+      }
+    },
+    {
+      "x": 155,
+      "y": 97,
+      "z": 314,
+      "state": {
+        "Name": "minecraft:polished_diorite"
+      }
+    },
+    {
+      "x": 156,
+      "y": 97,
+      "z": 314,
+      "state": {
+        "Name": "minecraft:polished_diorite"
+      }
+    },
+    {
+      "x": 157,
+      "y": 97,
+      "z": 314,
+      "state": {
+        "Name": "minecraft:polished_diorite"
+      }
+    },
+    {
+      "x": 158,
+      "y": 97,
+      "z": 314,
+      "state": {
+        "Name": "minecraft:polished_diorite"
+      }
+    },
+    {
+      "x": 159,
+      "y": 97,
+      "z": 314,
+      "state": {
+        "Name": "minecraft:smooth_stone"
+      }
+    },
+    {
+      "x": 160,
+      "y": 97,
+      "z": 314,
+      "state": {
+        "Name": "minecraft:smooth_stone"
+      }
+    },
+    {
+      "x": 161,
+      "y": 97,
+      "z": 314,
+      "state": {
+        "Name": "minecraft:smooth_stone"
+      }
+    },
+    {
+      "x": 162,
+      "y": 97,
+      "z": 314,
+      "state": {
+        "Name": "minecraft:polished_diorite"
+      }
+    },
+    {
+      "x": 163,
+      "y": 97,
+      "z": 314,
+      "state": {
+        "Name": "minecraft:polished_diorite"
+      }
+    },
+    {
+      "x": 164,
+      "y": 97,
+      "z": 314,
+      "state": {
+        "Name": "minecraft:polished_diorite"
+      }
+    },
+    {
+      "x": 165,
+      "y": 97,
+      "z": 314,
+      "state": {
+        "Name": "minecraft:polished_diorite"
+      }
+    },
+    {
+      "x": 166,
+      "y": 97,
+      "z": 314,
+      "state": {
+        "Name": "minecraft:polished_diorite"
+      }
+    },
+    {
+      "x": 167,
+      "y": 97,
+      "z": 314,
+      "state": {
+        "Name": "minecraft:polished_diorite"
+      }
+    },
+    {
+      "x": 168,
+      "y": 97,
+      "z": 314,
+      "state": {
+        "Name": "minecraft:polished_diorite"
+      }
+    },
+    {
+      "x": 169,
+      "y": 97,
+      "z": 314,
+      "state": {
+        "Name": "minecraft:polished_andesite"
+      }
+    },
+    {
+      "x": 170,
+      "y": 97,
+      "z": 314,
+      "state": {
+        "Name": "minecraft:polished_andesite"
+      }
+    },
+    {
+      "x": 152,
+      "y": 97,
+      "z": 315,
+      "state": {
+        "Name": "minecraft:polished_andesite"
+      }
+    },
+    {
+      "x": 153,
+      "y": 97,
+      "z": 315,
+      "state": {
+        "Name": "minecraft:polished_andesite"
+      }
+    },
+    {
+      "x": 154,
+      "y": 97,
+      "z": 315,
+      "state": {
+        "Name": "minecraft:polished_diorite"
+      }
+    },
+    {
+      "x": 155,
+      "y": 97,
+      "z": 315,
+      "state": {
+        "Name": "minecraft:polished_diorite"
+      }
+    },
+    {
+      "x": 156,
+      "y": 97,
+      "z": 315,
+      "state": {
+        "Name": "minecraft:polished_diorite"
+      }
+    },
+    {
+      "x": 157,
+      "y": 97,
+      "z": 315,
+      "state": {
+        "Name": "minecraft:polished_diorite"
+      }
+    },
+    {
+      "x": 158,
+      "y": 97,
+      "z": 315,
+      "state": {
+        "Name": "minecraft:polished_diorite"
+      }
+    },
+    {
+      "x": 159,
+      "y": 97,
+      "z": 315,
+      "state": {
+        "Name": "minecraft:smooth_stone"
+      }
+    },
+    {
+      "x": 160,
+      "y": 97,
+      "z": 315,
+      "state": {
+        "Name": "minecraft:sea_lantern"
+      }
+    },
+    {
+      "x": 161,
+      "y": 97,
+      "z": 315,
+      "state": {
+        "Name": "minecraft:smooth_stone"
+      }
+    },
+    {
+      "x": 162,
+      "y": 97,
+      "z": 315,
+      "state": {
+        "Name": "minecraft:polished_diorite"
+      }
+    },
+    {
+      "x": 163,
+      "y": 97,
+      "z": 315,
+      "state": {
+        "Name": "minecraft:polished_diorite"
+      }
+    },
+    {
+      "x": 164,
+      "y": 97,
+      "z": 315,
+      "state": {
+        "Name": "minecraft:polished_diorite"
+      }
+    },
+    {
+      "x": 165,
+      "y": 97,
+      "z": 315,
+      "state": {
+        "Name": "minecraft:polished_diorite"
+      }
+    },
+    {
+      "x": 166,
+      "y": 97,
+      "z": 315,
+      "state": {
+        "Name": "minecraft:polished_diorite"
+      }
+    },
+    {
+      "x": 167,
+      "y": 97,
+      "z": 315,
+      "state": {
+        "Name": "minecraft:polished_andesite"
+      }
+    },
+    {
+      "x": 168,
+      "y": 97,
+      "z": 315,
+      "state": {
+        "Name": "minecraft:polished_andesite"
+      }
+    },
+    {
+      "x": 154,
+      "y": 97,
+      "z": 316,
+      "state": {
+        "Name": "minecraft:polished_andesite"
+      }
+    },
+    {
+      "x": 155,
+      "y": 97,
+      "z": 316,
+      "state": {
+        "Name": "minecraft:polished_diorite"
+      }
+    },
+    {
+      "x": 156,
+      "y": 97,
+      "z": 316,
+      "state": {
+        "Name": "minecraft:polished_diorite"
+      }
+    },
+    {
+      "x": 157,
+      "y": 97,
+      "z": 316,
+      "state": {
+        "Name": "minecraft:polished_diorite"
+      }
+    },
+    {
+      "x": 158,
+      "y": 97,
+      "z": 316,
+      "state": {
+        "Name": "minecraft:polished_diorite"
+      }
+    },
+    {
+      "x": 159,
+      "y": 97,
+      "z": 316,
+      "state": {
+        "Name": "minecraft:smooth_stone"
+      }
+    },
+    {
+      "x": 160,
+      "y": 97,
+      "z": 316,
+      "state": {
+        "Name": "minecraft:smooth_stone"
+      }
+    },
+    {
+      "x": 161,
+      "y": 97,
+      "z": 316,
+      "state": {
+        "Name": "minecraft:smooth_stone"
+      }
+    },
+    {
+      "x": 162,
+      "y": 97,
+      "z": 316,
+      "state": {
+        "Name": "minecraft:polished_diorite"
+      }
+    },
+    {
+      "x": 163,
+      "y": 97,
+      "z": 316,
+      "state": {
+        "Name": "minecraft:polished_diorite"
+      }
+    },
+    {
+      "x": 164,
+      "y": 97,
+      "z": 316,
+      "state": {
+        "Name": "minecraft:polished_diorite"
+      }
+    },
+    {
+      "x": 165,
+      "y": 97,
+      "z": 316,
+      "state": {
+        "Name": "minecraft:polished_diorite"
+      }
+    },
+    {
+      "x": 166,
+      "y": 97,
+      "z": 316,
+      "state": {
+        "Name": "minecraft:polished_andesite"
+      }
+    },
+    {
+      "x": 155,
+      "y": 97,
+      "z": 317,
+      "state": {
+        "Name": "minecraft:polished_andesite"
+      }
+    },
+    {
+      "x": 156,
+      "y": 97,
+      "z": 317,
+      "state": {
+        "Name": "minecraft:polished_andesite"
+      }
+    },
+    {
+      "x": 157,
+      "y": 97,
+      "z": 317,
+      "state": {
+        "Name": "minecraft:polished_diorite"
+      }
+    },
+    {
+      "x": 158,
+      "y": 97,
+      "z": 317,
+      "state": {
+        "Name": "minecraft:polished_diorite"
+      }
+    },
+    {
+      "x": 159,
+      "y": 97,
+      "z": 317,
+      "state": {
+        "Name": "minecraft:smooth_stone"
+      }
+    },
+    {
+      "x": 160,
+      "y": 97,
+      "z": 317,
+      "state": {
+        "Name": "minecraft:smooth_stone"
+      }
+    },
+    {
+      "x": 161,
+      "y": 97,
+      "z": 317,
+      "state": {
+        "Name": "minecraft:smooth_stone"
+      }
+    },
+    {
+      "x": 162,
+      "y": 97,
+      "z": 317,
+      "state": {
+        "Name": "minecraft:polished_diorite"
+      }
+    },
+    {
+      "x": 163,
+      "y": 97,
+      "z": 317,
+      "state": {
+        "Name": "minecraft:polished_diorite"
+      }
+    },
+    {
+      "x": 164,
+      "y": 97,
+      "z": 317,
+      "state": {
+        "Name": "minecraft:polished_andesite"
+      }
+    },
+    {
+      "x": 165,
+      "y": 97,
+      "z": 317,
+      "state": {
+        "Name": "minecraft:polished_andesite"
+      }
+    },
+    {
+      "x": 157,
+      "y": 97,
+      "z": 318,
+      "state": {
+        "Name": "minecraft:polished_andesite"
+      }
+    },
+    {
+      "x": 158,
+      "y": 97,
+      "z": 318,
+      "state": {
+        "Name": "minecraft:polished_andesite"
+      }
+    },
+    {
+      "x": 159,
+      "y": 97,
+      "z": 318,
+      "state": {
+        "Name": "minecraft:smooth_stone"
+      }
+    },
+    {
+      "x": 160,
+      "y": 97,
+      "z": 318,
+      "state": {
+        "Name": "minecraft:smooth_stone"
+      }
+    },
+    {
+      "x": 161,
+      "y": 97,
+      "z": 318,
+      "state": {
+        "Name": "minecraft:smooth_stone"
+      }
+    },
+    {
+      "x": 162,
+      "y": 97,
+      "z": 318,
+      "state": {
+        "Name": "minecraft:polished_andesite"
+      }
+    },
+    {
+      "x": 163,
+      "y": 97,
+      "z": 318,
+      "state": {
+        "Name": "minecraft:polished_andesite"
+      }
+    },
+    {
+      "x": 159,
+      "y": 97,
+      "z": 319,
+      "state": {
+        "Name": "minecraft:polished_andesite"
+      }
+    },
+    {
+      "x": 160,
+      "y": 97,
+      "z": 319,
+      "state": {
+        "Name": "minecraft:smooth_stone"
+      }
+    },
+    {
+      "x": 161,
+      "y": 97,
+      "z": 319,
+      "state": {
+        "Name": "minecraft:polished_andesite"
+      }
+    },
+    {
+      "x": 160,
+      "y": 97,
+      "z": 320,
+      "state": {
+        "Name": "minecraft:polished_andesite"
+      }
+    },
+    {
+      "x": 152,
+      "y": 98,
+      "z": 302,
+      "state": {
+        "Name": "minecraft:polished_andesite"
+      }
+    },
+    {
+      "x": 152,
+      "y": 99,
+      "z": 302,
+      "state": {
+        "Name": "minecraft:chiseled_stone_bricks"
+      }
+    },
+    {
+      "x": 168,
+      "y": 98,
+      "z": 302,
+      "state": {
+        "Name": "minecraft:polished_andesite"
+      }
+    },
+    {
+      "x": 168,
+      "y": 99,
+      "z": 302,
+      "state": {
+        "Name": "minecraft:chiseled_stone_bricks"
+      }
+    },
+    {
+      "x": 170,
+      "y": 98,
+      "z": 314,
+      "state": {
+        "Name": "minecraft:polished_andesite"
+      }
+    },
+    {
+      "x": 170,
+      "y": 99,
+      "z": 314,
+      "state": {
+        "Name": "minecraft:chiseled_stone_bricks"
+      }
+    },
+    {
+      "x": 160,
+      "y": 98,
+      "z": 320,
+      "state": {
+        "Name": "minecraft:polished_andesite"
+      }
+    },
+    {
+      "x": 160,
+      "y": 99,
+      "z": 320,
+      "state": {
+        "Name": "minecraft:chiseled_stone_bricks"
+      }
+    },
+    {
+      "x": 150,
+      "y": 98,
+      "z": 314,
+      "state": {
+        "Name": "minecraft:polished_andesite"
+      }
+    },
+    {
+      "x": 150,
+      "y": 99,
+      "z": 314,
+      "state": {
+        "Name": "minecraft:chiseled_stone_bricks"
+      }
+    },
+    {
+      "x": 158,
+      "y": 97,
+      "z": 301,
+      "state": {
+        "Name": "minecraft:stone_brick_stairs",
+        "Properties": {
+          "facing": "south",
+          "half": "bottom",
+          "shape": "straight",
+          "waterlogged": "false"
+        }
+      }
+    },
+    {
+      "x": 159,
+      "y": 97,
+      "z": 301,
+      "state": {
+        "Name": "minecraft:stone_brick_stairs",
+        "Properties": {
+          "facing": "south",
+          "half": "bottom",
+          "shape": "straight",
+          "waterlogged": "false"
+        }
+      }
+    },
+    {
+      "x": 160,
+      "y": 97,
+      "z": 301,
+      "state": {
+        "Name": "minecraft:stone_brick_stairs",
+        "Properties": {
+          "facing": "south",
+          "half": "bottom",
+          "shape": "straight",
+          "waterlogged": "false"
+        }
+      }
+    },
+    {
+      "x": 161,
+      "y": 97,
+      "z": 301,
+      "state": {
+        "Name": "minecraft:stone_brick_stairs",
+        "Properties": {
+          "facing": "south",
+          "half": "bottom",
+          "shape": "straight",
+          "waterlogged": "false"
+        }
+      }
+    },
+    {
+      "x": 162,
+      "y": 97,
+      "z": 301,
+      "state": {
+        "Name": "minecraft:stone_brick_stairs",
+        "Properties": {
+          "facing": "south",
+          "half": "bottom",
+          "shape": "straight",
+          "waterlogged": "false"
+        }
+      }
+    },
+    {
+      "x": 150,
+      "y": 97,
+      "z": 308,
+      "state": {
+        "Name": "minecraft:stone_brick_stairs",
+        "Properties": {
+          "facing": "east",
+          "half": "bottom",
+          "shape": "straight",
+          "waterlogged": "false"
+        }
+      }
+    },
+    {
+      "x": 170,
+      "y": 97,
+      "z": 308,
+      "state": {
+        "Name": "minecraft:stone_brick_stairs",
+        "Properties": {
+          "facing": "west",
+          "half": "bottom",
+          "shape": "straight",
+          "waterlogged": "false"
+        }
+      }
+    },
+    {
+      "x": 150,
+      "y": 97,
+      "z": 309,
+      "state": {
+        "Name": "minecraft:stone_brick_stairs",
+        "Properties": {
+          "facing": "east",
+          "half": "bottom",
+          "shape": "straight",
+          "waterlogged": "false"
+        }
+      }
+    },
+    {
+      "x": 170,
+      "y": 97,
+      "z": 309,
+      "state": {
+        "Name": "minecraft:stone_brick_stairs",
+        "Properties": {
+          "facing": "west",
+          "half": "bottom",
+          "shape": "straight",
+          "waterlogged": "false"
+        }
+      }
+    },
+    {
+      "x": 150,
+      "y": 97,
+      "z": 310,
+      "state": {
+        "Name": "minecraft:stone_brick_stairs",
+        "Properties": {
+          "facing": "east",
+          "half": "bottom",
+          "shape": "straight",
+          "waterlogged": "false"
+        }
+      }
+    },
+    {
+      "x": 170,
+      "y": 97,
+      "z": 310,
+      "state": {
+        "Name": "minecraft:stone_brick_stairs",
+        "Properties": {
+          "facing": "west",
+          "half": "bottom",
+          "shape": "straight",
+          "waterlogged": "false"
+        }
+      }
+    },
+    {
+      "x": 150,
+      "y": 97,
+      "z": 311,
+      "state": {
+        "Name": "minecraft:stone_brick_stairs",
+        "Properties": {
+          "facing": "east",
+          "half": "bottom",
+          "shape": "straight",
+          "waterlogged": "false"
+        }
+      }
+    },
+    {
+      "x": 170,
+      "y": 97,
+      "z": 311,
+      "state": {
+        "Name": "minecraft:stone_brick_stairs",
+        "Properties": {
+          "facing": "west",
+          "half": "bottom",
+          "shape": "straight",
+          "waterlogged": "false"
+        }
+      }
+    },
+    {
+      "x": 150,
+      "y": 97,
+      "z": 312,
+      "state": {
+        "Name": "minecraft:stone_brick_stairs",
+        "Properties": {
+          "facing": "east",
+          "half": "bottom",
+          "shape": "straight",
+          "waterlogged": "false"
+        }
+      }
+    },
+    {
+      "x": 170,
+      "y": 97,
+      "z": 312,
+      "state": {
+        "Name": "minecraft:stone_brick_stairs",
+        "Properties": {
+          "facing": "west",
+          "half": "bottom",
+          "shape": "straight",
+          "waterlogged": "false"
+        }
+      }
+    }
+  ]
+}

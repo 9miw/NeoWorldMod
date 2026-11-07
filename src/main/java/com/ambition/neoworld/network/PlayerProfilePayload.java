@@ -3,6 +3,7 @@ package com.ambition.neoworld.network;
 import java.util.List;
 import java.util.UUID;
 import com.ambition.neoworld.NeoWorld;
+import com.ambition.neoworld.network.player.ProfileDetails;
 import net.minecraft.network.RegistryFriendlyByteBuf;
 import net.minecraft.network.codec.StreamCodec;
 import net.minecraft.network.protocol.common.custom.CustomPacketPayload;
@@ -10,13 +11,34 @@ import net.minecraft.resources.ResourceLocation;
 
 public record PlayerProfilePayload(UUID requestId, UUID targetId, String name, int level,
         long exp, long requiredExp, float health, float maxHealth, float stamina, float maxStamina,
-        List<Stat> stats, List<Effect> effects, String weapon) implements CustomPacketPayload {
-    /** Reserved ID for server-initiated self-profile opens via /profile. */
+        List<Stat> stats, List<Effect> effects, String weapon, int killerSin, ProfileDetails details) implements CustomPacketPayload {
+    public PlayerProfilePayload(UUID requestId, UUID targetId, String name, int level,
+            long exp, long requiredExp, float health, float maxHealth, float stamina, float maxStamina,
+            List<Stat> stats, List<Effect> effects, String weapon, int killerSin) {
+        this(requestId,targetId,name,level,exp,requiredExp,health,maxHealth,stamina,maxStamina,stats,effects,weapon,killerSin,ProfileDetails.EMPTY);
+    }
+    public PlayerProfilePayload(UUID requestId, UUID targetId, String name, int level,
+            long exp, long requiredExp, float health, float maxHealth, float stamina, float maxStamina,
+            List<Stat> stats, List<Effect> effects, String weapon) {
+        this(requestId, targetId, name, level, exp, requiredExp, health, maxHealth, stamina, maxStamina, stats, effects, weapon, 0);
+    }
+    /** Reserved ID for server-initiated self-profile opens via /neow profile. */
     public static final UUID COMMAND_REQUEST = new UUID(0L, 0L);
     public record Stat(String key, double base, double value, boolean weaponValue) {}
     public record Effect(String key, int amplifier, int ticks) {}
+    public PlayerProfilePayload withDetails(ProfileDetails value) {
+        return new PlayerProfilePayload(requestId,targetId,name,level,exp,requiredExp,health,maxHealth,stamina,maxStamina,stats,effects,weapon,killerSin,value);
+    }
+    public boolean sameSnapshot(PlayerProfilePayload other) {
+        return requestId.equals(other.requestId) && targetId.equals(other.targetId)
+                && details.capturedAt()==other.details.capturedAt();
+    }
+    public PlayerProfilePayload forViewer(boolean owner) {
+        return new PlayerProfilePayload(requestId,targetId,name,level,owner ? exp : 0,owner ? requiredExp : 0,
+                health,maxHealth,stamina,maxStamina,stats,List.of(),"",killerSin,details.owner(owner));
+    }
     public PlayerProfilePayload {
-        stats = List.copyOf(stats); effects = List.copyOf(effects);
+        stats = List.copyOf(stats); effects = List.copyOf(effects); java.util.Objects.requireNonNull(details);
         if (stats.size() > 32 || effects.size() > 64) throw new IllegalArgumentException("Profile too large");
     }
     public static final Type<PlayerProfilePayload> TYPE = new Type<>(ResourceLocation.fromNamespaceAndPath(NeoWorld.MODID, "player_profile"));
@@ -30,6 +52,8 @@ public record PlayerProfilePayload(UUID requestId, UUID targetId, String name, i
                 b.writeVarInt(p.effects.size());
                 for (Effect e : p.effects) { b.writeUtf(e.key, 128); b.writeVarInt(e.amplifier); b.writeInt(e.ticks); }
                 b.writeUtf(p.weapon, 256);
+                b.writeVarInt(p.killerSin);
+                p.details.write(b);
             }, b -> {
                 UUID request = b.readUUID(), target = b.readUUID(); String name = b.readUtf(16);
                 int level = b.readVarInt(); long exp = b.readVarLong(), required = b.readVarLong();
@@ -38,7 +62,10 @@ public record PlayerProfilePayload(UUID requestId, UUID targetId, String name, i
                 for (int i = 0; i < count; i++) stats.add(new Stat(b.readUtf(128), b.readDouble(), b.readDouble(), b.readBoolean()));
                 count = bounded(b, 64); var effects = new java.util.ArrayList<Effect>(count);
                 for (int i = 0; i < count; i++) effects.add(new Effect(b.readUtf(128), b.readVarInt(), b.readInt()));
-                return new PlayerProfilePayload(request, target, name, level, exp, required, hp, maxHp, sta, maxSta, stats, effects, b.readUtf(256));
+                String weapon = b.readUtf(256);
+                int sin = b.isReadable() ? b.readVarInt() : 0;
+                var details=ProfileDetails.read(b);
+                return new PlayerProfilePayload(request, target, name, level, exp, required, hp, maxHp, sta, maxSta, stats, effects, weapon, sin,details);
             });
     private static int bounded(RegistryFriendlyByteBuf b, int max) {
         int count = b.readVarInt();

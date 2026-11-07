@@ -1,0 +1,814 @@
+{
+  "reference": "docs/gui/shop/arcane/approved-mockup.png",
+  "stage": "separated assets; not yet integrated into the Shop renderer",
+  "alpha_threshold": 224,
+  "sampling": "nearest",
+  "source_dimensions": {
+    "frame": [
+      1448,
+      1086
+    ],
+    "panels": [
+      1536,
+      1024
+    ],
+    "widgets": [
+      1536,
+      1024
+    ],
+    "icons": [
+      2172,
+      724
+    ]
+  },
+  "assets": {
+    "frame": {
+      "file": "src/main/resources/assets/neoworld/textures/gui/shop/arcane/frame.png",
+      "size": [
+        1346,
+        1001
+      ],
+      "source_sheet": "docs/gui/shop/arcane/sources/frame.png",
+      "source_rect_xywh": [
+        53,
+        33,
+        1342,
+        997
+      ],
+      "opaque_bounds_xyxy": [
+        2,
+        2,
+        1344,
+        999
+      ],
+      "padding_xy": [
+        2,
+        2
+      ],
+      "alpha_levels": [
+        0,
+        255
+      ],
+      "sha256": "5a75babde82024ae6abb1e790ce966a9973b2734131d9d28b628279ef0f71aa5",
+      "render": "preserve_aspect"
+    },
+    "panels/title": {
+      "file": "src/main/resources/assets/neoworld/textures/gui/shop/arcane/panels/title.png",
+      "size": [
+        965,
+        186
+      ],
+      "source_sheet": "docs/gui/shop/arcane/sources/panels.png",
+      "source_rect_xywh": [
+        288,
+        20,
+        961,
+        182
+      ],
+      "opaque_bounds_xyxy": [
+        2,
+        2,
+        963,
+        184
+      ],
+      "padding_xy": [
+        2,
+        2
+      ],
+      "alpha_levels": [
+        0,
+        255
+      ],
+      "sha256": "30a4f079a2340983f4142e0f66db6177cfd3f888ad259c0769865963aa186f1f",
+      "render": "preserve_aspect"
+    },
+    "panels/products": {
+      "file": "src/main/resources/assets/neoworld/textures/gui/shop/arcane/panels/products.png",
+      "size": [
+        943,
+        459
+      ],
+      "source_sheet": "docs/gui/shop/arcane/sources/panels.png",
+      "source_rect_xywh": [
+        47,
+        232,
+        939,
+        455
+      ],
+      "opaque_bounds_xyxy": [
+        2,
+        2,
+        941,
+        457
+      ],
+      "padding_xy": [
+        2,
+        2
+      ],
+      "alpha_levels": [
+        0,
+        255
+      ],
+      "sha256": "739f8a376d3b13da6defc0b6bfee3066bb31dbf5986d5121b4e5a9317a08627a",
+      "render": "preserve_aspect"
+    },
+    "panels/details": {
+      "file": "src/main/resources/assets/neoworld/textures/gui/shop/arcane/panels/details.png",
+      "size": [
+        475,
+        459
+      ],
+      "source_sheet": "docs/gui/shop/arcane/sources/panels.png",
+      "source_rect_xywh": [
+        1024,
+        232,
+        471,
+        455
+      ],
+      "opaque_bounds_xyxy": [
+        2,
+        2,
+        473,
+        457
+      ],
+      "padding_xy": [
+        2,
+        2
+      ],
+      "alpha_levels": [
+        0,
+        255
+      ],
+      "sha256": "9f3191046bef60ed708fb11c3a2283a869b0a7de673782f66162c87e58d9a6d0",
+      "render": "preserve_aspect"
+    },
+    "panels/inventory": {
+      "file": "src/main/resources/assets/neoworld/textures/gui/shop/arcane/panels/inventory.png",
+      "size": [
+        1380,
+        234
+      ],
+      "source_sheet": "docs/gui/shop/arcane/sources/panels.png",
+      "source_rect_xywh": [
+        80,
+        730,
+        1376,
+        230
+      ],
+      "opaque_bounds_xyxy": [
+        2,
+        2,
+        1378,
+        232
+      ],
+      "padding_xy": [
+        2,
+        2
+      ],
+      "alpha_levels": [
+        0,
+        255
+      ],
+      "sha256": "b5f4b4672c44f8e7d2862cfec734297dfd8ad9e7da13abe76f0ee2fb15ef3cde",
+      "render": "preserve_aspect"
+    },
+    "slots/normal": {
+      "file": "src/main/resources/assets/neoworld/textures/gui/shop/arcane/slots/normal.png",
+      "size": [
+        248,
+        248
+      ],
+      "source_sheet": "docs/gui/shop/arcane/sources/widgets.png",
+      "source_rect_xywh": [
+        105,
+        77,
+        244,
+        229
+      ],
+      "opaque_bounds_xyxy": [
+        2,
+        9,
+        246,
+        238
+      ],
+      "padding_xy": [
+        2,
+        9
+      ],
+      "alpha_levels": [
+        0,
+        255
+      ],
+      "sha256": "30c16dd958c53ff0a378b9c97b41ab3d5f1bc4d19dafccc09f10d8ed86c2ab8b",
+      "render": "nine_slice",
+      "suggested_slice_xy": [
+        24,
+        24
+      ]
+    },
+    "slots/hover": {
+      "file": "src/main/resources/assets/neoworld/textures/gui/shop/arcane/slots/hover.png",
+      "size": [
+        247,
+        247
+      ],
+      "source_sheet": "docs/gui/shop/arcane/sources/widgets.png",
+      "source_rect_xywh": [
+        465,
+        77,
+        243,
+        229
+      ],
+      "opaque_bounds_xyxy": [
+        2,
+        9,
+        245,
+        238
+      ],
+      "padding_xy": [
+        2,
+        9
+      ],
+      "alpha_levels": [
+        0,
+        255
+      ],
+      "sha256": "f91b4bdec8f6c04ababbde59ffadb44d89bb73231b4552bd94b73e748815139c",
+      "render": "nine_slice",
+      "suggested_slice_xy": [
+        24,
+        24
+      ]
+    },
+    "slots/selected": {
+      "file": "src/main/resources/assets/neoworld/textures/gui/shop/arcane/slots/selected.png",
+      "size": [
+        250,
+        250
+      ],
+      "source_sheet": "docs/gui/shop/arcane/sources/widgets.png",
+      "source_rect_xywh": [
+        827,
+        77,
+        246,
+        230
+      ],
+      "opaque_bounds_xyxy": [
+        2,
+        10,
+        248,
+        240
+      ],
+      "padding_xy": [
+        2,
+        10
+      ],
+      "alpha_levels": [
+        0,
+        255
+      ],
+      "sha256": "3b955a0f55d9673f552621551c0aca113961e2bf8cae32f5d1b1b97fb9b202bf",
+      "render": "nine_slice",
+      "suggested_slice_xy": [
+        24,
+        24
+      ]
+    },
+    "slots/disabled": {
+      "file": "src/main/resources/assets/neoworld/textures/gui/shop/arcane/slots/disabled.png",
+      "size": [
+        249,
+        249
+      ],
+      "source_sheet": "docs/gui/shop/arcane/sources/widgets.png",
+      "source_rect_xywh": [
+        1187,
+        77,
+        245,
+        230
+      ],
+      "opaque_bounds_xyxy": [
+        2,
+        9,
+        247,
+        239
+      ],
+      "padding_xy": [
+        2,
+        9
+      ],
+      "alpha_levels": [
+        0,
+        255
+      ],
+      "sha256": "1da2d2d4adc06002b054c47ad00a6f9a90469d5c3fa7f5b38fc32126bcd5eace",
+      "render": "nine_slice",
+      "suggested_slice_xy": [
+        24,
+        24
+      ]
+    },
+    "buttons/standard/normal": {
+      "file": "src/main/resources/assets/neoworld/textures/gui/shop/arcane/buttons/standard/normal.png",
+      "size": [
+        314,
+        122
+      ],
+      "source_sheet": "docs/gui/shop/arcane/sources/widgets.png",
+      "source_rect_xywh": [
+        71,
+        376,
+        310,
+        118
+      ],
+      "opaque_bounds_xyxy": [
+        2,
+        2,
+        312,
+        120
+      ],
+      "padding_xy": [
+        2,
+        2
+      ],
+      "alpha_levels": [
+        0,
+        255
+      ],
+      "sha256": "c54366c03d3c45f14b1641f52f67ccbf0fff6915387816612ee6157c87776d1f",
+      "render": "nine_slice",
+      "suggested_slice_xy": [
+        24,
+        24
+      ]
+    },
+    "buttons/standard/hover": {
+      "file": "src/main/resources/assets/neoworld/textures/gui/shop/arcane/buttons/standard/hover.png",
+      "size": [
+        316,
+        122
+      ],
+      "source_sheet": "docs/gui/shop/arcane/sources/widgets.png",
+      "source_rect_xywh": [
+        437,
+        376,
+        312,
+        118
+      ],
+      "opaque_bounds_xyxy": [
+        2,
+        2,
+        314,
+        120
+      ],
+      "padding_xy": [
+        2,
+        2
+      ],
+      "alpha_levels": [
+        0,
+        255
+      ],
+      "sha256": "958cb4205344b9e57fc94c288ad46c4e9c43b3c007e8e851de2aaac82ab8dfce",
+      "render": "nine_slice",
+      "suggested_slice_xy": [
+        24,
+        24
+      ]
+    },
+    "buttons/standard/selected": {
+      "file": "src/main/resources/assets/neoworld/textures/gui/shop/arcane/buttons/standard/selected.png",
+      "size": [
+        315,
+        123
+      ],
+      "source_sheet": "docs/gui/shop/arcane/sources/widgets.png",
+      "source_rect_xywh": [
+        792,
+        375,
+        311,
+        119
+      ],
+      "opaque_bounds_xyxy": [
+        2,
+        2,
+        313,
+        121
+      ],
+      "padding_xy": [
+        2,
+        2
+      ],
+      "alpha_levels": [
+        0,
+        255
+      ],
+      "sha256": "fb6d8770e42c6914c547eb182042163600b718534a005ca1b144269e6057202f",
+      "render": "nine_slice",
+      "suggested_slice_xy": [
+        24,
+        24
+      ]
+    },
+    "buttons/standard/disabled": {
+      "file": "src/main/resources/assets/neoworld/textures/gui/shop/arcane/buttons/standard/disabled.png",
+      "size": [
+        315,
+        122
+      ],
+      "source_sheet": "docs/gui/shop/arcane/sources/widgets.png",
+      "source_rect_xywh": [
+        1155,
+        376,
+        311,
+        118
+      ],
+      "opaque_bounds_xyxy": [
+        2,
+        2,
+        313,
+        120
+      ],
+      "padding_xy": [
+        2,
+        2
+      ],
+      "alpha_levels": [
+        0,
+        255
+      ],
+      "sha256": "6b0190dc8743a3daa538083e32f93c3ff4e352936cdb81059fa500733e683f3e",
+      "render": "nine_slice",
+      "suggested_slice_xy": [
+        24,
+        24
+      ]
+    },
+    "buttons/primary/normal": {
+      "file": "src/main/resources/assets/neoworld/textures/gui/shop/arcane/buttons/primary/normal.png",
+      "size": [
+        344,
+        133
+      ],
+      "source_sheet": "docs/gui/shop/arcane/sources/widgets.png",
+      "source_rect_xywh": [
+        58,
+        562,
+        340,
+        129
+      ],
+      "opaque_bounds_xyxy": [
+        2,
+        2,
+        342,
+        131
+      ],
+      "padding_xy": [
+        2,
+        2
+      ],
+      "alpha_levels": [
+        0,
+        255
+      ],
+      "sha256": "8b1e98a72069f488d0a9c021232d8c31d563d64081f6580fdc12d8cbf628451a",
+      "render": "nine_slice",
+      "suggested_slice_xy": [
+        24,
+        24
+      ]
+    },
+    "buttons/primary/hover": {
+      "file": "src/main/resources/assets/neoworld/textures/gui/shop/arcane/buttons/primary/hover.png",
+      "size": [
+        339,
+        133
+      ],
+      "source_sheet": "docs/gui/shop/arcane/sources/widgets.png",
+      "source_rect_xywh": [
+        423,
+        562,
+        335,
+        129
+      ],
+      "opaque_bounds_xyxy": [
+        2,
+        2,
+        337,
+        131
+      ],
+      "padding_xy": [
+        2,
+        2
+      ],
+      "alpha_levels": [
+        0,
+        255
+      ],
+      "sha256": "0f5c17da089b2d42c8b7702e706e73e5a8ededd24f411284f17a975fb9d3e59f",
+      "render": "nine_slice",
+      "suggested_slice_xy": [
+        24,
+        24
+      ]
+    },
+    "buttons/primary/selected": {
+      "file": "src/main/resources/assets/neoworld/textures/gui/shop/arcane/buttons/primary/selected.png",
+      "size": [
+        363,
+        135
+      ],
+      "source_sheet": "docs/gui/shop/arcane/sources/widgets.png",
+      "source_rect_xywh": [
+        781,
+        560,
+        359,
+        131
+      ],
+      "opaque_bounds_xyxy": [
+        2,
+        2,
+        361,
+        133
+      ],
+      "padding_xy": [
+        2,
+        2
+      ],
+      "alpha_levels": [
+        0,
+        255
+      ],
+      "sha256": "a15585ec33e0f135c3c084c313c9dea68629979faef69046eede95a3cde295d3",
+      "render": "nine_slice",
+      "suggested_slice_xy": [
+        24,
+        24
+      ]
+    },
+    "buttons/primary/disabled": {
+      "file": "src/main/resources/assets/neoworld/textures/gui/shop/arcane/buttons/primary/disabled.png",
+      "size": [
+        343,
+        135
+      ],
+      "source_sheet": "docs/gui/shop/arcane/sources/widgets.png",
+      "source_rect_xywh": [
+        1140,
+        560,
+        339,
+        131
+      ],
+      "opaque_bounds_xyxy": [
+        2,
+        2,
+        341,
+        133
+      ],
+      "padding_xy": [
+        2,
+        2
+      ],
+      "alpha_levels": [
+        0,
+        255
+      ],
+      "sha256": "39bb9b4984eeba59cfe7695cd2214391d1abcee90e8d908d61e3116641b9297b",
+      "render": "nine_slice",
+      "suggested_slice_xy": [
+        24,
+        24
+      ]
+    },
+    "buttons/close/normal": {
+      "file": "src/main/resources/assets/neoworld/textures/gui/shop/arcane/buttons/close/normal.png",
+      "size": [
+        209,
+        209
+      ],
+      "source_sheet": "docs/gui/shop/arcane/sources/widgets.png",
+      "source_rect_xywh": [
+        129,
+        749,
+        205,
+        193
+      ],
+      "opaque_bounds_xyxy": [
+        2,
+        8,
+        207,
+        201
+      ],
+      "padding_xy": [
+        2,
+        8
+      ],
+      "alpha_levels": [
+        0,
+        255
+      ],
+      "sha256": "82b45d62d87df7e1ff2fa8f5dd26c42139292eba8f235cefeb04da668911b23f",
+      "render": "nine_slice",
+      "suggested_slice_xy": [
+        24,
+        24
+      ]
+    },
+    "buttons/close/hover": {
+      "file": "src/main/resources/assets/neoworld/textures/gui/shop/arcane/buttons/close/hover.png",
+      "size": [
+        211,
+        211
+      ],
+      "source_sheet": "docs/gui/shop/arcane/sources/widgets.png",
+      "source_rect_xywh": [
+        485,
+        748,
+        207,
+        195
+      ],
+      "opaque_bounds_xyxy": [
+        2,
+        8,
+        209,
+        203
+      ],
+      "padding_xy": [
+        2,
+        8
+      ],
+      "alpha_levels": [
+        0,
+        255
+      ],
+      "sha256": "80c2e23d600a1dbb3ee4255da1b8fb4a15c0e39e61cd3a49a1d02aa053cbf152",
+      "render": "nine_slice",
+      "suggested_slice_xy": [
+        24,
+        24
+      ]
+    },
+    "buttons/close/selected": {
+      "file": "src/main/resources/assets/neoworld/textures/gui/shop/arcane/buttons/close/selected.png",
+      "size": [
+        213,
+        213
+      ],
+      "source_sheet": "docs/gui/shop/arcane/sources/widgets.png",
+      "source_rect_xywh": [
+        842,
+        748,
+        209,
+        195
+      ],
+      "opaque_bounds_xyxy": [
+        2,
+        9,
+        211,
+        204
+      ],
+      "padding_xy": [
+        2,
+        9
+      ],
+      "alpha_levels": [
+        0,
+        255
+      ],
+      "sha256": "204f1af52ec95afcca62253aa6535d4e80ac7e4aa523147a223c0a223a8185b8",
+      "render": "nine_slice",
+      "suggested_slice_xy": [
+        24,
+        24
+      ]
+    },
+    "buttons/close/disabled": {
+      "file": "src/main/resources/assets/neoworld/textures/gui/shop/arcane/buttons/close/disabled.png",
+      "size": [
+        210,
+        210
+      ],
+      "source_sheet": "docs/gui/shop/arcane/sources/widgets.png",
+      "source_rect_xywh": [
+        1198,
+        748,
+        206,
+        194
+      ],
+      "opaque_bounds_xyxy": [
+        2,
+        8,
+        208,
+        202
+      ],
+      "padding_xy": [
+        2,
+        8
+      ],
+      "alpha_levels": [
+        0,
+        255
+      ],
+      "sha256": "95baaf46599f1bfd614f114aa559fdb617f2378d327d7149b67ae28e1b330d04",
+      "render": "nine_slice",
+      "suggested_slice_xy": [
+        24,
+        24
+      ]
+    },
+    "icons/left": {
+      "file": "src/main/resources/assets/neoworld/textures/gui/shop/arcane/icons/left.png",
+      "size": [
+        359,
+        359
+      ],
+      "source_sheet": "docs/gui/shop/arcane/sources/icons.png",
+      "source_rect_xywh": [
+        272,
+        202,
+        219,
+        355
+      ],
+      "opaque_bounds_xyxy": [
+        70,
+        2,
+        289,
+        357
+      ],
+      "padding_xy": [
+        70,
+        2
+      ],
+      "alpha_levels": [
+        0,
+        255
+      ],
+      "sha256": "fbc366b2e2a6fc4d467b84f11b3e9c234c88121e9d971a7396f3b5507b3be0ce",
+      "render": "preserve_aspect"
+    },
+    "icons/right": {
+      "file": "src/main/resources/assets/neoworld/textures/gui/shop/arcane/icons/right.png",
+      "size": [
+        362,
+        362
+      ],
+      "source_sheet": "docs/gui/shop/arcane/sources/icons.png",
+      "source_rect_xywh": [
+        1006,
+        194,
+        220,
+        358
+      ],
+      "opaque_bounds_xyxy": [
+        71,
+        2,
+        291,
+        360
+      ],
+      "padding_xy": [
+        71,
+        2
+      ],
+      "alpha_levels": [
+        0,
+        255
+      ],
+      "sha256": "17e73975a5e665f14ce8f6e3e604c59629a12a54ed6f15d1f3373a74d5784bbd",
+      "render": "preserve_aspect"
+    },
+    "icons/close": {
+      "file": "src/main/resources/assets/neoworld/textures/gui/shop/arcane/icons/close.png",
+      "size": [
+        312,
+        312
+      ],
+      "source_sheet": "docs/gui/shop/arcane/sources/icons.png",
+      "source_rect_xywh": [
+        1613,
+        223,
+        306,
+        308
+      ],
+      "opaque_bounds_xyxy": [
+        3,
+        2,
+        309,
+        310
+      ],
+      "padding_xy": [
+        3,
+        2
+      ],
+      "alpha_levels": [
+        0,
+        255
+      ],
+      "sha256": "0c3490ace219464966c12491d1a61cc83e604223fc06b2a13ddb800c54e9e051",
+      "render": "preserve_aspect"
+    }
+  },
+  "shared_currency_icons": {
+    "silver": "neoworld:textures/font/icons/silver_coin.png",
+    "diamond": "neoworld:textures/font/icons/diamond_coin.png"
+  }
+}

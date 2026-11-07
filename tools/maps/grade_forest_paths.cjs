@@ -1,0 +1,13 @@
+// Saved-world adjustment only: remove two-block steps on the new terrain routes.
+const fs=require('node:fs'),path=require('node:path'),crypto=require('node:crypto'),assert=require('node:assert/strict');
+const {createLibrary}=require('./viewer/map-library.cjs'),{patch}=require('./smooth_active_land.cjs');
+const root=path.resolve(__dirname,'../..'),dir=path.join(root,'maps/leveling_island_01'),file=path.join(dir,'region/r.0.0.mca');
+const layout=JSON.parse(fs.readFileSync(path.join(dir,'layout.json'))),m=createLibrary(path.join(root,'maps')).load('leveling_island_01'),bytes=Buffer.from(m.blocks,'base64'),S=m.size,data=new Uint16Array(bytes.length/2);
+for(let i=0;i<data.length;i++)data[i]=bytes.readUInt16LE(i*2);const original=data.slice(),before=fs.readFileSync(file),hash=b=>crypto.createHash('sha256').update(b).digest('hex');
+const at=(x,y,z)=>(y-m.low)*S*S+z*S+x,air=m.definitions.findIndex(d=>d.Name==='minecraft:air'),dirt=m.definitions.findIndex(d=>d.Name==='minecraft:dirt'),road=m.definitions.findIndex(d=>d.Name==='minecraft:coarse_dirt');
+const top=(x,z)=>{for(let y=m.high-1;y>=m.low;y--)if(data[at(x,y,z)]!==air)return y;return null;};
+const lines=layout.paths.map(points=>{const line=[];for(let j=1;j<points.length;j++){const a=points[j-1],b=points[j],n=Math.ceil(Math.hypot(b[0]-a[0],b[1]-a[1])*2);for(let i=0;i<=n;i++){const t=i/n;line.push([Math.round(a[0]+(b[0]-a[0])*t),Math.round(a[1]+(b[1]-a[1])*t)]);}}return line;});
+for(let pass=0;pass<40;pass++){let changed=false;for(const line of lines)for(let i=1;i<line.length;i++){const a=line[i-1],b=line[i],ay=top(...a),by=top(...b);if(Math.abs(ay-by)<=1)continue;const [x,z]=ay>by?a:b,desired=Math.min(ay,by)+1;for(let dz=-2;dz<=2;dz++)for(let dx=-2;dx<=2;dx++){const xx=x+dx,zz=z+dz,y=top(xx,zz);if(y===null||y<=desired)continue;const surface=data[at(xx,y,zz)];for(let yy=desired+1;yy<=y;yy++)data[at(xx,yy,zz)]=air;data[at(xx,desired,zz)]=surface===road?road:surface;if(data[at(xx,desired-1,zz)]===air)data[at(xx,desired-1,zz)]=dirt;}changed=true;}if(!changed)break;}
+for(const line of lines)for(let i=1;i<line.length;i++)assert(Math.abs(top(...line[i])-top(...line[i-1]))<=1,'Route grading did not converge');
+const output=patch(m,data,original,before);assert.equal(hash(fs.readFileSync(file)),hash(before),'Concurrent region change');
+const backup=path.join(root,'archive/map-edit-backups/forest-basin-route-grade');assert(!fs.existsSync(backup),'Already graded');fs.mkdirSync(backup,{recursive:true});fs.writeFileSync(path.join(backup,'r.0.0.mca'),before);fs.writeFileSync(file+'.pending',output.bytes);fs.renameSync(file+'.pending',file);console.log(JSON.stringify({changedChunks:output.changed,maxAdjacentRouteStep:1}));

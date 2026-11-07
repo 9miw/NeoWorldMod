@@ -3,10 +3,10 @@ package com.ambition.neoworld.client.gui.common;
 import java.util.List;
 import java.util.Objects;
 
-import com.ambition.neoworld.NeoWorld;
+import com.ambition.neoworld.client.gui.style.NeoGuiStyle;
 import com.ambition.neoworld.client.gui.widget.NeoButton;
 import com.ambition.neoworld.client.gui.widget.NeoProgressBar;
-import com.mojang.blaze3d.systems.RenderSystem;
+import com.ambition.neoworld.client.gui.widget.NeoTitlePlaque;
 
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.GuiGraphics;
@@ -14,7 +14,6 @@ import net.minecraft.client.gui.components.Button;
 import net.minecraft.client.gui.screens.Screen;
 import net.minecraft.locale.Language;
 import net.minecraft.network.chat.Component;
-import net.minecraft.resources.ResourceLocation;
 import net.minecraft.util.FormattedCharSequence;
 
 /** Shared modal notification screen for NeoWorld client interfaces. */
@@ -26,15 +25,8 @@ public final class NeoPopupScreen extends Screen {
     private static final int BOTTOM_PADDING = 10;
     private static final int COUNTDOWN_HEIGHT = 28;
     private static final int PLAQUE_OVERHANG = 14;
-    private static final ResourceLocation PLAQUE_TEXTURE = ResourceLocation.fromNamespaceAndPath(
-            NeoWorld.MODID, "textures/gui/common/buttons.png");
-    private static final int COLOR_OVERLAY = 0xB0000000;
-    private static final int COLOR_PANEL = 0xFF171C20;
-    private static final int COLOR_PANEL_INNER = 0xFF20272C;
-    private static final int COLOR_FRAME = 0xFF4B555C;
-    private static final int COLOR_FRAME_LIGHT = 0xFF8B969D;
+    private static final int COLOR_OVERLAY = 0x40000000;
     private static final int COLOR_TEXT = 0xFFE7ECEF;
-    private static final int COLOR_TEAL = 0xFF2FB5A7;
     private static final int COLOR_GOLD = 0xFFF2C14E;
     private static final Runnable NO_ACTION = () -> {};
 
@@ -59,6 +51,8 @@ public final class NeoPopupScreen extends Screen {
     private int countdownY;
     private final NeoProgressBar countdownBar = new NeoProgressBar(0, 0, 0, 0)
             .showPercentage(false).loading(true);
+    private final NeoTitlePlaque notificationPlaque = new NeoTitlePlaque(0, 0, 0, 20,
+            Component.literal("แจ้งเตือน")).style(NeoTitlePlaque.Style.RAISED).shadow(true);
     private List<FormattedCharSequence> messageLines = List.of();
     private boolean finished;
 
@@ -131,6 +125,9 @@ public final class NeoPopupScreen extends Screen {
         panelHeight = Math.min(availableHeight, Math.max(mode == Mode.COUNTDOWN ? 134 : 112, contentHeight));
         panelX = (width - panelWidth) / 2;
         panelY = (height - panelHeight + PLAQUE_OVERHANG) / 2;
+        int plaqueWidth = Math.min(110, panelWidth);
+        notificationPlaque.bounds(panelX + (panelWidth - plaqueWidth) / 2,
+                panelY - PLAQUE_OVERHANG, plaqueWidth, 20);
 
         int buttonY = panelY + panelHeight - BOTTOM_PADDING - BUTTON_HEIGHT;
         countdownY = buttonY - COUNTDOWN_HEIGHT;
@@ -181,21 +178,24 @@ public final class NeoPopupScreen extends Screen {
     }
 
     private void renderPanel(GuiGraphics graphics) {
-        graphics.fill(panelX, panelY, panelX + panelWidth, panelY + panelHeight, COLOR_PANEL);
-        graphics.renderOutline(panelX, panelY, panelWidth, panelHeight, COLOR_FRAME_LIGHT);
-        graphics.renderOutline(panelX + 2, panelY + 2, panelWidth - 4, panelHeight - 4, COLOR_FRAME);
-        graphics.fill(panelX + 5, panelY + 5, panelX + panelWidth - 5, panelY + panelHeight - 5,
-                COLOR_PANEL_INNER);
+        graphics.fill(panelX, panelY, panelX + panelWidth, panelY + panelHeight,
+                NeoGuiStyle.COLOR_PANEL | 0xFF000000);
+        graphics.renderOutline(panelX, panelY, panelWidth, panelHeight, NeoGuiStyle.COLOR_FRAME_LIGHT);
+        if (panelWidth > 4 && panelHeight > 4) {
+            graphics.renderOutline(panelX + 2, panelY + 2, panelWidth - 4, panelHeight - 4,
+                    NeoGuiStyle.COLOR_FRAME);
+        }
 
-        renderTitlePlaque(graphics);
-        drawCentered(graphics, title, panelY + 18, COLOR_TEAL);
+        notificationPlaque.render(graphics, font);
+        drawCentered(graphics, title, panelY + 18, COLOR_TEXT);
         int textY = panelY + MESSAGE_TOP;
         boolean truncated = messageLines.size() > visibleMessageLines;
         for (int index = 0; index < visibleMessageLines; index++) {
             FormattedCharSequence line = truncated && index == visibleMessageLines - 1
                     ? Component.literal("...").getVisualOrderText() : messageLines.get(index);
-            graphics.drawString(font, line, panelX + 16, textY + index * messageLineHeight,
-                    COLOR_TEXT, false);
+            graphics.drawString(font, line, panelX + (panelWidth - font.width(line)) / 2,
+                    textY + index * messageLineHeight,
+                    COLOR_TEXT, true);
         }
 
         if (mode == Mode.COUNTDOWN) {
@@ -210,24 +210,10 @@ public final class NeoPopupScreen extends Screen {
         }
     }
 
-    private void renderTitlePlaque(GuiGraphics graphics) {
-        int plaqueWidth = Math.min(110, panelWidth);
-        int plaqueX = panelX + (panelWidth - plaqueWidth) / 2;
-        int plaqueY = panelY - PLAQUE_OVERHANG;
-        // Decorative primary-state PNG only: the plaque is not an input widget.
-        RenderSystem.enableBlend();
-        graphics.blit(PLAQUE_TEXTURE, plaqueX, plaqueY, plaqueWidth, 20,
-                28, 441, 350, 144, 1536, 1024);
-        FormattedCharSequence label = Language.getInstance().getVisualOrder(
-                font.substrByWidth(Component.literal("แจ้งเตือน"), Math.max(1, plaqueWidth - 12)));
-        graphics.drawString(font, label, plaqueX + (plaqueWidth - font.width(label)) / 2,
-                plaqueY + (20 - font.lineHeight) / 2, COLOR_TEXT, false);
-    }
-
     private void drawCentered(GuiGraphics graphics, Component text, int y, int color) {
         FormattedCharSequence clipped = Language.getInstance().getVisualOrder(
                 font.substrByWidth(text, Math.max(1, panelWidth - 32)));
-        graphics.drawString(font, clipped, panelX + (panelWidth - font.width(clipped)) / 2, y, color, false);
+        graphics.drawString(font, clipped, panelX + (panelWidth - font.width(clipped)) / 2, y, color, true);
     }
 
     private void finish(Runnable callback) {

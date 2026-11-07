@@ -1,0 +1,101 @@
+# ตัวอย่างค่าเริ่มต้นของระบบ EXP; แก้ไฟล์จริงใน <world>/serverconfig/
+[monsterExperience]
+# เปิด/ปิดการดรอปใหม่ ไอเทม EXP ที่มีอยู่แล้วไม่เปลี่ยน
+enabled = true
+# ดาเมจผู้เล่นรวมขั้นต่ำเป็น % ของเลือดสูงสุด (0–100)
+minimumPlayerDamagePercent = 50.0
+# เวลาหลังดาเมจผู้เล่นครั้งล่าสุด หน่วยวินาทีในเกม (1–3600)
+combatWindowSeconds = 15
+# 0 = ปิด EXP จากสปอว์เนอร์, 0.25 = 25%, 1 = เต็ม (0–100)
+spawnerExpMultiplier = 0.25
+# Dimension ID ของโลกเก็บเลเวลสำหรับแชร์ EXP ปาร์ตี้; เว้นว่างเพื่อปิด
+partySharedExpDimension = ""
+# entity_id=ต่ำสุด,สูงสุด; ใช้ 0,0 หรือเอารายการออกเพื่อปิดชนิดนั้น
+# เพิ่มรหัสมอนสเตอร์จากม็อดได้ รหัสซ้ำใช้ค่าจากรายการท้ายสุด
+# ขนาด Slime/Magma Cube: @small = 1, @medium = 2, @large = 4 ขึ้นไป
+rewards = [
+    "minecraft:silverfish=10,20",
+    "minecraft:endermite=10,20",
+    "minecraft:zombie=80,120",
+    "minecraft:spider=90,130",
+    "minecraft:husk=100,140",
+    "minecraft:skeleton=120,180",
+    "minecraft:drowned=120,180",
+    "minecraft:cave_spider=140,200",
+    "minecraft:creeper=160,240",
+    "minecraft:stray=180,260",
+    "minecraft:bogged=180,260",
+    "minecraft:pillager=180,260",
+    "minecraft:piglin=180,260",
+    "minecraft:phantom=200,300",
+    "minecraft:witch=280,420",
+    "minecraft:vindicator=300,450",
+    "minecraft:wither_skeleton=300,450",
+    "minecraft:evoker=600,900",
+    "minecraft:piglin_brute=600,900",
+    "minecraft:ravager=1000,1500",
+    "minecraft:zombified_piglin=100,150",
+    "minecraft:hoglin=250,350",
+    "minecraft:zoglin=250,350",
+    "minecraft:blaze=250,350",
+    "minecraft:enderman=250,350",
+    "minecraft:guardian=250,350",
+    "minecraft:ghast=300,500",
+    "minecraft:shulker=350,550",
+    "minecraft:elder_guardian=2000,3000",
+    "minecraft:breeze=400,600",
+    "minecraft:wither=8000,12000",
+    "minecraft:ender_dragon=15000,25000",
+    "minecraft:slime@small=5,10",
+    "minecraft:slime@medium=30,50",
+    "minecraft:slime@large=80,120",
+    "minecraft:magma_cube@small=10,20",
+    "minecraft:magma_cube@medium=50,80",
+    "minecraft:magma_cube@large=120,180",
+    "minecraft:vex=0,0",
+    "minecraft:warden=0,0"
+]
+# เลเวลแสดงเหนือหัวอย่างเดียว: [Lv. 3] Zombie; ไม่เปลี่ยนค่าสถานะหรือ EXP
+# 0 หรือเอารายการออก = ซ่อนป้ายเลเวล; รายการว่าง = ไม่แสดงทุกชนิด
+levels = [
+    "minecraft:silverfish=1",
+    "minecraft:endermite=1",
+    "minecraft:zombie=3",
+    "minecraft:spider=5",
+    "minecraft:husk=7",
+    "minecraft:skeleton=9",
+    "minecraft:drowned=9",
+    "minecraft:cave_spider=11",
+    "minecraft:creeper=13",
+    "minecraft:stray=15",
+    "minecraft:bogged=15",
+    "minecraft:phantom=17",
+    "minecraft:pillager=17",
+    "minecraft:witch=19",
+    "minecraft:zombified_piglin=20",
+    "minecraft:piglin=23",
+    "minecraft:hoglin=25",
+    "minecraft:zoglin=25",
+    "minecraft:blaze=28",
+    "minecraft:guardian=28",
+    "minecraft:enderman=30",
+    "minecraft:vindicator=30",
+    "minecraft:wither_skeleton=33",
+    "minecraft:ghast=33",
+    "minecraft:breeze=35",
+    "minecraft:shulker=35",
+    "minecraft:evoker=40",
+    "minecraft:piglin_brute=40",
+    "minecraft:ravager=45",
+    "minecraft:elder_guardian=50",
+    "minecraft:wither=70",
+    "minecraft:ender_dragon=80",
+    "minecraft:warden=90",
+    "minecraft:vex=30",
+    "minecraft:slime@small=1",
+    "minecraft:slime@medium=5",
+    "minecraft:slime@large=10",
+    "minecraft:magma_cube@small=10",
+    "minecraft:magma_cube@medium=15",
+    "minecraft:magma_cube@large=20"
+]

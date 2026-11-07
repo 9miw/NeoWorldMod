@@ -32,14 +32,14 @@ public final class LevelCommand {
     public static LiteralArgumentBuilder<CommandSourceStack> buildCommand() {
         return Commands.literal("level")
             .requires(source -> ModPermissions.hasPermission(source, ModPermissions.COMMAND_LEVEL_GET, 0))
-            // พิมพ์ /neoworld level หรือ /neow level เปล่าๆ -> แสดงเลเวลและ EXP ของตนเองทันที
+            // พิมพ์ /neow level หรือ /neow level เปล่าๆ -> แสดงเลเวลและ EXP ของตนเองทันที
             .executes(context -> {
                 ServerPlayer player = context.getSource().getPlayerOrException();
                 showLevel(player);
                 showHelp(player);
                 return 1;
             })
-            // /neoworld level help
+            // /neow level help
             .then(Commands.literal("help")
                 .executes(context -> {
                     ServerPlayer player = context.getSource().getPlayerOrException();
@@ -47,7 +47,7 @@ public final class LevelCommand {
                     return 1;
                 })
             )
-            // /neoworld level get
+            // /neow level get
             .then(Commands.literal("get")
                 .requires(source -> ModPermissions.hasPermission(source, ModPermissions.COMMAND_LEVEL_GET, 0))
                 .executes(context -> {
@@ -57,14 +57,22 @@ public final class LevelCommand {
                     return 1;
                 })
             )
-            // /neoworld level addexp <amount> [player]
+            .then(buildAdminCommand());
+    }
+
+    private static LiteralArgumentBuilder<CommandSourceStack> buildAdminCommand() {
+        return Commands.literal("admin")
+            .requires(LevelCommand::canUseAdmin)
+            .executes(context -> showAdminHelp(context.getSource()))
+            .then(Commands.literal("help").executes(context -> showAdminHelp(context.getSource())))
+            // /neow level admin addexp <amount> [player]
             .then(Commands.literal("addexp")
                 .requires(source -> ModPermissions.hasPermission(source, ModPermissions.COMMAND_LEVEL_ADDEXP, 2))
                 .then(Commands.argument("amount", LongArgumentType.longArg(1))
                     .executes(context -> {
                         ServerPlayer player = context.getSource().getPlayerOrException();
                         long amount = LongArgumentType.getLong(context, "amount");
-                        PlayerLevelManager.addExp(player, amount);
+                        PlayerLevelManager.addAdminExp(player, amount);
                         context.getSource().sendSuccess(() ->
                             Component.literal("§a[NeoWorld] §fเพิ่ม EXP จำนวน §e+" + amount + " §fให้ตัวเองแล้ว"), false);
                         return 1;
@@ -73,7 +81,7 @@ public final class LevelCommand {
                         .executes(context -> {
                             ServerPlayer target = EntityArgument.getPlayer(context, "target");
                             long amount = LongArgumentType.getLong(context, "amount");
-                            PlayerLevelManager.addExp(target, amount);
+                            PlayerLevelManager.addAdminExp(target, amount);
                             context.getSource().sendSuccess(() ->
                                 Component.literal("§a[NeoWorld] §fเพิ่ม EXP จำนวน §e+" + amount + " §fให้ §b" + target.getName().getString() + " §fแล้ว"), true);
                             return 1;
@@ -81,7 +89,30 @@ public final class LevelCommand {
                     )
                 )
             )
-            // /neoworld level set <level> [player]
+            // /neow level admin removeexp <amount> [player]
+            .then(Commands.literal("removeexp")
+                .requires(source -> ModPermissions.hasPermission(source, ModPermissions.COMMAND_LEVEL_REMOVEEXP, 2))
+                .then(Commands.argument("amount", LongArgumentType.longArg(1))
+                    .executes(context -> {
+                        ServerPlayer player = context.getSource().getPlayerOrException();
+                        long amount = LongArgumentType.getLong(context, "amount");
+                        PlayerLevelManager.removeExp(player, amount);
+                        context.getSource().sendSuccess(() -> Component.literal("§a[NeoWorld] ลด EXP และยอดสะสมให้ตัวเองแล้ว"), false);
+                        return 1;
+                    })
+                    .then(Commands.argument("target", EntityArgument.player())
+                        .executes(context -> {
+                            ServerPlayer target = EntityArgument.getPlayer(context, "target");
+                            long amount = LongArgumentType.getLong(context, "amount");
+                            PlayerLevelManager.removeExp(target, amount);
+                            context.getSource().sendSuccess(() -> Component.literal("§a[NeoWorld] ลด EXP และยอดสะสมให้ "
+                                    + target.getName().getString() + " แล้ว"), true);
+                            return 1;
+                        })
+                    )
+                )
+            )
+            // /neow level admin set <level> [player]
             .then(Commands.literal("set")
                 .requires(source -> ModPermissions.hasPermission(source, ModPermissions.COMMAND_LEVEL_SET, 2))
                 .then(Commands.argument("level", IntegerArgumentType.integer(1, LevelFormula.MAX_LEVEL))
@@ -105,7 +136,7 @@ public final class LevelCommand {
                     )
                 )
             )
-            // /neoworld level item set <level> และ /neoworld level item clear สำหรับไอเทมในมือ
+            // /neow level admin item set <level> และ /neow level admin item clear สำหรับไอเทมในมือ
             .then(Commands.literal("item")
                 .requires(source -> ModPermissions.hasPermission(source, ModPermissions.COMMAND_LEVEL_SET, 2))
                 .then(Commands.literal("set")
@@ -145,7 +176,7 @@ public final class LevelCommand {
                     })
                 )
             )
-            // /neoworld level expitem set <minimum> <maximum>
+            // /neow level admin expitem set <minimum> <maximum>
             .then(Commands.literal("expitem")
                 .requires(source -> ModPermissions.hasPermission(source, ModPermissions.COMMAND_LEVEL_SET, 2))
                 .then(Commands.literal("set")
@@ -189,13 +220,31 @@ public final class LevelCommand {
     }
 
     private static void showHelp(ServerPlayer player) {
-        player.sendSystemMessage(Component.literal("§6=== คำสั่ง Level ที่คลิกได้ ==="));
-        player.sendSystemMessage(commandButton("/neoworld level get", "ดูเลเวลของตัวเอง", true));
-        player.sendSystemMessage(commandButton("/neoworld level addexp 100", "เพิ่ม EXP ให้ตัวเอง", false));
-        player.sendSystemMessage(commandButton("/neoworld level set 1", "ตั้งเลเวลตัวเอง", false));
-        player.sendSystemMessage(commandButton("/neoworld level item set 1", "ตั้งเลเวลไอเทมในมือ", false));
-        player.sendSystemMessage(commandButton("/neoworld level item clear", "ล้างเลเวลไอเทมในมือ", true));
-        player.sendSystemMessage(commandButton("/neoworld level expitem set 10 100", "ตั้งช่วงสุ่ม EXP ในมือ", false));
+        player.sendSystemMessage(Component.literal("§6=== คำสั่ง Level ทั่วไป ==="));
+        player.sendSystemMessage(commandButton("/neow level get", "ดูเลเวลของตัวเอง", true));
+        if (canUseAdmin(player.createCommandSourceStack()))
+            player.sendSystemMessage(commandButton("/neow level admin help", "ดูคำสั่งแอดมิน", true));
+    }
+
+    private static boolean canUseAdmin(CommandSourceStack source) {
+        return ModPermissions.hasPermission(source, ModPermissions.COMMAND_LEVEL_ADDEXP, 2)
+                || ModPermissions.hasPermission(source, ModPermissions.COMMAND_LEVEL_REMOVEEXP, 2)
+                || ModPermissions.hasPermission(source, ModPermissions.COMMAND_LEVEL_SET, 2);
+    }
+
+    private static int showAdminHelp(CommandSourceStack source) {
+        source.sendSuccess(() -> Component.literal("§6=== คำสั่ง Level แอดมิน ==="), false);
+        if (ModPermissions.hasPermission(source, ModPermissions.COMMAND_LEVEL_ADDEXP, 2))
+            source.sendSuccess(() -> commandButton("/neow level admin addexp <amount> [player]", "เพิ่ม EXP", false), false);
+        if (ModPermissions.hasPermission(source, ModPermissions.COMMAND_LEVEL_REMOVEEXP, 2))
+            source.sendSuccess(() -> commandButton("/neow level admin removeexp <amount> [player]", "ลด EXP เลเวล และยอดสะสม", false), false);
+        if (ModPermissions.hasPermission(source, ModPermissions.COMMAND_LEVEL_SET, 2)) {
+            source.sendSuccess(() -> commandButton("/neow level admin set <level> [player]", "ตั้งเลเวล", false), false);
+            source.sendSuccess(() -> commandButton("/neow level admin item set <level>", "ตั้งเลเวลไอเทมในมือ", false), false);
+            source.sendSuccess(() -> commandButton("/neow level admin item clear", "ล้างเลเวลไอเทมในมือ", false), false);
+            source.sendSuccess(() -> commandButton("/neow level admin expitem set <minimum> <maximum>", "ตั้งช่วงสุ่ม EXP ในมือ", false), false);
+        }
+        return 1;
     }
 
     private static MutableComponent commandButton(String command, String description, boolean runOnClick) {

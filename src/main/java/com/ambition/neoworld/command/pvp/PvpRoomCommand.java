@@ -20,8 +20,6 @@ public final class PvpRoomCommand {
                         .executes(ctx -> run(ctx.getSource(), (manager, player) -> manager.create(player, StringArgumentType.getString(ctx, "arena"))))))
                 .then(Commands.literal("join").then(Commands.argument("id", IntegerArgumentType.integer(1))
                         .executes(ctx -> run(ctx.getSource(), (manager, player) -> manager.join(player, IntegerArgumentType.getInteger(ctx, "id"))))))
-                .then(Commands.literal("ready").executes(ctx -> run(ctx.getSource(), (manager, player) -> manager.ready(player, true))))
-                .then(Commands.literal("unready").executes(ctx -> run(ctx.getSource(), (manager, player) -> manager.ready(player, false))))
                 .then(Commands.literal("start").executes(ctx -> run(ctx.getSource(), PvpRoomManager::start)))
                 .then(Commands.literal("leave").executes(ctx -> run(ctx.getSource(), PvpRoomManager::leave)))
                 .then(Commands.literal("cancel").executes(ctx -> run(ctx.getSource(), PvpRoomManager::cancel)))
@@ -32,7 +30,7 @@ public final class PvpRoomCommand {
                     for (var id : room.members()) {
                         var member = player.getServer().getPlayerList().getPlayer(id);
                         player.sendSystemMessage(Component.literal((member == null ? id.toString() : member.getGameProfile().getName())
-                                + (id.equals(room.owner()) ? " (owner)" : "") + " | ready=" + room.ready(id)));
+                                + (id.equals(room.owner()) ? " (owner)" : "")));
                     }
                 })))
                 .then(Commands.literal("list").executes(ctx -> {

@@ -1,0 +1,78 @@
+{
+    "CompleterNpc": "อัลเลย์",
+    "NextQuestId": 13,
+    "RandomReward": 0b,
+    "QuestRepeat": 0,
+    "QuestCompletion": 0,
+    "Title": "ก้าวแรก — รับเสบียงเริ่มต้น",
+    "Text": "คุยกับ§6§lอัลเลย์§rกลาง§bลานเกิด§r เลือกขอรับเสบียงเริ่มต้น เตรียมช่องว่างกระเป๋าอย่างน้อย§a7 ช่อง§r แล้วคุยอีกครั้งเพื่อรับของ รับได้ครั้งเดียว จากนั้นไปพบ§6§lเซริน§rที่§bโถงนักผจญภัย§rเพื่อรับงานกิลด์ครั้งแรก",
+    "QuestFactionPoints": {
+        "DecreaseFaction1Points": 0b,
+        "OptionFaction2Points": 0,
+        "OptionFactions1": 0,
+        "OptionFactions2": 0,
+        "OptionFaction1Points": 0,
+        "DecreaseFaction2Points": 0b
+    },
+    "RewardExp": 0,
+    "QuestCommand": "",
+    "QuestDialogs": [
+        {
+            "Integer": 23,
+            "Slot": 0
+        }
+    ],
+    "ModRev": 18,
+    "Type": 1,
+    "QuestMail": {
+        "Sender": "",
+        "BeenRead": 0b,
+        "Message": {
+        },
+        "MailItems": [
+        ],
+        "MailQuest": -1,
+        "TimePast": 1793037570421L,
+        "Time": 0L,
+        "Subject": ""
+    },
+    "Rewards": {
+        "NpcMiscInv": [
+            {
+                "count": 12,
+                "Slot": 0b,
+                "id": "minecraft:bread"
+            },
+            {
+                "count": 1,
+                "Slot": 1b,
+                "id": "minecraft:wooden_sword"
+            },
+            {
+                "count": 1,
+                "Slot": 2b,
+                "id": "minecraft:stone_pickaxe"
+            },
+            {
+                "count": 1,
+                "Slot": 3b,
+                "id": "minecraft:wooden_axe"
+            },
+            {
+                "count": 16,
+                "Slot": 4b,
+                "id": "minecraft:torch"
+            },
+            {
+                "count": 16,
+                "Slot": 5b,
+                "id": "minecraft:oak_planks"
+            },
+            {
+                "count": 1,
+                "Slot": 6b,
+                "id": "minecraft:spyglass"
+            }
+        ]
+    },
+    "CompleteText": "ได้รับชุดเริ่มต้นครบแล้ว! งานถัดไปคือ§aเดินทางไปกิลด์นักผจญภัย§r เมื่อถึงบริเวณภายใน§bโถงนักผจญภัย§rแล้ว งานเดินทางจะสำเร็จและเริ่มงานหลักให้โดยอัตโนมัติ ใช้ระบบนำทางช่วยหาเส้นทางได้"}

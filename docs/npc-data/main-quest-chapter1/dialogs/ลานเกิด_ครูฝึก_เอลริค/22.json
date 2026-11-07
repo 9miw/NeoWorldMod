@@ -1,0 +1,79 @@
+{
+    "DialogShowWheel": 0,
+    "AvailabilityQuestId": 5,
+    "Options": [
+        {
+            "OptionSlot": 0,
+            "Option": {
+                "DialogCommand": "",
+                "Dialog": 9,
+                "Title": "กลับไปถามเอลริค",
+                "DialogColor": 14737632,
+                "OptionType": 1
+            }
+        },
+        {
+            "OptionSlot": 5,
+            "Option": {
+                "DialogCommand": "",
+                "Dialog": -1,
+                "Title": "ไว้คุยกันใหม่",
+                "DialogColor": 14737632,
+                "OptionType": 0
+            }
+        }
+    ],
+    "AvailabilityScoreboardType": 1,
+    "DialogHideNPC": 0,
+    "AvailabilityFactionStance": 0,
+    "AvailabilityScoreboard2Value": 1,
+    "DialogId": 22,
+    "AvailabilityQuest": 6,
+    "AvailabilityDialog4": 0,
+    "AvailabilityScoreboardObjective": "",
+    "AvailabilityDialog3": 0,
+    "AvailabilityQuest2": 0,
+    "AvailabilityQuest3": 0,
+    "AvailabilityScoreboard2Objective": "",
+    "AvailabilityQuest4": 0,
+    "ModRev": 18,
+    "DecreaseFaction1Points": 0,
+    "DialogQuest": 5,
+    "AvailabilityDialog2": 0,
+    "OptionFactions1": -1,
+    "AvailabilityDayTime": 0,
+    "OptionFactions2": -1,
+    "AvailabilityFaction2Id": -1,
+    "OptionFaction1Points": 100,
+    "AvailabilityScoreboardValue": 1,
+    "DialogDisableEsc": 0,
+    "AvailabilityFaction": 0,
+    "DialogTitle": "ก้าวแรกของนักผจญภัย",
+    "AvailabilityDialog": 0,
+    "AvailabilityScoreboard2Type": 1,
+    "AvailabilityFaction2": 0,
+    "AvailabilityFactionId": -1,
+    "AvailabilityFaction2Stance": 0,
+    "DialogCommand": "",
+    "AvailabilityDialogId": -1,
+    "OptionFaction2Points": 100,
+    "DialogText": "ยินดีต้อนรับ @p! รับงานจาก§6§lเอลริค§rแล้วไปพบ§6§lอัลเลย์§rกลาง§bลานเกิด§r เลือกขอรับเสบียง แล้วคุยอีกครั้งเพื่อรับรางวัล ชุดเริ่มต้นรับได้§aครั้งเดียวต่อผู้เล่น§r จากนั้นไปพบ§6§lเซริน§rที่§bโถงนักผจญภัย§rเพื่อเริ่มงานหลัก ใช้ระบบนำทางช่วยได้",
+    "AvailabilityQuest4Id": -1,
+    "AvailabilityQuest3Id": -1,
+    "AvailabilityQuest2Id": -1,
+    "AvailabilityDialog2Id": -1,
+    "AvailabilityDialog3Id": -1,
+    "AvailabilityDialog4Id": -1,
+    "AvailabilityMinPlayerLevel": 0,
+    "DecreaseFaction2Points": 0,
+    "DialogMail": {
+        "Sender": "",
+        "BeenRead": 0,
+        "Message": {},
+        "MailItems": [],
+        "MailQuest": -1,
+        "TimePast": 0L,
+        "Time": 0,
+        "Subject": ""
+    }
+}

@@ -1,0 +1,909 @@
+{
+  "reference": "docs/gui/shop/obsidian/approved-mockup.png",
+  "stage": "separated assets; not yet integrated into the Shop renderer",
+  "alpha_threshold": 224,
+  "sampling": "nearest",
+  "source_dimensions": {
+    "frame": [
+      1448,
+      1086
+    ],
+    "panels": [
+      1536,
+      1024
+    ],
+    "widgets": [
+      1536,
+      1024
+    ],
+    "icons": [
+      1448,
+      1086
+    ]
+  },
+  "assets": {
+    "frame": {
+      "file": "src/main/resources/assets/neoworld/textures/gui/shop/obsidian/frame.png",
+      "size": [
+        1400,
+        975
+      ],
+      "source_sheet": "docs/gui/shop/obsidian/sources/frame.png",
+      "source_rect_xywh": [
+        26,
+        62,
+        1396,
+        971
+      ],
+      "opaque_bounds_xyxy": [
+        2,
+        2,
+        1398,
+        973
+      ],
+      "padding_xy": [
+        2,
+        2
+      ],
+      "alpha_levels": [
+        0,
+        255
+      ],
+      "sha256": "49787f1af2627095e59efb3e34c7e32c897c4808020173206b5b38ce6a6f8235",
+      "render": "preserve_aspect"
+    },
+    "panels/title": {
+      "file": "src/main/resources/assets/neoworld/textures/gui/shop/obsidian/panels/title.png",
+      "size": [
+        906,
+        193
+      ],
+      "source_sheet": "docs/gui/shop/obsidian/sources/panels.png",
+      "source_rect_xywh": [
+        317,
+        73,
+        902,
+        189
+      ],
+      "opaque_bounds_xyxy": [
+        2,
+        2,
+        904,
+        191
+      ],
+      "padding_xy": [
+        2,
+        2
+      ],
+      "alpha_levels": [
+        0,
+        255
+      ],
+      "sha256": "ac9852dab779cd349e172ef3d172889721c0e4a1845058752f1f671fb9152406",
+      "render": "preserve_aspect"
+    },
+    "panels/products": {
+      "file": "src/main/resources/assets/neoworld/textures/gui/shop/obsidian/panels/products.png",
+      "size": [
+        943,
+        441
+      ],
+      "source_sheet": "docs/gui/shop/obsidian/sources/panels.png",
+      "source_rect_xywh": [
+        46,
+        273,
+        939,
+        437
+      ],
+      "opaque_bounds_xyxy": [
+        2,
+        2,
+        941,
+        439
+      ],
+      "padding_xy": [
+        2,
+        2
+      ],
+      "alpha_levels": [
+        0,
+        255
+      ],
+      "sha256": "db70a6623cf9cffd5c06a7cd780b1ba8eb4f60f06f0d8a876e9807bc8e8193f8",
+      "render": "preserve_aspect"
+    },
+    "panels/details": {
+      "file": "src/main/resources/assets/neoworld/textures/gui/shop/obsidian/panels/details.png",
+      "size": [
+        493,
+        439
+      ],
+      "source_sheet": "docs/gui/shop/obsidian/sources/panels.png",
+      "source_rect_xywh": [
+        1001,
+        273,
+        489,
+        435
+      ],
+      "opaque_bounds_xyxy": [
+        2,
+        2,
+        491,
+        437
+      ],
+      "padding_xy": [
+        2,
+        2
+      ],
+      "alpha_levels": [
+        0,
+        255
+      ],
+      "sha256": "a9b9c904e88f2c16d037b4b3823e5d8a5efbdcb38bf55d0b656d69c785aeee13",
+      "render": "preserve_aspect"
+    },
+    "panels/inventory": {
+      "file": "src/main/resources/assets/neoworld/textures/gui/shop/obsidian/panels/inventory.png",
+      "size": [
+        1413,
+        236
+      ],
+      "source_sheet": "docs/gui/shop/obsidian/sources/panels.png",
+      "source_rect_xywh": [
+        64,
+        719,
+        1409,
+        232
+      ],
+      "opaque_bounds_xyxy": [
+        2,
+        2,
+        1411,
+        234
+      ],
+      "padding_xy": [
+        2,
+        2
+      ],
+      "alpha_levels": [
+        0,
+        255
+      ],
+      "sha256": "9ca871d619127a44910d920928a4cbb0a93d03847d01400989b27bb343f8e2cb",
+      "render": "preserve_aspect"
+    },
+    "slots/normal": {
+      "file": "src/main/resources/assets/neoworld/textures/gui/shop/obsidian/slots/normal.png",
+      "size": [
+        235,
+        235
+      ],
+      "source_sheet": "docs/gui/shop/obsidian/sources/widgets.png",
+      "source_rect_xywh": [
+        117,
+        83,
+        231,
+        225
+      ],
+      "opaque_bounds_xyxy": [
+        2,
+        2,
+        233,
+        233
+      ],
+      "padding_xy": [
+        2,
+        2
+      ],
+      "alpha_levels": [
+        0,
+        255
+      ],
+      "sha256": "244ff252615695a345b56e8453d7186be58ba460e3df98c389b37c9070123d19",
+      "render": "nine_slice",
+      "suggested_slice_xy": [
+        24,
+        24
+      ],
+      "normalized_from": [
+        231,
+        225
+      ],
+      "normalization": "nearest_once"
+    },
+    "slots/hover": {
+      "file": "src/main/resources/assets/neoworld/textures/gui/shop/obsidian/slots/hover.png",
+      "size": [
+        235,
+        235
+      ],
+      "source_sheet": "docs/gui/shop/obsidian/sources/widgets.png",
+      "source_rect_xywh": [
+        471,
+        80,
+        235,
+        228
+      ],
+      "opaque_bounds_xyxy": [
+        2,
+        2,
+        233,
+        233
+      ],
+      "padding_xy": [
+        2,
+        2
+      ],
+      "alpha_levels": [
+        0,
+        255
+      ],
+      "sha256": "53036c593a19f512a47002485bb27c71f8d99b8d6a13d8972561ddb75cb77ecb",
+      "render": "nine_slice",
+      "suggested_slice_xy": [
+        24,
+        24
+      ],
+      "normalized_from": [
+        235,
+        228
+      ],
+      "normalization": "nearest_once"
+    },
+    "slots/selected": {
+      "file": "src/main/resources/assets/neoworld/textures/gui/shop/obsidian/slots/selected.png",
+      "size": [
+        235,
+        235
+      ],
+      "source_sheet": "docs/gui/shop/obsidian/sources/widgets.png",
+      "source_rect_xywh": [
+        829,
+        80,
+        235,
+        228
+      ],
+      "opaque_bounds_xyxy": [
+        2,
+        2,
+        233,
+        233
+      ],
+      "padding_xy": [
+        2,
+        2
+      ],
+      "alpha_levels": [
+        0,
+        255
+      ],
+      "sha256": "ae566ee7aaa9f51e59892978b945f132781be44abf46f8e57e135737c824798b",
+      "render": "nine_slice",
+      "suggested_slice_xy": [
+        24,
+        24
+      ],
+      "normalized_from": [
+        235,
+        228
+      ],
+      "normalization": "nearest_once"
+    },
+    "slots/disabled": {
+      "file": "src/main/resources/assets/neoworld/textures/gui/shop/obsidian/slots/disabled.png",
+      "size": [
+        235,
+        235
+      ],
+      "source_sheet": "docs/gui/shop/obsidian/sources/widgets.png",
+      "source_rect_xywh": [
+        1188,
+        83,
+        235,
+        225
+      ],
+      "opaque_bounds_xyxy": [
+        2,
+        2,
+        233,
+        233
+      ],
+      "padding_xy": [
+        2,
+        2
+      ],
+      "alpha_levels": [
+        0,
+        255
+      ],
+      "sha256": "db0626a8a61dfe3b9ba078024a618fe9780e675a53102e6523c749734f593693",
+      "render": "nine_slice",
+      "suggested_slice_xy": [
+        24,
+        24
+      ],
+      "normalized_from": [
+        235,
+        225
+      ],
+      "normalization": "nearest_once"
+    },
+    "buttons/standard/normal": {
+      "file": "src/main/resources/assets/neoworld/textures/gui/shop/obsidian/buttons/standard/normal.png",
+      "size": [
+        344,
+        128
+      ],
+      "source_sheet": "docs/gui/shop/obsidian/sources/widgets.png",
+      "source_rect_xywh": [
+        60,
+        373,
+        340,
+        124
+      ],
+      "opaque_bounds_xyxy": [
+        2,
+        2,
+        342,
+        126
+      ],
+      "padding_xy": [
+        2,
+        2
+      ],
+      "alpha_levels": [
+        0,
+        255
+      ],
+      "sha256": "7e59e0b3592331f89c45afcdc4e1847ae294e2d1ad792792edd879dbcf576d1e",
+      "render": "nine_slice",
+      "suggested_slice_xy": [
+        24,
+        24
+      ],
+      "normalized_from": [
+        340,
+        124
+      ],
+      "normalization": "nearest_once"
+    },
+    "buttons/standard/hover": {
+      "file": "src/main/resources/assets/neoworld/textures/gui/shop/obsidian/buttons/standard/hover.png",
+      "size": [
+        344,
+        128
+      ],
+      "source_sheet": "docs/gui/shop/obsidian/sources/widgets.png",
+      "source_rect_xywh": [
+        423,
+        373,
+        336,
+        124
+      ],
+      "opaque_bounds_xyxy": [
+        2,
+        2,
+        342,
+        126
+      ],
+      "padding_xy": [
+        2,
+        2
+      ],
+      "alpha_levels": [
+        0,
+        255
+      ],
+      "sha256": "829df23811507f8c2830d2c45a6fa0b7c5ca1c7ed9bfb40a8ab37a51ec09aa82",
+      "render": "nine_slice",
+      "suggested_slice_xy": [
+        24,
+        24
+      ],
+      "normalized_from": [
+        336,
+        124
+      ],
+      "normalization": "nearest_once"
+    },
+    "buttons/standard/selected": {
+      "file": "src/main/resources/assets/neoworld/textures/gui/shop/obsidian/buttons/standard/selected.png",
+      "size": [
+        344,
+        128
+      ],
+      "source_sheet": "docs/gui/shop/obsidian/sources/widgets.png",
+      "source_rect_xywh": [
+        779,
+        373,
+        334,
+        124
+      ],
+      "opaque_bounds_xyxy": [
+        2,
+        2,
+        342,
+        126
+      ],
+      "padding_xy": [
+        2,
+        2
+      ],
+      "alpha_levels": [
+        0,
+        255
+      ],
+      "sha256": "12b8b601816acb2246cb670defd71c8ac93963d4d8e6a23610b710bd4d06b03a",
+      "render": "nine_slice",
+      "suggested_slice_xy": [
+        24,
+        24
+      ],
+      "normalized_from": [
+        334,
+        124
+      ],
+      "normalization": "nearest_once"
+    },
+    "buttons/standard/disabled": {
+      "file": "src/main/resources/assets/neoworld/textures/gui/shop/obsidian/buttons/standard/disabled.png",
+      "size": [
+        344,
+        128
+      ],
+      "source_sheet": "docs/gui/shop/obsidian/sources/widgets.png",
+      "source_rect_xywh": [
+        1137,
+        373,
+        340,
+        124
+      ],
+      "opaque_bounds_xyxy": [
+        2,
+        2,
+        342,
+        126
+      ],
+      "padding_xy": [
+        2,
+        2
+      ],
+      "alpha_levels": [
+        0,
+        255
+      ],
+      "sha256": "6e263b1bfd8e143ecc7491083ac25b84af088c5d9576ece10580d3ec0319e549",
+      "render": "nine_slice",
+      "suggested_slice_xy": [
+        24,
+        24
+      ],
+      "normalized_from": [
+        340,
+        124
+      ],
+      "normalization": "nearest_once"
+    },
+    "buttons/primary/normal": {
+      "file": "src/main/resources/assets/neoworld/textures/gui/shop/obsidian/buttons/primary/normal.png",
+      "size": [
+        349,
+        145
+      ],
+      "source_sheet": "docs/gui/shop/obsidian/sources/widgets.png",
+      "source_rect_xywh": [
+        56,
+        547,
+        345,
+        141
+      ],
+      "opaque_bounds_xyxy": [
+        2,
+        2,
+        347,
+        143
+      ],
+      "padding_xy": [
+        2,
+        2
+      ],
+      "alpha_levels": [
+        0,
+        255
+      ],
+      "sha256": "7474bfb4fa7f3093106ece65830287b3f27d7fa8c4f62e9f7ef472292425099a",
+      "render": "nine_slice",
+      "suggested_slice_xy": [
+        24,
+        24
+      ],
+      "normalized_from": [
+        345,
+        141
+      ],
+      "normalization": "nearest_once"
+    },
+    "buttons/primary/hover": {
+      "file": "src/main/resources/assets/neoworld/textures/gui/shop/obsidian/buttons/primary/hover.png",
+      "size": [
+        349,
+        145
+      ],
+      "source_sheet": "docs/gui/shop/obsidian/sources/widgets.png",
+      "source_rect_xywh": [
+        419,
+        547,
+        340,
+        141
+      ],
+      "opaque_bounds_xyxy": [
+        2,
+        2,
+        347,
+        143
+      ],
+      "padding_xy": [
+        2,
+        2
+      ],
+      "alpha_levels": [
+        0,
+        255
+      ],
+      "sha256": "6828b9600814a2b378541e41f4497ecae078a61806451e62159144de2b8d9107",
+      "render": "nine_slice",
+      "suggested_slice_xy": [
+        24,
+        24
+      ],
+      "normalized_from": [
+        340,
+        141
+      ],
+      "normalization": "nearest_once"
+    },
+    "buttons/primary/selected": {
+      "file": "src/main/resources/assets/neoworld/textures/gui/shop/obsidian/buttons/primary/selected.png",
+      "size": [
+        349,
+        145
+      ],
+      "source_sheet": "docs/gui/shop/obsidian/sources/widgets.png",
+      "source_rect_xywh": [
+        778,
+        547,
+        338,
+        141
+      ],
+      "opaque_bounds_xyxy": [
+        2,
+        2,
+        347,
+        143
+      ],
+      "padding_xy": [
+        2,
+        2
+      ],
+      "alpha_levels": [
+        0,
+        255
+      ],
+      "sha256": "bafdb5003e186cc3535b81fa0828045e82c673b25e4c42eb0bd5c3f1b596428a",
+      "render": "nine_slice",
+      "suggested_slice_xy": [
+        24,
+        24
+      ],
+      "normalized_from": [
+        338,
+        141
+      ],
+      "normalization": "nearest_once"
+    },
+    "buttons/primary/disabled": {
+      "file": "src/main/resources/assets/neoworld/textures/gui/shop/obsidian/buttons/primary/disabled.png",
+      "size": [
+        349,
+        145
+      ],
+      "source_sheet": "docs/gui/shop/obsidian/sources/widgets.png",
+      "source_rect_xywh": [
+        1135,
+        547,
+        346,
+        141
+      ],
+      "opaque_bounds_xyxy": [
+        2,
+        2,
+        347,
+        143
+      ],
+      "padding_xy": [
+        2,
+        2
+      ],
+      "alpha_levels": [
+        0,
+        255
+      ],
+      "sha256": "fa589ce071f3b9fd9093c66b42d3c7620c36ce2a9311e7f27db888910b56bb4b",
+      "render": "nine_slice",
+      "suggested_slice_xy": [
+        24,
+        24
+      ],
+      "normalized_from": [
+        346,
+        141
+      ],
+      "normalization": "nearest_once"
+    },
+    "buttons/close/normal": {
+      "file": "src/main/resources/assets/neoworld/textures/gui/shop/obsidian/buttons/close/normal.png",
+      "size": [
+        211,
+        211
+      ],
+      "source_sheet": "docs/gui/shop/obsidian/sources/widgets.png",
+      "source_rect_xywh": [
+        137,
+        749,
+        207,
+        203
+      ],
+      "opaque_bounds_xyxy": [
+        2,
+        2,
+        209,
+        209
+      ],
+      "padding_xy": [
+        2,
+        2
+      ],
+      "alpha_levels": [
+        0,
+        255
+      ],
+      "sha256": "aeb30b034cd05703e5cf6ff1a1878297294cf867a36422f9bae50bdfd06670e1",
+      "render": "nine_slice",
+      "suggested_slice_xy": [
+        24,
+        24
+      ],
+      "normalized_from": [
+        207,
+        203
+      ],
+      "normalization": "nearest_once"
+    },
+    "buttons/close/hover": {
+      "file": "src/main/resources/assets/neoworld/textures/gui/shop/obsidian/buttons/close/hover.png",
+      "size": [
+        211,
+        211
+      ],
+      "source_sheet": "docs/gui/shop/obsidian/sources/widgets.png",
+      "source_rect_xywh": [
+        489,
+        748,
+        212,
+        204
+      ],
+      "opaque_bounds_xyxy": [
+        2,
+        2,
+        209,
+        209
+      ],
+      "padding_xy": [
+        2,
+        2
+      ],
+      "alpha_levels": [
+        0,
+        255
+      ],
+      "sha256": "20827f0dfd3c57d415f9ba9e4d2c7c44e3128a65b6d665f44e4aded17fdba133",
+      "render": "nine_slice",
+      "suggested_slice_xy": [
+        24,
+        24
+      ],
+      "normalized_from": [
+        212,
+        204
+      ],
+      "normalization": "nearest_once"
+    },
+    "buttons/close/selected": {
+      "file": "src/main/resources/assets/neoworld/textures/gui/shop/obsidian/buttons/close/selected.png",
+      "size": [
+        211,
+        211
+      ],
+      "source_sheet": "docs/gui/shop/obsidian/sources/widgets.png",
+      "source_rect_xywh": [
+        835,
+        748,
+        213,
+        204
+      ],
+      "opaque_bounds_xyxy": [
+        2,
+        2,
+        209,
+        209
+      ],
+      "padding_xy": [
+        2,
+        2
+      ],
+      "alpha_levels": [
+        0,
+        255
+      ],
+      "sha256": "4ddd9d215ff0c2ef703e5b99809ed085879c89da81ecc18a8b9089b24d1cfda4",
+      "render": "nine_slice",
+      "suggested_slice_xy": [
+        24,
+        24
+      ],
+      "normalized_from": [
+        213,
+        204
+      ],
+      "normalization": "nearest_once"
+    },
+    "buttons/close/disabled": {
+      "file": "src/main/resources/assets/neoworld/textures/gui/shop/obsidian/buttons/close/disabled.png",
+      "size": [
+        211,
+        211
+      ],
+      "source_sheet": "docs/gui/shop/obsidian/sources/widgets.png",
+      "source_rect_xywh": [
+        1192,
+        748,
+        208,
+        204
+      ],
+      "opaque_bounds_xyxy": [
+        2,
+        2,
+        209,
+        209
+      ],
+      "padding_xy": [
+        2,
+        2
+      ],
+      "alpha_levels": [
+        0,
+        255
+      ],
+      "sha256": "c0d413c4ff1366d91833e374adbf57c4a20ef6797c0f111dd74533e2c4a01b75",
+      "render": "nine_slice",
+      "suggested_slice_xy": [
+        24,
+        24
+      ],
+      "normalized_from": [
+        208,
+        204
+      ],
+      "normalization": "nearest_once"
+    },
+    "icons/left": {
+      "file": "src/main/resources/assets/neoworld/textures/gui/shop/obsidian/icons/left.png",
+      "size": [
+        29,
+        29
+      ],
+      "source_sheet": "docs/gui/shop/obsidian/sources/icons.png",
+      "source_rect_xywh": [
+        398,
+        542,
+        15,
+        25
+      ],
+      "opaque_bounds_xyxy": [
+        7,
+        2,
+        22,
+        27
+      ],
+      "padding_xy": [
+        7,
+        2
+      ],
+      "alpha_levels": [
+        0,
+        255
+      ],
+      "sha256": "b43c50ef77a70503563150aebd03c8f899b4bebfc940162ac4920af9d9fa2bdc",
+      "render": "preserve_aspect",
+      "normalized_from": [
+        15,
+        25
+      ],
+      "normalization": "padding_only"
+    },
+    "icons/right": {
+      "file": "src/main/resources/assets/neoworld/textures/gui/shop/obsidian/icons/right.png",
+      "size": [
+        29,
+        29
+      ],
+      "source_sheet": "docs/gui/shop/obsidian/sources/icons.png",
+      "source_rect_xywh": [
+        656,
+        542,
+        14,
+        25
+      ],
+      "opaque_bounds_xyxy": [
+        7,
+        2,
+        21,
+        27
+      ],
+      "padding_xy": [
+        7,
+        2
+      ],
+      "alpha_levels": [
+        0,
+        255
+      ],
+      "sha256": "077163d353ac2eee2c698b7dac70b2cb4ef29162768a097864b27d15f771ecb9",
+      "render": "preserve_aspect",
+      "normalized_from": [
+        14,
+        25
+      ],
+      "normalization": "padding_only"
+    },
+    "icons/close": {
+      "file": "src/main/resources/assets/neoworld/textures/gui/shop/obsidian/icons/close.png",
+      "size": [
+        29,
+        29
+      ],
+      "source_sheet": "docs/gui/shop/obsidian/sources/icons.png",
+      "source_rect_xywh": [
+        1310,
+        132,
+        25,
+        25
+      ],
+      "opaque_bounds_xyxy": [
+        2,
+        2,
+        27,
+        27
+      ],
+      "padding_xy": [
+        2,
+        2
+      ],
+      "alpha_levels": [
+        0,
+        255
+      ],
+      "sha256": "b6b27f8e2d4ddc74d660e97f3c3f1b77ef0cfa056e113dcafd8e0bf9b1182b85",
+      "render": "preserve_aspect",
+      "normalized_from": [
+        25,
+        25
+      ],
+      "normalization": "padding_only"
+    }
+  },
+  "shared_currency_icons": {
+    "silver": "neoworld:textures/font/icons/silver_coin.png",
+    "diamond": "neoworld:textures/font/icons/diamond_coin.png"
+  }
+}

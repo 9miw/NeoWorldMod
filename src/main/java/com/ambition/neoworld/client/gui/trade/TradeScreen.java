@@ -2,6 +2,7 @@ package com.ambition.neoworld.client.gui.trade;
 
 import com.ambition.neoworld.client.gui.style.NeoGuiStyle;
 import com.ambition.neoworld.client.gui.widget.NeoButton;
+import com.ambition.neoworld.client.gui.widget.NeoCloseButton;
 import com.ambition.neoworld.network.TradeActionPayload.Action;
 import com.ambition.neoworld.network.TradeStatePayload;
 import com.ambition.neoworld.trade.menu.TradeMenu;
@@ -63,8 +64,8 @@ public final class TradeScreen extends AbstractContainerScreen<TradeMenu> {
                 () -> TradeScreenController.send(state != null && state.myConfirmed() ? Action.UNCONFIRM : Action.CONFIRM, -1, 0, 0));
         confirm.style(NeoButton.Style.PRIMARY).selected(state != null && state.myConfirmed()); addRenderableWidget(confirm);
         addRenderableWidget(button("ยกเลิก", 240, 198, 62, this::onClose).style(NeoButton.Style.DESTRUCTIVE));
-        NeoButton close = button("X", 286, 4, 18, this::onClose).style(NeoButton.Style.DESTRUCTIVE);
-        close.setTooltip(Tooltip.create(Component.literal("ปิดและยกเลิกการแลกเปลี่ยน"))); addRenderableWidget(close);
+        addRenderableWidget(NeoCloseButton.create(leftPos + 286, topPos + 4, 18, 16,
+                Component.literal("X"), Component.literal("ปิดและยกเลิกการแลกเปลี่ยน"), this::onClose));
         containerTick();
     }
     private NeoButton button(String label, int x, int y, int width, Runnable action) {

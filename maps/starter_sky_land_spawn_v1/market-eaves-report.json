@@ -1,0 +1,3931 @@
+{
+  "sourceHash": "a9429fbed131a8b8c3ba0695398a3c79eb37bbf45482c03b892d19a3ef16e62d",
+  "backup": "archive\\map-edit-backups\\before-market-eaves-20261031\\starter_sky_land_spawn_v1",
+  "netChangedBlocks": 276,
+  "parts": [
+    {
+      "id": "merchant-main",
+      "wallEnvelope": {
+        "localU": [
+          -12,
+          12
+        ],
+        "localV": [
+          -11,
+          7
+        ]
+      },
+      "roofEnvelope": {
+        "localU": [
+          -13,
+          13
+        ],
+        "localV": [
+          -12,
+          8
+        ]
+      },
+      "note": "One block beyond wall axes; rotated raster, independent of floor mask.",
+      "addedBlocks": 132,
+      "conflicts": 0
+    },
+    {
+      "id": "merchant-left-wing",
+      "wallEnvelope": {
+        "localU": [
+          -12,
+          -5
+        ],
+        "localV": [
+          8,
+          11
+        ]
+      },
+      "roofEnvelope": {
+        "localU": [
+          -13,
+          -4
+        ],
+        "localV": [
+          7,
+          12
+        ]
+      },
+      "note": "End and side eaves; shared seam with main roof uses the existing higher roof.",
+      "addedBlocks": 30,
+      "conflicts": 0
+    },
+    {
+      "id": "food",
+      "wallEnvelope": {
+        "worldX": [
+          94,
+          110
+        ],
+        "worldZ": [
+          181,
+          195
+        ]
+      },
+      "roofEnvelope": {
+        "worldX": [
+          93,
+          111
+        ],
+        "worldZ": [
+          180,
+          196
+        ]
+      },
+      "note": "Keep existing west/north/south eaves; complete missing eastern edge.",
+      "addedBlocks": 45,
+      "conflicts": 0
+    },
+    {
+      "id": "herbs-main",
+      "wallEnvelope": {
+        "worldX": [
+          115,
+          131
+        ],
+        "worldZ": [
+          181,
+          197
+        ]
+      },
+      "roofEnvelope": {
+        "worldX": [
+          114,
+          132
+        ],
+        "worldZ": [
+          180,
+          198
+        ]
+      },
+      "note": "Eastern part over the lower glass bay is handled separately, never covered by the main roof.",
+      "addedBlocks": 50,
+      "conflicts": 0
+    },
+    {
+      "id": "herbs-glass-bay",
+      "wallEnvelope": {
+        "worldX": [
+          128,
+          131
+        ],
+        "worldZ": [
+          183,
+          195
+        ]
+      },
+      "roofEnvelope": {
+        "worldX": [
+          128,
+          132
+        ],
+        "worldZ": [
+          182,
+          196
+        ]
+      },
+      "note": "Attached wall at west shares roof joint; exposed east and gable ends get overhang.",
+      "addedBlocks": 19,
+      "conflicts": 0
+    }
+  ],
+  "edits": [
+    {
+      "part": "merchant-main",
+      "position": [
+        81,
+        114,
+        180
+      ],
+      "state": {
+        "Name": "minecraft:orange_terracotta"
+      }
+    },
+    {
+      "part": "merchant-main",
+      "position": [
+        81,
+        115,
+        180
+      ],
+      "state": {
+        "Name": "minecraft:red_sandstone_stairs",
+        "Properties": {
+          "facing": "west",
+          "half": "bottom",
+          "shape": "straight",
+          "waterlogged": "false"
+        }
+      }
+    },
+    {
+      "part": "merchant-main",
+      "position": [
+        79,
+        115,
+        181
+      ],
+      "state": {
+        "Name": "minecraft:orange_terracotta"
+      }
+    },
+    {
+      "part": "merchant-main",
+      "position": [
+        79,
+        116,
+        181
+      ],
+      "state": {
+        "Name": "minecraft:red_sandstone_stairs",
+        "Properties": {
+          "facing": "west",
+          "half": "bottom",
+          "shape": "straight",
+          "waterlogged": "false"
+        }
+      }
+    },
+    {
+      "part": "merchant-main",
+      "position": [
+        80,
+        115,
+        181
+      ],
+      "state": {
+        "Name": "minecraft:orange_terracotta"
+      }
+    },
+    {
+      "part": "merchant-main",
+      "position": [
+        80,
+        116,
+        181
+      ],
+      "state": {
+        "Name": "minecraft:red_sandstone_stairs",
+        "Properties": {
+          "facing": "west",
+          "half": "bottom",
+          "shape": "straight",
+          "waterlogged": "false"
+        }
+      }
+    },
+    {
+      "part": "merchant-main",
+      "position": [
+        82,
+        114,
+        181
+      ],
+      "state": {
+        "Name": "minecraft:orange_terracotta"
+      }
+    },
+    {
+      "part": "merchant-main",
+      "position": [
+        82,
+        115,
+        181
+      ],
+      "state": {
+        "Name": "minecraft:red_sandstone_stairs",
+        "Properties": {
+          "facing": "west",
+          "half": "bottom",
+          "shape": "straight",
+          "waterlogged": "false"
+        }
+      }
+    },
+    {
+      "part": "merchant-main",
+      "position": [
+        77,
+        117,
+        182
+      ],
+      "state": {
+        "Name": "minecraft:orange_terracotta"
+      }
+    },
+    {
+      "part": "merchant-main",
+      "position": [
+        77,
+        118,
+        182
+      ],
+      "state": {
+        "Name": "minecraft:red_sandstone_stairs",
+        "Properties": {
+          "facing": "west",
+          "half": "bottom",
+          "shape": "straight",
+          "waterlogged": "false"
+        }
+      }
+    },
+    {
+      "part": "merchant-main",
+      "position": [
+        78,
+        116,
+        182
+      ],
+      "state": {
+        "Name": "minecraft:orange_terracotta"
+      }
+    },
+    {
+      "part": "merchant-main",
+      "position": [
+        78,
+        117,
+        182
+      ],
+      "state": {
+        "Name": "minecraft:red_sandstone_stairs",
+        "Properties": {
+          "facing": "west",
+          "half": "bottom",
+          "shape": "straight",
+          "waterlogged": "false"
+        }
+      }
+    },
+    {
+      "part": "merchant-main",
+      "position": [
+        82,
+        114,
+        182
+      ],
+      "state": {
+        "Name": "minecraft:orange_terracotta"
+      }
+    },
+    {
+      "part": "merchant-main",
+      "position": [
+        82,
+        115,
+        182
+      ],
+      "state": {
+        "Name": "minecraft:red_sandstone_stairs",
+        "Properties": {
+          "facing": "west",
+          "half": "bottom",
+          "shape": "straight",
+          "waterlogged": "false"
+        }
+      }
+    },
+    {
+      "part": "merchant-main",
+      "position": [
+        76,
+        118,
+        183
+      ],
+      "state": {
+        "Name": "minecraft:orange_terracotta"
+      }
+    },
+    {
+      "part": "merchant-main",
+      "position": [
+        76,
+        119,
+        183
+      ],
+      "state": {
+        "Name": "minecraft:red_sandstone_stairs",
+        "Properties": {
+          "facing": "west",
+          "half": "bottom",
+          "shape": "straight",
+          "waterlogged": "false"
+        }
+      }
+    },
+    {
+      "part": "merchant-main",
+      "position": [
+        77,
+        117,
+        183
+      ],
+      "state": {
+        "Name": "minecraft:orange_terracotta"
+      }
+    },
+    {
+      "part": "merchant-main",
+      "position": [
+        77,
+        118,
+        183
+      ],
+      "state": {
+        "Name": "minecraft:red_sandstone_stairs",
+        "Properties": {
+          "facing": "west",
+          "half": "bottom",
+          "shape": "straight",
+          "waterlogged": "false"
+        }
+      }
+    },
+    {
+      "part": "merchant-main",
+      "position": [
+        83,
+        114,
+        183
+      ],
+      "state": {
+        "Name": "minecraft:orange_terracotta"
+      }
+    },
+    {
+      "part": "merchant-main",
+      "position": [
+        83,
+        115,
+        183
+      ],
+      "state": {
+        "Name": "minecraft:red_sandstone_stairs",
+        "Properties": {
+          "facing": "west",
+          "half": "bottom",
+          "shape": "straight",
+          "waterlogged": "false"
+        }
+      }
+    },
+    {
+      "part": "merchant-main",
+      "position": [
+        74,
+        119,
+        184
+      ],
+      "state": {
+        "Name": "minecraft:orange_terracotta"
+      }
+    },
+    {
+      "part": "merchant-main",
+      "position": [
+        74,
+        120,
+        184
+      ],
+      "state": {
+        "Name": "minecraft:red_sandstone_stairs",
+        "Properties": {
+          "facing": "west",
+          "half": "bottom",
+          "shape": "straight",
+          "waterlogged": "false"
+        }
+      }
+    },
+    {
+      "part": "merchant-main",
+      "position": [
+        75,
+        118,
+        184
+      ],
+      "state": {
+        "Name": "minecraft:orange_terracotta"
+      }
+    },
+    {
+      "part": "merchant-main",
+      "position": [
+        75,
+        119,
+        184
+      ],
+      "state": {
+        "Name": "minecraft:red_sandstone_stairs",
+        "Properties": {
+          "facing": "west",
+          "half": "bottom",
+          "shape": "straight",
+          "waterlogged": "false"
+        }
+      }
+    },
+    {
+      "part": "merchant-main",
+      "position": [
+        83,
+        114,
+        184
+      ],
+      "state": {
+        "Name": "minecraft:orange_terracotta"
+      }
+    },
+    {
+      "part": "merchant-main",
+      "position": [
+        83,
+        115,
+        184
+      ],
+      "state": {
+        "Name": "minecraft:red_sandstone_stairs",
+        "Properties": {
+          "facing": "west",
+          "half": "bottom",
+          "shape": "straight",
+          "waterlogged": "false"
+        }
+      }
+    },
+    {
+      "part": "merchant-main",
+      "position": [
+        84,
+        114,
+        184
+      ],
+      "state": {
+        "Name": "minecraft:orange_terracotta"
+      }
+    },
+    {
+      "part": "merchant-main",
+      "position": [
+        84,
+        115,
+        184
+      ],
+      "state": {
+        "Name": "minecraft:red_sandstone_stairs",
+        "Properties": {
+          "facing": "west",
+          "half": "bottom",
+          "shape": "straight",
+          "waterlogged": "false"
+        }
+      }
+    },
+    {
+      "part": "merchant-main",
+      "position": [
+        72,
+        120,
+        185
+      ],
+      "state": {
+        "Name": "minecraft:orange_terracotta"
+      }
+    },
+    {
+      "part": "merchant-main",
+      "position": [
+        72,
+        121,
+        185
+      ],
+      "state": {
+        "Name": "minecraft:red_sandstone_stairs",
+        "Properties": {
+          "facing": "west",
+          "half": "bottom",
+          "shape": "straight",
+          "waterlogged": "false"
+        }
+      }
+    },
+    {
+      "part": "merchant-main",
+      "position": [
+        73,
+        120,
+        185
+      ],
+      "state": {
+        "Name": "minecraft:orange_terracotta"
+      }
+    },
+    {
+      "part": "merchant-main",
+      "position": [
+        73,
+        121,
+        185
+      ],
+      "state": {
+        "Name": "minecraft:red_sandstone_stairs",
+        "Properties": {
+          "facing": "west",
+          "half": "bottom",
+          "shape": "straight",
+          "waterlogged": "false"
+        }
+      }
+    },
+    {
+      "part": "merchant-main",
+      "position": [
+        84,
+        114,
+        185
+      ],
+      "state": {
+        "Name": "minecraft:orange_terracotta"
+      }
+    },
+    {
+      "part": "merchant-main",
+      "position": [
+        84,
+        115,
+        185
+      ],
+      "state": {
+        "Name": "minecraft:red_sandstone_stairs",
+        "Properties": {
+          "facing": "west",
+          "half": "bottom",
+          "shape": "straight",
+          "waterlogged": "false"
+        }
+      }
+    },
+    {
+      "part": "merchant-main",
+      "position": [
+        71,
+        121,
+        186
+      ],
+      "state": {
+        "Name": "minecraft:orange_terracotta"
+      }
+    },
+    {
+      "part": "merchant-main",
+      "position": [
+        71,
+        122,
+        186
+      ],
+      "state": {
+        "Name": "minecraft:red_sandstone_stairs",
+        "Properties": {
+          "facing": "west",
+          "half": "bottom",
+          "shape": "straight",
+          "waterlogged": "false"
+        }
+      }
+    },
+    {
+      "part": "merchant-main",
+      "position": [
+        72,
+        120,
+        186
+      ],
+      "state": {
+        "Name": "minecraft:orange_terracotta"
+      }
+    },
+    {
+      "part": "merchant-main",
+      "position": [
+        72,
+        121,
+        186
+      ],
+      "state": {
+        "Name": "minecraft:red_sandstone_stairs",
+        "Properties": {
+          "facing": "west",
+          "half": "bottom",
+          "shape": "straight",
+          "waterlogged": "false"
+        }
+      }
+    },
+    {
+      "part": "merchant-main",
+      "position": [
+        85,
+        114,
+        186
+      ],
+      "state": {
+        "Name": "minecraft:orange_terracotta"
+      }
+    },
+    {
+      "part": "merchant-main",
+      "position": [
+        85,
+        115,
+        186
+      ],
+      "state": {
+        "Name": "minecraft:red_sandstone_stairs",
+        "Properties": {
+          "facing": "west",
+          "half": "bottom",
+          "shape": "straight",
+          "waterlogged": "false"
+        }
+      }
+    },
+    {
+      "part": "merchant-main",
+      "position": [
+        69,
+        121,
+        187
+      ],
+      "state": {
+        "Name": "minecraft:orange_terracotta"
+      }
+    },
+    {
+      "part": "merchant-main",
+      "position": [
+        69,
+        122,
+        187
+      ],
+      "state": {
+        "Name": "minecraft:red_sandstone_stairs",
+        "Properties": {
+          "facing": "east",
+          "half": "bottom",
+          "shape": "straight",
+          "waterlogged": "false"
+        }
+      }
+    },
+    {
+      "part": "merchant-main",
+      "position": [
+        70,
+        122,
+        187
+      ],
+      "state": {
+        "Name": "minecraft:orange_terracotta"
+      }
+    },
+    {
+      "part": "merchant-main",
+      "position": [
+        70,
+        123,
+        187
+      ],
+      "state": {
+        "Name": "minecraft:red_sandstone_slab",
+        "Properties": {
+          "type": "bottom",
+          "waterlogged": "false"
+        }
+      }
+    },
+    {
+      "part": "merchant-main",
+      "position": [
+        85,
+        114,
+        187
+      ],
+      "state": {
+        "Name": "minecraft:orange_terracotta"
+      }
+    },
+    {
+      "part": "merchant-main",
+      "position": [
+        85,
+        115,
+        187
+      ],
+      "state": {
+        "Name": "minecraft:red_sandstone_stairs",
+        "Properties": {
+          "facing": "west",
+          "half": "bottom",
+          "shape": "straight",
+          "waterlogged": "false"
+        }
+      }
+    },
+    {
+      "part": "merchant-main",
+      "position": [
+        67,
+        120,
+        188
+      ],
+      "state": {
+        "Name": "minecraft:orange_terracotta"
+      }
+    },
+    {
+      "part": "merchant-main",
+      "position": [
+        67,
+        121,
+        188
+      ],
+      "state": {
+        "Name": "minecraft:red_sandstone_stairs",
+        "Properties": {
+          "facing": "east",
+          "half": "bottom",
+          "shape": "straight",
+          "waterlogged": "false"
+        }
+      }
+    },
+    {
+      "part": "merchant-main",
+      "position": [
+        68,
+        120,
+        188
+      ],
+      "state": {
+        "Name": "minecraft:orange_terracotta"
+      }
+    },
+    {
+      "part": "merchant-main",
+      "position": [
+        68,
+        121,
+        188
+      ],
+      "state": {
+        "Name": "minecraft:red_sandstone_stairs",
+        "Properties": {
+          "facing": "east",
+          "half": "bottom",
+          "shape": "straight",
+          "waterlogged": "false"
+        }
+      }
+    },
+    {
+      "part": "merchant-main",
+      "position": [
+        86,
+        114,
+        188
+      ],
+      "state": {
+        "Name": "minecraft:orange_terracotta"
+      }
+    },
+    {
+      "part": "merchant-main",
+      "position": [
+        86,
+        115,
+        188
+      ],
+      "state": {
+        "Name": "minecraft:red_sandstone_stairs",
+        "Properties": {
+          "facing": "west",
+          "half": "bottom",
+          "shape": "straight",
+          "waterlogged": "false"
+        }
+      }
+    },
+    {
+      "part": "merchant-main",
+      "position": [
+        65,
+        118,
+        189
+      ],
+      "state": {
+        "Name": "minecraft:orange_terracotta"
+      }
+    },
+    {
+      "part": "merchant-main",
+      "position": [
+        65,
+        119,
+        189
+      ],
+      "state": {
+        "Name": "minecraft:red_sandstone_stairs",
+        "Properties": {
+          "facing": "east",
+          "half": "bottom",
+          "shape": "straight",
+          "waterlogged": "false"
+        }
+      }
+    },
+    {
+      "part": "merchant-main",
+      "position": [
+        66,
+        119,
+        189
+      ],
+      "state": {
+        "Name": "minecraft:orange_terracotta"
+      }
+    },
+    {
+      "part": "merchant-main",
+      "position": [
+        66,
+        120,
+        189
+      ],
+      "state": {
+        "Name": "minecraft:red_sandstone_stairs",
+        "Properties": {
+          "facing": "east",
+          "half": "bottom",
+          "shape": "straight",
+          "waterlogged": "false"
+        }
+      }
+    },
+    {
+      "part": "merchant-main",
+      "position": [
+        86,
+        114,
+        189
+      ],
+      "state": {
+        "Name": "minecraft:orange_terracotta"
+      }
+    },
+    {
+      "part": "merchant-main",
+      "position": [
+        86,
+        115,
+        189
+      ],
+      "state": {
+        "Name": "minecraft:red_sandstone_stairs",
+        "Properties": {
+          "facing": "west",
+          "half": "bottom",
+          "shape": "straight",
+          "waterlogged": "false"
+        }
+      }
+    },
+    {
+      "part": "merchant-main",
+      "position": [
+        64,
+        118,
+        190
+      ],
+      "state": {
+        "Name": "minecraft:orange_terracotta"
+      }
+    },
+    {
+      "part": "merchant-main",
+      "position": [
+        64,
+        119,
+        190
+      ],
+      "state": {
+        "Name": "minecraft:red_sandstone_stairs",
+        "Properties": {
+          "facing": "east",
+          "half": "bottom",
+          "shape": "straight",
+          "waterlogged": "false"
+        }
+      }
+    },
+    {
+      "part": "merchant-main",
+      "position": [
+        65,
+        118,
+        190
+      ],
+      "state": {
+        "Name": "minecraft:orange_terracotta"
+      }
+    },
+    {
+      "part": "merchant-main",
+      "position": [
+        65,
+        119,
+        190
+      ],
+      "state": {
+        "Name": "minecraft:red_sandstone_stairs",
+        "Properties": {
+          "facing": "east",
+          "half": "bottom",
+          "shape": "straight",
+          "waterlogged": "false"
+        }
+      }
+    },
+    {
+      "part": "merchant-main",
+      "position": [
+        87,
+        114,
+        190
+      ],
+      "state": {
+        "Name": "minecraft:orange_terracotta"
+      }
+    },
+    {
+      "part": "merchant-main",
+      "position": [
+        87,
+        115,
+        190
+      ],
+      "state": {
+        "Name": "minecraft:red_sandstone_stairs",
+        "Properties": {
+          "facing": "west",
+          "half": "bottom",
+          "shape": "straight",
+          "waterlogged": "false"
+        }
+      }
+    },
+    {
+      "part": "merchant-main",
+      "position": [
+        62,
+        116,
+        191
+      ],
+      "state": {
+        "Name": "minecraft:orange_terracotta"
+      }
+    },
+    {
+      "part": "merchant-main",
+      "position": [
+        62,
+        117,
+        191
+      ],
+      "state": {
+        "Name": "minecraft:red_sandstone_stairs",
+        "Properties": {
+          "facing": "east",
+          "half": "bottom",
+          "shape": "straight",
+          "waterlogged": "false"
+        }
+      }
+    },
+    {
+      "part": "merchant-main",
+      "position": [
+        63,
+        117,
+        191
+      ],
+      "state": {
+        "Name": "minecraft:orange_terracotta"
+      }
+    },
+    {
+      "part": "merchant-main",
+      "position": [
+        63,
+        118,
+        191
+      ],
+      "state": {
+        "Name": "minecraft:red_sandstone_stairs",
+        "Properties": {
+          "facing": "east",
+          "half": "bottom",
+          "shape": "straight",
+          "waterlogged": "false"
+        }
+      }
+    },
+    {
+      "part": "merchant-main",
+      "position": [
+        87,
+        114,
+        191
+      ],
+      "state": {
+        "Name": "minecraft:orange_terracotta"
+      }
+    },
+    {
+      "part": "merchant-main",
+      "position": [
+        87,
+        115,
+        191
+      ],
+      "state": {
+        "Name": "minecraft:red_sandstone_stairs",
+        "Properties": {
+          "facing": "west",
+          "half": "bottom",
+          "shape": "straight",
+          "waterlogged": "false"
+        }
+      }
+    },
+    {
+      "part": "merchant-main",
+      "position": [
+        88,
+        114,
+        191
+      ],
+      "state": {
+        "Name": "minecraft:orange_terracotta"
+      }
+    },
+    {
+      "part": "merchant-main",
+      "position": [
+        88,
+        115,
+        191
+      ],
+      "state": {
+        "Name": "minecraft:red_sandstone_stairs",
+        "Properties": {
+          "facing": "west",
+          "half": "bottom",
+          "shape": "straight",
+          "waterlogged": "false"
+        }
+      }
+    },
+    {
+      "part": "merchant-main",
+      "position": [
+        60,
+        115,
+        192
+      ],
+      "state": {
+        "Name": "minecraft:orange_terracotta"
+      }
+    },
+    {
+      "part": "merchant-main",
+      "position": [
+        60,
+        116,
+        192
+      ],
+      "state": {
+        "Name": "minecraft:red_sandstone_stairs",
+        "Properties": {
+          "facing": "east",
+          "half": "bottom",
+          "shape": "straight",
+          "waterlogged": "false"
+        }
+      }
+    },
+    {
+      "part": "merchant-main",
+      "position": [
+        61,
+        115,
+        192
+      ],
+      "state": {
+        "Name": "minecraft:orange_terracotta"
+      }
+    },
+    {
+      "part": "merchant-main",
+      "position": [
+        61,
+        116,
+        192
+      ],
+      "state": {
+        "Name": "minecraft:red_sandstone_stairs",
+        "Properties": {
+          "facing": "east",
+          "half": "bottom",
+          "shape": "straight",
+          "waterlogged": "false"
+        }
+      }
+    },
+    {
+      "part": "merchant-main",
+      "position": [
+        88,
+        114,
+        192
+      ],
+      "state": {
+        "Name": "minecraft:orange_terracotta"
+      }
+    },
+    {
+      "part": "merchant-main",
+      "position": [
+        88,
+        115,
+        192
+      ],
+      "state": {
+        "Name": "minecraft:red_sandstone_stairs",
+        "Properties": {
+          "facing": "west",
+          "half": "bottom",
+          "shape": "straight",
+          "waterlogged": "false"
+        }
+      }
+    },
+    {
+      "part": "merchant-main",
+      "position": [
+        59,
+        114,
+        193
+      ],
+      "state": {
+        "Name": "minecraft:orange_terracotta"
+      }
+    },
+    {
+      "part": "merchant-main",
+      "position": [
+        59,
+        115,
+        193
+      ],
+      "state": {
+        "Name": "minecraft:red_sandstone_stairs",
+        "Properties": {
+          "facing": "east",
+          "half": "bottom",
+          "shape": "straight",
+          "waterlogged": "false"
+        }
+      }
+    },
+    {
+      "part": "merchant-main",
+      "position": [
+        89,
+        114,
+        193
+      ],
+      "state": {
+        "Name": "minecraft:orange_terracotta"
+      }
+    },
+    {
+      "part": "merchant-main",
+      "position": [
+        89,
+        115,
+        193
+      ],
+      "state": {
+        "Name": "minecraft:red_sandstone_stairs",
+        "Properties": {
+          "facing": "west",
+          "half": "bottom",
+          "shape": "straight",
+          "waterlogged": "false"
+        }
+      }
+    },
+    {
+      "part": "merchant-main",
+      "position": [
+        59,
+        114,
+        194
+      ],
+      "state": {
+        "Name": "minecraft:orange_terracotta"
+      }
+    },
+    {
+      "part": "merchant-main",
+      "position": [
+        59,
+        115,
+        194
+      ],
+      "state": {
+        "Name": "minecraft:red_sandstone_stairs",
+        "Properties": {
+          "facing": "east",
+          "half": "bottom",
+          "shape": "straight",
+          "waterlogged": "false"
+        }
+      }
+    },
+    {
+      "part": "merchant-main",
+      "position": [
+        89,
+        114,
+        194
+      ],
+      "state": {
+        "Name": "minecraft:orange_terracotta"
+      }
+    },
+    {
+      "part": "merchant-main",
+      "position": [
+        89,
+        115,
+        194
+      ],
+      "state": {
+        "Name": "minecraft:red_sandstone_stairs",
+        "Properties": {
+          "facing": "west",
+          "half": "bottom",
+          "shape": "straight",
+          "waterlogged": "false"
+        }
+      }
+    },
+    {
+      "part": "merchant-main",
+      "position": [
+        60,
+        114,
+        195
+      ],
+      "state": {
+        "Name": "minecraft:orange_terracotta"
+      }
+    },
+    {
+      "part": "merchant-main",
+      "position": [
+        60,
+        115,
+        195
+      ],
+      "state": {
+        "Name": "minecraft:red_sandstone_stairs",
+        "Properties": {
+          "facing": "east",
+          "half": "bottom",
+          "shape": "straight",
+          "waterlogged": "false"
+        }
+      }
+    },
+    {
+      "part": "merchant-main",
+      "position": [
+        90,
+        114,
+        195
+      ],
+      "state": {
+        "Name": "minecraft:orange_terracotta"
+      }
+    },
+    {
+      "part": "merchant-main",
+      "position": [
+        90,
+        115,
+        195
+      ],
+      "state": {
+        "Name": "minecraft:red_sandstone_stairs",
+        "Properties": {
+          "facing": "west",
+          "half": "bottom",
+          "shape": "straight",
+          "waterlogged": "false"
+        }
+      }
+    },
+    {
+      "part": "merchant-main",
+      "position": [
+        60,
+        114,
+        196
+      ],
+      "state": {
+        "Name": "minecraft:orange_terracotta"
+      }
+    },
+    {
+      "part": "merchant-main",
+      "position": [
+        60,
+        115,
+        196
+      ],
+      "state": {
+        "Name": "minecraft:red_sandstone_stairs",
+        "Properties": {
+          "facing": "east",
+          "half": "bottom",
+          "shape": "straight",
+          "waterlogged": "false"
+        }
+      }
+    },
+    {
+      "part": "merchant-main",
+      "position": [
+        90,
+        114,
+        196
+      ],
+      "state": {
+        "Name": "minecraft:orange_terracotta"
+      }
+    },
+    {
+      "part": "merchant-main",
+      "position": [
+        90,
+        115,
+        196
+      ],
+      "state": {
+        "Name": "minecraft:red_sandstone_stairs",
+        "Properties": {
+          "facing": "west",
+          "half": "bottom",
+          "shape": "straight",
+          "waterlogged": "false"
+        }
+      }
+    },
+    {
+      "part": "merchant-main",
+      "position": [
+        91,
+        114,
+        196
+      ],
+      "state": {
+        "Name": "minecraft:orange_terracotta"
+      }
+    },
+    {
+      "part": "merchant-main",
+      "position": [
+        91,
+        115,
+        196
+      ],
+      "state": {
+        "Name": "minecraft:red_sandstone_stairs",
+        "Properties": {
+          "facing": "west",
+          "half": "bottom",
+          "shape": "straight",
+          "waterlogged": "false"
+        }
+      }
+    },
+    {
+      "part": "merchant-main",
+      "position": [
+        61,
+        114,
+        197
+      ],
+      "state": {
+        "Name": "minecraft:orange_terracotta"
+      }
+    },
+    {
+      "part": "merchant-main",
+      "position": [
+        61,
+        115,
+        197
+      ],
+      "state": {
+        "Name": "minecraft:red_sandstone_stairs",
+        "Properties": {
+          "facing": "east",
+          "half": "bottom",
+          "shape": "straight",
+          "waterlogged": "false"
+        }
+      }
+    },
+    {
+      "part": "merchant-main",
+      "position": [
+        91,
+        114,
+        197
+      ],
+      "state": {
+        "Name": "minecraft:orange_terracotta"
+      }
+    },
+    {
+      "part": "merchant-main",
+      "position": [
+        91,
+        115,
+        197
+      ],
+      "state": {
+        "Name": "minecraft:red_sandstone_stairs",
+        "Properties": {
+          "facing": "west",
+          "half": "bottom",
+          "shape": "straight",
+          "waterlogged": "false"
+        }
+      }
+    },
+    {
+      "part": "merchant-main",
+      "position": [
+        61,
+        114,
+        198
+      ],
+      "state": {
+        "Name": "minecraft:orange_terracotta"
+      }
+    },
+    {
+      "part": "merchant-main",
+      "position": [
+        61,
+        115,
+        198
+      ],
+      "state": {
+        "Name": "minecraft:red_sandstone_stairs",
+        "Properties": {
+          "facing": "east",
+          "half": "bottom",
+          "shape": "straight",
+          "waterlogged": "false"
+        }
+      }
+    },
+    {
+      "part": "merchant-main",
+      "position": [
+        62,
+        114,
+        198
+      ],
+      "state": {
+        "Name": "minecraft:orange_terracotta"
+      }
+    },
+    {
+      "part": "merchant-main",
+      "position": [
+        62,
+        115,
+        198
+      ],
+      "state": {
+        "Name": "minecraft:red_sandstone_stairs",
+        "Properties": {
+          "facing": "east",
+          "half": "bottom",
+          "shape": "straight",
+          "waterlogged": "false"
+        }
+      }
+    },
+    {
+      "part": "merchant-main",
+      "position": [
+        62,
+        114,
+        199
+      ],
+      "state": {
+        "Name": "minecraft:orange_terracotta"
+      }
+    },
+    {
+      "part": "merchant-main",
+      "position": [
+        62,
+        115,
+        199
+      ],
+      "state": {
+        "Name": "minecraft:red_sandstone_stairs",
+        "Properties": {
+          "facing": "east",
+          "half": "bottom",
+          "shape": "straight",
+          "waterlogged": "false"
+        }
+      }
+    },
+    {
+      "part": "merchant-main",
+      "position": [
+        63,
+        114,
+        200
+      ],
+      "state": {
+        "Name": "minecraft:orange_terracotta"
+      }
+    },
+    {
+      "part": "merchant-main",
+      "position": [
+        63,
+        115,
+        200
+      ],
+      "state": {
+        "Name": "minecraft:red_sandstone_stairs",
+        "Properties": {
+          "facing": "east",
+          "half": "bottom",
+          "shape": "straight",
+          "waterlogged": "false"
+        }
+      }
+    },
+    {
+      "part": "merchant-main",
+      "position": [
+        63,
+        114,
+        201
+      ],
+      "state": {
+        "Name": "minecraft:orange_terracotta"
+      }
+    },
+    {
+      "part": "merchant-main",
+      "position": [
+        63,
+        115,
+        201
+      ],
+      "state": {
+        "Name": "minecraft:red_sandstone_stairs",
+        "Properties": {
+          "facing": "east",
+          "half": "bottom",
+          "shape": "straight",
+          "waterlogged": "false"
+        }
+      }
+    },
+    {
+      "part": "merchant-main",
+      "position": [
+        64,
+        114,
+        202
+      ],
+      "state": {
+        "Name": "minecraft:orange_terracotta"
+      }
+    },
+    {
+      "part": "merchant-main",
+      "position": [
+        64,
+        115,
+        202
+      ],
+      "state": {
+        "Name": "minecraft:red_sandstone_stairs",
+        "Properties": {
+          "facing": "east",
+          "half": "bottom",
+          "shape": "straight",
+          "waterlogged": "false"
+        }
+      }
+    },
+    {
+      "part": "merchant-main",
+      "position": [
+        64,
+        114,
+        203
+      ],
+      "state": {
+        "Name": "minecraft:orange_terracotta"
+      }
+    },
+    {
+      "part": "merchant-main",
+      "position": [
+        64,
+        115,
+        203
+      ],
+      "state": {
+        "Name": "minecraft:red_sandstone_stairs",
+        "Properties": {
+          "facing": "east",
+          "half": "bottom",
+          "shape": "straight",
+          "waterlogged": "false"
+        }
+      }
+    },
+    {
+      "part": "merchant-main",
+      "position": [
+        65,
+        114,
+        203
+      ],
+      "state": {
+        "Name": "minecraft:orange_terracotta"
+      }
+    },
+    {
+      "part": "merchant-main",
+      "position": [
+        65,
+        115,
+        203
+      ],
+      "state": {
+        "Name": "minecraft:red_sandstone_stairs",
+        "Properties": {
+          "facing": "east",
+          "half": "bottom",
+          "shape": "straight",
+          "waterlogged": "false"
+        }
+      }
+    },
+    {
+      "part": "merchant-main",
+      "position": [
+        65,
+        114,
+        204
+      ],
+      "state": {
+        "Name": "minecraft:orange_terracotta"
+      }
+    },
+    {
+      "part": "merchant-main",
+      "position": [
+        65,
+        115,
+        204
+      ],
+      "state": {
+        "Name": "minecraft:red_sandstone_stairs",
+        "Properties": {
+          "facing": "east",
+          "half": "bottom",
+          "shape": "straight",
+          "waterlogged": "false"
+        }
+      }
+    },
+    {
+      "part": "merchant-main",
+      "position": [
+        66,
+        114,
+        205
+      ],
+      "state": {
+        "Name": "minecraft:orange_terracotta"
+      }
+    },
+    {
+      "part": "merchant-main",
+      "position": [
+        66,
+        115,
+        205
+      ],
+      "state": {
+        "Name": "minecraft:red_sandstone_stairs",
+        "Properties": {
+          "facing": "east",
+          "half": "bottom",
+          "shape": "straight",
+          "waterlogged": "false"
+        }
+      }
+    },
+    {
+      "part": "merchant-main",
+      "position": [
+        66,
+        114,
+        206
+      ],
+      "state": {
+        "Name": "minecraft:orange_terracotta"
+      }
+    },
+    {
+      "part": "merchant-main",
+      "position": [
+        66,
+        115,
+        206
+      ],
+      "state": {
+        "Name": "minecraft:red_sandstone_stairs",
+        "Properties": {
+          "facing": "east",
+          "half": "bottom",
+          "shape": "straight",
+          "waterlogged": "false"
+        }
+      }
+    },
+    {
+      "part": "merchant-main",
+      "position": [
+        67,
+        114,
+        207
+      ],
+      "state": {
+        "Name": "minecraft:orange_terracotta"
+      }
+    },
+    {
+      "part": "merchant-main",
+      "position": [
+        67,
+        115,
+        207
+      ],
+      "state": {
+        "Name": "minecraft:red_sandstone_stairs",
+        "Properties": {
+          "facing": "east",
+          "half": "bottom",
+          "shape": "straight",
+          "waterlogged": "false"
+        }
+      }
+    },
+    {
+      "part": "merchant-main",
+      "position": [
+        67,
+        114,
+        208
+      ],
+      "state": {
+        "Name": "minecraft:orange_terracotta"
+      }
+    },
+    {
+      "part": "merchant-main",
+      "position": [
+        67,
+        115,
+        208
+      ],
+      "state": {
+        "Name": "minecraft:red_sandstone_stairs",
+        "Properties": {
+          "facing": "east",
+          "half": "bottom",
+          "shape": "straight",
+          "waterlogged": "false"
+        }
+      }
+    },
+    {
+      "part": "merchant-main",
+      "position": [
+        68,
+        114,
+        209
+      ],
+      "state": {
+        "Name": "minecraft:orange_terracotta"
+      }
+    },
+    {
+      "part": "merchant-main",
+      "position": [
+        68,
+        115,
+        209
+      ],
+      "state": {
+        "Name": "minecraft:red_sandstone_stairs",
+        "Properties": {
+          "facing": "east",
+          "half": "bottom",
+          "shape": "straight",
+          "waterlogged": "false"
+        }
+      }
+    },
+    {
+      "part": "merchant-main",
+      "position": [
+        68,
+        114,
+        210
+      ],
+      "state": {
+        "Name": "minecraft:orange_terracotta"
+      }
+    },
+    {
+      "part": "merchant-main",
+      "position": [
+        68,
+        115,
+        210
+      ],
+      "state": {
+        "Name": "minecraft:red_sandstone_stairs",
+        "Properties": {
+          "facing": "east",
+          "half": "bottom",
+          "shape": "straight",
+          "waterlogged": "false"
+        }
+      }
+    },
+    {
+      "part": "merchant-main",
+      "position": [
+        69,
+        114,
+        210
+      ],
+      "state": {
+        "Name": "minecraft:orange_terracotta"
+      }
+    },
+    {
+      "part": "merchant-main",
+      "position": [
+        69,
+        115,
+        210
+      ],
+      "state": {
+        "Name": "minecraft:red_sandstone_stairs",
+        "Properties": {
+          "facing": "east",
+          "half": "bottom",
+          "shape": "straight",
+          "waterlogged": "false"
+        }
+      }
+    },
+    {
+      "part": "merchant-left-wing",
+      "position": [
+        77,
+        114,
+        207
+      ],
+      "state": {
+        "Name": "minecraft:orange_terracotta"
+      }
+    },
+    {
+      "part": "merchant-left-wing",
+      "position": [
+        77,
+        115,
+        207
+      ],
+      "state": {
+        "Name": "minecraft:red_sandstone_stairs",
+        "Properties": {
+          "facing": "west",
+          "half": "bottom",
+          "shape": "straight",
+          "waterlogged": "false"
+        }
+      }
+    },
+    {
+      "part": "merchant-left-wing",
+      "position": [
+        78,
+        114,
+        208
+      ],
+      "state": {
+        "Name": "minecraft:orange_terracotta"
+      }
+    },
+    {
+      "part": "merchant-left-wing",
+      "position": [
+        78,
+        115,
+        208
+      ],
+      "state": {
+        "Name": "minecraft:red_sandstone_stairs",
+        "Properties": {
+          "facing": "west",
+          "half": "bottom",
+          "shape": "straight",
+          "waterlogged": "false"
+        }
+      }
+    },
+    {
+      "part": "merchant-left-wing",
+      "position": [
+        78,
+        114,
+        209
+      ],
+      "state": {
+        "Name": "minecraft:orange_terracotta"
+      }
+    },
+    {
+      "part": "merchant-left-wing",
+      "position": [
+        78,
+        115,
+        209
+      ],
+      "state": {
+        "Name": "minecraft:red_sandstone_stairs",
+        "Properties": {
+          "facing": "west",
+          "half": "bottom",
+          "shape": "straight",
+          "waterlogged": "false"
+        }
+      }
+    },
+    {
+      "part": "merchant-left-wing",
+      "position": [
+        77,
+        115,
+        210
+      ],
+      "state": {
+        "Name": "minecraft:orange_terracotta"
+      }
+    },
+    {
+      "part": "merchant-left-wing",
+      "position": [
+        77,
+        116,
+        210
+      ],
+      "state": {
+        "Name": "minecraft:red_sandstone_stairs",
+        "Properties": {
+          "facing": "west",
+          "half": "bottom",
+          "shape": "straight",
+          "waterlogged": "false"
+        }
+      }
+    },
+    {
+      "part": "merchant-left-wing",
+      "position": [
+        78,
+        115,
+        210
+      ],
+      "state": {
+        "Name": "minecraft:orange_terracotta"
+      }
+    },
+    {
+      "part": "merchant-left-wing",
+      "position": [
+        78,
+        116,
+        210
+      ],
+      "state": {
+        "Name": "minecraft:red_sandstone_stairs",
+        "Properties": {
+          "facing": "west",
+          "half": "bottom",
+          "shape": "straight",
+          "waterlogged": "false"
+        }
+      }
+    },
+    {
+      "part": "merchant-left-wing",
+      "position": [
+        69,
+        114,
+        211
+      ],
+      "state": {
+        "Name": "minecraft:orange_terracotta"
+      }
+    },
+    {
+      "part": "merchant-left-wing",
+      "position": [
+        69,
+        115,
+        211
+      ],
+      "state": {
+        "Name": "minecraft:red_sandstone_stairs",
+        "Properties": {
+          "facing": "east",
+          "half": "bottom",
+          "shape": "straight",
+          "waterlogged": "false"
+        }
+      }
+    },
+    {
+      "part": "merchant-left-wing",
+      "position": [
+        75,
+        117,
+        211
+      ],
+      "state": {
+        "Name": "minecraft:orange_terracotta"
+      }
+    },
+    {
+      "part": "merchant-left-wing",
+      "position": [
+        75,
+        118,
+        211
+      ],
+      "state": {
+        "Name": "minecraft:red_sandstone_stairs",
+        "Properties": {
+          "facing": "west",
+          "half": "bottom",
+          "shape": "straight",
+          "waterlogged": "false"
+        }
+      }
+    },
+    {
+      "part": "merchant-left-wing",
+      "position": [
+        76,
+        116,
+        211
+      ],
+      "state": {
+        "Name": "minecraft:orange_terracotta"
+      }
+    },
+    {
+      "part": "merchant-left-wing",
+      "position": [
+        76,
+        117,
+        211
+      ],
+      "state": {
+        "Name": "minecraft:red_sandstone_stairs",
+        "Properties": {
+          "facing": "west",
+          "half": "bottom",
+          "shape": "straight",
+          "waterlogged": "false"
+        }
+      }
+    },
+    {
+      "part": "merchant-left-wing",
+      "position": [
+        70,
+        114,
+        212
+      ],
+      "state": {
+        "Name": "minecraft:orange_terracotta"
+      }
+    },
+    {
+      "part": "merchant-left-wing",
+      "position": [
+        70,
+        115,
+        212
+      ],
+      "state": {
+        "Name": "minecraft:red_sandstone_stairs",
+        "Properties": {
+          "facing": "east",
+          "half": "bottom",
+          "shape": "straight",
+          "waterlogged": "false"
+        }
+      }
+    },
+    {
+      "part": "merchant-left-wing",
+      "position": [
+        74,
+        117,
+        212
+      ],
+      "state": {
+        "Name": "minecraft:orange_terracotta"
+      }
+    },
+    {
+      "part": "merchant-left-wing",
+      "position": [
+        74,
+        118,
+        212
+      ],
+      "state": {
+        "Name": "minecraft:red_sandstone_stairs",
+        "Properties": {
+          "facing": "east",
+          "half": "bottom",
+          "shape": "straight",
+          "waterlogged": "false"
+        }
+      }
+    },
+    {
+      "part": "merchant-left-wing",
+      "position": [
+        75,
+        117,
+        212
+      ],
+      "state": {
+        "Name": "minecraft:orange_terracotta"
+      }
+    },
+    {
+      "part": "merchant-left-wing",
+      "position": [
+        75,
+        118,
+        212
+      ],
+      "state": {
+        "Name": "minecraft:red_sandstone_stairs",
+        "Properties": {
+          "facing": "west",
+          "half": "bottom",
+          "shape": "straight",
+          "waterlogged": "false"
+        }
+      }
+    },
+    {
+      "part": "merchant-left-wing",
+      "position": [
+        70,
+        114,
+        213
+      ],
+      "state": {
+        "Name": "minecraft:orange_terracotta"
+      }
+    },
+    {
+      "part": "merchant-left-wing",
+      "position": [
+        70,
+        115,
+        213
+      ],
+      "state": {
+        "Name": "minecraft:red_sandstone_stairs",
+        "Properties": {
+          "facing": "east",
+          "half": "bottom",
+          "shape": "straight",
+          "waterlogged": "false"
+        }
+      }
+    },
+    {
+      "part": "merchant-left-wing",
+      "position": [
+        72,
+        115,
+        213
+      ],
+      "state": {
+        "Name": "minecraft:orange_terracotta"
+      }
+    },
+    {
+      "part": "merchant-left-wing",
+      "position": [
+        72,
+        116,
+        213
+      ],
+      "state": {
+        "Name": "minecraft:red_sandstone_stairs",
+        "Properties": {
+          "facing": "east",
+          "half": "bottom",
+          "shape": "straight",
+          "waterlogged": "false"
+        }
+      }
+    },
+    {
+      "part": "merchant-left-wing",
+      "position": [
+        73,
+        116,
+        213
+      ],
+      "state": {
+        "Name": "minecraft:orange_terracotta"
+      }
+    },
+    {
+      "part": "merchant-left-wing",
+      "position": [
+        73,
+        117,
+        213
+      ],
+      "state": {
+        "Name": "minecraft:red_sandstone_stairs",
+        "Properties": {
+          "facing": "east",
+          "half": "bottom",
+          "shape": "straight",
+          "waterlogged": "false"
+        }
+      }
+    },
+    {
+      "part": "merchant-left-wing",
+      "position": [
+        71,
+        114,
+        214
+      ],
+      "state": {
+        "Name": "minecraft:orange_terracotta"
+      }
+    },
+    {
+      "part": "merchant-left-wing",
+      "position": [
+        71,
+        115,
+        214
+      ],
+      "state": {
+        "Name": "minecraft:red_sandstone_stairs",
+        "Properties": {
+          "facing": "east",
+          "half": "bottom",
+          "shape": "straight",
+          "waterlogged": "false"
+        }
+      }
+    },
+    {
+      "part": "food",
+      "position": [
+        111,
+        112,
+        180
+      ],
+      "state": {
+        "Name": "minecraft:air"
+      }
+    },
+    {
+      "part": "food",
+      "position": [
+        111,
+        112,
+        181
+      ],
+      "state": {
+        "Name": "minecraft:air"
+      }
+    },
+    {
+      "part": "food",
+      "position": [
+        111,
+        112,
+        182
+      ],
+      "state": {
+        "Name": "minecraft:air"
+      }
+    },
+    {
+      "part": "food",
+      "position": [
+        111,
+        112,
+        183
+      ],
+      "state": {
+        "Name": "minecraft:air"
+      }
+    },
+    {
+      "part": "food",
+      "position": [
+        111,
+        112,
+        184
+      ],
+      "state": {
+        "Name": "minecraft:red_sandstone_stairs",
+        "Properties": {
+          "facing": "south",
+          "half": "bottom",
+          "shape": "straight",
+          "waterlogged": "false"
+        }
+      }
+    },
+    {
+      "part": "food",
+      "position": [
+        111,
+        112,
+        185
+      ],
+      "state": {
+        "Name": "minecraft:orange_terracotta"
+      }
+    },
+    {
+      "part": "food",
+      "position": [
+        111,
+        112,
+        186
+      ],
+      "state": {
+        "Name": "minecraft:orange_terracotta"
+      }
+    },
+    {
+      "part": "food",
+      "position": [
+        111,
+        112,
+        187
+      ],
+      "state": {
+        "Name": "minecraft:air"
+      }
+    },
+    {
+      "part": "food",
+      "position": [
+        111,
+        112,
+        188
+      ],
+      "state": {
+        "Name": "minecraft:air"
+      }
+    },
+    {
+      "part": "food",
+      "position": [
+        111,
+        112,
+        189
+      ],
+      "state": {
+        "Name": "minecraft:air"
+      }
+    },
+    {
+      "part": "food",
+      "position": [
+        111,
+        112,
+        190
+      ],
+      "state": {
+        "Name": "minecraft:orange_terracotta"
+      }
+    },
+    {
+      "part": "food",
+      "position": [
+        111,
+        112,
+        191
+      ],
+      "state": {
+        "Name": "minecraft:orange_terracotta"
+      }
+    },
+    {
+      "part": "food",
+      "position": [
+        111,
+        112,
+        192
+      ],
+      "state": {
+        "Name": "minecraft:red_sandstone_stairs",
+        "Properties": {
+          "facing": "north",
+          "half": "bottom",
+          "shape": "straight",
+          "waterlogged": "false"
+        }
+      }
+    },
+    {
+      "part": "food",
+      "position": [
+        111,
+        112,
+        193
+      ],
+      "state": {
+        "Name": "minecraft:air"
+      }
+    },
+    {
+      "part": "food",
+      "position": [
+        111,
+        112,
+        194
+      ],
+      "state": {
+        "Name": "minecraft:air"
+      }
+    },
+    {
+      "part": "food",
+      "position": [
+        111,
+        112,
+        195
+      ],
+      "state": {
+        "Name": "minecraft:air"
+      }
+    },
+    {
+      "part": "food",
+      "position": [
+        111,
+        112,
+        196
+      ],
+      "state": {
+        "Name": "minecraft:air"
+      }
+    },
+    {
+      "part": "food",
+      "position": [
+        111,
+        109,
+        180
+      ],
+      "state": {
+        "Name": "minecraft:orange_terracotta"
+      }
+    },
+    {
+      "part": "food",
+      "position": [
+        111,
+        110,
+        180
+      ],
+      "state": {
+        "Name": "minecraft:red_sandstone_stairs",
+        "Properties": {
+          "facing": "south",
+          "half": "bottom",
+          "shape": "straight",
+          "waterlogged": "false"
+        }
+      }
+    },
+    {
+      "part": "food",
+      "position": [
+        111,
+        109,
+        181
+      ],
+      "state": {
+        "Name": "minecraft:orange_terracotta"
+      }
+    },
+    {
+      "part": "food",
+      "position": [
+        111,
+        110,
+        181
+      ],
+      "state": {
+        "Name": "minecraft:red_sandstone_stairs",
+        "Properties": {
+          "facing": "south",
+          "half": "bottom",
+          "shape": "straight",
+          "waterlogged": "false"
+        }
+      }
+    },
+    {
+      "part": "food",
+      "position": [
+        111,
+        109,
+        182
+      ],
+      "state": {
+        "Name": "minecraft:orange_terracotta"
+      }
+    },
+    {
+      "part": "food",
+      "position": [
+        111,
+        110,
+        182
+      ],
+      "state": {
+        "Name": "minecraft:red_sandstone_stairs",
+        "Properties": {
+          "facing": "south",
+          "half": "bottom",
+          "shape": "straight",
+          "waterlogged": "false"
+        }
+      }
+    },
+    {
+      "part": "food",
+      "position": [
+        111,
+        110,
+        183
+      ],
+      "state": {
+        "Name": "minecraft:orange_terracotta"
+      }
+    },
+    {
+      "part": "food",
+      "position": [
+        111,
+        111,
+        183
+      ],
+      "state": {
+        "Name": "minecraft:red_sandstone_stairs",
+        "Properties": {
+          "facing": "south",
+          "half": "bottom",
+          "shape": "straight",
+          "waterlogged": "false"
+        }
+      }
+    },
+    {
+      "part": "food",
+      "position": [
+        111,
+        111,
+        184
+      ],
+      "state": {
+        "Name": "minecraft:orange_terracotta"
+      }
+    },
+    {
+      "part": "food",
+      "position": [
+        111,
+        113,
+        185
+      ],
+      "state": {
+        "Name": "minecraft:red_sandstone_stairs",
+        "Properties": {
+          "facing": "south",
+          "half": "bottom",
+          "shape": "straight",
+          "waterlogged": "false"
+        }
+      }
+    },
+    {
+      "part": "food",
+      "position": [
+        111,
+        113,
+        186
+      ],
+      "state": {
+        "Name": "minecraft:red_sandstone_stairs",
+        "Properties": {
+          "facing": "south",
+          "half": "bottom",
+          "shape": "straight",
+          "waterlogged": "false"
+        }
+      }
+    },
+    {
+      "part": "food",
+      "position": [
+        111,
+        113,
+        187
+      ],
+      "state": {
+        "Name": "minecraft:orange_terracotta"
+      }
+    },
+    {
+      "part": "food",
+      "position": [
+        111,
+        114,
+        187
+      ],
+      "state": {
+        "Name": "minecraft:red_sandstone_stairs",
+        "Properties": {
+          "facing": "south",
+          "half": "bottom",
+          "shape": "straight",
+          "waterlogged": "false"
+        }
+      }
+    },
+    {
+      "part": "food",
+      "position": [
+        111,
+        114,
+        188
+      ],
+      "state": {
+        "Name": "minecraft:orange_terracotta"
+      }
+    },
+    {
+      "part": "food",
+      "position": [
+        111,
+        115,
+        188
+      ],
+      "state": {
+        "Name": "minecraft:red_sandstone_slab",
+        "Properties": {
+          "type": "bottom",
+          "waterlogged": "false"
+        }
+      }
+    },
+    {
+      "part": "food",
+      "position": [
+        111,
+        113,
+        189
+      ],
+      "state": {
+        "Name": "minecraft:orange_terracotta"
+      }
+    },
+    {
+      "part": "food",
+      "position": [
+        111,
+        114,
+        189
+      ],
+      "state": {
+        "Name": "minecraft:red_sandstone_stairs",
+        "Properties": {
+          "facing": "north",
+          "half": "bottom",
+          "shape": "straight",
+          "waterlogged": "false"
+        }
+      }
+    },
+    {
+      "part": "food",
+      "position": [
+        111,
+        113,
+        190
+      ],
+      "state": {
+        "Name": "minecraft:red_sandstone_stairs",
+        "Properties": {
+          "facing": "north",
+          "half": "bottom",
+          "shape": "straight",
+          "waterlogged": "false"
+        }
+      }
+    },
+    {
+      "part": "food",
+      "position": [
+        111,
+        113,
+        191
+      ],
+      "state": {
+        "Name": "minecraft:red_sandstone_stairs",
+        "Properties": {
+          "facing": "north",
+          "half": "bottom",
+          "shape": "straight",
+          "waterlogged": "false"
+        }
+      }
+    },
+    {
+      "part": "food",
+      "position": [
+        111,
+        111,
+        192
+      ],
+      "state": {
+        "Name": "minecraft:orange_terracotta"
+      }
+    },
+    {
+      "part": "food",
+      "position": [
+        111,
+        110,
+        193
+      ],
+      "state": {
+        "Name": "minecraft:orange_terracotta"
+      }
+    },
+    {
+      "part": "food",
+      "position": [
+        111,
+        111,
+        193
+      ],
+      "state": {
+        "Name": "minecraft:red_sandstone_stairs",
+        "Properties": {
+          "facing": "north",
+          "half": "bottom",
+          "shape": "straight",
+          "waterlogged": "false"
+        }
+      }
+    },
+    {
+      "part": "food",
+      "position": [
+        111,
+        109,
+        194
+      ],
+      "state": {
+        "Name": "minecraft:orange_terracotta"
+      }
+    },
+    {
+      "part": "food",
+      "position": [
+        111,
+        110,
+        194
+      ],
+      "state": {
+        "Name": "minecraft:red_sandstone_stairs",
+        "Properties": {
+          "facing": "north",
+          "half": "bottom",
+          "shape": "straight",
+          "waterlogged": "false"
+        }
+      }
+    },
+    {
+      "part": "food",
+      "position": [
+        111,
+        109,
+        195
+      ],
+      "state": {
+        "Name": "minecraft:orange_terracotta"
+      }
+    },
+    {
+      "part": "food",
+      "position": [
+        111,
+        110,
+        195
+      ],
+      "state": {
+        "Name": "minecraft:red_sandstone_stairs",
+        "Properties": {
+          "facing": "north",
+          "half": "bottom",
+          "shape": "straight",
+          "waterlogged": "false"
+        }
+      }
+    },
+    {
+      "part": "food",
+      "position": [
+        111,
+        109,
+        196
+      ],
+      "state": {
+        "Name": "minecraft:orange_terracotta"
+      }
+    },
+    {
+      "part": "food",
+      "position": [
+        111,
+        110,
+        196
+      ],
+      "state": {
+        "Name": "minecraft:red_sandstone_stairs",
+        "Properties": {
+          "facing": "north",
+          "half": "bottom",
+          "shape": "straight",
+          "waterlogged": "false"
+        }
+      }
+    },
+    {
+      "part": "herbs-main",
+      "position": [
+        114,
+        113,
+        180
+      ],
+      "state": {
+        "Name": "minecraft:orange_terracotta"
+      }
+    },
+    {
+      "part": "herbs-main",
+      "position": [
+        114,
+        114,
+        180
+      ],
+      "state": {
+        "Name": "minecraft:red_sandstone_stairs",
+        "Properties": {
+          "facing": "east",
+          "half": "bottom",
+          "shape": "straight",
+          "waterlogged": "false"
+        }
+      }
+    },
+    {
+      "part": "herbs-main",
+      "position": [
+        132,
+        110,
+        180
+      ],
+      "state": {
+        "Name": "minecraft:orange_terracotta"
+      }
+    },
+    {
+      "part": "herbs-main",
+      "position": [
+        132,
+        111,
+        180
+      ],
+      "state": {
+        "Name": "minecraft:red_sandstone_stairs",
+        "Properties": {
+          "facing": "west",
+          "half": "bottom",
+          "shape": "straight",
+          "waterlogged": "false"
+        }
+      }
+    },
+    {
+      "part": "herbs-main",
+      "position": [
+        114,
+        113,
+        181
+      ],
+      "state": {
+        "Name": "minecraft:orange_terracotta"
+      }
+    },
+    {
+      "part": "herbs-main",
+      "position": [
+        114,
+        114,
+        181
+      ],
+      "state": {
+        "Name": "minecraft:red_sandstone_stairs",
+        "Properties": {
+          "facing": "east",
+          "half": "bottom",
+          "shape": "straight",
+          "waterlogged": "false"
+        }
+      }
+    },
+    {
+      "part": "herbs-main",
+      "position": [
+        132,
+        110,
+        181
+      ],
+      "state": {
+        "Name": "minecraft:orange_terracotta"
+      }
+    },
+    {
+      "part": "herbs-main",
+      "position": [
+        132,
+        111,
+        181
+      ],
+      "state": {
+        "Name": "minecraft:red_sandstone_stairs",
+        "Properties": {
+          "facing": "west",
+          "half": "bottom",
+          "shape": "straight",
+          "waterlogged": "false"
+        }
+      }
+    },
+    {
+      "part": "herbs-main",
+      "position": [
+        114,
+        113,
+        182
+      ],
+      "state": {
+        "Name": "minecraft:orange_terracotta"
+      }
+    },
+    {
+      "part": "herbs-main",
+      "position": [
+        114,
+        114,
+        182
+      ],
+      "state": {
+        "Name": "minecraft:red_sandstone_stairs",
+        "Properties": {
+          "facing": "east",
+          "half": "bottom",
+          "shape": "straight",
+          "waterlogged": "false"
+        }
+      }
+    },
+    {
+      "part": "herbs-main",
+      "position": [
+        132,
+        110,
+        182
+      ],
+      "state": {
+        "Name": "minecraft:orange_terracotta"
+      }
+    },
+    {
+      "part": "herbs-main",
+      "position": [
+        132,
+        111,
+        182
+      ],
+      "state": {
+        "Name": "minecraft:red_sandstone_stairs",
+        "Properties": {
+          "facing": "west",
+          "half": "bottom",
+          "shape": "straight",
+          "waterlogged": "false"
+        }
+      }
+    },
+    {
+      "part": "herbs-main",
+      "position": [
+        114,
+        113,
+        183
+      ],
+      "state": {
+        "Name": "minecraft:orange_terracotta"
+      }
+    },
+    {
+      "part": "herbs-main",
+      "position": [
+        114,
+        114,
+        183
+      ],
+      "state": {
+        "Name": "minecraft:red_sandstone_stairs",
+        "Properties": {
+          "facing": "east",
+          "half": "bottom",
+          "shape": "straight",
+          "waterlogged": "false"
+        }
+      }
+    },
+    {
+      "part": "herbs-main",
+      "position": [
+        114,
+        113,
+        184
+      ],
+      "state": {
+        "Name": "minecraft:orange_terracotta"
+      }
+    },
+    {
+      "part": "herbs-main",
+      "position": [
+        114,
+        114,
+        184
+      ],
+      "state": {
+        "Name": "minecraft:red_sandstone_stairs",
+        "Properties": {
+          "facing": "east",
+          "half": "bottom",
+          "shape": "straight",
+          "waterlogged": "false"
+        }
+      }
+    },
+    {
+      "part": "herbs-main",
+      "position": [
+        114,
+        113,
+        185
+      ],
+      "state": {
+        "Name": "minecraft:orange_terracotta"
+      }
+    },
+    {
+      "part": "herbs-main",
+      "position": [
+        114,
+        114,
+        185
+      ],
+      "state": {
+        "Name": "minecraft:red_sandstone_stairs",
+        "Properties": {
+          "facing": "east",
+          "half": "bottom",
+          "shape": "straight",
+          "waterlogged": "false"
+        }
+      }
+    },
+    {
+      "part": "herbs-main",
+      "position": [
+        114,
+        113,
+        186
+      ],
+      "state": {
+        "Name": "minecraft:orange_terracotta"
+      }
+    },
+    {
+      "part": "herbs-main",
+      "position": [
+        114,
+        114,
+        186
+      ],
+      "state": {
+        "Name": "minecraft:red_sandstone_stairs",
+        "Properties": {
+          "facing": "east",
+          "half": "bottom",
+          "shape": "straight",
+          "waterlogged": "false"
+        }
+      }
+    },
+    {
+      "part": "herbs-main",
+      "position": [
+        114,
+        113,
+        187
+      ],
+      "state": {
+        "Name": "minecraft:orange_terracotta"
+      }
+    },
+    {
+      "part": "herbs-main",
+      "position": [
+        114,
+        114,
+        187
+      ],
+      "state": {
+        "Name": "minecraft:red_sandstone_stairs",
+        "Properties": {
+          "facing": "east",
+          "half": "bottom",
+          "shape": "straight",
+          "waterlogged": "false"
+        }
+      }
+    },
+    {
+      "part": "herbs-main",
+      "position": [
+        114,
+        113,
+        188
+      ],
+      "state": {
+        "Name": "minecraft:orange_terracotta"
+      }
+    },
+    {
+      "part": "herbs-main",
+      "position": [
+        114,
+        114,
+        188
+      ],
+      "state": {
+        "Name": "minecraft:red_sandstone_stairs",
+        "Properties": {
+          "facing": "east",
+          "half": "bottom",
+          "shape": "straight",
+          "waterlogged": "false"
+        }
+      }
+    },
+    {
+      "part": "herbs-main",
+      "position": [
+        114,
+        113,
+        189
+      ],
+      "state": {
+        "Name": "minecraft:orange_terracotta"
+      }
+    },
+    {
+      "part": "herbs-main",
+      "position": [
+        114,
+        114,
+        189
+      ],
+      "state": {
+        "Name": "minecraft:red_sandstone_stairs",
+        "Properties": {
+          "facing": "east",
+          "half": "bottom",
+          "shape": "straight",
+          "waterlogged": "false"
+        }
+      }
+    },
+    {
+      "part": "herbs-main",
+      "position": [
+        114,
+        113,
+        190
+      ],
+      "state": {
+        "Name": "minecraft:orange_terracotta"
+      }
+    },
+    {
+      "part": "herbs-main",
+      "position": [
+        114,
+        114,
+        190
+      ],
+      "state": {
+        "Name": "minecraft:red_sandstone_stairs",
+        "Properties": {
+          "facing": "east",
+          "half": "bottom",
+          "shape": "straight",
+          "waterlogged": "false"
+        }
+      }
+    },
+    {
+      "part": "herbs-main",
+      "position": [
+        114,
+        113,
+        191
+      ],
+      "state": {
+        "Name": "minecraft:orange_terracotta"
+      }
+    },
+    {
+      "part": "herbs-main",
+      "position": [
+        114,
+        114,
+        191
+      ],
+      "state": {
+        "Name": "minecraft:red_sandstone_stairs",
+        "Properties": {
+          "facing": "east",
+          "half": "bottom",
+          "shape": "straight",
+          "waterlogged": "false"
+        }
+      }
+    },
+    {
+      "part": "herbs-main",
+      "position": [
+        114,
+        113,
+        192
+      ],
+      "state": {
+        "Name": "minecraft:orange_terracotta"
+      }
+    },
+    {
+      "part": "herbs-main",
+      "position": [
+        114,
+        114,
+        192
+      ],
+      "state": {
+        "Name": "minecraft:red_sandstone_stairs",
+        "Properties": {
+          "facing": "east",
+          "half": "bottom",
+          "shape": "straight",
+          "waterlogged": "false"
+        }
+      }
+    },
+    {
+      "part": "herbs-main",
+      "position": [
+        114,
+        113,
+        193
+      ],
+      "state": {
+        "Name": "minecraft:orange_terracotta"
+      }
+    },
+    {
+      "part": "herbs-main",
+      "position": [
+        114,
+        114,
+        193
+      ],
+      "state": {
+        "Name": "minecraft:red_sandstone_stairs",
+        "Properties": {
+          "facing": "east",
+          "half": "bottom",
+          "shape": "straight",
+          "waterlogged": "false"
+        }
+      }
+    },
+    {
+      "part": "herbs-main",
+      "position": [
+        114,
+        113,
+        194
+      ],
+      "state": {
+        "Name": "minecraft:orange_terracotta"
+      }
+    },
+    {
+      "part": "herbs-main",
+      "position": [
+        114,
+        114,
+        194
+      ],
+      "state": {
+        "Name": "minecraft:red_sandstone_stairs",
+        "Properties": {
+          "facing": "east",
+          "half": "bottom",
+          "shape": "straight",
+          "waterlogged": "false"
+        }
+      }
+    },
+    {
+      "part": "herbs-main",
+      "position": [
+        114,
+        113,
+        195
+      ],
+      "state": {
+        "Name": "minecraft:orange_terracotta"
+      }
+    },
+    {
+      "part": "herbs-main",
+      "position": [
+        114,
+        114,
+        195
+      ],
+      "state": {
+        "Name": "minecraft:red_sandstone_stairs",
+        "Properties": {
+          "facing": "east",
+          "half": "bottom",
+          "shape": "straight",
+          "waterlogged": "false"
+        }
+      }
+    },
+    {
+      "part": "herbs-main",
+      "position": [
+        114,
+        113,
+        196
+      ],
+      "state": {
+        "Name": "minecraft:orange_terracotta"
+      }
+    },
+    {
+      "part": "herbs-main",
+      "position": [
+        114,
+        114,
+        196
+      ],
+      "state": {
+        "Name": "minecraft:red_sandstone_stairs",
+        "Properties": {
+          "facing": "east",
+          "half": "bottom",
+          "shape": "straight",
+          "waterlogged": "false"
+        }
+      }
+    },
+    {
+      "part": "herbs-main",
+      "position": [
+        132,
+        110,
+        196
+      ],
+      "state": {
+        "Name": "minecraft:orange_terracotta"
+      }
+    },
+    {
+      "part": "herbs-main",
+      "position": [
+        132,
+        111,
+        196
+      ],
+      "state": {
+        "Name": "minecraft:red_sandstone_stairs",
+        "Properties": {
+          "facing": "west",
+          "half": "bottom",
+          "shape": "straight",
+          "waterlogged": "false"
+        }
+      }
+    },
+    {
+      "part": "herbs-main",
+      "position": [
+        114,
+        113,
+        197
+      ],
+      "state": {
+        "Name": "minecraft:orange_terracotta"
+      }
+    },
+    {
+      "part": "herbs-main",
+      "position": [
+        114,
+        114,
+        197
+      ],
+      "state": {
+        "Name": "minecraft:red_sandstone_stairs",
+        "Properties": {
+          "facing": "east",
+          "half": "bottom",
+          "shape": "straight",
+          "waterlogged": "false"
+        }
+      }
+    },
+    {
+      "part": "herbs-main",
+      "position": [
+        132,
+        110,
+        197
+      ],
+      "state": {
+        "Name": "minecraft:orange_terracotta"
+      }
+    },
+    {
+      "part": "herbs-main",
+      "position": [
+        132,
+        111,
+        197
+      ],
+      "state": {
+        "Name": "minecraft:red_sandstone_stairs",
+        "Properties": {
+          "facing": "west",
+          "half": "bottom",
+          "shape": "straight",
+          "waterlogged": "false"
+        }
+      }
+    },
+    {
+      "part": "herbs-main",
+      "position": [
+        114,
+        113,
+        198
+      ],
+      "state": {
+        "Name": "minecraft:orange_terracotta"
+      }
+    },
+    {
+      "part": "herbs-main",
+      "position": [
+        114,
+        114,
+        198
+      ],
+      "state": {
+        "Name": "minecraft:red_sandstone_stairs",
+        "Properties": {
+          "facing": "east",
+          "half": "bottom",
+          "shape": "straight",
+          "waterlogged": "false"
+        }
+      }
+    },
+    {
+      "part": "herbs-main",
+      "position": [
+        132,
+        110,
+        198
+      ],
+      "state": {
+        "Name": "minecraft:orange_terracotta"
+      }
+    },
+    {
+      "part": "herbs-main",
+      "position": [
+        132,
+        111,
+        198
+      ],
+      "state": {
+        "Name": "minecraft:red_sandstone_stairs",
+        "Properties": {
+          "facing": "west",
+          "half": "bottom",
+          "shape": "straight",
+          "waterlogged": "false"
+        }
+      }
+    },
+    {
+      "part": "herbs-glass-bay",
+      "position": [
+        132,
+        110,
+        183
+      ],
+      "state": {
+        "Name": "minecraft:glass"
+      }
+    },
+    {
+      "part": "herbs-glass-bay",
+      "position": [
+        132,
+        110,
+        184
+      ],
+      "state": {
+        "Name": "minecraft:glass"
+      }
+    },
+    {
+      "part": "herbs-glass-bay",
+      "position": [
+        132,
+        110,
+        185
+      ],
+      "state": {
+        "Name": "minecraft:glass"
+      }
+    },
+    {
+      "part": "herbs-glass-bay",
+      "position": [
+        132,
+        110,
+        186
+      ],
+      "state": {
+        "Name": "minecraft:glass"
+      }
+    },
+    {
+      "part": "herbs-glass-bay",
+      "position": [
+        132,
+        110,
+        187
+      ],
+      "state": {
+        "Name": "minecraft:glass"
+      }
+    },
+    {
+      "part": "herbs-glass-bay",
+      "position": [
+        132,
+        110,
+        188
+      ],
+      "state": {
+        "Name": "minecraft:glass"
+      }
+    },
+    {
+      "part": "herbs-glass-bay",
+      "position": [
+        132,
+        110,
+        189
+      ],
+      "state": {
+        "Name": "minecraft:glass"
+      }
+    },
+    {
+      "part": "herbs-glass-bay",
+      "position": [
+        132,
+        110,
+        190
+      ],
+      "state": {
+        "Name": "minecraft:glass"
+      }
+    },
+    {
+      "part": "herbs-glass-bay",
+      "position": [
+        132,
+        110,
+        191
+      ],
+      "state": {
+        "Name": "minecraft:glass"
+      }
+    },
+    {
+      "part": "herbs-glass-bay",
+      "position": [
+        132,
+        110,
+        192
+      ],
+      "state": {
+        "Name": "minecraft:glass"
+      }
+    },
+    {
+      "part": "herbs-glass-bay",
+      "position": [
+        132,
+        110,
+        193
+      ],
+      "state": {
+        "Name": "minecraft:glass"
+      }
+    },
+    {
+      "part": "herbs-glass-bay",
+      "position": [
+        132,
+        110,
+        194
+      ],
+      "state": {
+        "Name": "minecraft:glass"
+      }
+    },
+    {
+      "part": "herbs-glass-bay",
+      "position": [
+        132,
+        110,
+        195
+      ],
+      "state": {
+        "Name": "minecraft:glass"
+      }
+    },
+    {
+      "part": "herbs-glass-bay",
+      "position": [
+        128,
+        111,
+        182
+      ],
+      "state": {
+        "Name": "minecraft:glass"
+      }
+    },
+    {
+      "part": "herbs-glass-bay",
+      "position": [
+        129,
+        111,
+        182
+      ],
+      "state": {
+        "Name": "minecraft:glass"
+      }
+    },
+    {
+      "part": "herbs-glass-bay",
+      "position": [
+        130,
+        110,
+        182
+      ],
+      "state": {
+        "Name": "minecraft:glass"
+      }
+    },
+    {
+      "part": "herbs-glass-bay",
+      "position": [
+        128,
+        111,
+        196
+      ],
+      "state": {
+        "Name": "minecraft:glass"
+      }
+    },
+    {
+      "part": "herbs-glass-bay",
+      "position": [
+        129,
+        111,
+        196
+      ],
+      "state": {
+        "Name": "minecraft:glass"
+      }
+    },
+    {
+      "part": "herbs-glass-bay",
+      "position": [
+        130,
+        110,
+        196
+      ],
+      "state": {
+        "Name": "minecraft:glass"
+      }
+    }
+  ],
+  "bodyDimensionsChanged": false,
+  "buildingsExpanded": false,
+  "serverModified": false,
+  "verification": {
+    "webGL": true,
+    "inGame": false,
+    "deployed": false,
+    "screenshot": "docs/maps/zone04-market-eaves-fixed-20261031.png",
+    "compileJava": "SUCCESS",
+    "nativeReader": "SUCCESS: 576 chunks, 3553936 blocks, 176 states, 30 block entities",
+    "blockEntitiesUnchanged": true,
+    "levelDatUnchanged": true,
+    "review": "No actionable findings"
+  },
+  "validation": {
+    "netChangedBlocks": 276,
+    "roofParts": 5,
+    "protectedPoints": 24,
+    "outsideRoofChanges": 0
+  },
+  "resultHash": "c3bc2abeb8970fc50bf735a413e4fc36af1febd91fba295ac13293c11d283071",
+  "changedChunks": 13
+}

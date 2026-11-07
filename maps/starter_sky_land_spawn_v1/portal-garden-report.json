@@ -1,0 +1,404 @@
+{
+  "zone": {
+    "id": "08-dimensional-station",
+    "name": "Portal Garden Island",
+    "bounds": [
+      277,
+      186,
+      375,
+      246
+    ],
+    "center": [
+      344,
+      108,
+      216
+    ],
+    "islandBounds": [
+      320,
+      190,
+      374,
+      244
+    ],
+    "bridgeBounds": [
+      277,
+      214,
+      319,
+      235
+    ],
+    "portalCenter": [
+      351,
+      110,
+      216
+    ],
+    "floorY": 108,
+    "portalFloorY": 110,
+    "status": "active",
+    "details": {
+      "clearBridgeWidth": 5,
+      "spanLength": 26,
+      "portalDimensions": [
+        15,
+        17
+      ],
+      "geometry": "curved_stone_timber_bridge_and_terraced_garden",
+      "gameplayConnected": false
+    }
+  },
+  "bridge": [
+    {
+      "x": 277,
+      "z": 218,
+      "feet": 108,
+      "halfWidth": 1
+    },
+    {
+      "x": 278,
+      "z": 218,
+      "feet": 108.5,
+      "halfWidth": 1
+    },
+    {
+      "x": 279,
+      "z": 218,
+      "feet": 109,
+      "halfWidth": 2
+    },
+    {
+      "x": 280,
+      "z": 219,
+      "feet": 109,
+      "halfWidth": 2
+    },
+    {
+      "x": 281,
+      "z": 219,
+      "feet": 109,
+      "halfWidth": 2
+    },
+    {
+      "x": 282,
+      "z": 220,
+      "feet": 109,
+      "halfWidth": 2
+    },
+    {
+      "x": 283,
+      "z": 220,
+      "feet": 109,
+      "halfWidth": 2
+    },
+    {
+      "x": 284,
+      "z": 221,
+      "feet": 109,
+      "halfWidth": 2
+    },
+    {
+      "x": 285,
+      "z": 221,
+      "feet": 109,
+      "halfWidth": 2
+    },
+    {
+      "x": 286,
+      "z": 222,
+      "feet": 109,
+      "halfWidth": 2
+    },
+    {
+      "x": 287,
+      "z": 222,
+      "feet": 109,
+      "halfWidth": 2
+    },
+    {
+      "x": 288,
+      "z": 223,
+      "feet": 109,
+      "halfWidth": 2
+    },
+    {
+      "x": 289,
+      "z": 223,
+      "feet": 109,
+      "halfWidth": 2
+    },
+    {
+      "x": 290,
+      "z": 224,
+      "feet": 109,
+      "halfWidth": 2
+    },
+    {
+      "x": 291,
+      "z": 224,
+      "feet": 109,
+      "halfWidth": 2
+    },
+    {
+      "x": 292,
+      "z": 224,
+      "feet": 109,
+      "halfWidth": 2
+    },
+    {
+      "x": 293,
+      "z": 224,
+      "feet": 109,
+      "halfWidth": 2
+    },
+    {
+      "x": 294,
+      "z": 224,
+      "feet": 109,
+      "halfWidth": 2
+    },
+    {
+      "x": 295,
+      "z": 225,
+      "feet": 109.5,
+      "halfWidth": 2
+    },
+    {
+      "x": 296,
+      "z": 225,
+      "feet": 109.5,
+      "halfWidth": 2
+    },
+    {
+      "x": 297,
+      "z": 225,
+      "feet": 109.5,
+      "halfWidth": 2
+    },
+    {
+      "x": 298,
+      "z": 225,
+      "feet": 109.5,
+      "halfWidth": 2
+    },
+    {
+      "x": 299,
+      "z": 225,
+      "feet": 109.5,
+      "halfWidth": 2
+    },
+    {
+      "x": 300,
+      "z": 226,
+      "feet": 109.5,
+      "halfWidth": 2
+    },
+    {
+      "x": 301,
+      "z": 226,
+      "feet": 110,
+      "halfWidth": 2
+    },
+    {
+      "x": 302,
+      "z": 226,
+      "feet": 110,
+      "halfWidth": 2
+    },
+    {
+      "x": 303,
+      "z": 226,
+      "feet": 110,
+      "halfWidth": 2
+    },
+    {
+      "x": 304,
+      "z": 226,
+      "feet": 110,
+      "halfWidth": 2
+    },
+    {
+      "x": 305,
+      "z": 226,
+      "feet": 110,
+      "halfWidth": 2
+    },
+    {
+      "x": 306,
+      "z": 226,
+      "feet": 110,
+      "halfWidth": 2
+    },
+    {
+      "x": 307,
+      "z": 225,
+      "feet": 110,
+      "halfWidth": 2
+    },
+    {
+      "x": 308,
+      "z": 224,
+      "feet": 109.5,
+      "halfWidth": 2
+    },
+    {
+      "x": 309,
+      "z": 224,
+      "feet": 109.5,
+      "halfWidth": 2
+    },
+    {
+      "x": 310,
+      "z": 223,
+      "feet": 109.5,
+      "halfWidth": 2
+    },
+    {
+      "x": 311,
+      "z": 222,
+      "feet": 109.5,
+      "halfWidth": 2
+    },
+    {
+      "x": 312,
+      "z": 221,
+      "feet": 109.5,
+      "halfWidth": 2
+    },
+    {
+      "x": 313,
+      "z": 221,
+      "feet": 109.5,
+      "halfWidth": 2
+    },
+    {
+      "x": 314,
+      "z": 220,
+      "feet": 109,
+      "halfWidth": 2
+    },
+    {
+      "x": 315,
+      "z": 219,
+      "feet": 109,
+      "halfWidth": 2
+    },
+    {
+      "x": 316,
+      "z": 218,
+      "feet": 109,
+      "halfWidth": 2
+    },
+    {
+      "x": 317,
+      "z": 217,
+      "feet": 109,
+      "halfWidth": 2
+    },
+    {
+      "x": 318,
+      "z": 216,
+      "feet": 109,
+      "halfWidth": 2
+    },
+    {
+      "x": 319,
+      "z": 215,
+      "feet": 109,
+      "halfWidth": 2
+    }
+  ],
+  "trees": [
+    {
+      "asset": "t018",
+      "anchor": [
+        362,
+        109,
+        201
+      ],
+      "origin": [
+        352,
+        109,
+        193
+      ],
+      "size": [
+        16,
+        14,
+        15
+      ]
+    },
+    {
+      "asset": "t024",
+      "anchor": [
+        362,
+        109,
+        233
+      ],
+      "origin": [
+        352,
+        109,
+        226
+      ],
+      "size": [
+        12,
+        14,
+        17
+      ]
+    }
+  ],
+  "flowers": 49,
+  "parapetColumns": 137,
+  "netChangedBlocks": 76725,
+  "counts": {
+    "island": 71252,
+    "parapet": 275,
+    "remove-old-zone08": 779,
+    "shrub": 17,
+    "bench": 16,
+    "flowers": 47,
+    "plaza": 592,
+    "portal-side-steps": 66,
+    "portal-pedestal": 488,
+    "portal-rear-steps": 57,
+    "portal-steps": 57,
+    "portal-arch": 852,
+    "bridge-rail": 143,
+    "light": 10,
+    "pier": 89,
+    "bridge": 208,
+    "bridge-support": 140,
+    "promenade-support": 166,
+    "arch-rib": 318,
+    "viewing-bay": 100,
+    "viewing-bench": 3,
+    "portal-trim": 34,
+    "portal-piers": 92,
+    "portal-crown": 2,
+    "tree": 608
+  },
+  "changedChunks": 22,
+  "sourceHash": "bd957c225fc0be86fe4a27a7d265a13b7178d01f22798fd65f55293421fd824f",
+  "resultHash": "244a397dee6691cacc93283822483defd5372e2811b5cbfda84aa80509e93de5",
+  "backup": "archive\\map-edit-backups\\before-zone08-garden-redesign\\starter_sky_land_spawn_v1",
+  "verification": {
+    "savedSemanticComparison": true,
+    "npcStandingReserveUnchanged": true,
+    "protectedCityTreeChanges": 0,
+    "inGame": false,
+    "deployed": true
+  },
+  "ornament": {
+    "changedBlocks": 359,
+    "changedChunks": 10,
+    "extraFlowers": 107,
+    "extraShrubs": 18,
+    "frontArchX": [
+      346,
+      348
+    ],
+    "frontArchPeakY": 129,
+    "crestY": 131,
+    "backup": "archive\\map-edit-backups\\portal-garden-before-ornament"
+  },
+  "lampBracketSupport": {
+    "backup": "archive\\map-edit-backups\\portal-garden-lamp-support",
+    "changedChunks": 2
+  },
+  "deploymentReport": "cronus-zone03-zone08-deployment.json"
+}

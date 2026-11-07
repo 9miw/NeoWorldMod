@@ -1,88 +1,37 @@
-# Player trade MVP
+# ระบบแลกเปลี่ยนระหว่างผู้เล่นรุ่น MVP
 
-Start with `/trade <player>` or the player-action menu's Trade button. Both players
-must be alive, in survival/adventure, in the same dimension, with container menus
-closed and no carried cursor stack. Sending and keeping a pending request do not
-require proximity: the recipient receives an accept/decline popup immediately.
-The server checks the eight-block distance when accepting, before opening the
-trade menus, and throughout the active trade. Only one pending request or session
-per player is allowed.
-Requests expire after 300 server ticks; successful requests have a 100-tick sender
-cooldown. Each side can offer up to nine distinct main-inventory/hotbar slots and
-nonnegative Silver. CoinItem stacks are excluded because economy converts them
-automatically. Armor, offhand and crafting slots cannot be offered.
+**สถานะ: ปิดใช้งาน** ซ่อนปุ่ม Trade ในเมนูโต้ตอบผู้เล่น ไม่ลงทะเบียน `/trade` และเซิร์ฟเวอร์ปฏิเสธคำขอและการกระทำ Trade เก็บโค้ดและการลงทะเบียนเพย์โหลดไว้ใช้ภายหลัง ตลาดกลางคงเดิม เนื้อหาด้านล่างอธิบายระบบที่เก็บไว้เมื่อเปิดใช้งานอีกครั้ง
 
-The player inventory uses Minecraft Slot/Container input, rendering, tooltips,
-dragging, stack splitting and hotkeys. Shift-click an inventory slot to offer its
-full stack. For a precise count, Ctrl-click the source slot, enter the quantity and
-press Add. Click a local offered item to remove the reference. Preview slots are
-server-protected and cannot be picked up, swapped, thrown, cloned or used in drag
-distribution/double-click collection. Enter Silver and press Set money. Both players confirm, then the server
-waits 60 ticks before transferring. Popup timers are display/interaction aids;
-only server state completes a trade.
+เริ่มด้วย `/trade <player>` หรือปุ่ม Trade ในเมนูโต้ตอบผู้เล่น ทั้งคู่ต้องมีชีวิต อยู่โหมด survival/adventure มิติเดียวกัน ปิดเมนูคอนเทนเนอร์ และไม่มีสแต็กติดเคอร์เซอร์ การส่งและคงคำขอที่รอไม่บังคับระยะ ผู้รับเห็นป๊อปอัปยอมรับ/ปฏิเสธทันที เซิร์ฟเวอร์ตรวจระยะแปดบล็อกตอนยอมรับ ก่อนเปิดเมนู และตลอดการแลกเปลี่ยน ผู้เล่นมีคำขอหรือเซสชันได้เพียงหนึ่งรายการ
+คำขอหมดอายุหลัง 300 ทิกเซิร์ฟเวอร์ คำขอที่สำเร็จมีคูลดาวน์ผู้ส่ง 100 ทิก แต่ละฝ่ายเสนอช่องคลังหลัก/ฮอตบาร์ที่ต่างกันได้สูงสุดเก้าช่อง และ Silver ที่ไม่ติดลบ ไม่รับสแต็ก CoinItem เพราะระบบเศรษฐกิจแปลงให้อัตโนมัติ เสนอช่องเกราะ มือรอง และคราฟต์ไม่ได้
 
-## Ownership and cancellation
+คลังผู้เล่นใช้การรับอินพุต การวาด ทูลทิป ลาก แบ่งสแต็ก และปุ่มลัดของ Slot/Container ใน Minecraft กด Shift-click ที่ช่องเพื่อเสนอเต็มสแต็ก หากต้องการจำนวนแน่นอนให้ Ctrl-click ช่องต้นทาง ใส่จำนวน แล้วกด Add คลิกไอเทมที่ตนเสนอเพื่อเอาการอ้างอิงออก ช่องพรีวิวป้องกันฝั่งเซิร์ฟเวอร์ ไม่ให้หยิบ สลับ โยน โคลน ใช้ลากกระจาย หรือดับเบิลคลิกรวม ใส่ Silver แล้วกด Set money ทั้งคู่ยืนยัน จากนั้นเซิร์ฟเวอร์รอ 60 ทิกก่อนโอน ตัวจับเวลาป๊อปอัปช่วยแสดงผล/โต้ตอบเท่านั้น สถานะเซิร์ฟเวอร์เป็นตัวตัดสินสำเร็จ
 
-Items and Silver stay with their owners while editing. Offers are copied server
-snapshots, not escrow inventories. Every main-inventory or balance change clears
-both confirmations and stops countdown; changed source slots are removed from the
-offer. An unaffordable Silver offer is reset to zero. Closing the GUI, logout,
-death, dimension changes, excessive distance, a container opening, or 100 ticks
-without a GUI heartbeat cancels the session. No refund creates a second copy of
-an item or balance. On death, ordinary Minecraft inventory/drop rules still apply.
+## ความเป็นเจ้าของและการยกเลิก
 
-The server resolves participants from authenticated network context. Session UUIDs,
-offer revisions, explicit confirm/unconfirm actions, bounded slot/count input,
-single server-thread ownership and per-player action throttling prevent stale
-confirmation and duplicate commit. Cancellation is idempotent and bypasses the
-action throttle. Both post-trade inventories and balances are planned before any
-mutation. If either inventory cannot hold its delivery, nothing transfers. No
-delivery is dropped into the world. Inventory item identity includes components.
-The session is removed before publishing success. The server opens a registered
-TradeMenu for both players; the client never creates a local replacement container.
-Moving items or changing the real cursor stack invalidates both confirmations.
-Confirmation requires both cursors to be empty. Vanilla menu removal returns the
-real carried stack; preview containers are never refunded or dropped.
+ไอเทมและ Silver ยังอยู่กับเจ้าของระหว่างแก้ข้อเสนอ ข้อเสนอเป็นสำเนาสแนปช็อตเซิร์ฟเวอร์ ไม่ใช่คลังเอสโครว์ การเปลี่ยนคลังหลักหรือยอดเงินทุกครั้งล้างการยืนยันทั้งคู่และหยุดนับถอยหลัง ช่องต้นทางที่เปลี่ยนจะถูกถอนจากข้อเสนอ หาก Silver ไม่พอจะรีเซ็ตข้อเสนอเป็นศูนย์ การปิด GUI ออกจากเกม ตาย เปลี่ยนมิติ ห่างเกินกำหนด เปิดคอนเทนเนอร์ หรือไม่มี GUI heartbeat 100 ทิก จะยกเลิกเซสชัน ไม่มีการคืนของที่สร้างไอเทมหรือยอดเงินซ้ำ เมื่อตายยังใช้กฎคลัง/ของตก Minecraft ปกติ
 
-## Persistence boundary
+เซิร์ฟเวอร์ระบุผู้ร่วมจากคอนเท็กซ์เครือข่ายที่ยืนยันตัวตน UUID เซสชัน รีวิชันข้อเสนอ การยืนยัน/ถอนยืนยันชัดเจน ขีดจำกัดช่อง/จำนวน การเป็นเจ้าของโดยเธรดเซิร์ฟเวอร์เดียว และจำกัดความถี่ต่อผู้เล่น ป้องกันการยืนยันเก่าและคอมมิตซ้ำ การยกเลิกทำซ้ำได้โดยผลไม่เปลี่ยนและข้ามการจำกัดความถี่ วางแผนคลังและยอดเงินหลังแลกทั้งคู่ก่อนเปลี่ยนจริง หากคลังฝ่ายใดรับของไม่พอจะไม่โอนอะไร ไม่ทิ้งของส่งมอบลงโลก การระบุตัวไอเทมรวมคอมโพเนนต์
+ลบเซสชันก่อนประกาศสำเร็จ เซิร์ฟเวอร์เปิด TradeMenu ที่ลงทะเบียนให้ทั้งคู่ ไคลเอนต์ไม่สร้างคอนเทนเนอร์ทดแทนเอง การย้ายไอเทมหรือเปลี่ยนสแต็กเคอร์เซอร์จริงทำให้การยืนยันทั้งคู่ใช้ไม่ได้ การยืนยันต้องไม่มีของติดเคอร์เซอร์ทั้งคู่ การปิดเมนู Vanilla คืนสแต็กที่ถือจริง คอนเทนเนอร์พรีวิวไม่ถูกคืนหรือทิ้ง
 
-This MVP introduces no database migration or escrow table. Silver remains in the
-existing PlayerData Attachment, and inventory remains in vanilla player data.
-The server-thread commit has rollback for ordinary mutation exceptions, but does
-not provide crash atomicity across two player save files. An abrupt process/host
-failure during save can leave players persisted at different transaction points.
-Durable ownership, coordinated saves and replay/recovery require the separately
-approved phase 3; a SQL journal alone is insufficient.
+## ขอบเขตการบันทึกถาวร
 
-Payloads are additive; existing packet formats and protocol version 2 are retained.
-Both server and clients need the build containing the required trade payloads.
-No existing market or other-feature mutation path is replaced.
+MVP นี้ไม่เพิ่มการย้ายฐานข้อมูลหรือตารางเอสโครว์ Silver อยู่ใน PlayerData Attachment เดิม และคลังอยู่ในข้อมูลผู้เล่น Vanilla การคอมมิตบนเธรดเซิร์ฟเวอร์ย้อนกลับได้เมื่อเกิดข้อยกเว้นระหว่างเปลี่ยนค่าตามปกติ แต่ไม่รับประกันอะตอมมิกเมื่อแครชข้ามไฟล์เซฟผู้เล่นสองคน โปรเซสหรือเครื่องหยุดกะทันหันระหว่างเซฟอาจทำให้บันทึกคนละจุดของธุรกรรม การเป็นเจ้าของที่ทนทาน การประสานเซฟ และ replay/กู้คืน ต้องใช้ระยะ 3 ที่อนุมัติแยก SQL journal อย่างเดียวไม่พอ
 
-## Verification
+เพิ่มเพย์โหลดโดยคงรูปแบบแพ็กเก็ตและโปรโตคอลเวอร์ชัน 2 เดิม ทั้งเซิร์ฟเวอร์และไคลเอนต์ต้องใช้บิลด์ที่มีเพย์โหลด Trade ที่จำเป็น ไม่แทนเส้นทางเปลี่ยนข้อมูลตลาดหรือฟีเจอร์อื่น
 
-`gradlew.bat tradeRegressionTest` covers inventory and Silver conservation,
-capacity and overflow rejection, unchanged preflight input, component identity,
-duplicate slots, stack limits, stale/repeated confirmations and countdown reset,
-action codec round trips, and snapshot collection decode limits. Inventory policy
-tests use immutable component identities independent of the NeoForge loader; they
-do not replace real ItemStack codec and live session integration testing.
+## การตรวจสอบ
 
-Before release, test two real clients against a dedicated server:
+`gradlew.bat tradeRegressionTest` ครอบคลุมการคงไอเทมและ Silver การปฏิเสธความจุ/ล้น อินพุตก่อนทำงานที่ไม่เปลี่ยน ตัวตนคอมโพเนนต์ ช่องซ้ำ ขนาดสแต็ก การยืนยันเก่า/ซ้ำ การรีเซ็ตนับถอยหลัง การเข้ารหัสและถอดรหัส action และขีดจำกัดการถอดรหัสคอลเลกชันสแนปช็อต การทดสอบนโยบายคลังใช้ตัวตนคอมโพเนนต์ที่แก้ไม่ได้ แยกจาก NeoForge loader จึงไม่แทนการทดสอบ ItemStack codec และเซสชันจริง
 
-- Partial stacks, named/enchanted items, unstackable items, one-sided gifts and
-  two-sided Silver exchanges; verify both inventories and balances after reconnect.
-- Confirm, alter items/Silver, change inventory through another action, then
-  deliver a stale confirm packet; neither side should remain confirmed.
-- Confirm both, unconfirm or cancel during countdown; close with X and Escape,
-  close a popup, logout/disconnect, die, change dimension and exceed eight blocks.
-- Fill either inventory; check both failures and exchanges that free capacity.
-- Accept near the request deadline; replay actions and commit packets; verify one
-  transfer and no reopening from queued state after local cancellation.
-- Check popup keyboard blocking, tooltip/item depth, long names, narrow windows
-  and GUI scales. The shared PNG plaque/buttons and style colors are reused.
-- Check native drag/split/number-key/drop/double-click behavior in the real inventory,
-  and all those actions against both offer previews. Close while carrying items;
-  they should return through vanilla menu removal without creating preview copies.
+ก่อนปล่อย ให้ใช้ไคลเอนต์จริงสองตัวกับ dedicated server ทดสอบ:
 
-Live GUI/session behavior, full ItemStack snapshot codec round trips, and dedicated
-server class loading remain unverified until those runtime checks are performed.
+- สแต็กบางส่วน ไอเทมมีชื่อ/เอนชานต์ ไอเทมซ้อนไม่ได้ ของขวัญฝ่ายเดียว และแลก Silver สองฝ่าย ตรวจคลังและยอดเงินหลังเชื่อมต่อใหม่
+- ยืนยันแล้วเปลี่ยนไอเทม/Silver เปลี่ยนคลังด้วยการกระทำอื่น แล้วส่งแพ็กเก็ตยืนยันเก่า ทั้งคู่ต้องไม่คงสถานะยืนยัน
+- ยืนยันทั้งคู่แล้วถอนหรือยกเลิกระหว่างนับถอยหลัง ปิดด้วย X/Escape ปิดป๊อปอัป ออก/หลุด ตาย เปลี่ยนมิติ และออกนอกแปดบล็อก
+- ทำคลังฝ่ายใดฝ่ายหนึ่งเต็ม ตรวจทั้งกรณีล้มเหลวและการแลกที่เพิ่มที่ว่าง
+- ยอมรับใกล้หมดเวลาคำขอ ส่ง action และแพ็กเก็ตคอมมิตซ้ำ ตรวจว่าโอนครั้งเดียวและสถานะค้างในคิวไม่เปิดใหม่หลังยกเลิกฝั่งตน
+- ตรวจการบล็อกคีย์บอร์ดของป๊อปอัป ชั้นทูลทิป/ไอเทม ชื่อยาว หน้าต่างแคบ และ GUI Scale ใช้แผ่นหัวข้อ/ปุ่ม PNG ร่วมและสีตามสไตล์เดิม
+- ตรวจลาก/แบ่ง/ปุ่มตัวเลข/ทิ้ง/ดับเบิลคลิกในคลังจริง และการกระทำทั้งหมดกับพรีวิวข้อเสนอทั้งคู่ ปิดขณะถือไอเทม ต้องคืนผ่านการปิดเมนู Vanilla โดยไม่สร้างสำเนาพรีวิว
+
+พฤติกรรม GUI/เซสชันจริง การเข้ารหัสและถอดรหัสสแนปช็อต ItemStack ครบชุด และการโหลดคลาสบน dedicated server ยังไม่ยืนยันจนกว่าจะตรวจรันไทม์เหล่านี้

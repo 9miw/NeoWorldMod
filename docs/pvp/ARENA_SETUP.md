@@ -1,33 +1,61 @@
-# PvP arena templates
+# จับภาพสนาม PvP และเทมเพลต
 
-PvP uses vanilla Structure Blocks, independently of dungeon code and saved data.
-Arena templates and their DATA markers are read when validating and placing a match.
+PvP มีคำสั่ง เครื่องมือเลือก พื้นที่เลือก คิวจับภาพ และ SavedData ของตน ไม่ import หรือเรียกโค้ดดันเจี้ยน รองรับขั้นตอนเดียวกัน: เลือกสองมุม แบ่งโครงสร้าง NBT Vanilla มาตรฐาน เก็บออฟเซ็ตสัมพัทธ์ และสร้างสนามครบเมื่อเริ่มแมตช์
 
-1. Build a complete arena with solid floors and enough space for both players.
-2. Place two Structure Blocks in DATA mode. Set their metadata to:
-   - `pvp_spawn_a`: player A's feet position.
-   - `pvp_spawn_b`: player B's feet position.
-3. The saved structure size automatically defines the arena bounds; no bounds
-   markers are required. Put spawn markers inside the saved area, with two blocks of height available.
-   Leave air above each spawn marker and a solid floor immediately below it.
-   Each spawn marker must occur exactly once. Include the floor and enough vertical
-   space for combat/jumping in the saved structure. Legacy bounds markers are ignored.
-4. Save the whole arena, including both spawn markers, with a SAVE-mode Structure Block,
-   for example `neoworld:pvp_arena_1`. Exclude the SAVE block itself from the template.
-   Save blocks from the world, not entities.
-5. As an operator (permission level 2), run:
-   - `/neow pvp arena add arena_1 neoworld:pvp_arena_1`
-   - `/neow pvp arena validate arena_1`
-   - `/neow pvp arena list`
+## สร้างและจับภาพ
 
-`/neoworld` is the full-name alias for `/neow` and supports the same commands.
+ทุกคำสั่งส่วนนี้ต้อง OP ระดับ 2 `/neoworld` เป็นชื่อแทน `/neow`
 
-Arena registrations persist in the world's `neoworld_pvp_arenas` SavedData. Structure
-templates saved with Structure Blocks belong to that world. Keep them when moving it.
-After changing a template, save it again and run validation again.
+1. สร้างสนามครบ วาง Structure Block โหมด DATA ที่ตำแหน่งเท้าของจุดเกิดสองฝั่ง ใส่ metadata `pvp_spawn_a`, `pvp_spawn_b` อย่างละหนึ่ง เหนือมาร์กเกอร์เป็นอากาศ ใต้ทันทีเป็นพื้นทึบ เลือกพื้นที่รวมพื้นและช่องเหนือศีรษะ/กระโดดพอ
+2. สร้างนิยามสนามว่าง: `/neow pvp admin create arena_1`
+3. รับแท่งไม้เลือก: `/neow pvp admin structure tool`
+4. คลิกซ้ายมุมหนึ่ง คลิกขวามุมตรงข้าม รวมทั้งสองมุมและต้องโลกเดียวกัน หรือยืนแต่ละมุมแล้วใช้ `structure pos1` / `structure pos2` ใต้พรีฟิกซ์แอดมิน
+5. ตรวจพื้นที่: `/neow pvp admin structure selection`
+6. บันทึกแมปอิสระแล้วเชื่อมชิ้น/ออฟเซ็ตทั้งหมด: `/neow pvp admin structure save arena_1` และ `/neow pvp admin set arena_1 structure arena_1`
+7. รอข้อความเสร็จ แล้วตรวจ: `/neow pvp admin validate arena_1`
+8. ดูนิยามทั้งหมดรวมว่าง: `/neow pvp admin list`
 
-The placement helper excludes Structure Blocks and clears both spawn marker cells.
-This stage provides template registration, marker validation and a placement helper.
-Private room allocation, occupied slots, boundary enforcement and practice combat
-are described in [ROOM_USAGE.md](ROOM_USAGE.md). Registering an arena does not
-start a match or place it automatically.
+save สร้างรายการแค็ตตาล็อก `neoworld:pvp/arena_1` และไฟล์ `neoworld:pvp/arena_1_01`, `_02` เป็นต้น ไม่ต้องมีสนามและไม่เชื่อมอัตโนมัติ ชื่อสั้นใช้พรีฟิกซ์ `neoworld:pvp/` คง ID ที่ระบุเนมสเปซ ห้ามชื่อมี `.nbt`, `..` หรือสแลชซ้ำ ไม่ทับเทมเพลตเดิม
+
+- `/neow pvp admin structure list`: แสดงแมปแค็ตตาล็อก จำนวนไฟล์ และสนามที่ใช้
+- `/neow pvp admin structure update arena_1`: จับพื้นที่ปัจจุบันเป็นรีวิชันใหม่ เก็บเลย์เอาต์เก่าเป็นรายการลงท้าย `/backup_<uuid>` สนามทุกอันที่ใช้เลย์เอาต์ตรงกันทั้งหมดตามรีวิชันและเป็น DRAFT ต้องรัน `/neow pvp admin validate <arena>` แต่ละสนามก่อนแสดง GUI หรือใช้แมตช์ส่วนตัว/แรงก์ ปฏิเสธอัปเดตเมื่อมีห้อง/ข้อเสนอใช้งาน หรือเลย์เอาต์ร่วมบางส่วน
+- `/neow pvp admin structure delete arena_1`: ขอการยืนยันผูกผู้เล่น 30 วินาที คลิกข้อความเพื่อรันคำสั่งเต็มพร้อม token ใช้ครั้งเดียว แมปที่สนามอ้าง แชร์ไฟล์กับรายการอื่น รีซอร์สที่แพ็กมา และแมปไม่ว่างลบไม่ได้ ย้ายไฟล์ generated ไป `<world>/pvp_structure_backups/<uuid>/` ก่อนลบรายการ ถ้าย้ายล้มเหลวพยายามคืนไฟล์ที่ย้ายแล้ว ตอนยืนยันตรวจการอ้างอิง สิทธิ์ อายุ และรีวิชันซ้ำ
+
+`/neow pvp admin structure cancel` ล้างการเลือกและยกเลิกงานผู้เรียก การออก สูญเสีย OP และปิดเซิร์ฟเวอร์ปกติก็ยกเลิกงานไม่เสร็จของเจ้าของ ลบเฉพาะไฟล์ใหม่ตรงที่งานพยายามสร้าง ไม่แก้ไฟล์เดิมหรือบล็อกต้นทาง ห้ามแก้ต้นทางขณะจับภาพ เพราะอ่านแต่ละชิ้นคนละทิก
+
+## โครงสร้างไฟล์เดี่ยวเดิม
+
+ลบเฉพาะทะเบียนสนามด้วย `/neow pvp admin delete <arenaId>` (OP 2) คงแมปแค็ตตาล็อกและไฟล์โครงสร้างทั้งหมด ห้องเดิม การยืนยันคู่แข่งที่รอ และงานจับภาพอัปเดตสนามนั้นขัดขวางการลบ คิวกลางไม่จองสนามเฉพาะ ยังจับคู่สนามพร้อมอื่นได้ เปิด GUI ใหม่เพื่อรีเฟรชรายการหลังแอดมินลบ ใช้ `admin structure delete <map>` แยกเพื่อเก็บแมปที่ไม่มีผู้อ้างย้อนหลัง
+
+สำหรับเทมเพลต Structure Block ที่บันทึกเอง:
+
+```mcfunction
+/neow pvp admin create arena_2
+/neow pvp admin set arena_2 structure neoworld:pvp/arena_2
+/neow pvp admin validate arena_2
+```
+
+ลบกิ่งคำสั่ง `/neow pvp arena add|validate|list` เก่าแล้ว ทะเบียนเดิมย้ายอัตโนมัติเป็นหนึ่งชิ้นออฟเซ็ต 0,0,0 ไม่ย้าย เขียนใหม่ หรือลบ `.nbt` ไม่ต้องมีมาร์กเกอร์ขอบเขต ใช้ขนาดชิ้นรวมกำหนด จุดเกิดอยู่ต่างชิ้นได้ ปฏิเสธมาร์กเกอร์ซ้ำ/ขาดหรือกล่องชิ้นตัดกัน นิยามว่างและ DRAFT ซ่อนจาก GUI และใช้ห้อง/จับคู่ไม่ได้
+
+## ข้อจำกัดและการทำงาน
+
+- ชิ้นสร้างสูงสุด 48 x 48 x 48 คิวจับภาพ PvP รวมเขียนหนึ่งชิ้นต่อทิก ไม่เกิน 512 ชิ้นต่อนิยาม
+- รับเซลล์ bounding box สูงสุด 8,388,608 รวมอากาศ ตรงดันเจี้ยน แกนยังจำกัด 512 x 224 x 512 ให้พอดีสล็อต PvP/ความสูงมิติ ใช้ขีดจำกัดเดียวกันจับภาพและกู้คืน
+- ชังก์ต้นทางต้องโหลดอยู่แล้ว ชิ้นที่ไม่โหลดทำให้ยุติ
+- ปฏิเสธบันทึก/เชื่อมขณะห้องส่วนตัวหรือข้อเสนอใช้สนาม คิวแรงก์กลางไม่จองแมป สนามกำลังบันทึกไม่ถูกสุ่มและสร้างห้องใหม่ใช้ไม่ได้
+- เปลี่ยนแค็ตตาล็อกหลังไฟล์ใหม่ครบ บันทึกแมปก่อนวางมาร์กเกอร์ได้ แต่เชื่อม/validate ต้องมีเรขาคณิตรวมถูกและจุดเกิดทั้งคู่ งานเก่าทับแมปที่เปลี่ยนแล้วไม่ได้
+- วางด้วยออฟเซ็ตทุกชิ้น ไม่สนเอนทิตีที่บันทึกและ Structure Block และล้างเซลล์เกิดสองจุด การจอง ขอบเขต ล้างโปรเจกไทล์ และล้างพื้นที่ใช้ขนาดรวมครบ
+
+หลังรับทั้งคู่ ห้องเป็น LOADING ผู้เล่นอยู่ตำแหน่งและโหมดเดิม เตรียมทีละห้องทั้งเซิร์ฟเวอร์ อ่านเทมเพลตหนึ่งต่อทิก จากนั้นวางชุด native ไม่เกิน 8192 รายการต้นทางต่อขั้น ชังก์ขาดโหลดชัดเจนไม่เกินสี่ครั้งต่อขั้น งานใช้งานถือ chunk ticket ชั่วคราวไม่เกิน 64 รอบจุดเกิดทั้งคู่ 3 x 3 ชังก์ต้องพร้อมก่อนเทเลพอร์ต ตรวจที่เหนือศีรษะ/พื้นและเก็บจุดกลับก่อนเปลี่ยน Adventure แล้ววาร์ปเข้าสนาม จากนั้นเข้า CLIENT_LOADING ก่อนนับห้าวินาที นาฬิกาแมตช์/ยกเริ่มหลังทั้งสองเครื่องพร้อม
+
+ระหว่าง CLIENT_LOADING ล็อกทั้งคู่ที่จุดเกิดและกันความเสียหาย ส่ง nonce พร้อมจุดเกิดให้แต่ละเครื่อง เครื่องผู้เล่นตอบกลับเมื่ออยู่มิติ PvP ที่จุดเกิด ออกจากหน้าโหลดภูมิประเทศ รับชังก์รอบตัว 3 x 3 ครบ และ compile ส่วนพื้น/เหนือหัวแล้ว เงื่อนไขต้องคงอยู่ห้าทิกฝั่ง client และมีเฟรมโลกแสดงขณะพร้อม ตรวจผ่าน chunk cache จริง เพราะ ClientLevel.hasChunk คืน true เสมอ การตรวจนี้ครอบคลุมภาพรอบจุดเกิด ไม่ได้รอทุกชังก์ของแมปหรือทุก shader/texture
+
+เซิร์ฟเวอร์ตรวจผู้ส่ง ห้อง nonce โหมด Adventure ระยะจากจุดเกิดและเวลาหมดอายุ แพ็กเก็ตซ้ำ/เก่า/ผู้เล่นนอกห้องใช้แทนอีกฝ่ายไม่ได้ รอสูงสุด 1200 server ticks (60 วินาทีที่ 20 TPS) ถ้าหมดเวลา หลุด หรือสถานะผิดก่อนเริ่ม ให้คืนจุดและโหมดเดิมโดยไม่บันทึกผล Rating หรือโทษคิว ล้างสถานะ client เมื่อปิดงานหรือออกเกม ใช้กับการวาร์ปเข้าสนามครั้งแรกทั้งห้องส่วนตัวและจัดอันดับ รอบถัดไปในจัดอันดับใช้สนามเดิมและนับสามวินาทีตามเดิม ทั้ง client/server ต้องใช้ protocol 30 ยังต้องตรวจหน้าโหลด เฟรมสนามและจังหวะนับจริงในเกมหลายผู้เล่น
+
+ยกเลิก หลุด หมดสิทธิ์ ข้อผิดพลาดวาง และปิดเซิร์ฟเวอร์ปกติคืน ticket สล็อตที่เขียนบางส่วนเข้าระบบล้างถาวรเดิม งบ 2048 เซลล์ และจำกัดโหลดชังก์ชัดเจนสี่ครั้งต่อขั้น เตรียมมี timeout งานใช้งานสิบนาที ไม่นับเวลารอห้องอื่น ยกเลิกโหลดไม่ตัดสินผลแรงก์ แจ้งคืบหน้าทุกห้าวินาทีโดยไม่โพล GUI
+
+จับภาพเขียนชิ้นใหม่คนละทิก บันทึกแค็ตตาล็อกไม่เก็บ palette ถอดรหัสหรือบังคับจุดเกิด จับคู่ตรวจว่ามีรีซอร์สโดยไม่ถอดทุกแมปบนเธรดเซิร์ฟเวอร์ ตรวจเลย์เอาต์เต็มระหว่างเตรียมเป็นขั้น การ validate/import โดยแอดมินและเทมเพลตไฟล์เดี่ยวใหญ่ผิดปกติยังมีต้นทุนถอดไฟล์ ขอบชุดจำกัดจำนวนงาน ไม่ใช่มิลลิวินาที การสร้างชังก์ native แสง และบล็อกม็อดยังมีผลเวลา
+
+นิยามอยู่ `<world>/data/neoworld_pvp_arenas.dat` รูปแบบ 3 เลย์เอาต์เก่าได้รายการ `neoworld:pvp/legacy/<arenaId>` โดยไม่ย้ายเทมเพลต StructureManager Vanilla เขียน generated ใต้ `generated/<namespace>/structures/` ของโลก ใช้ในโลกนั้นได้โดยไม่คัดเข้าม็อด เมื่อย้ายโลกเก็บทั้ง SavedData และไฟล์โครงสร้าง การเซฟโลกปกติเก็บนิยาม การหยุดกะทันหันระหว่างสร้างไฟล์กับเซฟอาจเหลือ NBT กำพร้า ไม่ใช่สแนปช็อตดิสก์เชิงธุรกรรมหรือจับภาพทันที
+
+ตรวจสอบ: compileJava และรีเกรสชัน PvP ผ่านสำหรับจับ 8,388,608 เซลล์พอดี ปฏิเสธเกิน เรขาคณิตรวม กู้คืนข้อมูลใหญ่ วางแบบแบ่งขั้นมีขอบเขต/คอมมิตบางส่วน เปลี่ยนโหลด/นับถอยหลัง ย้ายเก่า อัปเดตเก่า และสิทธิ์แอดมิน ยังไม่ยืนยันการวาง native เป็นชุด วงจร ticket, block entity ม็อด และเวลา/โหลดหลายคนในเกม

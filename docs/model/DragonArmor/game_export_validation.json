@@ -1,0 +1,25 @@
+{
+  "rig_matrix_error": 0.0,
+  "parts": {
+    "helmet": {
+      "vertices": 232,
+      "triangles": 376,
+      "unweighted": 0
+    },
+    "chestplate": {
+      "vertices": 920,
+      "triangles": 1436,
+      "unweighted": 0
+    },
+    "leggings": {
+      "vertices": 296,
+      "triangles": 444,
+      "unweighted": 0
+    },
+    "boots": {
+      "vertices": 216,
+      "triangles": 360,
+      "unweighted": 0
+    }
+  }
+}

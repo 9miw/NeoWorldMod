@@ -7,6 +7,10 @@ import com.ambition.neoworld.command.level.LevelCommand;
 import com.ambition.neoworld.command.party.PartyCommand;
 import com.ambition.neoworld.command.pvp.PvpArenaCommand;
 import com.ambition.neoworld.command.title.TitleCommand;
+import com.ambition.neoworld.command.player.ProfileCommand;
+import com.ambition.neoworld.economy.analytics.EconomyAnalyticsEvents;
+import com.ambition.neoworld.trade.event.TradeEventHandler;
+import com.ambition.neoworld.trade.service.TradeManager;
 
 import com.ambition.neoworld.NeoWorld;
 import com.ambition.neoworld.network.hub.OpenMainHubPayload;
@@ -22,7 +26,7 @@ import net.neoforged.fml.common.EventBusSubscriber;
 import net.neoforged.neoforge.network.PacketDistributor;
 import net.neoforged.neoforge.event.RegisterCommandsEvent;
 
-/** Central registration point for the /neoworld command tree and its aliases. */
+/** Central registration point for all NeoWorld commands under /neow. */
 @EventBusSubscriber(modid = NeoWorld.MODID)
 public final class NeoWorldCommand {
 
@@ -35,8 +39,11 @@ public final class NeoWorldCommand {
 
         LiteralCommandNode<CommandSourceStack> economy = EconomyCommand.buildCommand("eco").build();
 
-        LiteralArgumentBuilder<CommandSourceStack> rootBuilder = Commands.literal("neoworld")
+        LiteralArgumentBuilder<CommandSourceStack> rootBuilder = Commands.literal("neow")
             .executes(context -> openHub(context.getSource().getPlayerOrException()))
+            .then(CommandHelp.buildCommand())
+            .then(ProfileCommand.buildCommand())
+            .then(EconomyAnalyticsEvents.buildCommand())
             .then(Commands.literal("hub")
                     .executes(context -> openHub(context.getSource().getPlayerOrException())))
             .then(Commands.literal("activity").executes(context -> {
@@ -53,10 +60,13 @@ public final class NeoWorldCommand {
             .then(DungeonCommand.buildCommand())
             .then(PvpArenaCommand.buildCommand())
             .then(MarketCommand.buildCommand())
+            .then(ShopCommand.buildCommand())
+            .then(LootBoxCommand.buildCommand())
+            .then(QuestNavigationCommand.buildCommand())
             .then(WorldManagementCommand.buildCommand());
 
-        LiteralCommandNode<CommandSourceStack> root = dispatcher.register(rootBuilder);
-        dispatcher.register(Commands.literal("neow").redirect(root));
+        if (TradeManager.isEnabled()) rootBuilder.then(TradeEventHandler.buildCommand());
+        dispatcher.register(rootBuilder);
     }
 
     private static int openHub(ServerPlayer player) {

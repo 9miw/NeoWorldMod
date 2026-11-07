@@ -1,0 +1,18 @@
+{
+  "ambient.market_crowd": {
+    "sounds": [
+      {
+        "name": "neoworld:ambient/market_crowd",
+        "stream": true
+      }
+    ]
+  },
+  "ambient.blacksmith_anvil": {
+    "sounds": [
+      {
+        "name": "neoworld:ambient/blacksmith_anvil",
+        "stream": true
+      }
+    ]
+  }
+}

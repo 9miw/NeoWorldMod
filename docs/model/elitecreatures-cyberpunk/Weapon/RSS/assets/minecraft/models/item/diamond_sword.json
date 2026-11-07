@@ -1,0 +1,68 @@
+{
+    "parent": "minecraft:item/handheld",
+    "textures": {
+        "layer0": "minecraft:item/diamond_sword"
+    },
+    "overrides": [
+        {
+            "predicate": {
+                "custom_model_data": 10000
+            },
+            "model": "elitecreatures:cyberpunk_animated/sword"
+        },
+        {
+            "predicate": {
+                "custom_model_data": 10001
+            },
+            "model": "elitecreatures:cyberpunk_animated/spear"
+        },
+        {
+            "predicate": {
+                "custom_model_data": 10002
+            },
+            "model": "elitecreatures:cyberpunk_animated/stuff"
+        },
+        {
+            "predicate": {
+                "custom_model_data": 10003
+            },
+            "model": "elitecreatures:cyberpunk_animated/assault_rifle"
+        },
+        {
+            "predicate": {
+                "custom_model_data": 10004
+            },
+            "model": "elitecreatures:cyberpunk_animated/shotgun"
+        },
+        {
+            "predicate": {
+                "custom_model_data": 10005
+            },
+            "model": "elitecreatures:cyberpunk_animated/hammer"
+        },
+        {
+            "predicate": {
+                "custom_model_data": 10006
+            },
+            "model": "elitecreatures:cyberpunk_animated/gauntlet"
+        },
+        {
+            "predicate": {
+                "custom_model_data": 10007
+            },
+            "model": "elitecreatures:cyberpunk_animated/baton"
+        },
+        {
+            "predicate": {
+                "custom_model_data": 10008
+            },
+            "model": "elitecreatures:cyberpunk_animated/dagger"
+        },
+        {
+            "predicate": {
+                "custom_model_data": 10009
+            },
+            "model": "elitecreatures:cyberpunk_animated/greatsword"
+        }
+    ]
+}

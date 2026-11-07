@@ -20,6 +20,8 @@ public final class ClientConnectionEventHandler {
 
     @SubscribeEvent
     public static void onLoggingOut(ClientPlayerNetworkEvent.LoggingOut event) {
+        com.ambition.neoworld.client.gui.dungeon.DungeonBrowserScreenController.cancelOpen();
+        com.ambition.neoworld.client.state.ClientDungeonHudData.reset();
         com.ambition.neoworld.client.gui.integration.DungeonDeathGui.reset();
         ClientLevelData.reset();
         ClientEconomyData.reset();
@@ -27,5 +29,7 @@ public final class ClientConnectionEventHandler {
         ClientPartyHudData.reset();
         com.ambition.neoworld.client.gui.party.PartyScreenController.reset();
         ClientTitleData.reset();
+        com.ambition.neoworld.client.navigation.ClientNavigationController.reset();
+        com.ambition.neoworld.client.state.ClientPvpQueueData.reset(); com.ambition.neoworld.client.state.ClientKillerData.reset();
     }
 }

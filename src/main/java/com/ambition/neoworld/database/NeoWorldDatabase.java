@@ -21,7 +21,7 @@ import net.neoforged.fml.loading.FMLPaths;
 
 /** Shared database stored outside individual world saves. */
 public final class NeoWorldDatabase {
-    private static final int LATEST_SCHEMA_VERSION = 7;
+    private static final int LATEST_SCHEMA_VERSION = 17;
 
     private static HikariDataSource dataSource;
     private static Config.DatabaseType databaseType;
@@ -29,7 +29,7 @@ public final class NeoWorldDatabase {
     private NeoWorldDatabase() {
     }
 
-    public static synchronized void initialize() {
+    public static synchronized void initialize(net.minecraft.core.HolderLookup.Provider registries) {
         if (dataSource != null) return;
 
         Config.DatabaseType selectedType = Config.DATABASE_TYPE.get();
@@ -37,7 +37,7 @@ public final class NeoWorldDatabase {
         try {
             HikariConfig poolConfig = createPoolConfig(selectedType);
             newDataSource = new HikariDataSource(poolConfig);
-            runMigrations(newDataSource, selectedType, Config.DATABASE_TABLE_PREFIX.get());
+            runMigrations(newDataSource, selectedType, Config.DATABASE_TABLE_PREFIX.get(), registries);
 
             dataSource = newDataSource;
             databaseType = selectedType;
@@ -99,7 +99,7 @@ public final class NeoWorldDatabase {
             Files.createDirectories(databasePath.getParent());
             config.setDriverClassName("org.h2.Driver");
             config.setJdbcUrl("jdbc:h2:file:" + databasePath.toAbsolutePath().toString().replace('\\', '/')
-                    + ";DB_CLOSE_ON_EXIT=FALSE");
+                    + ";DB_CLOSE_ON_EXIT=FALSE;WRITE_DELAY=0");
             config.setUsername("sa");
             config.setPassword("");
         } else {
@@ -119,7 +119,12 @@ public final class NeoWorldDatabase {
                 + "&characterEncoding=" + Config.MARIADB_CHARACTER_ENCODING.get();
     }
 
-    static void runMigrations(DataSource source, Config.DatabaseType type, String tablePrefix) throws SQLException {
+    public static void runMigrations(DataSource source, Config.DatabaseType type, String tablePrefix) throws SQLException {
+        runMigrations(source,type,tablePrefix,null);
+    }
+
+    private static void runMigrations(DataSource source, Config.DatabaseType type, String tablePrefix,
+            net.minecraft.core.HolderLookup.Provider registries) throws SQLException {
         try (Connection connection = source.getConnection()) {
             connection.setAutoCommit(false);
             try {
@@ -130,7 +135,7 @@ public final class NeoWorldDatabase {
                             + " is newer than this mod supports (" + LATEST_SCHEMA_VERSION + ")");
                 }
                 for (int version = currentVersion + 1; version <= LATEST_SCHEMA_VERSION; version++) {
-                    applyMigration(connection, type, tablePrefix, version);
+                    applyMigration(connection, type, tablePrefix, version, registries);
                     recordMigration(connection, tablePrefix, version);
                 }
                 connection.commit();
@@ -161,7 +166,8 @@ public final class NeoWorldDatabase {
         }
     }
 
-    private static void applyMigration(Connection connection, Config.DatabaseType type, String tablePrefix, int version)
+    private static void applyMigration(Connection connection, Config.DatabaseType type, String tablePrefix, int version,
+            net.minecraft.core.HolderLookup.Provider registries)
             throws SQLException {
         switch (version) {
             case 1 -> {
@@ -191,7 +197,48 @@ public final class NeoWorldDatabase {
                     statement.executeUpdate("CREATE TABLE IF NOT EXISTS " + tablePrefix + "pvp_results_details (match_id VARCHAR(36) PRIMARY KEY, before_a INTEGER NOT NULL, after_a INTEGER NOT NULL, before_b INTEGER NOT NULL, after_b INTEGER NOT NULL)");
                 }
             }
+            case 8 -> com.ambition.neoworld.shop.ShopRepository.createSchema(connection, type, tablePrefix);
+            case 9 -> com.ambition.neoworld.shop.ShopRepository.addCurrencies(connection, tablePrefix);
+            case 10 -> com.ambition.neoworld.economy.analytics.EconomyAnalyticsRepository.createSchema(connection, type, tablePrefix);
+            case 11 -> com.ambition.neoworld.title.JdbcTitleCatalogueRepository.createSchema(connection, tablePrefix);
+            case 12 -> addMarketSecuritySchema(connection, type, tablePrefix);
+            case 13 -> com.ambition.neoworld.shop.ShopRepository.addRecoverySchema(connection, type, tablePrefix);
+            case 14 -> com.ambition.neoworld.dungeon.stats.DungeonResultRepository.createSchema(connection, tablePrefix);
+            case 15 -> com.ambition.neoworld.market.storage.MarketPlayerJournal.createSchema(connection, type, tablePrefix);
+            case 16 -> com.ambition.neoworld.economy.analytics.EconomyAnalyticsRepository.createOutboxSchema(connection, tablePrefix);
+            case 17 -> com.ambition.neoworld.economy.RetiredCurrencyMigration.apply(connection, tablePrefix, registries);
             default -> throw new SQLException("Unknown NeoWorld database migration: " + version);
+        }
+    }
+
+    private static void addMarketSecuritySchema(Connection connection, Config.DatabaseType type, String prefix)
+            throws SQLException {
+        try (Statement statement = connection.createStatement()) {
+            statement.executeUpdate("""
+                    CREATE TABLE IF NOT EXISTS %smarket_operations (
+                        operation_id VARCHAR(36) PRIMARY KEY,
+                        operation_type VARCHAR(32) NOT NULL,
+                        player_id VARCHAR(36) NOT NULL,
+                        listing_id BIGINT NOT NULL DEFAULT 0,
+                        status VARCHAR(16) NOT NULL,
+                        result_code VARCHAR(32) NOT NULL DEFAULT '',
+                        error_info VARCHAR(255) NOT NULL DEFAULT '',
+                        created_game_time BIGINT NOT NULL,
+                        completed_game_time BIGINT NOT NULL DEFAULT 0
+                    )
+                    """.formatted(prefix));
+            statement.executeUpdate("CREATE INDEX IF NOT EXISTS " + prefix
+                    + "idx_market_op_player ON " + prefix + "market_operations (player_id, status)");
+            statement.executeUpdate("ALTER TABLE " + prefix
+                    + "market_pending_items ADD COLUMN IF NOT EXISTS delivery_id VARCHAR(36)");
+            statement.executeUpdate("ALTER TABLE " + prefix
+                    + "market_pending_items ADD COLUMN IF NOT EXISTS delivery_status VARCHAR(16) NOT NULL DEFAULT 'PENDING'");
+            statement.executeUpdate("ALTER TABLE " + prefix
+                    + "market_pending_items ADD COLUMN IF NOT EXISTS reserved_game_time BIGINT NOT NULL DEFAULT 0");
+            statement.executeUpdate("ALTER TABLE " + prefix
+                    + "market_pending_items ADD COLUMN IF NOT EXISTS updated_game_time BIGINT NOT NULL DEFAULT 0");
+            statement.executeUpdate("CREATE INDEX IF NOT EXISTS " + prefix
+                    + "idx_market_pending_delivery ON " + prefix + "market_pending_items (player_id, delivery_status)");
         }
     }
 
@@ -290,7 +337,13 @@ public final class NeoWorldDatabase {
         if (suffix == null || !suffix.matches("[a-z][a-z0-9_]{0,62}")) {
             throw new IllegalArgumentException("Unsafe NeoWorld table suffix");
         }
-        return Config.DATABASE_TABLE_PREFIX.get() + suffix;
+        String prefix = "nw_";
+        try {
+            prefix = Config.DATABASE_TABLE_PREFIX.get();
+        } catch (IllegalStateException ignored) {
+            // Config not loaded during standalone regression tests; default to "nw_"
+        }
+        return prefix + suffix;
     }
 
     private static void createTitleSchema(Connection connection, String prefix) throws SQLException {

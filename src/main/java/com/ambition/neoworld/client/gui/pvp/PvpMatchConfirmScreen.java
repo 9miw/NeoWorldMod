@@ -10,7 +10,6 @@ import net.minecraft.client.gui.GuiGraphics;
 import net.minecraft.client.gui.components.Button;
 import net.minecraft.client.gui.components.Tooltip;
 import net.minecraft.client.gui.screens.Screen;
-import net.minecraft.client.gui.screens.inventory.InventoryScreen;
 import net.minecraft.client.player.RemotePlayer;
 import net.minecraft.network.chat.Component;
 import net.minecraft.resources.ResourceLocation;
@@ -33,9 +32,9 @@ public final class PvpMatchConfirmScreen extends Screen {
         scale=Math.min((width-16)/1000F,(height-16)/850F);
         left=Math.round((width-1000*scale)/2); top=Math.round((height-850*scale)/2);
         if(self==null && minecraft.level!=null) { self=preview(data.self()); opponent=preview(data.opponent()); }
-        addRenderableWidget(new NeoButton(Button.builder(Component.literal("X"),ignored -> onClose())
-                .bounds(x(1255),y(112),size(49),size(49))
-                .tooltip(Tooltip.create(Component.literal("ปิดหน้าต่าง (เวลายืนยันยังนับต่อ)")))).style(NeoButton.Style.DESTRUCTIVE));
+        addRenderableWidget(com.ambition.neoworld.client.gui.widget.NeoCloseButton.create(
+                x(1255), y(112), size(49), size(49), Component.literal("X"),
+                Component.literal("ปิดหน้าต่าง (เวลายืนยันยังนับต่อ)"), this::onClose));
         ready=addRenderableWidget(new NeoButton(Button.builder(NeoGuiIcons.label(NeoGuiIcons.READY,"พร้อม"),ignored -> {
             if(sent || data.selfReady() || data.seconds()==0) return;
             sent=true; sentAt=age; updateButton();
@@ -104,9 +103,9 @@ public final class PvpMatchConfirmScreen extends Screen {
     private void player(GuiGraphics g,PvpMatchOfferPayload.Player player,RemotePlayer entity,int center,boolean confirmed,float time) {
         text(g,player.name(),center,193,290,0xFFE7ECEF,32);
         pedestal(g,center,confirmed,time);
-        if(entity!=null) InventoryScreen.renderEntityInInventoryFollowsMouse(g,x(center-155),y(235),x(center+155),y(555),size(145),0.0625F,x(835),y(390),entity);
+        if(entity!=null) PvpPlayerPreview.render(g,entity,x(center-155),y(235),x(center+155),y(555),size(145),time);
         text(g,"คะแนน",center-102,590,110,0xFFE7ECEF,25);
-        text(g,String.format(java.util.Locale.ROOT,"%,d",player.rating()),center+97,590,115,0xFFF2C14E,28);
+        text(g,player.rating()<0 ? "—" : String.format(java.util.Locale.ROOT,"%,d",player.rating()),center+97,590,115,0xFFF2C14E,28);
         text(g,"อันดับ",center-102,642,110,0xFFE7ECEF,25);
         text(g,player.position()<0 ? "—" : player.position()==0 ? "ยังไม่มีอันดับ" : "#"+player.position(),center+88,642,140,0xFFF2C14E,player.position()==0 ? 20 : 28);
         statusIcon(g,center,confirmed,time);

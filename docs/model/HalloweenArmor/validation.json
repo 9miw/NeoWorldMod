@@ -1,0 +1,63 @@
+{
+  "source_rig_file": "C:\\Users\\miw\\Documents\\NeoWorldMod\\docs\\model\\DragonArmor\\dragon_armor_pixel.blend",
+  "rig_matrix_error": 0.0,
+  "parts": {
+    "halloween_helmet": {
+      "vertices": 388,
+      "faces": 360,
+      "unweighted": 0,
+      "bones": [
+        "Head"
+      ],
+      "triangles": 660
+    },
+    "halloween_chestplate": {
+      "vertices": 854,
+      "faces": 681,
+      "unweighted": 0,
+      "bones": [
+        "Chest",
+        "Torso",
+        "Arm_L",
+        "Hand_L",
+        "Arm_R",
+        "Hand_R"
+      ],
+      "triangles": 1368
+    },
+    "halloween_leggings": {
+      "vertices": 548,
+      "faces": 422,
+      "unweighted": 0,
+      "bones": [
+        "Torso",
+        "Thigh_L",
+        "Leg_L",
+        "Thigh_R",
+        "Leg_R"
+      ],
+      "triangles": 872
+    },
+    "halloween_boots": {
+      "vertices": 176,
+      "faces": 164,
+      "unweighted": 0,
+      "bones": [
+        "Leg_L",
+        "Leg_R"
+      ],
+      "triangles": 296
+    }
+  },
+  "runtime_tested": false,
+  "reference": "reference_mockup.png",
+  "source_faces": "-Y",
+  "epic_export": "Y reflected, triangle winding reversed",
+  "pose_max_displacement": {
+    "halloween_helmet": 0.15111335984984442,
+    "halloween_chestplate": 0.4818416235224543,
+    "halloween_leggings": 0.1915870296772188,
+    "halloween_boots": 0.21165904288841036
+  },
+  "restored_rest_pose": true
+}

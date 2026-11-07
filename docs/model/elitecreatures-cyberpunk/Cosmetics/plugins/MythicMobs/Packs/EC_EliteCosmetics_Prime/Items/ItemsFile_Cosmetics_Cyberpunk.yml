@@ -1,0 +1,57 @@
+
+ECCosmetics_Prime-Cyberpunk-Cosmetics-Core:
+  Id: FEATHER
+  Display: '&b꧁&e Cyberpunk-Accessory &b꧂ '
+  Options:
+    PreventStacking: true
+  Lore:
+  - '&8&n_________________________________________'
+  - ' '
+  - '&e» &7Equip the &aarmor&7 to bind in &bOFF-HAND'
+  - '&a» &7Equip &dThe Cosmetics&7 in main hand'
+  - '&b『SHIFT+LEFT』&r &7to &d❖ bind&7 the cosmetics with the item'
+  - '&a '
+  - '&4❎ Cannot bind with Bound-Item or Mythic-Item ❎'
+  Skills:
+  - skill{s=ECCosmetics_Prime-Cyberpunk-CosmeticsBind-Material} @self ~onSwing ?crouching 
+
+###############################
+
+ECCosmetics_Prime-Cyberpunk-UnbindingShears:
+  Id: SHEARS
+  Display: '&6✂ &eUnbinding Shears '
+  Options:
+    PreventStacking: true
+  Lore:
+  - '&8&n_________________________________________'
+  - ' '
+  - '&e» &7Equip the &aarmor&7 to unbind in &bOFF-HAND'
+  - '&a» &7Equip &dThe Cosmetics&7 in main hand'
+  - '&b『SHIFT+LEFT』&r &7to &c❖ detach&7 the cosmetics from the item'
+  - '&a '
+  Skills:
+  - skill{s=ECCosmetics_Prime-Cyberpunk-UnbindingShears} @self ~onSwing ?crouching 
+
+ECCosmetics_Prime-Cyberpunk-Main:
+  Id: DIAMOND_CHESTPLATE
+  Display: '&eMain'
+  Skills:
+  - skill{s=ECCosmetics_Prime-Cyberpunk-Equip} @self ~onEquip
+  - skill{s=ECCosmetics_Prime-Cyberpunk-Equip} @self ~onSpawn
+  - skill{s=ECCosmetics_Prime-Cyberpunk-Equip} @self ~onJoin
+  - skill{s=ECCosmetics_Prime-Cyberpunk-Debug} @self ~onHold
+  - skill{s=ECCosmetics_Prime-Cyberpunk-Equip} @self ~onTimer:10 ?!hastag{t=ECCosmetics-EquippingTag} ?!hasaura{aura=ECCosmetics-Equipping}
+  - skill{s=ECCosmetics_Prime-Cyberpunk-Unequip} @self ~onDeath
+  - skill{s=ECCosmetics_Prime-Cyberpunk-Unequip} @self ~onUnEquip
+
+ECCosmetics_Prime-Cyberpunk-Main-OtherItem:
+  Id: DIAMOND_CHESTPLATE
+  Display: '&eMain'
+  Skills:
+  - skill{s=ECCosmetics_Prime-Cyberpunk-Equip-OtherItem} @self ~onEquip
+  - skill{s=ECCosmetics_Prime-Cyberpunk-Equip-OtherItem} @self ~onSpawn
+  - skill{s=ECCosmetics_Prime-Cyberpunk-Equip-OtherItem} @self ~onJoin
+  - skill{s=ECCosmetics_Prime-Cyberpunk-Equip-OtherItem} @self ~onRightclick ?!hasaura{aura=ECCosmetics-Equipping}
+  - skill{s=ECCosmetics_Prime-Cyberpunk-Debug} @self ~onHold
+  - skill{s=ECCosmetics_Prime-Cyberpunk-Equip-OtherItem} @self ~onTimer:10 ?!hastag{t=ECCosmetics-EquippingTag} ?!hasaura{aura=ECCosmetics-OtherItem} ?!stringequals{val1="<caster.item.hand.nbt.ECCosmetics-OtherItem>";val2="Enable"}
+  - skill{s=ECCosmetics_Prime-Cyberpunk-Unequip} @self ~onDeath

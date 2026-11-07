@@ -57,16 +57,16 @@ public final class PvpRatingRegressionTest {
                 check(rating(c,a)==1016 && rating(c,b)==984,"Result insert failure rolls back both rating updates");
             }
             // Upgrade v6 without erasing old ratings/results or inventing historical Rating deltas.
-            try(var c=source.getConnection(); var s=c.createStatement()) { s.execute("DROP TABLE test_pvp_results_details"); s.execute("DELETE FROM test_schema_history WHERE version=7"); }
+            try(var c=source.getConnection(); var s=c.createStatement()) { s.execute("DROP TABLE test_pvp_results_details"); s.execute("DELETE FROM test_schema_history WHERE version>=7"); }
             NeoWorldDatabase.runMigrations(source,mode.isEmpty() ? Config.DatabaseType.H2 : Config.DatabaseType.MARIADB,"test_");
             try(var c=source.getConnection()) {
                 check(rating(c,a)==1016 && rating(c,b)==984,"v6-to-v7 preserves existing ratings");
                 check(!PvpRatingRepository.report(c,"test_pvp_results",id).available(),"Historical result does not fabricate a Rating delta");
             }
             // Simulate an existing version-5 database retaining player data while adding ranked tables.
-            try (var c=source.getConnection(); var s=c.createStatement()) { s.execute("DROP TABLE test_pvp_results_details"); s.execute("DROP TABLE test_pvp_results"); s.execute("DROP TABLE test_pvp_ratings"); s.execute("DELETE FROM test_schema_history WHERE version IN (6,7)"); }
+            try (var c=source.getConnection(); var s=c.createStatement()) { s.execute("DROP TABLE test_pvp_results_details"); s.execute("DROP TABLE test_pvp_results"); s.execute("DROP TABLE test_pvp_ratings"); s.execute("DELETE FROM test_schema_history WHERE version>=6"); }
             NeoWorldDatabase.runMigrations(source,mode.isEmpty() ? Config.DatabaseType.H2 : Config.DatabaseType.MARIADB,"test_");
-            try (var c=source.getConnection(); var s=c.createStatement(); var r=s.executeQuery("SELECT MAX(version) FROM test_schema_history")) { r.next(); check(r.getInt(1)==7,"Upgrade to version 7 succeeds"); }
+            try (var c=source.getConnection(); var s=c.createStatement(); var r=s.executeQuery("SELECT MAX(version) FROM test_schema_history")) { r.next(); check(r.getInt(1)==17,"Upgrade to version 17 succeeds"); }
         }
         return 39;
     }

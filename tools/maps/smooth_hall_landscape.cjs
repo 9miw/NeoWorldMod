@@ -1,0 +1,28 @@
+// Smooth only natural surface columns around zone 06, with fixed architecture and island edges.
+const fs=require('node:fs'),path=require('node:path');
+const {createLibrary}=require('./viewer/map-library.cjs'),{patch}=require('./smooth_active_land.cjs');
+const ROOT=path.resolve(__dirname,'../..'),MAP=path.join(ROOT,'maps/starter_sky_land_spawn_v1');
+const natural=new Set(['minecraft:air','minecraft:grass_block','minecraft:dirt','minecraft:stone','minecraft:andesite','minecraft:cobblestone','minecraft:mossy_cobblestone']);
+function edit(m){
+ const b=Buffer.from(m.blocks,'base64'),original=new Uint16Array(b.length/2);for(let i=0;i<original.length;i++)original[i]=b.readUInt16LE(i*2);const data=original.slice(),S=m.size,heights=new Float64Array(S*S).fill(-1),built=new Uint8Array(S*S),fixed=new Uint8Array(S*S),ids=new Map(m.definitions.map((d,i)=>[JSON.stringify(d),i])),changes=[],columns=[];
+ const index=(x,y,z)=>(y-m.low)*S*S+z*S+x,get=(x,y,z)=>m.definitions[original[index(x,y,z)]];
+ for(let z=134;z<=271;z++)for(let x=184;x<=308;x++){let top=-1;for(let y=96;y<m.high;y++){const name=get(x,y,z).Name;if(name!=='minecraft:air')top=y;if(!natural.has(name))built[z*S+x]=1;}heights[z*S+x]=top;}
+ for(let z=140;z<=265;z++)for(let x=190;x<=302;x++){const k=z*S+x;fixed[k]=built[k]||heights[k]<96?1:0;for(let dz=-4;dz<=4&&!fixed[k];dz++)for(let dx=-4;dx<=4;dx++){if(heights[(z+dz)*S+x+dx]<96||Math.abs(dx)<=2&&Math.abs(dz)<=2&&built[(z+dz)*S+x+dx]){fixed[k]=1;break;}}}
+ let current=heights.slice();for(let pass=0;pass<8;pass++){const next=current.slice();for(let z=140;z<=265;z++)for(let x=190;x<=302;x++){const k=z*S+x;if(fixed[k])continue;let sum=0,weight=0;for(let dz=-3;dz<=3;dz++)for(let dx=-3;dx<=3;dx++){const j=(z+dz)*S+x+dx;if(heights[j]<96||built[j])continue;const w=(4-Math.abs(dx))*(4-Math.abs(dz));sum+=current[j]*w;weight+=w;}const blend=Math.max(0,Math.min(1,(x-190)/8,(302-x)/8,(z-140)/8,(265-z)/8));if(weight)next[k]=current[k]+(sum/weight-current[k])*.7*blend;}current=next;}
+ const rounded=current.map(Math.round);
+ // Ease the exposed forecourt foundation into a wide green bank instead of a plinth.
+ for(let z=220;z<=260;z++)for(let x=210;x<=282;x++){
+  const k=z*S+x,r=Math.hypot((x-244)/16,(z-224)/14),distance=(r-1)*14;
+  if(built[k]||heights[k]<96||heights[k]>=107||distance>18)continue;
+  let edge=false;for(let dz=-4;dz<=4;dz++)for(let dx=-4;dx<=4;dx++)if(heights[(z+dz)*S+x+dx]<96)edge=true;if(edge)continue;
+  const t=Math.max(0,distance)/18,ease=t*t*(3-2*t);rounded[k]=Math.max(rounded[k],Math.round(107-(107-heights[k])*ease));fixed[k]=0;
+ }
+ // Relax any new multi-block ledges while keeping the fixed natural boundary stable.
+ for(let pass=0;pass<60;pass++){let count=0;for(let z=141;z<265;z++)for(let x=191;x<302;x++){const k=z*S+x;for(const j of [k+1,k+S]){if(built[k]||built[j]||heights[k]<96||heights[j]<96)continue;const hi=rounded[k]>rounded[j]?k:j,lo=hi===k?j:k;if(rounded[hi]-rounded[lo]<=1)continue;if(!fixed[hi]){rounded[hi]=rounded[lo]+1;count++;}else if(!fixed[lo]){rounded[lo]=rounded[hi]-1;count++;}}}if(!count)break;}
+ function put(x,y,z,name,properties){const d={Name:'minecraft:'+name,...(properties?{Properties:properties}:{})},k=JSON.stringify(d);if(!ids.has(k)){ids.set(k,m.definitions.length);m.definitions.push(d);}const i=index(x,y,z),id=ids.get(k);if(data[i]!==id){data[i]=id;changes.push({x,y,z,state:d});}}
+ for(let z=140;z<=265;z++)for(let x=190;x<=302;x++){const k=z*S+x;if(fixed[k])continue;const before=heights[k],after=rounded[k];if(after===before)continue;columns.push({x,z,before,after});for(let y=Math.min(before,after)-2;y<=Math.max(before,after);y++)put(x,y,z,y>after?'air':y===after?'grass_block':y>=after-2?'dirt':'stone',y===after?{snowy:'false'}:undefined);}
+ let beforeJumps=0,afterJumps=0,maxBefore=0,maxAfter=0;const changed=new Set(columns.map(c=>c.z*S+c.x));for(let z=139;z<=265;z++)for(let x=189;x<=302;x++){const k=z*S+x;for(const j of [k+1,k+S]){if(built[k]||built[j]||heights[k]<96||heights[j]<96||!changed.has(k)&&!changed.has(j))continue;const a=Math.abs(heights[k]-heights[j]),b=Math.abs(rounded[k]-rounded[j]);if(a>1)beforeJumps++;if(b>1)afterJumps++;maxBefore=Math.max(maxBefore,a);maxAfter=Math.max(maxAfter,b);}}if(afterJumps>beforeJumps)throw Error('Terrain ledges increased');
+ return {data,original,changes,columns,stats:{beforeJumps,afterJumps,maxBefore,maxAfter}};
+}
+function run(){const rf=path.join(MAP,'hall-landscape-smoothing-report.json');if(fs.existsSync(rf))throw Error('Smoothing already applied; inspect before repeating');const m=createLibrary(path.dirname(MAP)).load(path.basename(MAP)),r=edit(m),file=path.join(MAP,'region/r.0.0.mca'),changed=patch(m,r.data,r.original,fs.readFileSync(file)),backup=path.join(ROOT,'archive/map-edit-backups/before-hall-landscape-smooth/starter_sky_land_spawn_v1');if(fs.existsSync(backup))throw Error('Backup exists');fs.mkdirSync(path.dirname(backup),{recursive:true});fs.cpSync(MAP,backup,{recursive:true});fs.writeFileSync(file+'.pending',changed.bytes);fs.renameSync(file+'.pending',file);fs.writeFileSync(rf,JSON.stringify({bounds:[190,140,302,265],changedChunks:changed.changed,changedBlocks:r.changes.length,changedColumns:r.columns.length,stats:r.stats,backup:path.relative(ROOT,backup),columns:r.columns,changes:r.changes},null,2));const mf=path.join(MAP,'map-manifest.json'),manifest=JSON.parse(fs.readFileSync(mf));manifest.adventurersHall.landscapeSmoothing={bounds:[190,140,302,265],passes:8,stats:r.stats};fs.writeFileSync(mf,JSON.stringify(manifest,null,2));console.log(JSON.stringify({changedChunks:changed.changed,changedBlocks:r.changes.length,changedColumns:r.columns.length,stats:r.stats}));}
+module.exports={edit,natural};if(require.main===module)run();

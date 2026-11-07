@@ -13,6 +13,16 @@ import net.minecraft.world.item.ItemStack;
 public final class ClientFashionData {
     private static final Map<Integer, EnumMap<FashionSlot, ItemStack>> PLAYER_SLOTS = new HashMap<>();
     private static final Map<ResourceLocation, ItemStack> WARDROBE = new LinkedHashMap<>();
+    private record Preview(int entityId,Map<FashionSlot,ItemStack> slots) { }
+    private static final ThreadLocal<Preview> PREVIEW = new ThreadLocal<>();
+
+    /** Temporary render-only context; live player caches and wardrobe remain untouched. */
+    public static void withPreview(int entityId,Map<FashionSlot,ItemStack> slots,Runnable render) {
+        var previous=PREVIEW.get();
+        PREVIEW.set(new Preview(entityId,slots));
+        try { render.run(); }
+        finally { if(previous==null) PREVIEW.remove(); else PREVIEW.set(previous); }
+    }
 
     private ClientFashionData() {
     }
@@ -32,6 +42,8 @@ public final class ClientFashionData {
     }
 
     public static ItemStack get(int playerId, FashionSlot slot) {
+        var preview=PREVIEW.get();
+        if(preview!=null && preview.entityId()==playerId) return preview.slots().getOrDefault(slot,ItemStack.EMPTY).copy();
         Map<FashionSlot, ItemStack> slots = PLAYER_SLOTS.get(playerId);
         if (slots == null) {
             return ItemStack.EMPTY;

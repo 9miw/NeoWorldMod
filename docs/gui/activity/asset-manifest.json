@@ -1,0 +1,307 @@
+{
+  "nav_normal": {
+    "source_rectangle": [
+      33,
+      69,
+      389,
+      216
+    ],
+    "size": [
+      320,
+      128
+    ],
+    "alpha_extrema": [
+      0,
+      254
+    ]
+  },
+  "nav_hover": {
+    "source_rectangle": [
+      411,
+      68,
+      755,
+      214
+    ],
+    "size": [
+      320,
+      128
+    ],
+    "alpha_extrema": [
+      0,
+      254
+    ]
+  },
+  "nav_selected": {
+    "source_rectangle": [
+      780,
+      68,
+      1123,
+      214
+    ],
+    "size": [
+      320,
+      128
+    ],
+    "alpha_extrema": [
+      0,
+      254
+    ]
+  },
+  "nav_disabled": {
+    "source_rectangle": [
+      1148,
+      69,
+      1504,
+      213
+    ],
+    "size": [
+      320,
+      128
+    ],
+    "alpha_extrema": [
+      0,
+      254
+    ]
+  },
+  "button_normal": {
+    "source_rectangle": [
+      45,
+      304,
+      379,
+      425
+    ],
+    "size": [
+      280,
+      100
+    ],
+    "alpha_extrema": [
+      0,
+      254
+    ]
+  },
+  "button_hover": {
+    "source_rectangle": [
+      419,
+      304,
+      746,
+      425
+    ],
+    "size": [
+      280,
+      100
+    ],
+    "alpha_extrema": [
+      0,
+      254
+    ]
+  },
+  "button_selected": {
+    "source_rectangle": [
+      789,
+      301,
+      1115,
+      424
+    ],
+    "size": [
+      280,
+      100
+    ],
+    "alpha_extrema": [
+      0,
+      254
+    ]
+  },
+  "button_disabled": {
+    "source_rectangle": [
+      1160,
+      303,
+      1488,
+      424
+    ],
+    "size": [
+      280,
+      100
+    ],
+    "alpha_extrema": [
+      0,
+      254
+    ]
+  },
+  "slot_normal": {
+    "source_rectangle": [
+      93,
+      491,
+      331,
+      719
+    ],
+    "size": [
+      96,
+      96
+    ],
+    "alpha_extrema": [
+      0,
+      254
+    ]
+  },
+  "slot_hover": {
+    "source_rectangle": [
+      463,
+      488,
+      704,
+      719
+    ],
+    "size": [
+      96,
+      96
+    ],
+    "alpha_extrema": [
+      0,
+      254
+    ]
+  },
+  "slot_selected": {
+    "source_rectangle": [
+      831,
+      488,
+      1073,
+      720
+    ],
+    "size": [
+      96,
+      96
+    ],
+    "alpha_extrema": [
+      0,
+      254
+    ]
+  },
+  "slot_disabled": {
+    "source_rectangle": [
+      1204,
+      489,
+      1442,
+      720
+    ],
+    "size": [
+      96,
+      96
+    ],
+    "alpha_extrema": [
+      0,
+      254
+    ]
+  },
+  "icon_daily": {
+    "source_rectangle": [
+      115,
+      762,
+      311,
+      964
+    ],
+    "size": [
+      32,
+      32
+    ],
+    "alpha_extrema": [
+      0,
+      254
+    ]
+  },
+  "icon_monthly": {
+    "source_rectangle": [
+      485,
+      760,
+      684,
+      964
+    ],
+    "size": [
+      32,
+      32
+    ],
+    "alpha_extrema": [
+      0,
+      254
+    ]
+  },
+  "icon_online": {
+    "source_rectangle": [
+      843,
+      760,
+      1054,
+      972
+    ],
+    "size": [
+      32,
+      32
+    ],
+    "alpha_extrema": [
+      0,
+      254
+    ]
+  },
+  "icon_pending": {
+    "source_rectangle": [
+      1229,
+      772,
+      1423,
+      962
+    ],
+    "size": [
+      32,
+      32
+    ],
+    "alpha_extrema": [
+      0,
+      254
+    ]
+  },
+  "frame": {
+    "source_rectangle": [
+      37,
+      22,
+      1500,
+      986
+    ],
+    "size": [
+      1280,
+      840
+    ],
+    "alpha_extrema": [
+      0,
+      253
+    ]
+  },
+  "scroll_track": {
+    "source_rectangle": "slot_disabled:40,8,56,88",
+    "size": [
+      16,
+      160
+    ],
+    "alpha_extrema": [
+      252,
+      254
+    ]
+  },
+  "scroll_thumb": {
+    "source_rectangle": "button_disabled:rotate90",
+    "size": [
+      32,
+      128
+    ],
+    "alpha_extrema": [
+      0,
+      254
+    ]
+  },
+  "icon_silver": {
+    "source_rectangle": "shared market/silver_coin.png",
+    "size": [
+      32,
+      32
+    ],
+    "alpha_extrema": [
+      0,
+      255
+    ]
+  }
+}

@@ -1,0 +1,114 @@
+[
+  {
+    "name": "tab_normal",
+    "x": 19,
+    "y": 94,
+    "width": 359,
+    "height": 97
+  },
+  {
+    "name": "tab_hover",
+    "x": 400,
+    "y": 94,
+    "width": 357,
+    "height": 97
+  },
+  {
+    "name": "tab_selected",
+    "x": 779,
+    "y": 94,
+    "width": 359,
+    "height": 97
+  },
+  {
+    "name": "tab_disabled",
+    "x": 1159,
+    "y": 94,
+    "width": 360,
+    "height": 97
+  },
+  {
+    "name": "fold_normal",
+    "x": 25,
+    "y": 314,
+    "width": 349,
+    "height": 91
+  },
+  {
+    "name": "fold_hover",
+    "x": 402,
+    "y": 314,
+    "width": 351,
+    "height": 91
+  },
+  {
+    "name": "fold_selected",
+    "x": 782,
+    "y": 314,
+    "width": 352,
+    "height": 91
+  },
+  {
+    "name": "fold_disabled",
+    "x": 1163,
+    "y": 314,
+    "width": 350,
+    "height": 91
+  },
+  {
+    "name": "section",
+    "x": 21,
+    "y": 543,
+    "width": 363,
+    "height": 97
+  },
+  {
+    "name": "row_normal",
+    "x": 408,
+    "y": 550,
+    "width": 351,
+    "height": 80
+  },
+  {
+    "name": "row_hover",
+    "x": 786,
+    "y": 551,
+    "width": 356,
+    "height": 81
+  },
+  {
+    "name": "panel",
+    "x": 1184,
+    "y": 467,
+    "width": 326,
+    "height": 225
+  },
+  {
+    "name": "swords",
+    "x": 119,
+    "y": 771,
+    "width": 146,
+    "height": 145
+  },
+  {
+    "name": "shield",
+    "x": 498,
+    "y": 755,
+    "width": 147,
+    "height": 168
+  },
+  {
+    "name": "boot",
+    "x": 895,
+    "y": 772,
+    "width": 129,
+    "height": 138
+  },
+  {
+    "name": "chevron",
+    "x": 1271,
+    "y": 802,
+    "width": 144,
+    "height": 93
+  }
+]

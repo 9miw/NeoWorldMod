@@ -1,0 +1,42 @@
+{
+  "ModRev": 18,
+  "Id": 9,
+  "CompleterNpc": "Kocimira",
+  "QuestCommand": "",
+  "RandomReward": 0,
+  "RewardExp": 0,
+  "Rewards": {
+    "NpcMiscInv": []
+  },
+  "QuestCompletion": 0,
+  "QuestRepeat": 0,
+  "QuestFactionPoints": {},
+  "QuestMail": {},
+  "LeaveItems": 1,
+  "IgnoreDamage": 1,
+  "IgnoreNBT": 1,
+  "Type": 0,
+  "Title": "4/7 เตรียมพร้อมก่อนเผชิญภัย",
+  "Text": "มี§aดาบหิน 1 เล่ม§r §aพลั่วหิน 1 อัน§r และ§aโล่ 1 อัน§rในกระเป๋า แล้วคุยกับ§6§lโคซิไมรา§r อุปกรณ์ชนิดอื่นใช้แทนไม่ได้ งานนี้ตรวจแล้วไม่หักของ",
+  "CompleteText": "อุปกรณ์พร้อมแล้ว! งานถัดไปเริ่มนับการล่าหลังรับขั้นนี้",
+  "NextQuestId": 10,
+  "Items": {
+    "NpcMiscInv": [
+      {
+        "Slot": 0,
+        "id": "minecraft:stone_sword",
+        "count": 1
+      },
+      {
+        "Slot": 1,
+        "id": "minecraft:stone_pickaxe",
+        "count": 1
+      },
+      {
+        "Slot": 2,
+        "id": "minecraft:shield",
+        "count": 1
+      }
+    ]
+  }
+}

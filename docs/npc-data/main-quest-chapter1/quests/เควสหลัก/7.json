@@ -1,0 +1,53 @@
+{
+  "ModRev": 18,
+  "Id": 7,
+  "CompleterNpc": "Kocimira",
+  "QuestCommand": "",
+  "RandomReward": 0,
+  "RewardExp": 0,
+  "Rewards": {
+    "NpcMiscInv": [
+      {
+        "Slot": 0,
+        "id": "minecraft:bread",
+        "count": 8
+      },
+      {
+        "Slot": 1,
+        "id": "minecraft:torch",
+        "count": 16
+      }
+    ]
+  },
+  "QuestCompletion": 0,
+  "QuestRepeat": 0,
+  "QuestFactionPoints": {},
+  "QuestMail": {},
+  "LeaveItems": 0,
+  "IgnoreDamage": 1,
+  "IgnoreNBT": 1,
+  "Type": 0,
+  "Title": "2/7 เสบียงสำหรับการเดินทาง",
+  "Text": "รวบรวม§aไม้โอ๊ก 32 ท่อน§r §aหินกรวด 48 ก้อน§r และ§aถ่านหิน 16 ชิ้น§r ส่ง§6§lโคซิไมรา§rแล้วหักของ สอบถาม§6§lฮันนาห์§rเพื่อไป§bโลกทรัพยากร§rได้",
+  "CompleteText": "เสบียงครบแล้ว รับอาหารกับคบเพลิง จากนั้นไปเรียนรู้การค้ากับ§6§lออสการ์§rและ§6§lอีเทอร์§r",
+  "NextQuestId": 8,
+  "Items": {
+    "NpcMiscInv": [
+      {
+        "Slot": 0,
+        "id": "minecraft:oak_log",
+        "count": 32
+      },
+      {
+        "Slot": 1,
+        "id": "minecraft:cobblestone",
+        "count": 48
+      },
+      {
+        "Slot": 2,
+        "id": "minecraft:coal",
+        "count": 16
+      }
+    ]
+  }
+}

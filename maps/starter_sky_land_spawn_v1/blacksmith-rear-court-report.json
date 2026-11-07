@@ -1,0 +1,31 @@
+{
+  "court": {
+    "bounds": [
+      62,
+      104,
+      100,
+      111
+    ],
+    "floorY": 107,
+    "depth": 8,
+    "sidePaths": [
+      [
+        62,
+        112,
+        65,
+        121
+      ],
+      [
+        97,
+        112,
+        100,
+        121
+      ]
+    ],
+    "pavedCells": 382
+  },
+  "changedBlocks": 1139,
+  "changedChunks": 7,
+  "landscapeColumns": 277,
+  "backup": "archive\\map-edit-backups\\before-blacksmith-rear-court\\starter_sky_land_spawn_v1"
+}

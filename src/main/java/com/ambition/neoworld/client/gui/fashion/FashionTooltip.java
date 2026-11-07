@@ -1,6 +1,8 @@
 package com.ambition.neoworld.client.gui.fashion;
 
 import com.ambition.neoworld.NeoWorld;
+import com.ambition.neoworld.client.gui.common.NeoBitmapIcon;
+import static com.ambition.neoworld.client.gui.common.NeoBitmapIcon.*;
 import com.ambition.neoworld.client.state.ClientFashionData;
 import com.ambition.neoworld.fashion.data.FashionSlot;
 import com.ambition.neoworld.item.fashion.SimpleFashionItem;
@@ -17,7 +19,6 @@ import java.util.List;
 
 @EventBusSubscriber(modid = NeoWorld.MODID, value = Dist.CLIENT)
 public final class FashionTooltip {
-    private static final ResourceLocation FONT = ResourceLocation.fromNamespaceAndPath(NeoWorld.MODID, "fashion_tooltip");
     private static final int TEXT = 0xD4D9DE;
     private static final int MUTED = 0x9EA7AE;
     private static final int TEAL = 0x66DDD5;
@@ -29,25 +30,24 @@ public final class FashionTooltip {
                 .withStyle(style -> style.withColor(color));
     }
 
-    private static Component icon(int icon) {
-        return Component.literal(String.valueOf((char) (0xE200 + icon)))
-                .withStyle(style -> style.withFont(FONT).withColor(0xFFFFFF));
+    private static Component icon(NeoBitmapIcon icon) {
+        return icon.component().withStyle(style -> style.withColor(0xFFFFFF));
     }
 
-    private static Component row(int icon, Component text) {
+    private static Component row(NeoBitmapIcon icon, Component text) {
         return Component.empty()
                 .append(icon(icon))
                 .append(Component.literal("  ")).append(text);
     }
 
-    private static int slotIcon(FashionSlot slot) {
+    private static NeoBitmapIcon slotIcon(FashionSlot slot) {
         return switch (slot) {
-            case HEAD -> 8;
-            case FACE -> 9;
-            case BACK -> 10;
-            case BODY -> 11;
-            case LEGS -> 12;
-            case FEET -> 13;
+            case HEAD -> FASHION_TOOLTIP_SLOT_HEAD;
+            case FACE -> FASHION_TOOLTIP_SLOT_FACE;
+            case BACK -> FASHION_TOOLTIP_SLOT_BACK;
+            case BODY -> FASHION_TOOLTIP_SLOT_BODY;
+            case LEGS -> FASHION_TOOLTIP_SLOT_LEGS;
+            case FEET -> FASHION_TOOLTIP_SLOT_FEET;
         };
     }
 
@@ -65,17 +65,17 @@ public final class FashionTooltip {
                 .append(Component.literal(" "))
                 .append(label("slot." + item.fashionSlot().serializedName(), TEXT));
         lines.add(label("slot", TEXT, slotValue));
-        lines.add(row(3, label("permanent", TEXT)));
+        lines.add(row(FASHION_TOOLTIP_WARDROBE, label("permanent", TEXT)));
         lines.add(Component.empty());
-        lines.add(row(4, label("usage", TEAL)));
-        lines.add(row(2, label("right_click", TEAL)));
-        lines.add(row(5, label("consume", TEXT)));
-        lines.add(row(0, label("equip", TEXT)));
+        lines.add(row(FASHION_TOOLTIP_UNLOCK, label("usage", TEAL)));
+        lines.add(row(FASHION_TOOLTIP_RIGHT_CLICK, label("right_click", TEAL)));
+        lines.add(row(FASHION_TOOLTIP_CONSUME, label("consume", TEXT)));
+        lines.add(row(FASHION_TOOLTIP_FASHION, label("equip", TEXT)));
         lines.add(Component.empty());
         boolean owned = event.getEntity() != null && event.getEntity().level().isClientSide()
                 && ClientFashionData.owns(BuiltInRegistries.ITEM.getKey(event.getItemStack().getItem()));
-        if (owned) lines.add(row(6, label("owned", 0x79E46B)));
-        lines.add(row(7, label("duplicate", MUTED)));
+        if (owned) lines.add(row(FASHION_TOOLTIP_OWNED, label("owned", 0x79E46B)));
+        lines.add(row(FASHION_TOOLTIP_INFO, label("duplicate", MUTED)));
         // Insert after the name without replacing lore, attributes or advanced tooltip data.
         tooltip.addAll(1, lines);
     }

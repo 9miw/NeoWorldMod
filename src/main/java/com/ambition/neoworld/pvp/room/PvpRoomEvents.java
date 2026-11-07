@@ -49,7 +49,7 @@ public final class PvpRoomEvents {
         boolean targetIn = target instanceof ServerPlayer player && manager.inArena(player.getUUID());
         boolean attackerIn = attacker instanceof ServerPlayer player && manager.inArena(player.getUUID());
         if (!targetIn && !attackerIn) return;
-        if (targetIn && manager.room(target.getUUID()).state() == PvpRoom.State.COUNTDOWN) { event.setCanceled(true); return; }
+        if (targetIn && manager.room(target.getUUID()).state() != PvpRoom.State.ACTIVE) { event.setCanceled(true); return; }
         if (attacker != null && (!targetIn || !attackerIn || !manager.canFight(attacker.getUUID(), target.getUUID()))) event.setCanceled(true);
     }
     @SubscribeEvent public static void breakBlock(BlockEvent.BreakEvent event) {

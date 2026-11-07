@@ -1,0 +1,11 @@
+{
+  "parent": "neoworld:cyberpunk_animated/shield",
+  "overrides": [
+    {
+      "predicate": {
+        "blocking": 1
+      },
+      "model": "neoworld:cyberpunk_animated/shield_blocking"
+    }
+  ]
+}

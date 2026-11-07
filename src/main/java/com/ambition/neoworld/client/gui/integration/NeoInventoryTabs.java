@@ -24,8 +24,8 @@ public final class NeoInventoryTabs {
     @SubscribeEvent(priority = EventPriority.LOWEST)
     public static void init(ScreenEvent.Init.Post event) {
         if (!(event.getScreen() instanceof InventoryScreen screen) || !CustomNpcs.InventoryGuiEnabled) return;
-        event.addListener(new ShortcutTab(3, new ItemStack(Items.PLAYER_HEAD), "โปรไฟล์ของฉัน", "profile").init(screen));
-        event.addListener(new ShortcutTab(4, new ItemStack(Items.LEATHER_CHESTPLATE), "แฟชั่น", "neoworld fashion open").init(screen));
+        event.addListener(new ShortcutTab(3, new ItemStack(Items.PLAYER_HEAD), "โปรไฟล์ของฉัน", "neow profile").init(screen));
+        event.addListener(new ShortcutTab(4, new ItemStack(Items.LEATHER_CHESTPLATE), "แฟชั่น", "neow fashion open").init(screen));
     }
 
     private static final class ShortcutTab extends AbstractTab {

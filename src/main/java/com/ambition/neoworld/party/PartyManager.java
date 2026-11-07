@@ -16,6 +16,7 @@ public final class PartyManager {
     private final Map<UUID, Party> parties = new LinkedHashMap<>();
     private final Map<UUID, UUID> partyByPlayer = new LinkedHashMap<>();
     private final Map<UUID, Map<UUID, Long>> invitesByTarget = new LinkedHashMap<>();
+    private final Map<UUID, JoinRequest> joinRequests = new LinkedHashMap<>();
     private final MinecraftServer server;
 
     private PartyManager(MinecraftServer server) {
@@ -27,6 +28,10 @@ public final class PartyManager {
     }
 
     public PartyActionResult create(ServerPlayer leader, int capacity) {
+        return create(leader, capacity, Party.Purpose.GENERAL);
+    }
+
+    public PartyActionResult create(ServerPlayer leader, int capacity, Party.Purpose purpose) {
         if (capacity != 3 && capacity != 6) {
             return PartyActionResult.failure("ขนาดปาร์ตี้ต้องเป็น 3 หรือ 6 คน");
         }
@@ -34,10 +39,66 @@ public final class PartyManager {
             return PartyActionResult.failure("คุณอยู่ในปาร์ตี้แล้ว");
         }
         Party party = new Party(UUID.randomUUID(), capacity, memberOf(leader));
+        party.setPurpose(purpose);
         parties.put(party.id(), party);
         partyByPlayer.put(leader.getUUID(), party.id());
         return PartyActionResult.success(party, "สร้างปาร์ตี้สำเร็จ");
     }
+
+    public PartyActionResult changePurpose(UUID playerId, Party.Purpose purpose) {
+        Party party = findForPlayer(playerId).orElse(null);
+        if (party == null || !party.leaderId().equals(playerId)) {
+            return PartyActionResult.failure("เฉพาะหัวหน้าปาร์ตี้เท่านั้นที่เปลี่ยนจุดประสงค์ได้");
+        }
+        party.setPurpose(purpose);
+        return PartyActionResult.success(party, "เปลี่ยนจุดประสงค์แล้ว");
+    }
+
+    public PartyActionResult requestJoin(ServerPlayer requester, Party party) {
+        if (partyByPlayer.containsKey(requester.getUUID()) || party.isFull()) {
+            return PartyActionResult.failure("คุณมีปาร์ตี้แล้วหรือปาร์ตี้นี้เต็ม");
+        }
+        pruneJoinRequests();
+        if (joinRequests.containsKey(requester.getUUID())) {
+            return PartyActionResult.failure("คุณมีคำขอที่รอการตอบรับอยู่แล้ว");
+        }
+        if (joinRequests.values().stream().filter(request -> request.partyId().equals(party.id())).count() >= 12) {
+            return PartyActionResult.failure("ปาร์ตี้นี้มีคำขอรอตอบรับเต็มแล้ว");
+        }
+        joinRequests.put(requester.getUUID(), new JoinRequest(requester.getUUID(), party.id(), party.leaderId(),
+                server.getTickCount() + 1200L));
+        return PartyActionResult.success(party, "ส่งคำขอเข้าร่วมแล้ว");
+    }
+
+    public java.util.List<JoinRequest> joinRequestsFor(UUID leaderId) {
+        pruneJoinRequests();
+        return joinRequests.values().stream().filter(request -> request.leaderId().equals(leaderId)).toList();
+    }
+
+    public PartyActionResult answerJoin(ServerPlayer leader, ServerPlayer requester, boolean accept) {
+        pruneJoinRequests();
+        JoinRequest request = joinRequests.get(requester.getUUID());
+        if (request == null || !request.leaderId().equals(leader.getUUID())) {
+            return PartyActionResult.failure("ไม่พบคำขอหรือคำขอหมดอายุแล้ว");
+        }
+        Party party = parties.get(request.partyId());
+        joinRequests.remove(requester.getUUID());
+        if (!accept) return PartyActionResult.success(party, "ปฏิเสธคำขอแล้ว");
+        if (party.isFull() || partyByPlayer.containsKey(requester.getUUID())) {
+            return PartyActionResult.failure("คุณไม่สามารถรับผู้เล่นนี้เข้าปาร์ตี้ได้แล้ว");
+        }
+        return join(requester, party);
+    }
+
+    private void pruneJoinRequests() {
+        joinRequests.values().removeIf(request -> {
+            Party party = parties.get(request.partyId());
+            return request.expiresAt() <= server.getTickCount() || party == null
+                    || !party.leaderId().equals(request.leaderId()) || partyByPlayer.containsKey(request.requesterId());
+        });
+    }
+
+    public record JoinRequest(UUID requesterId, UUID partyId, UUID leaderId, long expiresAt) {}
 
     public PartyActionResult invite(ServerPlayer leader, ServerPlayer target) {
         Party party = findForPlayer(leader.getUUID()).orElse(null);
@@ -56,11 +117,34 @@ public final class PartyManager {
         if (partyByPlayer.containsKey(target.getUUID())) {
             return PartyActionResult.failure("ผู้เล่นนี้อยู่ในปาร์ตี้อื่นแล้ว");
         }
+        if (!acceptsInvites(target)) {
+            return PartyActionResult.failure("ผู้เล่นนี้ปิดรับคำเชิญปาร์ตี้");
+        }
+        if (hasPendingInvite(leader.getUUID(), target.getUUID())) {
+            return PartyActionResult.failure("ส่งคำเชิญให้ผู้เล่นนี้แล้ว");
+        }
         invitesByTarget
                 .computeIfAbsent(target.getUUID(), ignored -> new LinkedHashMap<>())
                 .put(leader.getUUID(), server.getTickCount() + 20L * 60L);
         com.ambition.neoworld.network.party.PartyNetworkHandler.sendState(target);
         return PartyActionResult.success(party, "ส่งคำเชิญสำเร็จ");
+    }
+
+    public static boolean acceptsInvites(ServerPlayer player) {
+        return player.getData(com.ambition.neoworld.registry.ModAttachments.PARTY_INVITES_ENABLED);
+    }
+
+    public boolean hasPendingInvite(UUID leaderId, UUID targetId) {
+        var invites = invitesByTarget.get(targetId);
+        Long deadline = invites == null ? null : invites.get(leaderId);
+        return deadline != null && deadline > server.getTickCount();
+    }
+
+    public PartyActionResult setAcceptsInvites(ServerPlayer player, boolean enabled) {
+        player.setData(com.ambition.neoworld.registry.ModAttachments.PARTY_INVITES_ENABLED, enabled);
+        if (!enabled) invitesByTarget.remove(player.getUUID());
+        return PartyActionResult.success(findForPlayer(player.getUUID()).orElse(null),
+                enabled ? "เปิดรับคำเชิญปาร์ตี้แล้ว" : "ปิดรับคำเชิญปาร์ตี้แล้ว");
     }
 
     public PartyActionResult accept(ServerPlayer target, ServerPlayer leader) {
@@ -82,9 +166,14 @@ public final class PartyManager {
         if (party.isFull()) {
             return PartyActionResult.failure("ปาร์ตี้เต็มแล้ว");
         }
+        return join(target, party);
+    }
+
+    private PartyActionResult join(ServerPlayer target, Party party) {
         party.addMember(memberOf(target));
         partyByPlayer.put(target.getUUID(), party.id());
         invitesByTarget.remove(target.getUUID());
+        joinRequests.remove(target.getUUID());
         return PartyActionResult.success(party, "เข้าร่วมปาร์ตี้สำเร็จ");
     }
 
@@ -151,8 +240,16 @@ public final class PartyManager {
                 : PartyActionResult.failure(result.message());
     }
 
-    public void handleDisconnect(UUID playerId) {
+    public PartyActionResult handleDisconnect(UUID playerId) {
         com.ambition.neoworld.dungeon.room.DungeonRoomManager.get(server).clearPlayerReady(playerId);
+        invitesByTarget.remove(playerId);
+        joinRequests.remove(playerId);
+        joinRequests.values().removeIf(request -> request.leaderId().equals(playerId));
+        invitesByTarget.values().removeIf(invites -> {
+            invites.remove(playerId);
+            return invites.isEmpty();
+        });
+        return leave(playerId);
     }
 
     public java.util.List<PendingInvite> invitesFor(UUID targetId) {

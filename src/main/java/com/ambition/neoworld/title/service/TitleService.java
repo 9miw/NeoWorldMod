@@ -5,7 +5,6 @@ import com.ambition.neoworld.title.sync.TitleSync;
 import com.ambition.neoworld.title.TitlePlayerState;
 import com.ambition.neoworld.title.TitleRegistry;
 
-import java.io.IOException;
 import java.nio.file.Path;
 import java.util.Map;
 import java.util.HashMap;
@@ -41,9 +40,29 @@ public final class TitleService {
     }
     public static Path cataloguePath() { return FMLPaths.CONFIGDIR.get().resolve("neoworld/titles.json"); }
     public static void start(MinecraftServer server) {
-        try { TitleRegistry.load(cataloguePath()); }
-        catch (IOException exception) { throw new IllegalStateException("Cannot load title catalogue", exception); }
+        try {
+            var catalogue = new com.ambition.neoworld.title.JdbcTitleCatalogueRepository(Config.DATABASE_TABLE_PREFIX.get());
+            var titles = NeoWorldDatabase.inTransaction(connection -> catalogue.initialize(connection, cataloguePath()));
+            TitleRegistry.replace(titles);
+            NeoWorld.LOGGER.info("Loaded {} title definitions from the database", titles.size());
+        } catch (java.sql.SQLException exception) { throw new IllegalStateException("Cannot initialize database title catalogue", exception); }
         current = new TitleService(server);
+    }
+    public CompletableFuture<Integer> reloadCatalogue() {
+        if (closing) return CompletableFuture.failedFuture(new IllegalStateException("Title service is stopping"));
+        var response = new CompletableFuture<Integer>();
+        worker.execute(() -> {
+            try {
+                var catalogue = new com.ambition.neoworld.title.JdbcTitleCatalogueRepository(Config.DATABASE_TABLE_PREFIX.get());
+                var titles = NeoWorldDatabase.inTransaction(catalogue::load);
+                server.execute(() -> {
+                    if (closing) { response.completeExceptionally(new IllegalStateException("Title service is stopping")); return; }
+                    TitleRegistry.replace(titles);
+                    response.complete(titles.size());
+                });
+            } catch (Exception exception) { response.completeExceptionally(exception); }
+        });
+        return response;
     }
     public static TitleService get() {
         if (current == null) throw new IllegalStateException("Title service is not running");

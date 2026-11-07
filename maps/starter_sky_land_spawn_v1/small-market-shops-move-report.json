@@ -1,0 +1,46 @@
+{
+  "shops": [
+    {
+      "id": "food-materials",
+      "bounds": [
+        94,
+        181,
+        110,
+        195
+      ],
+      "floorY": 103,
+      "entrance": [
+        102,
+        104,
+        195
+      ],
+      "roofRidgeY": 115,
+      "stage": "open timber frame; roof outline"
+    },
+    {
+      "id": "supplies",
+      "bounds": [
+        115,
+        181,
+        131,
+        197
+      ],
+      "floorY": 103,
+      "entrance": [
+        123,
+        104,
+        197
+      ],
+      "roofRidgeY": 115,
+      "stage": "open timber frame; roof outline"
+    }
+  ],
+  "offset": [
+    0,
+    0,
+    -10
+  ],
+  "changedBlocks": 1325,
+  "changedChunks": 9,
+  "backup": "archive\\map-edit-backups\\before-small-market-shops-move\\starter_sky_land_spawn_v1"
+}

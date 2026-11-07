@@ -1,0 +1,52 @@
+{
+  "shop": {
+    "id": "general",
+    "bounds": [
+      59,
+      180,
+      93,
+      214
+    ],
+    "floorY": 103,
+    "entrance": [
+      82,
+      104,
+      207
+    ],
+    "roofRidgeY": 117,
+    "stage": "open timber frame; roof outline",
+    "localSize": [
+      25,
+      23
+    ],
+    "center": [
+      76,
+      103,
+      197
+    ],
+    "rotationDegrees": 30,
+    "faces": "southeast toward market fountain",
+    "corners": [
+      [
+        60,
+        193
+      ],
+      [
+        81,
+        181
+      ],
+      [
+        92,
+        201
+      ],
+      [
+        71,
+        213
+      ]
+    ]
+  },
+  "changedBlocks": 923,
+  "changedChunks": 7,
+  "backup": "archive\\map-edit-backups\\before-market-shop-expansion\\starter_sky_land_spawn_v1",
+  "walkableCells": 5083
+}

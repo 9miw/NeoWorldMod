@@ -14,6 +14,10 @@ public final class MarketScreenController {
         Minecraft.getInstance().setScreen(new MarketScreen());
     }
 
+    public static void openManagement() {
+        Minecraft.getInstance().setScreen(new MarketManagementScreen());
+    }
+
     public static void receivePage(MarketPagePayload payload) {
         MarketScreen screen = NeoPopupScreen.findScreen(MarketScreen.class);
         if (screen != null) screen.receivePage(payload);

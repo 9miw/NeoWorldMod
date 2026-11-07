@@ -1,0 +1,140 @@
+[
+  {
+    "border": 0,
+    "width": 100,
+    "name": "corner_bl",
+    "height": 100
+  },
+  {
+    "border": 0,
+    "width": 100,
+    "name": "corner_br",
+    "height": 100
+  },
+  {
+    "border": 0,
+    "width": 60,
+    "name": "edge_bottom",
+    "height": 45
+  },
+  {
+    "border": 0,
+    "width": 64,
+    "name": "surface",
+    "height": 64
+  },
+  {
+    "border": 0,
+    "width": 100,
+    "name": "corner_tl",
+    "height": 100
+  },
+  {
+    "border": 0,
+    "width": 55,
+    "name": "edge_left",
+    "height": 40
+  },
+  {
+    "border": 0,
+    "width": 100,
+    "name": "corner_tr",
+    "height": 100
+  },
+  {
+    "border": 0,
+    "width": 700,
+    "name": "title",
+    "height": 205
+  },
+  {
+    "border": 0,
+    "width": 55,
+    "name": "edge_right",
+    "height": 40
+  },
+  {
+    "border": 0,
+    "width": 60,
+    "name": "edge_top",
+    "height": 45
+  },
+  {
+    "border": 24,
+    "width": 72,
+    "name": "frame",
+    "height": 72
+  },
+  {
+    "border": 8,
+    "width": 396,
+    "name": "row_selected",
+    "height": 98
+  },
+  {
+    "border": 8,
+    "width": 396,
+    "name": "row_normal",
+    "height": 98
+  },
+  {
+    "border": 17,
+    "width": 337,
+    "name": "button",
+    "height": 94
+  },
+  {
+    "border": 8,
+    "width": 108,
+    "name": "slot",
+    "height": 96
+  },
+  {
+    "border": 0,
+    "width": 16,
+    "name": "swords",
+    "height": 16
+  },
+  {
+    "border": 0,
+    "width": 16,
+    "name": "clock",
+    "height": 16
+  },
+  {
+    "border": 0,
+    "width": 16,
+    "name": "skull",
+    "height": 16
+  },
+  {
+    "border": 0,
+    "width": 16,
+    "name": "member",
+    "height": 16
+  },
+  {
+    "border": 0,
+    "width": 16,
+    "name": "chest",
+    "height": 16
+  },
+  {
+    "border": 0,
+    "width": 16,
+    "name": "door",
+    "height": 16
+  },
+  {
+    "border": 0,
+    "width": 16,
+    "name": "star",
+    "height": 16
+  },
+  {
+    "border": 0,
+    "width": 1672,
+    "name": "background",
+    "height": 941
+  }
+]

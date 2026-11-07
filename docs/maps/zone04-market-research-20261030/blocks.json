@@ -1,0 +1,5174 @@
+{
+  "version": "1.21.1",
+  "source": "Minecraft 1.21.1 client assets",
+  "activeClientPack": "Sapixcraft 32x 1.21.10 r1.zip (listed incompatible in client settings; no settings changed)",
+  "scope": "Selected blocks relevant to this market, not every block in Minecraft or every mod",
+  "groups": {
+    "structure": [
+      "spruce_log",
+      "stripped_spruce_log",
+      "dark_oak_log",
+      "stripped_dark_oak_log",
+      "spruce_planks",
+      "dark_oak_planks",
+      "spruce_stairs",
+      "spruce_slab",
+      "spruce_fence",
+      "spruce_fence_gate",
+      "spruce_trapdoor",
+      "oak_trapdoor"
+    ],
+    "masonry": [
+      "stone_bricks",
+      "mossy_stone_bricks",
+      "cracked_stone_bricks",
+      "stone_brick_stairs",
+      "stone_brick_slab",
+      "stone_brick_wall",
+      "cobblestone",
+      "cobblestone_stairs",
+      "cobblestone_slab",
+      "cobblestone_wall",
+      "andesite",
+      "polished_andesite",
+      "mud_bricks",
+      "mud_brick_stairs",
+      "mud_brick_slab",
+      "mud_brick_wall",
+      "packed_mud",
+      "terracotta",
+      "white_terracotta",
+      "brown_terracotta",
+      "calcite"
+    ],
+    "roof": [
+      "red_sandstone",
+      "cut_red_sandstone",
+      "red_sandstone_stairs",
+      "red_sandstone_slab",
+      "smooth_red_sandstone",
+      "smooth_red_sandstone_stairs",
+      "smooth_red_sandstone_slab",
+      "orange_terracotta",
+      "acacia_stairs",
+      "acacia_slab",
+      "waxed_oxidized_cut_copper_stairs",
+      "waxed_oxidized_cut_copper_slab"
+    ],
+    "awning": [
+      "white_wool",
+      "orange_wool",
+      "red_wool",
+      "green_wool",
+      "white_carpet",
+      "orange_carpet",
+      "green_carpet"
+    ],
+    "details": [
+      "chain",
+      "lantern",
+      "spruce_hanging_sign",
+      "spruce_wall_sign",
+      "flower_pot",
+      "potted_fern",
+      "barrel",
+      "composter",
+      "hay_block",
+      "decorated_pot",
+      "glass",
+      "glass_pane",
+      "brown_stained_glass_pane",
+      "cauldron",
+      "brewing_stand",
+      "campfire",
+      "hanging_roots"
+    ]
+  },
+  "blocks": [
+    {
+      "id": "spruce_log",
+      "group": "structure",
+      "sourceState": "assets/minecraft/blockstates/spruce_log.json",
+      "sampleVisualProperties": {
+        "waterlogged": "false",
+        "powered": "false",
+        "north": "false",
+        "south": "false",
+        "east": "false",
+        "west": "false",
+        "up": "true",
+        "axis": "x"
+      },
+      "modelBounds": [
+        [
+          0,
+          1
+        ],
+        [
+          0,
+          1
+        ],
+        [
+          0,
+          1
+        ]
+      ],
+      "faces": 6,
+      "textures": [
+        "assets/minecraft/textures/block/spruce_log_top.png",
+        "assets/minecraft/textures/block/spruce_log.png"
+      ],
+      "specialRenderer": false,
+      "missingTextures": [],
+      "textureSamples": [
+        {
+          "resource": "assets/minecraft/textures/block/spruce_log_top.png",
+          "vanilla": {
+            "size": [
+              16,
+              16
+            ],
+            "firstFrameMeanRGB": [
+              109,
+              80,
+              47
+            ],
+            "meanHex": "#6d502f"
+          },
+          "sapixcraft": {
+            "size": [
+              32,
+              32
+            ],
+            "firstFrameMeanRGB": [
+              75,
+              50,
+              23
+            ],
+            "meanHex": "#4b3217"
+          }
+        },
+        {
+          "resource": "assets/minecraft/textures/block/spruce_log.png",
+          "vanilla": {
+            "size": [
+              16,
+              16
+            ],
+            "firstFrameMeanRGB": [
+              59,
+              38,
+              17
+            ],
+            "meanHex": "#3b2611"
+          },
+          "sapixcraft": {
+            "size": [
+              32,
+              32
+            ],
+            "firstFrameMeanRGB": [
+              56,
+              37,
+              16
+            ],
+            "meanHex": "#382510"
+          }
+        }
+      ]
+    },
+    {
+      "id": "stripped_spruce_log",
+      "group": "structure",
+      "sourceState": "assets/minecraft/blockstates/stripped_spruce_log.json",
+      "sampleVisualProperties": {
+        "waterlogged": "false",
+        "powered": "false",
+        "north": "false",
+        "south": "false",
+        "east": "false",
+        "west": "false",
+        "up": "true",
+        "axis": "x"
+      },
+      "modelBounds": [
+        [
+          0,
+          1
+        ],
+        [
+          0,
+          1
+        ],
+        [
+          0,
+          1
+        ]
+      ],
+      "faces": 6,
+      "textures": [
+        "assets/minecraft/textures/block/stripped_spruce_log_top.png",
+        "assets/minecraft/textures/block/stripped_spruce_log.png"
+      ],
+      "specialRenderer": false,
+      "missingTextures": [],
+      "textureSamples": [
+        {
+          "resource": "assets/minecraft/textures/block/stripped_spruce_log_top.png",
+          "vanilla": {
+            "size": [
+              16,
+              16
+            ],
+            "firstFrameMeanRGB": [
+              106,
+              80,
+              47
+            ],
+            "meanHex": "#6a502f"
+          },
+          "sapixcraft": {
+            "size": [
+              32,
+              32
+            ],
+            "firstFrameMeanRGB": [
+              81,
+              54,
+              26
+            ],
+            "meanHex": "#51361a"
+          }
+        },
+        {
+          "resource": "assets/minecraft/textures/block/stripped_spruce_log.png",
+          "vanilla": {
+            "size": [
+              16,
+              16
+            ],
+            "firstFrameMeanRGB": [
+              116,
+              90,
+              52
+            ],
+            "meanHex": "#745a34"
+          },
+          "sapixcraft": {
+            "size": [
+              32,
+              32
+            ],
+            "firstFrameMeanRGB": [
+              80,
+              54,
+              25
+            ],
+            "meanHex": "#503619"
+          }
+        }
+      ]
+    },
+    {
+      "id": "dark_oak_log",
+      "group": "structure",
+      "sourceState": "assets/minecraft/blockstates/dark_oak_log.json",
+      "sampleVisualProperties": {
+        "waterlogged": "false",
+        "powered": "false",
+        "north": "false",
+        "south": "false",
+        "east": "false",
+        "west": "false",
+        "up": "true",
+        "axis": "x"
+      },
+      "modelBounds": [
+        [
+          0,
+          1
+        ],
+        [
+          0,
+          1
+        ],
+        [
+          0,
+          1
+        ]
+      ],
+      "faces": 6,
+      "textures": [
+        "assets/minecraft/textures/block/dark_oak_log_top.png",
+        "assets/minecraft/textures/block/dark_oak_log.png"
+      ],
+      "specialRenderer": false,
+      "missingTextures": [],
+      "textureSamples": [
+        {
+          "resource": "assets/minecraft/textures/block/dark_oak_log_top.png",
+          "vanilla": {
+            "size": [
+              16,
+              16
+            ],
+            "firstFrameMeanRGB": [
+              68,
+              45,
+              22
+            ],
+            "meanHex": "#442d16"
+          },
+          "sapixcraft": {
+            "size": [
+              32,
+              32
+            ],
+            "firstFrameMeanRGB": [
+              52,
+              38,
+              20
+            ],
+            "meanHex": "#342614"
+          }
+        },
+        {
+          "resource": "assets/minecraft/textures/block/dark_oak_log.png",
+          "vanilla": {
+            "size": [
+              16,
+              16
+            ],
+            "firstFrameMeanRGB": [
+              60,
+              47,
+              26
+            ],
+            "meanHex": "#3c2f1a"
+          },
+          "sapixcraft": {
+            "size": [
+              32,
+              32
+            ],
+            "firstFrameMeanRGB": [
+              47,
+              37,
+              21
+            ],
+            "meanHex": "#2f2515"
+          }
+        }
+      ]
+    },
+    {
+      "id": "stripped_dark_oak_log",
+      "group": "structure",
+      "sourceState": "assets/minecraft/blockstates/stripped_dark_oak_log.json",
+      "sampleVisualProperties": {
+        "waterlogged": "false",
+        "powered": "false",
+        "north": "false",
+        "south": "false",
+        "east": "false",
+        "west": "false",
+        "up": "true",
+        "axis": "x"
+      },
+      "modelBounds": [
+        [
+          0,
+          1
+        ],
+        [
+          0,
+          1
+        ],
+        [
+          0,
+          1
+        ]
+      ],
+      "faces": 6,
+      "textures": [
+        "assets/minecraft/textures/block/stripped_dark_oak_log_top.png",
+        "assets/minecraft/textures/block/stripped_dark_oak_log.png"
+      ],
+      "specialRenderer": false,
+      "missingTextures": [],
+      "textureSamples": [
+        {
+          "resource": "assets/minecraft/textures/block/stripped_dark_oak_log_top.png",
+          "vanilla": {
+            "size": [
+              16,
+              16
+            ],
+            "firstFrameMeanRGB": [
+              66,
+              44,
+              23
+            ],
+            "meanHex": "#422c17"
+          },
+          "sapixcraft": {
+            "size": [
+              32,
+              32
+            ],
+            "firstFrameMeanRGB": [
+              53,
+              38,
+              20
+            ],
+            "meanHex": "#352614"
+          }
+        },
+        {
+          "resource": "assets/minecraft/textures/block/stripped_dark_oak_log.png",
+          "vanilla": {
+            "size": [
+              16,
+              16
+            ],
+            "firstFrameMeanRGB": [
+              73,
+              57,
+              36
+            ],
+            "meanHex": "#493924"
+          },
+          "sapixcraft": {
+            "size": [
+              32,
+              32
+            ],
+            "firstFrameMeanRGB": [
+              53,
+              38,
+              20
+            ],
+            "meanHex": "#352614"
+          }
+        }
+      ]
+    },
+    {
+      "id": "spruce_planks",
+      "group": "structure",
+      "sourceState": "assets/minecraft/blockstates/spruce_planks.json",
+      "sampleVisualProperties": {
+        "waterlogged": "false",
+        "powered": "false",
+        "north": "false",
+        "south": "false",
+        "east": "false",
+        "west": "false",
+        "up": "true"
+      },
+      "modelBounds": [
+        [
+          0,
+          1
+        ],
+        [
+          0,
+          1
+        ],
+        [
+          0,
+          1
+        ]
+      ],
+      "faces": 6,
+      "textures": [
+        "assets/minecraft/textures/block/spruce_planks.png"
+      ],
+      "specialRenderer": false,
+      "missingTextures": [],
+      "textureSamples": [
+        {
+          "resource": "assets/minecraft/textures/block/spruce_planks.png",
+          "vanilla": {
+            "size": [
+              16,
+              16
+            ],
+            "firstFrameMeanRGB": [
+              115,
+              85,
+              49
+            ],
+            "meanHex": "#735531"
+          },
+          "sapixcraft": {
+            "size": [
+              32,
+              32
+            ],
+            "firstFrameMeanRGB": [
+              82,
+              55,
+              26
+            ],
+            "meanHex": "#52371a"
+          }
+        }
+      ]
+    },
+    {
+      "id": "dark_oak_planks",
+      "group": "structure",
+      "sourceState": "assets/minecraft/blockstates/dark_oak_planks.json",
+      "sampleVisualProperties": {
+        "waterlogged": "false",
+        "powered": "false",
+        "north": "false",
+        "south": "false",
+        "east": "false",
+        "west": "false",
+        "up": "true"
+      },
+      "modelBounds": [
+        [
+          0,
+          1
+        ],
+        [
+          0,
+          1
+        ],
+        [
+          0,
+          1
+        ]
+      ],
+      "faces": 6,
+      "textures": [
+        "assets/minecraft/textures/block/dark_oak_planks.png"
+      ],
+      "specialRenderer": false,
+      "missingTextures": [],
+      "textureSamples": [
+        {
+          "resource": "assets/minecraft/textures/block/dark_oak_planks.png",
+          "vanilla": {
+            "size": [
+              16,
+              16
+            ],
+            "firstFrameMeanRGB": [
+              67,
+              43,
+              20
+            ],
+            "meanHex": "#432b14"
+          },
+          "sapixcraft": {
+            "size": [
+              32,
+              32
+            ],
+            "firstFrameMeanRGB": [
+              54,
+              39,
+              21
+            ],
+            "meanHex": "#362715"
+          }
+        }
+      ]
+    },
+    {
+      "id": "spruce_stairs",
+      "group": "structure",
+      "sourceState": "assets/minecraft/blockstates/spruce_stairs.json",
+      "sampleVisualProperties": {
+        "waterlogged": "false",
+        "powered": "false",
+        "north": "false",
+        "south": "false",
+        "east": "false",
+        "west": "false",
+        "up": "true",
+        "facing": "east",
+        "half": "bottom",
+        "shape": "inner_left"
+      },
+      "modelBounds": [
+        [
+          -1.1102230246251565e-16,
+          1
+        ],
+        [
+          0,
+          1
+        ],
+        [
+          -1.1102230246251565e-16,
+          1
+        ]
+      ],
+      "faces": 15,
+      "textures": [
+        "assets/minecraft/textures/block/spruce_planks.png"
+      ],
+      "specialRenderer": false,
+      "missingTextures": [],
+      "textureSamples": [
+        {
+          "resource": "assets/minecraft/textures/block/spruce_planks.png",
+          "vanilla": {
+            "size": [
+              16,
+              16
+            ],
+            "firstFrameMeanRGB": [
+              115,
+              85,
+              49
+            ],
+            "meanHex": "#735531"
+          },
+          "sapixcraft": {
+            "size": [
+              32,
+              32
+            ],
+            "firstFrameMeanRGB": [
+              82,
+              55,
+              26
+            ],
+            "meanHex": "#52371a"
+          }
+        }
+      ]
+    },
+    {
+      "id": "spruce_slab",
+      "group": "structure",
+      "sourceState": "assets/minecraft/blockstates/spruce_slab.json",
+      "sampleVisualProperties": {
+        "waterlogged": "false",
+        "powered": "false",
+        "north": "false",
+        "south": "false",
+        "east": "false",
+        "west": "false",
+        "up": "true",
+        "type": "bottom"
+      },
+      "modelBounds": [
+        [
+          0,
+          1
+        ],
+        [
+          0,
+          0.5
+        ],
+        [
+          0,
+          1
+        ]
+      ],
+      "faces": 6,
+      "textures": [
+        "assets/minecraft/textures/block/spruce_planks.png"
+      ],
+      "specialRenderer": false,
+      "missingTextures": [],
+      "textureSamples": [
+        {
+          "resource": "assets/minecraft/textures/block/spruce_planks.png",
+          "vanilla": {
+            "size": [
+              16,
+              16
+            ],
+            "firstFrameMeanRGB": [
+              115,
+              85,
+              49
+            ],
+            "meanHex": "#735531"
+          },
+          "sapixcraft": {
+            "size": [
+              32,
+              32
+            ],
+            "firstFrameMeanRGB": [
+              82,
+              55,
+              26
+            ],
+            "meanHex": "#52371a"
+          }
+        }
+      ]
+    },
+    {
+      "id": "spruce_fence",
+      "group": "structure",
+      "sourceState": "assets/minecraft/blockstates/spruce_fence.json",
+      "sampleVisualProperties": {
+        "waterlogged": "false",
+        "powered": "false",
+        "north": "false",
+        "south": "false",
+        "east": "false",
+        "west": "false",
+        "up": "true"
+      },
+      "modelBounds": [
+        [
+          0.375,
+          0.625
+        ],
+        [
+          0,
+          1
+        ],
+        [
+          0.375,
+          0.625
+        ]
+      ],
+      "faces": 6,
+      "textures": [
+        "assets/minecraft/textures/block/spruce_planks.png"
+      ],
+      "specialRenderer": false,
+      "missingTextures": [],
+      "textureSamples": [
+        {
+          "resource": "assets/minecraft/textures/block/spruce_planks.png",
+          "vanilla": {
+            "size": [
+              16,
+              16
+            ],
+            "firstFrameMeanRGB": [
+              115,
+              85,
+              49
+            ],
+            "meanHex": "#735531"
+          },
+          "sapixcraft": {
+            "size": [
+              32,
+              32
+            ],
+            "firstFrameMeanRGB": [
+              82,
+              55,
+              26
+            ],
+            "meanHex": "#52371a"
+          }
+        }
+      ]
+    },
+    {
+      "id": "spruce_fence_gate",
+      "group": "structure",
+      "sourceState": "assets/minecraft/blockstates/spruce_fence_gate.json",
+      "sampleVisualProperties": {
+        "waterlogged": "false",
+        "powered": "false",
+        "north": "false",
+        "south": "false",
+        "east": "false",
+        "west": "false",
+        "up": "true",
+        "facing": "east",
+        "in_wall": "false",
+        "open": "false"
+      },
+      "modelBounds": [
+        [
+          0.4374999999999999,
+          0.5625000000000001
+        ],
+        [
+          0.3125,
+          1
+        ],
+        [
+          0,
+          1
+        ]
+      ],
+      "faces": 40,
+      "textures": [
+        "assets/minecraft/textures/block/spruce_planks.png"
+      ],
+      "specialRenderer": false,
+      "missingTextures": [],
+      "textureSamples": [
+        {
+          "resource": "assets/minecraft/textures/block/spruce_planks.png",
+          "vanilla": {
+            "size": [
+              16,
+              16
+            ],
+            "firstFrameMeanRGB": [
+              115,
+              85,
+              49
+            ],
+            "meanHex": "#735531"
+          },
+          "sapixcraft": {
+            "size": [
+              32,
+              32
+            ],
+            "firstFrameMeanRGB": [
+              82,
+              55,
+              26
+            ],
+            "meanHex": "#52371a"
+          }
+        }
+      ]
+    },
+    {
+      "id": "spruce_trapdoor",
+      "group": "structure",
+      "sourceState": "assets/minecraft/blockstates/spruce_trapdoor.json",
+      "sampleVisualProperties": {
+        "waterlogged": "false",
+        "powered": "false",
+        "north": "false",
+        "south": "false",
+        "east": "false",
+        "west": "false",
+        "up": "true",
+        "facing": "east",
+        "half": "bottom",
+        "open": "false"
+      },
+      "modelBounds": [
+        [
+          0,
+          1
+        ],
+        [
+          0,
+          0.1875
+        ],
+        [
+          0,
+          1
+        ]
+      ],
+      "faces": 6,
+      "textures": [
+        "assets/minecraft/textures/block/spruce_trapdoor.png"
+      ],
+      "specialRenderer": false,
+      "missingTextures": [],
+      "textureSamples": [
+        {
+          "resource": "assets/minecraft/textures/block/spruce_trapdoor.png",
+          "vanilla": {
+            "size": [
+              16,
+              16
+            ],
+            "firstFrameMeanRGB": [
+              104,
+              79,
+              48
+            ],
+            "meanHex": "#684f30"
+          },
+          "sapixcraft": {
+            "size": [
+              32,
+              32
+            ],
+            "firstFrameMeanRGB": [
+              100,
+              68,
+              33
+            ],
+            "meanHex": "#644421"
+          }
+        }
+      ]
+    },
+    {
+      "id": "oak_trapdoor",
+      "group": "structure",
+      "sourceState": "assets/minecraft/blockstates/oak_trapdoor.json",
+      "sampleVisualProperties": {
+        "waterlogged": "false",
+        "powered": "false",
+        "north": "false",
+        "south": "false",
+        "east": "false",
+        "west": "false",
+        "up": "true",
+        "facing": "east",
+        "half": "bottom",
+        "open": "false"
+      },
+      "modelBounds": [
+        [
+          0,
+          1
+        ],
+        [
+          0,
+          0.1875
+        ],
+        [
+          0,
+          1
+        ]
+      ],
+      "faces": 6,
+      "textures": [
+        "assets/minecraft/textures/block/oak_trapdoor.png"
+      ],
+      "specialRenderer": false,
+      "missingTextures": [],
+      "textureSamples": [
+        {
+          "resource": "assets/minecraft/textures/block/oak_trapdoor.png",
+          "vanilla": {
+            "size": [
+              16,
+              16
+            ],
+            "firstFrameMeanRGB": [
+              125,
+              99,
+              57
+            ],
+            "meanHex": "#7d6339"
+          },
+          "sapixcraft": {
+            "size": [
+              32,
+              32
+            ],
+            "firstFrameMeanRGB": [
+              143,
+              112,
+              71
+            ],
+            "meanHex": "#8f7047"
+          }
+        }
+      ]
+    },
+    {
+      "id": "stone_bricks",
+      "group": "masonry",
+      "sourceState": "assets/minecraft/blockstates/stone_bricks.json",
+      "sampleVisualProperties": {
+        "waterlogged": "false",
+        "powered": "false",
+        "north": "false",
+        "south": "false",
+        "east": "false",
+        "west": "false",
+        "up": "true"
+      },
+      "modelBounds": [
+        [
+          0,
+          1
+        ],
+        [
+          0,
+          1
+        ],
+        [
+          0,
+          1
+        ]
+      ],
+      "faces": 6,
+      "textures": [
+        "assets/minecraft/textures/block/stone_bricks.png"
+      ],
+      "specialRenderer": false,
+      "missingTextures": [],
+      "textureSamples": [
+        {
+          "resource": "assets/minecraft/textures/block/stone_bricks.png",
+          "vanilla": {
+            "size": [
+              16,
+              16
+            ],
+            "firstFrameMeanRGB": [
+              122,
+              122,
+              122
+            ],
+            "meanHex": "#7a7a7a"
+          },
+          "sapixcraft": {
+            "size": [
+              32,
+              32
+            ],
+            "firstFrameMeanRGB": [
+              110,
+              104,
+              101
+            ],
+            "meanHex": "#6e6865"
+          }
+        }
+      ]
+    },
+    {
+      "id": "mossy_stone_bricks",
+      "group": "masonry",
+      "sourceState": "assets/minecraft/blockstates/mossy_stone_bricks.json",
+      "sampleVisualProperties": {
+        "waterlogged": "false",
+        "powered": "false",
+        "north": "false",
+        "south": "false",
+        "east": "false",
+        "west": "false",
+        "up": "true"
+      },
+      "modelBounds": [
+        [
+          0,
+          1
+        ],
+        [
+          0,
+          1
+        ],
+        [
+          0,
+          1
+        ]
+      ],
+      "faces": 6,
+      "textures": [
+        "assets/minecraft/textures/block/mossy_stone_bricks.png"
+      ],
+      "specialRenderer": false,
+      "missingTextures": [],
+      "textureSamples": [
+        {
+          "resource": "assets/minecraft/textures/block/mossy_stone_bricks.png",
+          "vanilla": {
+            "size": [
+              16,
+              16
+            ],
+            "firstFrameMeanRGB": [
+              115,
+              121,
+              105
+            ],
+            "meanHex": "#737969"
+          },
+          "sapixcraft": {
+            "size": [
+              32,
+              32
+            ],
+            "firstFrameMeanRGB": [
+              102,
+              107,
+              87
+            ],
+            "meanHex": "#666b57"
+          }
+        }
+      ]
+    },
+    {
+      "id": "cracked_stone_bricks",
+      "group": "masonry",
+      "sourceState": "assets/minecraft/blockstates/cracked_stone_bricks.json",
+      "sampleVisualProperties": {
+        "waterlogged": "false",
+        "powered": "false",
+        "north": "false",
+        "south": "false",
+        "east": "false",
+        "west": "false",
+        "up": "true"
+      },
+      "modelBounds": [
+        [
+          0,
+          1
+        ],
+        [
+          0,
+          1
+        ],
+        [
+          0,
+          1
+        ]
+      ],
+      "faces": 6,
+      "textures": [
+        "assets/minecraft/textures/block/cracked_stone_bricks.png"
+      ],
+      "specialRenderer": false,
+      "missingTextures": [],
+      "textureSamples": [
+        {
+          "resource": "assets/minecraft/textures/block/cracked_stone_bricks.png",
+          "vanilla": {
+            "size": [
+              16,
+              16
+            ],
+            "firstFrameMeanRGB": [
+              118,
+              118,
+              118
+            ],
+            "meanHex": "#767676"
+          },
+          "sapixcraft": {
+            "size": [
+              32,
+              32
+            ],
+            "firstFrameMeanRGB": [
+              106,
+              100,
+              97
+            ],
+            "meanHex": "#6a6461"
+          }
+        }
+      ]
+    },
+    {
+      "id": "stone_brick_stairs",
+      "group": "masonry",
+      "sourceState": "assets/minecraft/blockstates/stone_brick_stairs.json",
+      "sampleVisualProperties": {
+        "waterlogged": "false",
+        "powered": "false",
+        "north": "false",
+        "south": "false",
+        "east": "false",
+        "west": "false",
+        "up": "true",
+        "facing": "east",
+        "half": "bottom",
+        "shape": "inner_left"
+      },
+      "modelBounds": [
+        [
+          -1.1102230246251565e-16,
+          1
+        ],
+        [
+          0,
+          1
+        ],
+        [
+          -1.1102230246251565e-16,
+          1
+        ]
+      ],
+      "faces": 15,
+      "textures": [
+        "assets/minecraft/textures/block/stone_bricks.png"
+      ],
+      "specialRenderer": false,
+      "missingTextures": [],
+      "textureSamples": [
+        {
+          "resource": "assets/minecraft/textures/block/stone_bricks.png",
+          "vanilla": {
+            "size": [
+              16,
+              16
+            ],
+            "firstFrameMeanRGB": [
+              122,
+              122,
+              122
+            ],
+            "meanHex": "#7a7a7a"
+          },
+          "sapixcraft": {
+            "size": [
+              32,
+              32
+            ],
+            "firstFrameMeanRGB": [
+              110,
+              104,
+              101
+            ],
+            "meanHex": "#6e6865"
+          }
+        }
+      ]
+    },
+    {
+      "id": "stone_brick_slab",
+      "group": "masonry",
+      "sourceState": "assets/minecraft/blockstates/stone_brick_slab.json",
+      "sampleVisualProperties": {
+        "waterlogged": "false",
+        "powered": "false",
+        "north": "false",
+        "south": "false",
+        "east": "false",
+        "west": "false",
+        "up": "true",
+        "type": "bottom"
+      },
+      "modelBounds": [
+        [
+          0,
+          1
+        ],
+        [
+          0,
+          0.5
+        ],
+        [
+          0,
+          1
+        ]
+      ],
+      "faces": 6,
+      "textures": [
+        "assets/minecraft/textures/block/stone_bricks.png"
+      ],
+      "specialRenderer": false,
+      "missingTextures": [],
+      "textureSamples": [
+        {
+          "resource": "assets/minecraft/textures/block/stone_bricks.png",
+          "vanilla": {
+            "size": [
+              16,
+              16
+            ],
+            "firstFrameMeanRGB": [
+              122,
+              122,
+              122
+            ],
+            "meanHex": "#7a7a7a"
+          },
+          "sapixcraft": {
+            "size": [
+              32,
+              32
+            ],
+            "firstFrameMeanRGB": [
+              110,
+              104,
+              101
+            ],
+            "meanHex": "#6e6865"
+          }
+        }
+      ]
+    },
+    {
+      "id": "stone_brick_wall",
+      "group": "masonry",
+      "sourceState": "assets/minecraft/blockstates/stone_brick_wall.json",
+      "sampleVisualProperties": {
+        "waterlogged": "false",
+        "powered": "false",
+        "north": "none",
+        "south": "none",
+        "east": "none",
+        "west": "none",
+        "up": "true"
+      },
+      "modelBounds": [
+        [
+          0.25,
+          0.75
+        ],
+        [
+          0,
+          1
+        ],
+        [
+          0.25,
+          0.75
+        ]
+      ],
+      "faces": 6,
+      "textures": [
+        "assets/minecraft/textures/block/stone_bricks.png"
+      ],
+      "specialRenderer": false,
+      "missingTextures": [],
+      "textureSamples": [
+        {
+          "resource": "assets/minecraft/textures/block/stone_bricks.png",
+          "vanilla": {
+            "size": [
+              16,
+              16
+            ],
+            "firstFrameMeanRGB": [
+              122,
+              122,
+              122
+            ],
+            "meanHex": "#7a7a7a"
+          },
+          "sapixcraft": {
+            "size": [
+              32,
+              32
+            ],
+            "firstFrameMeanRGB": [
+              110,
+              104,
+              101
+            ],
+            "meanHex": "#6e6865"
+          }
+        }
+      ]
+    },
+    {
+      "id": "cobblestone",
+      "group": "masonry",
+      "sourceState": "assets/minecraft/blockstates/cobblestone.json",
+      "sampleVisualProperties": {
+        "waterlogged": "false",
+        "powered": "false",
+        "north": "false",
+        "south": "false",
+        "east": "false",
+        "west": "false",
+        "up": "true"
+      },
+      "modelBounds": [
+        [
+          0,
+          1
+        ],
+        [
+          0,
+          1
+        ],
+        [
+          0,
+          1
+        ]
+      ],
+      "faces": 6,
+      "textures": [
+        "assets/minecraft/textures/block/cobblestone.png"
+      ],
+      "specialRenderer": false,
+      "missingTextures": [],
+      "textureSamples": [
+        {
+          "resource": "assets/minecraft/textures/block/cobblestone.png",
+          "vanilla": {
+            "size": [
+              16,
+              16
+            ],
+            "firstFrameMeanRGB": [
+              128,
+              127,
+              128
+            ],
+            "meanHex": "#807f80"
+          },
+          "sapixcraft": {
+            "size": [
+              32,
+              32
+            ],
+            "firstFrameMeanRGB": [
+              114,
+              107,
+              104
+            ],
+            "meanHex": "#726b68"
+          }
+        }
+      ]
+    },
+    {
+      "id": "cobblestone_stairs",
+      "group": "masonry",
+      "sourceState": "assets/minecraft/blockstates/cobblestone_stairs.json",
+      "sampleVisualProperties": {
+        "waterlogged": "false",
+        "powered": "false",
+        "north": "false",
+        "south": "false",
+        "east": "false",
+        "west": "false",
+        "up": "true",
+        "facing": "east",
+        "half": "bottom",
+        "shape": "inner_left"
+      },
+      "modelBounds": [
+        [
+          -1.1102230246251565e-16,
+          1
+        ],
+        [
+          0,
+          1
+        ],
+        [
+          -1.1102230246251565e-16,
+          1
+        ]
+      ],
+      "faces": 15,
+      "textures": [
+        "assets/minecraft/textures/block/cobblestone.png"
+      ],
+      "specialRenderer": false,
+      "missingTextures": [],
+      "textureSamples": [
+        {
+          "resource": "assets/minecraft/textures/block/cobblestone.png",
+          "vanilla": {
+            "size": [
+              16,
+              16
+            ],
+            "firstFrameMeanRGB": [
+              128,
+              127,
+              128
+            ],
+            "meanHex": "#807f80"
+          },
+          "sapixcraft": {
+            "size": [
+              32,
+              32
+            ],
+            "firstFrameMeanRGB": [
+              114,
+              107,
+              104
+            ],
+            "meanHex": "#726b68"
+          }
+        }
+      ]
+    },
+    {
+      "id": "cobblestone_slab",
+      "group": "masonry",
+      "sourceState": "assets/minecraft/blockstates/cobblestone_slab.json",
+      "sampleVisualProperties": {
+        "waterlogged": "false",
+        "powered": "false",
+        "north": "false",
+        "south": "false",
+        "east": "false",
+        "west": "false",
+        "up": "true",
+        "type": "bottom"
+      },
+      "modelBounds": [
+        [
+          0,
+          1
+        ],
+        [
+          0,
+          0.5
+        ],
+        [
+          0,
+          1
+        ]
+      ],
+      "faces": 6,
+      "textures": [
+        "assets/minecraft/textures/block/cobblestone.png"
+      ],
+      "specialRenderer": false,
+      "missingTextures": [],
+      "textureSamples": [
+        {
+          "resource": "assets/minecraft/textures/block/cobblestone.png",
+          "vanilla": {
+            "size": [
+              16,
+              16
+            ],
+            "firstFrameMeanRGB": [
+              128,
+              127,
+              128
+            ],
+            "meanHex": "#807f80"
+          },
+          "sapixcraft": {
+            "size": [
+              32,
+              32
+            ],
+            "firstFrameMeanRGB": [
+              114,
+              107,
+              104
+            ],
+            "meanHex": "#726b68"
+          }
+        }
+      ]
+    },
+    {
+      "id": "cobblestone_wall",
+      "group": "masonry",
+      "sourceState": "assets/minecraft/blockstates/cobblestone_wall.json",
+      "sampleVisualProperties": {
+        "waterlogged": "false",
+        "powered": "false",
+        "north": "none",
+        "south": "none",
+        "east": "none",
+        "west": "none",
+        "up": "true"
+      },
+      "modelBounds": [
+        [
+          0.25,
+          0.75
+        ],
+        [
+          0,
+          1
+        ],
+        [
+          0.25,
+          0.75
+        ]
+      ],
+      "faces": 6,
+      "textures": [
+        "assets/minecraft/textures/block/cobblestone.png"
+      ],
+      "specialRenderer": false,
+      "missingTextures": [],
+      "textureSamples": [
+        {
+          "resource": "assets/minecraft/textures/block/cobblestone.png",
+          "vanilla": {
+            "size": [
+              16,
+              16
+            ],
+            "firstFrameMeanRGB": [
+              128,
+              127,
+              128
+            ],
+            "meanHex": "#807f80"
+          },
+          "sapixcraft": {
+            "size": [
+              32,
+              32
+            ],
+            "firstFrameMeanRGB": [
+              114,
+              107,
+              104
+            ],
+            "meanHex": "#726b68"
+          }
+        }
+      ]
+    },
+    {
+      "id": "andesite",
+      "group": "masonry",
+      "sourceState": "assets/minecraft/blockstates/andesite.json",
+      "sampleVisualProperties": {
+        "waterlogged": "false",
+        "powered": "false",
+        "north": "false",
+        "south": "false",
+        "east": "false",
+        "west": "false",
+        "up": "true"
+      },
+      "modelBounds": [
+        [
+          0,
+          1
+        ],
+        [
+          0,
+          1
+        ],
+        [
+          0,
+          1
+        ]
+      ],
+      "faces": 6,
+      "textures": [
+        "assets/minecraft/textures/block/andesite.png"
+      ],
+      "specialRenderer": false,
+      "missingTextures": [],
+      "textureSamples": [
+        {
+          "resource": "assets/minecraft/textures/block/andesite.png",
+          "vanilla": {
+            "size": [
+              16,
+              16
+            ],
+            "firstFrameMeanRGB": [
+              136,
+              136,
+              137
+            ],
+            "meanHex": "#888889"
+          },
+          "sapixcraft": {
+            "size": [
+              32,
+              32
+            ],
+            "firstFrameMeanRGB": [
+              122,
+              116,
+              110
+            ],
+            "meanHex": "#7a746e"
+          }
+        }
+      ]
+    },
+    {
+      "id": "polished_andesite",
+      "group": "masonry",
+      "sourceState": "assets/minecraft/blockstates/polished_andesite.json",
+      "sampleVisualProperties": {
+        "waterlogged": "false",
+        "powered": "false",
+        "north": "false",
+        "south": "false",
+        "east": "false",
+        "west": "false",
+        "up": "true"
+      },
+      "modelBounds": [
+        [
+          0,
+          1
+        ],
+        [
+          0,
+          1
+        ],
+        [
+          0,
+          1
+        ]
+      ],
+      "faces": 6,
+      "textures": [
+        "assets/minecraft/textures/block/polished_andesite.png"
+      ],
+      "specialRenderer": false,
+      "missingTextures": [],
+      "textureSamples": [
+        {
+          "resource": "assets/minecraft/textures/block/polished_andesite.png",
+          "vanilla": {
+            "size": [
+              16,
+              16
+            ],
+            "firstFrameMeanRGB": [
+              132,
+              135,
+              134
+            ],
+            "meanHex": "#848786"
+          },
+          "sapixcraft": {
+            "size": [
+              32,
+              32
+            ],
+            "firstFrameMeanRGB": [
+              122,
+              116,
+              109
+            ],
+            "meanHex": "#7a746d"
+          }
+        }
+      ]
+    },
+    {
+      "id": "mud_bricks",
+      "group": "masonry",
+      "sourceState": "assets/minecraft/blockstates/mud_bricks.json",
+      "sampleVisualProperties": {
+        "waterlogged": "false",
+        "powered": "false",
+        "north": "false",
+        "south": "false",
+        "east": "false",
+        "west": "false",
+        "up": "true"
+      },
+      "modelBounds": [
+        [
+          0,
+          1
+        ],
+        [
+          0,
+          1
+        ],
+        [
+          0,
+          1
+        ]
+      ],
+      "faces": 6,
+      "textures": [
+        "assets/minecraft/textures/block/mud_bricks.png"
+      ],
+      "specialRenderer": false,
+      "missingTextures": [],
+      "textureSamples": [
+        {
+          "resource": "assets/minecraft/textures/block/mud_bricks.png",
+          "vanilla": {
+            "size": [
+              16,
+              16
+            ],
+            "firstFrameMeanRGB": [
+              137,
+              104,
+              79
+            ],
+            "meanHex": "#89684f"
+          },
+          "sapixcraft": {
+            "size": [
+              32,
+              32
+            ],
+            "firstFrameMeanRGB": [
+              125,
+              93,
+              71
+            ],
+            "meanHex": "#7d5d47"
+          }
+        }
+      ]
+    },
+    {
+      "id": "mud_brick_stairs",
+      "group": "masonry",
+      "sourceState": "assets/minecraft/blockstates/mud_brick_stairs.json",
+      "sampleVisualProperties": {
+        "waterlogged": "false",
+        "powered": "false",
+        "north": "false",
+        "south": "false",
+        "east": "false",
+        "west": "false",
+        "up": "true",
+        "facing": "east",
+        "half": "bottom",
+        "shape": "inner_left"
+      },
+      "modelBounds": [
+        [
+          -1.1102230246251565e-16,
+          1
+        ],
+        [
+          0,
+          1
+        ],
+        [
+          -1.1102230246251565e-16,
+          1
+        ]
+      ],
+      "faces": 15,
+      "textures": [
+        "assets/minecraft/textures/block/mud_bricks.png"
+      ],
+      "specialRenderer": false,
+      "missingTextures": [],
+      "textureSamples": [
+        {
+          "resource": "assets/minecraft/textures/block/mud_bricks.png",
+          "vanilla": {
+            "size": [
+              16,
+              16
+            ],
+            "firstFrameMeanRGB": [
+              137,
+              104,
+              79
+            ],
+            "meanHex": "#89684f"
+          },
+          "sapixcraft": {
+            "size": [
+              32,
+              32
+            ],
+            "firstFrameMeanRGB": [
+              125,
+              93,
+              71
+            ],
+            "meanHex": "#7d5d47"
+          }
+        }
+      ]
+    },
+    {
+      "id": "mud_brick_slab",
+      "group": "masonry",
+      "sourceState": "assets/minecraft/blockstates/mud_brick_slab.json",
+      "sampleVisualProperties": {
+        "waterlogged": "false",
+        "powered": "false",
+        "north": "false",
+        "south": "false",
+        "east": "false",
+        "west": "false",
+        "up": "true",
+        "type": "bottom"
+      },
+      "modelBounds": [
+        [
+          0,
+          1
+        ],
+        [
+          0,
+          0.5
+        ],
+        [
+          0,
+          1
+        ]
+      ],
+      "faces": 6,
+      "textures": [
+        "assets/minecraft/textures/block/mud_bricks.png"
+      ],
+      "specialRenderer": false,
+      "missingTextures": [],
+      "textureSamples": [
+        {
+          "resource": "assets/minecraft/textures/block/mud_bricks.png",
+          "vanilla": {
+            "size": [
+              16,
+              16
+            ],
+            "firstFrameMeanRGB": [
+              137,
+              104,
+              79
+            ],
+            "meanHex": "#89684f"
+          },
+          "sapixcraft": {
+            "size": [
+              32,
+              32
+            ],
+            "firstFrameMeanRGB": [
+              125,
+              93,
+              71
+            ],
+            "meanHex": "#7d5d47"
+          }
+        }
+      ]
+    },
+    {
+      "id": "mud_brick_wall",
+      "group": "masonry",
+      "sourceState": "assets/minecraft/blockstates/mud_brick_wall.json",
+      "sampleVisualProperties": {
+        "waterlogged": "false",
+        "powered": "false",
+        "north": "none",
+        "south": "none",
+        "east": "none",
+        "west": "none",
+        "up": "true"
+      },
+      "modelBounds": [
+        [
+          0.25,
+          0.75
+        ],
+        [
+          0,
+          1
+        ],
+        [
+          0.25,
+          0.75
+        ]
+      ],
+      "faces": 6,
+      "textures": [
+        "assets/minecraft/textures/block/mud_bricks.png"
+      ],
+      "specialRenderer": false,
+      "missingTextures": [],
+      "textureSamples": [
+        {
+          "resource": "assets/minecraft/textures/block/mud_bricks.png",
+          "vanilla": {
+            "size": [
+              16,
+              16
+            ],
+            "firstFrameMeanRGB": [
+              137,
+              104,
+              79
+            ],
+            "meanHex": "#89684f"
+          },
+          "sapixcraft": {
+            "size": [
+              32,
+              32
+            ],
+            "firstFrameMeanRGB": [
+              125,
+              93,
+              71
+            ],
+            "meanHex": "#7d5d47"
+          }
+        }
+      ]
+    },
+    {
+      "id": "packed_mud",
+      "group": "masonry",
+      "sourceState": "assets/minecraft/blockstates/packed_mud.json",
+      "sampleVisualProperties": {
+        "waterlogged": "false",
+        "powered": "false",
+        "north": "false",
+        "south": "false",
+        "east": "false",
+        "west": "false",
+        "up": "true"
+      },
+      "modelBounds": [
+        [
+          0,
+          1
+        ],
+        [
+          0,
+          1
+        ],
+        [
+          0,
+          1
+        ]
+      ],
+      "faces": 6,
+      "textures": [
+        "assets/minecraft/textures/block/packed_mud.png"
+      ],
+      "specialRenderer": false,
+      "missingTextures": [],
+      "textureSamples": [
+        {
+          "resource": "assets/minecraft/textures/block/packed_mud.png",
+          "vanilla": {
+            "size": [
+              16,
+              16
+            ],
+            "firstFrameMeanRGB": [
+              142,
+              107,
+              80
+            ],
+            "meanHex": "#8e6b50"
+          },
+          "sapixcraft": {
+            "size": [
+              32,
+              32
+            ],
+            "firstFrameMeanRGB": [
+              118,
+              85,
+              65
+            ],
+            "meanHex": "#765541"
+          }
+        }
+      ]
+    },
+    {
+      "id": "terracotta",
+      "group": "masonry",
+      "sourceState": "assets/minecraft/blockstates/terracotta.json",
+      "sampleVisualProperties": {
+        "waterlogged": "false",
+        "powered": "false",
+        "north": "false",
+        "south": "false",
+        "east": "false",
+        "west": "false",
+        "up": "true"
+      },
+      "modelBounds": [
+        [
+          0,
+          1
+        ],
+        [
+          0,
+          1
+        ],
+        [
+          0,
+          1
+        ]
+      ],
+      "faces": 6,
+      "textures": [
+        "assets/minecraft/textures/block/terracotta.png"
+      ],
+      "specialRenderer": false,
+      "missingTextures": [],
+      "textureSamples": [
+        {
+          "resource": "assets/minecraft/textures/block/terracotta.png",
+          "vanilla": {
+            "size": [
+              16,
+              16
+            ],
+            "firstFrameMeanRGB": [
+              152,
+              94,
+              68
+            ],
+            "meanHex": "#985e44"
+          },
+          "sapixcraft": {
+            "size": [
+              32,
+              32
+            ],
+            "firstFrameMeanRGB": [
+              152,
+              94,
+              68
+            ],
+            "meanHex": "#985e44"
+          }
+        }
+      ]
+    },
+    {
+      "id": "white_terracotta",
+      "group": "masonry",
+      "sourceState": "assets/minecraft/blockstates/white_terracotta.json",
+      "sampleVisualProperties": {
+        "waterlogged": "false",
+        "powered": "false",
+        "north": "false",
+        "south": "false",
+        "east": "false",
+        "west": "false",
+        "up": "true"
+      },
+      "modelBounds": [
+        [
+          0,
+          1
+        ],
+        [
+          0,
+          1
+        ],
+        [
+          0,
+          1
+        ]
+      ],
+      "faces": 6,
+      "textures": [
+        "assets/minecraft/textures/block/white_terracotta.png"
+      ],
+      "specialRenderer": false,
+      "missingTextures": [],
+      "textureSamples": [
+        {
+          "resource": "assets/minecraft/textures/block/white_terracotta.png",
+          "vanilla": {
+            "size": [
+              16,
+              16
+            ],
+            "firstFrameMeanRGB": [
+              210,
+              178,
+              161
+            ],
+            "meanHex": "#d2b2a1"
+          },
+          "sapixcraft": {
+            "size": [
+              32,
+              32
+            ],
+            "firstFrameMeanRGB": [
+              211,
+              179,
+              162
+            ],
+            "meanHex": "#d3b3a2"
+          }
+        }
+      ]
+    },
+    {
+      "id": "brown_terracotta",
+      "group": "masonry",
+      "sourceState": "assets/minecraft/blockstates/brown_terracotta.json",
+      "sampleVisualProperties": {
+        "waterlogged": "false",
+        "powered": "false",
+        "north": "false",
+        "south": "false",
+        "east": "false",
+        "west": "false",
+        "up": "true"
+      },
+      "modelBounds": [
+        [
+          0,
+          1
+        ],
+        [
+          0,
+          1
+        ],
+        [
+          0,
+          1
+        ]
+      ],
+      "faces": 6,
+      "textures": [
+        "assets/minecraft/textures/block/brown_terracotta.png"
+      ],
+      "specialRenderer": false,
+      "missingTextures": [],
+      "textureSamples": [
+        {
+          "resource": "assets/minecraft/textures/block/brown_terracotta.png",
+          "vanilla": {
+            "size": [
+              16,
+              16
+            ],
+            "firstFrameMeanRGB": [
+              77,
+              51,
+              36
+            ],
+            "meanHex": "#4d3324"
+          },
+          "sapixcraft": {
+            "size": [
+              32,
+              32
+            ],
+            "firstFrameMeanRGB": [
+              78,
+              52,
+              37
+            ],
+            "meanHex": "#4e3425"
+          }
+        }
+      ]
+    },
+    {
+      "id": "calcite",
+      "group": "masonry",
+      "sourceState": "assets/minecraft/blockstates/calcite.json",
+      "sampleVisualProperties": {
+        "waterlogged": "false",
+        "powered": "false",
+        "north": "false",
+        "south": "false",
+        "east": "false",
+        "west": "false",
+        "up": "true"
+      },
+      "modelBounds": [
+        [
+          0,
+          1
+        ],
+        [
+          0,
+          1
+        ],
+        [
+          0,
+          1
+        ]
+      ],
+      "faces": 6,
+      "textures": [
+        "assets/minecraft/textures/block/calcite.png"
+      ],
+      "specialRenderer": false,
+      "missingTextures": [],
+      "textureSamples": [
+        {
+          "resource": "assets/minecraft/textures/block/calcite.png",
+          "vanilla": {
+            "size": [
+              16,
+              16
+            ],
+            "firstFrameMeanRGB": [
+              223,
+              224,
+              221
+            ],
+            "meanHex": "#dfe0dd"
+          },
+          "sapixcraft": {
+            "size": [
+              32,
+              32
+            ],
+            "firstFrameMeanRGB": [
+              229,
+              229,
+              223
+            ],
+            "meanHex": "#e5e5df"
+          }
+        }
+      ]
+    },
+    {
+      "id": "red_sandstone",
+      "group": "roof",
+      "sourceState": "assets/minecraft/blockstates/red_sandstone.json",
+      "sampleVisualProperties": {
+        "waterlogged": "false",
+        "powered": "false",
+        "north": "false",
+        "south": "false",
+        "east": "false",
+        "west": "false",
+        "up": "true"
+      },
+      "modelBounds": [
+        [
+          0,
+          1
+        ],
+        [
+          0,
+          1
+        ],
+        [
+          0,
+          1
+        ]
+      ],
+      "faces": 6,
+      "textures": [
+        "assets/minecraft/textures/block/red_sandstone_bottom.png",
+        "assets/minecraft/textures/block/red_sandstone_top.png",
+        "assets/minecraft/textures/block/red_sandstone.png"
+      ],
+      "specialRenderer": false,
+      "missingTextures": [],
+      "textureSamples": [
+        {
+          "resource": "assets/minecraft/textures/block/red_sandstone_bottom.png",
+          "vanilla": {
+            "size": [
+              16,
+              16
+            ],
+            "firstFrameMeanRGB": [
+              186,
+              98,
+              28
+            ],
+            "meanHex": "#ba621c"
+          },
+          "sapixcraft": {
+            "size": [
+              32,
+              32
+            ],
+            "firstFrameMeanRGB": [
+              204,
+              142,
+              82
+            ],
+            "meanHex": "#cc8e52"
+          }
+        },
+        {
+          "resource": "assets/minecraft/textures/block/red_sandstone_top.png",
+          "vanilla": {
+            "size": [
+              16,
+              16
+            ],
+            "firstFrameMeanRGB": [
+              181,
+              98,
+              31
+            ],
+            "meanHex": "#b5621f"
+          },
+          "sapixcraft": {
+            "size": [
+              32,
+              32
+            ],
+            "firstFrameMeanRGB": [
+              203,
+              140,
+              81
+            ],
+            "meanHex": "#cb8c51"
+          }
+        },
+        {
+          "resource": "assets/minecraft/textures/block/red_sandstone.png",
+          "vanilla": {
+            "size": [
+              16,
+              16
+            ],
+            "firstFrameMeanRGB": [
+              187,
+              99,
+              29
+            ],
+            "meanHex": "#bb631d"
+          },
+          "sapixcraft": {
+            "size": [
+              32,
+              32
+            ],
+            "firstFrameMeanRGB": [
+              195,
+              125,
+              71
+            ],
+            "meanHex": "#c37d47"
+          }
+        }
+      ]
+    },
+    {
+      "id": "cut_red_sandstone",
+      "group": "roof",
+      "sourceState": "assets/minecraft/blockstates/cut_red_sandstone.json",
+      "sampleVisualProperties": {
+        "waterlogged": "false",
+        "powered": "false",
+        "north": "false",
+        "south": "false",
+        "east": "false",
+        "west": "false",
+        "up": "true"
+      },
+      "modelBounds": [
+        [
+          0,
+          1
+        ],
+        [
+          0,
+          1
+        ],
+        [
+          0,
+          1
+        ]
+      ],
+      "faces": 6,
+      "textures": [
+        "assets/minecraft/textures/block/red_sandstone_top.png",
+        "assets/minecraft/textures/block/cut_red_sandstone.png"
+      ],
+      "specialRenderer": false,
+      "missingTextures": [],
+      "textureSamples": [
+        {
+          "resource": "assets/minecraft/textures/block/red_sandstone_top.png",
+          "vanilla": {
+            "size": [
+              16,
+              16
+            ],
+            "firstFrameMeanRGB": [
+              181,
+              98,
+              31
+            ],
+            "meanHex": "#b5621f"
+          },
+          "sapixcraft": {
+            "size": [
+              32,
+              32
+            ],
+            "firstFrameMeanRGB": [
+              203,
+              140,
+              81
+            ],
+            "meanHex": "#cb8c51"
+          }
+        },
+        {
+          "resource": "assets/minecraft/textures/block/cut_red_sandstone.png",
+          "vanilla": {
+            "size": [
+              16,
+              16
+            ],
+            "firstFrameMeanRGB": [
+              189,
+              102,
+              32
+            ],
+            "meanHex": "#bd6620"
+          },
+          "sapixcraft": {
+            "size": [
+              32,
+              32
+            ],
+            "firstFrameMeanRGB": [
+              195,
+              125,
+              72
+            ],
+            "meanHex": "#c37d48"
+          }
+        }
+      ]
+    },
+    {
+      "id": "red_sandstone_stairs",
+      "group": "roof",
+      "sourceState": "assets/minecraft/blockstates/red_sandstone_stairs.json",
+      "sampleVisualProperties": {
+        "waterlogged": "false",
+        "powered": "false",
+        "north": "false",
+        "south": "false",
+        "east": "false",
+        "west": "false",
+        "up": "true",
+        "facing": "east",
+        "half": "bottom",
+        "shape": "inner_left"
+      },
+      "modelBounds": [
+        [
+          -1.1102230246251565e-16,
+          1
+        ],
+        [
+          0,
+          1
+        ],
+        [
+          -1.1102230246251565e-16,
+          1
+        ]
+      ],
+      "faces": 15,
+      "textures": [
+        "assets/minecraft/textures/block/red_sandstone_bottom.png",
+        "assets/minecraft/textures/block/red_sandstone_top.png",
+        "assets/minecraft/textures/block/red_sandstone.png"
+      ],
+      "specialRenderer": false,
+      "missingTextures": [],
+      "textureSamples": [
+        {
+          "resource": "assets/minecraft/textures/block/red_sandstone_bottom.png",
+          "vanilla": {
+            "size": [
+              16,
+              16
+            ],
+            "firstFrameMeanRGB": [
+              186,
+              98,
+              28
+            ],
+            "meanHex": "#ba621c"
+          },
+          "sapixcraft": {
+            "size": [
+              32,
+              32
+            ],
+            "firstFrameMeanRGB": [
+              204,
+              142,
+              82
+            ],
+            "meanHex": "#cc8e52"
+          }
+        },
+        {
+          "resource": "assets/minecraft/textures/block/red_sandstone_top.png",
+          "vanilla": {
+            "size": [
+              16,
+              16
+            ],
+            "firstFrameMeanRGB": [
+              181,
+              98,
+              31
+            ],
+            "meanHex": "#b5621f"
+          },
+          "sapixcraft": {
+            "size": [
+              32,
+              32
+            ],
+            "firstFrameMeanRGB": [
+              203,
+              140,
+              81
+            ],
+            "meanHex": "#cb8c51"
+          }
+        },
+        {
+          "resource": "assets/minecraft/textures/block/red_sandstone.png",
+          "vanilla": {
+            "size": [
+              16,
+              16
+            ],
+            "firstFrameMeanRGB": [
+              187,
+              99,
+              29
+            ],
+            "meanHex": "#bb631d"
+          },
+          "sapixcraft": {
+            "size": [
+              32,
+              32
+            ],
+            "firstFrameMeanRGB": [
+              195,
+              125,
+              71
+            ],
+            "meanHex": "#c37d47"
+          }
+        }
+      ]
+    },
+    {
+      "id": "red_sandstone_slab",
+      "group": "roof",
+      "sourceState": "assets/minecraft/blockstates/red_sandstone_slab.json",
+      "sampleVisualProperties": {
+        "waterlogged": "false",
+        "powered": "false",
+        "north": "false",
+        "south": "false",
+        "east": "false",
+        "west": "false",
+        "up": "true",
+        "type": "bottom"
+      },
+      "modelBounds": [
+        [
+          0,
+          1
+        ],
+        [
+          0,
+          0.5
+        ],
+        [
+          0,
+          1
+        ]
+      ],
+      "faces": 6,
+      "textures": [
+        "assets/minecraft/textures/block/red_sandstone_bottom.png",
+        "assets/minecraft/textures/block/red_sandstone_top.png",
+        "assets/minecraft/textures/block/red_sandstone.png"
+      ],
+      "specialRenderer": false,
+      "missingTextures": [],
+      "textureSamples": [
+        {
+          "resource": "assets/minecraft/textures/block/red_sandstone_bottom.png",
+          "vanilla": {
+            "size": [
+              16,
+              16
+            ],
+            "firstFrameMeanRGB": [
+              186,
+              98,
+              28
+            ],
+            "meanHex": "#ba621c"
+          },
+          "sapixcraft": {
+            "size": [
+              32,
+              32
+            ],
+            "firstFrameMeanRGB": [
+              204,
+              142,
+              82
+            ],
+            "meanHex": "#cc8e52"
+          }
+        },
+        {
+          "resource": "assets/minecraft/textures/block/red_sandstone_top.png",
+          "vanilla": {
+            "size": [
+              16,
+              16
+            ],
+            "firstFrameMeanRGB": [
+              181,
+              98,
+              31
+            ],
+            "meanHex": "#b5621f"
+          },
+          "sapixcraft": {
+            "size": [
+              32,
+              32
+            ],
+            "firstFrameMeanRGB": [
+              203,
+              140,
+              81
+            ],
+            "meanHex": "#cb8c51"
+          }
+        },
+        {
+          "resource": "assets/minecraft/textures/block/red_sandstone.png",
+          "vanilla": {
+            "size": [
+              16,
+              16
+            ],
+            "firstFrameMeanRGB": [
+              187,
+              99,
+              29
+            ],
+            "meanHex": "#bb631d"
+          },
+          "sapixcraft": {
+            "size": [
+              32,
+              32
+            ],
+            "firstFrameMeanRGB": [
+              195,
+              125,
+              71
+            ],
+            "meanHex": "#c37d47"
+          }
+        }
+      ]
+    },
+    {
+      "id": "smooth_red_sandstone",
+      "group": "roof",
+      "sourceState": "assets/minecraft/blockstates/smooth_red_sandstone.json",
+      "sampleVisualProperties": {
+        "waterlogged": "false",
+        "powered": "false",
+        "north": "false",
+        "south": "false",
+        "east": "false",
+        "west": "false",
+        "up": "true"
+      },
+      "modelBounds": [
+        [
+          0,
+          1
+        ],
+        [
+          0,
+          1
+        ],
+        [
+          0,
+          1
+        ]
+      ],
+      "faces": 6,
+      "textures": [
+        "assets/minecraft/textures/block/red_sandstone_top.png"
+      ],
+      "specialRenderer": false,
+      "missingTextures": [],
+      "textureSamples": [
+        {
+          "resource": "assets/minecraft/textures/block/red_sandstone_top.png",
+          "vanilla": {
+            "size": [
+              16,
+              16
+            ],
+            "firstFrameMeanRGB": [
+              181,
+              98,
+              31
+            ],
+            "meanHex": "#b5621f"
+          },
+          "sapixcraft": {
+            "size": [
+              32,
+              32
+            ],
+            "firstFrameMeanRGB": [
+              203,
+              140,
+              81
+            ],
+            "meanHex": "#cb8c51"
+          }
+        }
+      ]
+    },
+    {
+      "id": "smooth_red_sandstone_stairs",
+      "group": "roof",
+      "sourceState": "assets/minecraft/blockstates/smooth_red_sandstone_stairs.json",
+      "sampleVisualProperties": {
+        "waterlogged": "false",
+        "powered": "false",
+        "north": "false",
+        "south": "false",
+        "east": "false",
+        "west": "false",
+        "up": "true",
+        "facing": "east",
+        "half": "bottom",
+        "shape": "inner_left"
+      },
+      "modelBounds": [
+        [
+          -1.1102230246251565e-16,
+          1
+        ],
+        [
+          0,
+          1
+        ],
+        [
+          -1.1102230246251565e-16,
+          1
+        ]
+      ],
+      "faces": 15,
+      "textures": [
+        "assets/minecraft/textures/block/red_sandstone_top.png"
+      ],
+      "specialRenderer": false,
+      "missingTextures": [],
+      "textureSamples": [
+        {
+          "resource": "assets/minecraft/textures/block/red_sandstone_top.png",
+          "vanilla": {
+            "size": [
+              16,
+              16
+            ],
+            "firstFrameMeanRGB": [
+              181,
+              98,
+              31
+            ],
+            "meanHex": "#b5621f"
+          },
+          "sapixcraft": {
+            "size": [
+              32,
+              32
+            ],
+            "firstFrameMeanRGB": [
+              203,
+              140,
+              81
+            ],
+            "meanHex": "#cb8c51"
+          }
+        }
+      ]
+    },
+    {
+      "id": "smooth_red_sandstone_slab",
+      "group": "roof",
+      "sourceState": "assets/minecraft/blockstates/smooth_red_sandstone_slab.json",
+      "sampleVisualProperties": {
+        "waterlogged": "false",
+        "powered": "false",
+        "north": "false",
+        "south": "false",
+        "east": "false",
+        "west": "false",
+        "up": "true",
+        "type": "bottom"
+      },
+      "modelBounds": [
+        [
+          0,
+          1
+        ],
+        [
+          0,
+          0.5
+        ],
+        [
+          0,
+          1
+        ]
+      ],
+      "faces": 6,
+      "textures": [
+        "assets/minecraft/textures/block/red_sandstone_top.png"
+      ],
+      "specialRenderer": false,
+      "missingTextures": [],
+      "textureSamples": [
+        {
+          "resource": "assets/minecraft/textures/block/red_sandstone_top.png",
+          "vanilla": {
+            "size": [
+              16,
+              16
+            ],
+            "firstFrameMeanRGB": [
+              181,
+              98,
+              31
+            ],
+            "meanHex": "#b5621f"
+          },
+          "sapixcraft": {
+            "size": [
+              32,
+              32
+            ],
+            "firstFrameMeanRGB": [
+              203,
+              140,
+              81
+            ],
+            "meanHex": "#cb8c51"
+          }
+        }
+      ]
+    },
+    {
+      "id": "orange_terracotta",
+      "group": "roof",
+      "sourceState": "assets/minecraft/blockstates/orange_terracotta.json",
+      "sampleVisualProperties": {
+        "waterlogged": "false",
+        "powered": "false",
+        "north": "false",
+        "south": "false",
+        "east": "false",
+        "west": "false",
+        "up": "true"
+      },
+      "modelBounds": [
+        [
+          0,
+          1
+        ],
+        [
+          0,
+          1
+        ],
+        [
+          0,
+          1
+        ]
+      ],
+      "faces": 6,
+      "textures": [
+        "assets/minecraft/textures/block/orange_terracotta.png"
+      ],
+      "specialRenderer": false,
+      "missingTextures": [],
+      "textureSamples": [
+        {
+          "resource": "assets/minecraft/textures/block/orange_terracotta.png",
+          "vanilla": {
+            "size": [
+              16,
+              16
+            ],
+            "firstFrameMeanRGB": [
+              162,
+              84,
+              38
+            ],
+            "meanHex": "#a25426"
+          },
+          "sapixcraft": {
+            "size": [
+              32,
+              32
+            ],
+            "firstFrameMeanRGB": [
+              163,
+              85,
+              39
+            ],
+            "meanHex": "#a35527"
+          }
+        }
+      ]
+    },
+    {
+      "id": "acacia_stairs",
+      "group": "roof",
+      "sourceState": "assets/minecraft/blockstates/acacia_stairs.json",
+      "sampleVisualProperties": {
+        "waterlogged": "false",
+        "powered": "false",
+        "north": "false",
+        "south": "false",
+        "east": "false",
+        "west": "false",
+        "up": "true",
+        "facing": "east",
+        "half": "bottom",
+        "shape": "inner_left"
+      },
+      "modelBounds": [
+        [
+          -1.1102230246251565e-16,
+          1
+        ],
+        [
+          0,
+          1
+        ],
+        [
+          -1.1102230246251565e-16,
+          1
+        ]
+      ],
+      "faces": 15,
+      "textures": [
+        "assets/minecraft/textures/block/acacia_planks.png"
+      ],
+      "specialRenderer": false,
+      "missingTextures": [],
+      "textureSamples": [
+        {
+          "resource": "assets/minecraft/textures/block/acacia_planks.png",
+          "vanilla": {
+            "size": [
+              16,
+              16
+            ],
+            "firstFrameMeanRGB": [
+              168,
+              90,
+              50
+            ],
+            "meanHex": "#a85a32"
+          },
+          "sapixcraft": {
+            "size": [
+              32,
+              32
+            ],
+            "firstFrameMeanRGB": [
+              137,
+              82,
+              53
+            ],
+            "meanHex": "#895235"
+          }
+        }
+      ]
+    },
+    {
+      "id": "acacia_slab",
+      "group": "roof",
+      "sourceState": "assets/minecraft/blockstates/acacia_slab.json",
+      "sampleVisualProperties": {
+        "waterlogged": "false",
+        "powered": "false",
+        "north": "false",
+        "south": "false",
+        "east": "false",
+        "west": "false",
+        "up": "true",
+        "type": "bottom"
+      },
+      "modelBounds": [
+        [
+          0,
+          1
+        ],
+        [
+          0,
+          0.5
+        ],
+        [
+          0,
+          1
+        ]
+      ],
+      "faces": 6,
+      "textures": [
+        "assets/minecraft/textures/block/acacia_planks.png"
+      ],
+      "specialRenderer": false,
+      "missingTextures": [],
+      "textureSamples": [
+        {
+          "resource": "assets/minecraft/textures/block/acacia_planks.png",
+          "vanilla": {
+            "size": [
+              16,
+              16
+            ],
+            "firstFrameMeanRGB": [
+              168,
+              90,
+              50
+            ],
+            "meanHex": "#a85a32"
+          },
+          "sapixcraft": {
+            "size": [
+              32,
+              32
+            ],
+            "firstFrameMeanRGB": [
+              137,
+              82,
+              53
+            ],
+            "meanHex": "#895235"
+          }
+        }
+      ]
+    },
+    {
+      "id": "waxed_oxidized_cut_copper_stairs",
+      "group": "roof",
+      "sourceState": "assets/minecraft/blockstates/waxed_oxidized_cut_copper_stairs.json",
+      "sampleVisualProperties": {
+        "waterlogged": "false",
+        "powered": "false",
+        "north": "false",
+        "south": "false",
+        "east": "false",
+        "west": "false",
+        "up": "true",
+        "facing": "east",
+        "half": "bottom",
+        "shape": "inner_left"
+      },
+      "modelBounds": [
+        [
+          -1.1102230246251565e-16,
+          1
+        ],
+        [
+          0,
+          1
+        ],
+        [
+          -1.1102230246251565e-16,
+          1
+        ]
+      ],
+      "faces": 15,
+      "textures": [
+        "assets/minecraft/textures/block/oxidized_cut_copper.png"
+      ],
+      "specialRenderer": false,
+      "missingTextures": [],
+      "textureSamples": [
+        {
+          "resource": "assets/minecraft/textures/block/oxidized_cut_copper.png",
+          "vanilla": {
+            "size": [
+              16,
+              16
+            ],
+            "firstFrameMeanRGB": [
+              80,
+              154,
+              126
+            ],
+            "meanHex": "#509a7e"
+          },
+          "sapixcraft": {
+            "size": [
+              32,
+              32
+            ],
+            "firstFrameMeanRGB": [
+              91,
+              175,
+              149
+            ],
+            "meanHex": "#5baf95"
+          }
+        }
+      ]
+    },
+    {
+      "id": "waxed_oxidized_cut_copper_slab",
+      "group": "roof",
+      "sourceState": "assets/minecraft/blockstates/waxed_oxidized_cut_copper_slab.json",
+      "sampleVisualProperties": {
+        "waterlogged": "false",
+        "powered": "false",
+        "north": "false",
+        "south": "false",
+        "east": "false",
+        "west": "false",
+        "up": "true",
+        "type": "bottom"
+      },
+      "modelBounds": [
+        [
+          0,
+          1
+        ],
+        [
+          0,
+          0.5
+        ],
+        [
+          0,
+          1
+        ]
+      ],
+      "faces": 6,
+      "textures": [
+        "assets/minecraft/textures/block/oxidized_cut_copper.png"
+      ],
+      "specialRenderer": false,
+      "missingTextures": [],
+      "textureSamples": [
+        {
+          "resource": "assets/minecraft/textures/block/oxidized_cut_copper.png",
+          "vanilla": {
+            "size": [
+              16,
+              16
+            ],
+            "firstFrameMeanRGB": [
+              80,
+              154,
+              126
+            ],
+            "meanHex": "#509a7e"
+          },
+          "sapixcraft": {
+            "size": [
+              32,
+              32
+            ],
+            "firstFrameMeanRGB": [
+              91,
+              175,
+              149
+            ],
+            "meanHex": "#5baf95"
+          }
+        }
+      ]
+    },
+    {
+      "id": "white_wool",
+      "group": "awning",
+      "sourceState": "assets/minecraft/blockstates/white_wool.json",
+      "sampleVisualProperties": {
+        "waterlogged": "false",
+        "powered": "false",
+        "north": "false",
+        "south": "false",
+        "east": "false",
+        "west": "false",
+        "up": "true"
+      },
+      "modelBounds": [
+        [
+          0,
+          1
+        ],
+        [
+          0,
+          1
+        ],
+        [
+          0,
+          1
+        ]
+      ],
+      "faces": 6,
+      "textures": [
+        "assets/minecraft/textures/block/white_wool.png"
+      ],
+      "specialRenderer": false,
+      "missingTextures": [],
+      "textureSamples": [
+        {
+          "resource": "assets/minecraft/textures/block/white_wool.png",
+          "vanilla": {
+            "size": [
+              16,
+              16
+            ],
+            "firstFrameMeanRGB": [
+              234,
+              236,
+              237
+            ],
+            "meanHex": "#eaeced"
+          },
+          "sapixcraft": {
+            "size": [
+              32,
+              32
+            ],
+            "firstFrameMeanRGB": [
+              203,
+              205,
+              208
+            ],
+            "meanHex": "#cbcdd0"
+          }
+        }
+      ]
+    },
+    {
+      "id": "orange_wool",
+      "group": "awning",
+      "sourceState": "assets/minecraft/blockstates/orange_wool.json",
+      "sampleVisualProperties": {
+        "waterlogged": "false",
+        "powered": "false",
+        "north": "false",
+        "south": "false",
+        "east": "false",
+        "west": "false",
+        "up": "true"
+      },
+      "modelBounds": [
+        [
+          0,
+          1
+        ],
+        [
+          0,
+          1
+        ],
+        [
+          0,
+          1
+        ]
+      ],
+      "faces": 6,
+      "textures": [
+        "assets/minecraft/textures/block/orange_wool.png"
+      ],
+      "specialRenderer": false,
+      "missingTextures": [],
+      "textureSamples": [
+        {
+          "resource": "assets/minecraft/textures/block/orange_wool.png",
+          "vanilla": {
+            "size": [
+              16,
+              16
+            ],
+            "firstFrameMeanRGB": [
+              241,
+              118,
+              20
+            ],
+            "meanHex": "#f17614"
+          },
+          "sapixcraft": {
+            "size": [
+              32,
+              32
+            ],
+            "firstFrameMeanRGB": [
+              249,
+              125,
+              35
+            ],
+            "meanHex": "#f97d23"
+          }
+        }
+      ]
+    },
+    {
+      "id": "red_wool",
+      "group": "awning",
+      "sourceState": "assets/minecraft/blockstates/red_wool.json",
+      "sampleVisualProperties": {
+        "waterlogged": "false",
+        "powered": "false",
+        "north": "false",
+        "south": "false",
+        "east": "false",
+        "west": "false",
+        "up": "true"
+      },
+      "modelBounds": [
+        [
+          0,
+          1
+        ],
+        [
+          0,
+          1
+        ],
+        [
+          0,
+          1
+        ]
+      ],
+      "faces": 6,
+      "textures": [
+        "assets/minecraft/textures/block/red_wool.png"
+      ],
+      "specialRenderer": false,
+      "missingTextures": [],
+      "textureSamples": [
+        {
+          "resource": "assets/minecraft/textures/block/red_wool.png",
+          "vanilla": {
+            "size": [
+              16,
+              16
+            ],
+            "firstFrameMeanRGB": [
+              161,
+              39,
+              35
+            ],
+            "meanHex": "#a12723"
+          },
+          "sapixcraft": {
+            "size": [
+              32,
+              32
+            ],
+            "firstFrameMeanRGB": [
+              168,
+              41,
+              35
+            ],
+            "meanHex": "#a82923"
+          }
+        }
+      ]
+    },
+    {
+      "id": "green_wool",
+      "group": "awning",
+      "sourceState": "assets/minecraft/blockstates/green_wool.json",
+      "sampleVisualProperties": {
+        "waterlogged": "false",
+        "powered": "false",
+        "north": "false",
+        "south": "false",
+        "east": "false",
+        "west": "false",
+        "up": "true"
+      },
+      "modelBounds": [
+        [
+          0,
+          1
+        ],
+        [
+          0,
+          1
+        ],
+        [
+          0,
+          1
+        ]
+      ],
+      "faces": 6,
+      "textures": [
+        "assets/minecraft/textures/block/green_wool.png"
+      ],
+      "specialRenderer": false,
+      "missingTextures": [],
+      "textureSamples": [
+        {
+          "resource": "assets/minecraft/textures/block/green_wool.png",
+          "vanilla": {
+            "size": [
+              16,
+              16
+            ],
+            "firstFrameMeanRGB": [
+              85,
+              110,
+              28
+            ],
+            "meanHex": "#556e1c"
+          },
+          "sapixcraft": {
+            "size": [
+              32,
+              32
+            ],
+            "firstFrameMeanRGB": [
+              81,
+              110,
+              21
+            ],
+            "meanHex": "#516e15"
+          }
+        }
+      ]
+    },
+    {
+      "id": "white_carpet",
+      "group": "awning",
+      "sourceState": "assets/minecraft/blockstates/white_carpet.json",
+      "sampleVisualProperties": {
+        "waterlogged": "false",
+        "powered": "false",
+        "north": "false",
+        "south": "false",
+        "east": "false",
+        "west": "false",
+        "up": "true"
+      },
+      "modelBounds": [
+        [
+          0,
+          1
+        ],
+        [
+          0,
+          0.0625
+        ],
+        [
+          0,
+          1
+        ]
+      ],
+      "faces": 6,
+      "textures": [
+        "assets/minecraft/textures/block/white_wool.png"
+      ],
+      "specialRenderer": false,
+      "missingTextures": [],
+      "textureSamples": [
+        {
+          "resource": "assets/minecraft/textures/block/white_wool.png",
+          "vanilla": {
+            "size": [
+              16,
+              16
+            ],
+            "firstFrameMeanRGB": [
+              234,
+              236,
+              237
+            ],
+            "meanHex": "#eaeced"
+          },
+          "sapixcraft": {
+            "size": [
+              32,
+              32
+            ],
+            "firstFrameMeanRGB": [
+              203,
+              205,
+              208
+            ],
+            "meanHex": "#cbcdd0"
+          }
+        }
+      ]
+    },
+    {
+      "id": "orange_carpet",
+      "group": "awning",
+      "sourceState": "assets/minecraft/blockstates/orange_carpet.json",
+      "sampleVisualProperties": {
+        "waterlogged": "false",
+        "powered": "false",
+        "north": "false",
+        "south": "false",
+        "east": "false",
+        "west": "false",
+        "up": "true"
+      },
+      "modelBounds": [
+        [
+          0,
+          1
+        ],
+        [
+          0,
+          0.0625
+        ],
+        [
+          0,
+          1
+        ]
+      ],
+      "faces": 6,
+      "textures": [
+        "assets/minecraft/textures/block/orange_wool.png"
+      ],
+      "specialRenderer": false,
+      "missingTextures": [],
+      "textureSamples": [
+        {
+          "resource": "assets/minecraft/textures/block/orange_wool.png",
+          "vanilla": {
+            "size": [
+              16,
+              16
+            ],
+            "firstFrameMeanRGB": [
+              241,
+              118,
+              20
+            ],
+            "meanHex": "#f17614"
+          },
+          "sapixcraft": {
+            "size": [
+              32,
+              32
+            ],
+            "firstFrameMeanRGB": [
+              249,
+              125,
+              35
+            ],
+            "meanHex": "#f97d23"
+          }
+        }
+      ]
+    },
+    {
+      "id": "green_carpet",
+      "group": "awning",
+      "sourceState": "assets/minecraft/blockstates/green_carpet.json",
+      "sampleVisualProperties": {
+        "waterlogged": "false",
+        "powered": "false",
+        "north": "false",
+        "south": "false",
+        "east": "false",
+        "west": "false",
+        "up": "true"
+      },
+      "modelBounds": [
+        [
+          0,
+          1
+        ],
+        [
+          0,
+          0.0625
+        ],
+        [
+          0,
+          1
+        ]
+      ],
+      "faces": 6,
+      "textures": [
+        "assets/minecraft/textures/block/green_wool.png"
+      ],
+      "specialRenderer": false,
+      "missingTextures": [],
+      "textureSamples": [
+        {
+          "resource": "assets/minecraft/textures/block/green_wool.png",
+          "vanilla": {
+            "size": [
+              16,
+              16
+            ],
+            "firstFrameMeanRGB": [
+              85,
+              110,
+              28
+            ],
+            "meanHex": "#556e1c"
+          },
+          "sapixcraft": {
+            "size": [
+              32,
+              32
+            ],
+            "firstFrameMeanRGB": [
+              81,
+              110,
+              21
+            ],
+            "meanHex": "#516e15"
+          }
+        }
+      ]
+    },
+    {
+      "id": "chain",
+      "group": "details",
+      "sourceState": "assets/minecraft/blockstates/chain.json",
+      "sampleVisualProperties": {
+        "waterlogged": "false",
+        "powered": "false",
+        "north": "false",
+        "south": "false",
+        "east": "false",
+        "west": "false",
+        "up": "true",
+        "axis": "x"
+      },
+      "modelBounds": [
+        [
+          0,
+          1
+        ],
+        [
+          0.4337087392637612,
+          0.5662912607362388
+        ],
+        [
+          0.4337087392637612,
+          0.5662912607362388
+        ]
+      ],
+      "faces": 4,
+      "textures": [
+        "assets/minecraft/textures/block/chain.png"
+      ],
+      "specialRenderer": false,
+      "missingTextures": [],
+      "textureSamples": [
+        {
+          "resource": "assets/minecraft/textures/block/chain.png",
+          "vanilla": {
+            "size": [
+              16,
+              16
+            ],
+            "firstFrameMeanRGB": [
+              51,
+              58,
+              74
+            ],
+            "meanHex": "#333a4a"
+          },
+          "sapixcraft": {
+            "size": [
+              32,
+              32
+            ],
+            "firstFrameMeanRGB": [
+              44,
+              50,
+              66
+            ],
+            "meanHex": "#2c3242"
+          }
+        }
+      ]
+    },
+    {
+      "id": "lantern",
+      "group": "details",
+      "sourceState": "assets/minecraft/blockstates/lantern.json",
+      "sampleVisualProperties": {
+        "waterlogged": "false",
+        "powered": "false",
+        "north": "false",
+        "south": "false",
+        "east": "false",
+        "west": "false",
+        "up": "true",
+        "hanging": "false"
+      },
+      "modelBounds": [
+        [
+          0.3125,
+          0.6875
+        ],
+        [
+          0,
+          0.6875
+        ],
+        [
+          0.3125,
+          0.6875
+        ]
+      ],
+      "faces": 15,
+      "textures": [
+        "assets/minecraft/textures/block/lantern.png"
+      ],
+      "specialRenderer": false,
+      "missingTextures": [],
+      "textureSamples": [
+        {
+          "resource": "assets/minecraft/textures/block/lantern.png",
+          "vanilla": {
+            "size": [
+              16,
+              48
+            ],
+            "firstFrameMeanRGB": [
+              107,
+              92,
+              85
+            ],
+            "meanHex": "#6b5c55"
+          },
+          "sapixcraft": {
+            "size": [
+              32,
+              96
+            ],
+            "firstFrameMeanRGB": [
+              76,
+              73,
+              75
+            ],
+            "meanHex": "#4c494b"
+          }
+        }
+      ]
+    },
+    {
+      "id": "spruce_hanging_sign",
+      "group": "details",
+      "sourceState": "assets/minecraft/blockstates/spruce_hanging_sign.json",
+      "sampleVisualProperties": {
+        "waterlogged": "false",
+        "powered": "false",
+        "north": "false",
+        "south": "false",
+        "east": "false",
+        "west": "false",
+        "up": "true"
+      },
+      "modelBounds": [
+        [
+          0,
+          1
+        ],
+        [
+          0,
+          1
+        ],
+        [
+          0.4375,
+          0.5625
+        ]
+      ],
+      "faces": 12,
+      "textures": [],
+      "specialRenderer": true,
+      "missingTextures": [
+        "minecraft:entity/signs/spruce_hanging"
+      ],
+      "textureSamples": []
+    },
+    {
+      "id": "spruce_wall_sign",
+      "group": "details",
+      "sourceState": "assets/minecraft/blockstates/spruce_wall_sign.json",
+      "sampleVisualProperties": {
+        "waterlogged": "false",
+        "powered": "false",
+        "north": "false",
+        "south": "false",
+        "east": "false",
+        "west": "false",
+        "up": "true"
+      },
+      "modelBounds": [
+        [
+          0,
+          1
+        ],
+        [
+          0.25,
+          0.75
+        ],
+        [
+          0.875,
+          1
+        ]
+      ],
+      "faces": 6,
+      "textures": [
+        "assets/minecraft/textures/entity/signs/spruce.png"
+      ],
+      "specialRenderer": true,
+      "missingTextures": [],
+      "textureSamples": [
+        {
+          "resource": "assets/minecraft/textures/entity/signs/spruce.png",
+          "vanilla": {
+            "size": [
+              64,
+              32
+            ],
+            "firstFrameMeanRGB": [
+              105,
+              77,
+              44
+            ],
+            "meanHex": "#694d2c"
+          },
+          "sapixcraft": {
+            "size": [
+              128,
+              64
+            ],
+            "firstFrameMeanRGB": [
+              84,
+              59,
+              31
+            ],
+            "meanHex": "#543b1f"
+          }
+        }
+      ]
+    },
+    {
+      "id": "flower_pot",
+      "group": "details",
+      "sourceState": "assets/minecraft/blockstates/flower_pot.json",
+      "sampleVisualProperties": {
+        "waterlogged": "false",
+        "powered": "false",
+        "north": "false",
+        "south": "false",
+        "east": "false",
+        "west": "false",
+        "up": "true"
+      },
+      "modelBounds": [
+        [
+          0.3125,
+          0.6875
+        ],
+        [
+          0,
+          0.375
+        ],
+        [
+          0.3125,
+          0.6875
+        ]
+      ],
+      "faces": 22,
+      "textures": [
+        "assets/minecraft/textures/block/flower_pot.png",
+        "assets/minecraft/textures/block/dirt.png"
+      ],
+      "specialRenderer": false,
+      "missingTextures": [],
+      "textureSamples": [
+        {
+          "resource": "assets/minecraft/textures/block/flower_pot.png",
+          "vanilla": {
+            "size": [
+              16,
+              16
+            ],
+            "firstFrameMeanRGB": [
+              124,
+              69,
+              53
+            ],
+            "meanHex": "#7c4535"
+          },
+          "sapixcraft": {
+            "size": [
+              32,
+              32
+            ],
+            "firstFrameMeanRGB": [
+              106,
+              57,
+              43
+            ],
+            "meanHex": "#6a392b"
+          }
+        },
+        {
+          "resource": "assets/minecraft/textures/block/dirt.png",
+          "vanilla": {
+            "size": [
+              16,
+              16
+            ],
+            "firstFrameMeanRGB": [
+              134,
+              96,
+              67
+            ],
+            "meanHex": "#866043"
+          },
+          "sapixcraft": {
+            "size": [
+              32,
+              32
+            ],
+            "firstFrameMeanRGB": [
+              105,
+              72,
+              50
+            ],
+            "meanHex": "#694832"
+          }
+        }
+      ]
+    },
+    {
+      "id": "potted_fern",
+      "group": "details",
+      "sourceState": "assets/minecraft/blockstates/potted_fern.json",
+      "sampleVisualProperties": {
+        "waterlogged": "false",
+        "powered": "false",
+        "north": "false",
+        "south": "false",
+        "east": "false",
+        "west": "false",
+        "up": "true"
+      },
+      "modelBounds": [
+        [
+          0.16249999999999998,
+          0.8375
+        ],
+        [
+          0,
+          1
+        ],
+        [
+          0.16249999999999998,
+          0.8375
+        ]
+      ],
+      "faces": 26,
+      "textures": [
+        "assets/minecraft/textures/block/flower_pot.png",
+        "assets/minecraft/textures/block/dirt.png",
+        "assets/minecraft/textures/block/fern.png"
+      ],
+      "specialRenderer": false,
+      "missingTextures": [],
+      "textureSamples": [
+        {
+          "resource": "assets/minecraft/textures/block/flower_pot.png",
+          "vanilla": {
+            "size": [
+              16,
+              16
+            ],
+            "firstFrameMeanRGB": [
+              124,
+              69,
+              53
+            ],
+            "meanHex": "#7c4535"
+          },
+          "sapixcraft": {
+            "size": [
+              32,
+              32
+            ],
+            "firstFrameMeanRGB": [
+              106,
+              57,
+              43
+            ],
+            "meanHex": "#6a392b"
+          }
+        },
+        {
+          "resource": "assets/minecraft/textures/block/dirt.png",
+          "vanilla": {
+            "size": [
+              16,
+              16
+            ],
+            "firstFrameMeanRGB": [
+              134,
+              96,
+              67
+            ],
+            "meanHex": "#866043"
+          },
+          "sapixcraft": {
+            "size": [
+              32,
+              32
+            ],
+            "firstFrameMeanRGB": [
+              105,
+              72,
+              50
+            ],
+            "meanHex": "#694832"
+          }
+        },
+        {
+          "resource": "assets/minecraft/textures/block/fern.png",
+          "vanilla": {
+            "size": [
+              16,
+              16
+            ],
+            "firstFrameMeanRGB": [
+              124,
+              125,
+              124
+            ],
+            "meanHex": "#7c7d7c"
+          },
+          "sapixcraft": {
+            "size": [
+              32,
+              32
+            ],
+            "firstFrameMeanRGB": [
+              114,
+              125,
+              133
+            ],
+            "meanHex": "#727d85"
+          }
+        }
+      ]
+    },
+    {
+      "id": "barrel",
+      "group": "details",
+      "sourceState": "assets/minecraft/blockstates/barrel.json",
+      "sampleVisualProperties": {
+        "waterlogged": "false",
+        "powered": "false",
+        "north": "false",
+        "south": "false",
+        "east": "false",
+        "west": "false",
+        "up": "true",
+        "facing": "down",
+        "open": "false"
+      },
+      "modelBounds": [
+        [
+          0,
+          1
+        ],
+        [
+          -1.1102230246251565e-16,
+          1
+        ],
+        [
+          -1.1102230246251565e-16,
+          1
+        ]
+      ],
+      "faces": 6,
+      "textures": [
+        "assets/minecraft/textures/block/barrel_bottom.png",
+        "assets/minecraft/textures/block/barrel_top.png",
+        "assets/minecraft/textures/block/barrel_side.png"
+      ],
+      "specialRenderer": false,
+      "missingTextures": [],
+      "textureSamples": [
+        {
+          "resource": "assets/minecraft/textures/block/barrel_bottom.png",
+          "vanilla": {
+            "size": [
+              16,
+              16
+            ],
+            "firstFrameMeanRGB": [
+              116,
+              85,
+              49
+            ],
+            "meanHex": "#745531"
+          },
+          "sapixcraft": {
+            "size": [
+              32,
+              32
+            ],
+            "firstFrameMeanRGB": [
+              143,
+              105,
+              64
+            ],
+            "meanHex": "#8f6940"
+          }
+        },
+        {
+          "resource": "assets/minecraft/textures/block/barrel_top.png",
+          "vanilla": {
+            "size": [
+              16,
+              16
+            ],
+            "firstFrameMeanRGB": [
+              135,
+              101,
+              58
+            ],
+            "meanHex": "#87653a"
+          },
+          "sapixcraft": {
+            "size": [
+              32,
+              32
+            ],
+            "firstFrameMeanRGB": [
+              141,
+              104,
+              64
+            ],
+            "meanHex": "#8d6840"
+          }
+        },
+        {
+          "resource": "assets/minecraft/textures/block/barrel_side.png",
+          "vanilla": {
+            "size": [
+              16,
+              16
+            ],
+            "firstFrameMeanRGB": [
+              108,
+              81,
+              50
+            ],
+            "meanHex": "#6c5132"
+          },
+          "sapixcraft": {
+            "size": [
+              32,
+              32
+            ],
+            "firstFrameMeanRGB": [
+              129,
+              98,
+              64
+            ],
+            "meanHex": "#816240"
+          }
+        }
+      ]
+    },
+    {
+      "id": "composter",
+      "group": "details",
+      "sourceState": "assets/minecraft/blockstates/composter.json",
+      "sampleVisualProperties": {
+        "waterlogged": "false",
+        "powered": "false",
+        "north": "false",
+        "south": "false",
+        "east": "false",
+        "west": "false",
+        "up": "true"
+      },
+      "modelBounds": [
+        [
+          0,
+          1
+        ],
+        [
+          0,
+          1
+        ],
+        [
+          0,
+          1
+        ]
+      ],
+      "faces": 18,
+      "textures": [
+        "assets/minecraft/textures/block/composter_bottom.png",
+        "assets/minecraft/textures/block/composter_top.png",
+        "assets/minecraft/textures/block/composter_side.png"
+      ],
+      "specialRenderer": false,
+      "missingTextures": [],
+      "textureSamples": [
+        {
+          "resource": "assets/minecraft/textures/block/composter_bottom.png",
+          "vanilla": {
+            "size": [
+              16,
+              16
+            ],
+            "firstFrameMeanRGB": [
+              117,
+              72,
+              32
+            ],
+            "meanHex": "#754820"
+          },
+          "sapixcraft": {
+            "size": [
+              32,
+              32
+            ],
+            "firstFrameMeanRGB": [
+              107,
+              68,
+              36
+            ],
+            "meanHex": "#6b4424"
+          }
+        },
+        {
+          "resource": "assets/minecraft/textures/block/composter_top.png",
+          "vanilla": {
+            "size": [
+              16,
+              16
+            ],
+            "firstFrameMeanRGB": [
+              153,
+              99,
+              52
+            ],
+            "meanHex": "#996334"
+          },
+          "sapixcraft": {
+            "size": [
+              32,
+              32
+            ],
+            "firstFrameMeanRGB": [
+              107,
+              68,
+              36
+            ],
+            "meanHex": "#6b4424"
+          }
+        },
+        {
+          "resource": "assets/minecraft/textures/block/composter_side.png",
+          "vanilla": {
+            "size": [
+              16,
+              16
+            ],
+            "firstFrameMeanRGB": [
+              112,
+              70,
+              32
+            ],
+            "meanHex": "#704620"
+          },
+          "sapixcraft": {
+            "size": [
+              32,
+              32
+            ],
+            "firstFrameMeanRGB": [
+              115,
+              73,
+              39
+            ],
+            "meanHex": "#734927"
+          }
+        }
+      ]
+    },
+    {
+      "id": "hay_block",
+      "group": "details",
+      "sourceState": "assets/minecraft/blockstates/hay_block.json",
+      "sampleVisualProperties": {
+        "waterlogged": "false",
+        "powered": "false",
+        "north": "false",
+        "south": "false",
+        "east": "false",
+        "west": "false",
+        "up": "true",
+        "axis": "x"
+      },
+      "modelBounds": [
+        [
+          0,
+          1
+        ],
+        [
+          0,
+          1
+        ],
+        [
+          0,
+          1
+        ]
+      ],
+      "faces": 6,
+      "textures": [
+        "assets/minecraft/textures/block/hay_block_top.png",
+        "assets/minecraft/textures/block/hay_block_side.png"
+      ],
+      "specialRenderer": false,
+      "missingTextures": [],
+      "textureSamples": [
+        {
+          "resource": "assets/minecraft/textures/block/hay_block_top.png",
+          "vanilla": {
+            "size": [
+              16,
+              16
+            ],
+            "firstFrameMeanRGB": [
+              166,
+              139,
+              12
+            ],
+            "meanHex": "#a68b0c"
+          },
+          "sapixcraft": {
+            "size": [
+              32,
+              32
+            ],
+            "firstFrameMeanRGB": [
+              167,
+              135,
+              12
+            ],
+            "meanHex": "#a7870c"
+          }
+        },
+        {
+          "resource": "assets/minecraft/textures/block/hay_block_side.png",
+          "vanilla": {
+            "size": [
+              16,
+              16
+            ],
+            "firstFrameMeanRGB": [
+              166,
+              136,
+              38
+            ],
+            "meanHex": "#a68826"
+          },
+          "sapixcraft": {
+            "size": [
+              32,
+              32
+            ],
+            "firstFrameMeanRGB": [
+              154,
+              117,
+              13
+            ],
+            "meanHex": "#9a750d"
+          }
+        }
+      ]
+    },
+    {
+      "id": "decorated_pot",
+      "group": "details",
+      "sourceState": "assets/minecraft/blockstates/decorated_pot.json",
+      "sampleVisualProperties": {
+        "waterlogged": "false",
+        "powered": "false",
+        "north": "false",
+        "south": "false",
+        "east": "false",
+        "west": "false",
+        "up": "true"
+      },
+      "modelBounds": [
+        [
+          0,
+          1
+        ],
+        [
+          0,
+          1
+        ],
+        [
+          0,
+          1
+        ]
+      ],
+      "faces": 6,
+      "textures": [
+        "assets/minecraft/textures/block/terracotta.png"
+      ],
+      "specialRenderer": true,
+      "missingTextures": [],
+      "textureSamples": [
+        {
+          "resource": "assets/minecraft/textures/block/terracotta.png",
+          "vanilla": {
+            "size": [
+              16,
+              16
+            ],
+            "firstFrameMeanRGB": [
+              152,
+              94,
+              68
+            ],
+            "meanHex": "#985e44"
+          },
+          "sapixcraft": {
+            "size": [
+              32,
+              32
+            ],
+            "firstFrameMeanRGB": [
+              152,
+              94,
+              68
+            ],
+            "meanHex": "#985e44"
+          }
+        }
+      ]
+    },
+    {
+      "id": "glass",
+      "group": "details",
+      "sourceState": "assets/minecraft/blockstates/glass.json",
+      "sampleVisualProperties": {
+        "waterlogged": "false",
+        "powered": "false",
+        "north": "false",
+        "south": "false",
+        "east": "false",
+        "west": "false",
+        "up": "true"
+      },
+      "modelBounds": [
+        [
+          0,
+          1
+        ],
+        [
+          0,
+          1
+        ],
+        [
+          0,
+          1
+        ]
+      ],
+      "faces": 6,
+      "textures": [
+        "assets/minecraft/textures/block/glass.png"
+      ],
+      "specialRenderer": false,
+      "missingTextures": [],
+      "textureSamples": [
+        {
+          "resource": "assets/minecraft/textures/block/glass.png",
+          "vanilla": {
+            "size": [
+              16,
+              16
+            ],
+            "firstFrameMeanRGB": [
+              176,
+              214,
+              219
+            ],
+            "meanHex": "#b0d6db"
+          },
+          "sapixcraft": {
+            "size": [
+              32,
+              32
+            ],
+            "firstFrameMeanRGB": [
+              110,
+              89,
+              68
+            ],
+            "meanHex": "#6e5944"
+          }
+        }
+      ]
+    },
+    {
+      "id": "glass_pane",
+      "group": "details",
+      "sourceState": "assets/minecraft/blockstates/glass_pane.json",
+      "sampleVisualProperties": {
+        "waterlogged": "false",
+        "powered": "false",
+        "north": "false",
+        "south": "false",
+        "east": "false",
+        "west": "false",
+        "up": "true"
+      },
+      "modelBounds": [
+        [
+          0.4375,
+          0.5625
+        ],
+        [
+          0,
+          1
+        ],
+        [
+          0.4375,
+          0.5625
+        ]
+      ],
+      "faces": 6,
+      "textures": [
+        "assets/minecraft/textures/block/glass_pane_top.png",
+        "assets/minecraft/textures/block/glass.png"
+      ],
+      "specialRenderer": false,
+      "missingTextures": [],
+      "textureSamples": [
+        {
+          "resource": "assets/minecraft/textures/block/glass_pane_top.png",
+          "vanilla": {
+            "size": [
+              16,
+              16
+            ],
+            "firstFrameMeanRGB": [
+              170,
+              210,
+              217
+            ],
+            "meanHex": "#aad2d9"
+          },
+          "sapixcraft": {
+            "size": [
+              32,
+              32
+            ],
+            "firstFrameMeanRGB": [
+              90,
+              60,
+              27
+            ],
+            "meanHex": "#5a3c1b"
+          }
+        },
+        {
+          "resource": "assets/minecraft/textures/block/glass.png",
+          "vanilla": {
+            "size": [
+              16,
+              16
+            ],
+            "firstFrameMeanRGB": [
+              176,
+              214,
+              219
+            ],
+            "meanHex": "#b0d6db"
+          },
+          "sapixcraft": {
+            "size": [
+              32,
+              32
+            ],
+            "firstFrameMeanRGB": [
+              110,
+              89,
+              68
+            ],
+            "meanHex": "#6e5944"
+          }
+        }
+      ]
+    },
+    {
+      "id": "brown_stained_glass_pane",
+      "group": "details",
+      "sourceState": "assets/minecraft/blockstates/brown_stained_glass_pane.json",
+      "sampleVisualProperties": {
+        "waterlogged": "false",
+        "powered": "false",
+        "north": "false",
+        "south": "false",
+        "east": "false",
+        "west": "false",
+        "up": "true"
+      },
+      "modelBounds": [
+        [
+          0.4375,
+          0.5625
+        ],
+        [
+          0,
+          1
+        ],
+        [
+          0.4375,
+          0.5625
+        ]
+      ],
+      "faces": 6,
+      "textures": [
+        "assets/minecraft/textures/block/brown_stained_glass_pane_top.png",
+        "assets/minecraft/textures/block/brown_stained_glass.png"
+      ],
+      "specialRenderer": false,
+      "missingTextures": [],
+      "textureSamples": [
+        {
+          "resource": "assets/minecraft/textures/block/brown_stained_glass_pane_top.png",
+          "vanilla": {
+            "size": [
+              16,
+              16
+            ],
+            "firstFrameMeanRGB": [
+              98,
+              74,
+              49
+            ],
+            "meanHex": "#624a31"
+          },
+          "sapixcraft": {
+            "size": [
+              32,
+              32
+            ],
+            "firstFrameMeanRGB": [
+              105,
+              65,
+              36
+            ],
+            "meanHex": "#694124"
+          }
+        },
+        {
+          "resource": "assets/minecraft/textures/block/brown_stained_glass.png",
+          "vanilla": {
+            "size": [
+              16,
+              16
+            ],
+            "firstFrameMeanRGB": [
+              102,
+              76,
+              51
+            ],
+            "meanHex": "#664c33"
+          },
+          "sapixcraft": {
+            "size": [
+              32,
+              32
+            ],
+            "firstFrameMeanRGB": [
+              114,
+              74,
+              45
+            ],
+            "meanHex": "#724a2d"
+          }
+        }
+      ]
+    },
+    {
+      "id": "cauldron",
+      "group": "details",
+      "sourceState": "assets/minecraft/blockstates/cauldron.json",
+      "sampleVisualProperties": {
+        "waterlogged": "false",
+        "powered": "false",
+        "north": "false",
+        "south": "false",
+        "east": "false",
+        "west": "false",
+        "up": "true"
+      },
+      "modelBounds": [
+        [
+          0,
+          1
+        ],
+        [
+          0,
+          1
+        ],
+        [
+          0,
+          1
+        ]
+      ],
+      "faces": 58,
+      "textures": [
+        "assets/minecraft/textures/block/cauldron_side.png",
+        "assets/minecraft/textures/block/cauldron_top.png",
+        "assets/minecraft/textures/block/cauldron_inner.png",
+        "assets/minecraft/textures/block/cauldron_bottom.png"
+      ],
+      "specialRenderer": false,
+      "missingTextures": [],
+      "textureSamples": [
+        {
+          "resource": "assets/minecraft/textures/block/cauldron_side.png",
+          "vanilla": {
+            "size": [
+              16,
+              16
+            ],
+            "firstFrameMeanRGB": [
+              74,
+              73,
+              75
+            ],
+            "meanHex": "#4a494b"
+          },
+          "sapixcraft": {
+            "size": [
+              32,
+              32
+            ],
+            "firstFrameMeanRGB": [
+              55,
+              55,
+              55
+            ],
+            "meanHex": "#373737"
+          }
+        },
+        {
+          "resource": "assets/minecraft/textures/block/cauldron_top.png",
+          "vanilla": {
+            "size": [
+              16,
+              16
+            ],
+            "firstFrameMeanRGB": [
+              74,
+              73,
+              74
+            ],
+            "meanHex": "#4a494a"
+          },
+          "sapixcraft": {
+            "size": [
+              32,
+              32
+            ],
+            "firstFrameMeanRGB": [
+              32,
+              32,
+              32
+            ],
+            "meanHex": "#202020"
+          }
+        },
+        {
+          "resource": "assets/minecraft/textures/block/cauldron_inner.png",
+          "vanilla": {
+            "size": [
+              16,
+              16
+            ],
+            "firstFrameMeanRGB": [
+              49,
+              49,
+              53
+            ],
+            "meanHex": "#313135"
+          },
+          "sapixcraft": {
+            "size": [
+              32,
+              32
+            ],
+            "firstFrameMeanRGB": [
+              32,
+              32,
+              32
+            ],
+            "meanHex": "#202020"
+          }
+        },
+        {
+          "resource": "assets/minecraft/textures/block/cauldron_bottom.png",
+          "vanilla": {
+            "size": [
+              16,
+              16
+            ],
+            "firstFrameMeanRGB": [
+              40,
+              40,
+              45
+            ],
+            "meanHex": "#28282d"
+          },
+          "sapixcraft": {
+            "size": [
+              32,
+              32
+            ],
+            "firstFrameMeanRGB": [
+              31,
+              31,
+              31
+            ],
+            "meanHex": "#1f1f1f"
+          }
+        }
+      ]
+    },
+    {
+      "id": "brewing_stand",
+      "group": "details",
+      "sourceState": "assets/minecraft/blockstates/brewing_stand.json",
+      "sampleVisualProperties": {
+        "waterlogged": "false",
+        "powered": "false",
+        "north": "false",
+        "south": "false",
+        "east": "false",
+        "west": "false",
+        "up": "true"
+      },
+      "modelBounds": [
+        [
+          0.0625,
+          0.9375
+        ],
+        [
+          0,
+          0.875
+        ],
+        [
+          0.0625,
+          0.9375
+        ]
+      ],
+      "faces": 24,
+      "textures": [
+        "assets/minecraft/textures/block/brewing_stand.png",
+        "assets/minecraft/textures/block/brewing_stand_base.png"
+      ],
+      "specialRenderer": false,
+      "missingTextures": [],
+      "textureSamples": [
+        {
+          "resource": "assets/minecraft/textures/block/brewing_stand.png",
+          "vanilla": {
+            "size": [
+              16,
+              16
+            ],
+            "firstFrameMeanRGB": [
+              122,
+              101,
+              81
+            ],
+            "meanHex": "#7a6551"
+          },
+          "sapixcraft": {
+            "size": [
+              32,
+              32
+            ],
+            "firstFrameMeanRGB": [
+              178,
+              108,
+              57
+            ],
+            "meanHex": "#b26c39"
+          }
+        },
+        {
+          "resource": "assets/minecraft/textures/block/brewing_stand_base.png",
+          "vanilla": {
+            "size": [
+              16,
+              16
+            ],
+            "firstFrameMeanRGB": [
+              117,
+              106,
+              106
+            ],
+            "meanHex": "#756a6a"
+          },
+          "sapixcraft": {
+            "size": [
+              32,
+              32
+            ],
+            "firstFrameMeanRGB": [
+              101,
+              101,
+              101
+            ],
+            "meanHex": "#656565"
+          }
+        }
+      ]
+    },
+    {
+      "id": "campfire",
+      "group": "details",
+      "sourceState": "assets/minecraft/blockstates/campfire.json",
+      "sampleVisualProperties": {
+        "waterlogged": "false",
+        "powered": "false",
+        "north": "false",
+        "south": "false",
+        "east": "false",
+        "west": "false",
+        "up": "true",
+        "facing": "east",
+        "lit": "false"
+      },
+      "modelBounds": [
+        [
+          -1.1102230246251565e-16,
+          1
+        ],
+        [
+          0,
+          0.4375
+        ],
+        [
+          -1.1102230246251565e-16,
+          1
+        ]
+      ],
+      "faces": 28,
+      "textures": [
+        "assets/minecraft/textures/block/campfire_log.png"
+      ],
+      "specialRenderer": false,
+      "missingTextures": [],
+      "textureSamples": [
+        {
+          "resource": "assets/minecraft/textures/block/campfire_log.png",
+          "vanilla": {
+            "size": [
+              16,
+              16
+            ],
+            "firstFrameMeanRGB": [
+              79,
+              75,
+              68
+            ],
+            "meanHex": "#4f4b44"
+          },
+          "sapixcraft": {
+            "size": [
+              32,
+              32
+            ],
+            "firstFrameMeanRGB": [
+              54,
+              48,
+              40
+            ],
+            "meanHex": "#363028"
+          }
+        }
+      ]
+    },
+    {
+      "id": "hanging_roots",
+      "group": "details",
+      "sourceState": "assets/minecraft/blockstates/hanging_roots.json",
+      "sampleVisualProperties": {
+        "waterlogged": "false",
+        "powered": "false",
+        "north": "false",
+        "south": "false",
+        "east": "false",
+        "west": "false",
+        "up": "true"
+      },
+      "modelBounds": [
+        [
+          0.04999999999999999,
+          0.95
+        ],
+        [
+          0,
+          1
+        ],
+        [
+          0.04999999999999999,
+          0.95
+        ]
+      ],
+      "faces": 4,
+      "textures": [
+        "assets/minecraft/textures/block/hanging_roots.png"
+      ],
+      "specialRenderer": false,
+      "missingTextures": [],
+      "textureSamples": [
+        {
+          "resource": "assets/minecraft/textures/block/hanging_roots.png",
+          "vanilla": {
+            "size": [
+              16,
+              16
+            ],
+            "firstFrameMeanRGB": [
+              161,
+              115,
+              92
+            ],
+            "meanHex": "#a1735c"
+          },
+          "sapixcraft": {
+            "size": [
+              32,
+              32
+            ],
+            "firstFrameMeanRGB": [
+              95,
+              66,
+              53
+            ],
+            "meanHex": "#5f4235"
+          }
+        }
+      ]
+    }
+  ],
+  "absent": [
+    "orange_terracotta_stairs",
+    "orange_concrete_stairs"
+  ],
+  "packAudit": {
+    "path": "C:\\Users\\miw\\AppData\\Roaming\\.ambition\\instances\\NeoForge-1.21.1\\resourcepacks\\Sapixcraft 32x 1.21.10 r1.zip",
+    "textureOverrideSamples": 93,
+    "paletteMethod": "Alpha-weighted mean sRGB of first square frame; not biome tint, lighting, or perceived in-game color. Geometry is audited from vanilla models; pack model compatibility not asserted."
+  },
+  "notes": [
+    "spruce_hanging_sign exists in the game but current viewer does not implement its real hanging-sign entity renderer.",
+    "decorated_pot uses an entity renderer; viewer generic fallback does not prove its actual shape.",
+    "Visual geometry bounds do not establish collision shapes, placement rules, or support conditions."
+  ]
+}

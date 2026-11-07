@@ -1,0 +1,39 @@
+{
+  "stalls": [
+    {
+      "bounds": [
+        66,
+        223,
+        74,
+        229
+      ],
+      "color": "blue"
+    },
+    {
+      "bounds": [
+        66,
+        234,
+        74,
+        240
+      ],
+      "color": "orange"
+    },
+    {
+      "bounds": [
+        66,
+        245,
+        74,
+        251
+      ],
+      "color": "red"
+    }
+  ],
+  "offset": [
+    0,
+    0,
+    8
+  ],
+  "changedBlocks": 817,
+  "changedChunks": 3,
+  "backup": "archive\\map-edit-backups\\before-market-stall-setback\\starter_sky_land_spawn_v1"
+}

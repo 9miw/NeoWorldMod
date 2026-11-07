@@ -71,6 +71,6 @@ public final class PvpRecoveryData extends SavedData {
     private static boolean validRegion(int slot, Region region) {
         return slot >= 0 && slot < 128 && region.origin().equals(new BlockPos(1_000_000 + slot*1024, 32, 1_000_000))
                 && region.x() > 0 && region.x() <= 512 && region.y() > 0 && region.y() <= 224
-                && region.z() > 0 && region.z() <= 512 && (long)region.x()*region.y()*region.z() <= 262144;
+                && region.z() > 0 && region.z() <= 512 && (long)region.x()*region.y()*region.z() <= com.ambition.neoworld.pvp.arena.PvpCapturePlan.MAX_VOLUME;
     }
 }

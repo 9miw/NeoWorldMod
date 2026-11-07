@@ -1,0 +1,606 @@
+{
+  "target": "minecraft:overworld",
+  "backup": "/home/miw/backups/neoworld-overworld-clean-20261025-0526",
+  "retainedBounds": [
+    0,
+    0,
+    383,
+    383
+  ],
+  "retainedChunks": 576,
+  "retainedChunkPayloadsIdentical": true,
+  "terrainHash": "1f66838a21c21780418288928cfc9d59ce72aebbb55f3c266e95f19fc5bbf217",
+  "npcCount": 26,
+  "npcUuidsPreserved": true,
+  "npcNonPositionDataPreserved": true,
+  "temporaryStationaryNpc": true,
+  "relocated": [
+    {
+      "uuid": "1346000691,927089703,-2091163305,1713260032",
+      "name": "โอไรออน",
+      "before": [
+        -121.5,
+        33,
+        -33.5
+      ],
+      "after": [
+        160.5,
+        98,
+        314.5
+      ],
+      "oldHome": [
+        -122,
+        33,
+        -34
+      ],
+      "oldMovingState": 0,
+      "unchangedDataHash": "8c80363a9d72a3d244cc26226925894ac9ec3e62171bf5f9bf7010ea8ef6dbe7"
+    },
+    {
+      "uuid": "267370578,-697810445,-1306537214,-960185828",
+      "name": "อัลเลย์",
+      "before": [
+        -69.8022260266994,
+        32.777643961820004,
+        -30.8554611040684
+      ],
+      "after": [
+        160.5,
+        98,
+        302.5
+      ],
+      "oldHome": [
+        -69,
+        21,
+        -24
+      ],
+      "oldMovingState": 1,
+      "unchangedDataHash": "2080abc2e60096b70c6421ee714e2e7ef45adb3634bbe09addcd67d94f74d478"
+    },
+    {
+      "uuid": "1915085020,-106807103,-2000196379,1302877952",
+      "name": "ลิออน",
+      "before": [
+        -214.5,
+        39.0625,
+        -7.5
+      ],
+      "after": [
+        152.5,
+        98,
+        310.5
+      ],
+      "oldHome": [
+        -215,
+        40,
+        -8
+      ],
+      "oldMovingState": 0,
+      "unchangedDataHash": "a76af8f0ae57d32d7f051136e1de6877f74fead6dbf85b9d25ab585f7d92a136"
+    },
+    {
+      "uuid": "-318051561,1686195726,-1506056204,1374816473",
+      "name": "วาร์ปเมือง",
+      "before": [
+        -162.5,
+        39,
+        -7.5
+      ],
+      "after": [
+        156.5,
+        98,
+        302.5
+      ],
+      "oldHome": [
+        -163,
+        39,
+        -8
+      ],
+      "oldMovingState": 0,
+      "unchangedDataHash": "01e4bdbcfaf22ac7ef95619c657ef7e52393acc8c4541b9985e03cbcfceb7b4f"
+    },
+    {
+      "uuid": "438577019,1312377847,-1401587466,-1858789220",
+      "name": "นกแก้ว",
+      "before": [
+        -80.76316209423746,
+        31.424277649748937,
+        -6.549887269786899
+      ],
+      "after": [
+        152.5,
+        98,
+        306.5
+      ],
+      "oldHome": [
+        -72,
+        21,
+        -7
+      ],
+      "oldMovingState": 1,
+      "unchangedDataHash": "202b0090396503781784f819dae27b3319e82350733d96716b068c1f3734de15"
+    },
+    {
+      "uuid": "1043082079,1935951689,-1846253035,-2024451016",
+      "name": "นกแก้ว",
+      "before": [
+        -77.59105118848106,
+        30.85290613912644,
+        -15.360728822934732
+      ],
+      "after": [
+        168.5,
+        98,
+        310.5
+      ],
+      "oldHome": [
+        -66,
+        21,
+        -14
+      ],
+      "oldMovingState": 1,
+      "unchangedDataHash": "fa2a01ec79adb3d2981117c9ef44e4279e3727177d7fc03d662d1afc0a572fdf"
+    },
+    {
+      "uuid": "753706663,1089750896,-1229531715,-105871809",
+      "name": "นกแก้ว",
+      "before": [
+        -76.33121652656256,
+        30.37865421927692,
+        -4.142992844516924
+      ],
+      "after": [
+        160.5,
+        98,
+        318.5
+      ],
+      "oldHome": [
+        -66,
+        21,
+        -7
+      ],
+      "oldMovingState": 1,
+      "unchangedDataHash": "52fff1e1e115a328e18367118438d2ff1fd57427b3158f4670763ca128a73a2f"
+    },
+    {
+      "uuid": "238547895,1867268336,-1171917564,-1103433703",
+      "name": "นกแก้ว",
+      "before": [
+        -48.47625535216635,
+        30.886249858679996,
+        -11.560679534469608
+      ],
+      "after": [
+        164.5,
+        98,
+        302.5
+      ],
+      "oldHome": [
+        -53,
+        27,
+        -8
+      ],
+      "oldMovingState": 1,
+      "unchangedDataHash": "1b6c01b035a686010899e20010c2c8b0086d4c5ae023b5742483bcfe1b99e4c1"
+    },
+    {
+      "uuid": "-934790762,588006189,-1211244301,51905128",
+      "name": "Nasięgniewa",
+      "before": [
+        -40.5,
+        27,
+        -13.5
+      ],
+      "after": [
+        168.5,
+        98,
+        306.5
+      ],
+      "oldHome": [
+        -41,
+        27,
+        -14
+      ],
+      "oldMovingState": 0,
+      "unchangedDataHash": "4afc766b76b8d7d4e7c7c6f18d0c1e499c1766dbdce04cca39feb6ed685feb60"
+    },
+    {
+      "uuid": "-1216729876,-138329783,-2046408088,313031491",
+      "name": "วาร์ปเมือง",
+      "before": [
+        -46.5,
+        27,
+        -7.5
+      ],
+      "after": [
+        152.5,
+        97,
+        318.5
+      ],
+      "oldHome": [
+        -47,
+        27,
+        -8
+      ],
+      "oldMovingState": 0,
+      "unchangedDataHash": "beef79e69e3ac29cfb4097c72e2744f185182b237ed98ed41b99bc1b26fa6b6d"
+    },
+    {
+      "uuid": "-679369041,-1843509068,-1105120146,-510594838",
+      "name": "Kocimira",
+      "before": [
+        -31.5,
+        28,
+        -3.5
+      ],
+      "after": [
+        148.5,
+        97,
+        310.5
+      ],
+      "oldHome": [
+        -32,
+        28,
+        -4
+      ],
+      "oldMovingState": 0,
+      "unchangedDataHash": "5f271a9efe58fec6f2d9e4077a3c1acda423f6359a0698ca7a4b6d01f79f01ad"
+    },
+    {
+      "uuid": "-575015023,966937362,-1773239051,-257015934",
+      "name": "เอลริค",
+      "before": [
+        -30.5,
+        28,
+        -11.5
+      ],
+      "after": [
+        148.5,
+        97,
+        306.5
+      ],
+      "oldHome": [
+        -31,
+        28,
+        -12
+      ],
+      "oldMovingState": 0,
+      "unchangedDataHash": "c21a58fcd548aefa5fe0f6f8cc73a42d7efda5e5a0c54c752c8d9877ea82b69f"
+    },
+    {
+      "uuid": "-1946451111,131811763,-1136141666,1492409259",
+      "name": "ฮันนาห์",
+      "before": [
+        -10.5,
+        28,
+        -7.5
+      ],
+      "after": [
+        168.5,
+        97,
+        318.5
+      ],
+      "oldHome": [
+        -11,
+        28,
+        -8
+      ],
+      "oldMovingState": 0,
+      "unchangedDataHash": "c5d56d3cc738314ea132cbead6d21de9c9a37a0c04a769edbb0a1a53fc56661e"
+    },
+    {
+      "uuid": "1220825941,-896253549,-1346666215,-1481818423",
+      "name": "เอลินา",
+      "before": [
+        -131.5,
+        22.0625,
+        31.5
+      ],
+      "after": [
+        148.5,
+        97,
+        314.5
+      ],
+      "oldHome": [
+        -132,
+        23,
+        31
+      ],
+      "oldMovingState": 0,
+      "unchangedDataHash": "c4d229cba49f7cd3f5aa049277bee88126d27d2c3c6bd69dafff7c0f60dfeaec"
+    },
+    {
+      "uuid": "-1951102473,-633715705,-1275104444,817330035",
+      "name": "โรแกน",
+      "before": [
+        -99.5,
+        19,
+        31.5
+      ],
+      "after": [
+        172.5,
+        97,
+        310.5
+      ],
+      "oldHome": [
+        -100,
+        19,
+        31
+      ],
+      "oldMovingState": 0,
+      "unchangedDataHash": "8db9ce70d39bc7b9d71c27ec0da1cfec65473999b30dfed99b6bde246209ca55"
+    },
+    {
+      "uuid": "1348998560,-230995984,-1087129346,-1096352097",
+      "name": "ลีโอ",
+      "before": [
+        -65.5,
+        22,
+        20.5
+      ],
+      "after": [
+        172.5,
+        97,
+        306.5
+      ],
+      "oldHome": [
+        -66,
+        22,
+        20
+      ],
+      "oldMovingState": 0,
+      "unchangedDataHash": "c520d92ffa7f4606f21014ff0d6e4cd5315ec8f86679396bf2b396e5d4cab114"
+    },
+    {
+      "uuid": "1513928717,-503494658,-1491808269,1028537803",
+      "name": "Drake",
+      "before": [
+        -36.5,
+        22,
+        31.5
+      ],
+      "after": [
+        172.5,
+        97,
+        314.5
+      ],
+      "oldHome": [
+        -37,
+        22,
+        31
+      ],
+      "oldMovingState": 0,
+      "unchangedDataHash": "9948ef66a786a20842964a3186e12407d9eade583c30759817790bf52070e79c"
+    },
+    {
+      "uuid": "1244782148,835734888,-1138359671,-1565617156",
+      "name": "ฟินน์",
+      "before": [
+        -22.5,
+        22,
+        26.5
+      ],
+      "after": [
+        148.5,
+        97,
+        302.5
+      ],
+      "oldHome": [
+        -23,
+        22,
+        26
+      ],
+      "oldMovingState": 0,
+      "unchangedDataHash": "eee3b4e33593c27513a38e75a05756438a88a2ca44cdf71bb4ba6fdb90b80a64"
+    },
+    {
+      "uuid": "-1532694629,430395375,-1633420247,216614315",
+      "name": "วาร์ปเมือง",
+      "before": [
+        -30.5,
+        22,
+        27.5
+      ],
+      "after": [
+        148.5,
+        97,
+        318.5
+      ],
+      "oldHome": [
+        -31,
+        22,
+        27
+      ],
+      "oldMovingState": 0,
+      "unchangedDataHash": "5cf48ae1bc2621c9de472975a36ff8a674e2f14734c283c3d4933201ec8befc5"
+    },
+    {
+      "uuid": "1499135388,744702120,-1839810545,-1370464099",
+      "name": "อีเทอร์",
+      "before": [
+        -101.5,
+        19,
+        39.5
+      ],
+      "after": [
+        172.5,
+        97,
+        302.5
+      ],
+      "oldHome": [
+        -102,
+        19,
+        39
+      ],
+      "oldMovingState": 0,
+      "unchangedDataHash": "7e5aa700da6bcaa9cf540e752832b8a2f01a537ff3d76eaa8201ec6d80009fc8"
+    },
+    {
+      "uuid": "-224674867,-293319921,-1230536860,206637",
+      "name": "บรันท์",
+      "before": [
+        -99.5,
+        19,
+        35.5
+      ],
+      "after": [
+        172.5,
+        97,
+        318.5
+      ],
+      "oldHome": [
+        -100,
+        19,
+        35
+      ],
+      "oldMovingState": 0,
+      "unchangedDataHash": "2ef7803cbc660308f81a019bfc1f77c52caa1575bffad1ec486242b96bca190c"
+    },
+    {
+      "uuid": "17819930,-755021849,-1948001442,1310923662",
+      "name": "โดรัน",
+      "before": [
+        -101.5,
+        19,
+        34.5
+      ],
+      "after": [
+        144.5,
+        97,
+        310.5
+      ],
+      "oldHome": [
+        -102,
+        19,
+        34
+      ],
+      "oldMovingState": 0,
+      "unchangedDataHash": "4afbbe6b3f1f8c191a2d328fceb6968a971ba8bcfbaac93aef629509602001ff"
+    },
+    {
+      "uuid": "1498229455,752373507,-1660076453,-1507235447",
+      "name": "Kakurakawanakatabuchi Tada",
+      "before": [
+        -21.5,
+        22,
+        34.5
+      ],
+      "after": [
+        144.5,
+        97,
+        306.5
+      ],
+      "oldHome": [
+        -22,
+        22,
+        34
+      ],
+      "oldMovingState": 0,
+      "unchangedDataHash": "8f376180c4a8c577e563e7c74aa7cc6d7f2e7832f335e798dd07f072e4bc5481"
+    },
+    {
+      "uuid": "-1387709855,-1922349790,-1712924307,-1371750627",
+      "name": "ออสการ์",
+      "before": [
+        -27.5,
+        22,
+        52.5
+      ],
+      "after": [
+        144.5,
+        97,
+        314.5
+      ],
+      "oldHome": [
+        -28,
+        22,
+        52
+      ],
+      "oldMovingState": 0,
+      "unchangedDataHash": "431a42e7c4affd0f0d2008e9efcbe478f6aa71714c14aa022f6189cf18b347de"
+    },
+    {
+      "uuid": "160666042,1996770113,-1311895217,815611501",
+      "name": "วาร์ปเมือง",
+      "before": [
+        -55.5,
+        23,
+        108.5
+      ],
+      "after": [
+        176.5,
+        97,
+        310.5
+      ],
+      "oldHome": [
+        -56,
+        23,
+        108
+      ],
+      "oldMovingState": 0,
+      "unchangedDataHash": "b8c797f276bc8ce0002ca3158a4c57d7d5ebe6f78c14561a7982dfb236f59874"
+    },
+    {
+      "uuid": "1612979312,-470725244,-1863203488,795167190",
+      "name": "วาร์ปเมือง",
+      "before": [
+        9.5,
+        26,
+        -47.5
+      ],
+      "after": [
+        176.5,
+        97,
+        306.5
+      ],
+      "oldHome": [
+        9,
+        26,
+        -48
+      ],
+      "oldMovingState": 0,
+      "unchangedDataHash": "a5b1c367e983250da2d78f8fd07cd6fe84dd4b5de529ed515cc15f2c3c0b5d63"
+    }
+  ],
+  "keptNonNpcEntities": 0,
+  "archivedOldNonNpcEntities": 3,
+  "playersMoved": [
+    {
+      "file": "dad98e2b-faff-4b32-8385-d9b2b9780de6.dat",
+      "oldPosition": [
+        -26.348899047578794,
+        22,
+        51.89640816280168
+      ],
+      "position": [
+        160.5,
+        98,
+        310.5
+      ],
+      "changedFields": [
+        "Pos",
+        "Motion",
+        "FallDistance",
+        "OnGround",
+        "SpawnX",
+        "SpawnY",
+        "SpawnZ"
+      ]
+    }
+  ],
+  "lastLocationsReset": 3,
+  "transportReset": 6,
+  "otherDimensionsUntouched": true,
+  "inGameClientVerified": false,
+  "postStart": {
+    "loadedNpcCount": 26,
+    "consoleCount": 26,
+    "allOriginalUuidsPresent": true,
+    "positionsAndHomesVerifiedAfterSave": true,
+    "serverSaveFlushed": true,
+    "otherDimensionsMcaHashUnchanged": true,
+    "compileJava": "BUILD SUCCESSFUL",
+    "serverDone": "25Oct2026 05:32:43.055",
+    "inGameClientVerified": false
+  }
+}

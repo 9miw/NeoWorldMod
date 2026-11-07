@@ -1,0 +1,27 @@
+{
+  "positions": 1048800,
+  "paletteStates": 49,
+  "rleRuns": 67183,
+  "roundTrip": true,
+  "reachableRoutes": 10,
+  "proposalChangedBlocks": 434,
+  "sourceRegionUnchanged": true,
+  "regionSha256": "8803ad56a696df48787eeabb0fd52756f49c9eec3d1e4632857bb87c3d03c1cf",
+  "scope": "mockup-inspired facade proposal on measured functional layout; not applied",
+  "generatedAt": "2026-10-24T03:18:47.509Z",
+  "ui": {
+    "layerSelection": true,
+    "areaSelection": true,
+    "voxelInspection": {
+      "position": [
+        159,
+        116,
+        49
+      ],
+      "block": "minecraft:smooth_stone"
+    },
+    "proposalIsometricInspected": true,
+    "compileJava": "BUILD SUCCESSFUL",
+    "inGameTested": false
+  }
+}

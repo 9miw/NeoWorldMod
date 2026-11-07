@@ -1,0 +1,42 @@
+{
+  "newQuestIds": [
+    6,
+    7,
+    8,
+    9,
+    10,
+    11,
+    12
+  ],
+  "newDialogIds": [
+    127,
+    128,
+    129,
+    130,
+    131,
+    132,
+    133,
+    134,
+    135,
+    136,
+    137
+  ],
+  "modifiedDialogIds": [
+    49,
+    51,
+    52,
+    57,
+    58,
+    4,
+    5,
+    7,
+    97,
+    77,
+    24,
+    22
+  ],
+  "modifiedQuestIds": [
+    5
+  ],
+  "backup": "/home/miw/backups/neoworld-main-quest-chapter1-20261026-221620"
+}

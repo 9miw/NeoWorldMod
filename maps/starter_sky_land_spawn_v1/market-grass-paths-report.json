@@ -1,0 +1,216 @@
+{
+  "changedBlocks": 2822,
+  "changedChunks": 28,
+  "grassCells": 2073,
+  "pathCells": 749,
+  "routes": [
+    {
+      "name": "main approach",
+      "width": 5,
+      "points": [
+        [
+          133,
+          215
+        ],
+        [
+          116,
+          215
+        ],
+        [
+          106,
+          212
+        ],
+        [
+          95,
+          215
+        ]
+      ]
+    },
+    {
+      "name": "large shop",
+      "width": 3,
+      "points": [
+        [
+          95,
+          215
+        ],
+        [
+          88,
+          214
+        ],
+        [
+          83,
+          210
+        ],
+        [
+          82,
+          207
+        ]
+      ]
+    },
+    {
+      "name": "food shop",
+      "width": 3,
+      "points": [
+        [
+          106,
+          212
+        ],
+        [
+          102,
+          205
+        ],
+        [
+          102,
+          196
+        ]
+      ]
+    },
+    {
+      "name": "supplies shop",
+      "width": 3,
+      "points": [
+        [
+          116,
+          215
+        ],
+        [
+          123,
+          208
+        ],
+        [
+          123,
+          198
+        ]
+      ]
+    },
+    {
+      "name": "blue west stall",
+      "width": 3,
+      "points": [
+        [
+          87,
+          224
+        ],
+        [
+          80,
+          224
+        ],
+        [
+          70,
+          226
+        ]
+      ]
+    },
+    {
+      "name": "orange west stall",
+      "width": 3,
+      "points": [
+        [
+          80,
+          224
+        ],
+        [
+          80,
+          231
+        ],
+        [
+          70,
+          237
+        ]
+      ]
+    },
+    {
+      "name": "red inner stall",
+      "width": 3,
+      "points": [
+        [
+          92,
+          232
+        ],
+        [
+          90,
+          235
+        ],
+        [
+          85,
+          240
+        ]
+      ]
+    },
+    {
+      "name": "blue inner stall",
+      "width": 3,
+      "points": [
+        [
+          99,
+          231
+        ],
+        [
+          103,
+          235
+        ],
+        [
+          103,
+          238
+        ]
+      ]
+    },
+    {
+      "name": "orange east stall",
+      "width": 3,
+      "points": [
+        [
+          103,
+          224
+        ],
+        [
+          112,
+          225
+        ],
+        [
+          120,
+          229
+        ]
+      ]
+    },
+    {
+      "name": "red east stall",
+      "width": 3,
+      "points": [
+        [
+          112,
+          225
+        ],
+        [
+          115,
+          235
+        ],
+        [
+          120,
+          240
+        ]
+      ]
+    },
+    {
+      "name": "future smith connection",
+      "width": 3,
+      "points": [
+        [
+          112,
+          215
+        ],
+        [
+          112,
+          201
+        ],
+        [
+          112,
+          181
+        ]
+      ]
+    }
+  ],
+  "backup": "archive\\map-edit-backups\\before-market-grass-paths\\starter_sky_land_spawn_v1",
+  "reachableHalfCells": 18012
+}

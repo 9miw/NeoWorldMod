@@ -1,21 +1,18 @@
 package com.ambition.neoworld.command.player;
 
-import com.ambition.neoworld.NeoWorld;
 import com.ambition.neoworld.network.player.PlayerActionPayload;
 import com.ambition.neoworld.network.PlayerProfilePayload;
 import com.ambition.neoworld.network.player.PlayerProfileSnapshot;
 import net.minecraft.commands.Commands;
 import net.minecraft.network.chat.Component;
-import net.neoforged.bus.api.SubscribeEvent;
-import net.neoforged.fml.common.EventBusSubscriber;
-import net.neoforged.neoforge.event.RegisterCommandsEvent;
+import com.mojang.brigadier.builder.LiteralArgumentBuilder;
+import net.minecraft.commands.CommandSourceStack;
 import net.neoforged.neoforge.network.PacketDistributor;
 
-@EventBusSubscriber(modid = NeoWorld.MODID)
 public final class ProfileCommand {
     private ProfileCommand() {}
-    @SubscribeEvent public static void register(RegisterCommandsEvent event) {
-        event.getDispatcher().register(Commands.literal("profile")
+    public static LiteralArgumentBuilder<CommandSourceStack> buildCommand() {
+        return Commands.literal("profile")
                 .executes(context -> {
                     var player = context.getSource().getPlayerOrException();
                     if (!player.isAlive() || player.isSpectator()) {
@@ -24,8 +21,8 @@ public final class ProfileCommand {
                     }
                     var request = new PlayerActionPayload(PlayerProfilePayload.COMMAND_REQUEST,
                             player.getUUID(), PlayerActionPayload.Action.PROFILE);
-                    PacketDistributor.sendToPlayer(player, PlayerProfileSnapshot.capture(request, player));
+                    com.ambition.neoworld.network.player.PlayerProfileService.send(request,player,player);
                     return 1;
-                }));
+                });
     }
 }

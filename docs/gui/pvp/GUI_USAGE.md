@@ -1,55 +1,19 @@
-# PvP selection GUI
+# GUI เลือก PvP
 
-Open with `/neow pvp` or `/neoworld pvp`, or select PvP in the NeoWorld Hub.
-The screen follows `pvp-selection-mockup-v1.png` and displays actual server Rating
-and numeric leaderboard position. A player without a ranked win/loss sees
-`ยังไม่มีอันดับ`; database failure displays unavailable values rather than 1000/0.
+เปิดด้วย `/neow pvp`, `/neoworld pvp` หรือเลือก PvP ใน NeoWorld Hub การเลือกสนามตาม[ตัวเลือกแบบเลื่อนที่อนุมัติ](CREATE_ROOM_GUI.md) มีการ์ดภาพย่อคลิกได้ พรีวิวที่เลือก และสกรอลล์บาร์บางร่วม หน้าจอตาม `pvp-selection-mockup-v1.png` แสดง Rating จริงจากเซิร์ฟเวอร์และอันดับตัวเลข ผู้เล่นที่ยังไม่มีผลชนะ/แพ้แรงก์เห็น `ยังไม่มีอันดับ` หากฐานข้อมูลล้มเหลวแสดงค่าไม่พร้อมแทน 1000/0
 
-- Create Room opens an arena chooser, then creates a private room. The room view
-  displays its number and join command, member readiness, Ready/Unready, Start,
-  and Leave controls. Opponents can join with the displayed command.
-- Ranked opens an arena chooser and joins the existing ranked queue. Successfully
-  joining closes the GUI and shows a compact middle-right queue HUD. Reopening the
-  GUI while queued shows Cancel Queue. Matching or starting closes the GUI.
-- Leaderboard shows the top 10. Numeric personal rank is calculated beyond Top 10
-  with the same Rating/wins/UUID ordering as the leaderboard.
-- GUI requests a snapshot once when opened, after explicit gameplay actions, and
-  when opening the leaderboard. It does not poll or retry automatically and
-  rejects replies for an old request. Reopen the GUI to refresh external changes.
-  Gameplay actions are validated by the server manager. Rating reads run off the
-  game thread through the existing database pool. Personal Rating/position cache
-  lasts 30 seconds, coalesces overlapping requests per player and is invalidated
-  after a committed match result. Requests reuse these values while the cache
-  is valid. Display reads use ordinary SELECT, no FOR UPDATE,
-  transaction or player insertion. A new player displays the initial 1000 until
-  ranked participation creates their persistent row.
-  Top 10 is requested only on the leaderboard page and uses one shared 30-second
-  cache for all viewers. Failed reads back off for five seconds. Personal cache
-  retains at most 512 entries and clears on server stop. Foreign database updates
-  may remain cached until TTL; local committed match results invalidate all ranks.
+- Create Room เปิดเลือกสนามแล้วสร้างห้องส่วนตัว ห้องใช้[ม็อกอัปลอบบี้อนุมัติ](pvp-private-room-mockup-v2.png): พรีวิวสองตัวละคร ตัวบอกเจ้าของ สนาม จำนวนคน คะแนน และอันดับ ไม่มีพร้อมในลอบบี้หรือแผงคำสั่งเข้า Invite เปิดเลือกผู้เล่นออนไลน์ เจ้าของกด Fight เมื่อครบสองช่อง แล้วทั้งคู่ยืนยันแยกใน 30 วินาที ยังออกได้
+- Ranked เข้าคิวร่วมทันที ไม่เปิดเลือกสนาม เซิร์ฟเวอร์สุ่มสนามที่ใช้ได้หลังจับคู่ เข้าคิวสำเร็จปิด GUI และแสดง HUD คิวกะทัดรัดกลางขวา เปิดใหม่ขณะเข้าคิวแสดง Cancel Queue จับคู่หรือเริ่มแล้วปิด GUI
+- Leaderboard แสดง 10 อันดับแรก อันดับส่วนตัวคำนวณเกิน Top 10 ด้วยลำดับ Rating/ชนะ/UUID เดียวกัน
+- GUI ขอสแนปช็อตครั้งเดียวตอนเปิด หลังการกระทำเกมเพลย์ชัดเจน และเมื่อเปิดอันดับ ไม่โพลหรือลองซ้ำอัตโนมัติ ปฏิเสธคำตอบคำขอเก่า เหตุการณ์สมาชิก/เริ่ม/ปิดห้องส่งสแนปช็อตไปจอห้องที่เปิดด้วย ไม่มีรีเฟรชห้องตามเวลา ตัวจัดการเซิร์ฟเวอร์ตรวจการกระทำเกมเพลย์
+- อ่าน Rating นอกเธรดเกมผ่านพูลฐานข้อมูลเดิม แคช Rating/อันดับส่วนตัว 30 วินาที รวมคำขอซ้อนต่อคน และล้างหลังคอมมิตผลแข่ง คำขอใช้ค่าซ้ำขณะแคชยังใช้ได้ อ่านแสดงผลด้วย SELECT ปกติ ไม่มี FOR UPDATE ธุรกรรม หรือเพิ่มผู้เล่น ผู้เล่นใหม่แสดงเริ่มต้น 1000 จนการร่วมแรงก์สร้างแถวถาวร
+- ขอ Top 10 เฉพาะหน้าอันดับ ใช้แคชร่วม 30 วินาทีสำหรับทุกคน อ่านล้มเหลวพักห้าวินาที แคชส่วนตัวไม่เกิน 512 รายการและล้างเมื่อเซิร์ฟเวอร์หยุด การแก้ฐานข้อมูลภายนอกอาจค้างจน TTL ส่วนผลแข่งในระบบที่คอมมิตล้างอันดับทั้งหมด
 
-Runtime assets: `textures/gui/pvp/selection_frame.png` (1672x941), `swords.png`
-and `trophy.png` (1254x1254). Background, icons and shared NeoButton states are
-separate. Text, skin, names and values are rendered dynamically. PNG sampling
-disables blur and enables clamp. Coordinates and hitboxes share one scale factor.
-No fonts are added. Protocol version 12 requires matching client/server mod code.
-Ranked pairs now open [MATCH_CONFIRM_USAGE.md](MATCH_CONFIRM_USAGE.md) before entering
-the arena; both players must accept within 30 seconds.
+แอสเซ็ตรันไทม์ `textures/gui/pvp/selection_frame.png` (1672x941), `swords.png`, `trophy.png` (1254x1254) พื้นหลัง ไอคอน และสถานะ NeoButton ร่วมแยกกัน ข้อความ สกิน ชื่อ ค่าเป็นไดนามิก PNG ปิด blur เปิด clamp พิกัดและฮิตบ็อกซ์ใช้สเกลเดียว ไม่เพิ่มฟอนต์ โปรโตคอล 25 ต้องตรงทั้งคู่ คำขอ QUEUE ต้องมีฟิลด์สนามว่างและปฏิเสธแมปที่ไคลเอนต์เลือก คู่แรงก์เปิด [MATCH_CONFIRM_USAGE.md](MATCH_CONFIRM_USAGE.md) ก่อนเข้าสนาม ทั้งคู่ต้องรับภายใน 30 วินาที
 
-## Queue HUD and cancellation
+## HUD คิวและการยกเลิก
 
-The queue HUD is approximately scoreboard-sized: 116–154 GUI pixels wide, with
-five compact lines, a translucent dark backing and thin silver border. It is
-anchored at the right edge and vertically centered. It displays server-owned wait
-time and Rating, plus `ยกเลิก [K]`. The hint follows the configured key binding.
-Default K is registered in Controls under NeoWorld as Cancel ranked PvP queue.
-K works during ordinary gameplay only; it does not run while typing chat or using
-a screen. It sends a queue-only cancellation request, so a late key press after
-matchmaking cannot leave a room or surrender. Queue state pushes every second
-without database reads and clears on cancel, match, invalidation or disconnect.
-The HUD is hidden with F1 and while a GUI is open. It has no clickable mouse button.
+HUD คิวใกล้ขนาดสกอร์บอร์ด กว้าง 116–154 พิกเซล GUI ห้าบรรทัดกระชับ พื้นเข้มโปร่งและขอบเงินบาง ยึดขอบขวากลางแนวตั้ง แสดงเวลารอและ Rating จากเซิร์ฟเวอร์ พร้อม `ยกเลิก [K]` คำแนะนำตามปุ่มที่ตั้ง ค่าเริ่มต้น K ลงทะเบียนใน Controls หมวด NeoWorld ชื่อ Cancel ranked PvP queue
+K ใช้ระหว่างเกมเพลย์ปกติเท่านั้น ไม่ทำงานตอนพิมพ์แชตหรือเปิดจอ ส่งคำขอยกเลิกเฉพาะคิว จึงกดช้าหลังจับคู่แล้วไม่ออกห้องหรือยอมแพ้ สถานะคิวส่งทุกวินาทีโดยไม่อ่านฐานข้อมูล และล้างเมื่อยกเลิก จับคู่ ไม่ผ่านเงื่อนไข หรือหลุด HUD ซ่อนด้วย F1 และขณะเปิด GUI ไม่มีปุ่มเมาส์ให้คลิก
 
-Compile and regression checks cover room state and payload round trips. Assets
-were inspected for transparency and dimensions. Actual in-game screenshots at
-different GUI scales, two-player interaction and dedicated-server loading remain
-runtime verification steps; this document does not claim those checks passed.
+คอมไพล์และรีเกรสชันครอบคลุมสถานะห้องและแพ็กเก็ตไปกลับ ตรวจอัลฟาและขนาดแอสเซ็ตแล้ว ภาพจริงหลาย GUI Scale การโต้ตอบสองคน และโหลดบน dedicated server ยังเป็นงานตรวจรันไทม์ เอกสารนี้ไม่ได้อ้างว่าผ่านแล้ว

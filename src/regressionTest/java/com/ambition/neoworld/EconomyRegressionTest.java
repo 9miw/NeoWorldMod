@@ -15,13 +15,42 @@ public final class EconomyRegressionTest {
     private static int checks;
 
     public static void main(String[] args) throws Exception {
+        check(java.util.Arrays.stream(com.ambition.neoworld.item.CoinItem.CoinType.values()).map(Enum::name).toList()
+                .equals(java.util.List.of("SILVER", "DIAMOND")), "only Silver and Diamond remain active currencies");
+        var oldConfig=com.electronwill.nightconfig.core.CommentedConfig.inMemory();
+        oldConfig.set("upgrade.costs.goldForLevel1",789L);
+        oldConfig.set("upgrade.costs.goldForLevel2",999L);
+        oldConfig.set("upgrade.costs.silverForLevel2",555L);
+        var migration=com.ambition.neoworld.upgrade.UpgradeConfig.COMPATIBLE_SPEC;
+        check(!migration.isCorrect(oldConfig), "old upgrade costs require migration before config correction");
+        migration.correct(oldConfig);
+        check(oldConfig.<Long>get("upgrade.costs.silverForLevel1")==789L
+                && oldConfig.<Long>get("upgrade.costs.silverForLevel2")==555L
+                && !oldConfig.contains("upgrade.costs.goldForLevel1"), "custom numeric costs preserved and explicit Silver wins");
+        migration.correct(oldConfig);
+        check(oldConfig.<Long>get("upgrade.costs.silverForLevel1")==789L, "upgrade config migration is idempotent");
+        var buffer=io.netty.buffer.Unpooled.buffer();
+        try {
+            var payload=new com.ambition.neoworld.network.economy.SyncEconomyPayload(Long.MAX_VALUE,42);
+            com.ambition.neoworld.network.economy.SyncEconomyPayload.STREAM_CODEC.encode(buffer,payload);
+            var decoded=com.ambition.neoworld.network.economy.SyncEconomyPayload.STREAM_CODEC.decode(buffer);
+            check(decoded.equals(payload)&&!buffer.isReadable(),"two-currency wire payload preserves field order and maximum amounts");
+        } finally {buffer.release();}
+        com.ambition.neoworld.client.state.ClientEconomyData.update(7,9);
+        check(com.ambition.neoworld.client.state.ClientEconomyData.getSilver()==7
+                && com.ambition.neoworld.client.state.ClientEconomyData.getDiamond()==9,"client tracks exactly the two active balances");
         PlayerData data = new PlayerData(1, 0, Long.MAX_VALUE - 1, Long.MAX_VALUE, Long.MAX_VALUE);
         check(data.addSilver(1), "deposit to exact limit");
         check(!data.addSilver(1) && data.getSilver() == Long.MAX_VALUE, "silver overflow preserves balance");
-        check(!data.addGold(1) && data.getGold() == Long.MAX_VALUE, "gold overflow preserves balance");
         check(!data.addDiamond(1) && data.getDiamond() == Long.MAX_VALUE, "diamond overflow preserves balance");
-        check(!data.addSilver(0) && !data.addGold(-1), "invalid deposits rejected");
-        check(!data.hasEnoughSilver(-1) && !data.hasEnoughGold(0) && !data.hasEnoughDiamond(-1), "invalid prices rejected");
+        check(!data.addSilver(0), "invalid deposits rejected");
+        check(!data.hasEnoughSilver(-1) && !data.hasEnoughDiamond(-1), "invalid prices rejected");
+        PlayerData parked = new PlayerData(1,0,100,200,300);
+        check(parked.getLegacyRetiredBalance()==200 && parked.getSilver()==100, "legacy value is not converted to Silver");
+        check(com.ambition.neoworld.economy.PlayerEconomyManager.deposit(parked,com.ambition.neoworld.item.CoinItem.CoinType.SILVER,10)
+                && com.ambition.neoworld.economy.PlayerEconomyManager.deposit(parked,com.ambition.neoworld.item.CoinItem.CoinType.DIAMOND,10), "Silver and Diamond deposits remain enabled");
+        PlayerData parkedRestored = PlayerData.CODEC.parse(JsonOps.INSTANCE,PlayerData.CODEC.encodeStart(JsonOps.INSTANCE,parked).getOrThrow()).getOrThrow();
+        check(parkedRestored.getLegacyRetiredBalance()==200, "Frozen Gold survives player save and load");
         check(!data.removeSilver(-1) && data.getSilver() == Long.MAX_VALUE, "negative debit preserves balance");
         data.setSilver(100);
         check(!data.removeSilver(101) && data.getSilver() == 100, "insufficient debit preserves balance");
@@ -73,11 +102,15 @@ public final class EconomyRegressionTest {
         check(data.getLevel() == LevelFormula.MAX_LEVEL, "level cap enforced");
         PlayerData restored = PlayerData.CODEC.parse(JsonOps.INSTANCE,
                 PlayerData.CODEC.encodeStart(JsonOps.INSTANCE, data).getOrThrow()).getOrThrow();
-        check(restored.getGold() == Long.MAX_VALUE && restored.getExp() == Long.MAX_VALUE,
+        check(restored.getLegacyRetiredBalance() == Long.MAX_VALUE && restored.getExp() == Long.MAX_VALUE,
                 "large values survive save round trip");
         check(restored.getLevel() == LevelFormula.MAX_LEVEL, "level survives save round trip");
         int databaseChecks = DatabaseRegressionTest.run();
-        System.out.println("Passed " + checks + " economy and " + databaseChecks + " database regression checks.");
+        int marketSecurityChecks = com.ambition.neoworld.market.MarketSecurityRegressionTest.run();
+        com.ambition.neoworld.database.PersistenceCrashWindowRegressionTest.run();
+        com.ambition.neoworld.market.MarketJournalRegressionTest.run();
+        System.out.println("Passed " + checks + " economy, " + databaseChecks + " database, and "
+                + marketSecurityChecks + " market security regression checks.");
     }
 
     private static void check(boolean condition, String name) {

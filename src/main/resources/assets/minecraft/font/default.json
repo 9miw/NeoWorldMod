@@ -1,12 +1,40 @@
 {
   "providers": [
     {
-      "type": "reference",
-      "id": "neoworld:roboto"
+      "id": "neoworld:icons",
+      "type": "reference"
     },
     {
-      "type": "reference",
-      "id": "neoworld:thai"
+      "id": "neoworld:currency",
+      "type": "reference"
+    },
+    {
+      "id": "neoworld:ranks",
+      "type": "reference"
+    },
+    {
+      "id": "neoworld:gui_controls",
+      "type": "reference"
+    },
+    {
+      "id": "neoworld:dungeon_hud",
+      "type": "reference"
+    },
+    {
+      "id": "neoworld:fashion_tooltip",
+      "type": "reference"
+    },
+    {
+      "id": "neoworld:activity_icons",
+      "type": "reference"
+    },
+    {
+      "id": "neoworld:roboto",
+      "type": "reference"
+    },
+    {
+      "id": "neoworld:thai",
+      "type": "reference"
     }
   ]
 }

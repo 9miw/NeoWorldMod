@@ -1,0 +1,12 @@
+// Usage: .\gradlew.bat -I tools/maps/verify-castle.init.gradle verifyRuinedCastle
+allprojects {
+    afterEvaluate {
+        tasks.register('verifyRuinedCastle', JavaExec) {
+            dependsOn tasks.named('compileJava')
+            classpath = sourceSets.main.runtimeClasspath
+            mainClass = file('tools/maps/VerifyRuinedCastle.java').absolutePath
+            args file(findProperty('castleMap') ?: 'maps/ruined_castle_v1').absolutePath
+            javaLauncher = javaToolchains.launcherFor { languageVersion = JavaLanguageVersion.of(21) }
+        }
+    }
+}

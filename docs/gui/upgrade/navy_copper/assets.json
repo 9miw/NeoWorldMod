@@ -1,0 +1,414 @@
+{
+  "reference": "approved-mockup.png",
+  "source": "components-source.png",
+  "status": "Referenced by UpgradeScreen; compilation checked; in-game appearance unverified.",
+  "sampling": "nearest; hard alpha; transparent 2px padding",
+  "slicing": "Use nine-slice for panels/slots, three-slice for plaques/buttons. Source borders must be measured at final runtime size before integration.",
+  "assets": {
+    "outer_frame": {
+      "size": [
+        354,
+        199
+      ],
+      "alpha_bounds": [
+        2,
+        2,
+        352,
+        197
+      ],
+      "source_crop": [
+        36,
+        72,
+        391,
+        270
+      ],
+      "padding": 2
+    },
+    "panel_frame": {
+      "size": [
+        315,
+        198
+      ],
+      "alpha_bounds": [
+        2,
+        2,
+        313,
+        196
+      ],
+      "source_crop": [
+        410,
+        72,
+        730,
+        271
+      ],
+      "padding": 2
+    },
+    "title_plaque": {
+      "size": [
+        399,
+        130
+      ],
+      "alpha_bounds": [
+        2,
+        2,
+        397,
+        128
+      ],
+      "source_crop": [
+        736,
+        111,
+        1137,
+        242
+      ],
+      "padding": 2
+    },
+    "section_header": {
+      "size": [
+        354,
+        90
+      ],
+      "alpha_bounds": [
+        2,
+        2,
+        352,
+        88
+      ],
+      "source_crop": [
+        1150,
+        132,
+        1507,
+        222
+      ],
+      "padding": 2
+    },
+    "equipment_slot": {
+      "size": [
+        216,
+        203
+      ],
+      "alpha_bounds": [
+        2,
+        2,
+        214,
+        201
+      ],
+      "source_crop": [
+        103,
+        302,
+        324,
+        509
+      ],
+      "padding": 2
+    },
+    "inventory_slot": {
+      "size": [
+        213,
+        202
+      ],
+      "alpha_bounds": [
+        2,
+        2,
+        211,
+        200
+      ],
+      "source_crop": [
+        459,
+        300,
+        679,
+        509
+      ],
+      "padding": 2
+    },
+    "progress_track": {
+      "size": [
+        355,
+        67
+      ],
+      "alpha_bounds": [
+        2,
+        2,
+        353,
+        65
+      ],
+      "source_crop": [
+        756,
+        377,
+        1118,
+        448
+      ],
+      "padding": 2
+    },
+    "progress_fill": {
+      "size": [
+        313,
+        38
+      ],
+      "alpha_bounds": [
+        2,
+        2,
+        311,
+        36
+      ],
+      "source_crop": [
+        1164,
+        384,
+        1492,
+        439
+      ],
+      "padding": 2
+    },
+    "button_normal": {
+      "size": [
+        348,
+        128
+      ],
+      "alpha_bounds": [
+        2,
+        2,
+        346,
+        126
+      ],
+      "source_crop": [
+        36,
+        560,
+        388,
+        697
+      ],
+      "padding": 2
+    },
+    "button_hover": {
+      "size": [
+        348,
+        128
+      ],
+      "alpha_bounds": [
+        2,
+        2,
+        346,
+        126
+      ],
+      "source_crop": [
+        405,
+        560,
+        759,
+        697
+      ],
+      "padding": 2
+    },
+    "button_pressed": {
+      "size": [
+        348,
+        128
+      ],
+      "alpha_bounds": [
+        2,
+        2,
+        346,
+        126
+      ],
+      "source_crop": [
+        774,
+        560,
+        1130,
+        697
+      ],
+      "padding": 2
+    },
+    "button_disabled": {
+      "size": [
+        348,
+        128
+      ],
+      "alpha_bounds": [
+        2,
+        2,
+        346,
+        126
+      ],
+      "source_crop": [
+        1147,
+        560,
+        1503,
+        697
+      ],
+      "padding": 2
+    },
+    "close_backing": {
+      "size": [
+        177,
+        180
+      ],
+      "alpha_bounds": [
+        2,
+        2,
+        175,
+        178
+      ],
+      "source_crop": [
+        122,
+        751,
+        303,
+        937
+      ],
+      "padding": 2
+    },
+    "icon_hammer": {
+      "size": [
+        205,
+        198
+      ],
+      "alpha_bounds": [
+        2,
+        2,
+        203,
+        196
+      ],
+      "source_crop": [
+        469,
+        735,
+        686,
+        941
+      ],
+      "padding": 2
+    },
+    "icon_anvil": {
+      "size": [
+        221,
+        151
+      ],
+      "alpha_bounds": [
+        2,
+        2,
+        219,
+        149
+      ],
+      "source_crop": [
+        839,
+        767,
+        1070,
+        927
+      ],
+      "padding": 2
+    },
+    "icon_shield": {
+      "size": [
+        165,
+        198
+      ],
+      "alpha_bounds": [
+        2,
+        2,
+        163,
+        196
+      ],
+      "source_crop": [
+        1240,
+        740,
+        1411,
+        946
+      ],
+      "padding": 2
+    },
+    "icon_swords": {
+      "size": [
+        35,
+        35
+      ],
+      "alpha_bounds": [
+        2,
+        2,
+        33,
+        33
+      ],
+      "source_crop": [
+        885,
+        177,
+        924,
+        215
+      ],
+      "padding": 2
+    },
+    "icon_coins": {
+      "size": [
+        33,
+        37
+      ],
+      "alpha_bounds": [
+        2,
+        2,
+        31,
+        35
+      ],
+      "source_crop": [
+        167,
+        556,
+        204,
+        595
+      ],
+      "padding": 2
+    },
+    "icon_chest": {
+      "size": [
+        39,
+        36
+      ],
+      "alpha_bounds": [
+        2,
+        2,
+        37,
+        34
+      ],
+      "source_crop": [
+        878,
+        554,
+        923,
+        596
+      ],
+      "padding": 2
+    }
+  },
+  "runtime_layout": {
+    "size": [
+      360,
+      232
+    ],
+    "panels": [
+      [
+        8,
+        28,
+        166,
+        109
+      ],
+      [
+        178,
+        28,
+        174,
+        109
+      ],
+      [
+        8,
+        139,
+        166,
+        89
+      ],
+      [
+        178,
+        139,
+        174,
+        89
+      ]
+    ],
+    "inventory": [
+      185,
+      151
+    ],
+    "hotbar_y": 207,
+    "slot_pitch": 18,
+    "confirm": [
+      18,
+      208,
+      144,
+      16
+    ]
+  }
+}

@@ -1,0 +1,152 @@
+[
+  {
+    "id": "01-island",
+    "name": "Island",
+    "bounds": [
+      27,
+      27,
+      309,
+      347
+    ],
+    "center": [
+      168,
+      97,
+      257
+    ],
+    "source": "tools/maps/sky-town/zones/01-island.cjs",
+    "layoutScale": 1.6,
+    "referenceRevision": 3
+  },
+  {
+    "id": "02-spawn",
+    "name": "Spawn",
+    "bounds": [
+      136,
+      289,
+      187,
+      335
+    ],
+    "center": [
+      161,
+      97,
+      312
+    ],
+    "source": "tools/maps/sky-town/zones/02-spawn.cjs",
+    "layoutScale": 1.6,
+    "referenceRevision": 3
+  },
+  {
+    "id": "03-roads-square",
+    "name": "Town Square",
+    "bounds": [
+      129,
+      129,
+      194,
+      288
+    ],
+    "center": [
+      161,
+      107,
+      168
+    ],
+    "source": "tools/maps/sky-town/zones/03-roads-square.cjs",
+    "layoutScale": 1.6,
+    "referenceRevision": 3
+  },
+  {
+    "id": "04-market",
+    "name": "Market",
+    "bounds": [
+      52,
+      161,
+      128,
+      243
+    ],
+    "center": [
+      92,
+      101,
+      208
+    ],
+    "source": "tools/maps/sky-town/zones/04-market.cjs",
+    "layoutScale": 1.6,
+    "referenceRevision": 3
+  },
+  {
+    "id": "05-blacksmith",
+    "name": "Blacksmith",
+    "bounds": [
+      52,
+      104,
+      128,
+      160
+    ],
+    "center": [
+      112,
+      109,
+      142
+    ],
+    "source": "tools/maps/sky-town/zones/05-blacksmith.cjs",
+    "layoutScale": 1.6,
+    "referenceRevision": 3
+  },
+  {
+    "id": "06-adventurers-hall",
+    "name": "Adventurers Hall",
+    "bounds": [
+      195,
+      129,
+      277,
+      243
+    ],
+    "center": [
+      238,
+      103,
+      184
+    ],
+    "source": "tools/maps/sky-town/zones/06-adventurers-hall.cjs",
+    "layoutScale": 1.6,
+    "referenceRevision": 3
+  },
+  {
+    "id": "07-castle",
+    "name": "Castle",
+    "bounds": [
+      104,
+      40,
+      219,
+      128
+    ],
+    "center": [
+      161,
+      127,
+      102
+    ],
+    "source": "tools/maps/sky-town/zones/07-castle.cjs",
+    "layoutScale": 1.6,
+    "referenceRevision": 3
+  },
+  {
+    "id": "08-dimensional-station",
+    "name": "Portal Island",
+    "bounds": [
+      278,
+      180,
+      399,
+      251
+    ],
+    "center": [
+      366,
+      97,
+      219
+    ],
+    "source": "tools/maps/sky-town/zones/08-dimensional-station.cjs",
+    "layoutScale": 1.6,
+    "referenceRevision": 3,
+    "islandBounds": [
+      334,
+      180,
+      399,
+      251
+    ]
+  }
+]

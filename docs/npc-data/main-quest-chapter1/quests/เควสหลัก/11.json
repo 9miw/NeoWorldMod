@@ -1,0 +1,29 @@
+{
+  "ModRev": 18,
+  "Id": 11,
+  "CompleterNpc": "เอเดน",
+  "QuestCommand": "",
+  "RandomReward": 0,
+  "RewardExp": 0,
+  "Rewards": {
+    "NpcMiscInv": []
+  },
+  "QuestCompletion": 0,
+  "QuestRepeat": 0,
+  "QuestFactionPoints": {},
+  "QuestMail": {},
+  "LeaveItems": 0,
+  "IgnoreDamage": 1,
+  "IgnoreNBT": 1,
+  "Type": 1,
+  "Title": "6/7 ข่าวจากกิลด์",
+  "Text": "ไปพบ§6§lเอเดน§r เลือกรายงานตัวกับราชสำนัก ปิดหน้าต่างแล้วคุยอีกครั้งเพื่อส่งงาน",
+  "CompleteText": "§6§lเอเดน§rรับรายงานแล้ว ต่อไปเข้าพบ§6§lลิออน§rในโถง§bปราสาท§r",
+  "NextQuestId": 12,
+  "QuestDialogs": [
+    {
+      "Slot": 0,
+      "Integer": 134
+    }
+  ]
+}

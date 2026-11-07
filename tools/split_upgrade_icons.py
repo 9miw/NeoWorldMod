@@ -5,8 +5,8 @@ from PIL import Image
 
 ROOT = Path(__file__).resolve().parents[1]
 NAMES = (
-    'upgrade_stone', 'advanced_upgrade_stone', 'supreme_upgrade_stone',
-    'downgrade_protection_scroll', 'break_protection_scroll', 'upgrade_table',
+    'upgrade_stone', 'advanced_upgrade_stone', None,
+    None, None, 'upgrade_table',
 )
 
 
@@ -18,6 +18,8 @@ def main():
         width, height = source.width // 3, source.height // 2
         preview = Image.new('RGBA', (768, 512), (24, 28, 36, 255))
         for index, name in enumerate(NAMES):
+            if name is None:
+                continue  # Original atlas cell 3 is retired; preserve subsequent crop positions.
             x, y = index % 3, index // 3
             icon = source.crop((x * width, y * height, (x + 1) * width, (y + 1) * height))
             icon = icon.resize((64, 64), Image.Resampling.NEAREST)

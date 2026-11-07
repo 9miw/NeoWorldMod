@@ -1,0 +1,76 @@
+{
+  "providers": [
+    {
+      "type": "bitmap",
+      "file": "neoworld:font/pvp_titles/victory.png",
+      "ascent": 14,
+      "height": 18,
+      "chars": [
+        "\ue400"
+      ]
+    },
+    {
+      "type": "bitmap",
+      "file": "neoworld:font/pvp_titles/defeat.png",
+      "ascent": 14,
+      "height": 18,
+      "chars": [
+        "\ue401"
+      ]
+    },
+    {
+      "type": "bitmap",
+      "file": "neoworld:font/pvp_titles/5.png",
+      "ascent": 14,
+      "height": 18,
+      "chars": [
+        "\ue402"
+      ]
+    },
+    {
+      "type": "bitmap",
+      "file": "neoworld:font/pvp_titles/4.png",
+      "ascent": 14,
+      "height": 18,
+      "chars": [
+        "\ue403"
+      ]
+    },
+    {
+      "type": "bitmap",
+      "file": "neoworld:font/pvp_titles/3.png",
+      "ascent": 14,
+      "height": 18,
+      "chars": [
+        "\ue404"
+      ]
+    },
+    {
+      "type": "bitmap",
+      "file": "neoworld:font/pvp_titles/2.png",
+      "ascent": 14,
+      "height": 18,
+      "chars": [
+        "\ue405"
+      ]
+    },
+    {
+      "type": "bitmap",
+      "file": "neoworld:font/pvp_titles/1.png",
+      "ascent": 14,
+      "height": 18,
+      "chars": [
+        "\ue406"
+      ]
+    },
+    {
+      "type": "bitmap",
+      "file": "neoworld:font/pvp_titles/fight.png",
+      "ascent": 14,
+      "height": 18,
+      "chars": [
+        "\ue407"
+      ]
+    }
+  ]
+}

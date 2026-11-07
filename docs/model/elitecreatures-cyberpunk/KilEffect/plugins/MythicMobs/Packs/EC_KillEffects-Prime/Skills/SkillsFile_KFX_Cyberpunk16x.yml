@@ -1,0 +1,184 @@
+# Current pack : Cyberpunk
+# SFX pack : ec_killeffects_sfx_cyberpunk
+# KFX name : BurstingCore / Bursting-Core / bursting_core
+
+KFX_Prime-Cyberpunk-ScrollBind:
+  Cooldown: 2
+  Conditions:
+  - hasaura KFX_Prime-Cyberpunk-ScrollBind-WarnStacking orElsecast KFX_Prime-Cyberpunk-ScrollBind-WarnStacking
+  - stringequals{val1="<caster.item.offhand.nbt.MYTHIC_TYPE>";val2="UNDEFINED"} orElsecast KFX_Prime-Cyberpunk-ScrollBind-AlreadyMythicItem
+  Skills:
+  - command{c="item modify entity <caster.name> weapon.offhand minecraft<&co>setcount_a1"} @self
+
+  - setItemNBT{slot=OFFHAND;key=MYTHIC_TYPE;value=KillEffect_Prime-Cyberpunk-Main} @self
+  
+  - message{m="&8&n_________________________________________"}
+  - message{m="&3"}
+  - message{m="&dKill-Effect Legacy &eBound to the offhand-weapon"} @self
+  - setItemNBT{slot=OFFHAND;key=KillEffect;value=Enable} @self
+  - setNoDamageTicks{ticks=2} @self
+  - setNoDamageTicks{ticks=2} @EIR{r=3}
+  - sound{s=minecraft:ui.toast.challenge_complete;p=2;v=1;audience=CASTER} @self
+  - effect:firework{t=BALL_LARGE;d=0;f=true;tr=true} @selflocation{y=1}
+  ### KFX LIST
+  - setItemNBT{slot=OFFHAND;key=KillEffect-Type;value=BurstingCore} @self ?holding{m=KillEffect_Prime-Cyberpunk-Scroll-BurstingCore}
+  
+  - message{m="&ewith &bBursting-Core"} ?stringequals{val1="<caster.item.offhand.nbt.KillEffect-Type>";val2="BurstingCore"}
+  
+  - message{m="&8&n_________________________________________"}
+  - consumehelditem
+
+KFX_Prime-Cyberpunk-ScrollBind-WarnStacking:
+  Skills:
+  - sendtitle{title="&c&lWARNING";subtitle="&eOff-hands &CMUST NOT&e be stacking";d=50} @self
+  - sound{s=minecraft:entity.villager.no;p=1;v=1;audience=CASTER} @self
+  - message{m="&8&n_________________________________________"}
+  - message{m="&8"}
+  - message{m="&4» &4&l&nWARNING"} @self
+  - message{m="&4» &eOff-hand item &c&lMUST NOT&r&e be stacking"} @self
+  - message{m="&4» &eor else, &c&lYOU WILL LOSE THEM ALL."} @self
+  - message{m="&e» &bShift+Left &7to confirm ."} @self
+  - message{m="&8&n_________________________________________"} @self
+  - Aura{auraname=KFX_Prime-Cyberpunk-ScrollBind-WarnStacking;d=50} @self
+
+KFX_Prime-Cyberpunk-ScrollBind-AlreadyMythicItem:
+  Cooldown: 2
+  Conditions:
+  - stringequals{val1="<caster.item.offhand.nbt.KillEffect>";val2="Enable"} castinstead KFX_Prime-Cyberpunk-ScrollBind-AlreadyBoundItem
+  - stringequals{val1="<caster.item.offhand.nbt.KFX-Mergeable>";val2="True"} castinstead KFX_Prime-Cyberpunk-ScrollBind-MythicMerge
+  Skills:
+  - sound{s=minecraft:entity.villager.no;p=1;v=1;audience=CASTER} @self
+  - message{m="&c❎ This item was already an Mythic Item!"}
+  - message{m="&c» Call staffs for help"}
+
+KFX_Prime-Cyberpunk-ScrollBind-AlreadyBoundItem:
+  Cooldown: 2
+  Skills:
+  - sound{s=minecraft:entity.villager.no;p=1;v=1;audience=CASTER} @self
+  - message{m="&c❎ This item was already bound"}
+  - message{m="&c» use &eUnbinding Scroll&c to unbind the effect"}
+
+KFX_Prime-Cyberpunk-ScrollBind-MythicMerge:
+  Skills:
+  - message{m="&8&n_________________________________________"}
+  - message{m="&3"}
+  - message{m="&dKill-Effect Legacy &eBound to the offhand-weapon"} @self
+  - setItemNBT{slot=OFFHAND;key=KillEffect;value=Enable} @self
+  - setNoDamageTicks{ticks=2} @self
+  - sound{s=minecraft:ui.toast.challenge_complete;p=2;v=1;audience=CASTER} @self
+  - effect:firework{t=BALL_LARGE;d=0;f=true;tr=true} @selflocation{y=1}
+  ### KFX LIST
+  - setItemNBT{slot=OFFHAND;key=KillEffect-Type;value=BurstingCore} @self ?holding{m=KillEffect_Prime-Cyberpunk-Scroll-BurstingCore}
+
+  - message{m="&ewith &bBursting-Core"} ?stringequals{val1="<caster.item.offhand.nbt.KillEffect-Type>";val2="BurstingCore"}
+  - message{m="&8&n_________________________________________"}
+  - consumehelditem
+
+KFX_Prime-Cyberpunk-Priority:
+  Conditions:
+  - stringequals{val1="<caster.item.hand.nbt.KillEffect>";val2="Enable"} castinstead KFX_Prime-Cyberpunk-Cast-MainHand
+  - stringequals{val1="<caster.item.offhand.nbt.KillEffect>";val2="Enable"} castinstead KFX_Prime-Cyberpunk-Cast-OffHand
+  Skills:
+
+KFX_Prime-Cyberpunk-Cast-MainHand:
+  Skills:
+  - skill{s=KFX_Prime-Cyberpunk-BurstingCore-Cast-MainHand} 
+
+KFX_Prime-Cyberpunk-Cast-OffHand:
+  Skills:
+  - skill{s=KFX_Prime-Cyberpunk-BurstingCore-Cast-OffHand} 
+
+########## Cast Main-Hand
+##########
+
+KFX_Prime-Cyberpunk-BurstingCore-Cast-MainHand:
+  Conditions:
+  - stringequals{val1="<caster.item.hand.nbt.KillEffect-Type>";val2="BurstingCore"} true
+  Skills:
+  - sound{s=ec_killeffects_sfx_cyberpunk:kill_fx.bursting_core;v=3}
+  - sudoskill{s=[- summon{sio=true;m=KFX_Prime-Cyberpunk-BurstingCore} @self]}
+  
+########## Cast Off-Hand
+##########
+
+KFX_Prime-Cyberpunk-BurstingCore-Cast-OffHand:
+  Conditions:
+  - stringequals{val1="<caster.item.offhand.nbt.KillEffect-Type>";val2="BurstingCore"} true
+  Skills:
+  - sound{s=ec_killeffects_sfx_cyberpunk:kill_fx.bursting_core;v=3}
+  - sudoskill{s=[- summon{sio=true;m=KFX_Prime-Cyberpunk-BurstingCore} @self]}
+  
+############################
+
+
+KFX_Prime-Cyberpunk-UnbindingScroll:
+  Cooldown: 1
+  Conditions:
+  - stringequals{val1="<caster.item.offhand.nbt.KFX-Mergeable>";val2="True"} castinstead KFX_Prime-Cyberpunk-UnbindingScroll-MythicItems
+  - stringequals{val1="<caster.item.offhand.nbt.KillEffect>";val2="Enable"} orElsecast KFX_Prime-Cyberpunk-UnbindingScroll-NotBoundItem
+  - hasaura{auraname=UnbindingScrollConfirm} castinstead KFX_Prime-Cyberpunk-UnbindingScroll-Confirmed
+  Skills:
+  - Aura{auraName=UnbindingScrollConfirm;d=60} @self ?!hasaura{auraname=UnbindingScrollConfirm}
+  - sound{s=minecraft:entity.experience_orb.pickup;audience=Caster} @self
+  - message{m="&8&n_________________________________________"}
+  - message{m="&3"}
+  - message{m="&7Are you sure you want to &cunbind&7 the &dkill-effect&7?"} 
+ 
+  - message{m="&ethe item bound with &b<caster.item.offhand.nbt.KillEffect-Type>"}
+
+  - message{m="&bRIGHT-CLICK &7to confirm the &d&nunbinding process"}
+  - message{m="&8&n_________________________________________"}
+
+KFX_Prime-Cyberpunk-UnbindingScroll-Confirmed:
+  Skills:
+  - setItemNBT{slot=OFFHAND;key=MYTHIC_TYPE;value=UNDEFINED} @self
+  - setItemNBT{slot=OFFHAND;key=KillEffect-Type;value=UNDEFINED} @self
+  - setItemNBT{slot=OFFHAND;key=KillEffect;value=UNDEFINED} @self
+  - sound{s=minecraft:block.glass.break;p=0.5;audience=Caster} @self
+  - consumehelditem 
+
+KFX_Prime-Cyberpunk-UnbindingScroll-NotBoundItem:
+  Skills:
+  - message{m="&cThis item wasn't bound with any effects ❎"}
+
+
+KFX_Prime-Cyberpunk-UnbindingScroll-MythicItems:
+  Cooldown: 1
+  Conditions:
+  - hasaura{auraname=UnbindingScrollConfirm} castinstead KFX_Prime-Cyberpunk-UnbindingScroll-Confirmed-MythicItems
+  Skills:
+  - Aura{auraName=UnbindingScrollConfirm;d=60} @self ?!hasaura{auraname=UnbindingScrollConfirm}
+  - sound{s=minecraft:entity.experience_orb.pickup;audience=Caster} @self
+  - message{m="&8&n_________________________________________"}
+  - message{m="&3"}
+  - message{m="&7Are you sure you want to &cunbind&7 the &dkill-effect&7?"} 
+
+  - message{m="&ethe item bound with &b<caster.item.offhand.nbt.KillEffect-Type>"}
+  
+  - message{m="&bRIGHT-CLICK &7to confirm the &d&nunbinding process"}
+  - message{m="&8&n_________________________________________"}
+
+KFX_Prime-Cyberpunk-UnbindingScroll-Confirmed-MythicItems:
+  Skills:
+  - setItemNBT{slot=OFFHAND;key=KillEffect-Type;value=UNDEFINED} @self
+  - setItemNBT{slot=OFFHAND;key=KillEffect;value=UNDEFINED} @self
+  - sound{s=minecraft:block.glass.break;p=0.5;audience=Caster} @self
+  - consumehelditem 
+
+############
+
+
+KFX_Prime-Cyberpunk-SkinInherit:
+  Skills:
+  - setvariable{var=caster.dead_username;value="<target.uuid>";type=STRING} @Owner
+  - modelplayerskin{uuid=<caster.var.dead_username>;sync=true} @self ?!stringequals{val1="<caster.var.dead_username>";val2="UNDEFINED"}
+  
+  
+# TEST, Can delete lol just to remind u how cool the effects are!
+# GodDamage_AURA:
+#   Skills:
+#   - aura{auraname=GODddd;d=9999;i=1;oT=GodDamage} @self
+
+# GodDamage:
+#   Skills:
+#   - onDamaged{auraname=GOD;damageMultiplier=1000;damageAdd=999;d=99999} @PIR{r=15}

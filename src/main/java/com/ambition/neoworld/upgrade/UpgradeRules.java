@@ -2,7 +2,12 @@ package com.ambition.neoworld.upgrade;
 
 /** Pure outcome rules, independent of Minecraft and inventory mutation. */
 public final class UpgradeRules {
-    public enum Protection { NONE, DOWNGRADE, BREAK }
+    public enum Protection { NONE, FULL }
+    public static final int BOOSTER_BONUS = 10;
+    public static int combinedBonus(int failureBonus, boolean booster) {
+        if (failureBonus < 0 || failureBonus > 100) throw new IllegalArgumentException("Invalid failure bonus");
+        return Math.min(100, failureBonus + (booster ? BOOSTER_BONUS : 0));
+    }
     public enum Outcome { SUCCESS, UNCHANGED, DOWNGRADE, RESET }
     public record Result(Outcome rolled, Outcome applied, int level, int failures) {}
 
@@ -28,8 +33,8 @@ public final class UpgradeRules {
         reset -= remaining;
         Outcome rolled = roll < success ? Outcome.SUCCESS : roll < success + unchanged ? Outcome.UNCHANGED
                 : roll < success + unchanged + downgrade ? Outcome.DOWNGRADE : Outcome.RESET;
-        Outcome applied = rolled == Outcome.DOWNGRADE && protection == Protection.DOWNGRADE ? Outcome.UNCHANGED
-                : rolled == Outcome.RESET && protection == Protection.BREAK ? Outcome.DOWNGRADE : rolled;
+        Outcome applied = protection == Protection.FULL && (rolled == Outcome.DOWNGRADE || rolled == Outcome.RESET)
+                ? Outcome.UNCHANGED : rolled;
         int nextLevel = switch (applied) {
             case SUCCESS -> level + 1;
             case UNCHANGED -> level;

@@ -1,0 +1,29 @@
+{
+  "summaries": [
+    {
+      "id": "general",
+      "material": "stone_brick_stairs",
+      "trimBlocks": 77,
+      "apronBlocks": 3,
+      "interiorFloorY": 103
+    },
+    {
+      "id": "food-materials",
+      "material": "stone_brick_stairs",
+      "trimBlocks": 36,
+      "apronBlocks": 3,
+      "interiorFloorY": 103
+    },
+    {
+      "id": "supplies",
+      "material": "stone_brick_stairs",
+      "trimBlocks": 40,
+      "apronBlocks": 3,
+      "interiorFloorY": 103
+    }
+  ],
+  "changedBlocks": 162,
+  "changedChunks": 14,
+  "reachableHalfCells": 18012,
+  "backup": "archive\\map-edit-backups\\before-market-foundation-trim\\starter_sky_land_spawn_v1"
+}

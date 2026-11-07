@@ -33,6 +33,7 @@ import com.ambition.neoworld.network.fashion.OpenFashionPayload;
 import com.ambition.neoworld.network.dungeon.OpenDungeonBrowserPayload;
 import com.ambition.neoworld.network.hub.OpenMainHubPayload;
 import com.ambition.neoworld.network.market.OpenMarketPayload;
+import com.ambition.neoworld.network.market.OpenMarketManagementPayload;
 import com.ambition.neoworld.network.party.OpenPartyPayload;
 import com.ambition.neoworld.network.party.PartyActionPayload;
 import com.ambition.neoworld.network.party.PartyNetworkHandler;
@@ -43,13 +44,75 @@ import net.neoforged.neoforge.network.registration.PayloadRegistrar;
 
 // คลาสลงทะเบียน Network Payloads สำหรับ NeoForge 1.21.1
 public final class ModPayloads {
-    public static final String PROTOCOL_VERSION = "13";
+    public static final String PROTOCOL_VERSION = "45";
 
     private ModPayloads() {
     }
 
     public static void register(final RegisterPayloadHandlersEvent event) {
         final PayloadRegistrar registrar = event.registrar(PROTOCOL_VERSION);
+        registrar.playToServer(com.ambition.neoworld.network.lootbox.LootBoxAutoRequestPayload.TYPE,
+                com.ambition.neoworld.network.lootbox.LootBoxAutoRequestPayload.STREAM_CODEC,
+                (payload, context) -> context.enqueueWork(() -> {
+                    if (context.player() instanceof net.minecraft.server.level.ServerPlayer player)
+                        com.ambition.neoworld.lootbox.LootBoxAutoService.request(player, payload);
+                }));
+        registrar.playToClient(com.ambition.neoworld.network.lootbox.LootBoxAutoStatePayload.TYPE,
+                com.ambition.neoworld.network.lootbox.LootBoxAutoStatePayload.STREAM_CODEC,
+                (payload, context) -> context.enqueueWork(() ->
+                        com.ambition.neoworld.client.gui.lootbox.LootBoxOpeningScreen.autoState(payload.remaining())));
+        registrar.playToClient(com.ambition.neoworld.network.lootbox.LootBoxOpenedPayload.TYPE,
+                com.ambition.neoworld.network.lootbox.LootBoxOpenedPayload.STREAM_CODEC,
+                (payload, context) -> context.enqueueWork(() ->
+                        com.ambition.neoworld.client.gui.lootbox.LootBoxOpeningScreen.open(payload)));
+        registrar.playToClient(com.ambition.neoworld.network.killer.KillerStatePayload.TYPE,
+                com.ambition.neoworld.network.killer.KillerStatePayload.STREAM_CODEC,
+                (payload, context) -> context.enqueueWork(() ->
+                        com.ambition.neoworld.client.state.ClientKillerData.update(payload.playerId(), payload.sin())));
+        registrar.playToClient(com.ambition.neoworld.network.ranking.OpenRankingPayload.TYPE,
+                com.ambition.neoworld.network.ranking.OpenRankingPayload.STREAM_CODEC,
+                (payload, context) -> context.enqueueWork(() -> com.ambition.neoworld.client.gui.ranking.RankingScreen.open()));
+        registrar.playToClient(com.ambition.neoworld.network.ranking.RankingDataPayload.TYPE,
+                com.ambition.neoworld.network.ranking.RankingDataPayload.STREAM_CODEC,
+                (payload, context) -> context.enqueueWork(() -> com.ambition.neoworld.client.gui.ranking.RankingScreen.receive(payload)));
+        registrar.playToServer(com.ambition.neoworld.network.ranking.RankingRequestPayload.TYPE,
+                com.ambition.neoworld.network.ranking.RankingRequestPayload.STREAM_CODEC,
+                (payload, context) -> context.enqueueWork(() -> {
+                    if(context.player() instanceof net.minecraft.server.level.ServerPlayer player)
+                        com.ambition.neoworld.ranking.RankingService.handle(player,payload);
+                }));
+        registrar.playToClient(com.ambition.neoworld.network.navigation.NavigationGraphPayload.TYPE,
+                com.ambition.neoworld.network.navigation.NavigationGraphPayload.STREAM_CODEC,
+                (payload, context) -> context.enqueueWork(() ->
+                        com.ambition.neoworld.client.navigation.ClientNavigationController.receiveGraph(payload)));
+        registrar.playToClient(com.ambition.neoworld.network.navigation.NavigationTargetPayload.TYPE,
+                com.ambition.neoworld.network.navigation.NavigationTargetPayload.STREAM_CODEC,
+                (payload, context) -> context.enqueueWork(() ->
+                        com.ambition.neoworld.client.navigation.ClientNavigationController.receiveTarget(payload)));
+        registrar.playToServer(com.ambition.neoworld.network.navigation.NavigationGraphRequestPayload.TYPE,
+                com.ambition.neoworld.network.navigation.NavigationGraphRequestPayload.STREAM_CODEC,
+                (payload, context) -> context.enqueueWork(() -> {
+                    if(context.player() instanceof net.minecraft.server.level.ServerPlayer player)
+                        com.ambition.neoworld.navigation.NavigationGraphSync.request(player);
+                }));
+        registrar.playToClient(com.ambition.neoworld.network.dungeon.DungeonLoadingPayload.TYPE,
+                com.ambition.neoworld.network.dungeon.DungeonLoadingPayload.STREAM_CODEC,
+                (payload, context) -> context.enqueueWork(() ->
+                        com.ambition.neoworld.client.gui.dungeon.DungeonLoadingScreen.receive(payload)));
+        registrar.playToClient(com.ambition.neoworld.network.pvp.PvpInvitationPayload.TYPE,
+                com.ambition.neoworld.network.pvp.PvpInvitationPayload.STREAM_CODEC,
+                (payload,context) -> context.enqueueWork(() -> com.ambition.neoworld.client.gui.pvp.PvpScreenController.invitation(payload)));
+        registrar.playToClient(com.ambition.neoworld.network.dungeon.DungeonHudPayload.TYPE,
+                com.ambition.neoworld.network.dungeon.DungeonHudPayload.STREAM_CODEC,
+                (payload, context) -> context.enqueueWork(() ->
+                        com.ambition.neoworld.client.state.ClientDungeonHudData.update(payload)));
+        registrar.playToServer(com.ambition.neoworld.network.upgrade.UpgradeSubmitPayload.TYPE,
+                com.ambition.neoworld.network.upgrade.UpgradeSubmitPayload.STREAM_CODEC,
+                (payload, context) -> context.enqueueWork(() -> {
+                    if (context.player() instanceof net.minecraft.server.level.ServerPlayer player
+                            && player.containerMenu instanceof com.ambition.neoworld.upgrade.UpgradeMenu menu
+                            && menu.containerId == payload.containerId()) menu.submit(player, payload.session(), payload.revision());
+                }));
         registrar.playToClient(com.ambition.neoworld.network.activity.OpenActivityPayload.TYPE,
                 com.ambition.neoworld.network.activity.OpenActivityPayload.STREAM_CODEC,
                 (payload, context) -> context.enqueueWork(() -> com.ambition.neoworld.client.gui.activity.ActivityScreen.open()));
@@ -61,6 +124,15 @@ public final class ModPayloads {
                 (payload, context) -> context.enqueueWork(() -> {
                     if (context.player() instanceof net.minecraft.server.level.ServerPlayer player)
                         com.ambition.neoworld.activity.ActivityService.handle(player, payload);
+                }));
+        registrar.playToClient(com.ambition.neoworld.network.pvp.PvpArenaLoadPayload.TYPE,
+                com.ambition.neoworld.network.pvp.PvpArenaLoadPayload.STREAM_CODEC,
+                (payload,context) -> context.enqueueWork(() -> com.ambition.neoworld.client.state.ClientPvpArenaLoading.receive(payload)));
+        registrar.playToServer(com.ambition.neoworld.network.pvp.PvpArenaReadyPayload.TYPE,
+                com.ambition.neoworld.network.pvp.PvpArenaReadyPayload.STREAM_CODEC,
+                (payload,context) -> context.enqueueWork(() -> {
+                    if(context.player() instanceof net.minecraft.server.level.ServerPlayer player)
+                        com.ambition.neoworld.pvp.room.PvpRoomManager.get(player.getServer()).arenaReady(player,payload.token());
                 }));
         registrar.playToClient(com.ambition.neoworld.network.pvp.PvpMatchOfferPayload.TYPE,
                 com.ambition.neoworld.network.pvp.PvpMatchOfferPayload.STREAM_CODEC,
@@ -177,12 +249,12 @@ public final class ModPayloads {
                         ClientLevelData.onLevelUpCelebration(payload.newLevel()))
         );
 
-        // ซิงค์ข้อมูลยอดเงินระบบ Economy (Silver, Gold, Diamond) จาก Server ไป Client
+        // ซิงค์ข้อมูลยอดเงินระบบ Economy (Silver, Diamond) จาก Server ไป Client
         registrar.playToClient(
                 SyncEconomyPayload.TYPE,
                 SyncEconomyPayload.STREAM_CODEC,
                 (payload, context) -> context.enqueueWork(() ->
-                        ClientEconomyData.update(payload.silver(), payload.gold(), payload.diamond()))
+                        ClientEconomyData.update(payload.silver(), payload.diamond()))
         );
 
         registrar.playToClient(
@@ -195,45 +267,66 @@ public final class ModPayloads {
         );
 
         registrar.playToClient(OpenMarketPayload.TYPE, OpenMarketPayload.STREAM_CODEC,
-                (payload, context) -> MarketScreenController.open());
+                (payload, context) -> context.enqueueWork(MarketScreenController::open));
+        registrar.playToClient(OpenMarketManagementPayload.TYPE, OpenMarketManagementPayload.STREAM_CODEC,
+                (payload, context) -> context.enqueueWork(MarketScreenController::openManagement));
         registrar.playToClient(OpenDungeonBrowserPayload.TYPE, OpenDungeonBrowserPayload.STREAM_CODEC,
-                (payload, context) -> DungeonBrowserScreenController.open());
+                (payload, context) -> context.enqueueWork(DungeonBrowserScreenController::open));
+        registrar.playToServer(com.ambition.neoworld.network.dungeon.DungeonBrowserQueryPayload.TYPE,
+                com.ambition.neoworld.network.dungeon.DungeonBrowserQueryPayload.STREAM_CODEC,
+                (payload, context) -> context.enqueueWork(() -> {
+                    if (context.player() instanceof net.minecraft.server.level.ServerPlayer player) {
+                        boolean allowed = com.ambition.neoworld.permission.ModPermissions.hasPermission(
+                                player.createCommandSourceStack(),
+                                com.ambition.neoworld.permission.ModPermissions.COMMAND_DUNGEON_USE, 0);
+                        if (allowed && com.ambition.neoworld.dungeon.room.DungeonRoomManager.get(player.getServer())
+                                .findForPlayer(player.getUUID()).isPresent()) {
+                            com.ambition.neoworld.network.dungeon.DungeonRoomNetworkHandler.send(player, true);
+                            return;
+                        }
+                        net.neoforged.neoforge.network.PacketDistributor.sendToPlayer(player, allowed
+                                ? DungeonBrowserDataPayload.fromDefinitions(player.getServer(),
+                                        com.ambition.neoworld.dungeon.definition.DungeonDefinitionData
+                                                .get(player.getServer()).all())
+                                : new DungeonBrowserDataPayload(java.util.List.of()));
+                    }
+                }));
         registrar.playToClient(DungeonBrowserDataPayload.TYPE, DungeonBrowserDataPayload.STREAM_CODEC,
-                (payload, context) -> DungeonBrowserScreenController.receiveData(payload));
+                (payload, context) -> context.enqueueWork(() -> DungeonBrowserScreenController.receiveData(payload)));
         registrar.playToClient(OpenMainHubPayload.TYPE, OpenMainHubPayload.STREAM_CODEC,
-                (payload, context) -> MainHubScreenController.open());
+                (payload, context) -> context.enqueueWork(MainHubScreenController::open));
         registrar.playToClient(OpenFashionPayload.TYPE, OpenFashionPayload.STREAM_CODEC,
-                (payload, context) -> FashionScreenController.open());
+                (payload, context) -> context.enqueueWork(FashionScreenController::open));
         registrar.playToClient(OpenPartyPayload.TYPE, OpenPartyPayload.STREAM_CODEC,
-                (payload, context) -> PartyScreenController.open());
+                (payload, context) -> context.enqueueWork(PartyScreenController::open));
         registrar.playToClient(FashionActionResultPayload.TYPE, FashionActionResultPayload.STREAM_CODEC,
-                (payload, context) -> FashionScreenController.receiveAction(payload));
+                (payload, context) -> context.enqueueWork(() -> FashionScreenController.receiveAction(payload)));
         registrar.playToClient(MarketPagePayload.TYPE, MarketPagePayload.STREAM_CODEC,
-                (payload, context) -> MarketScreenController.receivePage(payload));
+                (payload, context) -> context.enqueueWork(() -> MarketScreenController.receivePage(payload)));
         registrar.playToClient(MarketActionResultPayload.TYPE, MarketActionResultPayload.STREAM_CODEC,
-                (payload, context) -> MarketScreenController.receiveAction(payload));
+                (payload, context) -> context.enqueueWork(() -> MarketScreenController.receiveAction(payload)));
         registrar.playToClient(MarketManagementPagePayload.TYPE, MarketManagementPagePayload.STREAM_CODEC,
-                (payload, context) -> MarketScreenController.receiveManagementPage(payload));
+                (payload, context) -> context.enqueueWork(() -> MarketScreenController.receiveManagementPage(payload)));
         registrar.playToClient(PartyStatePayload.TYPE, PartyStatePayload.STREAM_CODEC,
                 (payload, context) -> context.enqueueWork(() -> PartyScreenController.receiveState(payload)));
         registrar.playToServer(MarketQueryPayload.TYPE, MarketQueryPayload.STREAM_CODEC,
                 MarketNetworkHandler::handleQuery);
         registrar.playToServer(MarketBuyPayload.TYPE, MarketBuyPayload.STREAM_CODEC,
-                MarketNetworkHandler::handleBuy);
+                (payload, context) -> context.enqueueWork(() -> MarketNetworkHandler.handleBuy(payload, context)));
         registrar.playToServer(MarketManagementQueryPayload.TYPE, MarketManagementQueryPayload.STREAM_CODEC,
                 MarketNetworkHandler::handleManagementQuery);
         registrar.playToServer(MarketManagementActionPayload.TYPE, MarketManagementActionPayload.STREAM_CODEC,
-                MarketNetworkHandler::handleManagementAction);
+                (payload, context) -> context.enqueueWork(() -> MarketNetworkHandler.handleManagementAction(payload, context)));
         registrar.playToServer(MarketSellOpenPayload.TYPE, MarketSellOpenPayload.STREAM_CODEC,
-                MarketNetworkHandler::handleSellOpen);
+                (payload, context) -> context.enqueueWork(() -> MarketNetworkHandler.handleSellOpen(payload, context)));
         registrar.playToServer(MarketSellSubmitPayload.TYPE, MarketSellSubmitPayload.STREAM_CODEC,
-                MarketNetworkHandler::handleSellSubmit);
+                (payload, context) -> context.enqueueWork(() -> MarketNetworkHandler.handleSellSubmit(payload, context)));
         registrar.playToServer(FashionEquipPayload.TYPE, FashionEquipPayload.STREAM_CODEC,
-                FashionNetworkHandler::handleEquip);
+                (payload, context) -> context.enqueueWork(() -> FashionNetworkHandler.handleEquip(payload, context)));
         registrar.playToServer(FashionClearPayload.TYPE, FashionClearPayload.STREAM_CODEC,
-                FashionNetworkHandler::handleClear);
+                (payload, context) -> context.enqueueWork(() -> FashionNetworkHandler.handleClear(payload, context)));
         registrar.playToServer(PartyActionPayload.TYPE, PartyActionPayload.STREAM_CODEC,
-                PartyNetworkHandler::handleAction);
+                (payload, context) -> context.enqueueWork(() -> PartyNetworkHandler.handleAction(payload, context)));
 
     }
 

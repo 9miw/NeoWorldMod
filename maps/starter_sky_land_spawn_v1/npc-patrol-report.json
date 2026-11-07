@@ -1,0 +1,361 @@
+{
+  "backup": "/home/miw/backups/neoworld-patrol-guards-20261025-055853",
+  "routes": [
+    {
+      "name": "ทหารรักษาลานเกิด",
+      "area": "ลานเกิด",
+      "points": [
+        [
+          156,
+          97,
+          302
+        ],
+        [
+          164,
+          97,
+          302
+        ],
+        [
+          164,
+          97,
+          314
+        ],
+        [
+          156,
+          97,
+          314
+        ]
+      ],
+      "uuid": "ae22e003-9201-4412-bd0a-9b296713556e",
+      "actualPath": [
+        [
+          156,
+          98,
+          302
+        ],
+        [
+          164,
+          97,
+          303
+        ],
+        [
+          164,
+          97,
+          314
+        ],
+        [
+          156,
+          97,
+          314
+        ]
+      ],
+      "movementSample1": {
+        "pos": [
+          156.5,
+          98.0,
+          302.5
+        ],
+        "pathIndex": 0
+      },
+      "movementSample2": {
+        "pos": [
+          160.48530148006367,
+          98.0,
+          313.95484667069525
+        ],
+        "pathIndex": 3
+      }
+    },
+    {
+      "name": "ทหารรักษาตลาด",
+      "area": "ตลาด",
+      "points": [
+        [
+          109,
+          103,
+          219
+        ],
+        [
+          113,
+          103,
+          219
+        ],
+        [
+          113,
+          103,
+          234
+        ],
+        [
+          109,
+          103,
+          234
+        ]
+      ],
+      "uuid": "32ad453a-6ffd-489d-bc52-f043a5929e76",
+      "actualPath": [
+        [
+          109,
+          104,
+          219
+        ],
+        [
+          113,
+          103,
+          219
+        ],
+        [
+          113,
+          103,
+          234
+        ],
+        [
+          109,
+          103,
+          234
+        ]
+      ],
+      "movementSample1": {
+        "pos": [
+          109.5,
+          104.0,
+          219.5
+        ],
+        "pathIndex": 0
+      },
+      "movementSample2": {
+        "pos": [
+          113.45249338027322,
+          104.0,
+          233.19677147810165
+        ],
+        "pathIndex": 2
+      }
+    },
+    {
+      "name": "ทหารรักษาโถงนักผจญภัย",
+      "area": "โถงนักผจญภัย",
+      "points": [
+        [
+          233,
+          110,
+          190
+        ],
+        [
+          255,
+          110,
+          190
+        ],
+        [
+          255,
+          110,
+          198
+        ],
+        [
+          233,
+          110,
+          198
+        ]
+      ],
+      "uuid": "231dd439-dfe2-4f94-af8c-6cc740b2ec94",
+      "actualPath": [
+        [
+          233,
+          111,
+          190
+        ],
+        [
+          255,
+          110,
+          190
+        ],
+        [
+          255,
+          110,
+          198
+        ],
+        [
+          233,
+          110,
+          198
+        ]
+      ],
+      "movementSample1": {
+        "pos": [
+          233.5,
+          111.0,
+          190.5
+        ],
+        "pathIndex": 0
+      },
+      "movementSample2": {
+        "pos": [
+          236.2190487997376,
+          111.0,
+          191.72325068159643
+        ],
+        "pathIndex": 1
+      }
+    },
+    {
+      "name": "ทหารรักษาปราสาท",
+      "area": "ลานหน้าปราสาท",
+      "points": [
+        [
+          153,
+          112,
+          85
+        ],
+        [
+          167,
+          112,
+          85
+        ],
+        [
+          167,
+          112,
+          102
+        ],
+        [
+          153,
+          112,
+          102
+        ]
+      ],
+      "uuid": "7f0866af-67a4-49aa-8f05-879eb094dd4a",
+      "actualPath": [
+        [
+          153,
+          113,
+          85
+        ],
+        [
+          167,
+          112,
+          85
+        ],
+        [
+          167,
+          112,
+          102
+        ],
+        [
+          153,
+          112,
+          102
+        ]
+      ],
+      "movementSample1": {
+        "pos": [
+          153.5,
+          113.0,
+          85.5
+        ],
+        "pathIndex": 0
+      },
+      "movementSample2": {
+        "pos": [
+          162.2280616692871,
+          113.0,
+          101.71639462099525
+        ],
+        "pathIndex": 3
+      }
+    }
+  ],
+  "forcedChunksAdded": [
+    [
+      144,
+      288
+    ],
+    [
+      160,
+      288
+    ],
+    [
+      160,
+      304
+    ],
+    [
+      144,
+      304
+    ],
+    [
+      96,
+      208
+    ],
+    [
+      112,
+      208
+    ],
+    [
+      112,
+      224
+    ],
+    [
+      96,
+      224
+    ],
+    [
+      224,
+      176
+    ],
+    [
+      240,
+      176
+    ],
+    [
+      240,
+      192
+    ],
+    [
+      224,
+      192
+    ],
+    [
+      144,
+      80
+    ],
+    [
+      160,
+      80
+    ],
+    [
+      160,
+      96
+    ],
+    [
+      144,
+      96
+    ]
+  ],
+  "waypointEntry": "NPC Pather in-game, each NPC selected and 3 ground points clicked; initial home point supplied by tool",
+  "inGameVerified": true,
+  "playerBeforeTesting": {
+    "pos": "data get entity Owner Pos\r\r\n\u001b>\u001b=> \r[05:59:42 INFO]: Owner has the following entity data: [101.09846323673494d, 113.11339756775094d, 149.6416307714464d]\r\n> ",
+    "rotation": "data get entity Owner Rotation\r\r\n\u001b>\u001b=> \r[05:59:44 INFO]: Owner has the following entity data: [23.460724f, 7.0499926f]\r\n> "
+  },
+  "nativeMovement": {
+    "MovingState": 2,
+    "MovingPatern": 0,
+    "MovingPause": 1,
+    "MoveSpeed": 4,
+    "minDelay": 40,
+    "maxDelay": 80
+  },
+  "waypointEntryVerified": true,
+  "verification": {
+    "totalNPCs": 30,
+    "existing26Preserved": true,
+    "fourNewGuardsUnique": true,
+    "nativePathFourPointsEach": true,
+    "allFourMovedFromOrigins": true,
+    "equipmentVerified": true,
+    "playerAttackResponse": "Do Nothing (OnAttack=3)",
+    "blocksChanged": false,
+    "projectCodeChanged": false
+  },
+  "inGameMethod": "NPC Pather UI registration and waypoint clicks; screenshots of equipped guards; live server position and MovingPos checks for all four while player nearby",
+  "controlsRestored": true,
+  "temporaryForcedChunksRemoved": true,
+  "playerPositionRestored": true
+}

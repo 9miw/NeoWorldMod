@@ -1,0 +1,11 @@
+const fs=require('node:fs'),path=require('node:path'),assert=require('node:assert/strict'),{createLibrary}=require('./viewer/map-library.cjs');
+const root=path.resolve(__dirname,'../..'),dir=path.join(root,'maps/leveling_island_01'),r=JSON.parse(fs.readFileSync(path.join(dir,'village-buildings.json'))),m=createLibrary(path.join(root,'maps')).load('leveling_island_01'),b=Buffer.from(m.blocks,'base64'),S=m.size;
+const get=(x,y,z)=>m.definitions[b.readUInt16LE(((y-m.low)*S*S+z*S+x)*2)];assert.equal(r.buildings.length,6);
+const results=[];for(const h of r.buildings){const [x1,z1,x2,z2]=(h.worldBounds||h.bounds),y=h.feetY,can=(x,z)=>x>=x1&&x<=x2&&z>=z1&&z<=z2&&get(x,y,z).Name==='minecraft:air'&&get(x,y+1,z).Name==='minecraft:air'&&get(x,y-1,z).Name!=='minecraft:air';
+ const portals=h.portals||[{x:h.door[0],z:h.door[2],axis:'x',r:0}],start=portals[0],q=[[start.x,start.z]],seen=new Set([start.x+','+start.z]);assert(can(start.x,start.z),'Blocked primary door '+h.id);
+ for(let i=0;i<q.length;i++){const [x,z]=q[i];for(const [dx,dz]of [[1,0],[-1,0],[0,1],[0,-1]]){const xx=x+dx,zz=z+dz,k=xx+','+zz;if(!seen.has(k)&&can(xx,zz)){seen.add(k);q.push([xx,zz]);}}}
+ assert(seen.has(h.cx+','+h.cz),'Main room disconnected '+h.id);assert(seen.size>30,'Insufficient usable room '+h.id);
+ for(const p of portals)for(let t=-p.r;t<=p.r;t++)for(let yy=y;yy<=y+2;yy++)assert.equal(get(p.x+(p.axis==='x'?t:0),yy,p.z+(p.axis==='z'?t:0)).Name,'minecraft:air','Door width/headroom');
+ if(h.stories===2){for(let i=0;i<6;i++)for(let x=x1+2;x<=x1+3;x++){const z=z2-1-i,yy=h.floorY+1+i,d=get(x,yy,z);assert.equal(d.Name,'minecraft:spruce_stairs');assert.equal(d.Properties.facing,'north');for(let dy=1;dy<=3;dy++)assert.equal(get(x,yy+dy,z).Name,'minecraft:air','Inn stairwell blocked');}for(let x=x1+2;x<=x1+3;x++)assert.equal(get(x,h.upperFloorY||h.upperStair.floorY,z2-7).Name,'minecraft:spruce_planks');}
+ results.push({id:h.id,footprint:[h.w,h.d],door:h.face,reachableGroundFloorCells:seen.size,upperStairChecks:h.stories===2?'passed':undefined});}
+console.log(JSON.stringify({buildings:results,verification:'Saved blocks and flat-floor room traversal; actual player collisions and appearance need in-game testing.'},null,2));

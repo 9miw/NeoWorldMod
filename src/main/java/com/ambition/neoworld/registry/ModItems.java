@@ -11,6 +11,9 @@ import net.minecraft.world.item.ArmorItem;
 import net.minecraft.world.item.ArmorMaterials;
 import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.item.HoeItem;
+import net.minecraft.world.item.BowItem;
+import net.minecraft.world.item.CrossbowItem;
+import net.minecraft.world.item.FishingRodItem;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.PickaxeItem;
 import net.minecraft.world.item.ShieldItem;
@@ -29,12 +32,23 @@ public class ModItems {
     // Deferred Register สำหรับไอเทมที่อยู่ภายใต้ namespace "neoworld"
     public static final DeferredRegister.Items ITEMS = DeferredRegister.createItems(NeoWorld.MODID);
 
+    public static final DeferredItem<com.ambition.neoworld.item.LootBoxItem> LOOT_BOX = ITEMS.register("loot_box",
+            () -> new com.ambition.neoworld.item.LootBoxItem(new Item.Properties()));
+
     public static final DeferredItem<Item> UPGRADE_STONE = ITEMS.registerSimpleItem("upgrade_stone");
     public static final DeferredItem<Item> ADVANCED_UPGRADE_STONE = ITEMS.registerSimpleItem("advanced_upgrade_stone");
-    public static final DeferredItem<Item> SUPREME_UPGRADE_STONE = ITEMS.registerSimpleItem("supreme_upgrade_stone");
-    public static final DeferredItem<Item> DOWNGRADE_PROTECTION_SCROLL = ITEMS.registerSimpleItem("downgrade_protection_scroll");
-    public static final DeferredItem<Item> BREAK_PROTECTION_SCROLL = ITEMS.registerSimpleItem("break_protection_scroll");
+    public static final DeferredItem<Item> PROTECTION_SCROLL = ITEMS.registerSimpleItem("protection_scroll");
+    public static final DeferredItem<Item> SUCCESS_BOOSTER = ITEMS.registerSimpleItem("success_booster");
     public static final DeferredItem<BlockItem> UPGRADE_TABLE = ITEMS.registerSimpleBlockItem("upgrade_table", ModBlocks.UPGRADE_TABLE);
+
+    public static final DeferredItem<ArmorItem> DRAGON_HELMET = ITEMS.register("dragon_helmet",
+            () -> new com.ambition.neoworld.item.DragonArmorItem(ArmorItem.Type.HELMET, "helmet"));
+    public static final DeferredItem<ArmorItem> DRAGON_CHESTPLATE = ITEMS.register("dragon_chestplate",
+            () -> new com.ambition.neoworld.item.DragonArmorItem(ArmorItem.Type.CHESTPLATE, "chestplate"));
+    public static final DeferredItem<ArmorItem> DRAGON_LEGGINGS = ITEMS.register("dragon_leggings",
+            () -> new com.ambition.neoworld.item.DragonArmorItem(ArmorItem.Type.LEGGINGS, "leggings"));
+    public static final DeferredItem<ArmorItem> DRAGON_BOOTS = ITEMS.register("dragon_boots",
+            () -> new com.ambition.neoworld.item.DragonArmorItem(ArmorItem.Type.BOOTS, "boots"));
 
     // Duelist armor uses the exported Epic Fight meshes and Iron Duelist texture.
     public static final DeferredItem<ArmorItem> DUELIST_ARMOR_CHEST = ITEMS.register("duelist_armor_chest",
@@ -138,14 +152,57 @@ public class ModItems {
             () -> new HoeItem(Tiers.NETHERITE, new Item.Properties()
                     .attributes(HoeItem.createAttributes(Tiers.NETHERITE, -4.0f, 0.0f))));
 
+    // Cyberpunk equipment and model items.
+    public static final DeferredItem<Item> CYBERPUNK_ASSAULT_RIFLE = ITEMS.register("cyberpunk_assault_rifle",
+            () -> new Item(new Item.Properties().stacksTo(1)));
+    public static final DeferredItem<AxeItem> CYBERPUNK_AXE = ITEMS.register("cyberpunk_axe",
+            () -> new AxeItem(Tiers.NETHERITE, new Item.Properties().attributes(AxeItem.createAttributes(Tiers.NETHERITE, 5.0f, -3.0f))));
+    public static final DeferredItem<SimpleFashionItem> CYBERPUNK_BACK = ITEMS.register("cyberpunk_back",
+            () -> new SimpleFashionItem(FashionSlot.BACK, new Item.Properties().stacksTo(1)
+                    .component(ModDataComponents.FASHION_SLOT.get(), FashionSlot.BACK)));
+    public static final DeferredItem<SwordItem> CYBERPUNK_BATON = ITEMS.register("cyberpunk_baton",
+            () -> new SwordItem(Tiers.NETHERITE, new Item.Properties().attributes(SwordItem.createAttributes(Tiers.NETHERITE, 3.0f, -2.4f))));
+    public static final DeferredItem<BowItem> CYBERPUNK_BOW = ITEMS.register("cyberpunk_bow",
+            () -> new BowItem(new Item.Properties().durability(384)));
+    public static final DeferredItem<BlockItem> CYBERPUNK_CHEST = ITEMS.registerSimpleBlockItem("cyberpunk_chest", ModBlocks.CYBERPUNK_CHEST);
+    public static final DeferredItem<CrossbowItem> CYBERPUNK_CROSSBOW = ITEMS.register("cyberpunk_crossbow",
+            () -> new CrossbowItem(new Item.Properties().durability(465)));
+    public static final DeferredItem<SwordItem> CYBERPUNK_DAGGER = ITEMS.register("cyberpunk_dagger",
+            () -> new SwordItem(Tiers.NETHERITE, new Item.Properties().attributes(SwordItem.createAttributes(Tiers.NETHERITE, 3.0f, -2.4f))));
+    public static final DeferredItem<FishingRodItem> CYBERPUNK_FISHING_ROD = ITEMS.register("cyberpunk_fishing_rod",
+            () -> new FishingRodItem(new Item.Properties().durability(64)));
+    public static final DeferredItem<Item> CYBERPUNK_GAUNTLET = ITEMS.register("cyberpunk_gauntlet",
+            () -> new Item(new Item.Properties().stacksTo(1).durability(Tiers.NETHERITE.getUses())
+                    .attributes(SwordItem.createAttributes(Tiers.NETHERITE, 3.0f, -2.4f))));
+    public static final DeferredItem<SwordItem> CYBERPUNK_GREATSWORD = ITEMS.register("cyberpunk_greatsword",
+            () -> new SwordItem(Tiers.NETHERITE, new Item.Properties().attributes(SwordItem.createAttributes(Tiers.NETHERITE, 3.0f, -2.4f))));
+    public static final DeferredItem<AxeItem> CYBERPUNK_HAMMER = ITEMS.register("cyberpunk_hammer",
+            () -> new AxeItem(Tiers.NETHERITE, new Item.Properties().attributes(AxeItem.createAttributes(Tiers.NETHERITE, 5.0f, -3.0f))));
+    public static final DeferredItem<HoeItem> CYBERPUNK_HOE = ITEMS.register("cyberpunk_hoe",
+            () -> new HoeItem(Tiers.NETHERITE, new Item.Properties().attributes(HoeItem.createAttributes(Tiers.NETHERITE, -4.0f, 0.0f))));
+    public static final DeferredItem<Item> CYBERPUNK_KEY = ITEMS.register("cyberpunk_key",
+            () -> new Item(new Item.Properties().stacksTo(1)));
+    public static final DeferredItem<PickaxeItem> CYBERPUNK_PICKAXE = ITEMS.register("cyberpunk_pickaxe",
+            () -> new PickaxeItem(Tiers.NETHERITE, new Item.Properties().attributes(PickaxeItem.createAttributes(Tiers.NETHERITE, 1.0f, -2.8f))));
+    public static final DeferredItem<ShieldItem> CYBERPUNK_SHIELD = ITEMS.register("cyberpunk_shield",
+            () -> new ShieldItem(new Item.Properties().durability(336)));
+    public static final DeferredItem<Item> CYBERPUNK_SHOTGUN = ITEMS.register("cyberpunk_shotgun",
+            () -> new Item(new Item.Properties().stacksTo(1)));
+    public static final DeferredItem<ShovelItem> CYBERPUNK_SHOVEL = ITEMS.register("cyberpunk_shovel",
+            () -> new ShovelItem(Tiers.NETHERITE, new Item.Properties().attributes(ShovelItem.createAttributes(Tiers.NETHERITE, 1.5f, -3.0f))));
+    public static final DeferredItem<SwordItem> CYBERPUNK_SPEAR = ITEMS.register("cyberpunk_spear",
+            () -> new SwordItem(Tiers.NETHERITE, new Item.Properties().attributes(SwordItem.createAttributes(Tiers.NETHERITE, 3.0f, -2.4f))));
+    public static final DeferredItem<SwordItem> CYBERPUNK_SWORD = ITEMS.register("cyberpunk_sword",
+            () -> new SwordItem(Tiers.NETHERITE, new Item.Properties().attributes(SwordItem.createAttributes(Tiers.NETHERITE, 3.0f, -2.4f))));
+    public static final DeferredItem<SimpleFashionItem> CYBERPUNK_HAT = ITEMS.register("cyberpunk_hat",
+            () -> new SimpleFashionItem(FashionSlot.HEAD, new Item.Properties().stacksTo(1)
+                    .component(ModDataComponents.FASHION_SLOT.get(), FashionSlot.HEAD)));
+
     // === สกุลเงินในเกม (Currencies) ===
     // เหรียญเงิน (Silver Coin) - สำหรับใช้จ่ายทั่วไปในเซิร์ฟเวอร์
     public static final DeferredItem<CoinItem> SILVER_COIN = ITEMS.register("silver_coin",
             () -> new CoinItem(CoinItem.CoinType.SILVER, new Item.Properties().stacksTo(64)));
 
-    // เหรียญทอง (Gold Coin) - สกุลเงินชั้นสูงสำหรับระบบตีบวก / อัปเกรด
-    public static final DeferredItem<CoinItem> GOLD_COIN = ITEMS.register("gold_coin",
-            () -> new CoinItem(CoinItem.CoinType.GOLD, new Item.Properties().stacksTo(64)));
 
     // เหรียญเพชร (Diamond Coin) - สกุลเงินพรีเมียม / เงินเติม
     public static final DeferredItem<CoinItem> DIAMOND_COIN = ITEMS.register("diamond_coin",

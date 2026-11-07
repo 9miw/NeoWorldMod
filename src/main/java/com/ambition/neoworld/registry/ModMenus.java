@@ -11,6 +11,11 @@ import net.neoforged.neoforge.registries.DeferredRegister;
 
 public final class ModMenus {
     public static final DeferredRegister<MenuType<?>> MENUS = DeferredRegister.create(Registries.MENU, NeoWorld.MODID);
+    public static final Supplier<MenuType<com.ambition.neoworld.shop.ShopMenu>> SHOP = MENUS.register("shop",
+            () -> new MenuType<>(com.ambition.neoworld.shop.ShopMenu::new, net.minecraft.world.flag.FeatureFlags.DEFAULT_FLAGS));
+    public static final Supplier<MenuType<com.ambition.neoworld.upgrade.UpgradeMenu>> UPGRADE = MENUS.register("upgrade",
+            () -> IMenuTypeExtension.create((id, inventory, data) -> new com.ambition.neoworld.upgrade.UpgradeMenu(
+                    id, inventory, data.readBlockPos(), data.readLong())));
     public static final Supplier<MenuType<TradeMenu>> TRADE = MENUS.register("trade",
             () -> IMenuTypeExtension.create((id, inventory, data) -> new TradeMenu(id, inventory, data.readUUID())));
     public static final Supplier<MenuType<MarketSellMenu>> MARKET_SELL = MENUS.register("market_sell",

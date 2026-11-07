@@ -15,31 +15,74 @@ import net.neoforged.neoforge.network.PacketDistributor;
 
 // ตัวจัดการระบบเลเวลและค่าประสบการณ์ฝั่ง Server
 public class PlayerLevelManager {
+    /** Subtracts progression and cumulative EXP separately; returns levels lost. */
+    public static int applyExpReduction(PlayerData data, long amount) {
+        if (data == null || amount <= 0) return 0;
+        int previousLevel = data.getLevel();
+        int currentLevel = previousLevel;
+        long currentExp = currentLevel >= LevelFormula.MAX_LEVEL ? 0 : data.getExp();
+        long remaining = amount;
+        while (remaining > currentExp && currentLevel > 1) {
+            remaining -= currentExp;
+            currentLevel--;
+            currentExp = LevelFormula.getRequiredExpForNextLevel(currentLevel);
+        }
+        data.setLevel(currentLevel);
+        data.setExp(remaining >= currentExp ? 0L : currentExp - remaining);
+        data.removeTotalExp(amount);
+        return previousLevel - currentLevel;
+    }
+
+    public static void removeExp(ServerPlayer player, long amount) {
+        if (player == null || amount <= 0) return;
+        applyExpReduction(player.getData(ModAttachments.PLAYER_DATA), amount);
+        syncToClient(player);
+        player.sendSystemMessage(Component.literal("§a[NeoWorld] §fลด EXP §e-" + amount
+                + " §fแล้ว ปัจจุบันเลเวล §e" + player.getData(ModAttachments.PLAYER_DATA).getLevel()));
+    }
 
     /**
      * เพิ่มค่าประสบการณ์ (EXP) ให้กับผู้เล่น และตรวจสอบการเลเวลอัป
      */
     public static void addExp(ServerPlayer player, long amount) {
+        addExp(player, amount, true);
+    }
+
+    public static void addAdminExp(ServerPlayer player, long amount) {
+        addExp(player, amount, true);
+    }
+
+    private static void addExp(ServerPlayer player, long amount, boolean countTotal) {
         if (amount <= 0 || player == null) return;
 
         PlayerData data = player.getData(ModAttachments.PLAYER_DATA);
-        int currentLevel = data.getLevel();
+        int gainedLevels = applyExp(data, amount, countTotal);
+        if (gainedLevels > 0) onLevelUp(player, data.getLevel());
 
-        if (currentLevel >= LevelFormula.MAX_LEVEL) {
-            return; // เลเวลตันแล้ว ไม่รับ EXP เพิ่ม
+        syncToClient(player);
+        if (gainedLevels > 0) {
+            PacketDistributor.sendToPlayer(player, new LevelUpCelebrationPayload(data.getLevel()));
         }
+    }
 
-        long currentExp = amount > Long.MAX_VALUE - data.getExp()
-                ? Long.MAX_VALUE : data.getExp() + amount;
-        boolean leveledUp = false;
+    /** Gameplay grants count toward cumulative EXP. Returns the number of levels gained. */
+    public static int applyExp(PlayerData data, long amount) {
+        return applyExp(data, amount, true);
+    }
+
+    public static int applyExp(PlayerData data, long amount, boolean countTotal) {
+        if (data == null || amount <= 0) return 0;
+        int previousLevel = data.getLevel();
+        // Gameplay and administrative grants count once, including at level cap.
+        data.addExp(amount, countTotal);
+        int currentLevel = previousLevel;
+        long currentExp = data.getExp();
 
         while (currentLevel < LevelFormula.MAX_LEVEL) {
             long requiredExp = LevelFormula.getRequiredExpForNextLevel(currentLevel);
             if (currentExp >= requiredExp) {
                 currentExp -= requiredExp;
                 currentLevel++;
-                leveledUp = true;
-                onLevelUp(player, currentLevel);
             } else {
                 break;
             }
@@ -49,13 +92,7 @@ public class PlayerLevelManager {
         data.setLevel(currentLevel);
         data.setExp(currentLevel >= LevelFormula.MAX_LEVEL ? 0L : currentExp);
 
-        // ซิงค์ข้อมูลไปยัง Client
-        syncToClient(player);
-
-        if (leveledUp) {
-            // ส่ง Packet เฉลิมฉลองการเลเวลอัป
-            PacketDistributor.sendToPlayer(player, new LevelUpCelebrationPayload(currentLevel));
-        }
+        return currentLevel - previousLevel;
     }
 
     /**

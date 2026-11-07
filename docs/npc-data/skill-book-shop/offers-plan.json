@@ -1,0 +1,82 @@
+[
+  {
+    "item": "epicfight:skillbook",
+    "components": {
+      "epicfight:skill": "epicfight:roll"
+    },
+    "buy": 100,
+    "sell": 0,
+    "currency": "silver",
+    "category": "เริ่มต้น"
+  },
+  {
+    "item": "epicfight:skillbook",
+    "components": {
+      "epicfight:skill": "epicfight:step"
+    },
+    "buy": 100,
+    "sell": 0,
+    "currency": "silver",
+    "category": "เริ่มต้น"
+  },
+  {
+    "item": "epicfight:skillbook",
+    "components": {
+      "epicfight:skill": "epicfight:guard"
+    },
+    "buy": 100,
+    "sell": 0,
+    "currency": "silver",
+    "category": "เริ่มต้น"
+  },
+  {
+    "item": "epicfight:skillbook",
+    "components": {
+      "epicfight:skill": "epicfight:stamina_pillager"
+    },
+    "buy": 100,
+    "sell": 0,
+    "currency": "silver",
+    "category": "เริ่มต้น"
+  },
+  {
+    "item": "epicfight:skillbook",
+    "components": {
+      "epicfight:skill": "epicfight:technician"
+    },
+    "buy": 300,
+    "sell": 0,
+    "currency": "silver",
+    "category": "พัฒนาตัวละคร"
+  },
+  {
+    "item": "epicfight:skillbook",
+    "components": {
+      "epicfight:skill": "epicfight:swordmaster"
+    },
+    "buy": 300,
+    "sell": 0,
+    "currency": "silver",
+    "category": "พัฒนาตัวละคร"
+  },
+  {
+    "item": "epicfight:skillbook",
+    "components": {
+      "epicfight:skill": "epicfight:berserker"
+    },
+    "buy": 300,
+    "sell": 0,
+    "currency": "silver",
+    "category": "พัฒนาตัวละคร"
+  },
+  {
+    "item": "epicfight:skillbook",
+    "components": {
+      "epicfight:skill": "epicfight:parrying"
+    },
+    "buy": 300,
+    "sell": 0,
+    "currency": "silver",
+    "category": "พัฒนาตัวละคร"
+  }
+]

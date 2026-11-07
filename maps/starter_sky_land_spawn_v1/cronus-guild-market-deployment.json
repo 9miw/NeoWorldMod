@@ -1,0 +1,84 @@
+{
+  "date": "2026-11-01",
+  "server": "cronus",
+  "container": "neoworld-server",
+  "dimension": "minecraft:overworld",
+  "scope": [
+    "06 guild campus and compass forecourt",
+    "04 market redesign and expansion",
+    "spawn lantern supports and guild eaves/rails"
+  ],
+  "backup": "/home/miw/backups/neoworld-guild-market-20261101/world.tar",
+  "patch": {
+    "inputSha256": "3d51eeed9a809cbc4829761eb5a1cf049112ff148b6b7aca313f0fc4be804182",
+    "entityInputSha256": "dbadd87e6cf8df27f28896985c270fc624a85965aa223fabe494e1a6f8254658",
+    "outputSha256": "ab07e7a8548ebc8b9e50b98e989f738c6e0f6f4658911900d11b405f5c73e3e0",
+    "localSha256": "b9b402e838aa081a07fab3236c5c953718aebec33c879d38aee4b4c00a74531f",
+    "baselineSha256": "ddcd5502bae11530d613a1a2961e68d3b3a28b7f27fa91587b7424b4c9edb920",
+    "approvedDelta": 154066,
+    "changedBlocks": 154066,
+    "alreadyApplied": 0,
+    "derivedStateDifferences": 0,
+    "changedChunks": 95,
+    "addedBlockEntities": 30,
+    "removedBlockEntities": 0,
+    "conflictCount": 0,
+    "conflicts": [],
+    "verification": {
+      "approvedDelta": 154066,
+      "changedBlocks": 154066,
+      "outsideDeltaChanges": 0,
+      "originalBlockEntities": 193,
+      "newBlockEntities": 30,
+      "finalBlockEntities": 223,
+      "npcs": 41,
+      "protectedSamples": 50,
+      "pointTypes": {
+        "actual": 19,
+        "home": 19,
+        "patrol": 12
+      },
+      "postLoad": false,
+      "unrelatedChunkTagsPreserved": true,
+      "entityFilesTouched": false
+    }
+  },
+  "preserved": {
+    "backup": "/home/miw/backups/neoworld-guild-market-20261101/world.tar",
+    "verifiedFiles": 738,
+    "changedFiles": [
+      "world/region/r.0.0.mca"
+    ],
+    "outputSha256": "ab07e7a8548ebc8b9e50b98e989f738c6e0f6f4658911900d11b405f5c73e3e0",
+    "serverStoppedDuringWrite": true,
+    "ownerAndModePreserved": true
+  },
+  "status": "deployed-and-post-save-verified",
+  "compileJava": "BUILD SUCCESSFUL",
+  "inGameVisualTest": false,
+  "recovery": {
+    "initialDockerStopTimeoutSeconds": 120,
+    "initialExitCode": 137,
+    "preRecoveryBackup": "/home/miw/backups/neoworld-guild-market-recovery-20261101/world.tar",
+    "reopenedSuccessfully": true,
+    "explicitSaveConfirmed": true,
+    "finalConsoleStopExitCode": 0,
+    "restartPolicyRestored": "unless-stopped"
+  },
+  "post": {
+    "serverReady": true,
+    "readyAt": "2026-11-01 15:15:04 Asia/Bangkok",
+    "savedAt": "2026-11-01 15:15:31 Asia/Bangkok",
+    "checkedTargetBlockTypes": 154066,
+    "targetBlockTypeMismatches": 0,
+    "runtimeChangesOutsideDelta": 0,
+    "originalBlockEntitiesPreserved": 193,
+    "newBlockEntitiesPresent": 30,
+    "totalBlockEntities": 223,
+    "npcCount": 41,
+    "npcUuidsPreserved": true,
+    "npcNamesHomesPatrolsDialogsInventoriesPreserved": true,
+    "protectedSamples": 50,
+    "inGameVisualCheck": false
+  }
+}

@@ -33,15 +33,22 @@ public class NeoWorldClient {
         modEventBus.addListener(com.ambition.neoworld.client.input.PlayerActionKeyHandler::register);
         modEventBus.addListener(com.ambition.neoworld.client.input.PvpQueueKeyHandler::register);
         modEventBus.addListener(this::registerGuiLayers);
+        modEventBus.addListener((net.neoforged.neoforge.client.event.RegisterClientReloadListenersEvent event) ->
+                event.registerReloadListener((net.minecraft.server.packs.resources.ResourceManagerReloadListener)
+                        com.ambition.neoworld.client.gui.dungeon.DungeonPreviewImages::clear));
         modEventBus.addListener(this::addEntityLayers);
     }
 
     private void onClientSetup(FMLClientSetupEvent event) {
+        event.enqueueWork(com.ambition.neoworld.client.CyberpunkItemProperties::register);
         NeoWorld.LOGGER.info("HELLO FROM CLIENT SETUP");
         NeoWorld.LOGGER.info("MINECRAFT NAME >> {}", Minecraft.getInstance().getUser().getName());
     }
 
     private void registerGuiLayers(RegisterGuiLayersEvent event) {
+        event.registerAbove(VanillaGuiLayers.PLAYER_HEALTH,
+                ResourceLocation.fromNamespaceAndPath(NeoWorld.MODID, "dungeon_overlay"),
+                new com.ambition.neoworld.client.gui.overlay.DungeonOverlay());
         event.registerAbove(VanillaGuiLayers.PLAYER_HEALTH,
                 ResourceLocation.fromNamespaceAndPath(NeoWorld.MODID,"pvp_queue_overlay"),new com.ambition.neoworld.client.gui.overlay.PvpQueueOverlay());
         event.registerAbove(VanillaGuiLayers.PLAYER_HEALTH,

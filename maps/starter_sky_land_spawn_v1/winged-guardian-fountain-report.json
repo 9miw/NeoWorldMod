@@ -1,0 +1,44 @@
+{
+  "zone": "03-streets-square",
+  "subfeature": "winged-guardian-fountain",
+  "name": "The Winged Guardian Fountain",
+  "status": "applied",
+  "sourceHash": "b445bc3f288b0053a30827599b423896112034f019c91a6a71411eb6c5d5b6cc",
+  "changedBlocks": 357,
+  "center": [
+    160,
+    104,
+    215
+  ],
+  "fountainBounds": [
+    152,
+    207,
+    168,
+    223
+  ],
+  "counts": {
+    "minecraft:air": 2250,
+    "minecraft:deepslate_tiles": 80,
+    "minecraft:crying_obsidian": 13,
+    "minecraft:sea_lantern": 12,
+    "minecraft:chiseled_deepslate": 54,
+    "minecraft:deepslate_tile_stairs": 56,
+    "minecraft:water": 78,
+    "minecraft:deepslate_tile_wall": 4,
+    "minecraft:smooth_quartz": 12,
+    "minecraft:smooth_quartz_stairs": 17,
+    "minecraft:polished_diorite": 1,
+    "minecraft:chiseled_quartz_block": 1,
+    "minecraft:quartz_stairs": 1,
+    "minecraft:smooth_quartz_slab": 3,
+    "minecraft:end_rod": 3,
+    "minecraft:stone_bricks": 82,
+    "minecraft:polished_andesite": 8,
+    "minecraft:smooth_stone": 6,
+    "minecraft:blue_orchid": 2,
+    "minecraft:lily_of_the_valley": 2
+  },
+  "changedChunks": 4,
+  "backup": "archive\\map-edit-backups\\before-fountain-winged-guardian\\starter_sky_land_spawn_v1",
+  "savedBlockComparison": "All voxels match planned result using Name and sorted Properties"
+}

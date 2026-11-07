@@ -1,0 +1,78 @@
+{
+  "layout": {
+    "id": "04-market",
+    "name": "Market",
+    "bounds": [
+      65,
+      181,
+      112,
+      237
+    ],
+    "floorY": 103,
+    "shops": [
+      {
+        "id": "general",
+        "bounds": [
+          69,
+          193,
+          87,
+          211
+        ],
+        "floorY": 103,
+        "entrance": [
+          78,
+          104,
+          211
+        ],
+        "roofRidgeY": 115,
+        "stage": "open timber frame; roof outline"
+      },
+      {
+        "id": "food-materials",
+        "bounds": [
+          94,
+          191,
+          110,
+          205
+        ],
+        "floorY": 103,
+        "entrance": [
+          102,
+          104,
+          205
+        ],
+        "roofRidgeY": 115,
+        "stage": "open timber frame; roof outline"
+      }
+    ],
+    "stallPlots": [
+      [
+        69,
+        220,
+        77,
+        226
+      ],
+      [
+        92,
+        221,
+        100,
+        227
+      ],
+      [
+        81,
+        230,
+        89,
+        235
+      ]
+    ],
+    "smithRoute": [
+      101,
+      104,
+      181
+    ],
+    "stage": "structural layout only"
+  },
+  "changedBlocks": 32444,
+  "changedChunks": 25,
+  "backup": "archive\\map-edit-backups\\before-market-layout\\starter_sky_land_spawn_v1"
+}

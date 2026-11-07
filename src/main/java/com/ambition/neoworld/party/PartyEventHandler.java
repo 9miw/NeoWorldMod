@@ -1,6 +1,7 @@
 package com.ambition.neoworld.party;
 
 import com.ambition.neoworld.NeoWorld;
+import com.ambition.neoworld.network.party.PartyNetworkHandler;
 
 import net.minecraft.server.level.ServerPlayer;
 import net.neoforged.bus.api.SubscribeEvent;
@@ -16,8 +17,15 @@ public final class PartyEventHandler {
     @SubscribeEvent
     public static void onPlayerLoggedOut(PlayerEvent.PlayerLoggedOutEvent event) {
         if (event.getEntity() instanceof ServerPlayer player) {
-            PartyManager.get(player.getServer()).handleDisconnect(player.getUUID());
-            PartyHudSync.forget(player.getServer(), player.getUUID());
+            var server = player.getServer();
+            var result = PartyManager.get(server).handleDisconnect(player.getUUID());
+            PartyHudSync.forget(server, player.getUUID());
+            if (result.successful()) {
+                for (PartyMember member : result.party().members()) {
+                    ServerPlayer remaining = server.getPlayerList().getPlayer(member.playerId());
+                    if (remaining != null) PartyNetworkHandler.sendState(remaining);
+                }
+            }
         }
     }
 

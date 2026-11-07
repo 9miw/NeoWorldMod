@@ -1,0 +1,4500 @@
+{
+  "sourceHash": "c3bc2abeb8970fc50bf735a413e4fc36af1febd91fba295ac13293c11d283071",
+  "backup": "archive\\map-edit-backups\\before-island-audit-repairs-20261031\\starter_sky_land_spawn_v1",
+  "netChangedBlocks": 253,
+  "edits": [
+    {
+      "part": "spawn-lamps",
+      "position": [
+        153,
+        97,
+        325
+      ],
+      "before": {
+        "Name": "minecraft:air"
+      },
+      "after": {
+        "Name": "minecraft:chiseled_stone_bricks"
+      }
+    },
+    {
+      "part": "spawn-lamps",
+      "position": [
+        153,
+        98,
+        325
+      ],
+      "before": {
+        "Name": "minecraft:air"
+      },
+      "after": {
+        "Name": "minecraft:stone_brick_wall",
+        "Properties": {
+          "north": "none",
+          "south": "none",
+          "east": "none",
+          "west": "none",
+          "up": "true",
+          "waterlogged": "false"
+        }
+      }
+    },
+    {
+      "part": "spawn-lamps",
+      "position": [
+        167,
+        97,
+        325
+      ],
+      "before": {
+        "Name": "minecraft:air"
+      },
+      "after": {
+        "Name": "minecraft:chiseled_stone_bricks"
+      }
+    },
+    {
+      "part": "spawn-lamps",
+      "position": [
+        167,
+        98,
+        325
+      ],
+      "before": {
+        "Name": "minecraft:air"
+      },
+      "after": {
+        "Name": "minecraft:stone_brick_wall",
+        "Properties": {
+          "north": "none",
+          "south": "none",
+          "east": "none",
+          "west": "none",
+          "up": "true",
+          "waterlogged": "false"
+        }
+      }
+    },
+    {
+      "part": "inn-eaves",
+      "position": [
+        276,
+        123,
+        165
+      ],
+      "before": {
+        "Name": "minecraft:air"
+      },
+      "after": {
+        "Name": "minecraft:purple_concrete"
+      }
+    },
+    {
+      "part": "inn-eaves",
+      "position": [
+        276,
+        124,
+        165
+      ],
+      "before": {
+        "Name": "minecraft:air"
+      },
+      "after": {
+        "Name": "minecraft:stone_brick_slab",
+        "Properties": {
+          "type": "bottom",
+          "waterlogged": "false"
+        }
+      }
+    },
+    {
+      "part": "inn-eaves",
+      "position": [
+        277,
+        124,
+        165
+      ],
+      "before": {
+        "Name": "minecraft:air"
+      },
+      "after": {
+        "Name": "minecraft:purple_concrete"
+      }
+    },
+    {
+      "part": "inn-eaves",
+      "position": [
+        277,
+        125,
+        165
+      ],
+      "before": {
+        "Name": "minecraft:air"
+      },
+      "after": {
+        "Name": "minecraft:stone_brick_slab",
+        "Properties": {
+          "type": "bottom",
+          "waterlogged": "false"
+        }
+      }
+    },
+    {
+      "part": "inn-eaves",
+      "position": [
+        275,
+        123,
+        166
+      ],
+      "before": {
+        "Name": "minecraft:air"
+      },
+      "after": {
+        "Name": "minecraft:purple_concrete"
+      }
+    },
+    {
+      "part": "inn-eaves",
+      "position": [
+        275,
+        124,
+        166
+      ],
+      "before": {
+        "Name": "minecraft:air"
+      },
+      "after": {
+        "Name": "minecraft:stone_brick_slab",
+        "Properties": {
+          "type": "bottom",
+          "waterlogged": "false"
+        }
+      }
+    },
+    {
+      "part": "inn-eaves",
+      "position": [
+        278,
+        124,
+        166
+      ],
+      "before": {
+        "Name": "minecraft:air"
+      },
+      "after": {
+        "Name": "minecraft:purple_concrete"
+      }
+    },
+    {
+      "part": "inn-eaves",
+      "position": [
+        278,
+        125,
+        166
+      ],
+      "before": {
+        "Name": "minecraft:air"
+      },
+      "after": {
+        "Name": "minecraft:stone_brick_slab",
+        "Properties": {
+          "type": "bottom",
+          "waterlogged": "false"
+        }
+      }
+    },
+    {
+      "part": "inn-eaves",
+      "position": [
+        279,
+        125,
+        166
+      ],
+      "before": {
+        "Name": "minecraft:air"
+      },
+      "after": {
+        "Name": "minecraft:purple_concrete"
+      }
+    },
+    {
+      "part": "inn-eaves",
+      "position": [
+        279,
+        126,
+        166
+      ],
+      "before": {
+        "Name": "minecraft:air"
+      },
+      "after": {
+        "Name": "minecraft:stone_brick_slab",
+        "Properties": {
+          "type": "bottom",
+          "waterlogged": "false"
+        }
+      }
+    },
+    {
+      "part": "inn-eaves",
+      "position": [
+        280,
+        125,
+        166
+      ],
+      "before": {
+        "Name": "minecraft:air"
+      },
+      "after": {
+        "Name": "minecraft:purple_concrete"
+      }
+    },
+    {
+      "part": "inn-eaves",
+      "position": [
+        280,
+        126,
+        166
+      ],
+      "before": {
+        "Name": "minecraft:air"
+      },
+      "after": {
+        "Name": "minecraft:stone_brick_slab",
+        "Properties": {
+          "type": "bottom",
+          "waterlogged": "false"
+        }
+      }
+    },
+    {
+      "part": "inn-eaves",
+      "position": [
+        275,
+        123,
+        167
+      ],
+      "before": {
+        "Name": "minecraft:air"
+      },
+      "after": {
+        "Name": "minecraft:purple_concrete"
+      }
+    },
+    {
+      "part": "inn-eaves",
+      "position": [
+        275,
+        124,
+        167
+      ],
+      "before": {
+        "Name": "minecraft:air"
+      },
+      "after": {
+        "Name": "minecraft:stone_brick_slab",
+        "Properties": {
+          "type": "bottom",
+          "waterlogged": "false"
+        }
+      }
+    },
+    {
+      "part": "inn-eaves",
+      "position": [
+        281,
+        127,
+        167
+      ],
+      "before": {
+        "Name": "minecraft:air"
+      },
+      "after": {
+        "Name": "minecraft:purple_concrete"
+      }
+    },
+    {
+      "part": "inn-eaves",
+      "position": [
+        281,
+        128,
+        167
+      ],
+      "before": {
+        "Name": "minecraft:air"
+      },
+      "after": {
+        "Name": "minecraft:stone_brick_slab",
+        "Properties": {
+          "type": "bottom",
+          "waterlogged": "false"
+        }
+      }
+    },
+    {
+      "part": "inn-eaves",
+      "position": [
+        282,
+        127,
+        167
+      ],
+      "before": {
+        "Name": "minecraft:air"
+      },
+      "after": {
+        "Name": "minecraft:purple_concrete"
+      }
+    },
+    {
+      "part": "inn-eaves",
+      "position": [
+        282,
+        128,
+        167
+      ],
+      "before": {
+        "Name": "minecraft:air"
+      },
+      "after": {
+        "Name": "minecraft:stone_brick_slab",
+        "Properties": {
+          "type": "bottom",
+          "waterlogged": "false"
+        }
+      }
+    },
+    {
+      "part": "inn-eaves",
+      "position": [
+        283,
+        127,
+        167
+      ],
+      "before": {
+        "Name": "minecraft:air"
+      },
+      "after": {
+        "Name": "minecraft:purple_concrete"
+      }
+    },
+    {
+      "part": "inn-eaves",
+      "position": [
+        283,
+        128,
+        167
+      ],
+      "before": {
+        "Name": "minecraft:air"
+      },
+      "after": {
+        "Name": "minecraft:stone_brick_slab",
+        "Properties": {
+          "type": "bottom",
+          "waterlogged": "false"
+        }
+      }
+    },
+    {
+      "part": "inn-eaves",
+      "position": [
+        275,
+        123,
+        168
+      ],
+      "before": {
+        "Name": "minecraft:air"
+      },
+      "after": {
+        "Name": "minecraft:purple_concrete"
+      }
+    },
+    {
+      "part": "inn-eaves",
+      "position": [
+        275,
+        124,
+        168
+      ],
+      "before": {
+        "Name": "minecraft:air"
+      },
+      "after": {
+        "Name": "minecraft:stone_brick_slab",
+        "Properties": {
+          "type": "bottom",
+          "waterlogged": "false"
+        }
+      }
+    },
+    {
+      "part": "inn-eaves",
+      "position": [
+        284,
+        129,
+        168
+      ],
+      "before": {
+        "Name": "minecraft:air"
+      },
+      "after": {
+        "Name": "minecraft:purple_concrete"
+      }
+    },
+    {
+      "part": "inn-eaves",
+      "position": [
+        284,
+        130,
+        168
+      ],
+      "before": {
+        "Name": "minecraft:air"
+      },
+      "after": {
+        "Name": "minecraft:stone_brick_slab",
+        "Properties": {
+          "type": "bottom",
+          "waterlogged": "false"
+        }
+      }
+    },
+    {
+      "part": "inn-eaves",
+      "position": [
+        285,
+        129,
+        168
+      ],
+      "before": {
+        "Name": "minecraft:air"
+      },
+      "after": {
+        "Name": "minecraft:purple_concrete"
+      }
+    },
+    {
+      "part": "inn-eaves",
+      "position": [
+        285,
+        130,
+        168
+      ],
+      "before": {
+        "Name": "minecraft:air"
+      },
+      "after": {
+        "Name": "minecraft:stone_brick_slab",
+        "Properties": {
+          "type": "bottom",
+          "waterlogged": "false"
+        }
+      }
+    },
+    {
+      "part": "inn-eaves",
+      "position": [
+        286,
+        130,
+        168
+      ],
+      "before": {
+        "Name": "minecraft:air"
+      },
+      "after": {
+        "Name": "minecraft:purple_concrete"
+      }
+    },
+    {
+      "part": "inn-eaves",
+      "position": [
+        286,
+        131,
+        168
+      ],
+      "before": {
+        "Name": "minecraft:air"
+      },
+      "after": {
+        "Name": "minecraft:stone_brick_slab",
+        "Properties": {
+          "type": "bottom",
+          "waterlogged": "false"
+        }
+      }
+    },
+    {
+      "part": "inn-eaves",
+      "position": [
+        274,
+        123,
+        169
+      ],
+      "before": {
+        "Name": "minecraft:air"
+      },
+      "after": {
+        "Name": "minecraft:purple_concrete"
+      }
+    },
+    {
+      "part": "inn-eaves",
+      "position": [
+        274,
+        124,
+        169
+      ],
+      "before": {
+        "Name": "minecraft:air"
+      },
+      "after": {
+        "Name": "minecraft:stone_brick_slab",
+        "Properties": {
+          "type": "bottom",
+          "waterlogged": "false"
+        }
+      }
+    },
+    {
+      "part": "inn-eaves",
+      "position": [
+        286,
+        130,
+        169
+      ],
+      "before": {
+        "Name": "minecraft:air"
+      },
+      "after": {
+        "Name": "minecraft:purple_concrete"
+      }
+    },
+    {
+      "part": "inn-eaves",
+      "position": [
+        286,
+        131,
+        169
+      ],
+      "before": {
+        "Name": "minecraft:air"
+      },
+      "after": {
+        "Name": "minecraft:stone_brick_slab",
+        "Properties": {
+          "type": "bottom",
+          "waterlogged": "false"
+        }
+      }
+    },
+    {
+      "part": "inn-eaves",
+      "position": [
+        287,
+        131,
+        169
+      ],
+      "before": {
+        "Name": "minecraft:air"
+      },
+      "after": {
+        "Name": "minecraft:purple_concrete"
+      }
+    },
+    {
+      "part": "inn-eaves",
+      "position": [
+        287,
+        132,
+        169
+      ],
+      "before": {
+        "Name": "minecraft:air"
+      },
+      "after": {
+        "Name": "minecraft:stone_brick_slab",
+        "Properties": {
+          "type": "bottom",
+          "waterlogged": "false"
+        }
+      }
+    },
+    {
+      "part": "inn-eaves",
+      "position": [
+        288,
+        130,
+        169
+      ],
+      "before": {
+        "Name": "minecraft:air"
+      },
+      "after": {
+        "Name": "minecraft:purple_concrete"
+      }
+    },
+    {
+      "part": "inn-eaves",
+      "position": [
+        288,
+        131,
+        169
+      ],
+      "before": {
+        "Name": "minecraft:air"
+      },
+      "after": {
+        "Name": "minecraft:stone_brick_slab",
+        "Properties": {
+          "type": "bottom",
+          "waterlogged": "false"
+        }
+      }
+    },
+    {
+      "part": "inn-eaves",
+      "position": [
+        274,
+        123,
+        170
+      ],
+      "before": {
+        "Name": "minecraft:air"
+      },
+      "after": {
+        "Name": "minecraft:purple_concrete"
+      }
+    },
+    {
+      "part": "inn-eaves",
+      "position": [
+        274,
+        124,
+        170
+      ],
+      "before": {
+        "Name": "minecraft:air"
+      },
+      "after": {
+        "Name": "minecraft:stone_brick_slab",
+        "Properties": {
+          "type": "bottom",
+          "waterlogged": "false"
+        }
+      }
+    },
+    {
+      "part": "inn-eaves",
+      "position": [
+        289,
+        129,
+        170
+      ],
+      "before": {
+        "Name": "minecraft:air"
+      },
+      "after": {
+        "Name": "minecraft:purple_concrete"
+      }
+    },
+    {
+      "part": "inn-eaves",
+      "position": [
+        289,
+        130,
+        170
+      ],
+      "before": {
+        "Name": "minecraft:air"
+      },
+      "after": {
+        "Name": "minecraft:stone_brick_slab",
+        "Properties": {
+          "type": "bottom",
+          "waterlogged": "false"
+        }
+      }
+    },
+    {
+      "part": "inn-eaves",
+      "position": [
+        290,
+        129,
+        170
+      ],
+      "before": {
+        "Name": "minecraft:air"
+      },
+      "after": {
+        "Name": "minecraft:purple_concrete"
+      }
+    },
+    {
+      "part": "inn-eaves",
+      "position": [
+        290,
+        130,
+        170
+      ],
+      "before": {
+        "Name": "minecraft:air"
+      },
+      "after": {
+        "Name": "minecraft:stone_brick_slab",
+        "Properties": {
+          "type": "bottom",
+          "waterlogged": "false"
+        }
+      }
+    },
+    {
+      "part": "inn-eaves",
+      "position": [
+        291,
+        128,
+        170
+      ],
+      "before": {
+        "Name": "minecraft:air"
+      },
+      "after": {
+        "Name": "minecraft:purple_concrete"
+      }
+    },
+    {
+      "part": "inn-eaves",
+      "position": [
+        291,
+        129,
+        170
+      ],
+      "before": {
+        "Name": "minecraft:air"
+      },
+      "after": {
+        "Name": "minecraft:stone_brick_slab",
+        "Properties": {
+          "type": "bottom",
+          "waterlogged": "false"
+        }
+      }
+    },
+    {
+      "part": "inn-eaves",
+      "position": [
+        274,
+        123,
+        171
+      ],
+      "before": {
+        "Name": "minecraft:air"
+      },
+      "after": {
+        "Name": "minecraft:purple_concrete"
+      }
+    },
+    {
+      "part": "inn-eaves",
+      "position": [
+        274,
+        124,
+        171
+      ],
+      "before": {
+        "Name": "minecraft:air"
+      },
+      "after": {
+        "Name": "minecraft:stone_brick_slab",
+        "Properties": {
+          "type": "bottom",
+          "waterlogged": "false"
+        }
+      }
+    },
+    {
+      "part": "inn-eaves",
+      "position": [
+        292,
+        127,
+        171
+      ],
+      "before": {
+        "Name": "minecraft:air"
+      },
+      "after": {
+        "Name": "minecraft:purple_concrete"
+      }
+    },
+    {
+      "part": "inn-eaves",
+      "position": [
+        292,
+        128,
+        171
+      ],
+      "before": {
+        "Name": "minecraft:air"
+      },
+      "after": {
+        "Name": "minecraft:stone_brick_slab",
+        "Properties": {
+          "type": "bottom",
+          "waterlogged": "false"
+        }
+      }
+    },
+    {
+      "part": "inn-eaves",
+      "position": [
+        293,
+        127,
+        171
+      ],
+      "before": {
+        "Name": "minecraft:air"
+      },
+      "after": {
+        "Name": "minecraft:purple_concrete"
+      }
+    },
+    {
+      "part": "inn-eaves",
+      "position": [
+        293,
+        128,
+        171
+      ],
+      "before": {
+        "Name": "minecraft:air"
+      },
+      "after": {
+        "Name": "minecraft:stone_brick_slab",
+        "Properties": {
+          "type": "bottom",
+          "waterlogged": "false"
+        }
+      }
+    },
+    {
+      "part": "inn-eaves",
+      "position": [
+        294,
+        126,
+        171
+      ],
+      "before": {
+        "Name": "minecraft:air"
+      },
+      "after": {
+        "Name": "minecraft:purple_concrete"
+      }
+    },
+    {
+      "part": "inn-eaves",
+      "position": [
+        294,
+        127,
+        171
+      ],
+      "before": {
+        "Name": "minecraft:air"
+      },
+      "after": {
+        "Name": "minecraft:stone_brick_slab",
+        "Properties": {
+          "type": "bottom",
+          "waterlogged": "false"
+        }
+      }
+    },
+    {
+      "part": "inn-eaves",
+      "position": [
+        273,
+        123,
+        172
+      ],
+      "before": {
+        "Name": "minecraft:air"
+      },
+      "after": {
+        "Name": "minecraft:purple_concrete"
+      }
+    },
+    {
+      "part": "inn-eaves",
+      "position": [
+        273,
+        124,
+        172
+      ],
+      "before": {
+        "Name": "minecraft:air"
+      },
+      "after": {
+        "Name": "minecraft:stone_brick_slab",
+        "Properties": {
+          "type": "bottom",
+          "waterlogged": "false"
+        }
+      }
+    },
+    {
+      "part": "inn-eaves",
+      "position": [
+        295,
+        125,
+        172
+      ],
+      "before": {
+        "Name": "minecraft:air"
+      },
+      "after": {
+        "Name": "minecraft:purple_concrete"
+      }
+    },
+    {
+      "part": "inn-eaves",
+      "position": [
+        295,
+        126,
+        172
+      ],
+      "before": {
+        "Name": "minecraft:air"
+      },
+      "after": {
+        "Name": "minecraft:stone_brick_slab",
+        "Properties": {
+          "type": "bottom",
+          "waterlogged": "false"
+        }
+      }
+    },
+    {
+      "part": "inn-eaves",
+      "position": [
+        296,
+        125,
+        172
+      ],
+      "before": {
+        "Name": "minecraft:air"
+      },
+      "after": {
+        "Name": "minecraft:purple_concrete"
+      }
+    },
+    {
+      "part": "inn-eaves",
+      "position": [
+        296,
+        126,
+        172
+      ],
+      "before": {
+        "Name": "minecraft:air"
+      },
+      "after": {
+        "Name": "minecraft:stone_brick_slab",
+        "Properties": {
+          "type": "bottom",
+          "waterlogged": "false"
+        }
+      }
+    },
+    {
+      "part": "inn-eaves",
+      "position": [
+        297,
+        124,
+        172
+      ],
+      "before": {
+        "Name": "minecraft:air"
+      },
+      "after": {
+        "Name": "minecraft:purple_concrete"
+      }
+    },
+    {
+      "part": "inn-eaves",
+      "position": [
+        297,
+        125,
+        172
+      ],
+      "before": {
+        "Name": "minecraft:air"
+      },
+      "after": {
+        "Name": "minecraft:stone_brick_slab",
+        "Properties": {
+          "type": "bottom",
+          "waterlogged": "false"
+        }
+      }
+    },
+    {
+      "part": "inn-eaves",
+      "position": [
+        273,
+        123,
+        173
+      ],
+      "before": {
+        "Name": "minecraft:air"
+      },
+      "after": {
+        "Name": "minecraft:purple_concrete"
+      }
+    },
+    {
+      "part": "inn-eaves",
+      "position": [
+        273,
+        124,
+        173
+      ],
+      "before": {
+        "Name": "minecraft:air"
+      },
+      "after": {
+        "Name": "minecraft:stone_brick_slab",
+        "Properties": {
+          "type": "bottom",
+          "waterlogged": "false"
+        }
+      }
+    },
+    {
+      "part": "inn-eaves",
+      "position": [
+        297,
+        124,
+        173
+      ],
+      "before": {
+        "Name": "minecraft:air"
+      },
+      "after": {
+        "Name": "minecraft:purple_concrete"
+      }
+    },
+    {
+      "part": "inn-eaves",
+      "position": [
+        297,
+        125,
+        173
+      ],
+      "before": {
+        "Name": "minecraft:air"
+      },
+      "after": {
+        "Name": "minecraft:stone_brick_slab",
+        "Properties": {
+          "type": "bottom",
+          "waterlogged": "false"
+        }
+      }
+    },
+    {
+      "part": "inn-eaves",
+      "position": [
+        298,
+        123,
+        173
+      ],
+      "before": {
+        "Name": "minecraft:air"
+      },
+      "after": {
+        "Name": "minecraft:purple_concrete"
+      }
+    },
+    {
+      "part": "inn-eaves",
+      "position": [
+        298,
+        124,
+        173
+      ],
+      "before": {
+        "Name": "minecraft:air"
+      },
+      "after": {
+        "Name": "minecraft:stone_brick_slab",
+        "Properties": {
+          "type": "bottom",
+          "waterlogged": "false"
+        }
+      }
+    },
+    {
+      "part": "inn-eaves",
+      "position": [
+        272,
+        123,
+        174
+      ],
+      "before": {
+        "Name": "minecraft:air"
+      },
+      "after": {
+        "Name": "minecraft:purple_concrete"
+      }
+    },
+    {
+      "part": "inn-eaves",
+      "position": [
+        272,
+        124,
+        174
+      ],
+      "before": {
+        "Name": "minecraft:air"
+      },
+      "after": {
+        "Name": "minecraft:stone_brick_slab",
+        "Properties": {
+          "type": "bottom",
+          "waterlogged": "false"
+        }
+      }
+    },
+    {
+      "part": "inn-eaves",
+      "position": [
+        273,
+        123,
+        174
+      ],
+      "before": {
+        "Name": "minecraft:air"
+      },
+      "after": {
+        "Name": "minecraft:purple_concrete"
+      }
+    },
+    {
+      "part": "inn-eaves",
+      "position": [
+        273,
+        124,
+        174
+      ],
+      "before": {
+        "Name": "minecraft:air"
+      },
+      "after": {
+        "Name": "minecraft:stone_brick_slab",
+        "Properties": {
+          "type": "bottom",
+          "waterlogged": "false"
+        }
+      }
+    },
+    {
+      "part": "inn-eaves",
+      "position": [
+        298,
+        123,
+        174
+      ],
+      "before": {
+        "Name": "minecraft:air"
+      },
+      "after": {
+        "Name": "minecraft:purple_concrete"
+      }
+    },
+    {
+      "part": "inn-eaves",
+      "position": [
+        298,
+        124,
+        174
+      ],
+      "before": {
+        "Name": "minecraft:air"
+      },
+      "after": {
+        "Name": "minecraft:stone_brick_slab",
+        "Properties": {
+          "type": "bottom",
+          "waterlogged": "false"
+        }
+      }
+    },
+    {
+      "part": "inn-eaves",
+      "position": [
+        272,
+        123,
+        175
+      ],
+      "before": {
+        "Name": "minecraft:air"
+      },
+      "after": {
+        "Name": "minecraft:purple_concrete"
+      }
+    },
+    {
+      "part": "inn-eaves",
+      "position": [
+        272,
+        124,
+        175
+      ],
+      "before": {
+        "Name": "minecraft:air"
+      },
+      "after": {
+        "Name": "minecraft:stone_brick_slab",
+        "Properties": {
+          "type": "bottom",
+          "waterlogged": "false"
+        }
+      }
+    },
+    {
+      "part": "inn-eaves",
+      "position": [
+        298,
+        123,
+        175
+      ],
+      "before": {
+        "Name": "minecraft:air"
+      },
+      "after": {
+        "Name": "minecraft:purple_concrete"
+      }
+    },
+    {
+      "part": "inn-eaves",
+      "position": [
+        298,
+        124,
+        175
+      ],
+      "before": {
+        "Name": "minecraft:air"
+      },
+      "after": {
+        "Name": "minecraft:stone_brick_slab",
+        "Properties": {
+          "type": "bottom",
+          "waterlogged": "false"
+        }
+      }
+    },
+    {
+      "part": "inn-eaves",
+      "position": [
+        272,
+        123,
+        176
+      ],
+      "before": {
+        "Name": "minecraft:air"
+      },
+      "after": {
+        "Name": "minecraft:purple_concrete"
+      }
+    },
+    {
+      "part": "inn-eaves",
+      "position": [
+        272,
+        124,
+        176
+      ],
+      "before": {
+        "Name": "minecraft:air"
+      },
+      "after": {
+        "Name": "minecraft:stone_brick_slab",
+        "Properties": {
+          "type": "bottom",
+          "waterlogged": "false"
+        }
+      }
+    },
+    {
+      "part": "inn-eaves",
+      "position": [
+        297,
+        123,
+        176
+      ],
+      "before": {
+        "Name": "minecraft:air"
+      },
+      "after": {
+        "Name": "minecraft:purple_concrete"
+      }
+    },
+    {
+      "part": "inn-eaves",
+      "position": [
+        297,
+        124,
+        176
+      ],
+      "before": {
+        "Name": "minecraft:air"
+      },
+      "after": {
+        "Name": "minecraft:stone_brick_slab",
+        "Properties": {
+          "type": "bottom",
+          "waterlogged": "false"
+        }
+      }
+    },
+    {
+      "part": "inn-eaves",
+      "position": [
+        271,
+        123,
+        177
+      ],
+      "before": {
+        "Name": "minecraft:air"
+      },
+      "after": {
+        "Name": "minecraft:purple_concrete"
+      }
+    },
+    {
+      "part": "inn-eaves",
+      "position": [
+        271,
+        124,
+        177
+      ],
+      "before": {
+        "Name": "minecraft:air"
+      },
+      "after": {
+        "Name": "minecraft:stone_brick_slab",
+        "Properties": {
+          "type": "bottom",
+          "waterlogged": "false"
+        }
+      }
+    },
+    {
+      "part": "inn-eaves",
+      "position": [
+        297,
+        123,
+        177
+      ],
+      "before": {
+        "Name": "minecraft:air"
+      },
+      "after": {
+        "Name": "minecraft:purple_concrete"
+      }
+    },
+    {
+      "part": "inn-eaves",
+      "position": [
+        297,
+        124,
+        177
+      ],
+      "before": {
+        "Name": "minecraft:air"
+      },
+      "after": {
+        "Name": "minecraft:stone_brick_slab",
+        "Properties": {
+          "type": "bottom",
+          "waterlogged": "false"
+        }
+      }
+    },
+    {
+      "part": "inn-eaves",
+      "position": [
+        271,
+        123,
+        178
+      ],
+      "before": {
+        "Name": "minecraft:air"
+      },
+      "after": {
+        "Name": "minecraft:purple_concrete"
+      }
+    },
+    {
+      "part": "inn-eaves",
+      "position": [
+        271,
+        124,
+        178
+      ],
+      "before": {
+        "Name": "minecraft:air"
+      },
+      "after": {
+        "Name": "minecraft:stone_brick_slab",
+        "Properties": {
+          "type": "bottom",
+          "waterlogged": "false"
+        }
+      }
+    },
+    {
+      "part": "inn-eaves",
+      "position": [
+        297,
+        123,
+        178
+      ],
+      "before": {
+        "Name": "minecraft:air"
+      },
+      "after": {
+        "Name": "minecraft:purple_concrete"
+      }
+    },
+    {
+      "part": "inn-eaves",
+      "position": [
+        297,
+        124,
+        178
+      ],
+      "before": {
+        "Name": "minecraft:air"
+      },
+      "after": {
+        "Name": "minecraft:stone_brick_slab",
+        "Properties": {
+          "type": "bottom",
+          "waterlogged": "false"
+        }
+      }
+    },
+    {
+      "part": "inn-eaves",
+      "position": [
+        271,
+        123,
+        179
+      ],
+      "before": {
+        "Name": "minecraft:air"
+      },
+      "after": {
+        "Name": "minecraft:purple_concrete"
+      }
+    },
+    {
+      "part": "inn-eaves",
+      "position": [
+        271,
+        124,
+        179
+      ],
+      "before": {
+        "Name": "minecraft:air"
+      },
+      "after": {
+        "Name": "minecraft:stone_brick_slab",
+        "Properties": {
+          "type": "bottom",
+          "waterlogged": "false"
+        }
+      }
+    },
+    {
+      "part": "inn-eaves",
+      "position": [
+        296,
+        123,
+        179
+      ],
+      "before": {
+        "Name": "minecraft:air"
+      },
+      "after": {
+        "Name": "minecraft:purple_concrete"
+      }
+    },
+    {
+      "part": "inn-eaves",
+      "position": [
+        296,
+        124,
+        179
+      ],
+      "before": {
+        "Name": "minecraft:air"
+      },
+      "after": {
+        "Name": "minecraft:stone_brick_slab",
+        "Properties": {
+          "type": "bottom",
+          "waterlogged": "false"
+        }
+      }
+    },
+    {
+      "part": "inn-eaves",
+      "position": [
+        270,
+        123,
+        180
+      ],
+      "before": {
+        "Name": "minecraft:air"
+      },
+      "after": {
+        "Name": "minecraft:purple_concrete"
+      }
+    },
+    {
+      "part": "inn-eaves",
+      "position": [
+        270,
+        124,
+        180
+      ],
+      "before": {
+        "Name": "minecraft:air"
+      },
+      "after": {
+        "Name": "minecraft:stone_brick_slab",
+        "Properties": {
+          "type": "bottom",
+          "waterlogged": "false"
+        }
+      }
+    },
+    {
+      "part": "inn-eaves",
+      "position": [
+        296,
+        123,
+        180
+      ],
+      "before": {
+        "Name": "minecraft:air"
+      },
+      "after": {
+        "Name": "minecraft:purple_concrete"
+      }
+    },
+    {
+      "part": "inn-eaves",
+      "position": [
+        296,
+        124,
+        180
+      ],
+      "before": {
+        "Name": "minecraft:air"
+      },
+      "after": {
+        "Name": "minecraft:stone_brick_slab",
+        "Properties": {
+          "type": "bottom",
+          "waterlogged": "false"
+        }
+      }
+    },
+    {
+      "part": "inn-eaves",
+      "position": [
+        270,
+        123,
+        181
+      ],
+      "before": {
+        "Name": "minecraft:air"
+      },
+      "after": {
+        "Name": "minecraft:purple_concrete"
+      }
+    },
+    {
+      "part": "inn-eaves",
+      "position": [
+        270,
+        124,
+        181
+      ],
+      "before": {
+        "Name": "minecraft:air"
+      },
+      "after": {
+        "Name": "minecraft:stone_brick_slab",
+        "Properties": {
+          "type": "bottom",
+          "waterlogged": "false"
+        }
+      }
+    },
+    {
+      "part": "inn-eaves",
+      "position": [
+        295,
+        123,
+        181
+      ],
+      "before": {
+        "Name": "minecraft:air"
+      },
+      "after": {
+        "Name": "minecraft:purple_concrete"
+      }
+    },
+    {
+      "part": "inn-eaves",
+      "position": [
+        295,
+        124,
+        181
+      ],
+      "before": {
+        "Name": "minecraft:air"
+      },
+      "after": {
+        "Name": "minecraft:stone_brick_slab",
+        "Properties": {
+          "type": "bottom",
+          "waterlogged": "false"
+        }
+      }
+    },
+    {
+      "part": "inn-eaves",
+      "position": [
+        296,
+        123,
+        181
+      ],
+      "before": {
+        "Name": "minecraft:air"
+      },
+      "after": {
+        "Name": "minecraft:purple_concrete"
+      }
+    },
+    {
+      "part": "inn-eaves",
+      "position": [
+        296,
+        124,
+        181
+      ],
+      "before": {
+        "Name": "minecraft:air"
+      },
+      "after": {
+        "Name": "minecraft:stone_brick_slab",
+        "Properties": {
+          "type": "bottom",
+          "waterlogged": "false"
+        }
+      }
+    },
+    {
+      "part": "inn-eaves",
+      "position": [
+        270,
+        123,
+        182
+      ],
+      "before": {
+        "Name": "minecraft:air"
+      },
+      "after": {
+        "Name": "minecraft:purple_concrete"
+      }
+    },
+    {
+      "part": "inn-eaves",
+      "position": [
+        270,
+        124,
+        182
+      ],
+      "before": {
+        "Name": "minecraft:air"
+      },
+      "after": {
+        "Name": "minecraft:stone_brick_slab",
+        "Properties": {
+          "type": "bottom",
+          "waterlogged": "false"
+        }
+      }
+    },
+    {
+      "part": "inn-eaves",
+      "position": [
+        295,
+        123,
+        182
+      ],
+      "before": {
+        "Name": "minecraft:air"
+      },
+      "after": {
+        "Name": "minecraft:purple_concrete"
+      }
+    },
+    {
+      "part": "inn-eaves",
+      "position": [
+        295,
+        124,
+        182
+      ],
+      "before": {
+        "Name": "minecraft:air"
+      },
+      "after": {
+        "Name": "minecraft:stone_brick_slab",
+        "Properties": {
+          "type": "bottom",
+          "waterlogged": "false"
+        }
+      }
+    },
+    {
+      "part": "inn-eaves",
+      "position": [
+        269,
+        123,
+        183
+      ],
+      "before": {
+        "Name": "minecraft:air"
+      },
+      "after": {
+        "Name": "minecraft:purple_concrete"
+      }
+    },
+    {
+      "part": "inn-eaves",
+      "position": [
+        269,
+        124,
+        183
+      ],
+      "before": {
+        "Name": "minecraft:air"
+      },
+      "after": {
+        "Name": "minecraft:stone_brick_slab",
+        "Properties": {
+          "type": "bottom",
+          "waterlogged": "false"
+        }
+      }
+    },
+    {
+      "part": "inn-eaves",
+      "position": [
+        295,
+        123,
+        183
+      ],
+      "before": {
+        "Name": "minecraft:air"
+      },
+      "after": {
+        "Name": "minecraft:purple_concrete"
+      }
+    },
+    {
+      "part": "inn-eaves",
+      "position": [
+        295,
+        124,
+        183
+      ],
+      "before": {
+        "Name": "minecraft:air"
+      },
+      "after": {
+        "Name": "minecraft:stone_brick_slab",
+        "Properties": {
+          "type": "bottom",
+          "waterlogged": "false"
+        }
+      }
+    },
+    {
+      "part": "inn-eaves",
+      "position": [
+        269,
+        123,
+        184
+      ],
+      "before": {
+        "Name": "minecraft:air"
+      },
+      "after": {
+        "Name": "minecraft:purple_concrete"
+      }
+    },
+    {
+      "part": "inn-eaves",
+      "position": [
+        269,
+        124,
+        184
+      ],
+      "before": {
+        "Name": "minecraft:air"
+      },
+      "after": {
+        "Name": "minecraft:stone_brick_slab",
+        "Properties": {
+          "type": "bottom",
+          "waterlogged": "false"
+        }
+      }
+    },
+    {
+      "part": "inn-eaves",
+      "position": [
+        294,
+        123,
+        184
+      ],
+      "before": {
+        "Name": "minecraft:air"
+      },
+      "after": {
+        "Name": "minecraft:purple_concrete"
+      }
+    },
+    {
+      "part": "inn-eaves",
+      "position": [
+        294,
+        124,
+        184
+      ],
+      "before": {
+        "Name": "minecraft:air"
+      },
+      "after": {
+        "Name": "minecraft:stone_brick_slab",
+        "Properties": {
+          "type": "bottom",
+          "waterlogged": "false"
+        }
+      }
+    },
+    {
+      "part": "inn-eaves",
+      "position": [
+        268,
+        123,
+        185
+      ],
+      "before": {
+        "Name": "minecraft:air"
+      },
+      "after": {
+        "Name": "minecraft:purple_concrete"
+      }
+    },
+    {
+      "part": "inn-eaves",
+      "position": [
+        268,
+        124,
+        185
+      ],
+      "before": {
+        "Name": "minecraft:air"
+      },
+      "after": {
+        "Name": "minecraft:stone_brick_slab",
+        "Properties": {
+          "type": "bottom",
+          "waterlogged": "false"
+        }
+      }
+    },
+    {
+      "part": "inn-eaves",
+      "position": [
+        269,
+        123,
+        185
+      ],
+      "before": {
+        "Name": "minecraft:air"
+      },
+      "after": {
+        "Name": "minecraft:purple_concrete"
+      }
+    },
+    {
+      "part": "inn-eaves",
+      "position": [
+        269,
+        124,
+        185
+      ],
+      "before": {
+        "Name": "minecraft:air"
+      },
+      "after": {
+        "Name": "minecraft:stone_brick_slab",
+        "Properties": {
+          "type": "bottom",
+          "waterlogged": "false"
+        }
+      }
+    },
+    {
+      "part": "inn-eaves",
+      "position": [
+        294,
+        123,
+        185
+      ],
+      "before": {
+        "Name": "minecraft:air"
+      },
+      "after": {
+        "Name": "minecraft:purple_concrete"
+      }
+    },
+    {
+      "part": "inn-eaves",
+      "position": [
+        294,
+        124,
+        185
+      ],
+      "before": {
+        "Name": "minecraft:air"
+      },
+      "after": {
+        "Name": "minecraft:stone_brick_slab",
+        "Properties": {
+          "type": "bottom",
+          "waterlogged": "false"
+        }
+      }
+    },
+    {
+      "part": "inn-eaves",
+      "position": [
+        268,
+        123,
+        186
+      ],
+      "before": {
+        "Name": "minecraft:air"
+      },
+      "after": {
+        "Name": "minecraft:purple_concrete"
+      }
+    },
+    {
+      "part": "inn-eaves",
+      "position": [
+        268,
+        124,
+        186
+      ],
+      "before": {
+        "Name": "minecraft:air"
+      },
+      "after": {
+        "Name": "minecraft:stone_brick_slab",
+        "Properties": {
+          "type": "bottom",
+          "waterlogged": "false"
+        }
+      }
+    },
+    {
+      "part": "inn-eaves",
+      "position": [
+        294,
+        123,
+        186
+      ],
+      "before": {
+        "Name": "minecraft:air"
+      },
+      "after": {
+        "Name": "minecraft:purple_concrete"
+      }
+    },
+    {
+      "part": "inn-eaves",
+      "position": [
+        294,
+        124,
+        186
+      ],
+      "before": {
+        "Name": "minecraft:air"
+      },
+      "after": {
+        "Name": "minecraft:stone_brick_slab",
+        "Properties": {
+          "type": "bottom",
+          "waterlogged": "false"
+        }
+      }
+    },
+    {
+      "part": "inn-eaves",
+      "position": [
+        268,
+        123,
+        187
+      ],
+      "before": {
+        "Name": "minecraft:air"
+      },
+      "after": {
+        "Name": "minecraft:purple_concrete"
+      }
+    },
+    {
+      "part": "inn-eaves",
+      "position": [
+        268,
+        124,
+        187
+      ],
+      "before": {
+        "Name": "minecraft:air"
+      },
+      "after": {
+        "Name": "minecraft:stone_brick_slab",
+        "Properties": {
+          "type": "bottom",
+          "waterlogged": "false"
+        }
+      }
+    },
+    {
+      "part": "inn-eaves",
+      "position": [
+        293,
+        123,
+        187
+      ],
+      "before": {
+        "Name": "minecraft:air"
+      },
+      "after": {
+        "Name": "minecraft:purple_concrete"
+      }
+    },
+    {
+      "part": "inn-eaves",
+      "position": [
+        293,
+        124,
+        187
+      ],
+      "before": {
+        "Name": "minecraft:air"
+      },
+      "after": {
+        "Name": "minecraft:stone_brick_slab",
+        "Properties": {
+          "type": "bottom",
+          "waterlogged": "false"
+        }
+      }
+    },
+    {
+      "part": "inn-eaves",
+      "position": [
+        267,
+        123,
+        188
+      ],
+      "before": {
+        "Name": "minecraft:air"
+      },
+      "after": {
+        "Name": "minecraft:purple_concrete"
+      }
+    },
+    {
+      "part": "inn-eaves",
+      "position": [
+        267,
+        124,
+        188
+      ],
+      "before": {
+        "Name": "minecraft:air"
+      },
+      "after": {
+        "Name": "minecraft:stone_brick_slab",
+        "Properties": {
+          "type": "bottom",
+          "waterlogged": "false"
+        }
+      }
+    },
+    {
+      "part": "inn-eaves",
+      "position": [
+        293,
+        123,
+        188
+      ],
+      "before": {
+        "Name": "minecraft:air"
+      },
+      "after": {
+        "Name": "minecraft:purple_concrete"
+      }
+    },
+    {
+      "part": "inn-eaves",
+      "position": [
+        293,
+        124,
+        188
+      ],
+      "before": {
+        "Name": "minecraft:air"
+      },
+      "after": {
+        "Name": "minecraft:stone_brick_slab",
+        "Properties": {
+          "type": "bottom",
+          "waterlogged": "false"
+        }
+      }
+    },
+    {
+      "part": "inn-eaves",
+      "position": [
+        267,
+        123,
+        189
+      ],
+      "before": {
+        "Name": "minecraft:air"
+      },
+      "after": {
+        "Name": "minecraft:purple_concrete"
+      }
+    },
+    {
+      "part": "inn-eaves",
+      "position": [
+        267,
+        124,
+        189
+      ],
+      "before": {
+        "Name": "minecraft:air"
+      },
+      "after": {
+        "Name": "minecraft:stone_brick_slab",
+        "Properties": {
+          "type": "bottom",
+          "waterlogged": "false"
+        }
+      }
+    },
+    {
+      "part": "inn-eaves",
+      "position": [
+        293,
+        123,
+        189
+      ],
+      "before": {
+        "Name": "minecraft:air"
+      },
+      "after": {
+        "Name": "minecraft:purple_concrete"
+      }
+    },
+    {
+      "part": "inn-eaves",
+      "position": [
+        293,
+        124,
+        189
+      ],
+      "before": {
+        "Name": "minecraft:air"
+      },
+      "after": {
+        "Name": "minecraft:stone_brick_slab",
+        "Properties": {
+          "type": "bottom",
+          "waterlogged": "false"
+        }
+      }
+    },
+    {
+      "part": "inn-eaves",
+      "position": [
+        267,
+        123,
+        190
+      ],
+      "before": {
+        "Name": "minecraft:air"
+      },
+      "after": {
+        "Name": "minecraft:purple_concrete"
+      }
+    },
+    {
+      "part": "inn-eaves",
+      "position": [
+        267,
+        124,
+        190
+      ],
+      "before": {
+        "Name": "minecraft:air"
+      },
+      "after": {
+        "Name": "minecraft:stone_brick_slab",
+        "Properties": {
+          "type": "bottom",
+          "waterlogged": "false"
+        }
+      }
+    },
+    {
+      "part": "inn-eaves",
+      "position": [
+        292,
+        123,
+        190
+      ],
+      "before": {
+        "Name": "minecraft:air"
+      },
+      "after": {
+        "Name": "minecraft:purple_concrete"
+      }
+    },
+    {
+      "part": "inn-eaves",
+      "position": [
+        292,
+        124,
+        190
+      ],
+      "before": {
+        "Name": "minecraft:air"
+      },
+      "after": {
+        "Name": "minecraft:stone_brick_slab",
+        "Properties": {
+          "type": "bottom",
+          "waterlogged": "false"
+        }
+      }
+    },
+    {
+      "part": "inn-eaves",
+      "position": [
+        266,
+        123,
+        191
+      ],
+      "before": {
+        "Name": "minecraft:air"
+      },
+      "after": {
+        "Name": "minecraft:purple_concrete"
+      }
+    },
+    {
+      "part": "inn-eaves",
+      "position": [
+        266,
+        124,
+        191
+      ],
+      "before": {
+        "Name": "minecraft:air"
+      },
+      "after": {
+        "Name": "minecraft:stone_brick_slab",
+        "Properties": {
+          "type": "bottom",
+          "waterlogged": "false"
+        }
+      }
+    },
+    {
+      "part": "inn-eaves",
+      "position": [
+        292,
+        123,
+        191
+      ],
+      "before": {
+        "Name": "minecraft:air"
+      },
+      "after": {
+        "Name": "minecraft:purple_concrete"
+      }
+    },
+    {
+      "part": "inn-eaves",
+      "position": [
+        292,
+        124,
+        191
+      ],
+      "before": {
+        "Name": "minecraft:air"
+      },
+      "after": {
+        "Name": "minecraft:stone_brick_slab",
+        "Properties": {
+          "type": "bottom",
+          "waterlogged": "false"
+        }
+      }
+    },
+    {
+      "part": "inn-eaves",
+      "position": [
+        266,
+        123,
+        192
+      ],
+      "before": {
+        "Name": "minecraft:air"
+      },
+      "after": {
+        "Name": "minecraft:purple_concrete"
+      }
+    },
+    {
+      "part": "inn-eaves",
+      "position": [
+        266,
+        124,
+        192
+      ],
+      "before": {
+        "Name": "minecraft:air"
+      },
+      "after": {
+        "Name": "minecraft:stone_brick_slab",
+        "Properties": {
+          "type": "bottom",
+          "waterlogged": "false"
+        }
+      }
+    },
+    {
+      "part": "inn-eaves",
+      "position": [
+        291,
+        123,
+        192
+      ],
+      "before": {
+        "Name": "minecraft:air"
+      },
+      "after": {
+        "Name": "minecraft:purple_concrete"
+      }
+    },
+    {
+      "part": "inn-eaves",
+      "position": [
+        291,
+        124,
+        192
+      ],
+      "before": {
+        "Name": "minecraft:air"
+      },
+      "after": {
+        "Name": "minecraft:stone_brick_slab",
+        "Properties": {
+          "type": "bottom",
+          "waterlogged": "false"
+        }
+      }
+    },
+    {
+      "part": "inn-eaves",
+      "position": [
+        292,
+        123,
+        192
+      ],
+      "before": {
+        "Name": "minecraft:air"
+      },
+      "after": {
+        "Name": "minecraft:purple_concrete"
+      }
+    },
+    {
+      "part": "inn-eaves",
+      "position": [
+        292,
+        124,
+        192
+      ],
+      "before": {
+        "Name": "minecraft:air"
+      },
+      "after": {
+        "Name": "minecraft:stone_brick_slab",
+        "Properties": {
+          "type": "bottom",
+          "waterlogged": "false"
+        }
+      }
+    },
+    {
+      "part": "inn-eaves",
+      "position": [
+        266,
+        123,
+        193
+      ],
+      "before": {
+        "Name": "minecraft:air"
+      },
+      "after": {
+        "Name": "minecraft:purple_concrete"
+      }
+    },
+    {
+      "part": "inn-eaves",
+      "position": [
+        266,
+        124,
+        193
+      ],
+      "before": {
+        "Name": "minecraft:air"
+      },
+      "after": {
+        "Name": "minecraft:stone_brick_slab",
+        "Properties": {
+          "type": "bottom",
+          "waterlogged": "false"
+        }
+      }
+    },
+    {
+      "part": "inn-eaves",
+      "position": [
+        267,
+        124,
+        193
+      ],
+      "before": {
+        "Name": "minecraft:air"
+      },
+      "after": {
+        "Name": "minecraft:purple_concrete"
+      }
+    },
+    {
+      "part": "inn-eaves",
+      "position": [
+        267,
+        125,
+        193
+      ],
+      "before": {
+        "Name": "minecraft:air"
+      },
+      "after": {
+        "Name": "minecraft:stone_brick_slab",
+        "Properties": {
+          "type": "bottom",
+          "waterlogged": "false"
+        }
+      }
+    },
+    {
+      "part": "inn-eaves",
+      "position": [
+        291,
+        123,
+        193
+      ],
+      "before": {
+        "Name": "minecraft:air"
+      },
+      "after": {
+        "Name": "minecraft:purple_concrete"
+      }
+    },
+    {
+      "part": "inn-eaves",
+      "position": [
+        291,
+        124,
+        193
+      ],
+      "before": {
+        "Name": "minecraft:air"
+      },
+      "after": {
+        "Name": "minecraft:stone_brick_slab",
+        "Properties": {
+          "type": "bottom",
+          "waterlogged": "false"
+        }
+      }
+    },
+    {
+      "part": "inn-eaves",
+      "position": [
+        267,
+        124,
+        194
+      ],
+      "before": {
+        "Name": "minecraft:air"
+      },
+      "after": {
+        "Name": "minecraft:purple_concrete"
+      }
+    },
+    {
+      "part": "inn-eaves",
+      "position": [
+        267,
+        125,
+        194
+      ],
+      "before": {
+        "Name": "minecraft:air"
+      },
+      "after": {
+        "Name": "minecraft:stone_brick_slab",
+        "Properties": {
+          "type": "bottom",
+          "waterlogged": "false"
+        }
+      }
+    },
+    {
+      "part": "inn-eaves",
+      "position": [
+        268,
+        125,
+        194
+      ],
+      "before": {
+        "Name": "minecraft:air"
+      },
+      "after": {
+        "Name": "minecraft:purple_concrete"
+      }
+    },
+    {
+      "part": "inn-eaves",
+      "position": [
+        268,
+        126,
+        194
+      ],
+      "before": {
+        "Name": "minecraft:air"
+      },
+      "after": {
+        "Name": "minecraft:stone_brick_slab",
+        "Properties": {
+          "type": "bottom",
+          "waterlogged": "false"
+        }
+      }
+    },
+    {
+      "part": "inn-eaves",
+      "position": [
+        269,
+        125,
+        194
+      ],
+      "before": {
+        "Name": "minecraft:air"
+      },
+      "after": {
+        "Name": "minecraft:purple_concrete"
+      }
+    },
+    {
+      "part": "inn-eaves",
+      "position": [
+        269,
+        126,
+        194
+      ],
+      "before": {
+        "Name": "minecraft:air"
+      },
+      "after": {
+        "Name": "minecraft:stone_brick_slab",
+        "Properties": {
+          "type": "bottom",
+          "waterlogged": "false"
+        }
+      }
+    },
+    {
+      "part": "inn-eaves",
+      "position": [
+        291,
+        123,
+        194
+      ],
+      "before": {
+        "Name": "minecraft:air"
+      },
+      "after": {
+        "Name": "minecraft:purple_concrete"
+      }
+    },
+    {
+      "part": "inn-eaves",
+      "position": [
+        291,
+        124,
+        194
+      ],
+      "before": {
+        "Name": "minecraft:air"
+      },
+      "after": {
+        "Name": "minecraft:stone_brick_slab",
+        "Properties": {
+          "type": "bottom",
+          "waterlogged": "false"
+        }
+      }
+    },
+    {
+      "part": "inn-eaves",
+      "position": [
+        270,
+        126,
+        195
+      ],
+      "before": {
+        "Name": "minecraft:air"
+      },
+      "after": {
+        "Name": "minecraft:purple_concrete"
+      }
+    },
+    {
+      "part": "inn-eaves",
+      "position": [
+        270,
+        127,
+        195
+      ],
+      "before": {
+        "Name": "minecraft:air"
+      },
+      "after": {
+        "Name": "minecraft:stone_brick_slab",
+        "Properties": {
+          "type": "bottom",
+          "waterlogged": "false"
+        }
+      }
+    },
+    {
+      "part": "inn-eaves",
+      "position": [
+        271,
+        127,
+        195
+      ],
+      "before": {
+        "Name": "minecraft:air"
+      },
+      "after": {
+        "Name": "minecraft:purple_concrete"
+      }
+    },
+    {
+      "part": "inn-eaves",
+      "position": [
+        271,
+        128,
+        195
+      ],
+      "before": {
+        "Name": "minecraft:air"
+      },
+      "after": {
+        "Name": "minecraft:stone_brick_slab",
+        "Properties": {
+          "type": "bottom",
+          "waterlogged": "false"
+        }
+      }
+    },
+    {
+      "part": "inn-eaves",
+      "position": [
+        272,
+        127,
+        195
+      ],
+      "before": {
+        "Name": "minecraft:air"
+      },
+      "after": {
+        "Name": "minecraft:purple_concrete"
+      }
+    },
+    {
+      "part": "inn-eaves",
+      "position": [
+        272,
+        128,
+        195
+      ],
+      "before": {
+        "Name": "minecraft:air"
+      },
+      "after": {
+        "Name": "minecraft:stone_brick_slab",
+        "Properties": {
+          "type": "bottom",
+          "waterlogged": "false"
+        }
+      }
+    },
+    {
+      "part": "inn-eaves",
+      "position": [
+        290,
+        123,
+        195
+      ],
+      "before": {
+        "Name": "minecraft:air"
+      },
+      "after": {
+        "Name": "minecraft:purple_concrete"
+      }
+    },
+    {
+      "part": "inn-eaves",
+      "position": [
+        290,
+        124,
+        195
+      ],
+      "before": {
+        "Name": "minecraft:air"
+      },
+      "after": {
+        "Name": "minecraft:stone_brick_slab",
+        "Properties": {
+          "type": "bottom",
+          "waterlogged": "false"
+        }
+      }
+    },
+    {
+      "part": "inn-eaves",
+      "position": [
+        273,
+        128,
+        196
+      ],
+      "before": {
+        "Name": "minecraft:air"
+      },
+      "after": {
+        "Name": "minecraft:purple_concrete"
+      }
+    },
+    {
+      "part": "inn-eaves",
+      "position": [
+        273,
+        129,
+        196
+      ],
+      "before": {
+        "Name": "minecraft:air"
+      },
+      "after": {
+        "Name": "minecraft:stone_brick_slab",
+        "Properties": {
+          "type": "bottom",
+          "waterlogged": "false"
+        }
+      }
+    },
+    {
+      "part": "inn-eaves",
+      "position": [
+        274,
+        129,
+        196
+      ],
+      "before": {
+        "Name": "minecraft:air"
+      },
+      "after": {
+        "Name": "minecraft:purple_concrete"
+      }
+    },
+    {
+      "part": "inn-eaves",
+      "position": [
+        274,
+        130,
+        196
+      ],
+      "before": {
+        "Name": "minecraft:air"
+      },
+      "after": {
+        "Name": "minecraft:stone_brick_slab",
+        "Properties": {
+          "type": "bottom",
+          "waterlogged": "false"
+        }
+      }
+    },
+    {
+      "part": "inn-eaves",
+      "position": [
+        275,
+        129,
+        196
+      ],
+      "before": {
+        "Name": "minecraft:air"
+      },
+      "after": {
+        "Name": "minecraft:purple_concrete"
+      }
+    },
+    {
+      "part": "inn-eaves",
+      "position": [
+        275,
+        130,
+        196
+      ],
+      "before": {
+        "Name": "minecraft:air"
+      },
+      "after": {
+        "Name": "minecraft:stone_brick_slab",
+        "Properties": {
+          "type": "bottom",
+          "waterlogged": "false"
+        }
+      }
+    },
+    {
+      "part": "inn-eaves",
+      "position": [
+        290,
+        123,
+        196
+      ],
+      "before": {
+        "Name": "minecraft:air"
+      },
+      "after": {
+        "Name": "minecraft:purple_concrete"
+      }
+    },
+    {
+      "part": "inn-eaves",
+      "position": [
+        290,
+        124,
+        196
+      ],
+      "before": {
+        "Name": "minecraft:air"
+      },
+      "after": {
+        "Name": "minecraft:stone_brick_slab",
+        "Properties": {
+          "type": "bottom",
+          "waterlogged": "false"
+        }
+      }
+    },
+    {
+      "part": "inn-eaves",
+      "position": [
+        276,
+        130,
+        197
+      ],
+      "before": {
+        "Name": "minecraft:air"
+      },
+      "after": {
+        "Name": "minecraft:purple_concrete"
+      }
+    },
+    {
+      "part": "inn-eaves",
+      "position": [
+        276,
+        131,
+        197
+      ],
+      "before": {
+        "Name": "minecraft:air"
+      },
+      "after": {
+        "Name": "minecraft:stone_brick_slab",
+        "Properties": {
+          "type": "bottom",
+          "waterlogged": "false"
+        }
+      }
+    },
+    {
+      "part": "inn-eaves",
+      "position": [
+        277,
+        131,
+        197
+      ],
+      "before": {
+        "Name": "minecraft:air"
+      },
+      "after": {
+        "Name": "minecraft:purple_concrete"
+      }
+    },
+    {
+      "part": "inn-eaves",
+      "position": [
+        277,
+        132,
+        197
+      ],
+      "before": {
+        "Name": "minecraft:air"
+      },
+      "after": {
+        "Name": "minecraft:stone_brick_slab",
+        "Properties": {
+          "type": "bottom",
+          "waterlogged": "false"
+        }
+      }
+    },
+    {
+      "part": "inn-eaves",
+      "position": [
+        278,
+        130,
+        197
+      ],
+      "before": {
+        "Name": "minecraft:air"
+      },
+      "after": {
+        "Name": "minecraft:purple_concrete"
+      }
+    },
+    {
+      "part": "inn-eaves",
+      "position": [
+        278,
+        131,
+        197
+      ],
+      "before": {
+        "Name": "minecraft:air"
+      },
+      "after": {
+        "Name": "minecraft:stone_brick_slab",
+        "Properties": {
+          "type": "bottom",
+          "waterlogged": "false"
+        }
+      }
+    },
+    {
+      "part": "inn-eaves",
+      "position": [
+        290,
+        123,
+        197
+      ],
+      "before": {
+        "Name": "minecraft:air"
+      },
+      "after": {
+        "Name": "minecraft:purple_concrete"
+      }
+    },
+    {
+      "part": "inn-eaves",
+      "position": [
+        290,
+        124,
+        197
+      ],
+      "before": {
+        "Name": "minecraft:air"
+      },
+      "after": {
+        "Name": "minecraft:stone_brick_slab",
+        "Properties": {
+          "type": "bottom",
+          "waterlogged": "false"
+        }
+      }
+    },
+    {
+      "part": "inn-eaves",
+      "position": [
+        278,
+        130,
+        198
+      ],
+      "before": {
+        "Name": "minecraft:air"
+      },
+      "after": {
+        "Name": "minecraft:purple_concrete"
+      }
+    },
+    {
+      "part": "inn-eaves",
+      "position": [
+        278,
+        131,
+        198
+      ],
+      "before": {
+        "Name": "minecraft:air"
+      },
+      "after": {
+        "Name": "minecraft:stone_brick_slab",
+        "Properties": {
+          "type": "bottom",
+          "waterlogged": "false"
+        }
+      }
+    },
+    {
+      "part": "inn-eaves",
+      "position": [
+        279,
+        129,
+        198
+      ],
+      "before": {
+        "Name": "minecraft:air"
+      },
+      "after": {
+        "Name": "minecraft:purple_concrete"
+      }
+    },
+    {
+      "part": "inn-eaves",
+      "position": [
+        279,
+        130,
+        198
+      ],
+      "before": {
+        "Name": "minecraft:air"
+      },
+      "after": {
+        "Name": "minecraft:stone_brick_slab",
+        "Properties": {
+          "type": "bottom",
+          "waterlogged": "false"
+        }
+      }
+    },
+    {
+      "part": "inn-eaves",
+      "position": [
+        280,
+        129,
+        198
+      ],
+      "before": {
+        "Name": "minecraft:air"
+      },
+      "after": {
+        "Name": "minecraft:purple_concrete"
+      }
+    },
+    {
+      "part": "inn-eaves",
+      "position": [
+        280,
+        130,
+        198
+      ],
+      "before": {
+        "Name": "minecraft:air"
+      },
+      "after": {
+        "Name": "minecraft:stone_brick_slab",
+        "Properties": {
+          "type": "bottom",
+          "waterlogged": "false"
+        }
+      }
+    },
+    {
+      "part": "inn-eaves",
+      "position": [
+        289,
+        123,
+        198
+      ],
+      "before": {
+        "Name": "minecraft:air"
+      },
+      "after": {
+        "Name": "minecraft:purple_concrete"
+      }
+    },
+    {
+      "part": "inn-eaves",
+      "position": [
+        289,
+        124,
+        198
+      ],
+      "before": {
+        "Name": "minecraft:air"
+      },
+      "after": {
+        "Name": "minecraft:stone_brick_slab",
+        "Properties": {
+          "type": "bottom",
+          "waterlogged": "false"
+        }
+      }
+    },
+    {
+      "part": "inn-eaves",
+      "position": [
+        281,
+        127,
+        199
+      ],
+      "before": {
+        "Name": "minecraft:air"
+      },
+      "after": {
+        "Name": "minecraft:purple_concrete"
+      }
+    },
+    {
+      "part": "inn-eaves",
+      "position": [
+        281,
+        128,
+        199
+      ],
+      "before": {
+        "Name": "minecraft:air"
+      },
+      "after": {
+        "Name": "minecraft:stone_brick_slab",
+        "Properties": {
+          "type": "bottom",
+          "waterlogged": "false"
+        }
+      }
+    },
+    {
+      "part": "inn-eaves",
+      "position": [
+        282,
+        127,
+        199
+      ],
+      "before": {
+        "Name": "minecraft:air"
+      },
+      "after": {
+        "Name": "minecraft:purple_concrete"
+      }
+    },
+    {
+      "part": "inn-eaves",
+      "position": [
+        282,
+        128,
+        199
+      ],
+      "before": {
+        "Name": "minecraft:air"
+      },
+      "after": {
+        "Name": "minecraft:stone_brick_slab",
+        "Properties": {
+          "type": "bottom",
+          "waterlogged": "false"
+        }
+      }
+    },
+    {
+      "part": "inn-eaves",
+      "position": [
+        283,
+        127,
+        199
+      ],
+      "before": {
+        "Name": "minecraft:air"
+      },
+      "after": {
+        "Name": "minecraft:purple_concrete"
+      }
+    },
+    {
+      "part": "inn-eaves",
+      "position": [
+        283,
+        128,
+        199
+      ],
+      "before": {
+        "Name": "minecraft:air"
+      },
+      "after": {
+        "Name": "minecraft:stone_brick_slab",
+        "Properties": {
+          "type": "bottom",
+          "waterlogged": "false"
+        }
+      }
+    },
+    {
+      "part": "inn-eaves",
+      "position": [
+        289,
+        123,
+        199
+      ],
+      "before": {
+        "Name": "minecraft:air"
+      },
+      "after": {
+        "Name": "minecraft:purple_concrete"
+      }
+    },
+    {
+      "part": "inn-eaves",
+      "position": [
+        289,
+        124,
+        199
+      ],
+      "before": {
+        "Name": "minecraft:air"
+      },
+      "after": {
+        "Name": "minecraft:stone_brick_slab",
+        "Properties": {
+          "type": "bottom",
+          "waterlogged": "false"
+        }
+      }
+    },
+    {
+      "part": "inn-eaves",
+      "position": [
+        284,
+        125,
+        200
+      ],
+      "before": {
+        "Name": "minecraft:air"
+      },
+      "after": {
+        "Name": "minecraft:purple_concrete"
+      }
+    },
+    {
+      "part": "inn-eaves",
+      "position": [
+        284,
+        126,
+        200
+      ],
+      "before": {
+        "Name": "minecraft:air"
+      },
+      "after": {
+        "Name": "minecraft:stone_brick_slab",
+        "Properties": {
+          "type": "bottom",
+          "waterlogged": "false"
+        }
+      }
+    },
+    {
+      "part": "inn-eaves",
+      "position": [
+        285,
+        125,
+        200
+      ],
+      "before": {
+        "Name": "minecraft:air"
+      },
+      "after": {
+        "Name": "minecraft:purple_concrete"
+      }
+    },
+    {
+      "part": "inn-eaves",
+      "position": [
+        285,
+        126,
+        200
+      ],
+      "before": {
+        "Name": "minecraft:air"
+      },
+      "after": {
+        "Name": "minecraft:stone_brick_slab",
+        "Properties": {
+          "type": "bottom",
+          "waterlogged": "false"
+        }
+      }
+    },
+    {
+      "part": "inn-eaves",
+      "position": [
+        286,
+        124,
+        200
+      ],
+      "before": {
+        "Name": "minecraft:air"
+      },
+      "after": {
+        "Name": "minecraft:purple_concrete"
+      }
+    },
+    {
+      "part": "inn-eaves",
+      "position": [
+        286,
+        125,
+        200
+      ],
+      "before": {
+        "Name": "minecraft:air"
+      },
+      "after": {
+        "Name": "minecraft:stone_brick_slab",
+        "Properties": {
+          "type": "bottom",
+          "waterlogged": "false"
+        }
+      }
+    },
+    {
+      "part": "inn-eaves",
+      "position": [
+        289,
+        123,
+        200
+      ],
+      "before": {
+        "Name": "minecraft:air"
+      },
+      "after": {
+        "Name": "minecraft:purple_concrete"
+      }
+    },
+    {
+      "part": "inn-eaves",
+      "position": [
+        289,
+        124,
+        200
+      ],
+      "before": {
+        "Name": "minecraft:air"
+      },
+      "after": {
+        "Name": "minecraft:stone_brick_slab",
+        "Properties": {
+          "type": "bottom",
+          "waterlogged": "false"
+        }
+      }
+    },
+    {
+      "part": "inn-eaves",
+      "position": [
+        287,
+        124,
+        201
+      ],
+      "before": {
+        "Name": "minecraft:air"
+      },
+      "after": {
+        "Name": "minecraft:purple_concrete"
+      }
+    },
+    {
+      "part": "inn-eaves",
+      "position": [
+        287,
+        125,
+        201
+      ],
+      "before": {
+        "Name": "minecraft:air"
+      },
+      "after": {
+        "Name": "minecraft:stone_brick_slab",
+        "Properties": {
+          "type": "bottom",
+          "waterlogged": "false"
+        }
+      }
+    },
+    {
+      "part": "inn-eaves",
+      "position": [
+        288,
+        123,
+        201
+      ],
+      "before": {
+        "Name": "minecraft:air"
+      },
+      "after": {
+        "Name": "minecraft:purple_concrete"
+      }
+    },
+    {
+      "part": "inn-eaves",
+      "position": [
+        288,
+        124,
+        201
+      ],
+      "before": {
+        "Name": "minecraft:air"
+      },
+      "after": {
+        "Name": "minecraft:stone_brick_slab",
+        "Properties": {
+          "type": "bottom",
+          "waterlogged": "false"
+        }
+      }
+    },
+    {
+      "part": "gallery-rails",
+      "position": [
+        240,
+        119,
+        186
+      ],
+      "before": {
+        "Name": "minecraft:dark_oak_fence",
+        "Properties": {
+          "north": "false",
+          "south": "false",
+          "east": "false",
+          "west": "false",
+          "waterlogged": "false"
+        }
+      },
+      "after": {
+        "Name": "minecraft:dark_oak_fence",
+        "Properties": {
+          "north": "false",
+          "south": "true",
+          "east": "false",
+          "west": "false",
+          "waterlogged": "false"
+        }
+      }
+    },
+    {
+      "part": "gallery-rails",
+      "position": [
+        240,
+        119,
+        187
+      ],
+      "before": {
+        "Name": "minecraft:dark_oak_fence",
+        "Properties": {
+          "north": "false",
+          "south": "false",
+          "east": "false",
+          "west": "false",
+          "waterlogged": "false"
+        }
+      },
+      "after": {
+        "Name": "minecraft:dark_oak_fence",
+        "Properties": {
+          "north": "true",
+          "south": "true",
+          "east": "false",
+          "west": "false",
+          "waterlogged": "false"
+        }
+      }
+    },
+    {
+      "part": "gallery-rails",
+      "position": [
+        240,
+        119,
+        188
+      ],
+      "before": {
+        "Name": "minecraft:dark_oak_fence",
+        "Properties": {
+          "north": "false",
+          "south": "false",
+          "east": "false",
+          "west": "false",
+          "waterlogged": "false"
+        }
+      },
+      "after": {
+        "Name": "minecraft:dark_oak_fence",
+        "Properties": {
+          "north": "true",
+          "south": "true",
+          "east": "false",
+          "west": "false",
+          "waterlogged": "false"
+        }
+      }
+    },
+    {
+      "part": "gallery-rails",
+      "position": [
+        240,
+        119,
+        189
+      ],
+      "before": {
+        "Name": "minecraft:dark_oak_fence",
+        "Properties": {
+          "north": "false",
+          "south": "false",
+          "east": "false",
+          "west": "false",
+          "waterlogged": "false"
+        }
+      },
+      "after": {
+        "Name": "minecraft:dark_oak_fence",
+        "Properties": {
+          "north": "true",
+          "south": "true",
+          "east": "false",
+          "west": "false",
+          "waterlogged": "false"
+        }
+      }
+    },
+    {
+      "part": "gallery-rails",
+      "position": [
+        240,
+        119,
+        190
+      ],
+      "before": {
+        "Name": "minecraft:dark_oak_fence",
+        "Properties": {
+          "north": "false",
+          "south": "false",
+          "east": "false",
+          "west": "false",
+          "waterlogged": "false"
+        }
+      },
+      "after": {
+        "Name": "minecraft:dark_oak_fence",
+        "Properties": {
+          "north": "true",
+          "south": "true",
+          "east": "false",
+          "west": "true",
+          "waterlogged": "false"
+        }
+      }
+    },
+    {
+      "part": "gallery-rails",
+      "position": [
+        240,
+        119,
+        191
+      ],
+      "before": {
+        "Name": "minecraft:dark_oak_fence",
+        "Properties": {
+          "north": "false",
+          "south": "false",
+          "east": "false",
+          "west": "false",
+          "waterlogged": "false"
+        }
+      },
+      "after": {
+        "Name": "minecraft:dark_oak_fence",
+        "Properties": {
+          "north": "true",
+          "south": "true",
+          "east": "false",
+          "west": "false",
+          "waterlogged": "false"
+        }
+      }
+    },
+    {
+      "part": "gallery-rails",
+      "position": [
+        240,
+        119,
+        192
+      ],
+      "before": {
+        "Name": "minecraft:dark_oak_fence",
+        "Properties": {
+          "north": "false",
+          "south": "false",
+          "east": "false",
+          "west": "false",
+          "waterlogged": "false"
+        }
+      },
+      "after": {
+        "Name": "minecraft:dark_oak_fence",
+        "Properties": {
+          "north": "true",
+          "south": "true",
+          "east": "false",
+          "west": "false",
+          "waterlogged": "false"
+        }
+      }
+    },
+    {
+      "part": "gallery-rails",
+      "position": [
+        240,
+        119,
+        193
+      ],
+      "before": {
+        "Name": "minecraft:dark_oak_fence",
+        "Properties": {
+          "north": "false",
+          "south": "false",
+          "east": "false",
+          "west": "false",
+          "waterlogged": "false"
+        }
+      },
+      "after": {
+        "Name": "minecraft:dark_oak_fence",
+        "Properties": {
+          "north": "true",
+          "south": "true",
+          "east": "false",
+          "west": "false",
+          "waterlogged": "false"
+        }
+      }
+    },
+    {
+      "part": "gallery-rails",
+      "position": [
+        240,
+        119,
+        194
+      ],
+      "before": {
+        "Name": "minecraft:dark_oak_fence",
+        "Properties": {
+          "north": "false",
+          "south": "false",
+          "east": "false",
+          "west": "false",
+          "waterlogged": "false"
+        }
+      },
+      "after": {
+        "Name": "minecraft:dark_oak_fence",
+        "Properties": {
+          "north": "true",
+          "south": "true",
+          "east": "false",
+          "west": "false",
+          "waterlogged": "false"
+        }
+      }
+    },
+    {
+      "part": "gallery-rails",
+      "position": [
+        240,
+        119,
+        195
+      ],
+      "before": {
+        "Name": "minecraft:dark_oak_fence",
+        "Properties": {
+          "north": "false",
+          "south": "false",
+          "east": "false",
+          "west": "false",
+          "waterlogged": "false"
+        }
+      },
+      "after": {
+        "Name": "minecraft:dark_oak_fence",
+        "Properties": {
+          "north": "true",
+          "south": "true",
+          "east": "false",
+          "west": "false",
+          "waterlogged": "false"
+        }
+      }
+    },
+    {
+      "part": "gallery-rails",
+      "position": [
+        240,
+        119,
+        196
+      ],
+      "before": {
+        "Name": "minecraft:dark_oak_fence",
+        "Properties": {
+          "north": "false",
+          "south": "false",
+          "east": "false",
+          "west": "false",
+          "waterlogged": "false"
+        }
+      },
+      "after": {
+        "Name": "minecraft:dark_oak_fence",
+        "Properties": {
+          "north": "true",
+          "south": "true",
+          "east": "false",
+          "west": "false",
+          "waterlogged": "false"
+        }
+      }
+    },
+    {
+      "part": "gallery-rails",
+      "position": [
+        240,
+        119,
+        197
+      ],
+      "before": {
+        "Name": "minecraft:dark_oak_fence",
+        "Properties": {
+          "north": "false",
+          "south": "false",
+          "east": "false",
+          "west": "false",
+          "waterlogged": "false"
+        }
+      },
+      "after": {
+        "Name": "minecraft:dark_oak_fence",
+        "Properties": {
+          "north": "true",
+          "south": "true",
+          "east": "false",
+          "west": "false",
+          "waterlogged": "false"
+        }
+      }
+    },
+    {
+      "part": "gallery-rails",
+      "position": [
+        240,
+        119,
+        198
+      ],
+      "before": {
+        "Name": "minecraft:dark_oak_fence",
+        "Properties": {
+          "north": "false",
+          "south": "false",
+          "east": "false",
+          "west": "false",
+          "waterlogged": "false"
+        }
+      },
+      "after": {
+        "Name": "minecraft:dark_oak_fence",
+        "Properties": {
+          "north": "true",
+          "south": "false",
+          "east": "false",
+          "west": "false",
+          "waterlogged": "false"
+        }
+      }
+    },
+    {
+      "part": "gallery-rails",
+      "position": [
+        248,
+        119,
+        179
+      ],
+      "before": {
+        "Name": "minecraft:dark_oak_fence",
+        "Properties": {
+          "north": "false",
+          "south": "false",
+          "east": "false",
+          "west": "false",
+          "waterlogged": "false"
+        }
+      },
+      "after": {
+        "Name": "minecraft:dark_oak_fence",
+        "Properties": {
+          "north": "false",
+          "south": "true",
+          "east": "false",
+          "west": "false",
+          "waterlogged": "false"
+        }
+      }
+    },
+    {
+      "part": "gallery-rails",
+      "position": [
+        248,
+        119,
+        180
+      ],
+      "before": {
+        "Name": "minecraft:dark_oak_fence",
+        "Properties": {
+          "north": "false",
+          "south": "false",
+          "east": "false",
+          "west": "false",
+          "waterlogged": "false"
+        }
+      },
+      "after": {
+        "Name": "minecraft:dark_oak_fence",
+        "Properties": {
+          "north": "true",
+          "south": "true",
+          "east": "false",
+          "west": "false",
+          "waterlogged": "false"
+        }
+      }
+    },
+    {
+      "part": "gallery-rails",
+      "position": [
+        248,
+        119,
+        181
+      ],
+      "before": {
+        "Name": "minecraft:dark_oak_fence",
+        "Properties": {
+          "north": "false",
+          "south": "false",
+          "east": "false",
+          "west": "false",
+          "waterlogged": "false"
+        }
+      },
+      "after": {
+        "Name": "minecraft:dark_oak_fence",
+        "Properties": {
+          "north": "true",
+          "south": "true",
+          "east": "false",
+          "west": "false",
+          "waterlogged": "false"
+        }
+      }
+    },
+    {
+      "part": "gallery-rails",
+      "position": [
+        248,
+        119,
+        182
+      ],
+      "before": {
+        "Name": "minecraft:dark_oak_fence",
+        "Properties": {
+          "north": "false",
+          "south": "false",
+          "east": "false",
+          "west": "false",
+          "waterlogged": "false"
+        }
+      },
+      "after": {
+        "Name": "minecraft:dark_oak_fence",
+        "Properties": {
+          "north": "true",
+          "south": "true",
+          "east": "false",
+          "west": "false",
+          "waterlogged": "false"
+        }
+      }
+    },
+    {
+      "part": "gallery-rails",
+      "position": [
+        248,
+        119,
+        183
+      ],
+      "before": {
+        "Name": "minecraft:dark_oak_fence",
+        "Properties": {
+          "north": "false",
+          "south": "false",
+          "east": "false",
+          "west": "false",
+          "waterlogged": "false"
+        }
+      },
+      "after": {
+        "Name": "minecraft:dark_oak_fence",
+        "Properties": {
+          "north": "true",
+          "south": "true",
+          "east": "false",
+          "west": "false",
+          "waterlogged": "false"
+        }
+      }
+    },
+    {
+      "part": "gallery-rails",
+      "position": [
+        248,
+        119,
+        184
+      ],
+      "before": {
+        "Name": "minecraft:dark_oak_fence",
+        "Properties": {
+          "north": "false",
+          "south": "false",
+          "east": "false",
+          "west": "false",
+          "waterlogged": "false"
+        }
+      },
+      "after": {
+        "Name": "minecraft:dark_oak_fence",
+        "Properties": {
+          "north": "true",
+          "south": "true",
+          "east": "false",
+          "west": "false",
+          "waterlogged": "false"
+        }
+      }
+    },
+    {
+      "part": "gallery-rails",
+      "position": [
+        248,
+        119,
+        185
+      ],
+      "before": {
+        "Name": "minecraft:dark_oak_fence",
+        "Properties": {
+          "north": "false",
+          "south": "false",
+          "east": "false",
+          "west": "false",
+          "waterlogged": "false"
+        }
+      },
+      "after": {
+        "Name": "minecraft:dark_oak_fence",
+        "Properties": {
+          "north": "true",
+          "south": "true",
+          "east": "false",
+          "west": "false",
+          "waterlogged": "false"
+        }
+      }
+    },
+    {
+      "part": "gallery-rails",
+      "position": [
+        248,
+        119,
+        186
+      ],
+      "before": {
+        "Name": "minecraft:dark_oak_fence",
+        "Properties": {
+          "north": "false",
+          "south": "false",
+          "east": "false",
+          "west": "false",
+          "waterlogged": "false"
+        }
+      },
+      "after": {
+        "Name": "minecraft:dark_oak_fence",
+        "Properties": {
+          "north": "true",
+          "south": "true",
+          "east": "false",
+          "west": "false",
+          "waterlogged": "false"
+        }
+      }
+    },
+    {
+      "part": "gallery-rails",
+      "position": [
+        248,
+        119,
+        187
+      ],
+      "before": {
+        "Name": "minecraft:dark_oak_fence",
+        "Properties": {
+          "north": "false",
+          "south": "false",
+          "east": "false",
+          "west": "false",
+          "waterlogged": "false"
+        }
+      },
+      "after": {
+        "Name": "minecraft:dark_oak_fence",
+        "Properties": {
+          "north": "true",
+          "south": "true",
+          "east": "false",
+          "west": "false",
+          "waterlogged": "false"
+        }
+      }
+    },
+    {
+      "part": "gallery-rails",
+      "position": [
+        248,
+        119,
+        188
+      ],
+      "before": {
+        "Name": "minecraft:dark_oak_fence",
+        "Properties": {
+          "north": "false",
+          "south": "false",
+          "east": "false",
+          "west": "false",
+          "waterlogged": "false"
+        }
+      },
+      "after": {
+        "Name": "minecraft:dark_oak_fence",
+        "Properties": {
+          "north": "true",
+          "south": "true",
+          "east": "false",
+          "west": "false",
+          "waterlogged": "false"
+        }
+      }
+    },
+    {
+      "part": "gallery-rails",
+      "position": [
+        248,
+        119,
+        189
+      ],
+      "before": {
+        "Name": "minecraft:dark_oak_fence",
+        "Properties": {
+          "north": "false",
+          "south": "false",
+          "east": "false",
+          "west": "false",
+          "waterlogged": "false"
+        }
+      },
+      "after": {
+        "Name": "minecraft:dark_oak_fence",
+        "Properties": {
+          "north": "true",
+          "south": "true",
+          "east": "false",
+          "west": "false",
+          "waterlogged": "false"
+        }
+      }
+    },
+    {
+      "part": "gallery-rails",
+      "position": [
+        248,
+        119,
+        190
+      ],
+      "before": {
+        "Name": "minecraft:dark_oak_fence",
+        "Properties": {
+          "north": "false",
+          "south": "false",
+          "east": "false",
+          "west": "false",
+          "waterlogged": "false"
+        }
+      },
+      "after": {
+        "Name": "minecraft:dark_oak_fence",
+        "Properties": {
+          "north": "true",
+          "south": "true",
+          "east": "true",
+          "west": "false",
+          "waterlogged": "false"
+        }
+      }
+    },
+    {
+      "part": "gallery-rails",
+      "position": [
+        248,
+        119,
+        191
+      ],
+      "before": {
+        "Name": "minecraft:dark_oak_fence",
+        "Properties": {
+          "north": "false",
+          "south": "false",
+          "east": "false",
+          "west": "false",
+          "waterlogged": "false"
+        }
+      },
+      "after": {
+        "Name": "minecraft:dark_oak_fence",
+        "Properties": {
+          "north": "true",
+          "south": "true",
+          "east": "false",
+          "west": "false",
+          "waterlogged": "false"
+        }
+      }
+    },
+    {
+      "part": "gallery-rails",
+      "position": [
+        248,
+        119,
+        192
+      ],
+      "before": {
+        "Name": "minecraft:dark_oak_fence",
+        "Properties": {
+          "north": "false",
+          "south": "false",
+          "east": "false",
+          "west": "false",
+          "waterlogged": "false"
+        }
+      },
+      "after": {
+        "Name": "minecraft:dark_oak_fence",
+        "Properties": {
+          "north": "true",
+          "south": "true",
+          "east": "false",
+          "west": "false",
+          "waterlogged": "false"
+        }
+      }
+    },
+    {
+      "part": "gallery-rails",
+      "position": [
+        248,
+        119,
+        193
+      ],
+      "before": {
+        "Name": "minecraft:dark_oak_fence",
+        "Properties": {
+          "north": "false",
+          "south": "false",
+          "east": "false",
+          "west": "false",
+          "waterlogged": "false"
+        }
+      },
+      "after": {
+        "Name": "minecraft:dark_oak_fence",
+        "Properties": {
+          "north": "true",
+          "south": "true",
+          "east": "false",
+          "west": "false",
+          "waterlogged": "false"
+        }
+      }
+    },
+    {
+      "part": "gallery-rails",
+      "position": [
+        248,
+        119,
+        194
+      ],
+      "before": {
+        "Name": "minecraft:dark_oak_fence",
+        "Properties": {
+          "north": "false",
+          "south": "false",
+          "east": "false",
+          "west": "false",
+          "waterlogged": "false"
+        }
+      },
+      "after": {
+        "Name": "minecraft:dark_oak_fence",
+        "Properties": {
+          "north": "true",
+          "south": "true",
+          "east": "false",
+          "west": "false",
+          "waterlogged": "false"
+        }
+      }
+    },
+    {
+      "part": "gallery-rails",
+      "position": [
+        248,
+        119,
+        195
+      ],
+      "before": {
+        "Name": "minecraft:dark_oak_fence",
+        "Properties": {
+          "north": "false",
+          "south": "false",
+          "east": "false",
+          "west": "false",
+          "waterlogged": "false"
+        }
+      },
+      "after": {
+        "Name": "minecraft:dark_oak_fence",
+        "Properties": {
+          "north": "true",
+          "south": "true",
+          "east": "false",
+          "west": "false",
+          "waterlogged": "false"
+        }
+      }
+    },
+    {
+      "part": "gallery-rails",
+      "position": [
+        248,
+        119,
+        196
+      ],
+      "before": {
+        "Name": "minecraft:dark_oak_fence",
+        "Properties": {
+          "north": "false",
+          "south": "false",
+          "east": "false",
+          "west": "false",
+          "waterlogged": "false"
+        }
+      },
+      "after": {
+        "Name": "minecraft:dark_oak_fence",
+        "Properties": {
+          "north": "true",
+          "south": "true",
+          "east": "false",
+          "west": "false",
+          "waterlogged": "false"
+        }
+      }
+    },
+    {
+      "part": "gallery-rails",
+      "position": [
+        248,
+        119,
+        197
+      ],
+      "before": {
+        "Name": "minecraft:dark_oak_fence",
+        "Properties": {
+          "north": "false",
+          "south": "false",
+          "east": "false",
+          "west": "false",
+          "waterlogged": "false"
+        }
+      },
+      "after": {
+        "Name": "minecraft:dark_oak_fence",
+        "Properties": {
+          "north": "true",
+          "south": "true",
+          "east": "false",
+          "west": "false",
+          "waterlogged": "false"
+        }
+      }
+    },
+    {
+      "part": "gallery-rails",
+      "position": [
+        248,
+        119,
+        198
+      ],
+      "before": {
+        "Name": "minecraft:dark_oak_fence",
+        "Properties": {
+          "north": "false",
+          "south": "false",
+          "east": "false",
+          "west": "false",
+          "waterlogged": "false"
+        }
+      },
+      "after": {
+        "Name": "minecraft:dark_oak_fence",
+        "Properties": {
+          "north": "true",
+          "south": "false",
+          "east": "false",
+          "west": "false",
+          "waterlogged": "false"
+        }
+      }
+    }
+  ],
+  "parts": {
+    "spawn-lamps": 4,
+    "inn-eaves": 216,
+    "gallery-rails": 33
+  },
+  "innRoof": {
+    "wallLocalSize": [
+      23,
+      29
+    ],
+    "roofLocalSize": [
+      25,
+      31
+    ],
+    "rotationDegrees": 20,
+    "addedColumns": 108
+  },
+  "verification": {
+    "webGL": true,
+    "inGame": false,
+    "deployed": false,
+    "previewImages": [
+      "docs/maps/island-audit-repairs-exterior-20261031.png",
+      "docs/maps/island-audit-repairs-rails-20261031.png"
+    ],
+    "compileJava": "SUCCESS",
+    "native": "576 chunks / 3554156 blocks / 180 named states / 30 block entities",
+    "levelDatUnchanged": true,
+    "existingBlockEntitiesUnchanged": true,
+    "independentReview": "No important findings"
+  },
+  "validation": {
+    "netChangedBlocks": 253,
+    "innEaveColumns": 108,
+    "continuousRailPairs": 31,
+    "protectedNPCs": 9,
+    "guestRooms": 4,
+    "outsideRepairChanges": 0
+  },
+  "resultHash": "3de64fce5d84eaea219f737a267a8863ccec7bea2c4449828b755fb82ad78f02",
+  "changedChunks": 12
+}

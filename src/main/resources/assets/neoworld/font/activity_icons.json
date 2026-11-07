@@ -1,0 +1,40 @@
+{
+  "providers": [
+    {
+      "type": "bitmap",
+      "file": "neoworld:gui/activity/icon_daily.png",
+      "height": 14,
+      "ascent": 12,
+      "chars": [
+        ""
+      ]
+    },
+    {
+      "type": "bitmap",
+      "file": "neoworld:gui/activity/icon_monthly.png",
+      "height": 14,
+      "ascent": 12,
+      "chars": [
+        ""
+      ]
+    },
+    {
+      "type": "bitmap",
+      "file": "neoworld:gui/activity/icon_online.png",
+      "height": 14,
+      "ascent": 12,
+      "chars": [
+        ""
+      ]
+    },
+    {
+      "type": "bitmap",
+      "file": "neoworld:gui/activity/icon_pending.png",
+      "height": 14,
+      "ascent": 12,
+      "chars": [
+        ""
+      ]
+    }
+  ]
+}

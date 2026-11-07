@@ -6,6 +6,8 @@ import java.util.UUID;
 
 import com.ambition.neoworld.client.ClientPartyHudData;
 import com.ambition.neoworld.network.PartyHudPayload;
+import com.ambition.neoworld.network.party.PartyStatePayload;
+import com.ambition.neoworld.network.party.PartyActionPayload;
 
 import io.netty.buffer.Unpooled;
 import net.minecraft.core.RegistryAccess;
@@ -13,6 +15,7 @@ import net.minecraft.network.RegistryFriendlyByteBuf;
 
 public final class PartyHudRegressionTest {
     public static void main(String[] args) {
+        partyPackets();
         var online = new PartyHudPayload.Member(UUID.randomUUID(), "Member", 45, 13.5F, 40);
         var offline = new PartyHudPayload.Member(UUID.randomUUID(), "Offline", 0, 0, 0);
         var source = new ArrayList<>(List.of(online, offline));
@@ -46,6 +49,33 @@ public final class PartyHudRegressionTest {
         ClientPartyHudData.reset();
         check(ClientPartyHudData.members().isEmpty(), "Disconnect must clear old server data");
         System.out.println("Party HUD codec and client-state regression checks passed");
+    }
+
+    private static void partyPackets() {
+        var invite = new PartyStatePayload.InviteEntry("Requester", 3, 1, 60, true);
+        var party = new PartyStatePayload.PartyEntry("Leader", 3, 3, false,
+                UUID.randomUUID(), UUID.randomUUID(), Party.Purpose.DUNGEON, true);
+        var snapshot = new PartyStatePayload(false, 0, "", List.of(),
+                java.util.Collections.nCopies(13, invite), java.util.Collections.nCopies(25, party),
+                List.of(), "", true, true, Party.Purpose.GENERAL, 2, 7, false);
+        var buffer = buffer();
+        try {
+            PartyStatePayload.STREAM_CODEC.encode(buffer, snapshot);
+            var decoded = PartyStatePayload.STREAM_CODEC.decode(buffer);
+            check(decoded.invites().size() == 12 && decoded.parties().size() == 24,
+                    "Server lists must fit decoder bounds");
+            check(decoded.partyExpEnabled() && decoded.equals(snapshot), "Party state must round-trip");
+            check(!decoded.acceptsInvites(), "Invitation privacy must survive the state packet");
+            var request = new PartyActionPayload(PartyActionPayload.Action.REQUEST_JOIN, party.partyId().toString());
+            PartyActionPayload.STREAM_CODEC.encode(buffer, request);
+            check(PartyActionPayload.STREAM_CODEC.decode(buffer).equals(request), "Join request must preserve target party ID");
+            var action = new PartyActionPayload(PartyActionPayload.Action.INVITE, "Player", 16);
+            PartyActionPayload.STREAM_CODEC.encode(buffer, action);
+            check(PartyActionPayload.STREAM_CODEC.decode(buffer).equals(action), "Invite range must round-trip");
+        } finally {
+            buffer.release();
+        }
+        rejects(() -> new PartyActionPayload(PartyActionPayload.Action.INVITE, "Player", 65), "Invalid invite range");
     }
 
     private static RegistryFriendlyByteBuf buffer() {

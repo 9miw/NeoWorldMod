@@ -12,11 +12,10 @@ import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.TooltipFlag;
 
-// คลาสสำหรับไอเทมเหรียญสกุลเงิน (Silver, Gold, Diamond)
+// คลาสสำหรับไอเทมเหรียญสกุลเงิน (Silver, Diamond)
 public class CoinItem extends Item {
     public enum CoinType {
         SILVER("Silver", ChatFormatting.GRAY),
-        GOLD("Gold", ChatFormatting.GOLD),
         DIAMOND("Diamond", ChatFormatting.AQUA);
 
         private final String displayName;
@@ -75,7 +74,6 @@ public class CoinItem extends Item {
     public static ItemStack createStack(CoinType type, long valuePerCoin, int count) {
         Item item = switch (type) {
             case SILVER -> ModItems.SILVER_COIN.get();
-            case GOLD -> ModItems.GOLD_COIN.get();
             case DIAMOND -> ModItems.DIAMOND_COIN.get();
         };
 

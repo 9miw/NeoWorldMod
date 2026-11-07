@@ -73,6 +73,14 @@ tasks.named('processResources') {
 }
 
 repositories {
+    maven {
+        url "https://maven.ftb.dev/releases"
+        content { includeGroup "dev.ftb.mods" }
+    }
+    maven {
+        url "https://maven.architectury.dev"
+        content { includeGroup "dev.architectury" }
+    }
     // Add here additional repositories if required by some of the dependencies below.
     maven {
         url "https://cursemaven.com"
@@ -210,6 +218,9 @@ dependencies {
     implementation "curse.maven:weapons-of-miracles-epicfight-918614:8829395"
     implementation "curse.maven:customnpcs-unofficial-1052708:7411561"
     implementation "curse.maven:geckolib-388172:8350073"
+    implementation "dev.ftb.mods:ftb-library-neoforge:2101.1.37"
+    implementation "dev.ftb.mods:ftb-chunks-neoforge:2101.1.22"
+    implementation "dev.ftb.mods:ftb-teams-neoforge:2101.1.11"
 
     // Example optional mod dependency with JEI
     // The JEI API is declared for compile time use, while the full JEI artifact is used at runtime
@@ -276,7 +287,21 @@ tasks.withType(JavaCompile).configureEach {
     options.encoding = 'UTF-8' // Use the UTF-8 charset for Java compilation
 }
 
+tasks.register('sharedGuiReuseRegressionTest', JavaExec) {
+    dependsOn tasks.named('regressionTestClasses')
+    classpath = sourceSets.regressionTest.runtimeClasspath
+    mainClass = 'com.ambition.neoworld.client.gui.common.NeoSharedReuseRegressionTest'
+    javaLauncher = javaToolchains.launcherFor { languageVersion = JavaLanguageVersion.of(21) }
+}
+
 // ทดสอบข้อมูลเงินและขอบเขตตัวเลขได้โดยไม่ต้องเปิดเกมหรือดาวน์โหลด test framework
+tasks.register('questNavigationRegressionTest', JavaExec) {
+    dependsOn tasks.named('regressionTestClasses')
+    classpath = sourceSets.regressionTest.runtimeClasspath
+    mainClass = 'com.ambition.neoworld.navigation.NavigationRegressionTest'
+    javaLauncher = javaToolchains.launcherFor { languageVersion = JavaLanguageVersion.of(21) }
+}
+
 sourceSets {
     regressionTest {
         compileClasspath += sourceSets.main.output + sourceSets.main.compileClasspath
@@ -292,7 +317,45 @@ tasks.register('regressionTest', JavaExec) {
         languageVersion = JavaLanguageVersion.of(21)
     }
 }
+tasks.register('monsterExperienceRegressionTest', JavaExec) {
+    dependsOn tasks.named('regressionTestClasses')
+    classpath = sourceSets.regressionTest.runtimeClasspath
+    mainClass = 'com.ambition.neoworld.experience.MonsterExperienceRegressionTest'
+    javaLauncher = javaToolchains.launcherFor { languageVersion = JavaLanguageVersion.of(21) }
+}
+tasks.register('playerExperienceRegressionTest', JavaExec) {
+    dependsOn tasks.named('compileJava')
+    classpath = sourceSets.main.runtimeClasspath
+    mainClass = file('src/regressionTest/java/com/ambition/neoworld/level/PlayerExperienceRegressionTest.java').absolutePath
+    javaLauncher = javaToolchains.launcherFor { languageVersion = JavaLanguageVersion.of(21) }
+}
+tasks.named('check') { dependsOn tasks.named('playerExperienceRegressionTest') }
+tasks.register('levelSafetyRegressionTest', JavaExec) {
+    dependsOn tasks.named('compileJava')
+    classpath = sourceSets.main.runtimeClasspath
+    mainClass = file('src/regressionTest/java/com/ambition/neoworld/level/LevelSafetyRegressionTest.java').absolutePath
+    javaLauncher = javaToolchains.launcherFor { languageVersion = JavaLanguageVersion.of(21) }
+}
+tasks.named('check') { dependsOn tasks.named('levelSafetyRegressionTest') }
+tasks.named('check') { dependsOn tasks.named('monsterExperienceRegressionTest') }
 tasks.named('check') { dependsOn tasks.named('regressionTest') }
+
+// Source-file mode uses the game's real NBT, region readers and DataFixer without starting Minecraft.
+tasks.register('worldImportCompatibilityRegression', JavaExec) {
+    dependsOn tasks.named('compileJava')
+    classpath = sourceSets.main.runtimeClasspath
+    mainClass = file('src/regressionTest/java/com/ambition/neoworld/world/WorldImportCompatibilityRegressionTest.java').absolutePath
+    javaLauncher = javaToolchains.launcherFor { languageVersion = JavaLanguageVersion.of(21) }
+}
+
+tasks.register('shopRegressionTest', JavaExec) {
+    dependsOn tasks.named('regressionTestClasses')
+    classpath = sourceSets.regressionTest.runtimeClasspath
+    mainClass = 'com.ambition.neoworld.shop.ShopRegressionTest'
+    javaLauncher = javaToolchains.launcherFor {
+        languageVersion = JavaLanguageVersion.of(21)
+    }
+}
 
 tasks.register('activityRegressionTest', JavaExec) {
     dependsOn tasks.named('regressionTestClasses')
@@ -357,9 +420,77 @@ tasks.register('pvpRegressionTest', JavaExec) {
     }
 }
 
+tasks.register('killerRegressionTest', JavaExec) {
+    dependsOn tasks.named('regressionTestClasses')
+    classpath = sourceSets.regressionTest.runtimeClasspath
+    mainClass = 'com.ambition.neoworld.killer.KillerRegressionTest'
+    javaLauncher = javaToolchains.launcherFor {
+        languageVersion = JavaLanguageVersion.of(21)
+    }
+}
+
+tasks.named('check') { dependsOn tasks.named('killerRegressionTest') }
+
 tasks.named('check') { dependsOn tasks.named('pvpRegressionTest') }
 
+tasks.register('dungeonCaptureRegressionTest', JavaExec) {
+    dependsOn tasks.named('regressionTestClasses')
+    classpath = sourceSets.regressionTest.runtimeClasspath
+    mainClass = 'com.ambition.neoworld.dungeon.structure.DungeonCaptureRegressionTest'
+    javaLauncher = javaToolchains.launcherFor {
+        languageVersion = JavaLanguageVersion.of(21)
+    }
+}
+
+tasks.register('dungeonOverlapRegressionTest', JavaExec) {
+    dependsOn tasks.named('regressionTestClasses')
+    classpath = sourceSets.regressionTest.runtimeClasspath
+    mainClass = 'com.ambition.neoworld.dungeon.structure.DungeonOverlapRegressionTest'
+    javaLauncher = javaToolchains.launcherFor {
+        languageVersion = JavaLanguageVersion.of(21)
+    }
+}
+
+tasks.register('dungeonBrowserRegressionTest', JavaExec) {
+    dependsOn tasks.named('regressionTestClasses')
+    classpath = sourceSets.regressionTest.runtimeClasspath
+    mainClass = 'com.ambition.neoworld.dungeon.DungeonBrowserRegressionTest'
+    javaLauncher = javaToolchains.launcherFor {
+        languageVersion = JavaLanguageVersion.of(21)
+    }
+}
+
+tasks.register('rankingRegressionTest', JavaExec) {
+    dependsOn tasks.named('regressionTestClasses')
+    classpath = sourceSets.regressionTest.runtimeClasspath
+    mainClass = 'com.ambition.neoworld.ranking.RankingNetworkRegressionTest'
+    javaLauncher = javaToolchains.launcherFor {
+        languageVersion = JavaLanguageVersion.of(21)
+    }
+}
+
 // IDEA no longer automatically downloads sources/javadoc jars for dependencies, so we need to explicitly enable the behavior.
+tasks.register('lootBoxRegressionTest', JavaExec) {
+    dependsOn tasks.named('regressionTestClasses')
+    classpath = sourceSets.regressionTest.runtimeClasspath
+    mainClass = 'com.ambition.neoworld.lootbox.LootBoxRegressionTest'
+    javaLauncher = javaToolchains.launcherFor { languageVersion = JavaLanguageVersion.of(21) }
+}
+
+tasks.register('lootBoxConfigurationRegressionTest', JavaExec) {
+    dependsOn tasks.named('regressionTestClasses')
+    classpath = sourceSets.regressionTest.runtimeClasspath
+    mainClass = 'com.ambition.neoworld.lootbox.LootBoxConfigurationRegressionTest'
+    javaLauncher = javaToolchains.launcherFor { languageVersion = JavaLanguageVersion.of(21) }
+}
+
+tasks.register('lootBoxAutoRegressionTest', JavaExec) {
+    dependsOn tasks.named('regressionTestClasses')
+    classpath = sourceSets.regressionTest.runtimeClasspath
+    mainClass = 'com.ambition.neoworld.lootbox.LootBoxAutoRegressionTest'
+    javaLauncher = javaToolchains.launcherFor { languageVersion = JavaLanguageVersion.of(21) }
+}
+
 idea {
     module {
         downloadSources = true

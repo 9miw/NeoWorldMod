@@ -1,0 +1,8 @@
+{
+  "type": "epicfight:fist",
+  "attributes": {
+    "common": {
+      "impact": 0.7
+    }
+  }
+}

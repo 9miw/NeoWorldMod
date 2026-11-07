@@ -55,7 +55,7 @@ public final class UpgradeAttributeHandler {
     }
 
     /** Standard player base damage (1) plus the item's original modifiers, excluding enchantments/effects. */
-    static double originalWeaponDamage(ItemAttributeModifiers original) {
+    public static double originalWeaponDamage(ItemAttributeModifiers original) {
         AttributeInstance damage = new AttributeInstance(Attributes.ATTACK_DAMAGE, ignored -> {});
         damage.setBaseValue(1.0);
         boolean hasDamage = false;

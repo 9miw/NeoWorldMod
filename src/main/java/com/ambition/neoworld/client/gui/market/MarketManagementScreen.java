@@ -26,14 +26,14 @@ import net.neoforged.neoforge.network.PacketDistributor;
 
 /** Unified seller view for active listings, pending proceeds and claimed sales. */
 public final class MarketManagementScreen extends Screen {
-    private static final int PAGE_SIZE = 8;
+    private static final int PAGE_SIZE = 6;
     private static final String SILVER_ICON = "§f\uE046";
     private static final ResourceLocation FRAME_TEXTURE = ResourceLocation.fromNamespaceAndPath(
-            NeoWorld.MODID, "textures/gui/market/market_frame.png");
+            NeoWorld.MODID, "textures/gui/market/market_shell_v2.png");
     private static final ResourceLocation SLOT_TEXTURE = ResourceLocation.fromNamespaceAndPath(
             NeoWorld.MODID, "textures/gui/market/market_slot_states.png");
-    private static final int FRAME_TEXTURE_WIDTH = 1556;
-    private static final int FRAME_TEXTURE_HEIGHT = 1011;
+    private static final int FRAME_TEXTURE_WIDTH = 1530;
+    private static final int FRAME_TEXTURE_HEIGHT = 882;
     private static final int SLOT_TEXTURE_WIDTH = 1944;
     private static final int SLOT_TEXTURE_HEIGHT = 809;
     private static final int COLOR_TEXT = 0xFFE7ECEF;
@@ -46,6 +46,7 @@ public final class MarketManagementScreen extends Screen {
     private static final int COLOR_LINE = 0xFF4A5359;
 
     private final List<NeoButton> statusButtons = new ArrayList<>();
+    private final List<NeoButton> deleteButtons = new ArrayList<>();
     private List<MarketManagementPagePayload.Entry> entries = List.of();
     private NeoButton previousButton;
     private NeoButton nextButton;
@@ -68,6 +69,7 @@ public final class MarketManagementScreen extends Screen {
     private int unitPriceEnd;
     private int proceedsEnd;
     private int updatedEnd;
+    private int statusEnd;
     private int page = 1;
     private int totalPages = 1;
     private long totalEntries;
@@ -92,23 +94,32 @@ public final class MarketManagementScreen extends Screen {
         summaryY = panelY + 34;
         headerY = panelY + 56;
         rowsY = panelY + 73;
-        footerY = panelY + panelHeight - 25;
+        footerY = panelY + panelHeight - 31;
         rowHeight = Math.max(14, (footerY - rowsY - 2) / PAGE_SIZE);
-        itemEnd = contentX + Math.round(contentWidth * 0.28F);
+        itemEnd = contentX + Math.round(contentWidth * 0.25F);
         quantityEnd = itemEnd + Math.round(contentWidth * 0.10F);
         unitPriceEnd = quantityEnd + Math.round(contentWidth * 0.15F);
         proceedsEnd = unitPriceEnd + Math.round(contentWidth * 0.16F);
-        updatedEnd = proceedsEnd + Math.round(contentWidth * 0.15F);
+        updatedEnd = proceedsEnd + Math.round(contentWidth * 0.16F);
+        statusEnd = contentX + Math.round(contentWidth * 0.94F);
 
         statusButtons.clear();
+        deleteButtons.clear();
         for (int index = 0; index < PAGE_SIZE; index++) {
             final int rowIndex = index;
             NeoButton button = addRenderableWidget(new NeoButton(
                     Button.builder(Component.empty(), ignored -> activateRow(rowIndex))
                             .bounds(updatedEnd + 2, rowsY + index * rowHeight + 1,
-                                    Math.max(1, contentX + contentWidth - updatedEnd - 4),
+                                    Math.max(1, statusEnd - updatedEnd - 4),
                                     Math.max(12, rowHeight - 2))));
             statusButtons.add(button);
+            NeoButton deleteButton = addRenderableWidget(new NeoButton(
+                    Button.builder(Component.literal("ลบ"), ignored -> beginDeleteRow(rowIndex))
+                            .bounds(statusEnd + 2, rowsY + index * rowHeight + 1,
+                                    Math.max(1, contentX + contentWidth - statusEnd - 4),
+                                    Math.max(12, rowHeight - 2))))
+                    .style(NeoButton.Style.DESTRUCTIVE).textScrolling(false);
+            deleteButtons.add(deleteButton);
         }
 
         int totalWidth = Math.max(88, Math.round(contentWidth * 0.30F));
@@ -203,7 +214,9 @@ public final class MarketManagementScreen extends Screen {
         drawCentered(graphics, "ราคาต่อชิ้น", quantityEnd, unitPriceEnd, headerY + 4, COLOR_TEXT);
         drawCentered(graphics, "ยอดสุทธิ", unitPriceEnd, proceedsEnd, headerY + 4, COLOR_TEXT);
         drawCentered(graphics, "อัปเดตเมื่อ", proceedsEnd, updatedEnd, headerY + 4, COLOR_TEXT);
-        drawCentered(graphics, "สถานะ", updatedEnd, contentX + contentWidth, headerY + 4, COLOR_TEXT);
+        drawCentered(graphics, "สถานะ", updatedEnd, statusEnd, headerY + 4, COLOR_TEXT);
+        drawCentered(graphics, "ลบ", statusEnd, contentX + contentWidth, headerY + 4, COLOR_TEXT);
+        renderColumnLines(graphics, headerY, rowsY - 2);
     }
 
     private void renderRows(GuiGraphics graphics, int mouseX, int mouseY) {
@@ -236,6 +249,9 @@ public final class MarketManagementScreen extends Screen {
             drawCentered(graphics, timeLabel(entry), proceedsEnd, updatedEnd,
                     y + (rowHeight - font.lineHeight) / 2, COLOR_MUTED);
         }
+        int tableHeight = rowHeight * PAGE_SIZE;
+        graphics.renderOutline(contentX, rowsY, contentWidth, tableHeight, COLOR_LINE);
+        renderColumnLines(graphics, rowsY, rowsY + tableHeight);
     }
 
     private void renderFooter(GuiGraphics graphics) {
@@ -256,11 +272,14 @@ public final class MarketManagementScreen extends Screen {
     private void updateButtons() {
         for (int index = 0; index < statusButtons.size(); index++) {
             NeoButton button = statusButtons.get(index);
+            NeoButton deleteButton = deleteButtons.get(index);
             if (index >= entries.size()) {
                 button.visible = false;
+                deleteButton.visible = false;
                 continue;
             }
             button.visible = true;
+            deleteButton.visible = true;
             MarketManagementEntry.Status status = entries.get(index).status();
             button.setMessage(Component.literal(switch (status) {
                 case ACTIVE -> "กำลังขาย";
@@ -269,11 +288,17 @@ public final class MarketManagementScreen extends Screen {
             }));
             button.style(status == MarketManagementEntry.Status.PENDING
                     ? NeoButton.Style.PRIMARY : NeoButton.Style.STANDARD);
-            button.active = !loading && status != MarketManagementEntry.Status.CLAIMED;
+            button.active = !loading && status == MarketManagementEntry.Status.PENDING;
             button.setTooltip(Tooltip.create(Component.literal(switch (status) {
-                case ACTIVE -> "กดเพื่อยกเลิกรายการ";
+                case ACTIVE -> "รายการกำลังขาย";
                 case PENDING -> "กดเพื่อรับเงินรายการนี้";
                 case CLAIMED -> "รับเงินแล้ว";
+            })));
+            deleteButton.active = !loading && status != MarketManagementEntry.Status.PENDING;
+            deleteButton.setTooltip(Tooltip.create(Component.literal(switch (status) {
+                case ACTIVE -> "ยกเลิกรายการและส่งสินค้าคืนคลัง";
+                case PENDING -> "ต้องรับเงินก่อนลบประวัติ";
+                case CLAIMED -> "ลบประวัติรายการนี้";
             })));
         }
         previousButton.active = !loading && page > 1;
@@ -286,6 +311,14 @@ public final class MarketManagementScreen extends Screen {
     private void activateRow(int index) {
         if (loading || index < 0 || index >= entries.size()) return;
         MarketManagementPagePayload.Entry entry = entries.get(index);
+        if (entry.status() == MarketManagementEntry.Status.PENDING) {
+            sendAction(MarketManagementActionPayload.Action.CLAIM_SALE, entry.recordId());
+        }
+    }
+
+    private void beginDeleteRow(int index) {
+        if (loading || index < 0 || index >= entries.size()) return;
+        MarketManagementPagePayload.Entry entry = entries.get(index);
         if (entry.status() == MarketManagementEntry.Status.ACTIVE) {
             NeoPopupScreen.showChoice(
                     Component.literal("ยกเลิกรายการขาย"),
@@ -294,8 +327,13 @@ public final class MarketManagementScreen extends Screen {
                     Component.literal("ยืนยัน"),
                     () -> sendAction(MarketManagementActionPayload.Action.CANCEL_LISTING, entry.listingId()),
                     Component.literal("กลับ"), () -> {});
-        } else if (entry.status() == MarketManagementEntry.Status.PENDING) {
-            sendAction(MarketManagementActionPayload.Action.CLAIM_SALE, entry.recordId());
+        } else if (entry.status() == MarketManagementEntry.Status.CLAIMED) {
+            NeoPopupScreen.showChoice(
+                    Component.literal("ลบประวัติการขาย"),
+                    Component.literal("ลบ " + entry.item().getHoverName().getString() + " ออกจากรายการ"),
+                    Component.literal("ลบ"),
+                    () -> sendAction(MarketManagementActionPayload.Action.DELETE_HISTORY, entry.recordId()),
+                    Component.literal("กลับ"), () -> {});
         }
     }
 
@@ -315,7 +353,7 @@ public final class MarketManagementScreen extends Screen {
 
     private void sendAction(MarketManagementActionPayload.Action action, long targetId) {
         loading = true;
-        PacketDistributor.sendToServer(new MarketManagementActionPayload(action, targetId));
+        PacketDistributor.sendToServer(new MarketManagementActionPayload(java.util.UUID.randomUUID(), action, targetId));
     }
 
     private void requestPage(int requestedPage) {
@@ -368,6 +406,13 @@ public final class MarketManagementScreen extends Screen {
                           int u, int v, int sourceWidth, int sourceHeight) {
         graphics.blit(SLOT_TEXTURE, x, y, width, height, u, v, sourceWidth, sourceHeight,
                 SLOT_TEXTURE_WIDTH, SLOT_TEXTURE_HEIGHT);
+    }
+
+    private void renderColumnLines(GuiGraphics graphics, int top, int bottom) {
+        int[] columns = {itemEnd, quantityEnd, unitPriceEnd, proceedsEnd, updatedEnd, statusEnd};
+        for (int column : columns) {
+            graphics.fill(column, top, column + 1, bottom, COLOR_LINE);
+        }
     }
 
     private int closeButtonX() {

@@ -1,0 +1,72 @@
+{
+  "common": {
+    "corner": 6,
+    "padding": 8,
+    "rail_x": 1,
+    "rail_y": 1,
+    "gem_x": 2,
+    "gem_y": 2,
+    "source_bounds": [
+      41,
+      213,
+      426,
+      491
+    ]
+  },
+  "uncommon": {
+    "corner": 7,
+    "padding": 9,
+    "rail_x": 1,
+    "rail_y": 1,
+    "gem_x": 2,
+    "gem_y": 2,
+    "source_bounds": [
+      465,
+      212,
+      854,
+      491
+    ]
+  },
+  "rare": {
+    "corner": 8,
+    "padding": 10,
+    "rail_x": 1,
+    "rail_y": 1,
+    "gem_x": 2,
+    "gem_y": 2,
+    "source_bounds": [
+      894,
+      212,
+      1279,
+      491
+    ]
+  },
+  "epic": {
+    "corner": 9,
+    "padding": 11,
+    "rail_x": 1,
+    "rail_y": 1,
+    "gem_x": 5,
+    "gem_y": 4,
+    "source_bounds": [
+      1321,
+      213,
+      1707,
+      491
+    ]
+  },
+  "legendary": {
+    "corner": 10,
+    "padding": 12,
+    "rail_x": 1,
+    "rail_y": 1,
+    "gem_x": 6,
+    "gem_y": 5,
+    "source_bounds": [
+      1748,
+      213,
+      2132,
+      491
+    ]
+  }
+}

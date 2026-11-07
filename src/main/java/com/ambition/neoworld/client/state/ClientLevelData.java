@@ -4,8 +4,6 @@ import com.ambition.neoworld.level.LevelFormula;
 
 import net.minecraft.client.Minecraft;
 import net.minecraft.network.chat.Component;
-import net.minecraft.sounds.SoundEvents;
-import net.minecraft.sounds.SoundSource;
 
 // คลาสเก็บข้อมูลเลเวลชั่วคราวฝั่ง Client สำหรับเรนเดอร์ HUD
 public class ClientLevelData {
@@ -53,18 +51,7 @@ public class ClientLevelData {
         level = newLevel;
         Minecraft mc = Minecraft.getInstance();
         if (mc.player != null && mc.level != null) {
-            // เล่นเสียง Level-up
-            mc.level.playSound(
-                    mc.player,
-                    mc.player.getX(),
-                    mc.player.getY(),
-                    mc.player.getZ(),
-                    SoundEvents.PLAYER_LEVELUP,
-                    SoundSource.PLAYERS,
-                    1.0f,
-                    1.0f
-            );
-
+            // The server plays the shared level-up sound once; this payload only presents the title.
             // แสดง Title / Subtitle กลางจอ
             mc.gui.setTitle(Component.literal("§6§l★ LEVEL UP! ★"));
             mc.gui.setSubtitle(Component.literal("§eเลเวลตัวละครของคุณเพิ่มเป็น §a§l" + newLevel));

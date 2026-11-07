@@ -1,0 +1,15 @@
+{
+	"parent": "item/generated",
+	"textures": {
+		"layer0": "item/crossbow"
+	},
+	
+	"overrides": [
+		{"predicate": {"custom_model_data":10101}, "model": "elitecreatures:cyberpunk_animated/crossbow"},
+		{"predicate": {"pulling":1,"custom_model_data":10101}, "model": "elitecreatures:cyberpunk_animated/crossbow_0"},
+		{"predicate": {"pulling":1,"pull": 0.45,"custom_model_data":10101}, "model": "elitecreatures:cyberpunk_animated/crossbow_1"},
+		{"predicate": {"pulling":1,"pull": 0.9,"custom_model_data":10101}, "model": "elitecreatures:cyberpunk_animated/rossbow_2"},
+		{"predicate": {"arrow":1,"custom_model_data":10101}, "model": "elitecreatures:cyberpunk_animated/crossbow_charged"},
+		{"predicate": {"charged":1,"custom_model_data":10101}, "model": "elitecreatures:cyberpunk_animated/crossbow_charged"}
+	]
+}

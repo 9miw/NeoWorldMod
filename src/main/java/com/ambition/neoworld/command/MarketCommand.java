@@ -23,6 +23,7 @@ import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.world.item.ItemStack;
 import net.neoforged.neoforge.network.PacketDistributor;
 import com.ambition.neoworld.network.market.OpenMarketPayload;
+import com.ambition.neoworld.network.market.OpenMarketManagementPayload;
 
 /** Player-facing commands for exercising the market transaction core. */
 public final class MarketCommand {
@@ -37,12 +38,18 @@ public final class MarketCommand {
     static LiteralArgumentBuilder<CommandSourceStack> buildCommand() {
         return Commands.literal("market")
                 .requires(source -> ModPermissions.hasPermission(source, ModPermissions.COMMAND_MARKET_USE, 0))
-                .then(Commands.literal("open")
+                .then(Commands.literal("admin")
                         .requires(source -> ModPermissions.hasPermission(
                                 source, ModPermissions.COMMAND_MARKET_ADMIN, 2))
-                        .then(Commands.argument("player", EntityArgument.player())
-                                .executes(context -> openMarketFor(
-                                        context.getSource(), EntityArgument.getPlayer(context, "player")))))
+                        .then(Commands.literal("open")
+                                .then(Commands.literal("market")
+                                        .then(Commands.argument("player", EntityArgument.player())
+                                                .executes(context -> openMarketFor(context.getSource(),
+                                                        EntityArgument.getPlayer(context, "player")))))
+                                .then(Commands.literal("manage")
+                                        .then(Commands.argument("player", EntityArgument.player())
+                                                .executes(context -> openManagementFor(context.getSource(),
+                                                        EntityArgument.getPlayer(context, "player")))))))
                 .then(Commands.literal("help")
                         .executes(context -> showHelp(context.getSource().getPlayerOrException())))
                 .then(Commands.literal("list")
@@ -87,8 +94,27 @@ public final class MarketCommand {
     }
 
     private static int openMarketFor(CommandSourceStack source, ServerPlayer player) {
+        if (!ModPermissions.hasPermission(
+                player.createCommandSourceStack(), ModPermissions.COMMAND_MARKET_USE, 0)) {
+            source.sendFailure(Component.literal("[Market] ผู้เล่น " + player.getGameProfile().getName()
+                    + " ไม่มีสิทธิ์เปิดหน้าตลาด"));
+            return 0;
+        }
         PacketDistributor.sendToPlayer(player, OpenMarketPayload.INSTANCE);
         source.sendSuccess(() -> Component.literal("[Market] เปิดหน้าตลาดให้ "
+                + player.getGameProfile().getName()).withStyle(ChatFormatting.GREEN), false);
+        return 1;
+    }
+
+    private static int openManagementFor(CommandSourceStack source, ServerPlayer player) {
+        if (!ModPermissions.hasPermission(
+                player.createCommandSourceStack(), ModPermissions.COMMAND_MARKET_USE, 0)) {
+            source.sendFailure(Component.literal("[Market] ผู้เล่น " + player.getGameProfile().getName()
+                    + " ไม่มีสิทธิ์เปิดหน้าจัดการแผง"));
+            return 0;
+        }
+        PacketDistributor.sendToPlayer(player, OpenMarketManagementPayload.INSTANCE);
+        source.sendSuccess(() -> Component.literal("[Market] เปิดหน้าจัดการแผงให้ "
                 + player.getGameProfile().getName()).withStyle(ChatFormatting.GREEN), false);
         return 1;
     }
@@ -211,8 +237,8 @@ public final class MarketCommand {
                         + " Silver/ชิ้น | " + listing.sellerName() + " | " + minutes + " นาที")
                         .withStyle(ChatFormatting.GRAY));
         String command = listing.sellerId().equals(viewer.getUUID())
-                ? "/neoworld market cancel " + listing.id()
-                : "/neoworld market buy " + listing.id();
+                ? "/neow market cancel " + listing.id()
+                : "/neow market buy " + listing.id();
         return line.withStyle(style -> style
                 .withClickEvent(new ClickEvent(ClickEvent.Action.SUGGEST_COMMAND, command))
                 .withHoverEvent(new HoverEvent(HoverEvent.Action.SHOW_TEXT,
@@ -221,7 +247,7 @@ public final class MarketCommand {
 
     private static void showPageControls(ServerPlayer player, int page, int totalPages, boolean ownOnly) {
         if (totalPages <= 1) return;
-        String base = ownOnly ? "/neoworld market my " : "/neoworld market list ";
+        String base = ownOnly ? "/neow market my " : "/neow market list ";
         MutableComponent controls = Component.literal("หน้า: ").withStyle(ChatFormatting.GRAY);
         if (page > 1) controls.append(pageButton(base + (page - 1), "[ก่อนหน้า]"));
         if (page > 1 && page < totalPages) controls.append(Component.literal(" "));
@@ -237,14 +263,17 @@ public final class MarketCommand {
 
     private static int showHelp(ServerPlayer player) {
         player.sendSystemMessage(Component.literal("=== Market Commands ===").withStyle(ChatFormatting.GOLD));
-        player.sendSystemMessage(helpButton("/neoworld market list", "ดูประกาศทั้งหมด"));
-        player.sendSystemMessage(helpButton("/neoworld market sell 100 1 2880", "ขายของในมือ ราคาต่อชิ้น"));
-        player.sendSystemMessage(helpButton("/neoworld market buy <id> [count]", "ซื้อทั้งกองหรือระบุจำนวน"));
-        player.sendSystemMessage(helpButton("/neoworld market my", "ดูประกาศของฉัน"));
-        player.sendSystemMessage(helpButton("/neoworld market claim", "รับเงินและสินค้าค้าง"));
+        player.sendSystemMessage(helpButton("/neow market list", "ดูประกาศทั้งหมด"));
+        player.sendSystemMessage(helpButton("/neow market sell 100 1 2880", "ขายของในมือ ราคาต่อชิ้น"));
+        player.sendSystemMessage(helpButton("/neow market buy <id> [count]", "ซื้อทั้งกองหรือระบุจำนวน"));
+        player.sendSystemMessage(helpButton("/neow market my", "ดูประกาศของฉัน"));
+        player.sendSystemMessage(helpButton("/neow market claim", "รับเงินและสินค้าค้าง"));
         if (ModPermissions.hasPermission(
                 player.createCommandSourceStack(), ModPermissions.COMMAND_MARKET_ADMIN, 2)) {
-            player.sendSystemMessage(helpButton("/neoworld market open <player>", "เปิดหน้าตลาดให้ผู้เล่น"));
+            player.sendSystemMessage(helpButton(
+                    "/neow market admin open market <player>", "เปิดหน้าตลาดให้ผู้เล่น"));
+            player.sendSystemMessage(helpButton(
+                    "/neow market admin open manage <player>", "เปิดหน้าจัดการแผงให้ผู้เล่น"));
         }
         return 1;
     }
@@ -273,6 +302,7 @@ public final class MarketCommand {
             case MARKET_CAPACITY_REACHED -> "ตลาดไม่สามารถสร้างประกาศเพิ่มได้";
             case DATABASE_ERROR -> "ฐานข้อมูลขัดข้อง กรุณาลองใหม่หรือติดต่อผู้ดูแล";
             case NOTHING_TO_CLAIM -> "ไม่มีเงินหรือสินค้าค้างรับ";
+            case MARKET_BUSY -> "ตลาดกำลังประมวลผล กรุณาลองใหม่อีกครั้ง";
             case SUCCESS -> "สำเร็จ";
         }));
         return 0;

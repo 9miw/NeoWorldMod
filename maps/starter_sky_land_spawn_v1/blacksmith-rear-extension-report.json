@@ -1,0 +1,24 @@
+{
+  "extension": {
+    "length": 10,
+    "bounds": [
+      66,
+      112,
+      96,
+      121
+    ],
+    "floorY": 107,
+    "clearAisle": [
+      76,
+      82
+    ],
+    "connection": [
+      79,
+      108,
+      122
+    ]
+  },
+  "changedBlocks": 1929,
+  "changedChunks": 7,
+  "backup": "archive\\map-edit-backups\\before-blacksmith-rear-extension\\starter_sky_land_spawn_v1"
+}

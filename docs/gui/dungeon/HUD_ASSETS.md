@@ -1,18 +1,16 @@
-# Dungeon HUD Assets
+# แอสเซ็ต HUD ดันเจี้ยน
 
-Prepared from `hud-approved-mockup.png`. These resources are not yet connected to
-the live HUD; the existing scoreboard remains unchanged. No in-game QA yet.
+ภาพปัจจุบันคือแบบ 02 Minimal Strip ตาม `HUD_MINIMAL.md` และภาพ `hud-minimal-approved.png` ขนาดด้านล่างอธิบายรุ่นกรอบเงินเดิมและต้นฉบับที่เก็บไว้ ไม่ใช่เลย์เอาต์ปัจจุบัน
 
-## Layers and Sizes
+เตรียมจาก `hud-approved-mockup.png` เชื่อมผ่าน `DungeonOverlay`, `ClientDungeonHudData` และ `DungeonHudPayload` ที่เซิร์ฟเวอร์ควบคุม HUD นี้แทนสกอร์บอร์ดดันเจี้ยน ยังไม่ได้ตรวจภาพในเกม
 
-Use a 220x160 logical GUI canvas at the top right, with an 8-unit margin.
-These are GUI units, not screen pixels. GUI Scale 2 makes it 440x320 pixels.
-For small viewports, apply a uniform scale to the whole composition; do not
-independently scale text and frame. This frame is not a verified nine-slice.
+## ชั้นและขนาด
 
-All PNGs live in `assets/neoworld/textures/gui/dungeon/hud/`.
+ใช้พื้นที่ GUI เชิงตรรกะ 220x160 กลางแนวตั้งชิดขวา เว้นขวา 8 หน่วย จอเล็กปรับสเกลให้พอดี 45% ขวาของวิวพอร์ตและความสูงที่มี โดยคงอัตราส่วน นี่คือหน่วย GUI ไม่ใช่พิกเซลจอ GUI Scale 2 ให้ขนาด 440x320 พิกเซล วิวพอร์ตเล็กให้สเกลทั้งองค์ประกอบเท่ากัน ไม่แยกข้อความและกรอบ กรอบนี้ยังไม่ใช่ nine-slice ที่ตรวจยืนยันแล้ว
 
-| PNG | Source size | Logical destination (x, y, width, height) |
+PNG ทั้งหมดอยู่ใน `assets/neoworld/textures/gui/dungeon/hud/`
+
+| PNG | ขนาดต้นทาง | ปลายทางเชิงตรรกะ (x, y, กว้าง, สูง) |
 | --- | --- | --- |
 | background.png | 424x290 | 4, 10, 212, 145 |
 | frame.png | 440x320 | 0, 0, 220, 160 |
@@ -20,33 +18,24 @@ All PNGs live in `assets/neoworld/textures/gui/dungeon/hud/`.
 | bar_track.png | 400x36 | 10, 68, 200, 18 |
 | wave_fill.png | 384x16 | 14, 73, 192, 8 |
 | boss_fill.png | 384x16 | 14, 73, 192, 8 |
-| clock.png | 32x32 | Use named bitmap font below |
+| clock.png | 32x32 | ใช้ฟอนต์บิตแมปแบบมีชื่อด้านล่าง |
 
-Draw backing first (multiply alpha by 0.75 for translucent gameplay), border,
-divider/track, clipped fill, then text and icons. The frame center is transparent.
-Fill images represent full bars: clip destination width AND sampled UV width to
-the same progress ratio. Do not stretch the full fill into a shortened rectangle.
-Wave segmentation can be added at runtime from wave count, never baked into art.
+วาดพื้นรองก่อน โดยคูณอัลฟา 0.75 ให้โปร่งขณะเล่น ตามด้วยขอบ เส้นแบ่ง/ราง ไส้ที่ตัด และข้อความ/ไอคอน กลางกรอบโปร่งใส ภาพไส้คือแถบเต็ม ต้องตัดทั้งความกว้างปลายทางและ UV ด้วยสัดส่วนความคืบหน้าเดียวกัน ไม่ยืดไส้เต็มลงกรอบที่สั้นลง แบ่งแถบเวฟตอนรันไทม์ตามจำนวนเวฟได้ ห้ามฝังในภาพ
 
-Suggested text anchors: title center (110,20), status center (110,36), wave/boss
-row (14,55), time label/value (40,112)/(204,112), members (40,136)/(204,136).
-Right-align values. Keep text inside x=14..206; measure localized text and use
-shorter labels or a compact layout when needed. Clock/member icons start at
-x=16 on their row; tune baseline with the actual font renderer before release.
-Do not show both the Wave and Boss variant at once. Time limit 0 means unlimited.
+จุดยึดข้อความที่แนะนำ: หัวข้อกลาง (110,20), สถานะกลาง (110,36), แถวเวฟ/บอส (14,55), ป้าย/ค่าเวลา (40,112)/(204,112), สมาชิก (40,136)/(204,136) ค่าชิดขวา ข้อความอยู่ใน x=14..206 วัดข้อความแปลและใช้ป้ายสั้นหรือเลย์เอาต์กะทัดรัดเมื่อจำเป็น ไอคอนนาฬิกา/สมาชิกเริ่ม x=16 ของแถวนั้น ปรับ baseline ด้วยตัววาดฟอนต์จริงก่อนปล่อย ไม่แสดง Wave และ Boss พร้อมกัน เวลาจำกัด 0 คือไม่จำกัด
 
-## Bitmap Font
+เซิร์ฟเวอร์ส่งชื่อ เฟส เวฟปัจจุบัน/ทั้งหมด ศัตรูเหลือ ชื่อบอสและเปอร์เซ็นต์ HP เวลาเหลือ/ตัวบอกไม่จำกัด และสมาชิกมีชีวิต/ทั้งหมดทุกวินาที สถานะรอเวฟ รอบอส ต่อสู้ และชนะมีข้อความต่างกัน แถบเวฟแสดงเวฟที่จบ แถบบอสแสดง HP เหลือ ผู้เล่นที่กลับได้รับแพ็กเก็ตซ่อน ออกจากเกมล้างสถานะไคลเอนต์ ตรวจมิติและซ่อน GUI/เปิดเมนูเพื่อไม่วาดนอกเกมเพลย์ ไคลเอนต์/เซิร์ฟเวอร์ใช้โปรโตคอล 19 ตรงกัน ไม่ลบ objective สกอร์บอร์ดอื่น
 
-Font ID: `neoworld:dungeon_hud`. Providers: height 12, ascent 11.
+## ฟอนต์บิตแมป
 
-| Character | Meaning | Texture |
+ID ฟอนต์: `neoworld:dungeon_hud` ตัว provider: height 12, ascent 11
+
+| อักขระ | ความหมาย | เท็กซ์เจอร์ |
 | --- | --- | --- |
-| `\uE110` | Time remaining | `gui/dungeon/hud/clock.png` |
-| `\uE101` | Living members | Shared `gui/common/icons/member.png` |
+| `\uE110` | เวลาเหลือ | `gui/dungeon/hud/clock.png` |
+| `\uE101` | สมาชิกที่มีชีวิต | `gui/common/icons/member.png` ร่วม |
 
-The member texture is intentionally reused, not duplicated. This font is icon-only:
-apply it to the glyph Component, not the entire text label. Render glyphs white to
-preserve PNG colors. It does not register characters in Minecraft's default font.
+ใช้เท็กซ์เจอร์สมาชิกร่วมโดยไม่ทำซ้ำ ฟอนต์นี้มีเฉพาะไอคอน ให้ใช้กับ Component ของ glyph ไม่ใช่ทั้งป้าย วาด glyph สีขาวเพื่อคงสี PNG ไม่ได้ลงทะเบียนอักขระในฟอนต์เริ่มต้น Minecraft
 
 ```java
 Component.literal("\uE110").withStyle(style -> style
@@ -54,19 +43,14 @@ Component.literal("\uE110").withStyle(style -> style
     .withColor(0xFFFFFF));
 ```
 
-## Re-export
+## ส่งออกใหม่
 
-The measured source rectangles are in `export-hud-assets.ps1`. The source is
-`hud-assets-source.png` (1536x1024 RGBA). Run from the repository root:
+กรอบต้นทางที่วัดอยู่ใน `export-hud-assets.ps1` ต้นฉบับคือ `hud-assets-source.png` (1536x1024 RGBA) รันจากรากรีโพซิทอรี:
 
 ```powershell
 & docs/gui/dungeon/export-hud-assets.ps1 -Source docs/gui/dungeon/hud-assets-source.png
 ```
 
-The helper crops approved disjoint regions, uses alpha bounds for the border,
-backing, track and icon, and trims the glow outside fill regions. It normalizes
-using nearest-neighbor sampling and preserves clock padding. Re-measure regions
-if the source sheet changes. PNG metadata disables blur and enables clamp.
+ตัวช่วยตัดพื้นที่อนุมัติที่แยกกัน ใช้ขอบอัลฟาสำหรับกรอบ พื้นรอง ราง และไอคอน และตัดแสงเรืองนอกไส้ ปรับขนาดด้วย nearest-neighbor และคง padding นาฬิกา วัดใหม่หากชีตต้นทางเปลี่ยน เมทาดาทา PNG ปิด blur เปิด clamp
 
-Validate JSON references and transparent pixels after export; compilation alone
-does not validate resource-pack loading or how the font looks in-game.
+ตรวจการอ้างอิง JSON และพิกเซลโปร่งใสหลังส่งออก คอมไพล์อย่างเดียวไม่ตรวจการโหลดรีซอร์สแพ็กหรือภาพฟอนต์ในเกม

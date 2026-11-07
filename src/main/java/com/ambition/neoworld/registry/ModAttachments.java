@@ -17,6 +17,11 @@ public class ModAttachments {
     public static final DeferredRegister<AttachmentType<?>> ATTACHMENT_TYPES =
             DeferredRegister.create(NeoForgeRegistries.ATTACHMENT_TYPES, NeoWorld.MODID);
 
+    public static final Supplier<AttachmentType<com.ambition.neoworld.ranking.RankingAppearance>> RANKING_APPEARANCE =
+            ATTACHMENT_TYPES.register("ranking_appearance", () -> AttachmentType
+                    .builder(() -> com.ambition.neoworld.ranking.RankingAppearance.EMPTY)
+                    .serialize(com.ambition.neoworld.ranking.RankingAppearance.CODEC).copyOnDeath().build());
+
     public static final Supplier<AttachmentType<com.ambition.neoworld.activity.ActivityData>> ACTIVITY_DATA =
             ATTACHMENT_TYPES.register("activity_data", () -> AttachmentType
                     .builder(com.ambition.neoworld.activity.ActivityData::new)
@@ -39,10 +44,28 @@ public class ModAttachments {
                     .build()
     );
 
+    public static final Supplier<AttachmentType<Boolean>> PARTY_INVITES_ENABLED = ATTACHMENT_TYPES.register(
+            "party_invites_enabled", () -> AttachmentType.builder(() -> true)
+                    .serialize(com.mojang.serialization.Codec.BOOL).copyOnDeath().build());
+
+    public static final Supplier<AttachmentType<com.ambition.neoworld.level.UnderLevelArmorRecovery>> UNDER_LEVEL_ARMOR =
+            ATTACHMENT_TYPES.register("under_level_armor", () -> AttachmentType
+                    .builder(com.ambition.neoworld.level.UnderLevelArmorRecovery::new)
+                    .serialize(com.ambition.neoworld.level.UnderLevelArmorRecovery.CODEC)
+                    .copyOnDeath().build());
+
     public static final Supplier<AttachmentType<FashionData>> FASHION_DATA = ATTACHMENT_TYPES.register(
             "fashion_data",
             () -> AttachmentType.builder(() -> new FashionData())
                     .serialize(FashionData.CODEC)
+                    .copyOnDeath()
+                    .build()
+    );
+
+    public static final Supplier<AttachmentType<com.ambition.neoworld.killer.KillerData>> KILLER_DATA = ATTACHMENT_TYPES.register(
+            "killer_data",
+            () -> AttachmentType.builder(com.ambition.neoworld.killer.KillerData::new)
+                    .serialize(com.ambition.neoworld.killer.KillerData.CODEC)
                     .copyOnDeath()
                     .build()
     );

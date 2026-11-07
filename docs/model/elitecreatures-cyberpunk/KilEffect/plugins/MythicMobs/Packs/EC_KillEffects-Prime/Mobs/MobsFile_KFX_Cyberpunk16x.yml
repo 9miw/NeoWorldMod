@@ -1,0 +1,28 @@
+
+
+# Current pack : Cyberpunk
+# SFX pack : cyberpunk_animated
+# KFX name : BurstingCore / Bursting-Core / bursting_core
+
+KFX_Prime-Cyberpunk-BurstingCore:
+  Type: ARMOR_STAND
+  Display: ''
+  Options:
+    Interactable: false
+    Invincible: true
+  Skills:
+  
+  - model{m=kfx_bursting_core;d=false} @self ~onSpawn
+  - skill{s=KFX_Prime-Cyberpunk-SkinInherit} @self ~onSpawn
+  - look{immediately=true} @Owner ~onSpawn
+  - leap{v=1;delay=1} @Forward{f=1} ~onSpawn
+  
+  - effect:blockmask{d=80;m=light;r=0;onlyair=true;noair=false} @selflocation ~onSpawn
+  - remove{delay=81} @self ~onSpawn
+  - hide{delay=80} @world ~onSpawn  
+  ########
+  #- sound{s=ec_killeffects_sfx_cyberpunk:kill_fx.bursting_core;v=3}
+  
+  #- effect:particles{particle=heart;amount=1;hS=0.25;vS=0.25;repeat=15;repeatInterval=1;delay=8} @ModelPart{mid=bursting_core;p=head3;z=-0.25} ~onSpawn
+  #- effect:particles{particle=end_rod;speed=1.5;amount=30;hS=0.5;vS=1.75;delay=24} @ModelPart{mid=bursting_core;p=head3;z=-0.25} ~onSpawn
+  #- effect:particles{particle=electric_spark;amount=30;hS=0.5;vS=1.75;delay=24} @ModelPart{mid=bursting_core;p=head3;z=-0.25} ~onSpawn

@@ -6,10 +6,13 @@ import java.util.Map;
 import java.util.UUID;
 
 public final class Party {
+    public enum Purpose { GENERAL, DUNGEON }
+
     private final UUID id;
     private final int capacity;
     private final Map<UUID, PartyMember> members = new LinkedHashMap<>();
     private UUID leaderId;
+    private Purpose purpose = Purpose.GENERAL;
 
     Party(UUID id, int capacity, PartyMember leader) {
         if (capacity != 3 && capacity != 6) {
@@ -32,6 +35,10 @@ public final class Party {
     public UUID leaderId() {
         return leaderId;
     }
+
+    public Purpose purpose() { return purpose; }
+
+    void setPurpose(Purpose purpose) { this.purpose = purpose; }
 
     public Collection<PartyMember> members() {
         return java.util.List.copyOf(members.values());

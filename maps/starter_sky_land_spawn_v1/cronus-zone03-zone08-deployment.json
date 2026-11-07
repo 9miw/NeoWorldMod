@@ -1,0 +1,47 @@
+{
+  "date": "2026-10-27",
+  "server": "cronus",
+  "container": "neoworld-server",
+  "dimension": "minecraft:overworld",
+  "scope": [
+    "03 streets and central plaza",
+    "08 portal island and bridge"
+  ],
+  "backup": "/home/miw/backups/neoworld-z03-z08-20261027/world",
+  "patch": {
+    "inputSha256": "74ec13c68f5fa2bcadec409357129e0b69a9bf62699509e86c572223fe64130c",
+    "outputSha256": "9aea2223b133b02c943a1d515722d8bc3b67c98ad15c36c13fc4cd70dd8478ea",
+    "approvedDelta": 78898,
+    "changedBlocks": 78898,
+    "alreadyApplied": 0,
+    "derivedStateDifferences": 1,
+    "changedChunks": 47,
+    "removedBlockEntities": 0,
+    "conflictCount": 0,
+    "conflicts": [],
+    "verification": {
+      "outsideDeltaChanges": 0,
+      "unrelatedChunkTagsPreserved": true,
+      "entityFilesTouched": false
+    }
+  },
+  "preserved": {
+    "filesVerified": 716,
+    "changedFiles": [
+      "region/r.0.0.mca"
+    ],
+    "levelDatEntitiesCustomNpcsOtherDimensionsPreserved": true
+  },
+  "post": {
+    "npcCount": 41,
+    "npcUuidsPreserved": true,
+    "postStartChangedBlockTypesChecked": 78898,
+    "postStartBlockTypeMismatches": 0,
+    "serverReady": true,
+    "inGameVisualCheck": false
+  },
+  "serverReadyAt": "2026-10-27 23:45:56 Asia/Bangkok",
+  "savedAt": "2026-10-27 23:46:31 Asia/Bangkok",
+  "compileJava": "BUILD SUCCESSFUL",
+  "inGameVisualTest": false
+}

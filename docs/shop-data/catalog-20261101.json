@@ -1,0 +1,1615 @@
+{
+  "timestamp": "2026-11-01T21:42:01.326754",
+  "source": "active MariaDB read-only consistent snapshot",
+  "shops": [
+    {
+      "id": 1,
+      "name": "ร้านอาหาร"
+    },
+    {
+      "id": 2,
+      "name": "ร้านค้า-อีเทอร์"
+    },
+    {
+      "id": 3,
+      "name": "ร้านค้า-ฟินน์"
+    },
+    {
+      "id": 4,
+      "name": "ร้านเกษตร"
+    },
+    {
+      "id": 5,
+      "name": "ร้านประมง"
+    },
+    {
+      "id": 6,
+      "name": "ร้านปศุสัตว์"
+    },
+    {
+      "id": 7,
+      "name": "ร้านไม้"
+    },
+    {
+      "id": 8,
+      "name": "ร้านรับซื้อของมอนสเตอร์"
+    },
+    {
+      "id": 9,
+      "name": "ร้านสมุนไพรและวัตถุดิบปรุงยา"
+    },
+    {
+      "id": 10,
+      "name": "ร้านผึ้ง"
+    },
+    {
+      "id": 11,
+      "name": "ร้านอุปกรณ์ผจญภัย"
+    },
+    {
+      "id": 12,
+      "name": "ร้านวัสดุและงานช่าง"
+    },
+    {
+      "id": 13,
+      "name": "ร้านอุปกรณ์ Create"
+    },
+    {
+      "id": 14,
+      "name": "ร้านหนังสือทักษะ"
+    }
+  ],
+  "offers": [
+    {
+      "id": 13,
+      "shop_id": 1,
+      "buy": 3,
+      "sell": 0,
+      "category": "อาหาร",
+      "currency": "SILVER",
+      "item": {
+        "count": 1,
+        "id": "minecraft:bread"
+      }
+    },
+    {
+      "id": 14,
+      "shop_id": 1,
+      "buy": 2,
+      "sell": 0,
+      "category": "อาหาร",
+      "currency": "SILVER",
+      "item": {
+        "count": 1,
+        "id": "minecraft:baked_potato"
+      }
+    },
+    {
+      "id": 15,
+      "shop_id": 1,
+      "buy": 4,
+      "sell": 0,
+      "category": "อาหาร",
+      "currency": "SILVER",
+      "item": {
+        "count": 1,
+        "id": "minecraft:cooked_chicken"
+      }
+    },
+    {
+      "id": 16,
+      "shop_id": 1,
+      "buy": 6,
+      "sell": 0,
+      "category": "อาหาร",
+      "currency": "SILVER",
+      "item": {
+        "count": 1,
+        "id": "minecraft:cooked_porkchop"
+      }
+    },
+    {
+      "id": 17,
+      "shop_id": 1,
+      "buy": 6,
+      "sell": 0,
+      "category": "อาหาร",
+      "currency": "SILVER",
+      "item": {
+        "count": 1,
+        "id": "minecraft:cooked_beef"
+      }
+    },
+    {
+      "id": 18,
+      "shop_id": 1,
+      "buy": 5,
+      "sell": 0,
+      "category": "อาหาร",
+      "currency": "SILVER",
+      "item": {
+        "count": 1,
+        "id": "minecraft:cooked_salmon"
+      }
+    },
+    {
+      "id": 2,
+      "shop_id": 3,
+      "buy": 0,
+      "sell": 1,
+      "category": "แร่",
+      "currency": "SILVER",
+      "item": {
+        "count": 1,
+        "id": "minecraft:coal"
+      }
+    },
+    {
+      "id": 3,
+      "shop_id": 3,
+      "buy": 0,
+      "sell": 1,
+      "category": "แร่",
+      "currency": "SILVER",
+      "item": {
+        "count": 1,
+        "id": "minecraft:raw_copper"
+      }
+    },
+    {
+      "id": 4,
+      "shop_id": 3,
+      "buy": 0,
+      "sell": 3,
+      "category": "แร่",
+      "currency": "SILVER",
+      "item": {
+        "count": 1,
+        "id": "minecraft:raw_iron"
+      }
+    },
+    {
+      "id": 5,
+      "shop_id": 3,
+      "buy": 0,
+      "sell": 5,
+      "category": "แร่",
+      "currency": "SILVER",
+      "item": {
+        "count": 1,
+        "id": "minecraft:raw_gold"
+      }
+    },
+    {
+      "id": 6,
+      "shop_id": 3,
+      "buy": 0,
+      "sell": 1,
+      "category": "แร่",
+      "currency": "SILVER",
+      "item": {
+        "count": 1,
+        "id": "minecraft:redstone"
+      }
+    },
+    {
+      "id": 7,
+      "shop_id": 3,
+      "buy": 0,
+      "sell": 2,
+      "category": "แร่",
+      "currency": "SILVER",
+      "item": {
+        "count": 1,
+        "id": "minecraft:lapis_lazuli"
+      }
+    },
+    {
+      "id": 8,
+      "shop_id": 3,
+      "buy": 0,
+      "sell": 2,
+      "category": "แร่",
+      "currency": "SILVER",
+      "item": {
+        "count": 1,
+        "id": "minecraft:quartz"
+      }
+    },
+    {
+      "id": 9,
+      "shop_id": 3,
+      "buy": 0,
+      "sell": 40,
+      "category": "แร่",
+      "currency": "SILVER",
+      "item": {
+        "count": 1,
+        "id": "minecraft:diamond"
+      }
+    },
+    {
+      "id": 10,
+      "shop_id": 3,
+      "buy": 0,
+      "sell": 9,
+      "category": "แร่",
+      "currency": "SILVER",
+      "item": {
+        "count": 1,
+        "id": "minecraft:raw_copper_block"
+      }
+    },
+    {
+      "id": 11,
+      "shop_id": 3,
+      "buy": 0,
+      "sell": 27,
+      "category": "แร่",
+      "currency": "SILVER",
+      "item": {
+        "count": 1,
+        "id": "minecraft:raw_iron_block"
+      }
+    },
+    {
+      "id": 12,
+      "shop_id": 3,
+      "buy": 0,
+      "sell": 45,
+      "category": "แร่",
+      "currency": "SILVER",
+      "item": {
+        "count": 1,
+        "id": "minecraft:raw_gold_block"
+      }
+    },
+    {
+      "id": 19,
+      "shop_id": 4,
+      "buy": 0,
+      "sell": 2,
+      "category": "เกษตร",
+      "currency": "SILVER",
+      "item": {
+        "count": 1,
+        "id": "minecraft:wheat"
+      }
+    },
+    {
+      "id": 20,
+      "shop_id": 4,
+      "buy": 0,
+      "sell": 1,
+      "category": "เกษตร",
+      "currency": "SILVER",
+      "item": {
+        "count": 1,
+        "id": "minecraft:carrot"
+      }
+    },
+    {
+      "id": 21,
+      "shop_id": 4,
+      "buy": 0,
+      "sell": 1,
+      "category": "เกษตร",
+      "currency": "SILVER",
+      "item": {
+        "count": 1,
+        "id": "minecraft:potato"
+      }
+    },
+    {
+      "id": 22,
+      "shop_id": 4,
+      "buy": 0,
+      "sell": 2,
+      "category": "เกษตร",
+      "currency": "SILVER",
+      "item": {
+        "count": 1,
+        "id": "minecraft:beetroot"
+      }
+    },
+    {
+      "id": 23,
+      "shop_id": 4,
+      "buy": 0,
+      "sell": 4,
+      "category": "เกษตร",
+      "currency": "SILVER",
+      "item": {
+        "count": 1,
+        "id": "minecraft:pumpkin"
+      }
+    },
+    {
+      "id": 24,
+      "shop_id": 4,
+      "buy": 0,
+      "sell": 3,
+      "category": "เกษตร",
+      "currency": "SILVER",
+      "item": {
+        "count": 1,
+        "id": "minecraft:melon"
+      }
+    },
+    {
+      "id": 25,
+      "shop_id": 4,
+      "buy": 0,
+      "sell": 1,
+      "category": "เกษตร",
+      "currency": "SILVER",
+      "item": {
+        "count": 1,
+        "id": "minecraft:sugar_cane"
+      }
+    },
+    {
+      "id": 96,
+      "shop_id": 4,
+      "buy": 2,
+      "sell": 0,
+      "category": "เกษตร",
+      "currency": "SILVER",
+      "item": {
+        "count": 1,
+        "id": "minecraft:bone_meal"
+      }
+    },
+    {
+      "id": 26,
+      "shop_id": 5,
+      "buy": 0,
+      "sell": 2,
+      "category": "ประมง",
+      "currency": "SILVER",
+      "item": {
+        "count": 1,
+        "id": "minecraft:cod"
+      }
+    },
+    {
+      "id": 27,
+      "shop_id": 5,
+      "buy": 0,
+      "sell": 3,
+      "category": "ประมง",
+      "currency": "SILVER",
+      "item": {
+        "count": 1,
+        "id": "minecraft:salmon"
+      }
+    },
+    {
+      "id": 28,
+      "shop_id": 5,
+      "buy": 0,
+      "sell": 5,
+      "category": "ประมง",
+      "currency": "SILVER",
+      "item": {
+        "count": 1,
+        "id": "minecraft:pufferfish"
+      }
+    },
+    {
+      "id": 29,
+      "shop_id": 5,
+      "buy": 0,
+      "sell": 4,
+      "category": "ประมง",
+      "currency": "SILVER",
+      "item": {
+        "count": 1,
+        "id": "minecraft:tropical_fish"
+      }
+    },
+    {
+      "id": 30,
+      "shop_id": 6,
+      "buy": 0,
+      "sell": 3,
+      "category": "ปศุสัตว์",
+      "currency": "SILVER",
+      "item": {
+        "count": 1,
+        "id": "minecraft:beef"
+      }
+    },
+    {
+      "id": 31,
+      "shop_id": 6,
+      "buy": 0,
+      "sell": 3,
+      "category": "ปศุสัตว์",
+      "currency": "SILVER",
+      "item": {
+        "count": 1,
+        "id": "minecraft:porkchop"
+      }
+    },
+    {
+      "id": 32,
+      "shop_id": 6,
+      "buy": 0,
+      "sell": 2,
+      "category": "ปศุสัตว์",
+      "currency": "SILVER",
+      "item": {
+        "count": 1,
+        "id": "minecraft:chicken"
+      }
+    },
+    {
+      "id": 33,
+      "shop_id": 6,
+      "buy": 0,
+      "sell": 3,
+      "category": "ปศุสัตว์",
+      "currency": "SILVER",
+      "item": {
+        "count": 1,
+        "id": "minecraft:mutton"
+      }
+    },
+    {
+      "id": 34,
+      "shop_id": 6,
+      "buy": 0,
+      "sell": 3,
+      "category": "ปศุสัตว์",
+      "currency": "SILVER",
+      "item": {
+        "count": 1,
+        "id": "minecraft:rabbit"
+      }
+    },
+    {
+      "id": 35,
+      "shop_id": 6,
+      "buy": 0,
+      "sell": 2,
+      "category": "ปศุสัตว์",
+      "currency": "SILVER",
+      "item": {
+        "count": 1,
+        "id": "minecraft:leather"
+      }
+    },
+    {
+      "id": 36,
+      "shop_id": 6,
+      "buy": 0,
+      "sell": 2,
+      "category": "ปศุสัตว์",
+      "currency": "SILVER",
+      "item": {
+        "count": 1,
+        "id": "minecraft:white_wool"
+      }
+    },
+    {
+      "id": 37,
+      "shop_id": 6,
+      "buy": 0,
+      "sell": 1,
+      "category": "ปศุสัตว์",
+      "currency": "SILVER",
+      "item": {
+        "count": 1,
+        "id": "minecraft:egg"
+      }
+    },
+    {
+      "id": 38,
+      "shop_id": 6,
+      "buy": 0,
+      "sell": 1,
+      "category": "ปศุสัตว์",
+      "currency": "SILVER",
+      "item": {
+        "count": 1,
+        "id": "minecraft:feather"
+      }
+    },
+    {
+      "id": 72,
+      "shop_id": 6,
+      "buy": 0,
+      "sell": 1,
+      "category": "ปศุสัตว์",
+      "currency": "SILVER",
+      "item": {
+        "count": 1,
+        "id": "minecraft:rabbit_hide"
+      }
+    },
+    {
+      "id": 73,
+      "shop_id": 6,
+      "buy": 0,
+      "sell": 5,
+      "category": "ปศุสัตว์",
+      "currency": "SILVER",
+      "item": {
+        "count": 1,
+        "id": "minecraft:rabbit_foot"
+      }
+    },
+    {
+      "id": 74,
+      "shop_id": 6,
+      "buy": 0,
+      "sell": 2,
+      "category": "ปศุสัตว์",
+      "currency": "SILVER",
+      "item": {
+        "count": 1,
+        "id": "minecraft:orange_wool"
+      }
+    },
+    {
+      "id": 75,
+      "shop_id": 6,
+      "buy": 0,
+      "sell": 2,
+      "category": "ปศุสัตว์",
+      "currency": "SILVER",
+      "item": {
+        "count": 1,
+        "id": "minecraft:magenta_wool"
+      }
+    },
+    {
+      "id": 76,
+      "shop_id": 6,
+      "buy": 0,
+      "sell": 2,
+      "category": "ปศุสัตว์",
+      "currency": "SILVER",
+      "item": {
+        "count": 1,
+        "id": "minecraft:light_blue_wool"
+      }
+    },
+    {
+      "id": 77,
+      "shop_id": 6,
+      "buy": 0,
+      "sell": 2,
+      "category": "ปศุสัตว์",
+      "currency": "SILVER",
+      "item": {
+        "count": 1,
+        "id": "minecraft:yellow_wool"
+      }
+    },
+    {
+      "id": 78,
+      "shop_id": 6,
+      "buy": 0,
+      "sell": 2,
+      "category": "ปศุสัตว์",
+      "currency": "SILVER",
+      "item": {
+        "count": 1,
+        "id": "minecraft:lime_wool"
+      }
+    },
+    {
+      "id": 79,
+      "shop_id": 6,
+      "buy": 0,
+      "sell": 2,
+      "category": "ปศุสัตว์",
+      "currency": "SILVER",
+      "item": {
+        "count": 1,
+        "id": "minecraft:pink_wool"
+      }
+    },
+    {
+      "id": 80,
+      "shop_id": 6,
+      "buy": 0,
+      "sell": 2,
+      "category": "ปศุสัตว์",
+      "currency": "SILVER",
+      "item": {
+        "count": 1,
+        "id": "minecraft:gray_wool"
+      }
+    },
+    {
+      "id": 81,
+      "shop_id": 6,
+      "buy": 0,
+      "sell": 2,
+      "category": "ปศุสัตว์",
+      "currency": "SILVER",
+      "item": {
+        "count": 1,
+        "id": "minecraft:light_gray_wool"
+      }
+    },
+    {
+      "id": 82,
+      "shop_id": 6,
+      "buy": 0,
+      "sell": 2,
+      "category": "ปศุสัตว์",
+      "currency": "SILVER",
+      "item": {
+        "count": 1,
+        "id": "minecraft:cyan_wool"
+      }
+    },
+    {
+      "id": 83,
+      "shop_id": 6,
+      "buy": 0,
+      "sell": 2,
+      "category": "ปศุสัตว์",
+      "currency": "SILVER",
+      "item": {
+        "count": 1,
+        "id": "minecraft:purple_wool"
+      }
+    },
+    {
+      "id": 84,
+      "shop_id": 6,
+      "buy": 0,
+      "sell": 2,
+      "category": "ปศุสัตว์",
+      "currency": "SILVER",
+      "item": {
+        "count": 1,
+        "id": "minecraft:blue_wool"
+      }
+    },
+    {
+      "id": 85,
+      "shop_id": 6,
+      "buy": 0,
+      "sell": 2,
+      "category": "ปศุสัตว์",
+      "currency": "SILVER",
+      "item": {
+        "count": 1,
+        "id": "minecraft:brown_wool"
+      }
+    },
+    {
+      "id": 86,
+      "shop_id": 6,
+      "buy": 0,
+      "sell": 2,
+      "category": "ปศุสัตว์",
+      "currency": "SILVER",
+      "item": {
+        "count": 1,
+        "id": "minecraft:green_wool"
+      }
+    },
+    {
+      "id": 87,
+      "shop_id": 6,
+      "buy": 0,
+      "sell": 2,
+      "category": "ปศุสัตว์",
+      "currency": "SILVER",
+      "item": {
+        "count": 1,
+        "id": "minecraft:red_wool"
+      }
+    },
+    {
+      "id": 88,
+      "shop_id": 6,
+      "buy": 0,
+      "sell": 2,
+      "category": "ปศุสัตว์",
+      "currency": "SILVER",
+      "item": {
+        "count": 1,
+        "id": "minecraft:black_wool"
+      }
+    },
+    {
+      "id": 39,
+      "shop_id": 7,
+      "buy": 0,
+      "sell": 1,
+      "category": "ไม้",
+      "currency": "SILVER",
+      "item": {
+        "count": 1,
+        "id": "minecraft:oak_log"
+      }
+    },
+    {
+      "id": 40,
+      "shop_id": 7,
+      "buy": 0,
+      "sell": 1,
+      "category": "ไม้",
+      "currency": "SILVER",
+      "item": {
+        "count": 1,
+        "id": "minecraft:spruce_log"
+      }
+    },
+    {
+      "id": 41,
+      "shop_id": 7,
+      "buy": 0,
+      "sell": 1,
+      "category": "ไม้",
+      "currency": "SILVER",
+      "item": {
+        "count": 1,
+        "id": "minecraft:birch_log"
+      }
+    },
+    {
+      "id": 42,
+      "shop_id": 7,
+      "buy": 0,
+      "sell": 1,
+      "category": "ไม้",
+      "currency": "SILVER",
+      "item": {
+        "count": 1,
+        "id": "minecraft:jungle_log"
+      }
+    },
+    {
+      "id": 43,
+      "shop_id": 7,
+      "buy": 0,
+      "sell": 1,
+      "category": "ไม้",
+      "currency": "SILVER",
+      "item": {
+        "count": 1,
+        "id": "minecraft:acacia_log"
+      }
+    },
+    {
+      "id": 44,
+      "shop_id": 7,
+      "buy": 0,
+      "sell": 1,
+      "category": "ไม้",
+      "currency": "SILVER",
+      "item": {
+        "count": 1,
+        "id": "minecraft:dark_oak_log"
+      }
+    },
+    {
+      "id": 45,
+      "shop_id": 7,
+      "buy": 0,
+      "sell": 1,
+      "category": "ไม้",
+      "currency": "SILVER",
+      "item": {
+        "count": 1,
+        "id": "minecraft:mangrove_log"
+      }
+    },
+    {
+      "id": 46,
+      "shop_id": 7,
+      "buy": 0,
+      "sell": 1,
+      "category": "ไม้",
+      "currency": "SILVER",
+      "item": {
+        "count": 1,
+        "id": "minecraft:cherry_log"
+      }
+    },
+    {
+      "id": 47,
+      "shop_id": 7,
+      "buy": 0,
+      "sell": 1,
+      "category": "ไม้",
+      "currency": "SILVER",
+      "item": {
+        "count": 1,
+        "id": "minecraft:oak_sapling"
+      }
+    },
+    {
+      "id": 48,
+      "shop_id": 7,
+      "buy": 0,
+      "sell": 1,
+      "category": "ไม้",
+      "currency": "SILVER",
+      "item": {
+        "count": 1,
+        "id": "minecraft:spruce_sapling"
+      }
+    },
+    {
+      "id": 49,
+      "shop_id": 7,
+      "buy": 0,
+      "sell": 1,
+      "category": "ไม้",
+      "currency": "SILVER",
+      "item": {
+        "count": 1,
+        "id": "minecraft:birch_sapling"
+      }
+    },
+    {
+      "id": 50,
+      "shop_id": 7,
+      "buy": 0,
+      "sell": 1,
+      "category": "ไม้",
+      "currency": "SILVER",
+      "item": {
+        "count": 1,
+        "id": "minecraft:jungle_sapling"
+      }
+    },
+    {
+      "id": 51,
+      "shop_id": 7,
+      "buy": 0,
+      "sell": 1,
+      "category": "ไม้",
+      "currency": "SILVER",
+      "item": {
+        "count": 1,
+        "id": "minecraft:acacia_sapling"
+      }
+    },
+    {
+      "id": 52,
+      "shop_id": 7,
+      "buy": 0,
+      "sell": 1,
+      "category": "ไม้",
+      "currency": "SILVER",
+      "item": {
+        "count": 1,
+        "id": "minecraft:dark_oak_sapling"
+      }
+    },
+    {
+      "id": 53,
+      "shop_id": 7,
+      "buy": 0,
+      "sell": 1,
+      "category": "ไม้",
+      "currency": "SILVER",
+      "item": {
+        "count": 1,
+        "id": "minecraft:cherry_sapling"
+      }
+    },
+    {
+      "id": 54,
+      "shop_id": 7,
+      "buy": 0,
+      "sell": 1,
+      "category": "ไม้",
+      "currency": "SILVER",
+      "item": {
+        "count": 1,
+        "id": "minecraft:mangrove_propagule"
+      }
+    },
+    {
+      "id": 55,
+      "shop_id": 8,
+      "buy": 0,
+      "sell": 1,
+      "category": "มอนสเตอร์",
+      "currency": "SILVER",
+      "item": {
+        "count": 1,
+        "id": "minecraft:bone"
+      }
+    },
+    {
+      "id": 56,
+      "shop_id": 8,
+      "buy": 0,
+      "sell": 1,
+      "category": "มอนสเตอร์",
+      "currency": "SILVER",
+      "item": {
+        "count": 1,
+        "id": "minecraft:rotten_flesh"
+      }
+    },
+    {
+      "id": 57,
+      "shop_id": 8,
+      "buy": 0,
+      "sell": 2,
+      "category": "มอนสเตอร์",
+      "currency": "SILVER",
+      "item": {
+        "count": 1,
+        "id": "minecraft:gunpowder"
+      }
+    },
+    {
+      "id": 58,
+      "shop_id": 8,
+      "buy": 0,
+      "sell": 1,
+      "category": "มอนสเตอร์",
+      "currency": "SILVER",
+      "item": {
+        "count": 1,
+        "id": "minecraft:string"
+      }
+    },
+    {
+      "id": 59,
+      "shop_id": 8,
+      "buy": 0,
+      "sell": 2,
+      "category": "มอนสเตอร์",
+      "currency": "SILVER",
+      "item": {
+        "count": 1,
+        "id": "minecraft:spider_eye"
+      }
+    },
+    {
+      "id": 60,
+      "shop_id": 8,
+      "buy": 0,
+      "sell": 3,
+      "category": "มอนสเตอร์",
+      "currency": "SILVER",
+      "item": {
+        "count": 1,
+        "id": "minecraft:ender_pearl"
+      }
+    },
+    {
+      "id": 61,
+      "shop_id": 8,
+      "buy": 0,
+      "sell": 1,
+      "category": "มอนสเตอร์",
+      "currency": "SILVER",
+      "item": {
+        "count": 1,
+        "id": "minecraft:slime_ball"
+      }
+    },
+    {
+      "id": 62,
+      "shop_id": 8,
+      "buy": 0,
+      "sell": 1,
+      "category": "มอนสเตอร์",
+      "currency": "SILVER",
+      "item": {
+        "count": 1,
+        "id": "minecraft:ink_sac"
+      }
+    },
+    {
+      "id": 63,
+      "shop_id": 8,
+      "buy": 0,
+      "sell": 2,
+      "category": "มอนสเตอร์",
+      "currency": "SILVER",
+      "item": {
+        "count": 1,
+        "id": "minecraft:glow_ink_sac"
+      }
+    },
+    {
+      "id": 89,
+      "shop_id": 8,
+      "buy": 0,
+      "sell": 2,
+      "category": "มอนสเตอร์",
+      "currency": "SILVER",
+      "item": {
+        "count": 1,
+        "id": "minecraft:prismarine_shard"
+      }
+    },
+    {
+      "id": 90,
+      "shop_id": 8,
+      "buy": 0,
+      "sell": 3,
+      "category": "มอนสเตอร์",
+      "currency": "SILVER",
+      "item": {
+        "count": 1,
+        "id": "minecraft:prismarine_crystals"
+      }
+    },
+    {
+      "id": 91,
+      "shop_id": 8,
+      "buy": 0,
+      "sell": 1,
+      "category": "มอนสเตอร์",
+      "currency": "SILVER",
+      "item": {
+        "count": 1,
+        "id": "minecraft:arrow"
+      }
+    },
+    {
+      "id": 64,
+      "shop_id": 9,
+      "buy": 0,
+      "sell": 1,
+      "category": "ปรุงยา",
+      "currency": "SILVER",
+      "item": {
+        "count": 1,
+        "id": "minecraft:brown_mushroom"
+      }
+    },
+    {
+      "id": 65,
+      "shop_id": 9,
+      "buy": 0,
+      "sell": 1,
+      "category": "ปรุงยา",
+      "currency": "SILVER",
+      "item": {
+        "count": 1,
+        "id": "minecraft:red_mushroom"
+      }
+    },
+    {
+      "id": 66,
+      "shop_id": 9,
+      "buy": 0,
+      "sell": 1,
+      "category": "ปรุงยา",
+      "currency": "SILVER",
+      "item": {
+        "count": 1,
+        "id": "minecraft:nether_wart"
+      }
+    },
+    {
+      "id": 67,
+      "shop_id": 9,
+      "buy": 0,
+      "sell": 4,
+      "category": "ปรุงยา",
+      "currency": "SILVER",
+      "item": {
+        "count": 1,
+        "id": "minecraft:blaze_rod"
+      }
+    },
+    {
+      "id": 68,
+      "shop_id": 9,
+      "buy": 0,
+      "sell": 8,
+      "category": "ปรุงยา",
+      "currency": "SILVER",
+      "item": {
+        "count": 1,
+        "id": "minecraft:ghast_tear"
+      }
+    },
+    {
+      "id": 92,
+      "shop_id": 9,
+      "buy": 6,
+      "sell": 2,
+      "category": "ปรุงยา",
+      "currency": "SILVER",
+      "item": {
+        "count": 1,
+        "id": "minecraft:glowstone_dust"
+      }
+    },
+    {
+      "id": 93,
+      "shop_id": 9,
+      "buy": 12,
+      "sell": 4,
+      "category": "ปรุงยา",
+      "currency": "SILVER",
+      "item": {
+        "count": 1,
+        "id": "minecraft:phantom_membrane"
+      }
+    },
+    {
+      "id": 94,
+      "shop_id": 9,
+      "buy": 6,
+      "sell": 0,
+      "category": "ปรุงยา",
+      "currency": "SILVER",
+      "item": {
+        "count": 1,
+        "id": "minecraft:spider_eye"
+      }
+    },
+    {
+      "id": 95,
+      "shop_id": 9,
+      "buy": 8,
+      "sell": 2,
+      "category": "ปรุงยา",
+      "currency": "SILVER",
+      "item": {
+        "count": 1,
+        "id": "minecraft:magma_cream"
+      }
+    },
+    {
+      "id": 70,
+      "shop_id": 10,
+      "buy": 0,
+      "sell": 3,
+      "category": "ผึ้ง",
+      "currency": "SILVER",
+      "item": {
+        "count": 1,
+        "id": "minecraft:honey_bottle"
+      }
+    },
+    {
+      "id": 71,
+      "shop_id": 10,
+      "buy": 0,
+      "sell": 2,
+      "category": "ผึ้ง",
+      "currency": "SILVER",
+      "item": {
+        "count": 1,
+        "id": "minecraft:honeycomb"
+      }
+    },
+    {
+      "id": 97,
+      "shop_id": 11,
+      "buy": 3,
+      "sell": 0,
+      "category": "ผจญภัย",
+      "currency": "SILVER",
+      "item": {
+        "count": 1,
+        "id": "minecraft:arrow"
+      }
+    },
+    {
+      "id": 98,
+      "shop_id": 11,
+      "buy": 60,
+      "sell": 0,
+      "category": "ผจญภัย",
+      "currency": "SILVER",
+      "item": {
+        "count": 1,
+        "id": "minecraft:saddle"
+      }
+    },
+    {
+      "id": 99,
+      "shop_id": 12,
+      "buy": 3,
+      "sell": 0,
+      "category": "งานช่าง",
+      "currency": "SILVER",
+      "item": {
+        "count": 1,
+        "id": "minecraft:string"
+      }
+    },
+    {
+      "id": 100,
+      "shop_id": 12,
+      "buy": 4,
+      "sell": 0,
+      "category": "งานช่าง",
+      "currency": "SILVER",
+      "item": {
+        "count": 1,
+        "id": "minecraft:slime_ball"
+      }
+    },
+    {
+      "id": 101,
+      "shop_id": 12,
+      "buy": 4,
+      "sell": 0,
+      "category": "งานช่าง",
+      "currency": "SILVER",
+      "item": {
+        "count": 1,
+        "id": "minecraft:ink_sac"
+      }
+    },
+    {
+      "id": 102,
+      "shop_id": 13,
+      "buy": 80,
+      "sell": 0,
+      "category": "Create",
+      "currency": "SILVER",
+      "item": {
+        "count": 1,
+        "id": "create:wrench"
+      }
+    },
+    {
+      "id": 103,
+      "shop_id": 13,
+      "buy": 100,
+      "sell": 0,
+      "category": "Create",
+      "currency": "SILVER",
+      "item": {
+        "count": 1,
+        "id": "create:goggles"
+      }
+    },
+    {
+      "id": 104,
+      "shop_id": 13,
+      "buy": 3,
+      "sell": 0,
+      "category": "Create",
+      "currency": "SILVER",
+      "item": {
+        "count": 1,
+        "id": "create:shaft"
+      }
+    },
+    {
+      "id": 105,
+      "shop_id": 13,
+      "buy": 6,
+      "sell": 0,
+      "category": "Create",
+      "currency": "SILVER",
+      "item": {
+        "count": 1,
+        "id": "create:cogwheel"
+      }
+    },
+    {
+      "id": 106,
+      "shop_id": 13,
+      "buy": 9,
+      "sell": 0,
+      "category": "Create",
+      "currency": "SILVER",
+      "item": {
+        "count": 1,
+        "id": "create:large_cogwheel"
+      }
+    },
+    {
+      "id": 107,
+      "shop_id": 13,
+      "buy": 12,
+      "sell": 0,
+      "category": "Create",
+      "currency": "SILVER",
+      "item": {
+        "count": 1,
+        "id": "create:belt_connector"
+      }
+    },
+    {
+      "id": 108,
+      "shop_id": 13,
+      "buy": 30,
+      "sell": 0,
+      "category": "Create",
+      "currency": "SILVER",
+      "item": {
+        "count": 1,
+        "id": "create:water_wheel"
+      }
+    },
+    {
+      "id": 109,
+      "shop_id": 14,
+      "buy": 100,
+      "sell": 0,
+      "category": "เริ่มต้น",
+      "currency": "SILVER",
+      "item": {
+        "components": {
+          "epicfight:skill": "epicfight:roll"
+        },
+        "count": 1,
+        "id": "epicfight:skillbook"
+      }
+    },
+    {
+      "id": 110,
+      "shop_id": 14,
+      "buy": 100,
+      "sell": 0,
+      "category": "เริ่มต้น",
+      "currency": "SILVER",
+      "item": {
+        "components": {
+          "epicfight:skill": "epicfight:step"
+        },
+        "count": 1,
+        "id": "epicfight:skillbook"
+      }
+    },
+    {
+      "id": 111,
+      "shop_id": 14,
+      "buy": 100,
+      "sell": 0,
+      "category": "เริ่มต้น",
+      "currency": "SILVER",
+      "item": {
+        "components": {
+          "epicfight:skill": "epicfight:guard"
+        },
+        "count": 1,
+        "id": "epicfight:skillbook"
+      }
+    },
+    {
+      "id": 112,
+      "shop_id": 14,
+      "buy": 100,
+      "sell": 0,
+      "category": "เริ่มต้น",
+      "currency": "SILVER",
+      "item": {
+        "components": {
+          "epicfight:skill": "epicfight:stamina_pillager"
+        },
+        "count": 1,
+        "id": "epicfight:skillbook"
+      }
+    },
+    {
+      "id": 113,
+      "shop_id": 14,
+      "buy": 300,
+      "sell": 0,
+      "category": "พัฒนาตัวละคร",
+      "currency": "SILVER",
+      "item": {
+        "components": {
+          "epicfight:skill": "epicfight:technician"
+        },
+        "count": 1,
+        "id": "epicfight:skillbook"
+      }
+    },
+    {
+      "id": 114,
+      "shop_id": 14,
+      "buy": 300,
+      "sell": 0,
+      "category": "พัฒนาตัวละคร",
+      "currency": "SILVER",
+      "item": {
+        "components": {
+          "epicfight:skill": "epicfight:swordmaster"
+        },
+        "count": 1,
+        "id": "epicfight:skillbook"
+      }
+    },
+    {
+      "id": 115,
+      "shop_id": 14,
+      "buy": 300,
+      "sell": 0,
+      "category": "พัฒนาตัวละคร",
+      "currency": "SILVER",
+      "item": {
+        "components": {
+          "epicfight:skill": "epicfight:berserker"
+        },
+        "count": 1,
+        "id": "epicfight:skillbook"
+      }
+    },
+    {
+      "id": 116,
+      "shop_id": 14,
+      "buy": 300,
+      "sell": 0,
+      "category": "พัฒนาตัวละคร",
+      "currency": "SILVER",
+      "item": {
+        "components": {
+          "epicfight:skill": "epicfight:parrying"
+        },
+        "count": 1,
+        "id": "epicfight:skillbook"
+      }
+    }
+  ],
+  "owners": {
+    "12": [
+      {
+        "name": "โดรัน",
+        "uuid": "010fe91a-d2ff-47e7-8be3-db5e4e231b8e",
+        "pos": [
+          72.5,
+          108.0,
+          117.5
+        ]
+      }
+    ],
+    "2": [
+      {
+        "name": "อีเทอร์",
+        "uuid": "595afd9c-2c63-40a8-9256-b80fae50609d",
+        "pos": [
+          86.5,
+          108.0,
+          139.5
+        ]
+      }
+    ],
+    "8": [
+      {
+        "name": "เรเวน",
+        "uuid": "c636db50-60bf-4dfc-8f36-2ebe38b53300",
+        "pos": [
+          278.5,
+          114.0,
+          135.5
+        ]
+      }
+    ],
+    "14": [
+      {
+        "name": "ไอริส",
+        "uuid": "45218be8-cd0f-4b26-a596-eac27d3a188f",
+        "pos": [
+          76.5,
+          111.0,
+          188.5
+        ]
+      }
+    ],
+    "1": [
+      {
+        "name": "เดรก",
+        "uuid": "5a3cb80d-e1fd-47fe-a714-cff33d4e3dcb",
+        "pos": [
+          102.5,
+          104.0,
+          187.5
+        ]
+      }
+    ],
+    "9": [
+      {
+        "name": "เอลินา",
+        "uuid": "48c45355-ca94-4193-afbb-8119a7ad3ec9",
+        "pos": [
+          123.5,
+          104.0,
+          187.5
+        ]
+      }
+    ],
+    "3": [
+      {
+        "name": "ฟินน์",
+        "uuid": "4a31de44-31d0-4d68-bc26-0289a2ae93fc",
+        "pos": [
+          70.5,
+          104.0,
+          225.5
+        ]
+      }
+    ],
+    "11": [
+      {
+        "name": "ฟินน์",
+        "uuid": "4a31de44-31d0-4d68-bc26-0289a2ae93fc",
+        "pos": [
+          70.5,
+          104.0,
+          225.5
+        ]
+      }
+    ],
+    "13": [
+      {
+        "name": "เฟลิกซ์",
+        "uuid": "e3bd39e1-1ae7-42a7-a600-76464856aef0",
+        "pos": [
+          70.5,
+          104.0,
+          236.5
+        ]
+      }
+    ],
+    "7": [
+      {
+        "name": "โรแกน",
+        "uuid": "8bb489f7-da3a-4407-b3ff-734430b77773",
+        "pos": [
+          85.5,
+          104.0,
+          239.5
+        ]
+      }
+    ],
+    "5": [
+      {
+        "name": "ธารา",
+        "uuid": "fbd944fd-71d7-47fe-969b-9caa00d00a96",
+        "pos": [
+          103.5,
+          103.0,
+          237.5
+        ]
+      }
+    ],
+    "6": [
+      {
+        "name": "ภูผา",
+        "uuid": "4c6fc590-55f9-4f76-8e88-9bf5d6726279",
+        "pos": [
+          120.5,
+          104.0,
+          239.5
+        ]
+      }
+    ],
+    "4": [
+      {
+        "name": "มาลี",
+        "uuid": "6526b8bc-e2e2-4289-b1cb-a66eff7f42dc",
+        "pos": [
+          120.5,
+          104.0,
+          227.5
+        ]
+      }
+    ],
+    "10": [
+      {
+        "name": "มาลี",
+        "uuid": "6526b8bc-e2e2-4289-b1cb-a66eff7f42dc",
+        "pos": [
+          120.5,
+          104.0,
+          227.5
+        ]
+      }
+    ]
+  },
+  "shopCount": 14,
+  "offerCount": 114,
+  "noCatalogChanges": true
+}

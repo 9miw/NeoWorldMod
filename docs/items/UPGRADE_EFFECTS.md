@@ -1,13 +1,25 @@
-# Upgrade visual effects
+# เอฟเฟกต์ภาพอัปเกรด
 
-Implemented client-side: fullbright translucent spark/rune particles, seven level palette bands, and tinting of Epic Fight's existing animation trails. No bloom, dynamic light, weapon edge mask, armor aura, or hit-confirm effect is implemented in this phase.
+## ปรับให้มองเห็นโดยไม่มีออรา
 
-`UpgradeEffectStyle` chooses white (+1..3), cyan (+4..6), violet (+7..9), gold (+10..12), red-gold (+13..14), and pale gold (+15). +0 and invalid levels disable extra particles/tint. Runes start at +7, trail tint at +10. Rates are bounded to one ambient spark per player per 3..12 ticks, with occasional runes. Native particle settings and a 24-block distance limit apply.
+รูนตั้งแต่ +7 ใหญ่ขึ้น (ครึ่งขนาด .07 และ .09 ที่ +15) ทึบขึ้น และหันเข้ากล้องด้วยอินเวิร์สเมทริกซ์ model-view/item รวม ศูนย์ยังตามวงโคจรใบดาบ ตั้งแต่ +4 ประกายโคจรมีรอยเรียวสั้น ริบบอนนอกสีตามขั้นและแกนขาวแคบ รอยยาวเพิ่มจากห้าเป็นแปดช่วงที่ +13 ระนาบริบบอนไขว้เพื่อเห็นจากหลายมุมอาวุธ เรขาคณิตจำกัดด้วยจำนวนประกาย/ช่วง และไม่ค้างข้ามเฟรม ไม่คืนการวาดออรานีออน ความอ่านง่ายในเกม การบังตามความลึก แนบโมเดล และรองรับเชดเดอร์ยังไม่ยืนยัน
 
-Ambient effects approximate the main-hand position in third person; they do not follow the precise weapon tip at idle. Local first-person ambient emission is omitted to avoid obscuring the screen. During Epic Fight attacks, extra particles use the trail's computed endpoint, following its animation. This phase affects main-hand player weapons only. Invisibility, spectator status, and dead players suppress upgrade effects.
+## ปิดออรานีออน
 
-`client.UpgradeTrailMixin` targets the installed Epic Fight `AbstractTrailParticle.render` and `tick` methods. It limits itself to `AnimationTrailParticle`, reads the current main-hand stack's upgrade level, and changes only per-particle RGB. Shared TrailInfo, weapon capability, geometry, timing, texture, and gameplay are untouched. Existing trails revert to their original color if the level returns to zero; already-spawned particles finish their short lifetime (12 or 24 ticks). Animations without an existing Epic Fight trail receive ambient particles but no new slash geometry. Other mods' custom trail implementations need in-game compatibility checks.
+นำการวาดออรานีออน +8 และชั้นฮาโลขยายของดาบตัวอย่างออกตามผู้ใช้ ตัวช่วยเมชแยกและเท็กซ์เจอร์ขาวไม่ได้ใช้ เอฟเฟกต์ขอบดาบ ประกาย/รูนโคจร และเทรล Epic Fight เดิมยังทำงาน
 
-Particle registration: `registry/ModParticles.java`; provider: `client/particle/UpgradeParticle.java`; ambient emitter: `client/particle/UpgradeEffects.java`. PNG assets are 16x16 RGBA and drawn as simple geometric sprites by `tools/create_upgrade_particle_textures.py`, independent of the concept illustration.
+## อัปเดตวงโคจรใบดาบ
 
-Verify `compileJava`, `processResources`, sprite JSON/PNG references and the pure tier regression check. Compilation cannot confirm mixin application or animation alignment. In-game checks still required: +0/+3/+6/+9/+12/+14/+15, idle/attack, downgrade/reset while a trail exists, invisible players, first/third-person camera, left-handed players, multiplayer distance, particle settings, and Epic Fight/WOM weapon-specific animations. Fullbright particles do not light nearby blocks.
+ประกายและรูนที่แนบหมุนในระนาบวงกลมจริงตั้งฉากแกนใบดาบ ออฟเซ็ตตามยาวคงที่ต่อสไปรต์ร่วมเฟสหมุนเกิดเป็นเกลียว ไม่ใช้แกน Y โลกหรือการเลื่อน Z ด้านเดียวกำหนดการเคลื่อน แกนปรับตามมิติขอบโมเดลที่ยาวสุดสำหรับอาวุธ 3D ยาว รวม Lunar แนวตั้งของ NeoWorld โมเดลดาบแบนเกือบจัตุรัสใช้แกนจากซ้ายล่างไปขวาบน ตัด 30% แรกของโมเดลยาวเป็นด้าม และใช้ปลาย 96% ระยะห่างรัศมีใช้ขอบโมเดลขวาง นี่เป็นฮิวริสติกเรขาคณิต ไม่ใช่โปรไฟล์ใบดาบเขียนมือ อาวุธโค้ง/ไม่สมมาตรและกรอบสำรองตัววาดเฉพาะยังต้องตรวจแนบในเกม `UpgradeOrbitRegressionTest` ตรวจรัศมีคงที่ ไม่ขยับตามแกน ครึ่งรอบไปอีกด้าน ตามการย้าย และปฏิเสธแกนเสื่อม สำหรับแกน X/Y/Z และทแยง
+
+ทำแล้วฝั่งไคลเอนต์: quad ประกาย/รูนเคลื่อนไหวแนบอาวุธอัปเกรดที่เข้าเกณฑ์ mask ขอบดาบเรืองเฉพาะดาบตัวอย่าง และย้อมสี/ขยายเทรล Epic Fight เดิม ยังไม่มี bloom แสงบล็อกไดนามิก ออราเกราะ หรือเอฟเฟกต์ยืนยันโจมตีโดน
+
+`UpgradeEffectStyle` เลือกขาว (+1..3), ไซแอน (+4..6), ม่วง (+7..9), ทอง (+10..12), แดงทอง (+13..14), ทองอ่อน (+15) +0 และเลเวลผิดปิดเอฟเฟกต์เสริม รูนเริ่ม +7 mask ขอบดาบ +4 ย้อมเทรล +10 ดาบตัวอย่างวาด quad ประกาย 2..8 และรูน 2..5 ตามขั้น อนุภาคโลกที่เทรลปล่อยเคารพตั้งค่าอนุภาคเดิมและระยะ 24 บล็อก
+
+ลบตัวปล่อยข้างมือขณะยืนนิ่งแบบประมาณแล้ว เรียก `UpgradeWeaponOverlay` ภายใน ItemRenderer ก่อน pop pose ที่แปลง จึงตามไอเทมที่วาดในมุมหนึ่ง/สามรวมทรานส์ฟอร์ม Epic Fight ประกาย/รูนรับอาวุธอัปเกรดเข้าเกณฑ์ ไม่จำกัด `neoworld:example_itemsword` ไม่รวมเกราะและบริบทแสดงนอกมือ ขอบ quad ของ baked model มาตรฐานยึดเอฟเฟกต์ มี weak cache ต่อโมเดล ตัววาดเฉพาะหรือไม่มี quad ใช้กรอบท้องถิ่นทั่วไป จึงยังไม่ยืนยันแนบตรง ระนาบสไปรต์ไขว้ช่วยเห็นเมื่ออาวุธหันสัน mask ใบดาบตัวอย่างไม่ใช้โมเดลอื่น ระหว่างโจมตี อนุภาคโลกใช้ปลายเทรลคำนวณ ผู้เล่นล่องหน ผู้ชม และตายระงับเอฟเฟกต์เทรลเสริม
+
+`client.UpgradeTrailMixin` เจาะ `AbstractTrailParticle.render`, `tick`, และคอนสตรักเตอร์ ClientLevel ของ Epic Fight จำกัด `AnimationTrailParticle` มือหลักที่เป็นของผู้เล่น อัปเดต RGB ต่ออนุภาคและคัด TrailInfo ที่แก้ไม่ได้เพื่อจำกัดอายุเทรล 6/8/10 สำหรับ +10..12/+13..14/+15 (เพดาน 12) ไม่แก้ TrailInfo ต้นฉบับร่วม capability อาวุธ เรขาคณิต เท็กซ์เจอร์ หรือเวลาแอนิเมชัน +0 คืนสีเทรลเดิม อนุภาคโลกที่เกิดแล้วอยู่จนอายุสั้นจบ แอนิเมชันไม่มีเทรลเดิมไม่เพิ่มเรขาคณิตฟัน ตัวเทรลเฉพาะต้องตรวจเข้ากันในเกม
+
+JSON Mixin เคยมีคีย์ `client` สองตัว จึงอาจให้รายการฟอนต์ไทยทับเทรล ตอนนี้รายการ client ทั้งหมดอยู่ในอาร์เรย์เดียว `tools/create_upgrade_sword_masks.py` ตรวจคีย์ไม่ซ้ำและ hook ฝั่ง client ครบขณะสร้าง mask ใบดาบ RGBA 64x64 จากสไปรต์ดาบเพชร Vanilla ที่แคชจริง `docs/items/upgrade-sword-mask-preview.png` ตรวจเฉพาะแอสเซ็ต ไม่ใช่ภาพเกม และไม่มีรูน/ประกายเคลื่อนไหว รีซอร์สแพ็กที่แทนโมเดล/เท็กซ์เจอร์ต้องมี mask ตรงกัน โมเดลยังเป็นดาบเพชรเกม ไม่ใช่ดาบเหล็กในภาพประกอบ
+
+ตรวจ `compileJava`, `processResources`, อ้าง JSON/PNG สไปรต์ และรีเกรสชันขั้นแบบตรรกะล้วน คอมไพล์ไม่ยืนยัน Mixin ทำงานหรือแนบแอนิเมชัน ต้องตรวจในเกม +0/+3/+6/+9/+12/+14/+15 ยืนนิ่ง/โจมตี ลดขั้น/รีเซ็ตขณะมีเทรล ผู้เล่นล่องหน กล้องหนึ่ง/สาม ผู้เล่นถนัดซ้าย ระยะหลายคน ตั้งค่าอนุภาค และแอนิเมชันอาวุธเฉพาะ Epic Fight/WOM อนุภาค fullbright ไม่ส่องบล็อกข้างเคียง

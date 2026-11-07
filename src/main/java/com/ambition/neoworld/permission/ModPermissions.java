@@ -73,6 +73,13 @@ public class ModPermissions {
             (player, playerUUID, context) -> player != null && player.hasPermissions(2)
     );
 
+    public static final PermissionNode<Boolean> COMMAND_LEVEL_REMOVEEXP = new PermissionNode<>(
+            NeoWorld.MODID,
+            "command.level.removeexp",
+            PermissionTypes.BOOLEAN,
+            (player, playerUUID, context) -> player != null && player.hasPermissions(2)
+    );
+
     public static final PermissionNode<Boolean> COMMAND_LEVEL_SET = new PermissionNode<>(
             NeoWorld.MODID,
             "command.level.set",
@@ -127,6 +134,7 @@ public class ModPermissions {
                 COMMAND_ECO_SET,
                 COMMAND_LEVEL_GET,
                 COMMAND_LEVEL_ADDEXP,
+                COMMAND_LEVEL_REMOVEEXP,
                 COMMAND_LEVEL_SET,
                 COMMAND_DUNGEON_USE,
                 COMMAND_DUNGEON_ADMIN,

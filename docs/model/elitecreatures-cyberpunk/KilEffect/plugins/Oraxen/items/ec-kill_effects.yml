@@ -1,0 +1,89 @@
+
+kfx-scroll-killeffects_scroll:
+  displayname: Display
+  material: BOOK
+  Pack:
+    custom_model_data: 7531601
+    generate_model: true
+    parent_model: "item/generated"
+    textures:
+      - ec_killeffects/killeffect_golden_scroll.png
+
+
+  # kfx-scroll_v1-b_skull_medal:
+  #   display_name: Display
+  #   resource:
+  #     material: KELP
+  #     generate: false
+  #     #model_id: Define your custom Model Data 
+  #     model_path: kfx-scroll_v1/b_skull_medal
+  # kfx-scroll_v1-b_unchi:
+  #   display_name: Display
+  #   resource:
+  #     material: KELP
+  #     generate: false
+  #     #model_id: Define your custom Model Data 
+  #     model_path: kfx-scroll_v1/b_unchi
+  # kfx-scroll_v1-h_arale_cap:
+  #   display_name: Display
+  #   resource:
+  #     material: KELP
+  #     generate: false
+  #     #model_id: Define your custom Model Data 
+  #     model_path: kfx-scroll_v1/h_arale_cap
+  # kfx-scroll_v1-h_berserker_mask:
+  #   display_name: Display
+  #   resource:
+  #     material: KELP
+  #     generate: false
+  #     #model_id: Define your custom Model Data 
+  #     model_path: kfx-scroll_v1/h_berserker_mask
+  # kfx-scroll_v1-h_chainsaw_man:
+  #   display_name: Display
+  #   resource:
+  #     material: KELP
+  #     generate: false
+  #     #model_id: Define your custom Model Data 
+  #     model_path: kfx-scroll_v1/h_chainsaw_man
+  # kfx-scroll_v1-p_arale:
+  #   display_name: Display
+  #   resource:
+  #     material: KELP
+  #     generate: false
+  #     #model_id: Define your custom Model Data 
+  #     model_path: kfx-scroll_v1/p_arale
+  # kfx-scroll_v1-p_arale_self:
+  #   display_name: Display
+  #   resource:
+  #     material: KELP
+  #     generate: false
+  #     #model_id: Define your custom Model Data 
+  #     model_path: kfx-scroll_v1/p_arale_self
+  # kfx-scroll_v1-p_chainsaw_backpack:
+  #   display_name: Display
+  #   resource:
+  #     material: KELP
+  #     generate: false
+  #     #model_id: Define your custom Model Data 
+  #     model_path: kfx-scroll_v1/p_chainsaw_backpack
+  # kfx-scroll_v1-p_chainsaw_backpack_self:
+  #   display_name: Display
+  #   resource:
+  #     material: KELP
+  #     generate: false
+  #     #model_id: Define your custom Model Data 
+  #     model_path: kfx-scroll_v1/p_chainsaw_backpack_self
+  # kfx-scroll_v1-p_sword:
+  #   display_name: Display
+  #   resource:
+  #     material: KELP
+  #     generate: false
+  #     #model_id: Define your custom Model Data 
+  #     model_path: kfx-scroll_v1/p_sword
+  # kfx-scroll_v1-p_sword_self:
+  #   display_name: Display
+  #   resource:
+  #     material: KELP
+  #     generate: false
+  #     #model_id: Define your custom Model Data 
+  #     model_path: kfx-scroll_v1/p_sword_self

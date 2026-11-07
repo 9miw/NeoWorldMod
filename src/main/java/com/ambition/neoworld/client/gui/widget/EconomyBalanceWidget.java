@@ -1,6 +1,7 @@
 package com.ambition.neoworld.client.gui.widget;
 
-import com.ambition.neoworld.client.gui.common.NeoBitmapFonts;
+import com.ambition.neoworld.client.gui.common.NeoBitmapIcon;
+import com.ambition.neoworld.client.gui.common.NeoEconomyText;
 
 import com.ambition.neoworld.client.state.ClientEconomyData;
 
@@ -13,7 +14,7 @@ import net.minecraft.client.gui.components.AbstractWidget;
 import net.minecraft.client.gui.narration.NarrationElementOutput;
 import net.minecraft.network.chat.Component;
 
-// AbstractWidget สำหรับแสดงยอดเงิน (Silver, Gold, Diamond) ภายใน GUI เช่น CustomNPCs Trader
+// AbstractWidget สำหรับแสดงยอดเงิน (Silver, Diamond) ภายใน GUI เช่น CustomNPCs Trader
 public class EconomyBalanceWidget extends AbstractWidget {
     public enum Alignment {
         LEFT,
@@ -43,10 +44,8 @@ public class EconomyBalanceWidget extends AbstractWidget {
         int bgW = this.getWidth();
         int bgH = this.getHeight();
 
-        String silverStr = "§r\uE046§f" + ClientEconomyData.getFormattedSilver();
-        String goldStr = " §r\uE047§6" + ClientEconomyData.getFormattedGold();
-        String diamondStr = " §r\uE048§b" + ClientEconomyData.getFormattedDiamond();
-        Component fullText = NeoBitmapFonts.text( diamondStr + goldStr + silverStr);
+        Component fullText = NeoEconomyText.balances(ClientEconomyData.getFormattedSilver(),
+                ClientEconomyData.getFormattedDiamond(), NeoEconomyText.Order.DIAMOND_FIRST);
 
         int textWidth = font.width(fullText);
         int textX = switch (alignment) {
@@ -61,9 +60,8 @@ public class EconomyBalanceWidget extends AbstractWidget {
         if (this.isHovered()) {
             List<Component> tooltip = List.of(
                     Component.literal("§7ยอดเงินคงเหลือ:"),
-                    NeoBitmapFonts.text("§f\uE046 §fSilver: " + ClientEconomyData.getFullSilver()),
-                    NeoBitmapFonts.text("§f\uE047 §6Gold: " + ClientEconomyData.getFullGold()),
-                    NeoBitmapFonts.text("§f\uE048 §bDiamond: " + ClientEconomyData.getFullDiamond())
+                    NeoEconomyText.amount(NeoBitmapIcon.CURRENCY_SILVER_COIN, " Silver: " + ClientEconomyData.getFullSilver()),
+                    NeoEconomyText.amount(NeoBitmapIcon.CURRENCY_DIAMOND_COIN, " Diamond: " + ClientEconomyData.getFullDiamond())
             );
             guiGraphics.renderComponentTooltip(font, tooltip, mouseX, mouseY);
         }

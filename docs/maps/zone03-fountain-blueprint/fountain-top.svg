@@ -1,0 +1,743 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 672 672" width="100%" height="100%" style="background:#0a192f;font-family:monospace">
+  <defs>
+    <pattern id="blueprint-grid" width="28" height="28" patternUnits="userSpaceOnUse">
+      <path d="M 28 0 L 0 0 0 28" fill="none" stroke="#1e3a5f" stroke-width="0.8"/>
+    </pattern>
+  </defs>
+  <rect width="100%" height="100%" fill="#0a192f"/>
+  <rect x="70" y="70" width="532" height="532" fill="url(#blueprint-grid)"/>
+
+  <!-- Title & Specs -->
+  <text x="70" y="36" fill="#38bdf8" font-size="18" font-weight="bold" letter-spacing="1.5">ZONE 03: THE WINGED GUARDIAN FOUNTAIN — TOP PLAN</text>
+  <text x="70" y="54" fill="#94a3b8" font-size="12">SCALE: 1 BLOCK = 28px · CENTER (X:160, Z:215) · BASIN 13×13 · WINGSPAN 9 BLOCKS</text>
+<text x="84" y="58" fill="#64748b" font-size="10" text-anchor="middle">151</text><text x="112" y="58" fill="#64748b" font-size="10" text-anchor="middle">152</text><text x="140" y="58" fill="#64748b" font-size="10" text-anchor="middle">153</text><text x="168" y="58" fill="#64748b" font-size="10" text-anchor="middle">154</text><text x="196" y="58" fill="#64748b" font-size="10" text-anchor="middle">155</text><text x="224" y="58" fill="#64748b" font-size="10" text-anchor="middle">156</text><text x="252" y="58" fill="#64748b" font-size="10" text-anchor="middle">157</text><text x="280" y="58" fill="#64748b" font-size="10" text-anchor="middle">158</text><text x="308" y="58" fill="#64748b" font-size="10" text-anchor="middle">159</text><text x="336" y="58" fill="#fde047" font-size="10" text-anchor="middle">160</text><text x="364" y="58" fill="#64748b" font-size="10" text-anchor="middle">161</text><text x="392" y="58" fill="#64748b" font-size="10" text-anchor="middle">162</text><text x="420" y="58" fill="#64748b" font-size="10" text-anchor="middle">163</text><text x="448" y="58" fill="#64748b" font-size="10" text-anchor="middle">164</text><text x="476" y="58" fill="#64748b" font-size="10" text-anchor="middle">165</text><text x="504" y="58" fill="#64748b" font-size="10" text-anchor="middle">166</text><text x="532" y="58" fill="#64748b" font-size="10" text-anchor="middle">167</text><text x="560" y="58" fill="#64748b" font-size="10" text-anchor="middle">168</text><text x="588" y="58" fill="#64748b" font-size="10" text-anchor="middle">169</text><text x="58" y="88" fill="#64748b" font-size="10" text-anchor="end">206</text><text x="58" y="116" fill="#64748b" font-size="10" text-anchor="end">207</text><text x="58" y="144" fill="#64748b" font-size="10" text-anchor="end">208</text><text x="58" y="172" fill="#64748b" font-size="10" text-anchor="end">209</text><text x="58" y="200" fill="#64748b" font-size="10" text-anchor="end">210</text><text x="58" y="228" fill="#64748b" font-size="10" text-anchor="end">211</text><text x="58" y="256" fill="#64748b" font-size="10" text-anchor="end">212</text><text x="58" y="284" fill="#64748b" font-size="10" text-anchor="end">213</text><text x="58" y="312" fill="#64748b" font-size="10" text-anchor="end">214</text><text x="58" y="340" fill="#fde047" font-size="10" text-anchor="end">215</text><text x="58" y="368" fill="#64748b" font-size="10" text-anchor="end">216</text><text x="58" y="396" fill="#64748b" font-size="10" text-anchor="end">217</text><text x="58" y="424" fill="#64748b" font-size="10" text-anchor="end">218</text><text x="58" y="452" fill="#64748b" font-size="10" text-anchor="end">219</text><text x="58" y="480" fill="#64748b" font-size="10" text-anchor="end">220</text><text x="58" y="508" fill="#64748b" font-size="10" text-anchor="end">221</text><text x="58" y="536" fill="#64748b" font-size="10" text-anchor="end">222</text><text x="58" y="564" fill="#64748b" font-size="10" text-anchor="end">223</text><text x="58" y="592" fill="#64748b" font-size="10" text-anchor="end">224</text><rect x="71" y="71" width="26" height="26" rx="2" fill="#64748b" fill-opacity="1" stroke="#0f2b48" stroke-width="1">
+      <title>X:151, Y:104, Z:206 - stone brick slab</title>
+    </rect><rect x="99" y="71" width="26" height="26" rx="2" fill="#64748b" fill-opacity="1" stroke="#0f2b48" stroke-width="1">
+      <title>X:152, Y:103, Z:206 - stone bricks</title>
+    </rect><rect x="127" y="71" width="26" height="26" rx="2" fill="#64748b" fill-opacity="1" stroke="#0f2b48" stroke-width="1">
+      <title>X:153, Y:103, Z:206 - stone bricks</title>
+    </rect><rect x="155" y="71" width="26" height="26" rx="2" fill="#64748b" fill-opacity="1" stroke="#0f2b48" stroke-width="1">
+      <title>X:154, Y:103, Z:206 - stone bricks</title>
+    </rect><rect x="183" y="71" width="26" height="26" rx="2" fill="#64748b" fill-opacity="1" stroke="#0f2b48" stroke-width="1">
+      <title>X:155, Y:103, Z:206 - stone bricks</title>
+    </rect><rect x="211" y="71" width="26" height="26" rx="2" fill="#64748b" fill-opacity="1" stroke="#0f2b48" stroke-width="1">
+      <title>X:156, Y:103, Z:206 - stone bricks</title>
+    </rect><rect x="239" y="71" width="26" height="26" rx="2" fill="#64748b" fill-opacity="1" stroke="#0f2b48" stroke-width="1">
+      <title>X:157, Y:103, Z:206 - stone bricks</title>
+    </rect><rect x="267" y="71" width="26" height="26" rx="2" fill="#64748b" fill-opacity="1" stroke="#0f2b48" stroke-width="1">
+      <title>X:158, Y:103, Z:206 - stone bricks</title>
+    </rect><rect x="295" y="71" width="26" height="26" rx="2" fill="#64748b" fill-opacity="1" stroke="#0f2b48" stroke-width="1">
+      <title>X:159, Y:103, Z:206 - smooth stone</title>
+    </rect><rect x="323" y="71" width="26" height="26" rx="2" fill="#64748b" fill-opacity="1" stroke="#0f2b48" stroke-width="1">
+      <title>X:160, Y:103, Z:206 - smooth stone</title>
+    </rect><rect x="351" y="71" width="26" height="26" rx="2" fill="#64748b" fill-opacity="1" stroke="#0f2b48" stroke-width="1">
+      <title>X:161, Y:103, Z:206 - smooth stone</title>
+    </rect><rect x="379" y="71" width="26" height="26" rx="2" fill="#64748b" fill-opacity="1" stroke="#0f2b48" stroke-width="1">
+      <title>X:162, Y:103, Z:206 - stone bricks</title>
+    </rect><rect x="407" y="71" width="26" height="26" rx="2" fill="#64748b" fill-opacity="1" stroke="#0f2b48" stroke-width="1">
+      <title>X:163, Y:103, Z:206 - stone bricks</title>
+    </rect><rect x="435" y="71" width="26" height="26" rx="2" fill="#64748b" fill-opacity="1" stroke="#0f2b48" stroke-width="1">
+      <title>X:164, Y:103, Z:206 - stone bricks</title>
+    </rect><rect x="463" y="71" width="26" height="26" rx="2" fill="#64748b" fill-opacity="1" stroke="#0f2b48" stroke-width="1">
+      <title>X:165, Y:103, Z:206 - stone bricks</title>
+    </rect><rect x="491" y="71" width="26" height="26" rx="2" fill="#64748b" fill-opacity="1" stroke="#0f2b48" stroke-width="1">
+      <title>X:166, Y:103, Z:206 - stone bricks</title>
+    </rect><rect x="519" y="71" width="26" height="26" rx="2" fill="#64748b" fill-opacity="1" stroke="#0f2b48" stroke-width="1">
+      <title>X:167, Y:103, Z:206 - stone bricks</title>
+    </rect><rect x="547" y="71" width="26" height="26" rx="2" fill="#64748b" fill-opacity="1" stroke="#0f2b48" stroke-width="1">
+      <title>X:168, Y:103, Z:206 - stone bricks</title>
+    </rect><rect x="575" y="71" width="26" height="26" rx="2" fill="#64748b" fill-opacity="1" stroke="#0f2b48" stroke-width="1">
+      <title>X:169, Y:104, Z:206 - stone brick slab</title>
+    </rect><rect x="71" y="99" width="26" height="26" rx="2" fill="#64748b" fill-opacity="1" stroke="#0f2b48" stroke-width="1">
+      <title>X:151, Y:104, Z:207 - stone brick slab</title>
+    </rect><rect x="99" y="99" width="26" height="26" rx="2" fill="#64748b" fill-opacity="1" stroke="#0f2b48" stroke-width="1">
+      <title>X:152, Y:103, Z:207 - stone bricks</title>
+    </rect><rect x="127" y="99" width="26" height="26" rx="2" fill="#64748b" fill-opacity="1" stroke="#0f2b48" stroke-width="1">
+      <title>X:153, Y:103, Z:207 - stone bricks</title>
+    </rect><rect x="155" y="99" width="26" height="26" rx="2" fill="#64748b" fill-opacity="1" stroke="#0f2b48" stroke-width="1">
+      <title>X:154, Y:103, Z:207 - stone bricks</title>
+    </rect><rect x="183" y="99" width="26" height="26" rx="2" fill="#64748b" fill-opacity="1" stroke="#0f2b48" stroke-width="1">
+      <title>X:155, Y:103, Z:207 - stone bricks</title>
+    </rect><rect x="211" y="99" width="26" height="26" rx="2" fill="#64748b" fill-opacity="1" stroke="#0f2b48" stroke-width="1">
+      <title>X:156, Y:103, Z:207 - stone bricks</title>
+    </rect><rect x="239" y="99" width="26" height="26" rx="2" fill="#64748b" fill-opacity="1" stroke="#0f2b48" stroke-width="1">
+      <title>X:157, Y:103, Z:207 - stone bricks</title>
+    </rect><rect x="267" y="99" width="26" height="26" rx="2" fill="#64748b" fill-opacity="1" stroke="#0f2b48" stroke-width="1">
+      <title>X:158, Y:103, Z:207 - stone bricks</title>
+    </rect><rect x="295" y="99" width="26" height="26" rx="2" fill="#334155" fill-opacity="1" stroke="#0f2b48" stroke-width="1">
+      <title>X:159, Y:104, Z:207 - deepslate tile stairs</title>
+    </rect><rect x="323" y="99" width="26" height="26" rx="2" fill="#334155" fill-opacity="1" stroke="#0f2b48" stroke-width="1">
+      <title>X:160, Y:104, Z:207 - deepslate tile stairs</title>
+    </rect><rect x="351" y="99" width="26" height="26" rx="2" fill="#334155" fill-opacity="1" stroke="#0f2b48" stroke-width="1">
+      <title>X:161, Y:104, Z:207 - deepslate tile stairs</title>
+    </rect><rect x="379" y="99" width="26" height="26" rx="2" fill="#64748b" fill-opacity="1" stroke="#0f2b48" stroke-width="1">
+      <title>X:162, Y:103, Z:207 - stone bricks</title>
+    </rect><rect x="407" y="99" width="26" height="26" rx="2" fill="#64748b" fill-opacity="1" stroke="#0f2b48" stroke-width="1">
+      <title>X:163, Y:103, Z:207 - stone bricks</title>
+    </rect><rect x="435" y="99" width="26" height="26" rx="2" fill="#64748b" fill-opacity="1" stroke="#0f2b48" stroke-width="1">
+      <title>X:164, Y:103, Z:207 - stone bricks</title>
+    </rect><rect x="463" y="99" width="26" height="26" rx="2" fill="#64748b" fill-opacity="1" stroke="#0f2b48" stroke-width="1">
+      <title>X:165, Y:103, Z:207 - stone bricks</title>
+    </rect><rect x="491" y="99" width="26" height="26" rx="2" fill="#64748b" fill-opacity="1" stroke="#0f2b48" stroke-width="1">
+      <title>X:166, Y:103, Z:207 - stone bricks</title>
+    </rect><rect x="519" y="99" width="26" height="26" rx="2" fill="#64748b" fill-opacity="1" stroke="#0f2b48" stroke-width="1">
+      <title>X:167, Y:103, Z:207 - stone bricks</title>
+    </rect><rect x="547" y="99" width="26" height="26" rx="2" fill="#64748b" fill-opacity="1" stroke="#0f2b48" stroke-width="1">
+      <title>X:168, Y:103, Z:207 - stone bricks</title>
+    </rect><rect x="575" y="99" width="26" height="26" rx="2" fill="#64748b" fill-opacity="1" stroke="#0f2b48" stroke-width="1">
+      <title>X:169, Y:104, Z:207 - stone brick slab</title>
+    </rect><rect x="71" y="127" width="26" height="26" rx="2" fill="#64748b" fill-opacity="1" stroke="#0f2b48" stroke-width="1">
+      <title>X:151, Y:103, Z:208 - polished andesite</title>
+    </rect><rect x="99" y="127" width="26" height="26" rx="2" fill="#64748b" fill-opacity="1" stroke="#0f2b48" stroke-width="1">
+      <title>X:152, Y:103, Z:208 - stone bricks</title>
+    </rect><rect x="127" y="127" width="26" height="26" rx="2" fill="#f43f5e" fill-opacity="1" stroke="#0f2b48" stroke-width="1">
+      <title>X:153, Y:105, Z:208 - blue orchid</title>
+    </rect><rect x="155" y="127" width="26" height="26" rx="2" fill="#64748b" fill-opacity="1" stroke="#0f2b48" stroke-width="1">
+      <title>X:154, Y:103, Z:208 - stone bricks</title>
+    </rect><rect x="183" y="127" width="26" height="26" rx="2" fill="#64748b" fill-opacity="1" stroke="#0f2b48" stroke-width="1">
+      <title>X:155, Y:103, Z:208 - stone bricks</title>
+    </rect><rect x="211" y="127" width="26" height="26" rx="2" fill="#64748b" fill-opacity="1" stroke="#0f2b48" stroke-width="1">
+      <title>X:156, Y:103, Z:208 - stone bricks</title>
+    </rect><rect x="239" y="127" width="26" height="26" rx="2" fill="#64748b" fill-opacity="1" stroke="#0f2b48" stroke-width="1">
+      <title>X:157, Y:103, Z:208 - stone bricks</title>
+    </rect><rect x="267" y="127" width="26" height="26" rx="2" fill="#64748b" fill-opacity="1" stroke="#0f2b48" stroke-width="1">
+      <title>X:158, Y:103, Z:208 - polished andesite</title>
+    </rect><rect x="295" y="127" width="26" height="26" rx="2" fill="#64748b" fill-opacity="1" stroke="#0f2b48" stroke-width="1">
+      <title>X:159, Y:103, Z:208 - smooth stone</title>
+    </rect><rect x="323" y="127" width="26" height="26" rx="2" fill="#64748b" fill-opacity="1" stroke="#0f2b48" stroke-width="1">
+      <title>X:160, Y:103, Z:208 - smooth stone</title>
+    </rect><rect x="351" y="127" width="26" height="26" rx="2" fill="#64748b" fill-opacity="1" stroke="#0f2b48" stroke-width="1">
+      <title>X:161, Y:103, Z:208 - smooth stone</title>
+    </rect><rect x="379" y="127" width="26" height="26" rx="2" fill="#64748b" fill-opacity="1" stroke="#0f2b48" stroke-width="1">
+      <title>X:162, Y:103, Z:208 - polished andesite</title>
+    </rect><rect x="407" y="127" width="26" height="26" rx="2" fill="#64748b" fill-opacity="1" stroke="#0f2b48" stroke-width="1">
+      <title>X:163, Y:103, Z:208 - stone bricks</title>
+    </rect><rect x="435" y="127" width="26" height="26" rx="2" fill="#64748b" fill-opacity="1" stroke="#0f2b48" stroke-width="1">
+      <title>X:164, Y:103, Z:208 - stone bricks</title>
+    </rect><rect x="463" y="127" width="26" height="26" rx="2" fill="#64748b" fill-opacity="1" stroke="#0f2b48" stroke-width="1">
+      <title>X:165, Y:103, Z:208 - stone bricks</title>
+    </rect><rect x="491" y="127" width="26" height="26" rx="2" fill="#64748b" fill-opacity="1" stroke="#0f2b48" stroke-width="1">
+      <title>X:166, Y:103, Z:208 - stone bricks</title>
+    </rect><rect x="519" y="127" width="26" height="26" rx="2" fill="#f43f5e" fill-opacity="1" stroke="#0f2b48" stroke-width="1">
+      <title>X:167, Y:105, Z:208 - lily of the valley</title>
+    </rect><rect x="547" y="127" width="26" height="26" rx="2" fill="#64748b" fill-opacity="1" stroke="#0f2b48" stroke-width="1">
+      <title>X:168, Y:103, Z:208 - stone bricks</title>
+    </rect><rect x="575" y="127" width="26" height="26" rx="2" fill="#64748b" fill-opacity="1" stroke="#0f2b48" stroke-width="1">
+      <title>X:169, Y:103, Z:208 - polished andesite</title>
+    </rect><rect x="71" y="155" width="26" height="26" rx="2" fill="#64748b" fill-opacity="1" stroke="#0f2b48" stroke-width="1">
+      <title>X:151, Y:103, Z:209 - stone bricks</title>
+    </rect><rect x="99" y="155" width="26" height="26" rx="2" fill="#64748b" fill-opacity="1" stroke="#0f2b48" stroke-width="1">
+      <title>X:152, Y:103, Z:209 - stone bricks</title>
+    </rect><rect x="127" y="155" width="26" height="26" rx="2" fill="#64748b" fill-opacity="1" stroke="#0f2b48" stroke-width="1">
+      <title>X:153, Y:103, Z:209 - stone bricks</title>
+    </rect><rect x="155" y="155" width="26" height="26" rx="2" fill="#64748b" fill-opacity="1" stroke="#0f2b48" stroke-width="1">
+      <title>X:154, Y:103, Z:209 - stone bricks</title>
+    </rect><rect x="183" y="155" width="26" height="26" rx="2" fill="#64748b" fill-opacity="1" stroke="#0f2b48" stroke-width="1">
+      <title>X:155, Y:103, Z:209 - stone bricks</title>
+    </rect><rect x="211" y="155" width="26" height="26" rx="2" fill="#64748b" fill-opacity="1" stroke="#0f2b48" stroke-width="1">
+      <title>X:156, Y:103, Z:209 - stone bricks</title>
+    </rect><rect x="239" y="155" width="26" height="26" rx="2" fill="#64748b" fill-opacity="1" stroke="#0f2b48" stroke-width="1">
+      <title>X:157, Y:103, Z:209 - stone bricks</title>
+    </rect><rect x="267" y="155" width="26" height="26" rx="2" fill="#334155" fill-opacity="1" stroke="#0f2b48" stroke-width="1">
+      <title>X:158, Y:104, Z:209 - chiseled deepslate</title>
+    </rect><rect x="295" y="155" width="26" height="26" rx="2" fill="#334155" fill-opacity="1" stroke="#0f2b48" stroke-width="1">
+      <title>X:159, Y:104, Z:209 - deepslate tile stairs</title>
+    </rect><rect x="323" y="155" width="26" height="26" rx="2" fill="#334155" fill-opacity="1" stroke="#0f2b48" stroke-width="1">
+      <title>X:160, Y:104, Z:209 - deepslate tile stairs</title>
+    </rect><rect x="351" y="155" width="26" height="26" rx="2" fill="#334155" fill-opacity="1" stroke="#0f2b48" stroke-width="1">
+      <title>X:161, Y:104, Z:209 - deepslate tile stairs</title>
+    </rect><rect x="379" y="155" width="26" height="26" rx="2" fill="#334155" fill-opacity="1" stroke="#0f2b48" stroke-width="1">
+      <title>X:162, Y:104, Z:209 - chiseled deepslate</title>
+    </rect><rect x="407" y="155" width="26" height="26" rx="2" fill="#64748b" fill-opacity="1" stroke="#0f2b48" stroke-width="1">
+      <title>X:163, Y:103, Z:209 - stone bricks</title>
+    </rect><rect x="435" y="155" width="26" height="26" rx="2" fill="#64748b" fill-opacity="1" stroke="#0f2b48" stroke-width="1">
+      <title>X:164, Y:103, Z:209 - stone bricks</title>
+    </rect><rect x="463" y="155" width="26" height="26" rx="2" fill="#64748b" fill-opacity="1" stroke="#0f2b48" stroke-width="1">
+      <title>X:165, Y:103, Z:209 - stone bricks</title>
+    </rect><rect x="491" y="155" width="26" height="26" rx="2" fill="#64748b" fill-opacity="1" stroke="#0f2b48" stroke-width="1">
+      <title>X:166, Y:103, Z:209 - stone bricks</title>
+    </rect><rect x="519" y="155" width="26" height="26" rx="2" fill="#64748b" fill-opacity="1" stroke="#0f2b48" stroke-width="1">
+      <title>X:167, Y:103, Z:209 - stone bricks</title>
+    </rect><rect x="547" y="155" width="26" height="26" rx="2" fill="#64748b" fill-opacity="1" stroke="#0f2b48" stroke-width="1">
+      <title>X:168, Y:103, Z:209 - stone bricks</title>
+    </rect><rect x="575" y="155" width="26" height="26" rx="2" fill="#64748b" fill-opacity="1" stroke="#0f2b48" stroke-width="1">
+      <title>X:169, Y:103, Z:209 - stone bricks</title>
+    </rect><rect x="71" y="183" width="26" height="26" rx="2" fill="#64748b" fill-opacity="1" stroke="#0f2b48" stroke-width="1">
+      <title>X:151, Y:103, Z:210 - stone bricks</title>
+    </rect><rect x="99" y="183" width="26" height="26" rx="2" fill="#64748b" fill-opacity="1" stroke="#0f2b48" stroke-width="1">
+      <title>X:152, Y:103, Z:210 - stone bricks</title>
+    </rect><rect x="127" y="183" width="26" height="26" rx="2" fill="#64748b" fill-opacity="1" stroke="#0f2b48" stroke-width="1">
+      <title>X:153, Y:103, Z:210 - stone bricks</title>
+    </rect><rect x="155" y="183" width="26" height="26" rx="2" fill="#64748b" fill-opacity="1" stroke="#0f2b48" stroke-width="1">
+      <title>X:154, Y:103, Z:210 - stone bricks</title>
+    </rect><rect x="183" y="183" width="26" height="26" rx="2" fill="#64748b" fill-opacity="1" stroke="#0f2b48" stroke-width="1">
+      <title>X:155, Y:103, Z:210 - stone bricks</title>
+    </rect><rect x="211" y="183" width="26" height="26" rx="2" fill="#64748b" fill-opacity="1" stroke="#0f2b48" stroke-width="1">
+      <title>X:156, Y:103, Z:210 - stone bricks</title>
+    </rect><rect x="239" y="183" width="26" height="26" rx="2" fill="#334155" fill-opacity="1" stroke="#0f2b48" stroke-width="1">
+      <title>X:157, Y:104, Z:210 - deepslate tile stairs</title>
+    </rect><rect x="267" y="183" width="26" height="26" rx="2" fill="#38bdf8" fill-opacity="0.65" stroke="#0f2b48" stroke-width="1">
+      <title>X:158, Y:104, Z:210 - water</title>
+    </rect><rect x="295" y="183" width="26" height="26" rx="2" fill="#38bdf8" fill-opacity="0.65" stroke="#0f2b48" stroke-width="1">
+      <title>X:159, Y:104, Z:210 - water</title>
+    </rect><rect x="323" y="183" width="26" height="26" rx="2" fill="#38bdf8" fill-opacity="0.65" stroke="#0f2b48" stroke-width="1">
+      <title>X:160, Y:104, Z:210 - water</title>
+    </rect><rect x="351" y="183" width="26" height="26" rx="2" fill="#38bdf8" fill-opacity="0.65" stroke="#0f2b48" stroke-width="1">
+      <title>X:161, Y:104, Z:210 - water</title>
+    </rect><rect x="379" y="183" width="26" height="26" rx="2" fill="#38bdf8" fill-opacity="0.65" stroke="#0f2b48" stroke-width="1">
+      <title>X:162, Y:104, Z:210 - water</title>
+    </rect><rect x="407" y="183" width="26" height="26" rx="2" fill="#334155" fill-opacity="1" stroke="#0f2b48" stroke-width="1">
+      <title>X:163, Y:104, Z:210 - deepslate tile stairs</title>
+    </rect><rect x="435" y="183" width="26" height="26" rx="2" fill="#64748b" fill-opacity="1" stroke="#0f2b48" stroke-width="1">
+      <title>X:164, Y:103, Z:210 - stone bricks</title>
+    </rect><rect x="463" y="183" width="26" height="26" rx="2" fill="#64748b" fill-opacity="1" stroke="#0f2b48" stroke-width="1">
+      <title>X:165, Y:103, Z:210 - stone bricks</title>
+    </rect><rect x="491" y="183" width="26" height="26" rx="2" fill="#64748b" fill-opacity="1" stroke="#0f2b48" stroke-width="1">
+      <title>X:166, Y:103, Z:210 - stone bricks</title>
+    </rect><rect x="519" y="183" width="26" height="26" rx="2" fill="#64748b" fill-opacity="1" stroke="#0f2b48" stroke-width="1">
+      <title>X:167, Y:103, Z:210 - stone bricks</title>
+    </rect><rect x="547" y="183" width="26" height="26" rx="2" fill="#64748b" fill-opacity="1" stroke="#0f2b48" stroke-width="1">
+      <title>X:168, Y:103, Z:210 - stone bricks</title>
+    </rect><rect x="575" y="183" width="26" height="26" rx="2" fill="#64748b" fill-opacity="1" stroke="#0f2b48" stroke-width="1">
+      <title>X:169, Y:103, Z:210 - stone bricks</title>
+    </rect><rect x="71" y="211" width="26" height="26" rx="2" fill="#64748b" fill-opacity="1" stroke="#0f2b48" stroke-width="1">
+      <title>X:151, Y:103, Z:211 - stone bricks</title>
+    </rect><rect x="99" y="211" width="26" height="26" rx="2" fill="#64748b" fill-opacity="1" stroke="#0f2b48" stroke-width="1">
+      <title>X:152, Y:103, Z:211 - stone bricks</title>
+    </rect><rect x="127" y="211" width="26" height="26" rx="2" fill="#64748b" fill-opacity="1" stroke="#0f2b48" stroke-width="1">
+      <title>X:153, Y:103, Z:211 - stone bricks</title>
+    </rect><rect x="155" y="211" width="26" height="26" rx="2" fill="#64748b" fill-opacity="1" stroke="#0f2b48" stroke-width="1">
+      <title>X:154, Y:103, Z:211 - stone bricks</title>
+    </rect><rect x="183" y="211" width="26" height="26" rx="2" fill="#64748b" fill-opacity="1" stroke="#0f2b48" stroke-width="1">
+      <title>X:155, Y:103, Z:211 - stone bricks</title>
+    </rect><rect x="211" y="211" width="26" height="26" rx="2" fill="#334155" fill-opacity="1" stroke="#0f2b48" stroke-width="1">
+      <title>X:156, Y:104, Z:211 - chiseled deepslate</title>
+    </rect><rect x="239" y="211" width="26" height="26" rx="2" fill="#38bdf8" fill-opacity="0.65" stroke="#0f2b48" stroke-width="1">
+      <title>X:157, Y:104, Z:211 - water</title>
+    </rect><rect x="267" y="211" width="26" height="26" rx="2" fill="#38bdf8" fill-opacity="0.65" stroke="#0f2b48" stroke-width="1">
+      <title>X:158, Y:104, Z:211 - water</title>
+    </rect><rect x="295" y="211" width="26" height="26" rx="2" fill="#38bdf8" fill-opacity="0.65" stroke="#0f2b48" stroke-width="1">
+      <title>X:159, Y:104, Z:211 - water</title>
+    </rect><rect x="323" y="211" width="26" height="26" rx="2" fill="#38bdf8" fill-opacity="0.65" stroke="#0f2b48" stroke-width="1">
+      <title>X:160, Y:104, Z:211 - water</title>
+    </rect><rect x="351" y="211" width="26" height="26" rx="2" fill="#38bdf8" fill-opacity="0.65" stroke="#0f2b48" stroke-width="1">
+      <title>X:161, Y:104, Z:211 - water</title>
+    </rect><rect x="379" y="211" width="26" height="26" rx="2" fill="#38bdf8" fill-opacity="0.65" stroke="#0f2b48" stroke-width="1">
+      <title>X:162, Y:104, Z:211 - water</title>
+    </rect><rect x="407" y="211" width="26" height="26" rx="2" fill="#38bdf8" fill-opacity="0.65" stroke="#0f2b48" stroke-width="1">
+      <title>X:163, Y:104, Z:211 - water</title>
+    </rect><rect x="435" y="211" width="26" height="26" rx="2" fill="#334155" fill-opacity="1" stroke="#0f2b48" stroke-width="1">
+      <title>X:164, Y:104, Z:211 - chiseled deepslate</title>
+    </rect><rect x="463" y="211" width="26" height="26" rx="2" fill="#64748b" fill-opacity="1" stroke="#0f2b48" stroke-width="1">
+      <title>X:165, Y:103, Z:211 - stone bricks</title>
+    </rect><rect x="491" y="211" width="26" height="26" rx="2" fill="#64748b" fill-opacity="1" stroke="#0f2b48" stroke-width="1">
+      <title>X:166, Y:103, Z:211 - stone bricks</title>
+    </rect><rect x="519" y="211" width="26" height="26" rx="2" fill="#64748b" fill-opacity="1" stroke="#0f2b48" stroke-width="1">
+      <title>X:167, Y:103, Z:211 - stone bricks</title>
+    </rect><rect x="547" y="211" width="26" height="26" rx="2" fill="#64748b" fill-opacity="1" stroke="#0f2b48" stroke-width="1">
+      <title>X:168, Y:103, Z:211 - stone bricks</title>
+    </rect><rect x="575" y="211" width="26" height="26" rx="2" fill="#64748b" fill-opacity="1" stroke="#0f2b48" stroke-width="1">
+      <title>X:169, Y:103, Z:211 - stone bricks</title>
+    </rect><rect x="71" y="239" width="26" height="26" rx="2" fill="#64748b" fill-opacity="1" stroke="#0f2b48" stroke-width="1">
+      <title>X:151, Y:103, Z:212 - stone bricks</title>
+    </rect><rect x="99" y="239" width="26" height="26" rx="2" fill="#64748b" fill-opacity="1" stroke="#0f2b48" stroke-width="1">
+      <title>X:152, Y:103, Z:212 - stone bricks</title>
+    </rect><rect x="127" y="239" width="26" height="26" rx="2" fill="#64748b" fill-opacity="1" stroke="#0f2b48" stroke-width="1">
+      <title>X:153, Y:103, Z:212 - stone bricks</title>
+    </rect><rect x="155" y="239" width="26" height="26" rx="2" fill="#64748b" fill-opacity="1" stroke="#0f2b48" stroke-width="1">
+      <title>X:154, Y:103, Z:212 - stone bricks</title>
+    </rect><rect x="183" y="239" width="26" height="26" rx="2" fill="#334155" fill-opacity="1" stroke="#0f2b48" stroke-width="1">
+      <title>X:155, Y:104, Z:212 - deepslate tile stairs</title>
+    </rect><rect x="211" y="239" width="26" height="26" rx="2" fill="#38bdf8" fill-opacity="0.65" stroke="#0f2b48" stroke-width="1">
+      <title>X:156, Y:104, Z:212 - water</title>
+    </rect><rect x="239" y="239" width="26" height="26" rx="2" fill="#38bdf8" fill-opacity="0.65" stroke="#0f2b48" stroke-width="1">
+      <title>X:157, Y:104, Z:212 - water</title>
+    </rect><rect x="267" y="239" width="26" height="26" rx="2" fill="#38bdf8" fill-opacity="0.65" stroke="#0f2b48" stroke-width="1">
+      <title>X:158, Y:104, Z:212 - water</title>
+    </rect><rect x="295" y="239" width="26" height="26" rx="2" fill="#38bdf8" fill-opacity="0.65" stroke="#0f2b48" stroke-width="1">
+      <title>X:159, Y:104, Z:212 - water</title>
+    </rect><rect x="323" y="239" width="26" height="26" rx="2" fill="#38bdf8" fill-opacity="0.65" stroke="#0f2b48" stroke-width="1">
+      <title>X:160, Y:104, Z:212 - water</title>
+    </rect><rect x="351" y="239" width="26" height="26" rx="2" fill="#38bdf8" fill-opacity="0.65" stroke="#0f2b48" stroke-width="1">
+      <title>X:161, Y:104, Z:212 - water</title>
+    </rect><rect x="379" y="239" width="26" height="26" rx="2" fill="#38bdf8" fill-opacity="0.65" stroke="#0f2b48" stroke-width="1">
+      <title>X:162, Y:104, Z:212 - water</title>
+    </rect><rect x="407" y="239" width="26" height="26" rx="2" fill="#38bdf8" fill-opacity="0.65" stroke="#0f2b48" stroke-width="1">
+      <title>X:163, Y:104, Z:212 - water</title>
+    </rect><rect x="435" y="239" width="26" height="26" rx="2" fill="#38bdf8" fill-opacity="0.65" stroke="#0f2b48" stroke-width="1">
+      <title>X:164, Y:104, Z:212 - water</title>
+    </rect><rect x="463" y="239" width="26" height="26" rx="2" fill="#334155" fill-opacity="1" stroke="#0f2b48" stroke-width="1">
+      <title>X:165, Y:104, Z:212 - deepslate tile stairs</title>
+    </rect><rect x="491" y="239" width="26" height="26" rx="2" fill="#64748b" fill-opacity="1" stroke="#0f2b48" stroke-width="1">
+      <title>X:166, Y:103, Z:212 - stone bricks</title>
+    </rect><rect x="519" y="239" width="26" height="26" rx="2" fill="#64748b" fill-opacity="1" stroke="#0f2b48" stroke-width="1">
+      <title>X:167, Y:103, Z:212 - stone bricks</title>
+    </rect><rect x="547" y="239" width="26" height="26" rx="2" fill="#64748b" fill-opacity="1" stroke="#0f2b48" stroke-width="1">
+      <title>X:168, Y:103, Z:212 - stone bricks</title>
+    </rect><rect x="575" y="239" width="26" height="26" rx="2" fill="#64748b" fill-opacity="1" stroke="#0f2b48" stroke-width="1">
+      <title>X:169, Y:103, Z:212 - stone bricks</title>
+    </rect><rect x="71" y="267" width="26" height="26" rx="2" fill="#64748b" fill-opacity="1" stroke="#0f2b48" stroke-width="1">
+      <title>X:151, Y:103, Z:213 - stone bricks</title>
+    </rect><rect x="99" y="267" width="26" height="26" rx="2" fill="#64748b" fill-opacity="1" stroke="#0f2b48" stroke-width="1">
+      <title>X:152, Y:103, Z:213 - stone bricks</title>
+    </rect><rect x="127" y="267" width="26" height="26" rx="2" fill="#64748b" fill-opacity="1" stroke="#0f2b48" stroke-width="1">
+      <title>X:153, Y:103, Z:213 - polished andesite</title>
+    </rect><rect x="155" y="267" width="26" height="26" rx="2" fill="#334155" fill-opacity="1" stroke="#0f2b48" stroke-width="1">
+      <title>X:154, Y:104, Z:213 - chiseled deepslate</title>
+    </rect><rect x="183" y="267" width="26" height="26" rx="2" fill="#38bdf8" fill-opacity="0.65" stroke="#0f2b48" stroke-width="1">
+      <title>X:155, Y:104, Z:213 - water</title>
+    </rect><rect x="211" y="267" width="26" height="26" rx="2" fill="#38bdf8" fill-opacity="0.65" stroke="#0f2b48" stroke-width="1">
+      <title>X:156, Y:104, Z:213 - water</title>
+    </rect><rect x="239" y="267" width="26" height="26" rx="2" fill="#38bdf8" fill-opacity="0.65" stroke="#0f2b48" stroke-width="1">
+      <title>X:157, Y:104, Z:213 - water</title>
+    </rect><rect x="267" y="267" width="26" height="26" rx="2" fill="#334155" fill-opacity="1" stroke="#0f2b48" stroke-width="1">
+      <title>X:158, Y:104, Z:213 - deepslate tile stairs</title>
+    </rect><rect x="295" y="267" width="26" height="26" rx="2" fill="#334155" fill-opacity="1" stroke="#0f2b48" stroke-width="1">
+      <title>X:159, Y:104, Z:213 - deepslate tile stairs</title>
+    </rect><rect x="323" y="267" width="26" height="26" rx="2" fill="#334155" fill-opacity="1" stroke="#0f2b48" stroke-width="1">
+      <title>X:160, Y:104, Z:213 - deepslate tile stairs</title>
+    </rect><rect x="351" y="267" width="26" height="26" rx="2" fill="#334155" fill-opacity="1" stroke="#0f2b48" stroke-width="1">
+      <title>X:161, Y:104, Z:213 - deepslate tile stairs</title>
+    </rect><rect x="379" y="267" width="26" height="26" rx="2" fill="#334155" fill-opacity="1" stroke="#0f2b48" stroke-width="1">
+      <title>X:162, Y:104, Z:213 - deepslate tile stairs</title>
+    </rect><rect x="407" y="267" width="26" height="26" rx="2" fill="#38bdf8" fill-opacity="0.65" stroke="#0f2b48" stroke-width="1">
+      <title>X:163, Y:104, Z:213 - water</title>
+    </rect><rect x="435" y="267" width="26" height="26" rx="2" fill="#38bdf8" fill-opacity="0.65" stroke="#0f2b48" stroke-width="1">
+      <title>X:164, Y:104, Z:213 - water</title>
+    </rect><rect x="463" y="267" width="26" height="26" rx="2" fill="#38bdf8" fill-opacity="0.65" stroke="#0f2b48" stroke-width="1">
+      <title>X:165, Y:104, Z:213 - water</title>
+    </rect><rect x="491" y="267" width="26" height="26" rx="2" fill="#334155" fill-opacity="1" stroke="#0f2b48" stroke-width="1">
+      <title>X:166, Y:104, Z:213 - chiseled deepslate</title>
+    </rect><rect x="519" y="267" width="26" height="26" rx="2" fill="#64748b" fill-opacity="1" stroke="#0f2b48" stroke-width="1">
+      <title>X:167, Y:103, Z:213 - polished andesite</title>
+    </rect><rect x="547" y="267" width="26" height="26" rx="2" fill="#64748b" fill-opacity="1" stroke="#0f2b48" stroke-width="1">
+      <title>X:168, Y:103, Z:213 - stone bricks</title>
+    </rect><rect x="575" y="267" width="26" height="26" rx="2" fill="#64748b" fill-opacity="1" stroke="#0f2b48" stroke-width="1">
+      <title>X:169, Y:103, Z:213 - stone bricks</title>
+    </rect><rect x="71" y="295" width="26" height="26" rx="2" fill="#64748b" fill-opacity="1" stroke="#0f2b48" stroke-width="1">
+      <title>X:151, Y:103, Z:214 - stone bricks</title>
+    </rect><rect x="99" y="295" width="26" height="26" rx="2" fill="#334155" fill-opacity="1" stroke="#0f2b48" stroke-width="1">
+      <title>X:152, Y:104, Z:214 - deepslate tile stairs</title>
+    </rect><rect x="127" y="295" width="26" height="26" rx="2" fill="#64748b" fill-opacity="1" stroke="#0f2b48" stroke-width="1">
+      <title>X:153, Y:103, Z:214 - stone bricks</title>
+    </rect><rect x="155" y="295" width="26" height="26" rx="2" fill="#334155" fill-opacity="1" stroke="#0f2b48" stroke-width="1">
+      <title>X:154, Y:104, Z:214 - deepslate tile stairs</title>
+    </rect><rect x="183" y="295" width="26" height="26" rx="2" fill="#38bdf8" fill-opacity="0.65" stroke="#0f2b48" stroke-width="1">
+      <title>X:155, Y:104, Z:214 - water</title>
+    </rect><rect x="211" y="295" width="26" height="26" rx="2" fill="#fde047" fill-opacity="1" stroke="#0f2b48" stroke-width="1">
+      <title>X:156, Y:114, Z:214 - end rod</title>
+    </rect><rect x="239" y="295" width="26" height="26" rx="2" fill="#ffffff" fill-opacity="1" stroke="#0f2b48" stroke-width="1">
+      <title>X:157, Y:112, Z:214 - smooth quartz</title>
+    </rect><rect x="267" y="295" width="26" height="26" rx="2" fill="#ffffff" fill-opacity="1" stroke="#0f2b48" stroke-width="1">
+      <title>X:158, Y:111, Z:214 - smooth quartz</title>
+    </rect><rect x="295" y="295" width="26" height="26" rx="2" fill="#ffffff" fill-opacity="1" stroke="#0f2b48" stroke-width="1">
+      <title>X:159, Y:110, Z:214 - smooth quartz</title>
+    </rect><rect x="323" y="295" width="26" height="26" rx="2" fill="#fde047" fill-opacity="1" stroke="#0f2b48" stroke-width="1">
+      <title>X:160, Y:111, Z:214 - end rod</title>
+    </rect><rect x="351" y="295" width="26" height="26" rx="2" fill="#ffffff" fill-opacity="1" stroke="#0f2b48" stroke-width="1">
+      <title>X:161, Y:110, Z:214 - smooth quartz</title>
+    </rect><rect x="379" y="295" width="26" height="26" rx="2" fill="#ffffff" fill-opacity="1" stroke="#0f2b48" stroke-width="1">
+      <title>X:162, Y:111, Z:214 - smooth quartz</title>
+    </rect><rect x="407" y="295" width="26" height="26" rx="2" fill="#ffffff" fill-opacity="1" stroke="#0f2b48" stroke-width="1">
+      <title>X:163, Y:112, Z:214 - smooth quartz</title>
+    </rect><rect x="435" y="295" width="26" height="26" rx="2" fill="#fde047" fill-opacity="1" stroke="#0f2b48" stroke-width="1">
+      <title>X:164, Y:114, Z:214 - end rod</title>
+    </rect><rect x="463" y="295" width="26" height="26" rx="2" fill="#38bdf8" fill-opacity="0.65" stroke="#0f2b48" stroke-width="1">
+      <title>X:165, Y:104, Z:214 - water</title>
+    </rect><rect x="491" y="295" width="26" height="26" rx="2" fill="#334155" fill-opacity="1" stroke="#0f2b48" stroke-width="1">
+      <title>X:166, Y:104, Z:214 - deepslate tile stairs</title>
+    </rect><rect x="519" y="295" width="26" height="26" rx="2" fill="#64748b" fill-opacity="1" stroke="#0f2b48" stroke-width="1">
+      <title>X:167, Y:103, Z:214 - stone bricks</title>
+    </rect><rect x="547" y="295" width="26" height="26" rx="2" fill="#334155" fill-opacity="1" stroke="#0f2b48" stroke-width="1">
+      <title>X:168, Y:104, Z:214 - deepslate tile stairs</title>
+    </rect><rect x="575" y="295" width="26" height="26" rx="2" fill="#64748b" fill-opacity="1" stroke="#0f2b48" stroke-width="1">
+      <title>X:169, Y:103, Z:214 - stone bricks</title>
+    </rect><rect x="71" y="323" width="26" height="26" rx="2" fill="#64748b" fill-opacity="1" stroke="#0f2b48" stroke-width="1">
+      <title>X:151, Y:103, Z:215 - stone bricks</title>
+    </rect><rect x="99" y="323" width="26" height="26" rx="2" fill="#334155" fill-opacity="1" stroke="#0f2b48" stroke-width="1">
+      <title>X:152, Y:104, Z:215 - deepslate tile stairs</title>
+    </rect><rect x="127" y="323" width="26" height="26" rx="2" fill="#64748b" fill-opacity="1" stroke="#0f2b48" stroke-width="1">
+      <title>X:153, Y:103, Z:215 - stone bricks</title>
+    </rect><rect x="155" y="323" width="26" height="26" rx="2" fill="#334155" fill-opacity="1" stroke="#0f2b48" stroke-width="1">
+      <title>X:154, Y:104, Z:215 - deepslate tile stairs</title>
+    </rect><rect x="183" y="323" width="26" height="26" rx="2" fill="#38bdf8" fill-opacity="0.65" stroke="#0f2b48" stroke-width="1">
+      <title>X:155, Y:104, Z:215 - water</title>
+    </rect><rect x="211" y="323" width="26" height="26" rx="2" fill="#38bdf8" fill-opacity="0.65" stroke="#0f2b48" stroke-width="1">
+      <title>X:156, Y:104, Z:215 - water</title>
+    </rect><rect x="239" y="323" width="26" height="26" rx="2" fill="#38bdf8" fill-opacity="0.65" stroke="#0f2b48" stroke-width="1">
+      <title>X:157, Y:104, Z:215 - water</title>
+    </rect><rect x="267" y="323" width="26" height="26" rx="2" fill="#334155" fill-opacity="1" stroke="#0f2b48" stroke-width="1">
+      <title>X:158, Y:104, Z:215 - deepslate tile stairs</title>
+    </rect><rect x="295" y="323" width="26" height="26" rx="2" fill="#ffffff" fill-opacity="1" stroke="#0f2b48" stroke-width="1">
+      <title>X:159, Y:109, Z:215 - smooth quartz stairs</title>
+    </rect><rect x="323" y="323" width="26" height="26" rx="2" fill="#ffffff" fill-opacity="1" stroke="#0f2b48" stroke-width="1">
+      <title>X:160, Y:111, Z:215 - smooth quartz slab</title>
+    </rect><circle cx="336" cy="336" r="5" fill="#fde047" stroke="#000" stroke-width="1"/><rect x="351" y="323" width="26" height="26" rx="2" fill="#ffffff" fill-opacity="1" stroke="#0f2b48" stroke-width="1">
+      <title>X:161, Y:109, Z:215 - smooth quartz stairs</title>
+    </rect><rect x="379" y="323" width="26" height="26" rx="2" fill="#334155" fill-opacity="1" stroke="#0f2b48" stroke-width="1">
+      <title>X:162, Y:104, Z:215 - deepslate tile stairs</title>
+    </rect><rect x="407" y="323" width="26" height="26" rx="2" fill="#38bdf8" fill-opacity="0.65" stroke="#0f2b48" stroke-width="1">
+      <title>X:163, Y:104, Z:215 - water</title>
+    </rect><rect x="435" y="323" width="26" height="26" rx="2" fill="#38bdf8" fill-opacity="0.65" stroke="#0f2b48" stroke-width="1">
+      <title>X:164, Y:104, Z:215 - water</title>
+    </rect><rect x="463" y="323" width="26" height="26" rx="2" fill="#38bdf8" fill-opacity="0.65" stroke="#0f2b48" stroke-width="1">
+      <title>X:165, Y:104, Z:215 - water</title>
+    </rect><rect x="491" y="323" width="26" height="26" rx="2" fill="#334155" fill-opacity="1" stroke="#0f2b48" stroke-width="1">
+      <title>X:166, Y:104, Z:215 - deepslate tile stairs</title>
+    </rect><rect x="519" y="323" width="26" height="26" rx="2" fill="#64748b" fill-opacity="1" stroke="#0f2b48" stroke-width="1">
+      <title>X:167, Y:103, Z:215 - stone bricks</title>
+    </rect><rect x="547" y="323" width="26" height="26" rx="2" fill="#334155" fill-opacity="1" stroke="#0f2b48" stroke-width="1">
+      <title>X:168, Y:104, Z:215 - deepslate tile stairs</title>
+    </rect><rect x="575" y="323" width="26" height="26" rx="2" fill="#64748b" fill-opacity="1" stroke="#0f2b48" stroke-width="1">
+      <title>X:169, Y:103, Z:215 - stone bricks</title>
+    </rect><rect x="71" y="351" width="26" height="26" rx="2" fill="#64748b" fill-opacity="1" stroke="#0f2b48" stroke-width="1">
+      <title>X:151, Y:103, Z:216 - stone bricks</title>
+    </rect><rect x="99" y="351" width="26" height="26" rx="2" fill="#334155" fill-opacity="1" stroke="#0f2b48" stroke-width="1">
+      <title>X:152, Y:104, Z:216 - deepslate tile stairs</title>
+    </rect><rect x="127" y="351" width="26" height="26" rx="2" fill="#64748b" fill-opacity="1" stroke="#0f2b48" stroke-width="1">
+      <title>X:153, Y:103, Z:216 - stone bricks</title>
+    </rect><rect x="155" y="351" width="26" height="26" rx="2" fill="#334155" fill-opacity="1" stroke="#0f2b48" stroke-width="1">
+      <title>X:154, Y:104, Z:216 - deepslate tile stairs</title>
+    </rect><rect x="183" y="351" width="26" height="26" rx="2" fill="#38bdf8" fill-opacity="0.65" stroke="#0f2b48" stroke-width="1">
+      <title>X:155, Y:104, Z:216 - water</title>
+    </rect><rect x="211" y="351" width="26" height="26" rx="2" fill="#38bdf8" fill-opacity="0.65" stroke="#0f2b48" stroke-width="1">
+      <title>X:156, Y:104, Z:216 - water</title>
+    </rect><rect x="239" y="351" width="26" height="26" rx="2" fill="#38bdf8" fill-opacity="0.65" stroke="#0f2b48" stroke-width="1">
+      <title>X:157, Y:104, Z:216 - water</title>
+    </rect><rect x="267" y="351" width="26" height="26" rx="2" fill="#334155" fill-opacity="1" stroke="#0f2b48" stroke-width="1">
+      <title>X:158, Y:104, Z:216 - deepslate tile stairs</title>
+    </rect><rect x="295" y="351" width="26" height="26" rx="2" fill="#ffffff" fill-opacity="1" stroke="#0f2b48" stroke-width="1">
+      <title>X:159, Y:109, Z:216 - smooth quartz stairs</title>
+    </rect><rect x="323" y="351" width="26" height="26" rx="2" fill="#ffffff" fill-opacity="1" stroke="#0f2b48" stroke-width="1">
+      <title>X:160, Y:110, Z:216 - quartz stairs</title>
+    </rect><rect x="351" y="351" width="26" height="26" rx="2" fill="#ffffff" fill-opacity="1" stroke="#0f2b48" stroke-width="1">
+      <title>X:161, Y:109, Z:216 - smooth quartz stairs</title>
+    </rect><rect x="379" y="351" width="26" height="26" rx="2" fill="#334155" fill-opacity="1" stroke="#0f2b48" stroke-width="1">
+      <title>X:162, Y:104, Z:216 - deepslate tile stairs</title>
+    </rect><rect x="407" y="351" width="26" height="26" rx="2" fill="#38bdf8" fill-opacity="0.65" stroke="#0f2b48" stroke-width="1">
+      <title>X:163, Y:104, Z:216 - water</title>
+    </rect><rect x="435" y="351" width="26" height="26" rx="2" fill="#38bdf8" fill-opacity="0.65" stroke="#0f2b48" stroke-width="1">
+      <title>X:164, Y:104, Z:216 - water</title>
+    </rect><rect x="463" y="351" width="26" height="26" rx="2" fill="#38bdf8" fill-opacity="0.65" stroke="#0f2b48" stroke-width="1">
+      <title>X:165, Y:104, Z:216 - water</title>
+    </rect><rect x="491" y="351" width="26" height="26" rx="2" fill="#334155" fill-opacity="1" stroke="#0f2b48" stroke-width="1">
+      <title>X:166, Y:104, Z:216 - deepslate tile stairs</title>
+    </rect><rect x="519" y="351" width="26" height="26" rx="2" fill="#64748b" fill-opacity="1" stroke="#0f2b48" stroke-width="1">
+      <title>X:167, Y:103, Z:216 - stone bricks</title>
+    </rect><rect x="547" y="351" width="26" height="26" rx="2" fill="#334155" fill-opacity="1" stroke="#0f2b48" stroke-width="1">
+      <title>X:168, Y:104, Z:216 - deepslate tile stairs</title>
+    </rect><rect x="575" y="351" width="26" height="26" rx="2" fill="#64748b" fill-opacity="1" stroke="#0f2b48" stroke-width="1">
+      <title>X:169, Y:103, Z:216 - stone bricks</title>
+    </rect><rect x="71" y="379" width="26" height="26" rx="2" fill="#64748b" fill-opacity="1" stroke="#0f2b48" stroke-width="1">
+      <title>X:151, Y:103, Z:217 - stone bricks</title>
+    </rect><rect x="99" y="379" width="26" height="26" rx="2" fill="#64748b" fill-opacity="1" stroke="#0f2b48" stroke-width="1">
+      <title>X:152, Y:103, Z:217 - stone bricks</title>
+    </rect><rect x="127" y="379" width="26" height="26" rx="2" fill="#64748b" fill-opacity="1" stroke="#0f2b48" stroke-width="1">
+      <title>X:153, Y:103, Z:217 - polished andesite</title>
+    </rect><rect x="155" y="379" width="26" height="26" rx="2" fill="#334155" fill-opacity="1" stroke="#0f2b48" stroke-width="1">
+      <title>X:154, Y:104, Z:217 - chiseled deepslate</title>
+    </rect><rect x="183" y="379" width="26" height="26" rx="2" fill="#38bdf8" fill-opacity="0.65" stroke="#0f2b48" stroke-width="1">
+      <title>X:155, Y:104, Z:217 - water</title>
+    </rect><rect x="211" y="379" width="26" height="26" rx="2" fill="#38bdf8" fill-opacity="0.65" stroke="#0f2b48" stroke-width="1">
+      <title>X:156, Y:104, Z:217 - water</title>
+    </rect><rect x="239" y="379" width="26" height="26" rx="2" fill="#38bdf8" fill-opacity="0.65" stroke="#0f2b48" stroke-width="1">
+      <title>X:157, Y:104, Z:217 - water</title>
+    </rect><rect x="267" y="379" width="26" height="26" rx="2" fill="#334155" fill-opacity="1" stroke="#0f2b48" stroke-width="1">
+      <title>X:158, Y:104, Z:217 - deepslate tile stairs</title>
+    </rect><rect x="295" y="379" width="26" height="26" rx="2" fill="#334155" fill-opacity="1" stroke="#0f2b48" stroke-width="1">
+      <title>X:159, Y:104, Z:217 - deepslate tile stairs</title>
+    </rect><rect x="323" y="379" width="26" height="26" rx="2" fill="#38bdf8" fill-opacity="0.65" stroke="#0f2b48" stroke-width="1">
+      <title>X:160, Y:110, Z:217 - water</title>
+    </rect><rect x="351" y="379" width="26" height="26" rx="2" fill="#334155" fill-opacity="1" stroke="#0f2b48" stroke-width="1">
+      <title>X:161, Y:104, Z:217 - deepslate tile stairs</title>
+    </rect><rect x="379" y="379" width="26" height="26" rx="2" fill="#334155" fill-opacity="1" stroke="#0f2b48" stroke-width="1">
+      <title>X:162, Y:104, Z:217 - deepslate tile stairs</title>
+    </rect><rect x="407" y="379" width="26" height="26" rx="2" fill="#38bdf8" fill-opacity="0.65" stroke="#0f2b48" stroke-width="1">
+      <title>X:163, Y:104, Z:217 - water</title>
+    </rect><rect x="435" y="379" width="26" height="26" rx="2" fill="#38bdf8" fill-opacity="0.65" stroke="#0f2b48" stroke-width="1">
+      <title>X:164, Y:104, Z:217 - water</title>
+    </rect><rect x="463" y="379" width="26" height="26" rx="2" fill="#38bdf8" fill-opacity="0.65" stroke="#0f2b48" stroke-width="1">
+      <title>X:165, Y:104, Z:217 - water</title>
+    </rect><rect x="491" y="379" width="26" height="26" rx="2" fill="#334155" fill-opacity="1" stroke="#0f2b48" stroke-width="1">
+      <title>X:166, Y:104, Z:217 - chiseled deepslate</title>
+    </rect><rect x="519" y="379" width="26" height="26" rx="2" fill="#64748b" fill-opacity="1" stroke="#0f2b48" stroke-width="1">
+      <title>X:167, Y:103, Z:217 - polished andesite</title>
+    </rect><rect x="547" y="379" width="26" height="26" rx="2" fill="#64748b" fill-opacity="1" stroke="#0f2b48" stroke-width="1">
+      <title>X:168, Y:103, Z:217 - stone bricks</title>
+    </rect><rect x="575" y="379" width="26" height="26" rx="2" fill="#64748b" fill-opacity="1" stroke="#0f2b48" stroke-width="1">
+      <title>X:169, Y:103, Z:217 - stone bricks</title>
+    </rect><rect x="71" y="407" width="26" height="26" rx="2" fill="#64748b" fill-opacity="1" stroke="#0f2b48" stroke-width="1">
+      <title>X:151, Y:103, Z:218 - stone bricks</title>
+    </rect><rect x="99" y="407" width="26" height="26" rx="2" fill="#64748b" fill-opacity="1" stroke="#0f2b48" stroke-width="1">
+      <title>X:152, Y:103, Z:218 - stone bricks</title>
+    </rect><rect x="127" y="407" width="26" height="26" rx="2" fill="#64748b" fill-opacity="1" stroke="#0f2b48" stroke-width="1">
+      <title>X:153, Y:103, Z:218 - stone bricks</title>
+    </rect><rect x="155" y="407" width="26" height="26" rx="2" fill="#64748b" fill-opacity="1" stroke="#0f2b48" stroke-width="1">
+      <title>X:154, Y:103, Z:218 - stone bricks</title>
+    </rect><rect x="183" y="407" width="26" height="26" rx="2" fill="#334155" fill-opacity="1" stroke="#0f2b48" stroke-width="1">
+      <title>X:155, Y:104, Z:218 - deepslate tile stairs</title>
+    </rect><rect x="211" y="407" width="26" height="26" rx="2" fill="#38bdf8" fill-opacity="0.65" stroke="#0f2b48" stroke-width="1">
+      <title>X:156, Y:104, Z:218 - water</title>
+    </rect><rect x="239" y="407" width="26" height="26" rx="2" fill="#38bdf8" fill-opacity="0.65" stroke="#0f2b48" stroke-width="1">
+      <title>X:157, Y:104, Z:218 - water</title>
+    </rect><rect x="267" y="407" width="26" height="26" rx="2" fill="#38bdf8" fill-opacity="0.65" stroke="#0f2b48" stroke-width="1">
+      <title>X:158, Y:104, Z:218 - water</title>
+    </rect><rect x="295" y="407" width="26" height="26" rx="2" fill="#38bdf8" fill-opacity="0.65" stroke="#0f2b48" stroke-width="1">
+      <title>X:159, Y:104, Z:218 - water</title>
+    </rect><rect x="323" y="407" width="26" height="26" rx="2" fill="#38bdf8" fill-opacity="0.65" stroke="#0f2b48" stroke-width="1">
+      <title>X:160, Y:104, Z:218 - water</title>
+    </rect><rect x="351" y="407" width="26" height="26" rx="2" fill="#38bdf8" fill-opacity="0.65" stroke="#0f2b48" stroke-width="1">
+      <title>X:161, Y:104, Z:218 - water</title>
+    </rect><rect x="379" y="407" width="26" height="26" rx="2" fill="#38bdf8" fill-opacity="0.65" stroke="#0f2b48" stroke-width="1">
+      <title>X:162, Y:104, Z:218 - water</title>
+    </rect><rect x="407" y="407" width="26" height="26" rx="2" fill="#38bdf8" fill-opacity="0.65" stroke="#0f2b48" stroke-width="1">
+      <title>X:163, Y:104, Z:218 - water</title>
+    </rect><rect x="435" y="407" width="26" height="26" rx="2" fill="#38bdf8" fill-opacity="0.65" stroke="#0f2b48" stroke-width="1">
+      <title>X:164, Y:104, Z:218 - water</title>
+    </rect><rect x="463" y="407" width="26" height="26" rx="2" fill="#334155" fill-opacity="1" stroke="#0f2b48" stroke-width="1">
+      <title>X:165, Y:104, Z:218 - deepslate tile stairs</title>
+    </rect><rect x="491" y="407" width="26" height="26" rx="2" fill="#64748b" fill-opacity="1" stroke="#0f2b48" stroke-width="1">
+      <title>X:166, Y:103, Z:218 - stone bricks</title>
+    </rect><rect x="519" y="407" width="26" height="26" rx="2" fill="#64748b" fill-opacity="1" stroke="#0f2b48" stroke-width="1">
+      <title>X:167, Y:103, Z:218 - stone bricks</title>
+    </rect><rect x="547" y="407" width="26" height="26" rx="2" fill="#64748b" fill-opacity="1" stroke="#0f2b48" stroke-width="1">
+      <title>X:168, Y:103, Z:218 - stone bricks</title>
+    </rect><rect x="575" y="407" width="26" height="26" rx="2" fill="#64748b" fill-opacity="1" stroke="#0f2b48" stroke-width="1">
+      <title>X:169, Y:103, Z:218 - stone bricks</title>
+    </rect><rect x="71" y="435" width="26" height="26" rx="2" fill="#64748b" fill-opacity="1" stroke="#0f2b48" stroke-width="1">
+      <title>X:151, Y:103, Z:219 - stone bricks</title>
+    </rect><rect x="99" y="435" width="26" height="26" rx="2" fill="#64748b" fill-opacity="1" stroke="#0f2b48" stroke-width="1">
+      <title>X:152, Y:103, Z:219 - stone bricks</title>
+    </rect><rect x="127" y="435" width="26" height="26" rx="2" fill="#64748b" fill-opacity="1" stroke="#0f2b48" stroke-width="1">
+      <title>X:153, Y:103, Z:219 - stone bricks</title>
+    </rect><rect x="155" y="435" width="26" height="26" rx="2" fill="#64748b" fill-opacity="1" stroke="#0f2b48" stroke-width="1">
+      <title>X:154, Y:103, Z:219 - stone bricks</title>
+    </rect><rect x="183" y="435" width="26" height="26" rx="2" fill="#64748b" fill-opacity="1" stroke="#0f2b48" stroke-width="1">
+      <title>X:155, Y:103, Z:219 - stone bricks</title>
+    </rect><rect x="211" y="435" width="26" height="26" rx="2" fill="#334155" fill-opacity="1" stroke="#0f2b48" stroke-width="1">
+      <title>X:156, Y:104, Z:219 - chiseled deepslate</title>
+    </rect><rect x="239" y="435" width="26" height="26" rx="2" fill="#38bdf8" fill-opacity="0.65" stroke="#0f2b48" stroke-width="1">
+      <title>X:157, Y:104, Z:219 - water</title>
+    </rect><rect x="267" y="435" width="26" height="26" rx="2" fill="#38bdf8" fill-opacity="0.65" stroke="#0f2b48" stroke-width="1">
+      <title>X:158, Y:104, Z:219 - water</title>
+    </rect><rect x="295" y="435" width="26" height="26" rx="2" fill="#38bdf8" fill-opacity="0.65" stroke="#0f2b48" stroke-width="1">
+      <title>X:159, Y:104, Z:219 - water</title>
+    </rect><rect x="323" y="435" width="26" height="26" rx="2" fill="#38bdf8" fill-opacity="0.65" stroke="#0f2b48" stroke-width="1">
+      <title>X:160, Y:104, Z:219 - water</title>
+    </rect><rect x="351" y="435" width="26" height="26" rx="2" fill="#38bdf8" fill-opacity="0.65" stroke="#0f2b48" stroke-width="1">
+      <title>X:161, Y:104, Z:219 - water</title>
+    </rect><rect x="379" y="435" width="26" height="26" rx="2" fill="#38bdf8" fill-opacity="0.65" stroke="#0f2b48" stroke-width="1">
+      <title>X:162, Y:104, Z:219 - water</title>
+    </rect><rect x="407" y="435" width="26" height="26" rx="2" fill="#38bdf8" fill-opacity="0.65" stroke="#0f2b48" stroke-width="1">
+      <title>X:163, Y:104, Z:219 - water</title>
+    </rect><rect x="435" y="435" width="26" height="26" rx="2" fill="#334155" fill-opacity="1" stroke="#0f2b48" stroke-width="1">
+      <title>X:164, Y:104, Z:219 - chiseled deepslate</title>
+    </rect><rect x="463" y="435" width="26" height="26" rx="2" fill="#64748b" fill-opacity="1" stroke="#0f2b48" stroke-width="1">
+      <title>X:165, Y:103, Z:219 - stone bricks</title>
+    </rect><rect x="491" y="435" width="26" height="26" rx="2" fill="#64748b" fill-opacity="1" stroke="#0f2b48" stroke-width="1">
+      <title>X:166, Y:103, Z:219 - stone bricks</title>
+    </rect><rect x="519" y="435" width="26" height="26" rx="2" fill="#64748b" fill-opacity="1" stroke="#0f2b48" stroke-width="1">
+      <title>X:167, Y:103, Z:219 - stone bricks</title>
+    </rect><rect x="547" y="435" width="26" height="26" rx="2" fill="#64748b" fill-opacity="1" stroke="#0f2b48" stroke-width="1">
+      <title>X:168, Y:103, Z:219 - stone bricks</title>
+    </rect><rect x="575" y="435" width="26" height="26" rx="2" fill="#64748b" fill-opacity="1" stroke="#0f2b48" stroke-width="1">
+      <title>X:169, Y:103, Z:219 - stone bricks</title>
+    </rect><rect x="71" y="463" width="26" height="26" rx="2" fill="#64748b" fill-opacity="1" stroke="#0f2b48" stroke-width="1">
+      <title>X:151, Y:103, Z:220 - stone bricks</title>
+    </rect><rect x="99" y="463" width="26" height="26" rx="2" fill="#64748b" fill-opacity="1" stroke="#0f2b48" stroke-width="1">
+      <title>X:152, Y:103, Z:220 - stone bricks</title>
+    </rect><rect x="127" y="463" width="26" height="26" rx="2" fill="#64748b" fill-opacity="1" stroke="#0f2b48" stroke-width="1">
+      <title>X:153, Y:103, Z:220 - stone bricks</title>
+    </rect><rect x="155" y="463" width="26" height="26" rx="2" fill="#64748b" fill-opacity="1" stroke="#0f2b48" stroke-width="1">
+      <title>X:154, Y:103, Z:220 - stone bricks</title>
+    </rect><rect x="183" y="463" width="26" height="26" rx="2" fill="#64748b" fill-opacity="1" stroke="#0f2b48" stroke-width="1">
+      <title>X:155, Y:103, Z:220 - stone bricks</title>
+    </rect><rect x="211" y="463" width="26" height="26" rx="2" fill="#64748b" fill-opacity="1" stroke="#0f2b48" stroke-width="1">
+      <title>X:156, Y:103, Z:220 - stone bricks</title>
+    </rect><rect x="239" y="463" width="26" height="26" rx="2" fill="#334155" fill-opacity="1" stroke="#0f2b48" stroke-width="1">
+      <title>X:157, Y:104, Z:220 - deepslate tile stairs</title>
+    </rect><rect x="267" y="463" width="26" height="26" rx="2" fill="#38bdf8" fill-opacity="0.65" stroke="#0f2b48" stroke-width="1">
+      <title>X:158, Y:104, Z:220 - water</title>
+    </rect><rect x="295" y="463" width="26" height="26" rx="2" fill="#38bdf8" fill-opacity="0.65" stroke="#0f2b48" stroke-width="1">
+      <title>X:159, Y:104, Z:220 - water</title>
+    </rect><rect x="323" y="463" width="26" height="26" rx="2" fill="#38bdf8" fill-opacity="0.65" stroke="#0f2b48" stroke-width="1">
+      <title>X:160, Y:104, Z:220 - water</title>
+    </rect><rect x="351" y="463" width="26" height="26" rx="2" fill="#38bdf8" fill-opacity="0.65" stroke="#0f2b48" stroke-width="1">
+      <title>X:161, Y:104, Z:220 - water</title>
+    </rect><rect x="379" y="463" width="26" height="26" rx="2" fill="#38bdf8" fill-opacity="0.65" stroke="#0f2b48" stroke-width="1">
+      <title>X:162, Y:104, Z:220 - water</title>
+    </rect><rect x="407" y="463" width="26" height="26" rx="2" fill="#334155" fill-opacity="1" stroke="#0f2b48" stroke-width="1">
+      <title>X:163, Y:104, Z:220 - deepslate tile stairs</title>
+    </rect><rect x="435" y="463" width="26" height="26" rx="2" fill="#64748b" fill-opacity="1" stroke="#0f2b48" stroke-width="1">
+      <title>X:164, Y:103, Z:220 - stone bricks</title>
+    </rect><rect x="463" y="463" width="26" height="26" rx="2" fill="#64748b" fill-opacity="1" stroke="#0f2b48" stroke-width="1">
+      <title>X:165, Y:103, Z:220 - stone bricks</title>
+    </rect><rect x="491" y="463" width="26" height="26" rx="2" fill="#64748b" fill-opacity="1" stroke="#0f2b48" stroke-width="1">
+      <title>X:166, Y:103, Z:220 - stone bricks</title>
+    </rect><rect x="519" y="463" width="26" height="26" rx="2" fill="#64748b" fill-opacity="1" stroke="#0f2b48" stroke-width="1">
+      <title>X:167, Y:103, Z:220 - stone bricks</title>
+    </rect><rect x="547" y="463" width="26" height="26" rx="2" fill="#64748b" fill-opacity="1" stroke="#0f2b48" stroke-width="1">
+      <title>X:168, Y:103, Z:220 - stone bricks</title>
+    </rect><rect x="575" y="463" width="26" height="26" rx="2" fill="#64748b" fill-opacity="1" stroke="#0f2b48" stroke-width="1">
+      <title>X:169, Y:103, Z:220 - stone bricks</title>
+    </rect><rect x="71" y="491" width="26" height="26" rx="2" fill="#64748b" fill-opacity="1" stroke="#0f2b48" stroke-width="1">
+      <title>X:151, Y:103, Z:221 - stone bricks</title>
+    </rect><rect x="99" y="491" width="26" height="26" rx="2" fill="#64748b" fill-opacity="1" stroke="#0f2b48" stroke-width="1">
+      <title>X:152, Y:103, Z:221 - stone bricks</title>
+    </rect><rect x="127" y="491" width="26" height="26" rx="2" fill="#64748b" fill-opacity="1" stroke="#0f2b48" stroke-width="1">
+      <title>X:153, Y:103, Z:221 - stone bricks</title>
+    </rect><rect x="155" y="491" width="26" height="26" rx="2" fill="#64748b" fill-opacity="1" stroke="#0f2b48" stroke-width="1">
+      <title>X:154, Y:103, Z:221 - stone bricks</title>
+    </rect><rect x="183" y="491" width="26" height="26" rx="2" fill="#64748b" fill-opacity="1" stroke="#0f2b48" stroke-width="1">
+      <title>X:155, Y:103, Z:221 - stone bricks</title>
+    </rect><rect x="211" y="491" width="26" height="26" rx="2" fill="#64748b" fill-opacity="1" stroke="#0f2b48" stroke-width="1">
+      <title>X:156, Y:103, Z:221 - stone bricks</title>
+    </rect><rect x="239" y="491" width="26" height="26" rx="2" fill="#64748b" fill-opacity="1" stroke="#0f2b48" stroke-width="1">
+      <title>X:157, Y:103, Z:221 - stone bricks</title>
+    </rect><rect x="267" y="491" width="26" height="26" rx="2" fill="#334155" fill-opacity="1" stroke="#0f2b48" stroke-width="1">
+      <title>X:158, Y:104, Z:221 - chiseled deepslate</title>
+    </rect><rect x="295" y="491" width="26" height="26" rx="2" fill="#334155" fill-opacity="1" stroke="#0f2b48" stroke-width="1">
+      <title>X:159, Y:104, Z:221 - deepslate tile stairs</title>
+    </rect><rect x="323" y="491" width="26" height="26" rx="2" fill="#334155" fill-opacity="1" stroke="#0f2b48" stroke-width="1">
+      <title>X:160, Y:104, Z:221 - deepslate tile stairs</title>
+    </rect><rect x="351" y="491" width="26" height="26" rx="2" fill="#334155" fill-opacity="1" stroke="#0f2b48" stroke-width="1">
+      <title>X:161, Y:104, Z:221 - deepslate tile stairs</title>
+    </rect><rect x="379" y="491" width="26" height="26" rx="2" fill="#334155" fill-opacity="1" stroke="#0f2b48" stroke-width="1">
+      <title>X:162, Y:104, Z:221 - chiseled deepslate</title>
+    </rect><rect x="407" y="491" width="26" height="26" rx="2" fill="#64748b" fill-opacity="1" stroke="#0f2b48" stroke-width="1">
+      <title>X:163, Y:103, Z:221 - stone bricks</title>
+    </rect><rect x="435" y="491" width="26" height="26" rx="2" fill="#64748b" fill-opacity="1" stroke="#0f2b48" stroke-width="1">
+      <title>X:164, Y:103, Z:221 - stone bricks</title>
+    </rect><rect x="463" y="491" width="26" height="26" rx="2" fill="#64748b" fill-opacity="1" stroke="#0f2b48" stroke-width="1">
+      <title>X:165, Y:103, Z:221 - stone bricks</title>
+    </rect><rect x="491" y="491" width="26" height="26" rx="2" fill="#64748b" fill-opacity="1" stroke="#0f2b48" stroke-width="1">
+      <title>X:166, Y:103, Z:221 - stone bricks</title>
+    </rect><rect x="519" y="491" width="26" height="26" rx="2" fill="#64748b" fill-opacity="1" stroke="#0f2b48" stroke-width="1">
+      <title>X:167, Y:103, Z:221 - stone bricks</title>
+    </rect><rect x="547" y="491" width="26" height="26" rx="2" fill="#64748b" fill-opacity="1" stroke="#0f2b48" stroke-width="1">
+      <title>X:168, Y:103, Z:221 - stone bricks</title>
+    </rect><rect x="575" y="491" width="26" height="26" rx="2" fill="#64748b" fill-opacity="1" stroke="#0f2b48" stroke-width="1">
+      <title>X:169, Y:103, Z:221 - stone bricks</title>
+    </rect><rect x="71" y="519" width="26" height="26" rx="2" fill="#64748b" fill-opacity="1" stroke="#0f2b48" stroke-width="1">
+      <title>X:151, Y:103, Z:222 - polished andesite</title>
+    </rect><rect x="99" y="519" width="26" height="26" rx="2" fill="#64748b" fill-opacity="1" stroke="#0f2b48" stroke-width="1">
+      <title>X:152, Y:103, Z:222 - stone bricks</title>
+    </rect><rect x="127" y="519" width="26" height="26" rx="2" fill="#f43f5e" fill-opacity="1" stroke="#0f2b48" stroke-width="1">
+      <title>X:153, Y:105, Z:222 - lily of the valley</title>
+    </rect><rect x="155" y="519" width="26" height="26" rx="2" fill="#64748b" fill-opacity="1" stroke="#0f2b48" stroke-width="1">
+      <title>X:154, Y:103, Z:222 - stone bricks</title>
+    </rect><rect x="183" y="519" width="26" height="26" rx="2" fill="#64748b" fill-opacity="1" stroke="#0f2b48" stroke-width="1">
+      <title>X:155, Y:103, Z:222 - stone bricks</title>
+    </rect><rect x="211" y="519" width="26" height="26" rx="2" fill="#64748b" fill-opacity="1" stroke="#0f2b48" stroke-width="1">
+      <title>X:156, Y:103, Z:222 - stone bricks</title>
+    </rect><rect x="239" y="519" width="26" height="26" rx="2" fill="#64748b" fill-opacity="1" stroke="#0f2b48" stroke-width="1">
+      <title>X:157, Y:103, Z:222 - stone bricks</title>
+    </rect><rect x="267" y="519" width="26" height="26" rx="2" fill="#64748b" fill-opacity="1" stroke="#0f2b48" stroke-width="1">
+      <title>X:158, Y:103, Z:222 - polished andesite</title>
+    </rect><rect x="295" y="519" width="26" height="26" rx="2" fill="#64748b" fill-opacity="1" stroke="#0f2b48" stroke-width="1">
+      <title>X:159, Y:103, Z:222 - smooth stone</title>
+    </rect><rect x="323" y="519" width="26" height="26" rx="2" fill="#64748b" fill-opacity="1" stroke="#0f2b48" stroke-width="1">
+      <title>X:160, Y:103, Z:222 - smooth stone</title>
+    </rect><rect x="351" y="519" width="26" height="26" rx="2" fill="#64748b" fill-opacity="1" stroke="#0f2b48" stroke-width="1">
+      <title>X:161, Y:103, Z:222 - smooth stone</title>
+    </rect><rect x="379" y="519" width="26" height="26" rx="2" fill="#64748b" fill-opacity="1" stroke="#0f2b48" stroke-width="1">
+      <title>X:162, Y:103, Z:222 - polished andesite</title>
+    </rect><rect x="407" y="519" width="26" height="26" rx="2" fill="#64748b" fill-opacity="1" stroke="#0f2b48" stroke-width="1">
+      <title>X:163, Y:103, Z:222 - stone bricks</title>
+    </rect><rect x="435" y="519" width="26" height="26" rx="2" fill="#64748b" fill-opacity="1" stroke="#0f2b48" stroke-width="1">
+      <title>X:164, Y:103, Z:222 - stone bricks</title>
+    </rect><rect x="463" y="519" width="26" height="26" rx="2" fill="#64748b" fill-opacity="1" stroke="#0f2b48" stroke-width="1">
+      <title>X:165, Y:103, Z:222 - stone bricks</title>
+    </rect><rect x="491" y="519" width="26" height="26" rx="2" fill="#64748b" fill-opacity="1" stroke="#0f2b48" stroke-width="1">
+      <title>X:166, Y:103, Z:222 - stone bricks</title>
+    </rect><rect x="519" y="519" width="26" height="26" rx="2" fill="#f43f5e" fill-opacity="1" stroke="#0f2b48" stroke-width="1">
+      <title>X:167, Y:105, Z:222 - blue orchid</title>
+    </rect><rect x="547" y="519" width="26" height="26" rx="2" fill="#64748b" fill-opacity="1" stroke="#0f2b48" stroke-width="1">
+      <title>X:168, Y:103, Z:222 - stone bricks</title>
+    </rect><rect x="575" y="519" width="26" height="26" rx="2" fill="#64748b" fill-opacity="1" stroke="#0f2b48" stroke-width="1">
+      <title>X:169, Y:103, Z:222 - polished andesite</title>
+    </rect><rect x="71" y="547" width="26" height="26" rx="2" fill="#64748b" fill-opacity="1" stroke="#0f2b48" stroke-width="1">
+      <title>X:151, Y:103, Z:223 - polished andesite</title>
+    </rect><rect x="99" y="547" width="26" height="26" rx="2" fill="#64748b" fill-opacity="1" stroke="#0f2b48" stroke-width="1">
+      <title>X:152, Y:103, Z:223 - stone bricks</title>
+    </rect><rect x="127" y="547" width="26" height="26" rx="2" fill="#64748b" fill-opacity="1" stroke="#0f2b48" stroke-width="1">
+      <title>X:153, Y:103, Z:223 - stone bricks</title>
+    </rect><rect x="155" y="547" width="26" height="26" rx="2" fill="#64748b" fill-opacity="1" stroke="#0f2b48" stroke-width="1">
+      <title>X:154, Y:103, Z:223 - stone bricks</title>
+    </rect><rect x="183" y="547" width="26" height="26" rx="2" fill="#64748b" fill-opacity="1" stroke="#0f2b48" stroke-width="1">
+      <title>X:155, Y:103, Z:223 - stone bricks</title>
+    </rect><rect x="211" y="547" width="26" height="26" rx="2" fill="#64748b" fill-opacity="1" stroke="#0f2b48" stroke-width="1">
+      <title>X:156, Y:103, Z:223 - stone bricks</title>
+    </rect><rect x="239" y="547" width="26" height="26" rx="2" fill="#64748b" fill-opacity="1" stroke="#0f2b48" stroke-width="1">
+      <title>X:157, Y:103, Z:223 - stone bricks</title>
+    </rect><rect x="267" y="547" width="26" height="26" rx="2" fill="#64748b" fill-opacity="1" stroke="#0f2b48" stroke-width="1">
+      <title>X:158, Y:103, Z:223 - stone bricks</title>
+    </rect><rect x="295" y="547" width="26" height="26" rx="2" fill="#334155" fill-opacity="1" stroke="#0f2b48" stroke-width="1">
+      <title>X:159, Y:104, Z:223 - deepslate tile stairs</title>
+    </rect><rect x="323" y="547" width="26" height="26" rx="2" fill="#334155" fill-opacity="1" stroke="#0f2b48" stroke-width="1">
+      <title>X:160, Y:104, Z:223 - deepslate tile stairs</title>
+    </rect><rect x="351" y="547" width="26" height="26" rx="2" fill="#334155" fill-opacity="1" stroke="#0f2b48" stroke-width="1">
+      <title>X:161, Y:104, Z:223 - deepslate tile stairs</title>
+    </rect><rect x="379" y="547" width="26" height="26" rx="2" fill="#64748b" fill-opacity="1" stroke="#0f2b48" stroke-width="1">
+      <title>X:162, Y:103, Z:223 - stone bricks</title>
+    </rect><rect x="407" y="547" width="26" height="26" rx="2" fill="#64748b" fill-opacity="1" stroke="#0f2b48" stroke-width="1">
+      <title>X:163, Y:103, Z:223 - stone bricks</title>
+    </rect><rect x="435" y="547" width="26" height="26" rx="2" fill="#64748b" fill-opacity="1" stroke="#0f2b48" stroke-width="1">
+      <title>X:164, Y:103, Z:223 - stone bricks</title>
+    </rect><rect x="463" y="547" width="26" height="26" rx="2" fill="#64748b" fill-opacity="1" stroke="#0f2b48" stroke-width="1">
+      <title>X:165, Y:103, Z:223 - stone bricks</title>
+    </rect><rect x="491" y="547" width="26" height="26" rx="2" fill="#64748b" fill-opacity="1" stroke="#0f2b48" stroke-width="1">
+      <title>X:166, Y:103, Z:223 - stone bricks</title>
+    </rect><rect x="519" y="547" width="26" height="26" rx="2" fill="#64748b" fill-opacity="1" stroke="#0f2b48" stroke-width="1">
+      <title>X:167, Y:103, Z:223 - stone bricks</title>
+    </rect><rect x="547" y="547" width="26" height="26" rx="2" fill="#64748b" fill-opacity="1" stroke="#0f2b48" stroke-width="1">
+      <title>X:168, Y:103, Z:223 - stone bricks</title>
+    </rect><rect x="575" y="547" width="26" height="26" rx="2" fill="#64748b" fill-opacity="1" stroke="#0f2b48" stroke-width="1">
+      <title>X:169, Y:103, Z:223 - polished andesite</title>
+    </rect><rect x="71" y="575" width="26" height="26" rx="2" fill="#64748b" fill-opacity="1" stroke="#0f2b48" stroke-width="1">
+      <title>X:151, Y:103, Z:224 - polished andesite</title>
+    </rect><rect x="99" y="575" width="26" height="26" rx="2" fill="#64748b" fill-opacity="1" stroke="#0f2b48" stroke-width="1">
+      <title>X:152, Y:103, Z:224 - stone bricks</title>
+    </rect><rect x="127" y="575" width="26" height="26" rx="2" fill="#64748b" fill-opacity="1" stroke="#0f2b48" stroke-width="1">
+      <title>X:153, Y:103, Z:224 - stone bricks</title>
+    </rect><rect x="155" y="575" width="26" height="26" rx="2" fill="#64748b" fill-opacity="1" stroke="#0f2b48" stroke-width="1">
+      <title>X:154, Y:103, Z:224 - stone bricks</title>
+    </rect><rect x="183" y="575" width="26" height="26" rx="2" fill="#64748b" fill-opacity="1" stroke="#0f2b48" stroke-width="1">
+      <title>X:155, Y:103, Z:224 - stone bricks</title>
+    </rect><rect x="211" y="575" width="26" height="26" rx="2" fill="#64748b" fill-opacity="1" stroke="#0f2b48" stroke-width="1">
+      <title>X:156, Y:103, Z:224 - stone bricks</title>
+    </rect><rect x="239" y="575" width="26" height="26" rx="2" fill="#64748b" fill-opacity="1" stroke="#0f2b48" stroke-width="1">
+      <title>X:157, Y:103, Z:224 - stone bricks</title>
+    </rect><rect x="267" y="575" width="26" height="26" rx="2" fill="#64748b" fill-opacity="1" stroke="#0f2b48" stroke-width="1">
+      <title>X:158, Y:103, Z:224 - stone bricks</title>
+    </rect><rect x="295" y="575" width="26" height="26" rx="2" fill="#64748b" fill-opacity="1" stroke="#0f2b48" stroke-width="1">
+      <title>X:159, Y:103, Z:224 - smooth stone</title>
+    </rect><rect x="323" y="575" width="26" height="26" rx="2" fill="#64748b" fill-opacity="1" stroke="#0f2b48" stroke-width="1">
+      <title>X:160, Y:103, Z:224 - smooth stone</title>
+    </rect><rect x="351" y="575" width="26" height="26" rx="2" fill="#64748b" fill-opacity="1" stroke="#0f2b48" stroke-width="1">
+      <title>X:161, Y:103, Z:224 - smooth stone</title>
+    </rect><rect x="379" y="575" width="26" height="26" rx="2" fill="#64748b" fill-opacity="1" stroke="#0f2b48" stroke-width="1">
+      <title>X:162, Y:103, Z:224 - stone bricks</title>
+    </rect><rect x="407" y="575" width="26" height="26" rx="2" fill="#64748b" fill-opacity="1" stroke="#0f2b48" stroke-width="1">
+      <title>X:163, Y:103, Z:224 - stone bricks</title>
+    </rect><rect x="435" y="575" width="26" height="26" rx="2" fill="#64748b" fill-opacity="1" stroke="#0f2b48" stroke-width="1">
+      <title>X:164, Y:103, Z:224 - stone bricks</title>
+    </rect><rect x="463" y="575" width="26" height="26" rx="2" fill="#64748b" fill-opacity="1" stroke="#0f2b48" stroke-width="1">
+      <title>X:165, Y:103, Z:224 - stone bricks</title>
+    </rect><rect x="491" y="575" width="26" height="26" rx="2" fill="#64748b" fill-opacity="1" stroke="#0f2b48" stroke-width="1">
+      <title>X:166, Y:103, Z:224 - stone bricks</title>
+    </rect><rect x="519" y="575" width="26" height="26" rx="2" fill="#64748b" fill-opacity="1" stroke="#0f2b48" stroke-width="1">
+      <title>X:167, Y:103, Z:224 - stone bricks</title>
+    </rect><rect x="547" y="575" width="26" height="26" rx="2" fill="#64748b" fill-opacity="1" stroke="#0f2b48" stroke-width="1">
+      <title>X:168, Y:103, Z:224 - stone bricks</title>
+    </rect><rect x="575" y="575" width="26" height="26" rx="2" fill="#64748b" fill-opacity="1" stroke="#0f2b48" stroke-width="1">
+      <title>X:169, Y:103, Z:224 - polished andesite</title>
+    </rect>
+  <!-- Basin Dimension Line -->
+  <line x1="154" y1="620" x2="518" y2="620" stroke="#38bdf8" stroke-width="1.5"/>
+  <text x="336" y="636" fill="#38bdf8" font-size="12" text-anchor="middle">BASIN DIAMETER: 13 BLOCKS (X: 154..166)</text>
+
+  <!-- Wingspan Dimension Line -->
+  <line x1="210" y1="286" x2="462" y2="286" stroke="#fde047" stroke-width="1.5" stroke-dasharray="4 2"/>
+  <text x="336" y="280" fill="#fde047" font-size="11" text-anchor="middle">WINGSPAN: 9 BLOCKS (X: 156..164)</text>
+</svg>

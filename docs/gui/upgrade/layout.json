@@ -1,0 +1,213 @@
+{
+  "logicalSize": [
+    512,
+    400
+  ],
+  "frameTextureSize": [
+    1024,
+    800
+  ],
+  "title": [
+    160,
+    8,
+    192,
+    32
+  ],
+  "closeButton": [
+    480,
+    28,
+    16,
+    16
+  ],
+  "equipmentSlot": [
+    84,
+    80,
+    56,
+    56
+  ],
+  "stoneSlot": [
+    42,
+    166,
+    40,
+    40
+  ],
+  "scrollSlot": [
+    138,
+    166,
+    40,
+    40
+  ],
+  "statsTable": [
+    240,
+    76,
+    234,
+    88
+  ],
+  "statsColumns": [
+    240,
+    340,
+    389,
+    435
+  ],
+  "successBar": [
+    240,
+    181,
+    234,
+    16
+  ],
+  "riskNote": [
+    240,
+    201,
+    234,
+    10
+  ],
+  "costRows": [
+    240,
+    218,
+    150,
+    22
+  ],
+  "upgradeButton": [
+    400,
+    218,
+    74,
+    22
+  ],
+  "inventory": {
+    "origin": [
+      152,
+      279
+    ],
+    "columns": 9,
+    "rows": 3,
+    "pitch": 23,
+    "slotSize": 22,
+    "iconInset": 3
+  },
+  "hotbar": {
+    "origin": [
+      152,
+      353
+    ],
+    "columns": 9,
+    "rows": 1,
+    "pitch": 23,
+    "slotSize": 22,
+    "iconInset": 3
+  },
+  "reuse": {
+    "buttons": "NeoButton.Style.PRIMARY",
+    "progress": "NeoProgressBar",
+    "slotMechanics": "vanilla Slot"
+  },
+  "assets": {
+    "upgrade_frame": {
+      "size": [
+        1024,
+        800
+      ],
+      "alphaBounds": [
+        0,
+        0,
+        1024,
+        800
+      ]
+    },
+    "slot_normal": {
+      "size": [
+        128,
+        128
+      ],
+      "alphaBounds": [
+        0,
+        0,
+        128,
+        128
+      ]
+    },
+    "slot_hover": {
+      "size": [
+        128,
+        128
+      ],
+      "alphaBounds": [
+        0,
+        0,
+        128,
+        128
+      ]
+    },
+    "slot_selected": {
+      "size": [
+        128,
+        128
+      ],
+      "alphaBounds": [
+        0,
+        0,
+        128,
+        128
+      ]
+    },
+    "slot_equipped": {
+      "size": [
+        128,
+        128
+      ],
+      "alphaBounds": [
+        0,
+        0,
+        128,
+        128
+      ]
+    },
+    "button_normal": {
+      "size": [
+        192,
+        80
+      ],
+      "alphaBounds": [
+        0,
+        0,
+        192,
+        80
+      ]
+    },
+    "button_hover": {
+      "size": [
+        192,
+        80
+      ],
+      "alphaBounds": [
+        0,
+        0,
+        192,
+        80
+      ]
+    },
+    "button_selected": {
+      "size": [
+        192,
+        80
+      ],
+      "alphaBounds": [
+        0,
+        0,
+        192,
+        80
+      ]
+    },
+    "button_disabled": {
+      "size": [
+        192,
+        80
+      ],
+      "alphaBounds": [
+        0,
+        0,
+        192,
+        80
+      ]
+    }
+  }
+}

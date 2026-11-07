@@ -1,0 +1,26 @@
+{
+  "halloween_refined_helmet": {
+    "triangles": 4154,
+    "source_roundtrip": "PASS",
+    "joint_mapping": "PASS",
+    "winding": "PASS"
+  },
+  "halloween_refined_chestplate": {
+    "triangles": 8752,
+    "source_roundtrip": "PASS",
+    "joint_mapping": "PASS",
+    "winding": "PASS"
+  },
+  "halloween_refined_leggings": {
+    "triangles": 4774,
+    "source_roundtrip": "PASS",
+    "joint_mapping": "PASS",
+    "winding": "PASS"
+  },
+  "halloween_refined_boots": {
+    "triangles": 368,
+    "source_roundtrip": "PASS",
+    "joint_mapping": "PASS",
+    "winding": "PASS"
+  }
+}

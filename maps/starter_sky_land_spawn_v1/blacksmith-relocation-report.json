@@ -1,0 +1,137 @@
+{
+  "offset": [
+    0,
+    0,
+    -15
+  ],
+  "smith": {
+    "id": "05-blacksmith",
+    "name": "Blacksmith",
+    "bounds": [
+      62,
+      118,
+      115,
+      163
+    ],
+    "buildingBounds": [
+      66,
+      122,
+      96,
+      146
+    ],
+    "buildingSize": [
+      31,
+      25
+    ],
+    "shape": "L",
+    "floorY": 107,
+    "entrance": [
+      87,
+      108,
+      134
+    ],
+    "workBay": [
+      79,
+      135,
+      95,
+      146
+    ],
+    "chimneyBounds": [
+      67,
+      108,
+      123,
+      73,
+      129,
+      129
+    ],
+    "marketApproach": [
+      112,
+      104,
+      178
+    ],
+    "mainStreetConnection": [
+      153,
+      109,
+      150
+    ],
+    "stations": [
+      {
+        "type": "anvil",
+        "at": [
+          84,
+          108,
+          139
+        ]
+      },
+      {
+        "type": "smithing_table",
+        "at": [
+          92,
+          108,
+          130
+        ]
+      },
+      {
+        "type": "crafting_table",
+        "at": [
+          80,
+          108,
+          125
+        ]
+      }
+    ],
+    "stage": "built; vanilla workstations; no NPC or mod service integration",
+    "paths": {
+      "marketCurve": [
+        [
+          112,
+          178
+        ],
+        [
+          128,
+          168
+        ],
+        [
+          116,
+          157
+        ],
+        [
+          102,
+          149
+        ]
+      ],
+      "roadCurve": [
+        [
+          114,
+          139
+        ],
+        [
+          131,
+          136
+        ],
+        [
+          137,
+          149
+        ],
+        [
+          153,
+          150
+        ]
+      ],
+      "widths": [
+        7,
+        5
+      ],
+      "marketStairRows": [
+        172,
+        166,
+        160,
+        154
+      ],
+      "mainStreetStairX": 147
+    }
+  },
+  "changedBlocks": 24538,
+  "changedChunks": 38,
+  "backup": "archive\\map-edit-backups\\before-blacksmith-relocation\\starter_sky_land_spawn_v1"
+}

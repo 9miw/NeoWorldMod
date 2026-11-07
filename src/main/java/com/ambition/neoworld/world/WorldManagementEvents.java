@@ -40,6 +40,9 @@ public final class WorldManagementEvents {
     public static void travel(EntityTravelToDimensionEvent event) {
         if (!(event.getEntity().level() instanceof ServerLevel level)) return;
         WorldManagementManager manager = WorldManagementManager.get(level.getServer());
+        if (event.getEntity() instanceof ServerPlayer player) {
+            manager.recordLastLocation(player);
+        }
         if (manager.isLocked(event.getDimension())
                 || event.getEntity() instanceof ServerPlayer player && !manager.remember(player, event.getDimension())) {
             event.setCanceled(true);
@@ -53,7 +56,11 @@ public final class WorldManagementEvents {
 
     @SubscribeEvent
     public static void logout(PlayerEvent.PlayerLoggedOutEvent event) {
-        if (event.getEntity() instanceof ServerPlayer player) WorldManagementManager.get(player.getServer()).recordLogout(player);
+        if (event.getEntity() instanceof ServerPlayer player) {
+            WorldManagementManager manager = WorldManagementManager.get(player.getServer());
+            manager.recordLogout(player);
+            manager.recordLastLocation(player);
+        }
     }
 
     @SubscribeEvent

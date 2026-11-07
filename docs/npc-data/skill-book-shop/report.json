@@ -1,0 +1,49 @@
+{
+  "result": "PASS",
+  "shopId": 14,
+  "npcUUID": "45218be8-cd0f-4b26-a596-eac27d3a188f",
+  "npcPos": [
+    76.5,
+    111.0,
+    188.5
+  ],
+  "npcHome": [
+    76,
+    111,
+    188
+  ],
+  "dialogIds": [
+    139,
+    140,
+    141
+  ],
+  "offerIds": [
+    109,
+    110,
+    111,
+    112,
+    113,
+    114,
+    115,
+    116
+  ],
+  "nativeAddSuccessCount": 8,
+  "prices": [
+    100,
+    100,
+    100,
+    100,
+    300,
+    300,
+    300,
+    300
+  ],
+  "sellPrice": 0,
+  "currency": "silver",
+  "ownerInventoryAndSelectedSlotRestored": true,
+  "originalNPCsAndDialogQuestsUnchanged": true,
+  "npcCountBefore": 41,
+  "npcCountAfter": 42,
+  "purchaseAndLearnTested": false,
+  "backup": "/home/miw/backups/neoworld-skillbook-shop-20261101-204550"
+}

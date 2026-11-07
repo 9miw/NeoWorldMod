@@ -1,0 +1,4 @@
+interface:
+  display_name: "NeoWorld Bitmap Titles"
+  short_description: "Create decorated Minecraft Title glyphs and fonts"
+  default_prompt: "Use $neoworld-bitmap-titles to create or update decorative bitmap Title artwork and integrate it into NeoWorld."

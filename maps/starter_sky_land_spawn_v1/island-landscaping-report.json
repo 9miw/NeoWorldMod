@@ -1,0 +1,2475 @@
+{
+  "status": "applied",
+  "sourceHash": "858e198ba9f2b6f4955d09ebb9f9d88eb31110a1c632b64d5de6ed3b37aba41d",
+  "seed": 2401026,
+  "scope": "Vacant natural land across zone 01; existing structures, roads, plazas and vegetation protected",
+  "islandBounds": [
+    24,
+    24,
+    303,
+    343
+  ],
+  "trees": [
+    {
+      "asset": "t210",
+      "trunkCenter": [
+        90,
+        109,
+        94
+      ],
+      "origin": [
+        88,
+        109,
+        92
+      ],
+      "rotation": 0,
+      "size": [
+        5,
+        17,
+        5
+      ],
+      "blocks": 77,
+      "sector": "north-west",
+      "bounds": [
+        88,
+        109,
+        92,
+        92,
+        125,
+        96
+      ]
+    },
+    {
+      "asset": "t020",
+      "trunkCenter": [
+        278,
+        103,
+        146
+      ],
+      "origin": [
+        271,
+        103,
+        138
+      ],
+      "rotation": 270,
+      "size": [
+        15,
+        13,
+        12
+      ],
+      "blocks": 242,
+      "sector": "north-east",
+      "bounds": [
+        271,
+        103,
+        138,
+        285,
+        115,
+        149
+      ]
+    },
+    {
+      "asset": "t037",
+      "trunkCenter": [
+        42,
+        99,
+        222
+      ],
+      "origin": [
+        35,
+        99,
+        216
+      ],
+      "rotation": 0,
+      "size": [
+        14,
+        12,
+        12
+      ],
+      "blocks": 631,
+      "sector": "west",
+      "bounds": [
+        35,
+        99,
+        216,
+        48,
+        110,
+        227
+      ]
+    },
+    {
+      "asset": "t039",
+      "trunkCenter": [
+        194,
+        103,
+        158
+      ],
+      "origin": [
+        186,
+        103,
+        152
+      ],
+      "rotation": 180,
+      "size": [
+        15,
+        12,
+        14
+      ],
+      "blocks": 479,
+      "sector": "east",
+      "bounds": [
+        186,
+        103,
+        152,
+        200,
+        114,
+        165
+      ]
+    },
+    {
+      "asset": "t210",
+      "trunkCenter": [
+        118,
+        103,
+        290
+      ],
+      "origin": [
+        116,
+        103,
+        288
+      ],
+      "rotation": 270,
+      "size": [
+        5,
+        17,
+        5
+      ],
+      "blocks": 77,
+      "sector": "south-west",
+      "bounds": [
+        116,
+        103,
+        288,
+        120,
+        119,
+        292
+      ]
+    },
+    {
+      "asset": "t210",
+      "trunkCenter": [
+        230,
+        98,
+        258
+      ],
+      "origin": [
+        228,
+        98,
+        256
+      ],
+      "rotation": 270,
+      "size": [
+        5,
+        17,
+        5
+      ],
+      "blocks": 77,
+      "sector": "south-east",
+      "bounds": [
+        228,
+        98,
+        256,
+        232,
+        114,
+        260
+      ]
+    },
+    {
+      "asset": "t018",
+      "trunkCenter": [
+        54,
+        104,
+        90
+      ],
+      "origin": [
+        48,
+        104,
+        84
+      ],
+      "rotation": 180,
+      "size": [
+        16,
+        14,
+        15
+      ],
+      "blocks": 389,
+      "sector": "north-west",
+      "bounds": [
+        48,
+        104,
+        84,
+        63,
+        117,
+        98
+      ]
+    },
+    {
+      "asset": "t037",
+      "trunkCenter": [
+        230,
+        109,
+        66
+      ],
+      "origin": [
+        223,
+        109,
+        60
+      ],
+      "rotation": 0,
+      "size": [
+        14,
+        12,
+        12
+      ],
+      "blocks": 631,
+      "sector": "north-east",
+      "bounds": [
+        223,
+        109,
+        60,
+        236,
+        120,
+        71
+      ]
+    },
+    {
+      "asset": "t210",
+      "trunkCenter": [
+        54,
+        102,
+        166
+      ],
+      "origin": [
+        52,
+        102,
+        164
+      ],
+      "rotation": 0,
+      "size": [
+        5,
+        17,
+        5
+      ],
+      "blocks": 77,
+      "sector": "west",
+      "bounds": [
+        52,
+        102,
+        164,
+        56,
+        118,
+        168
+      ]
+    },
+    {
+      "asset": "t055",
+      "trunkCenter": [
+        194,
+        102,
+        226
+      ],
+      "origin": [
+        190,
+        102,
+        222
+      ],
+      "rotation": 90,
+      "size": [
+        11,
+        13,
+        11
+      ],
+      "blocks": 172,
+      "sector": "east",
+      "bounds": [
+        190,
+        102,
+        222,
+        200,
+        114,
+        232
+      ]
+    },
+    {
+      "asset": "t210",
+      "trunkCenter": [
+        138,
+        104,
+        270
+      ],
+      "origin": [
+        136,
+        104,
+        268
+      ],
+      "rotation": 180,
+      "size": [
+        5,
+        17,
+        5
+      ],
+      "blocks": 77,
+      "sector": "south-west",
+      "bounds": [
+        136,
+        104,
+        268,
+        140,
+        120,
+        272
+      ]
+    },
+    {
+      "asset": "t210",
+      "trunkCenter": [
+        214,
+        102,
+        294
+      ],
+      "origin": [
+        212,
+        102,
+        292
+      ],
+      "rotation": 90,
+      "size": [
+        5,
+        17,
+        5
+      ],
+      "blocks": 77,
+      "sector": "south-east",
+      "bounds": [
+        212,
+        102,
+        292,
+        216,
+        118,
+        296
+      ]
+    },
+    {
+      "asset": "t018",
+      "trunkCenter": [
+        82,
+        106,
+        78
+      ],
+      "origin": [
+        74,
+        106,
+        72
+      ],
+      "rotation": 270,
+      "size": [
+        15,
+        14,
+        16
+      ],
+      "blocks": 389,
+      "sector": "north-west",
+      "bounds": [
+        74,
+        106,
+        72,
+        88,
+        119,
+        87
+      ]
+    },
+    {
+      "asset": "t210",
+      "trunkCenter": [
+        226,
+        109,
+        90
+      ],
+      "origin": [
+        224,
+        109,
+        88
+      ],
+      "rotation": 90,
+      "size": [
+        5,
+        17,
+        5
+      ],
+      "blocks": 77,
+      "sector": "north-east",
+      "bounds": [
+        224,
+        109,
+        88,
+        228,
+        125,
+        92
+      ]
+    },
+    {
+      "asset": "t210",
+      "trunkCenter": [
+        146,
+        108,
+        162
+      ],
+      "origin": [
+        144,
+        108,
+        160
+      ],
+      "rotation": 270,
+      "size": [
+        5,
+        17,
+        5
+      ],
+      "blocks": 77,
+      "sector": "west",
+      "bounds": [
+        144,
+        108,
+        160,
+        148,
+        124,
+        164
+      ]
+    },
+    {
+      "asset": "t055",
+      "trunkCenter": [
+        198,
+        102,
+        186
+      ],
+      "origin": [
+        191,
+        102,
+        179
+      ],
+      "rotation": 270,
+      "size": [
+        11,
+        13,
+        11
+      ],
+      "blocks": 172,
+      "sector": "east",
+      "bounds": [
+        191,
+        102,
+        179,
+        201,
+        114,
+        189
+      ]
+    },
+    {
+      "asset": "t055",
+      "trunkCenter": [
+        110,
+        101,
+        266
+      ],
+      "origin": [
+        106,
+        101,
+        259
+      ],
+      "rotation": 0,
+      "size": [
+        11,
+        13,
+        11
+      ],
+      "blocks": 172,
+      "sector": "south-west",
+      "bounds": [
+        106,
+        101,
+        259,
+        116,
+        113,
+        269
+      ]
+    },
+    {
+      "asset": "t210",
+      "trunkCenter": [
+        214,
+        102,
+        250
+      ],
+      "origin": [
+        212,
+        102,
+        248
+      ],
+      "rotation": 270,
+      "size": [
+        5,
+        17,
+        5
+      ],
+      "blocks": 77,
+      "sector": "south-east",
+      "bounds": [
+        212,
+        102,
+        248,
+        216,
+        118,
+        252
+      ]
+    },
+    {
+      "asset": "t210",
+      "trunkCenter": [
+        54,
+        107,
+        142
+      ],
+      "origin": [
+        52,
+        107,
+        140
+      ],
+      "rotation": 270,
+      "size": [
+        5,
+        17,
+        5
+      ],
+      "blocks": 77,
+      "sector": "north-west",
+      "bounds": [
+        52,
+        107,
+        140,
+        56,
+        123,
+        144
+      ]
+    },
+    {
+      "asset": "t020",
+      "trunkCenter": [
+        246,
+        105,
+        86
+      ],
+      "origin": [
+        238,
+        105,
+        79
+      ],
+      "rotation": 180,
+      "size": [
+        12,
+        13,
+        15
+      ],
+      "blocks": 242,
+      "sector": "north-east",
+      "bounds": [
+        238,
+        105,
+        79,
+        249,
+        117,
+        93
+      ]
+    },
+    {
+      "asset": "t037",
+      "trunkCenter": [
+        38,
+        99,
+        186
+      ],
+      "origin": [
+        32,
+        99,
+        181
+      ],
+      "rotation": 180,
+      "size": [
+        14,
+        12,
+        12
+      ],
+      "blocks": 631,
+      "sector": "west",
+      "bounds": [
+        32,
+        99,
+        181,
+        45,
+        110,
+        192
+      ]
+    },
+    {
+      "asset": "t055",
+      "trunkCenter": [
+        294,
+        101,
+        214
+      ],
+      "origin": [
+        287,
+        101,
+        207
+      ],
+      "rotation": 270,
+      "size": [
+        11,
+        13,
+        11
+      ],
+      "blocks": 172,
+      "sector": "east",
+      "bounds": [
+        287,
+        101,
+        207,
+        297,
+        113,
+        217
+      ]
+    },
+    {
+      "asset": "t210",
+      "trunkCenter": [
+        86,
+        101,
+        254
+      ],
+      "origin": [
+        84,
+        101,
+        252
+      ],
+      "rotation": 90,
+      "size": [
+        5,
+        17,
+        5
+      ],
+      "blocks": 77,
+      "sector": "south-west",
+      "bounds": [
+        84,
+        101,
+        252,
+        88,
+        117,
+        256
+      ]
+    },
+    {
+      "asset": "t210",
+      "trunkCenter": [
+        190,
+        104,
+        254
+      ],
+      "origin": [
+        188,
+        104,
+        252
+      ],
+      "rotation": 90,
+      "size": [
+        5,
+        17,
+        5
+      ],
+      "blocks": 77,
+      "sector": "south-east",
+      "bounds": [
+        188,
+        104,
+        252,
+        192,
+        120,
+        256
+      ]
+    },
+    {
+      "asset": "t055",
+      "trunkCenter": [
+        142,
+        109,
+        134
+      ],
+      "origin": [
+        138,
+        109,
+        130
+      ],
+      "rotation": 90,
+      "size": [
+        11,
+        13,
+        11
+      ],
+      "blocks": 172,
+      "sector": "north-west",
+      "bounds": [
+        138,
+        109,
+        130,
+        148,
+        121,
+        140
+      ]
+    },
+    {
+      "asset": "t020",
+      "trunkCenter": [
+        230,
+        106,
+        114
+      ],
+      "origin": [
+        223,
+        106,
+        111
+      ],
+      "rotation": 90,
+      "size": [
+        15,
+        13,
+        12
+      ],
+      "blocks": 242,
+      "sector": "north-east",
+      "bounds": [
+        223,
+        106,
+        111,
+        237,
+        118,
+        122
+      ]
+    },
+    {
+      "asset": "t210",
+      "trunkCenter": [
+        142,
+        104,
+        202
+      ],
+      "origin": [
+        140,
+        104,
+        200
+      ],
+      "rotation": 90,
+      "size": [
+        5,
+        17,
+        5
+      ],
+      "blocks": 77,
+      "sector": "west",
+      "bounds": [
+        140,
+        104,
+        200,
+        144,
+        120,
+        204
+      ]
+    },
+    {
+      "asset": "t055",
+      "trunkCenter": [
+        210,
+        103,
+        150
+      ],
+      "origin": [
+        206,
+        103,
+        143
+      ],
+      "rotation": 0,
+      "size": [
+        11,
+        13,
+        11
+      ],
+      "blocks": 172,
+      "sector": "east",
+      "bounds": [
+        206,
+        103,
+        143,
+        216,
+        115,
+        153
+      ]
+    },
+    {
+      "asset": "t210",
+      "trunkCenter": [
+        126,
+        98,
+        306
+      ],
+      "origin": [
+        124,
+        98,
+        304
+      ],
+      "rotation": 90,
+      "size": [
+        5,
+        17,
+        5
+      ],
+      "blocks": 77,
+      "sector": "south-west",
+      "bounds": [
+        124,
+        98,
+        304,
+        128,
+        114,
+        308
+      ]
+    },
+    {
+      "asset": "t210",
+      "trunkCenter": [
+        194,
+        99,
+        326
+      ],
+      "origin": [
+        192,
+        99,
+        324
+      ],
+      "rotation": 90,
+      "size": [
+        5,
+        17,
+        5
+      ],
+      "blocks": 77,
+      "sector": "south-east",
+      "bounds": [
+        192,
+        99,
+        324,
+        196,
+        115,
+        328
+      ]
+    },
+    {
+      "asset": "t055",
+      "trunkCenter": [
+        94,
+        107,
+        62
+      ],
+      "origin": [
+        87,
+        107,
+        55
+      ],
+      "rotation": 270,
+      "size": [
+        11,
+        13,
+        11
+      ],
+      "blocks": 172,
+      "sector": "north-west",
+      "bounds": [
+        87,
+        107,
+        55,
+        97,
+        119,
+        65
+      ]
+    },
+    {
+      "asset": "t210",
+      "trunkCenter": [
+        262,
+        102,
+        122
+      ],
+      "origin": [
+        260,
+        102,
+        120
+      ],
+      "rotation": 180,
+      "size": [
+        5,
+        17,
+        5
+      ],
+      "blocks": 77,
+      "sector": "north-east",
+      "bounds": [
+        260,
+        102,
+        120,
+        264,
+        118,
+        124
+      ]
+    }
+  ],
+  "boulders": [
+    {
+      "center": [
+        194,
+        104,
+        238
+      ],
+      "radius": 3,
+      "blocks": 57,
+      "sector": "east"
+    },
+    {
+      "center": [
+        202,
+        102,
+        162
+      ],
+      "radius": 2,
+      "blocks": 16,
+      "sector": "east"
+    },
+    {
+      "center": [
+        34,
+        99,
+        214
+      ],
+      "radius": 2,
+      "blocks": 16,
+      "sector": "west"
+    },
+    {
+      "center": [
+        218,
+        104,
+        154
+      ],
+      "radius": 2,
+      "blocks": 16,
+      "sector": "east"
+    },
+    {
+      "center": [
+        42,
+        98,
+        230
+      ],
+      "radius": 3,
+      "blocks": 57,
+      "sector": "west"
+    },
+    {
+      "center": [
+        42,
+        101,
+        162
+      ],
+      "radius": 2,
+      "blocks": 16,
+      "sector": "west"
+    },
+    {
+      "center": [
+        146,
+        104,
+        182
+      ],
+      "radius": 2,
+      "blocks": 16,
+      "sector": "west"
+    },
+    {
+      "center": [
+        198,
+        104,
+        250
+      ],
+      "radius": 2,
+      "blocks": 16,
+      "sector": "south-east"
+    },
+    {
+      "center": [
+        198,
+        103,
+        178
+      ],
+      "radius": 3,
+      "blocks": 57,
+      "sector": "east"
+    },
+    {
+      "center": [
+        206,
+        102,
+        318
+      ],
+      "radius": 2,
+      "blocks": 16,
+      "sector": "south-east"
+    },
+    {
+      "center": [
+        210,
+        103,
+        306
+      ],
+      "radius": 2,
+      "blocks": 16,
+      "sector": "south-east"
+    },
+    {
+      "center": [
+        126,
+        104,
+        274
+      ],
+      "radius": 2,
+      "blocks": 16,
+      "sector": "south-west"
+    },
+    {
+      "center": [
+        198,
+        100,
+        298
+      ],
+      "radius": 3,
+      "blocks": 57,
+      "sector": "south-east"
+    },
+    {
+      "center": [
+        286,
+        104,
+        226
+      ],
+      "radius": 2,
+      "blocks": 16,
+      "sector": "east"
+    },
+    {
+      "center": [
+        46,
+        100,
+        194
+      ],
+      "radius": 2,
+      "blocks": 16,
+      "sector": "west"
+    },
+    {
+      "center": [
+        186,
+        102,
+        206
+      ],
+      "radius": 2,
+      "blocks": 16,
+      "sector": "east"
+    },
+    {
+      "center": [
+        226,
+        110,
+        74
+      ],
+      "radius": 3,
+      "blocks": 57,
+      "sector": "north-east"
+    },
+    {
+      "center": [
+        202,
+        104,
+        270
+      ],
+      "radius": 2,
+      "blocks": 16,
+      "sector": "south-east"
+    },
+    {
+      "center": [
+        238,
+        105,
+        114
+      ],
+      "radius": 2,
+      "blocks": 16,
+      "sector": "north-east"
+    },
+    {
+      "center": [
+        214,
+        102,
+        266
+      ],
+      "radius": 2,
+      "blocks": 16,
+      "sector": "south-east"
+    },
+    {
+      "center": [
+        186,
+        101,
+        194
+      ],
+      "radius": 3,
+      "blocks": 57,
+      "sector": "east"
+    },
+    {
+      "center": [
+        122,
+        104,
+        254
+      ],
+      "radius": 2,
+      "blocks": 16,
+      "sector": "south-west"
+    },
+    {
+      "center": [
+        290,
+        103,
+        198
+      ],
+      "radius": 2,
+      "blocks": 16,
+      "sector": "east"
+    },
+    {
+      "center": [
+        110,
+        103,
+        254
+      ],
+      "radius": 2,
+      "blocks": 16,
+      "sector": "south-west"
+    },
+    {
+      "center": [
+        198,
+        107,
+        138
+      ],
+      "radius": 3,
+      "blocks": 57,
+      "sector": "north-east"
+    },
+    {
+      "center": [
+        186,
+        101,
+        174
+      ],
+      "radius": 2,
+      "blocks": 16,
+      "sector": "east"
+    },
+    {
+      "center": [
+        238,
+        105,
+        246
+      ],
+      "radius": 2,
+      "blocks": 16,
+      "sector": "east"
+    },
+    {
+      "center": [
+        138,
+        108,
+        154
+      ],
+      "radius": 2,
+      "blocks": 16,
+      "sector": "west"
+    },
+    {
+      "center": [
+        266,
+        103,
+        138
+      ],
+      "radius": 3,
+      "blocks": 57,
+      "sector": "north-east"
+    },
+    {
+      "center": [
+        238,
+        107,
+        66
+      ],
+      "radius": 2,
+      "blocks": 16,
+      "sector": "north-east"
+    },
+    {
+      "center": [
+        78,
+        101,
+        254
+      ],
+      "radius": 2,
+      "blocks": 16,
+      "sector": "south-west"
+    },
+    {
+      "center": [
+        230,
+        108,
+        98
+      ],
+      "radius": 2,
+      "blocks": 16,
+      "sector": "north-east"
+    },
+    {
+      "center": [
+        238,
+        107,
+        86
+      ],
+      "radius": 3,
+      "blocks": 57,
+      "sector": "north-east"
+    },
+    {
+      "center": [
+        174,
+        112,
+        134
+      ],
+      "radius": 2,
+      "blocks": 16,
+      "sector": "north-east"
+    },
+    {
+      "center": [
+        246,
+        103,
+        126
+      ],
+      "radius": 2,
+      "blocks": 16,
+      "sector": "north-east"
+    },
+    {
+      "center": [
+        182,
+        107,
+        154
+      ],
+      "radius": 2,
+      "blocks": 16,
+      "sector": "east"
+    },
+    {
+      "center": [
+        286,
+        103,
+        170
+      ],
+      "radius": 3,
+      "blocks": 57,
+      "sector": "east"
+    },
+    {
+      "center": [
+        138,
+        103,
+        166
+      ],
+      "radius": 2,
+      "blocks": 16,
+      "sector": "west"
+    },
+    {
+      "center": [
+        30,
+        100,
+        178
+      ],
+      "radius": 2,
+      "blocks": 16,
+      "sector": "west"
+    },
+    {
+      "center": [
+        226,
+        103,
+        142
+      ],
+      "radius": 2,
+      "blocks": 16,
+      "sector": "north-east"
+    },
+    {
+      "center": [
+        82,
+        105,
+        70
+      ],
+      "radius": 3,
+      "blocks": 57,
+      "sector": "north-west"
+    },
+    {
+      "center": [
+        70,
+        102,
+        174
+      ],
+      "radius": 2,
+      "blocks": 16,
+      "sector": "west"
+    },
+    {
+      "center": [
+        102,
+        103,
+        174
+      ],
+      "radius": 2,
+      "blocks": 16,
+      "sector": "west"
+    },
+    {
+      "center": [
+        190,
+        104,
+        266
+      ],
+      "radius": 2,
+      "blocks": 16,
+      "sector": "south-east"
+    },
+    {
+      "center": [
+        222,
+        100,
+        254
+      ],
+      "radius": 3,
+      "blocks": 57,
+      "sector": "south-east"
+    },
+    {
+      "center": [
+        226,
+        106,
+        122
+      ],
+      "radius": 2,
+      "blocks": 16,
+      "sector": "north-east"
+    },
+    {
+      "center": [
+        202,
+        104,
+        194
+      ],
+      "radius": 2,
+      "blocks": 16,
+      "sector": "east"
+    },
+    {
+      "center": [
+        90,
+        102,
+        174
+      ],
+      "radius": 2,
+      "blocks": 16,
+      "sector": "west"
+    },
+    {
+      "center": [
+        50,
+        102,
+        218
+      ],
+      "radius": 3,
+      "blocks": 57,
+      "sector": "west"
+    },
+    {
+      "center": [
+        218,
+        101,
+        286
+      ],
+      "radius": 2,
+      "blocks": 16,
+      "sector": "south-east"
+    },
+    {
+      "center": [
+        186,
+        102,
+        226
+      ],
+      "radius": 2,
+      "blocks": 16,
+      "sector": "east"
+    },
+    {
+      "center": [
+        74,
+        106,
+        86
+      ],
+      "radius": 2,
+      "blocks": 16,
+      "sector": "north-west"
+    },
+    {
+      "center": [
+        94,
+        101,
+        254
+      ],
+      "radius": 3,
+      "blocks": 57,
+      "sector": "south-west"
+    },
+    {
+      "center": [
+        258,
+        104,
+        150
+      ],
+      "radius": 2,
+      "blocks": 16,
+      "sector": "east"
+    },
+    {
+      "center": [
+        94,
+        109,
+        82
+      ],
+      "radius": 2,
+      "blocks": 16,
+      "sector": "north-west"
+    },
+    {
+      "center": [
+        230,
+        107,
+        50
+      ],
+      "radius": 2,
+      "blocks": 16,
+      "sector": "north-east"
+    },
+    {
+      "center": [
+        62,
+        105,
+        86
+      ],
+      "radius": 3,
+      "blocks": 57,
+      "sector": "north-west"
+    },
+    {
+      "center": [
+        34,
+        99,
+        198
+      ],
+      "radius": 2,
+      "blocks": 16,
+      "sector": "west"
+    }
+  ],
+  "shrubs": [
+    {
+      "center": [
+        54,
+        107,
+        126
+      ],
+      "blocks": 5,
+      "sector": "north-west"
+    },
+    {
+      "center": [
+        198,
+        103,
+        158
+      ],
+      "blocks": 5,
+      "sector": "east"
+    },
+    {
+      "center": [
+        198,
+        102,
+        170
+      ],
+      "blocks": 5,
+      "sector": "east"
+    },
+    {
+      "center": [
+        122,
+        101,
+        294
+      ],
+      "blocks": 5,
+      "sector": "south-west"
+    },
+    {
+      "center": [
+        246,
+        103,
+        122
+      ],
+      "blocks": 5,
+      "sector": "north-east"
+    },
+    {
+      "center": [
+        94,
+        109,
+        94
+      ],
+      "blocks": 5,
+      "sector": "north-west"
+    },
+    {
+      "center": [
+        190,
+        102,
+        206
+      ],
+      "blocks": 5,
+      "sector": "east"
+    },
+    {
+      "center": [
+        50,
+        102,
+        222
+      ],
+      "blocks": 5,
+      "sector": "west"
+    },
+    {
+      "center": [
+        234,
+        105,
+        114
+      ],
+      "blocks": 5,
+      "sector": "north-east"
+    },
+    {
+      "center": [
+        82,
+        107,
+        82
+      ],
+      "blocks": 5,
+      "sector": "north-west"
+    },
+    {
+      "center": [
+        226,
+        107,
+        118
+      ],
+      "blocks": 5,
+      "sector": "north-east"
+    },
+    {
+      "center": [
+        178,
+        104,
+        206
+      ],
+      "blocks": 5,
+      "sector": "east"
+    },
+    {
+      "center": [
+        50,
+        102,
+        194
+      ],
+      "blocks": 5,
+      "sector": "west"
+    },
+    {
+      "center": [
+        202,
+        102,
+        314
+      ],
+      "blocks": 5,
+      "sector": "south-east"
+    },
+    {
+      "center": [
+        202,
+        102,
+        306
+      ],
+      "blocks": 5,
+      "sector": "south-east"
+    },
+    {
+      "center": [
+        134,
+        104,
+        162
+      ],
+      "blocks": 5,
+      "sector": "west"
+    },
+    {
+      "center": [
+        262,
+        103,
+        146
+      ],
+      "blocks": 5,
+      "sector": "north-east"
+    },
+    {
+      "center": [
+        238,
+        101,
+        250
+      ],
+      "blocks": 5,
+      "sector": "south-east"
+    },
+    {
+      "center": [
+        190,
+        111,
+        134
+      ],
+      "blocks": 5,
+      "sector": "north-east"
+    },
+    {
+      "center": [
+        194,
+        98,
+        306
+      ],
+      "blocks": 5,
+      "sector": "south-east"
+    },
+    {
+      "center": [
+        206,
+        104,
+        150
+      ],
+      "blocks": 5,
+      "sector": "east"
+    },
+    {
+      "center": [
+        194,
+        102,
+        190
+      ],
+      "blocks": 5,
+      "sector": "east"
+    },
+    {
+      "center": [
+        118,
+        103,
+        282
+      ],
+      "blocks": 5,
+      "sector": "south-west"
+    },
+    {
+      "center": [
+        198,
+        104,
+        242
+      ],
+      "blocks": 5,
+      "sector": "east"
+    },
+    {
+      "center": [
+        286,
+        104,
+        206
+      ],
+      "blocks": 5,
+      "sector": "east"
+    },
+    {
+      "center": [
+        278,
+        103,
+        154
+      ],
+      "blocks": 5,
+      "sector": "east"
+    },
+    {
+      "center": [
+        38,
+        99,
+        198
+      ],
+      "blocks": 5,
+      "sector": "west"
+    },
+    {
+      "center": [
+        202,
+        104,
+        258
+      ],
+      "blocks": 5,
+      "sector": "south-east"
+    },
+    {
+      "center": [
+        286,
+        104,
+        178
+      ],
+      "blocks": 5,
+      "sector": "east"
+    },
+    {
+      "center": [
+        90,
+        107,
+        78
+      ],
+      "blocks": 5,
+      "sector": "north-west"
+    },
+    {
+      "center": [
+        234,
+        107,
+        98
+      ],
+      "blocks": 5,
+      "sector": "north-east"
+    },
+    {
+      "center": [
+        106,
+        104,
+        174
+      ],
+      "blocks": 5,
+      "sector": "west"
+    },
+    {
+      "center": [
+        202,
+        104,
+        278
+      ],
+      "blocks": 5,
+      "sector": "south-east"
+    },
+    {
+      "center": [
+        46,
+        100,
+        214
+      ],
+      "blocks": 5,
+      "sector": "west"
+    },
+    {
+      "center": [
+        226,
+        103,
+        246
+      ],
+      "blocks": 5,
+      "sector": "east"
+    },
+    {
+      "center": [
+        226,
+        109,
+        98
+      ],
+      "blocks": 5,
+      "sector": "north-east"
+    },
+    {
+      "center": [
+        266,
+        103,
+        130
+      ],
+      "blocks": 5,
+      "sector": "north-east"
+    },
+    {
+      "center": [
+        134,
+        104,
+        270
+      ],
+      "blocks": 5,
+      "sector": "south-west"
+    },
+    {
+      "center": [
+        194,
+        104,
+        262
+      ],
+      "blocks": 5,
+      "sector": "south-east"
+    },
+    {
+      "center": [
+        182,
+        103,
+        230
+      ],
+      "blocks": 5,
+      "sector": "east"
+    },
+    {
+      "center": [
+        94,
+        106,
+        54
+      ],
+      "blocks": 5,
+      "sector": "north-west"
+    },
+    {
+      "center": [
+        242,
+        104,
+        102
+      ],
+      "blocks": 5,
+      "sector": "north-east"
+    },
+    {
+      "center": [
+        50,
+        105,
+        102
+      ],
+      "blocks": 5,
+      "sector": "north-west"
+    },
+    {
+      "center": [
+        62,
+        106,
+        94
+      ],
+      "blocks": 5,
+      "sector": "north-west"
+    },
+    {
+      "center": [
+        86,
+        98,
+        258
+      ],
+      "blocks": 5,
+      "sector": "south-west"
+    },
+    {
+      "center": [
+        30,
+        100,
+        170
+      ],
+      "blocks": 5,
+      "sector": "west"
+    },
+    {
+      "center": [
+        182,
+        104,
+        274
+      ],
+      "blocks": 5,
+      "sector": "south-east"
+    },
+    {
+      "center": [
+        218,
+        103,
+        150
+      ],
+      "blocks": 5,
+      "sector": "east"
+    },
+    {
+      "center": [
+        86,
+        105,
+        62
+      ],
+      "blocks": 5,
+      "sector": "north-west"
+    },
+    {
+      "center": [
+        290,
+        100,
+        154
+      ],
+      "blocks": 5,
+      "sector": "east"
+    },
+    {
+      "center": [
+        222,
+        103,
+        142
+      ],
+      "blocks": 5,
+      "sector": "north-east"
+    },
+    {
+      "center": [
+        74,
+        102,
+        174
+      ],
+      "blocks": 5,
+      "sector": "west"
+    },
+    {
+      "center": [
+        114,
+        104,
+        258
+      ],
+      "blocks": 5,
+      "sector": "south-west"
+    },
+    {
+      "center": [
+        90,
+        108,
+        86
+      ],
+      "blocks": 5,
+      "sector": "north-west"
+    },
+    {
+      "center": [
+        190,
+        100,
+        182
+      ],
+      "blocks": 5,
+      "sector": "east"
+    },
+    {
+      "center": [
+        38,
+        99,
+        222
+      ],
+      "blocks": 5,
+      "sector": "west"
+    },
+    {
+      "center": [
+        246,
+        103,
+        246
+      ],
+      "blocks": 5,
+      "sector": "east"
+    },
+    {
+      "center": [
+        78,
+        104,
+        66
+      ],
+      "blocks": 5,
+      "sector": "north-west"
+    },
+    {
+      "center": [
+        110,
+        101,
+        270
+      ],
+      "blocks": 5,
+      "sector": "south-west"
+    },
+    {
+      "center": [
+        238,
+        106,
+        58
+      ],
+      "blocks": 5,
+      "sector": "north-east"
+    },
+    {
+      "center": [
+        190,
+        103,
+        230
+      ],
+      "blocks": 5,
+      "sector": "east"
+    },
+    {
+      "center": [
+        190,
+        102,
+        166
+      ],
+      "blocks": 5,
+      "sector": "east"
+    },
+    {
+      "center": [
+        210,
+        103,
+        278
+      ],
+      "blocks": 5,
+      "sector": "south-east"
+    },
+    {
+      "center": [
+        186,
+        104,
+        258
+      ],
+      "blocks": 5,
+      "sector": "south-east"
+    },
+    {
+      "center": [
+        66,
+        104,
+        78
+      ],
+      "blocks": 5,
+      "sector": "north-west"
+    },
+    {
+      "center": [
+        258,
+        105,
+        154
+      ],
+      "blocks": 5,
+      "sector": "east"
+    },
+    {
+      "center": [
+        50,
+        101,
+        238
+      ],
+      "blocks": 5,
+      "sector": "west"
+    },
+    {
+      "center": [
+        54,
+        106,
+        154
+      ],
+      "blocks": 5,
+      "sector": "west"
+    },
+    {
+      "center": [
+        186,
+        104,
+        250
+      ],
+      "blocks": 5,
+      "sector": "south-east"
+    },
+    {
+      "center": [
+        194,
+        102,
+        286
+      ],
+      "blocks": 5,
+      "sector": "south-east"
+    },
+    {
+      "center": [
+        182,
+        102,
+        178
+      ],
+      "blocks": 5,
+      "sector": "east"
+    },
+    {
+      "center": [
+        50,
+        102,
+        230
+      ],
+      "blocks": 5,
+      "sector": "west"
+    },
+    {
+      "center": [
+        246,
+        103,
+        114
+      ],
+      "blocks": 5,
+      "sector": "north-east"
+    },
+    {
+      "center": [
+        142,
+        107,
+        162
+      ],
+      "blocks": 5,
+      "sector": "west"
+    },
+    {
+      "center": [
+        138,
+        103,
+        170
+      ],
+      "blocks": 5,
+      "sector": "west"
+    },
+    {
+      "center": [
+        98,
+        98,
+        266
+      ],
+      "blocks": 5,
+      "sector": "south-west"
+    },
+    {
+      "center": [
+        78,
+        105,
+        74
+      ],
+      "blocks": 5,
+      "sector": "north-west"
+    },
+    {
+      "center": [
+        214,
+        102,
+        246
+      ],
+      "blocks": 5,
+      "sector": "east"
+    },
+    {
+      "center": [
+        294,
+        102,
+        210
+      ],
+      "blocks": 5,
+      "sector": "east"
+    },
+    {
+      "center": [
+        214,
+        102,
+        306
+      ],
+      "blocks": 5,
+      "sector": "south-east"
+    },
+    {
+      "center": [
+        202,
+        104,
+        182
+      ],
+      "blocks": 5,
+      "sector": "east"
+    },
+    {
+      "center": [
+        214,
+        102,
+        254
+      ],
+      "blocks": 5,
+      "sector": "south-east"
+    },
+    {
+      "center": [
+        226,
+        110,
+        70
+      ],
+      "blocks": 5,
+      "sector": "north-east"
+    },
+    {
+      "center": [
+        54,
+        102,
+        170
+      ],
+      "blocks": 5,
+      "sector": "west"
+    },
+    {
+      "center": [
+        226,
+        108,
+        50
+      ],
+      "blocks": 5,
+      "sector": "north-east"
+    },
+    {
+      "center": [
+        230,
+        99,
+        254
+      ],
+      "blocks": 5,
+      "sector": "south-east"
+    },
+    {
+      "center": [
+        46,
+        101,
+        174
+      ],
+      "blocks": 5,
+      "sector": "west"
+    },
+    {
+      "center": [
+        138,
+        104,
+        262
+      ],
+      "blocks": 5,
+      "sector": "south-west"
+    },
+    {
+      "center": [
+        230,
+        109,
+        90
+      ],
+      "blocks": 5,
+      "sector": "north-east"
+    },
+    {
+      "center": [
+        218,
+        101,
+        278
+      ],
+      "blocks": 5,
+      "sector": "south-east"
+    },
+    {
+      "center": [
+        202,
+        104,
+        198
+      ],
+      "blocks": 5,
+      "sector": "east"
+    },
+    {
+      "center": [
+        142,
+        104,
+        182
+      ],
+      "blocks": 5,
+      "sector": "west"
+    },
+    {
+      "center": [
+        242,
+        106,
+        74
+      ],
+      "blocks": 5,
+      "sector": "north-east"
+    },
+    {
+      "center": [
+        122,
+        104,
+        274
+      ],
+      "blocks": 5,
+      "sector": "south-west"
+    },
+    {
+      "center": [
+        294,
+        100,
+        162
+      ],
+      "blocks": 5,
+      "sector": "east"
+    },
+    {
+      "center": [
+        218,
+        101,
+        262
+      ],
+      "blocks": 5,
+      "sector": "south-east"
+    },
+    {
+      "center": [
+        214,
+        105,
+        138
+      ],
+      "blocks": 5,
+      "sector": "north-east"
+    },
+    {
+      "center": [
+        54,
+        107,
+        118
+      ],
+      "blocks": 5,
+      "sector": "north-west"
+    },
+    {
+      "center": [
+        290,
+        103,
+        194
+      ],
+      "blocks": 5,
+      "sector": "east"
+    },
+    {
+      "center": [
+        226,
+        105,
+        130
+      ],
+      "blocks": 5,
+      "sector": "north-east"
+    }
+  ],
+  "counts": {
+    "treeBlocks": 6312,
+    "boulderBlocks": 1543,
+    "shrubBlocks": 500,
+    "grassAndFerns": 2540,
+    "surfaceBlocks": 2074,
+    "flowers": 74,
+    "cliffBlocks": 629
+  },
+  "eligibleColumns": 19405,
+  "vegetationBySector": {
+    "north-east": 577,
+    "north-west": 324,
+    "west": 490,
+    "east": 599,
+    "south-west": 279,
+    "south-east": 345
+  },
+  "changedBlocks": 13672,
+  "protectedChanges": 0,
+  "outsidePlannedChanges": 0,
+  "terrainFootprintChanged": false,
+  "terrainHeightChanged": false,
+  "giantT365Placed": false,
+  "backup": "archive\\map-edit-backups\\before-island-landscaping\\starter_sky_land_spawn_v1",
+  "changedChunks": 155,
+  "savedBlockComparison": "All voxels match planned result using Name and sorted Properties",
+  "verification": {
+    "changedBlocks": 13672,
+    "originalDetailsChanged": 0,
+    "oldSolidRemoved": 0,
+    "assetBlocksMatched": 6312,
+    "supportedRootBlocks": 94,
+    "plantSupportChecks": 2616,
+    "compileJava": "BUILD SUCCESSFUL",
+    "nativeReader": {
+      "chunks": 576,
+      "blocks": 3350331,
+      "namedStates": 123,
+      "clearSpawn": true
+    },
+    "visualInspection": [
+      "island-landscaping-preview.png",
+      "island-landscaping-top-preview.png"
+    ],
+    "inGameTested": false,
+    "notes": "Roads, stairs and their clearances retained by protected columns and exact comparison; no new movement simulation. Preview lighting/tints differ from the game."
+  },
+  "resultRegionSha256": "63cee13667522ef66d747255615fc6b2352f31caa8790dbe354525cba5faf670"
+}

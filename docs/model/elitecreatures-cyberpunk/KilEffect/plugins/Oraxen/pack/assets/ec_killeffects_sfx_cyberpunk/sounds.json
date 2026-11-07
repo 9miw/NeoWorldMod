@@ -1,0 +1,7 @@
+{
+    "kill_fx.bursting_core": {
+        "sounds": [
+            "ec_killeffects:cyberpunk_animated/bursting_core"
+        ]
+    }
+}

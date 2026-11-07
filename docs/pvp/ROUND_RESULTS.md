@@ -1,36 +1,17 @@
-# Defeat, Spectator breaks and Minecraft titles
+# การแพ้ ช่วงพัก Spectator และ Title Minecraft
 
-PvP lethal damage remains cancelled: no death screen or death item/EXP drops.
-The defeated player switches to Spectator. Both players' damage is paused while
-the room is in COUNTDOWN, and native Minecraft Title/Subtitle show the result and
-a server-owned five-second countdown (100 ticks).
+ยังยกเลิกดาเมจถึงตายใน PvP ไม่มีหน้าตายหรือของ/EXP ตก ผู้แพ้เปลี่ยน Spectator ระงับดาเมจทั้งคู่ขณะห้อง COUNTDOWN และ Title/Subtitle Minecraft แสดงผลพร้อมนับห้าวินาทีจากเซิร์ฟเวอร์ (100 ทิก)
 
-For a normal Ranked round, after five seconds the original game modes are restored,
-both players teleport to A/B, health/effects reset, and the existing three-second
-fight countdown starts. A health-percentage round timeout follows the same break;
-a drawn round pauses both players without choosing a Spectator loser.
+ยกแรงก์ปกติ หลังห้าวินาทีคืนโหมดเดิม เทเลพอร์ตทั้งคู่ A/B รีเซ็ตเลือด/เอฟเฟกต์ แล้วเริ่มนับต่อสู้สามวินาทีเดิม ยกหมดเวลาเทียบเปอร์เซ็นต์เลือดใช้ช่วงพักเดียวกัน ยกเสมอพักทั้งคู่โดยไม่เลือกผู้แพ้เป็น Spectator
 
-For a final result, Title shows `ยินดีด้วย! คุณชนะ`, `คุณแพ้การแข่งขัน` or `เสมอ`.
-Subtitle includes each player's round score, actual Rating change, committed Rating
-and the return countdown. The result is also copied to chat for later reading.
-Private rooms finish on their first defeat and show a five-second result without
-Rating. After final display, both return to their pre-PvP locations and modes.
+ผลสุดท้าย Title แสดง `ยินดีด้วย! คุณชนะ`, `คุณแพ้การแข่งขัน` หรือ `เสมอ` ซับไตเติลมีคะแนนยกแต่ละคน ผลต่าง Rating จริง Rating ที่คอมมิต และเวลากลับ คัดผลลงแชตไว้อ่านภายหลัง ห้องส่วนตัวจบเมื่อแพ้ครั้งแรก แสดงผลห้าวินาทีไม่มี Rating หลังแสดงผลสุดท้ายทั้งคู่กลับตำแหน่ง/โหมดก่อน PvP
 
-Rating is displayed only after the result transaction commits. Migration 7 adds
-`<prefix>pvp_results_details` with each side's before/after scores, committed with
-the result and both player ratings. Retrying a match returns the original receipt;
-later Rating changes do not change the report. Historical matches from schema 6
-have no invented deltas. If the database is unavailable, the final room stays paused
-and retries; the five-second result display begins after saving succeeds.
+แสดง Rating หลังธุรกรรมผลคอมมิตเท่านั้น ย้ายสคีมา 7 เพิ่ม `<prefix>pvp_results_details` พร้อมคะแนนก่อน/หลังแต่ละฝ่าย คอมมิตกับผลและ Rating ทั้งคู่ ลองแมตช์ซ้ำคืนใบรับเดิม การเปลี่ยน Rating ภายหลังไม่เปลี่ยนรายงาน ไม่แต่งผลต่างให้แมตช์ประวัติจากสคีมา 6 หากฐานข้อมูลไม่พร้อม ห้องสุดท้ายพักและลองใหม่ เริ่มแสดงผลห้าวินาทีหลังบันทึกสำเร็จ
 
-Recovery SavedData captures original game mode alongside position and health.
-Returning or reconnecting after a restart restores mode and camera, preventing a
-player being stranded in Spectator. Legacy recovery entries lacking a mode use
-Survival if the player is still Spectator. Disconnecting after combat begins,
-including during a round break, immediately forfeits the match; reconnecting
-only restores the return location/mode after the completed result window.
+Recovery SavedData เก็บโหมดเดิมร่วมตำแหน่งและเลือด กลับหรือเชื่อมหลังรีสตาร์ตคืนโหมดและกล้อง ป้องกันค้าง Spectator รายการเก่าไม่มีโหมดใช้ Survival ถ้ายังเป็น Spectator หลุดหลังเริ่มต่อสู้รวมพักยกแพ้ทันที กลับเข้าเพียงคืนตำแหน่ง/โหมดหลังช่วงผลที่จบแล้ว
 
-Compilation and isolated regression tests cover pause boundaries, recovery-mode
-serialization, idempotent score receipts, transaction rollback and schema upgrades.
-H2 and H2 MariaDB compatibility mode were exercised; actual MariaDB, Minecraft
-titles and two-player Spectator/camera behavior still require runtime verification.
+คอมไพล์และรีเกรสชันแยกครอบคลุมขอบช่วงพัก ซีเรียลไลซ์โหมดกู้คืน ใบรับคะแนนทำซ้ำไม่เพิ่มผล ย้อนธุรกรรม และย้ายสคีมา ทดสอบ H2 และโหมดเข้ากัน MariaDB แล้ว แต่ MariaDB จริง Title Minecraft และพฤติกรรม Spectator/กล้องสองคนต้องตรวจรันไทม์
+
+# ก่อนต่อสู้
+
+สู้ใน Adventure และคืนโหมดเดิมเมื่อกลับ เตรียมห้าวินาทียกแรกและสามวินาทียกแรงก์ถัดไป แพ็กเก็ต Title/Subtitle เดิมแสดงนับถอยหลัง/เริ่ม เซิร์ฟเวอร์ตรึงตำแหน่งเกิดแต่ให้หมุนกล้องระหว่างเตรียม ล็อกนี้ไม่ใช้กับผู้ชมช่วงพัก

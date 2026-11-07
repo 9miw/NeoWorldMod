@@ -1,15 +1,59 @@
-# Shared NeoWorld Item Tooltip
+# ทูลทิปไอเทม NeoWorld ร่วม
 
-Approved concept: `item-tooltip-approved-mockup.png`. The enlarged concept uses illustrative item art and sample coin/EXP data; it is not a game screenshot or runtime texture.
+อ้างอิงเลย์เอาต์เนื้อหา `item-tooltip-approved-mockup.png` คอนเซปต์ขยายใช้ภาพไอเทมประกอบและข้อมูลเหรียญ/EXP ตัวอย่าง ไม่ใช่ภาพเกมหรือเท็กซ์เจอร์รันไทม์
 
-`client/gui/common/NeoWorldItemTooltip.java` scopes the frame and presentation to the `neoworld` item namespace. It adds an item type, applicable durability/slot information, and real usage instructions. Vanilla attributes, lore, advanced information, existing required-level data and upgrade data remain intact. Unknown items receive a neutral item type without invented usage.
+## ธีมกรอบปัจจุบัน: Deepslate
 
-`NeoItemTooltipHeader` renders the current ItemStack at its normal 16-pixel size beside wrapped, styled item-name and type components. Its 12-pixel text spacing allows headroom for Thai marks. Ordinary tooltip lines use Minecraft's existing wrapping and positioning. The Thai font and glyph spacing implementation are unchanged.
+ภาพอนุมัติ `deepslate/approved-reference.png` แถวสอง แอตลาสใช้งาน `textures/gui/common/tooltip/deepslate/{common,uncommon,rare,epic,legendary}_parts.png` (128x64 RGBA) มุมคงที่เพิ่มจาก 6 ถึง 10 พิกเซล GUI ระยะเนื้อหาจาก 8 ถึง 12 มุมสะท้อนและขอบปูซ้ำคงพิกเซลคม เติมกลางด้วยตัวอย่างพื้น PNG ทึบ
 
-The shared frame is `textures/gui/common/item_tooltip_frame.png`, reusing the existing blank fashion shell's silver beveled edges via nine-slice rendering. The center is filled dynamically. Names, icons, values, instructions and state are never baked into the frame. Metadata disables blur and enables clamp.
+Common, Uncommon, Rare นิ่ง Epic มีคริสตัลม่วงเต้นสลับและประกายกากบาทเล็ก Legendary เพิ่มประกายทองแรงขึ้นและแสงสั้นวิ่งขอบตามเข็ม สไปรต์ GUI เดิมใต้ `textures/gui/sprites/tooltip/deepslate/` ซ้อนแนวตั้ง 16 เฟรม เฟรมละสองทิก ไม่ interpolation เอฟเฟกต์อยู่รอบขอบ
 
-FashionTooltip now supplies content only, keeping its slot and usage bitmap glyphs and synchronized owned-state feedback. ItemLevelEventHandler and UpgradeTooltip continue supplying their existing rows. CoinItem supplies actual per-item value, count and checked total without duplicate descriptions. ExperienceItem retains its actual EXP range.
+`deepslate/DESIGN.md`, `geometry.json` และสคริปต์ส่งออก/พรีวิวบันทึกแอสเซ็ตและเรขาคณิต คอมไพล์ ประมวลผลรีซอร์ส PNG ในแพ็กเท่าต้นฉบับ มุมสะท้อน หน้าตัดรอยต่อ ปลาย tile บางส่วน และเงื่อนไขแอนิเมชันผ่าน `deepslate/runtime-preview.gif` เป็นพรีวิวออฟไลน์ ยังไม่ยืนยันภาพและ GUI Scale ในเกม ข้อมูลไอเทม ฟอนต์ไทย และระยะ glyph เดิมไม่เปลี่ยน
 
-Coin and EXP instructions describe automatic collection in Survival mode. Upgrade stones show target ranges +1..+6, +7..+12 and +13..+15; required amounts depend on configured upgrade costs. Protection scroll descriptions follow UpgradeRules. The upgrade table currently receives ordinary block placement instructions; its registration alone does not establish a right-click menu.
+## ธีมกรอบก่อนหน้า: Arcane Crystal A
 
-Verification: compileJava and processResources passed. Resource references and merged Thai/English labels were checked. In-game rendering has not been verified. Check long Thai names, GUI scales, screen edges, enchanted/upgraded equipment, advanced tooltips, owned fashion, tooltips without a player and non-NeoWorld control items in the game before considering the visual layout verified.
+ภาพอนุมัติ `arcane/approved-reference.png` แถว A พร้อมข้อกำหนดชัดเจนว่าเคลื่อนไหวเฉพาะ Epic/Legendary แอตลาสรันไทม์ `textures/gui/common/tooltip/arcane/{common,uncommon,rare,epic,legendary}_parts.png` (64x64 RGBA) พื้นที่มุมเดิม 6/7/8/9/10 พิกเซล GUI ระยะเนื้อหา 8/9/10/11/12 เพิ่มเล็กน้อยโดยไม่สเกลข้อความ ไม่มีตรากลางบน รูนสลักนิ่งปูซ้ำตามรางทั้งสี่
+
+Rune Flow ใช้ `textures/gui/sprites/tooltip/arcane/rune_flow.png` กับ `.png.mcmeta` ซ้อน 16 เฟรม 32x4 แนวตั้ง เฟรมละสองทิก มี interpolation และ tile scaling ของ GUI เดิม วาดขอบตรงสี่ด้านตามเข็ม เฉพาะ Epic/Legendary เข้ารอบวาดเอฟเฟกต์ สามระดับแรกนิ่งทั้งหมด ไม่ใช้ pulse ม่วงและประกายมุมทองเก่าแล้ว
+
+`arcane/DESIGN.md`, `arcane/geometry.json` เก็บขอบเขตอนุมัติและเรขาคณิตที่วัด `arcane/export-assets.py` สร้างซ้ำ `arcane/preview.py` สร้าง PNG/GIF ออฟไลน์ 1280x720 ตรวจไบต์รีซอร์สติดตั้ง อัลฟาตัด มุมสะท้อน หน้าตัดรอยต่อแปดด้าน รางที่วัด และเงื่อนไขแอนิเมชันแล้ว `compileJava`, `processResources` ผ่าน ยังไม่ยืนยันภาพตรงในเกม พรีวิวออฟไลน์ไม่ใช่สกรีนช็อตหรือตรวจ GUI Scale
+
+`client/gui/common/NeoWorldItemTooltip.java` จำกัดกรอบและการแสดงกับเนมสเปซไอเทม `neoworld` เพิ่มชนิดไอเทม ความทนทาน/ช่องที่เกี่ยวข้อง และวิธีใช้จริง คงแอตทริบิวต์ Vanilla, lore, ข้อมูลขั้นสูง เลเวลที่ต้องการ และข้อมูลอัปเกรด ไอเทมไม่รู้จักได้ชนิดกลางโดยไม่แต่งวิธีใช้
+
+`NeoItemTooltipHeader` วาด ItemStack ปัจจุบันขนาดปกติ 16 พิกเซลข้าง Component ชื่อ/ชนิดที่จัดสไตล์และตัดบรรทัด ระยะข้อความ 12 พิกเซลเผื่อสระวรรณยุกต์ไทย บรรทัดทั่วไปใช้การตัด/วาง Minecraft เดิม ไม่เปลี่ยนฟอนต์ไทยหรือกลไกระยะ glyph
+
+## ภาพกรอบเก่าเพื่ออ้างอิงประวัติ
+
+แอตลาสก่อนหน้า `textures/gui/common/tooltip/{common,uncommon,rare,epic,legendary}_parts.png` PNG กรอบเต็มเดิมยังเป็นต้นทางตัดจาก `rarity-frames-source.png` ตาม `rarity-frames-approved-mockup.png` รุ่นนั้นใช้มุมสะท้อนขนาดเดิม แถบตรงเข้าคู่ และตราทองแยก เก็บแหล่งนี้อ้างอิง ไม่ใช่ธีมใช้งานปัจจุบัน
+
+เทา เขียว น้ำเงินมีมุม 6x6 ม่วงมีมุมคริสตัล 8x8 แอตลาสทั้งสี่สะท้อนมุมมาตรฐานเดียวสร้างมุมอื่น และสุ่มแถบตรงจากพิกเซลปลายตรงกัน ระดับปกติคงไฮไลต์เงิน/สีเดิมบางที่สเกลเดิม ไม่ผสมสี เลย์เอาต์แอตลาสตรงทอง ตัววาดเดียวจึงจัดทั้งห้าระดับ ตัวส่งออกบันทึกจุดสุ่มต้นทาง พรีวิวใช้ชิ้นขนาดเดิมและจุดต่อเดียวกัน ตรวจหน้าตัดต่อขอบทั้งแปดแบบตรงทุกพิกเซลทุกระดับ
+
+ทุกระดับเว้นเนื้อหา 8 พิกเซล GUI จากกรอบนอก มุมปกติ 6 ม่วง/ทอง 8 ทองใช้ `legendary_parts.png` แอตลาส RGBA 32x32 มุมเดิม 8x8 มุมมาตรฐานสุ่มจาก `(0,12,32,44)` ของกรอบทองเดิม ปรับเป็น 8x8 ครั้งเดียวแล้วสะท้อนเป็นสี่มุม แถบตรงคัดจากแถว/คอลัมน์จุดต่อของมุมนั้น จึงต่อปลายตรงทุกพิกเซล รันไทม์ยืดเฉพาะความยาวแถบ ไม่ยืดความหนาหรือมุม
+
+ตราแยกจาก `gold-crest-source.png` ตัดตามขอบภาพและย่อคงสัดส่วนใน tile โปร่งใส 12x16 วาด 1:1 กลางแนวนอน เหนือขอบบนแปดพิกเซล ไม่มีเศษกรอบเก่า พื้นรองต่อขอบในด้วยมุมขั้นบันไดแทนสี่เหลี่ยมใต้ลายมุม ม่วงคงออราหายใจและประกายสลับจากกระบวนการ ทองคงสไปรต์ GUI เคลื่อนไหวด้านล่าง ระดับอื่นนิ่ง ตัววางทูลทิป Minecraft เริ่มต้นสงวน 16 พิกเซลสำหรับขอบ/เอฟเฟกต์ ตัววางเฉพาะม็อดอื่นยังคงเดิม
+
+## แอนิเมชันทองแบบเดิมเพื่ออ้างอิงประวัติ
+
+`textures/gui/sprites/tooltip/legendary_aura.png` คือแถบ RGBA 32x512 มี 16 เฟรม 32x32 แนวตั้ง `.png.mcmeta` ตั้งเวลาเฟรมสองทิก ดัชนี 0..15, interpolation และ GUI nine-slice scaling (32x32 ขอบ 8) วงรอบ 32 ทิกเกม (1.6 วินาทีที่ 20 TPS) `GuiGraphics.blitSprite` ใช้ ID `neoworld:tooltip/legendary_aura` แอตลาส GUI Minecraft ค้นรีซอร์ส `gui/sprites` และเดินแอนิเมชันเอง การ `blit` เท็กซ์เจอร์ดิบปกติไม่ทำให้ไฟล์เคลื่อนไหว
+
+ชั้นทองมีประกายดาวมุมสลับและแสงทองเฉพาะที่ แพ็กจาก `gold-aura-animation-source.png` โดย `export-gold-animation.py` ตัวอย่างขอบตรงและ tile กลาง 16x16 โปร่งใสทั้งหมด การยืด/ปูจึงไม่เพิ่มแสงบนข้อความ วาดหลังขอบนิ่งที่ความทึบครึ่งหนึ่ง ทองเลิกใช้รูทีนออรา/ประกาย Java แบบ sine ม่วงไม่เปลี่ยน Minecraft จัดแอนิเมชัน/รีโหลด ไม่ต้องมีตัวนับเฟรม ตัวจัดการ texture tick หรือแพ็กเก็ตเอง
+
+## การเลือกระดับความหายาก
+
+`NeoTooltipRarity` อ่านสตริงคอมโพเนนต์รายสแต็กเสริม `neoworld:item_rarity` ก่อน (`common`, `uncommon`, `rare`, `epic`, `legendary`) codec ถาวรและเครือข่ายปฏิเสธค่าไม่รู้จัก ค่านี้สำคัญกว่าแท็ก ไอเทม ID เดียวจึงมีกรอบต่างกันได้ ตัวอย่าง `/give @s neoworld:lunar_sword[neoworld:item_rarity="legendary"]`
+
+หากไม่มีค่าเฉพาะสแต็ก อ่านแท็กไอเทม `neoworld:rarity/common`, `uncommon`, `rare`, `epic`, `legendary` เลือกระดับสูงสุดที่ตรง ไฟล์แท็กทั้งห้าเริ่มว่าง การเปลี่ยนนี้ไม่กำหนดความหายากให้ไอเทมเดิมเอง เช่น เพิ่ม `neoworld:oni_curse_wings` ใน `data/neoworld/tags/item/rarity/epic.json` จะได้กรอบม่วงหลังรีโหลดดาต้าแพ็ก ใช้ `legendary.json` สำหรับทอง
+
+ไม่มีแท็กตรง ใช้คอมโพเนนต์ `minecraft:rarity` ดิบของสแต็ก เลือก common/เทา uncommon/เขียว rare/น้ำเงิน epic/ม่วง ใช้ค่าดิบเพื่อไม่ให้เอนชานต์เปลี่ยนกรอบอัตโนมัติ เลเวลอัปเกรดไม่กระทบความหายากหรือกรอบ มีผลเฉพาะไอเทม NeoWorld
+
+แท็บ Creative NeoWorld มีตัวอย่างอาวุธ Lunar อัปเกรด 15 ชิ้น +1 ถึง +15 แทนดาบตัวอย่างอัปเกรด ใช้ shuffle seed คงที่เลือกอาวุธและกระจายสามชิ้นต่อความหายากอย่างอิสระจากเลเวล อาวุธ Lunar ดาบ/ขวาน/ตรีศูลทั้งแปดชนิดที่รองรับปรากฏอย่างน้อยครั้ง ไอเทม Lunar พื้นฐาน แอตทริบิวต์ ดาบตัวอย่างปกติ และแบบเลเวล 30 คงเดิม รับตัวอย่างใหม่จาก Creative ไม่เขียนสแต็กคลังเดิมใหม่
+
+## ตรวจแอสเซ็ต
+
+`export-rarity-frames.py` บันทึกกรอบต้นทางที่วัดและส่งออก RGBA 128x224 ด้วย nearest-neighbor ตรวจอัลฟาต่ำสุด/สูงสุดและกลางโปร่งใส `preview-rarity-frames.py` สร้าง `rarity-runtime-preview.png`, `rarity-animation-preview.gif` โดยใช้กรอบต้นทางรันไทม์และเวลาเอฟเฟกต์เพื่อดู ตัวอย่างใช้ป้ายประกอบ ไม่ใช่ฟอนต์ Minecraft หรือภาพเกม สร้างใหม่ด้วย Python ที่มีให้และ Pillow การตรวจ PNG/GIF ไม่ยืนยันความถูกต้องภาพในเกม
+
+FashionTooltip ให้เฉพาะเนื้อหา คง glyph ช่อง/วิธีใช้และสถานะเป็นเจ้าของที่ซิงก์ ItemLevelEventHandler และ UpgradeTooltip ให้แถวเดิม CoinItem ให้มูลค่าต่อชิ้น จำนวน และรวมที่ตรวจแล้วโดยไม่บรรยายซ้ำ ExperienceItem คงช่วง EXP จริง
+
+วิธีใช้เหรียญและ EXP อธิบายการเก็บอัตโนมัติใน Survival หินอัปเกรดแสดงช่วงเป้าหมาย +1..+6, +7..+12, +13..+15 จำนวนตามค่าต้นทุนที่ตั้ง คำอธิบายสกรอลล์ป้องกันตาม UpgradeRules โต๊ะอัปเกรดตอนนี้ได้วิธีวางบล็อกปกติ การลงทะเบียนอย่างเดียวไม่ยืนยันเมนูคลิกขวา
+
+ตรวจสอบ: compileJava และ processResources ผ่าน ตรวจอ้างรีซอร์สและป้ายไทย/อังกฤษที่รวมแล้ว ยังไม่ตรวจวาดในเกม ต้องตรวจชื่อไทยยาว GUI Scale ขอบจอ อุปกรณ์เอนชานต์/อัปเกรด ทูลทิปขั้นสูง แฟชั่นที่เป็นเจ้าของ ทูลทิปเมื่อไม่มีผู้เล่น และไอเทมควบคุมที่ไม่ใช่ NeoWorld ก่อนถือว่ายืนยันเลย์เอาต์ภาพแล้ว

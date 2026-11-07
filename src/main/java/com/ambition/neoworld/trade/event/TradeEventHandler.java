@@ -9,7 +9,8 @@ import net.minecraft.network.chat.Component;
 import net.minecraft.server.level.ServerPlayer;
 import net.neoforged.bus.api.SubscribeEvent;
 import net.neoforged.fml.common.EventBusSubscriber;
-import net.neoforged.neoforge.event.RegisterCommandsEvent;
+import com.mojang.brigadier.builder.LiteralArgumentBuilder;
+import net.minecraft.commands.CommandSourceStack;
 import net.neoforged.neoforge.event.entity.living.LivingDeathEvent;
 import net.neoforged.neoforge.event.entity.player.PlayerEvent;
 import net.neoforged.neoforge.event.server.ServerStoppingEvent;
@@ -18,14 +19,14 @@ import net.neoforged.neoforge.event.tick.ServerTickEvent;
 @EventBusSubscriber(modid = NeoWorld.MODID)
 public final class TradeEventHandler {
     private TradeEventHandler() {}
-    @SubscribeEvent public static void commands(RegisterCommandsEvent event) {
-        event.getDispatcher().register(Commands.literal("trade")
+    public static LiteralArgumentBuilder<CommandSourceStack> buildCommand() {
+        return Commands.literal("trade")
                 .then(Commands.argument("player", EntityArgument.player()).executes(context -> {
                     ServerPlayer sender = context.getSource().getPlayerOrException();
                     String error = TradeManager.get(sender.getServer()).request(sender, EntityArgument.getPlayer(context, "player"));
                     if (error != null) { context.getSource().sendFailure(Component.literal(error)); return 0; }
                     return 1;
-                })));
+                }));
     }
     @SubscribeEvent public static void tick(ServerTickEvent.Post event) { TradeManager.get(event.getServer()).tick(); }
     @SubscribeEvent public static void logout(PlayerEvent.PlayerLoggedOutEvent event) {

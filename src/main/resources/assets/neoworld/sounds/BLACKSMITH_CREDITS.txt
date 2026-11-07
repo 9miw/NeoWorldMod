@@ -1,0 +1,7 @@
+Anvil #1 (sound 3589)
+Author: Joseph SARDIN / BigSoundBank
+Source: https://bigsoundbank.com/anvil-1-s3589.html
+Original audio: https://bigsoundbank.com/UPLOAD/bwf-en/3589.wav
+License: CC0 1.0 (public domain dedication)
+https://creativecommons.org/publicdomain/zero/1.0/
+Changes: converted to mono Ogg Vorbis for positional Minecraft playback.

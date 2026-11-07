@@ -1,0 +1,43 @@
+{
+  "result": "PASS",
+  "changed": [
+    "dialogs/ลานเกิด_เสบียง_อัลเลย์/23.json",
+    "quests/มือใหม่/5.json"
+  ],
+  "kit": [
+    {
+      "id": "bread",
+      "count": 12
+    },
+    {
+      "id": "wooden_sword",
+      "count": 1
+    },
+    {
+      "id": "stone_pickaxe",
+      "count": 1
+    },
+    {
+      "id": "wooden_axe",
+      "count": 1
+    },
+    {
+      "id": "torch",
+      "count": 16
+    },
+    {
+      "id": "oak_planks",
+      "count": 16
+    },
+    {
+      "id": "spyglass",
+      "count": 1
+    }
+  ],
+  "slots": 7,
+  "originalQuestMechanicsUnchanged": true,
+  "otherDialogQuestFilesUnchanged": true,
+  "playerDataModified": false,
+  "inGameTested": false,
+  "backup": "/home/miw/backups/neoworld-starter-kit-20261026-224430"
+}

@@ -36,9 +36,7 @@ public final class ExperienceEventHandler {
                 || player.isCreative() || player.isSpectator()) return;
 
         ItemStack stack = itemEntity.getItem();
-        long value = ExperienceItem.getRandomValue(stack);
-        value = value > 0L && stack.getCount() > Long.MAX_VALUE / value
-                ? Long.MAX_VALUE : value * stack.getCount();
+        long value = ExperienceItem.rollTotal(stack);
         if (value <= 0L) return;
 
         consume(player, stack, value);
@@ -54,10 +52,8 @@ public final class ExperienceEventHandler {
             ItemStack stack = inventory.getItem(i);
             if (!(stack.getItem() instanceof ExperienceItem)) continue;
 
-            long value = ExperienceItem.getRandomValue(stack);
+            long value = ExperienceItem.rollTotal(stack);
             if (value <= 0L) continue;
-            if (value > Long.MAX_VALUE / stack.getCount()) value = Long.MAX_VALUE;
-            else value *= stack.getCount();
 
             consume(player, stack, value);
             inventory.setItem(i, ItemStack.EMPTY);
@@ -66,10 +62,8 @@ public final class ExperienceEventHandler {
         if (player.containerMenu != null) {
             ItemStack carried = player.containerMenu.getCarried();
             if (carried.getItem() instanceof ExperienceItem) {
-                long value = ExperienceItem.getRandomValue(carried);
+                long value = ExperienceItem.rollTotal(carried);
                 if (value > 0L) {
-                    if (value > Long.MAX_VALUE / carried.getCount()) value = Long.MAX_VALUE;
-                    else value *= carried.getCount();
                     consume(player, carried, value);
                     player.containerMenu.setCarried(ItemStack.EMPTY);
                 }

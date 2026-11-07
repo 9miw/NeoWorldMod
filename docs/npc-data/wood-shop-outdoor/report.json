@@ -1,0 +1,39 @@
+{
+  "result": "PASS",
+  "uuid": "8bb489f7-da3a-4407-b3ff-734430b77773",
+  "oldPos": [
+    64.5,
+    104.0,
+    190.5
+  ],
+  "newPos": [
+    85.5,
+    104,
+    239.5
+  ],
+  "home": [
+    85,
+    104,
+    239
+  ],
+  "stallBounds": {
+    "x": [
+      81,
+      89
+    ],
+    "z": [
+      237,
+      243
+    ]
+  },
+  "shopId": 7,
+  "originalNPCsAndServicesPreserved": true,
+  "dialogIdsUpdated": [
+    37,
+    38,
+    43,
+    46
+  ],
+  "backup": "/home/miw/backups/neoworld-wood-shop-outdoor-20261101-211356",
+  "visualAndPurchaseTested": false
+}

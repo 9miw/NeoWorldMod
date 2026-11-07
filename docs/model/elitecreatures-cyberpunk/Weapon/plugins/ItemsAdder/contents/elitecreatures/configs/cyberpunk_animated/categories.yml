@@ -1,0 +1,45 @@
+winfo:
+  namespace: elitecreatures
+categories:
+  cyberpunk_animated:
+    enabled: true
+    icon: "elitecreatures:cyberpunk_animated-hat"
+    name: " Cyberpunk Animated " 
+    permission: "ia.menu.cyberpunk_animated"
+    items:
+
+    ########### ARMORS
+      - "elitecreatures:cyberpunk_animated-hat"
+      - "elitecreatures:cyberpunk_animated-chestplate"
+      - "elitecreatures:cyberpunk_animated-leggings"
+      - "elitecreatures:cyberpunk_animated-boots"
+  
+   ########### FUNDAMENTAL ITEMS
+      - "elitecreatures:cyberpunk_animated-axe"
+      - "elitecreatures:cyberpunk_animated-bow"
+      - "elitecreatures:cyberpunk_animated-crossbow"
+      - "elitecreatures:cyberpunk_animated-fishing_rod"
+      - "elitecreatures:cyberpunk_animated-hoe"
+      - "elitecreatures:cyberpunk_animated-pickaxe"
+      - "elitecreatures:cyberpunk_animated-shield"
+      - "elitecreatures:cyberpunk_animated-shovel"
+      - "elitecreatures:cyberpunk_animated-sword"
+   
+   ########### FANTASY WEAPONS
+      - "elitecreatures:cyberpunk_animated-assault_rifle"
+      - "elitecreatures:cyberpunk_animated-baton"
+      - "elitecreatures:cyberpunk_animated-dagger"
+      - "elitecreatures:cyberpunk_animated-gauntlet"
+      - "elitecreatures:cyberpunk_animated-greatsword"
+      - "elitecreatures:cyberpunk_animated-hammer"
+      - "elitecreatures:cyberpunk_animated-shotgun"
+      - "elitecreatures:cyberpunk_animated-spear"
+
+   ########### COSMETICS
+      - "elitecreatures:cyberpunk_animated-back"
+
+   ########### CHEST AND KEY
+      - "elitecreatures:cyberpunk_animated-key"
+      - "elitecreatures:cyberpunk_animated-chest"
+
+# 34990TN82Y9C

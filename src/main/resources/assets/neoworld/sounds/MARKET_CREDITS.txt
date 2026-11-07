@@ -1,0 +1,8 @@
+Crowded street at medieval market
+Author: bolkmar
+Source: https://freesound.org/people/bolkmar/sounds/424790/
+License: Creative Commons Zero (CC0 1.0)
+https://creativecommons.org/publicdomain/zero/1.0/
+Audio source: Freesound high-quality MP3 preview
+https://cdn.freesound.org/previews/424/424790_2927958-hq.mp3
+Changes: converted to mono Ogg Vorbis for positional playback in Minecraft.

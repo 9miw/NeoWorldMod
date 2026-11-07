@@ -1,0 +1,71 @@
+{
+  "buildings": [
+    {
+      "id": "general",
+      "center": [
+        76,
+        103,
+        197
+      ],
+      "localSize": [
+        25,
+        23
+      ],
+      "roofTopY": 121,
+      "entrance": [
+        81,
+        206
+      ],
+      "inside": [
+        76,
+        197
+      ]
+    },
+    {
+      "id": "food-materials",
+      "center": [
+        102,
+        103,
+        188
+      ],
+      "localSize": [
+        17,
+        15
+      ],
+      "roofTopY": 122,
+      "entrance": [
+        102,
+        194
+      ],
+      "inside": [
+        102,
+        188
+      ]
+    },
+    {
+      "id": "supplies",
+      "center": [
+        123,
+        103,
+        189
+      ],
+      "localSize": [
+        17,
+        17
+      ],
+      "roofTopY": 122,
+      "entrance": [
+        123,
+        196
+      ],
+      "inside": [
+        123,
+        189
+      ]
+    }
+  ],
+  "changedBlocks": 5417,
+  "changedChunks": 14,
+  "walkableCells": 5284,
+  "backup": "archive\\map-edit-backups\\before-market-buildings-detail\\starter_sky_land_spawn_v1"
+}

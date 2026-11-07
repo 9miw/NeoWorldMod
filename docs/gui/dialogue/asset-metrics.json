@@ -1,0 +1,82 @@
+[
+  {
+    "name": "frame",
+    "source": [
+      12,
+      48,
+      1514,
+      408
+    ],
+    "size": [
+      1514,
+      408
+    ],
+    "alphaBounds": [
+      1,
+      1,
+      1510,
+      406
+    ],
+    "nontransparent": 84192
+  },
+  {
+    "name": "portrait",
+    "source": [
+      12,
+      495,
+      390,
+      464
+    ],
+    "size": [
+      390,
+      464
+    ],
+    "alphaBounds": [
+      2,
+      1,
+      386,
+      459
+    ],
+    "nontransparent": 54723
+  },
+  {
+    "name": "response",
+    "source": [
+      504,
+      834,
+      946,
+      98
+    ],
+    "size": [
+      946,
+      98
+    ],
+    "alphaBounds": [
+      2,
+      2,
+      940,
+      95
+    ],
+    "nontransparent": 86388
+  },
+  {
+    "name": "diamond",
+    "source": [
+      8,
+      207,
+      88,
+      88
+    ],
+    "size": [
+      88,
+      88
+    ],
+    "alphaBounds": [
+      5,
+      6,
+      72,
+      82
+    ],
+    "nontransparent": 2702
+  }
+]

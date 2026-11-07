@@ -1,0 +1,32 @@
+{
+  "result": "NPC_RELOCATION_PASS_NAV_CACHE_PARTIAL",
+  "backup": "/home/miw/backups/neoworld-guild-npc-relocation-20261101-163400",
+  "movedNPCs": 9,
+  "createdNPCs": 0,
+  "npcCountBefore": 40,
+  "npcCountNow": 41,
+  "protectedFieldDrift": [],
+  "navigationStale": [
+    "ลูน่า",
+    "วาเลน"
+  ],
+  "patrolMovementObserved": true,
+  "initialBlockAndBEComparisonUnchanged": true,
+  "externalChangesAfterInterruption": {
+    "addedUUIDs": [
+      "0d3fe5ea-02a9-49c4-9ced-0bbadf69a78c",
+      "15df6ad8-da44-4ebb-a19a-4ad6948f9e66"
+    ],
+    "removedUUIDs": [
+      "ed0aeb17-6481-4e0e-a63b-67f451f208d9"
+    ],
+    "configFiles": [
+      "transport.dat_old",
+      "transport.dat",
+      "playerdata/a31f6428-58e6-49aa-bbbf-3cce90b5a231.json"
+    ],
+    "guildBlockChunks": [],
+    "guildBEChunks": []
+  },
+  "inGameVisualTested": false
+}

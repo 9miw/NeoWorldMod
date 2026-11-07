@@ -1,0 +1,23 @@
+{
+  "CompleterNpc": "Kocimira",
+  "NextQuestId": 6,
+  "QuestLocation3": "",
+  "RandomReward": 0,
+  "QuestLocation2": "",
+  "QuestRepeat": 0,
+  "QuestCompletion": 1,
+  "Title": "เดินทางไปกิลด์นักผจญภัย",
+  "Text": "เดินทางเข้าไปภายใน§bโถงนักผจญภัย§r เมื่อถึงจุดหมาย เควสต์นี้จะสำเร็จและรับงานแนะนำตัวกับ§6§lโคซิไมรา§rต่อให้อัตโนมัติ",
+  "QuestFactionPoints": {},
+  "RewardExp": 0,
+  "QuestCommand": "",
+  "ModRev": 18,
+  "Type": 3,
+  "QuestMail": {},
+  "Rewards": {
+    "NpcMiscInv": []
+  },
+  "CompleteText": "ถึง§bกิลด์นักผจญภัย§rแล้ว! ไปพบ§6§lโคซิไมรา§rและเลือกแนะนำตัวกับกิลด์เพื่อเริ่มงานหลัก",
+  "QuestLocation": "กิลด์นักผจญภัย",
+  "Id": 13
+}

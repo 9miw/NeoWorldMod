@@ -1,0 +1,58 @@
+{
+    "CompleterNpc": "อัลเลย์",
+    "NextQuestId": -1,
+    "RandomReward": 0b,
+    "QuestRepeat": 0,
+    "QuestCompletion": 0,
+    "Title": "ก้าวแรก — รับเสบียงเริ่มต้น",
+    "Text": "คุยกับ§6§lอัลเลย์§rกลาง§bลานเกิด§r เลือกขอรับเสบียงเริ่มต้น แล้วคุยอีกครั้งเพื่อรับของ รับได้ครั้งเดียว จากนั้นไปพบ§6§lเซริน§rที่§bโถงนักผจญภัย§rเพื่อรับงานกิลด์ครั้งแรก",
+    "QuestFactionPoints": {
+        "DecreaseFaction1Points": 0b,
+        "OptionFaction2Points": 0,
+        "OptionFactions1": 0,
+        "OptionFactions2": 0,
+        "OptionFaction1Points": 0,
+        "DecreaseFaction2Points": 0b
+    },
+    "RewardExp": 0,
+    "QuestCommand": "",
+    "QuestDialogs": [
+        {
+            "Integer": 23,
+            "Slot": 0
+        }
+    ],
+    "ModRev": 18,
+    "Type": 1,
+    "QuestMail": {
+        "Sender": "",
+        "BeenRead": 0b,
+        "Message": {
+        },
+        "MailItems": [
+        ],
+        "MailQuest": -1,
+        "TimePast": 1793008873488L,
+        "Time": 0L,
+        "Subject": ""
+    },
+    "Rewards": {
+        "NpcMiscInv": [
+            {
+                "count": 8,
+                "Slot": 0b,
+                "id": "minecraft:bread"
+            },
+            {
+                "count": 1,
+                "Slot": 1b,
+                "id": "minecraft:wooden_sword"
+            },
+            {
+                "count": 1,
+                "Slot": 2b,
+                "id": "minecraft:wooden_pickaxe"
+            }
+        ]
+    },
+    "CompleteText": "รับขนมปัง8ชิ้น ดาบไม้1เล่ม และพลั่วไม้1อันแล้ว ไปพบ§6§lเซริน§rที่§bโถงนักผจญภัย§r เลือกการสมัครนักผจญภัยเพื่อรับงานกิลด์ครั้งแรก ชุดเริ่มต้นรับได้§aครั้งเดียวต่อผู้เล่น§r"}

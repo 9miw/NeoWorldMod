@@ -1,0 +1,79 @@
+{
+  "DialogShowWheel": 0,
+  "AvailabilityQuestId": 7,
+  "Options": [
+    {
+      "OptionSlot": 0,
+      "Option": {
+        "DialogCommand": "",
+        "Dialog": 57,
+        "Title": "กลับไปถามเรื่องอื่น",
+        "DialogColor": 14737632,
+        "OptionType": 1
+      }
+    },
+    {
+      "OptionSlot": 5,
+      "Option": {
+        "DialogCommand": "",
+        "Dialog": -1,
+        "Title": "ไว้คุยกันใหม่",
+        "DialogColor": 14737632,
+        "OptionType": 0
+      }
+    }
+  ],
+  "AvailabilityScoreboardType": 1,
+  "DialogHideNPC": 0,
+  "AvailabilityFactionStance": 0,
+  "AvailabilityScoreboard2Value": 1,
+  "DialogId": 137,
+  "AvailabilityQuest": 3,
+  "AvailabilityDialog4": 0,
+  "AvailabilityScoreboardObjective": "",
+  "AvailabilityDialog3": 0,
+  "AvailabilityQuest2": 0,
+  "AvailabilityQuest3": 0,
+  "AvailabilityScoreboard2Objective": "",
+  "AvailabilityQuest4": 0,
+  "ModRev": 18,
+  "DecreaseFaction1Points": 0,
+  "DialogQuest": -1,
+  "AvailabilityDialog2": 0,
+  "OptionFactions1": -1,
+  "AvailabilityDayTime": 0,
+  "OptionFactions2": -1,
+  "AvailabilityFaction2Id": -1,
+  "OptionFaction1Points": 100,
+  "AvailabilityScoreboardValue": 1,
+  "DialogDisableEsc": 0,
+  "AvailabilityFaction": 0,
+  "DialogTitle": "รวบรวมเสบียงเดินทาง",
+  "AvailabilityDialog": 0,
+  "AvailabilityScoreboard2Type": 1,
+  "AvailabilityFaction2": 0,
+  "AvailabilityFactionId": -1,
+  "AvailabilityFaction2Stance": 0,
+  "DialogCommand": "",
+  "AvailabilityDialogId": -1,
+  "OptionFaction2Points": 100,
+  "DialogText": "นำ§aไม้โอ๊ก 32 ท่อน§r §aหินกรวด 48 ก้อน§r และ§aถ่านหิน 16 ชิ้น§rมาส่งข้า ของจะถูกหักตอนส่งงานสำเร็จ หากต้องการเดินทางไป§bโลกทรัพยากร§r ให้สอบถาม§6§lฮันนาห์§rและใช้เมนูเดินทางเดิมของเธอ อย่าเก็บของตกแต่งในเมือง ตรวจจำนวนในบันทึกเควสต์ก่อนกลับมา",
+  "AvailabilityQuest4Id": -1,
+  "AvailabilityQuest3Id": -1,
+  "AvailabilityQuest2Id": -1,
+  "AvailabilityDialog2Id": -1,
+  "AvailabilityDialog3Id": -1,
+  "AvailabilityDialog4Id": -1,
+  "AvailabilityMinPlayerLevel": 0,
+  "DecreaseFaction2Points": 0,
+  "DialogMail": {
+    "Sender": "",
+    "BeenRead": 0,
+    "Message": {},
+    "MailItems": [],
+    "MailQuest": -1,
+    "TimePast": 0,
+    "Time": 0,
+    "Subject": ""
+  }
+}

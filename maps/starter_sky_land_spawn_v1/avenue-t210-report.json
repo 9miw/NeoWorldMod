@@ -1,0 +1,158 @@
+{
+  "trees": [
+    {
+      "asset": "t210",
+      "center": [
+        146,
+        104,
+        190
+      ],
+      "rotation": 0,
+      "blocks": 77,
+      "size": [
+        5,
+        17,
+        5
+      ]
+    },
+    {
+      "asset": "t210",
+      "center": [
+        174,
+        104,
+        190
+      ],
+      "rotation": 90,
+      "blocks": 77,
+      "size": [
+        5,
+        17,
+        5
+      ]
+    },
+    {
+      "asset": "t210",
+      "center": [
+        146,
+        104,
+        225
+      ],
+      "rotation": 180,
+      "blocks": 77,
+      "size": [
+        5,
+        17,
+        5
+      ]
+    },
+    {
+      "asset": "t210",
+      "center": [
+        174,
+        104,
+        225
+      ],
+      "rotation": 270,
+      "blocks": 77,
+      "size": [
+        5,
+        17,
+        5
+      ]
+    },
+    {
+      "asset": "t210",
+      "center": [
+        146,
+        104,
+        174
+      ],
+      "rotation": 0,
+      "blocks": 77,
+      "size": [
+        5,
+        17,
+        5
+      ]
+    },
+    {
+      "asset": "t210",
+      "center": [
+        174,
+        104,
+        174
+      ],
+      "rotation": 90,
+      "blocks": 77,
+      "size": [
+        5,
+        17,
+        5
+      ]
+    },
+    {
+      "asset": "t210",
+      "center": [
+        146,
+        104,
+        246
+      ],
+      "rotation": 180,
+      "blocks": 77,
+      "size": [
+        5,
+        17,
+        5
+      ]
+    },
+    {
+      "asset": "t210",
+      "center": [
+        174,
+        104,
+        246
+      ],
+      "rotation": 270,
+      "blocks": 77,
+      "size": [
+        5,
+        17,
+        5
+      ]
+    },
+    {
+      "asset": "t210",
+      "center": [
+        146,
+        104,
+        264
+      ],
+      "rotation": 0,
+      "blocks": 77,
+      "size": [
+        5,
+        17,
+        5
+      ]
+    },
+    {
+      "asset": "t210",
+      "center": [
+        174,
+        104,
+        264
+      ],
+      "rotation": 90,
+      "blocks": 77,
+      "size": [
+        5,
+        17,
+        5
+      ]
+    }
+  ],
+  "verifiedAssetBlocks": 770,
+  "changedBlocks": 2030,
+  "changedChunks": 28,
+  "backup": "archive\\map-edit-backups\\before-avenue-t210\\starter_sky_land_spawn_v1"
+}

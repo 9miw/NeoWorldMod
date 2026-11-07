@@ -12,6 +12,7 @@ import net.neoforged.neoforge.client.event.RegisterMenuScreensEvent;
 public final class TradeMenuScreens {
     private TradeMenuScreens() {}
     @SubscribeEvent public static void register(RegisterMenuScreensEvent event) {
+        event.register(ModMenus.UPGRADE.get(), com.ambition.neoworld.client.gui.upgrade.UpgradeScreen::new);
         event.register(ModMenus.TRADE.get(), TradeScreen::new);
         event.register(ModMenus.MARKET_SELL.get(), MarketSellScreen::new);
     }
